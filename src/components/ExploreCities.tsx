@@ -209,12 +209,8 @@ const ExploreCities = () => {
 
           <div
             ref={scrollRef}
-            className="flex gap-4 overflow-x-auto snap-x snap-mandatory"
-            style={{
-              scrollbarWidth: "none",
-              msOverflowStyle: "none",
-              WebkitOverflowScrolling: "touch",
-            }}
+            className="carousel-hide-scrollbar flex gap-4 overflow-x-auto snap-x snap-mandatory"
+            style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
           >
             <style>{`.carousel-hide-scrollbar::-webkit-scrollbar { display: none; }`}</style>
             {loading
