@@ -8,9 +8,9 @@ import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import CityPage from "./pages/CityPage";
 import MarketDataPage from "./pages/MarketDataPage";
+import StartHereGuidePage from "./pages/StartHereGuidePage";
+import DiraGuidePage from "./pages/DiraGuidePage";
 import {
-  StartHereGuide,
-  DiraGuide,
   Resources,
   About,
 } from "./pages/PlaceholderPages";
@@ -28,8 +28,8 @@ const App = () => (
             <Route path="/" element={<Index />} />
             <Route path="/city/:slug" element={<CityPage />} />
             <Route path="/market" element={<MarketDataPage />} />
-            <Route path="/guides/start-here" element={<StartHereGuide />} />
-            <Route path="/guides/dira-behanacha" element={<DiraGuide />} />
+            <Route path="/guides/start-here" element={<StartHereGuidePage />} />
+            <Route path="/guides/dira-behanacha" element={<DiraGuidePage />} />
             <Route path="/resources" element={<Resources />} />
             <Route path="/about" element={<About />} />
             <Route path="*" element={<NotFound />} />
