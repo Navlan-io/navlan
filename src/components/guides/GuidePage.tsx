@@ -127,10 +127,10 @@ const GuidePage = ({
           {headerContent}
 
           {/* Mobile TOC */}
-          <div className="lg:hidden mb-8">
+          <div className="lg:hidden mb-8 sticky top-14 md:top-16 z-30 bg-warm-white py-2 -mx-4 px-4">
             <button
               onClick={() => setTocOpen(!tocOpen)}
-              className="w-full flex items-center justify-between bg-cream rounded-lg px-4 py-3 font-body font-medium text-[15px] text-charcoal"
+              className="w-full flex items-center justify-between bg-cream rounded-lg px-4 py-3 min-h-[44px] font-body font-medium text-[15px] text-charcoal"
             >
               Table of Contents
               {tocOpen ? <ChevronDown className="h-4 w-4" /> : <ChevronRight className="h-4 w-4" />}
