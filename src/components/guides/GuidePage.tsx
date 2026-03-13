@@ -115,10 +115,10 @@ const GuidePage = ({
           >
             ← Guides
           </Link>
-          <h1 className="font-heading font-bold text-[32px] text-charcoal leading-tight">
+          <h1 className="font-heading font-bold text-[26px] md:text-[32px] text-charcoal leading-tight">
             {title}
           </h1>
-          <p className="mt-3 font-body text-[16px] text-warm-gray max-w-[600px]">
+          <p className="mt-3 font-body text-[16px] text-warm-gray max-w-[600px] leading-relaxed">
             {subtitle}
           </p>
           <p className="mt-2 font-body text-[13px] text-warm-gray">{date}</p>
