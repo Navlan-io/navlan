@@ -129,7 +129,7 @@ const ExploreCities = () => {
           ))}
         </div>
 
-        <div className="mt-6 grid grid-cols-2 lg:grid-cols-4 gap-4">
+        <div className="mt-6 flex flex-wrap justify-center gap-4">
           {loading
             ? Array.from({ length: 8 }).map((_, i) => (
                 <div
