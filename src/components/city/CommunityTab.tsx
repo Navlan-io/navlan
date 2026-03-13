@@ -3,6 +3,7 @@ import ProfileMarkdown from "./ProfileMarkdown";
 
 interface CommunityTabProps {
   city: { english_name: string };
+  onSwitchTab?: (tab: string) => void;
   profile: {
     overview: string | null;
     anglo_community: string | null;
@@ -26,7 +27,7 @@ const sections = [
   { key: "what_to_know", title: "What to Know" },
 ] as const;
 
-const CommunityTab = ({ city, profile }: CommunityTabProps) => {
+const CommunityTab = ({ city, profile, onSwitchTab }: CommunityTabProps) => {
   const hasContent = profile && sections.some((s) => profile[s.key]);
 
   if (!hasContent) {
@@ -47,6 +48,18 @@ const CommunityTab = ({ city, profile }: CommunityTabProps) => {
 
   return (
     <div className="max-w-[720px] space-y-8">
+      <div className="bg-cream rounded-lg px-5 py-4">
+        <p className="font-body text-[13px] text-warm-gray leading-relaxed">
+          Price ranges mentioned below are approximate editorial estimates and may be outdated. See the{" "}
+          <button
+            onClick={() => onSwitchTab?.("Trends")}
+            className="text-horizon-blue hover:underline font-medium"
+          >
+            Trends tab
+          </button>{" "}
+          for current market data.
+        </p>
+      </div>
       {sections.map(({ key, title }) => {
         const content = profile?.[key];
         if (!content) return null;

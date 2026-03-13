@@ -55,7 +55,7 @@ const CityTabs = ({ city, profile, prices, districtIndices }: CityTabsProps) => 
         {activeTab === "Trends" && (
           <TrendsTab city={city} prices={prices} districtIndices={districtIndices} />
         )}
-        {activeTab === "Community" && <CommunityTab city={city} profile={profile} />}
+        {activeTab === "Community" && <CommunityTab city={city} profile={profile} onSwitchTab={(tab) => setActiveTab(tab as TabName)} />}
         {activeTab === "Cost of Living" && <CostOfLivingTab city={city} profile={profile} />}
         {activeTab === "Getting Around" && <GettingAroundTab city={city} profile={profile} />}
         {activeTab === "Resources" && <ResourcesTab city={city} />}
