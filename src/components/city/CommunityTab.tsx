@@ -1,4 +1,5 @@
 import { Card } from "@/components/ui/card";
+import ProfileMarkdown from "./ProfileMarkdown";
 
 interface CommunityTabProps {
   city: { english_name: string };
@@ -52,7 +53,7 @@ const CommunityTab = ({ city, profile }: CommunityTabProps) => {
         return (
           <div key={key}>
             <h3 className="font-heading font-semibold text-[18px] text-charcoal mb-3">{title}</h3>
-            <p className="font-body text-[15px] text-charcoal leading-[1.7]">{content}</p>
+            <ProfileMarkdown content={content} />
           </div>
         );
       })}
