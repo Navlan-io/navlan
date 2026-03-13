@@ -1,4 +1,5 @@
 import { Card } from "@/components/ui/card";
+import ProfileMarkdown from "./ProfileMarkdown";
 
 interface CommunityTabProps {
   city: { english_name: string };
