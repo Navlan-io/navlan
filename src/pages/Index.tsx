@@ -29,9 +29,10 @@ const Index = () => {
         supabase
           .from("city_prices")
           .select("avg_price_total, period")
+          .eq("city_name", "Total")
           .not("avg_price_total", "is", null)
           .order("period", { ascending: false })
-          .limit(500),
+          .limit(1),
         supabase
           .from("price_indices")
           .select("percent_yoy")
@@ -47,14 +48,8 @@ const Index = () => {
           .limit(1),
       ]);
 
-      // National avg: average of most recent period's prices
-      if (priceRes.data && priceRes.data.length > 0) {
-        const latestPeriod = priceRes.data[0].period;
-        const latestPrices = priceRes.data.filter((r) => r.period === latestPeriod && r.avg_price_total);
-        if (latestPrices.length > 0) {
-          const avg = latestPrices.reduce((s, r) => s + (r.avg_price_total ?? 0), 0) / latestPrices.length;
-          setAvgPriceNis(avg);
-        }
+      if (priceRes.data?.[0]?.avg_price_total) {
+        setAvgPriceNis(priceRes.data[0].avg_price_total);
       }
 
       if (indexRes.data?.[0]) setPriceYoy(indexRes.data[0].percent_yoy);
