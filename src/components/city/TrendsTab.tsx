@@ -243,14 +243,16 @@ const TrendsTab = ({ city, prices, districtIndices }: TrendsTabProps) => {
                   <CartesianGrid horizontal vertical={false} stroke="#E8E4DE" />
                   <XAxis
                     dataKey="period"
-                    tick={{ fontSize: 12, fill: "#6B7178", fontFamily: "Inter" }}
+                    tick={{ fontSize: 10, fill: "#6B7178", fontFamily: "Inter" }}
                     axisLine={false}
                     tickLine={false}
+                    interval="preserveStartEnd"
                   />
                   <YAxis
-                    tick={{ fontSize: 12, fill: "#6B7178", fontFamily: "Inter" }}
+                    tick={{ fontSize: 10, fill: "#6B7178", fontFamily: "Inter" }}
                     axisLine={false}
                     tickLine={false}
+                    width={40}
                     tickFormatter={(v) => `${Math.round(v / (currency === "₪" ? 1 : currency === "$" ? 3.688 : 3.846))}K`}
                     domain={["auto", "auto"]}
                   />
