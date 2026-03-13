@@ -19,7 +19,11 @@ const currencyToCode: Record<CurrencySymbol, string> = {
 };
 
 export const CurrencyProvider = ({ children }: { children: ReactNode }) => {
-  const [currency, setCurrency] = useState<CurrencySymbol>("₪");
+  const [currency, setCurrencyState] = useState<CurrencySymbol>(() => {
+    const saved = localStorage.getItem("navlan-currency");
+    if (saved === "₪" || saved === "$" || saved === "€") return saved;
+    return "₪";
+  });
   const [rates, setRates] = useState({ USD: 3.688, EUR: 3.846 });
 
   useEffect(() => {
