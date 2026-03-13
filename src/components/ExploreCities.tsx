@@ -1,15 +1,11 @@
 import { useEffect, useState, useMemo } from "react";
 import { Link } from "react-router-dom";
 import { supabase } from "@/integrations/supabase/client";
-import { useCurrency } from "@/contexts/CurrencyContext";
-import TrendPill from "@/components/TrendPill";
 
 interface CityData {
   name: string;
   slug: string;
   price: number;
-  trend: "up" | "down" | "flat";
-  trendValue: string;
   district: string;
 }
 
@@ -31,7 +27,6 @@ const ExploreCities = () => {
   const [loading, setLoading] = useState(true);
   const [activeFilter, setActiveFilter] = useState("All");
   const [showAll, setShowAll] = useState(false);
-  const { formatPrice } = useCurrency();
 
   useEffect(() => {
     const fetchCities = async () => {
@@ -60,16 +55,10 @@ const ExploreCities = () => {
 
             if (cityPrices.length === 0) return null;
 
-            const latest = cityPrices[0].avg_price_total!;
-            const prev = cityPrices[1]?.avg_price_total ?? latest;
-            const change = prev > 0 ? ((latest - prev) / prev) * 100 : 0;
-
             return {
               name: loc.english_name,
               slug: toSlug(loc.english_name),
-              price: latest,
-              trend: (change > 0 ? "up" : change < 0 ? "down" : "flat") as "up" | "down" | "flat",
-              trendValue: `${change >= 0 ? "+" : ""}${change.toFixed(1)}%`,
+              price: cityPrices[0].avg_price_total!,
               district: loc.district,
             };
           })
@@ -96,7 +85,6 @@ const ExploreCities = () => {
   const totalCount = cities.length;
   const showViewAllLink = activeFilter === "All" && totalCount > 12;
 
-  // Reset showAll when switching filters
   const handleFilterChange = (filter: string) => {
     setActiveFilter(filter);
     setShowAll(false);
@@ -129,12 +117,12 @@ const ExploreCities = () => {
           ))}
         </div>
 
-        <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+        <div className="mt-6 grid grid-cols-2 lg:grid-cols-4 gap-4">
           {loading
             ? Array.from({ length: 8 }).map((_, i) => (
                 <div
                   key={i}
-                  className="bg-cream rounded-xl p-5 animate-pulse h-[140px]"
+                  className="bg-sage/60 rounded-xl animate-pulse h-[100px]"
                 />
               ))
             : filteredCities.length === 0
@@ -146,26 +134,29 @@ const ExploreCities = () => {
                 </div>
               )
               : filteredCities.map((city) => (
-                <div
+                <Link
                   key={city.slug}
-                  className="bg-cream rounded-xl p-5 shadow-card hover:shadow-[0_4px_12px_rgba(45,50,52,0.10)] hover:-translate-y-0.5 transition-all duration-200"
+                  to={`/city/${city.slug}`}
+                  className="group relative rounded-xl p-7 bg-sage overflow-hidden no-underline hover:-translate-y-0.5 hover:shadow-[0_8px_24px_rgba(45,50,52,0.18)] hover:brightness-110 transition-all duration-200"
                 >
-                  <h3 className="font-heading font-semibold text-[18px] text-charcoal">
-                    {city.name}
-                  </h3>
-                  <div className="mt-2 flex items-center gap-2">
-                    <span className="font-body font-bold text-[22px] text-charcoal">
-                      {formatPrice(city.price)}
-                    </span>
-                    <TrendPill direction={city.trend} value={city.trendValue} />
+                  {/* Geometric grid overlay */}
+                  <div
+                    className="absolute inset-0 pointer-events-none"
+                    style={{
+                      backgroundImage:
+                        "linear-gradient(to right, rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(to bottom, rgba(255,255,255,0.1) 1px, transparent 1px)",
+                      backgroundSize: "40px 40px",
+                    }}
+                  />
+                  <div className="relative">
+                    <h3 className="font-heading font-bold text-[22px] text-white leading-tight">
+                      {city.name}
+                    </h3>
+                    <p className="mt-1.5 font-body text-[13px] text-white/70">
+                      {city.district} District
+                    </p>
                   </div>
-                  <Link
-                    to={`/city/${city.slug}`}
-                    className="mt-3 inline-block font-body font-medium text-[14px] text-horizon-blue no-underline hover:underline"
-                  >
-                    Explore →
-                  </Link>
-                </div>
+                </Link>
               ))}
         </div>
 
