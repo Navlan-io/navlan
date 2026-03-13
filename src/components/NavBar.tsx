@@ -74,7 +74,7 @@ const NavBar = () => {
                 key={c}
                 onClick={() => setCurrency(c)}
                 className={cn(
-                  "px-3 py-1 rounded-full text-sm font-body font-medium transition-colors",
+                  "px-3 py-1.5 min-h-[44px] min-w-[44px] flex items-center justify-center rounded-full text-sm font-body font-medium transition-colors",
                   currency === c
                     ? "bg-sage text-white"
                     : "text-charcoal hover:bg-sage/10"
