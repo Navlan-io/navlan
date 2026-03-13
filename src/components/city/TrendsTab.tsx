@@ -335,6 +335,66 @@ const TrendsTab = ({ city, prices, districtIndices }: TrendsTabProps) => {
         </section>
       )}
 
+      {/* Average Monthly Rent */}
+      {!rentalLoading && rentalData ? (
+        <section>
+          <h3 className="font-heading font-semibold text-[18px] text-charcoal mb-4">Average Monthly Rent</h3>
+          <Card className="p-5 bg-cream border-0 shadow-card mb-6 inline-block">
+            <span className="font-body text-[13px] text-warm-gray block">Avg Monthly Rent</span>
+            <span className="font-body font-bold text-[24px] text-charcoal">
+              {rentalData.avg_rent_total != null
+                ? (() => {
+                    const v = rentalData.avg_rent_total;
+                    if (currency === "₪") return `₪${Math.round(v).toLocaleString()}/mo`;
+                    if (currency === "$") return `$${Math.round(v / usdRate).toLocaleString()}/mo`;
+                    return `€${Math.round(v / eurRate).toLocaleString()}/mo`;
+                  })()
+                : "—"}
+            </span>
+          </Card>
+
+          <div className="overflow-x-auto">
+            <table className="w-full max-w-lg">
+              <thead>
+                <tr className="border-b border-grid-line">
+                  <th className="text-left font-body font-medium text-[14px] text-warm-gray py-3 pr-6">Rooms</th>
+                  <th className="text-right font-body font-medium text-[14px] text-warm-gray py-3">Avg Monthly Rent</th>
+                </tr>
+              </thead>
+              <tbody>
+                {[
+                  { rooms: "1-2 Rooms", value: rentalData.avg_rent_1_2_rooms },
+                  { rooms: "2.5-3 Rooms", value: rentalData.avg_rent_2_5_3_rooms },
+                  { rooms: "3.5-4 Rooms", value: rentalData.avg_rent_3_5_4_rooms },
+                  { rooms: "4.5-6 Rooms", value: rentalData.avg_rent_4_5_6_rooms },
+                ].map((row) => (
+                  <tr key={row.rooms} className="border-b border-grid-line last:border-0">
+                    <td className="font-body text-[15px] text-charcoal py-3 pr-6">{row.rooms}</td>
+                    <td className="text-right font-body text-[15px] text-charcoal py-3">
+                      {row.value != null
+                        ? (() => {
+                            if (currency === "₪") return `₪${Math.round(row.value).toLocaleString()}`;
+                            if (currency === "$") return `$${Math.round(row.value / usdRate).toLocaleString()}`;
+                            return `€${Math.round(row.value / eurRate).toLocaleString()}`;
+                          })()
+                        : "—"}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+          <p className="font-body text-[12px] text-warm-gray mt-3">Source: CBS Table 4.9 — Average Monthly Rent Prices</p>
+        </section>
+      ) : !rentalLoading && !rentalData ? (
+        <section>
+          <h3 className="font-heading font-semibold text-[18px] text-charcoal mb-4">Average Monthly Rent</h3>
+          <Card className="p-6 bg-cream border-0 text-center">
+            <p className="font-body text-warm-gray">Rental data for {city.english_name} is not yet available.</p>
+          </Card>
+        </section>
+      ) : null}
+
       {/* District Index Chart */}
       <section>
         <h3 className="font-heading font-semibold text-[18px] text-charcoal mb-4">
