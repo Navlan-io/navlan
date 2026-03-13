@@ -217,7 +217,7 @@ const ExploreCities = () => {
               ? Array.from({ length: 6 }).map((_, i) => (
                   <div
                     key={i}
-                    className="flex-shrink-0 w-[75vw] md:w-[calc(25%-12px)] bg-cream rounded-xl animate-pulse h-[140px] snap-start"
+                    className="flex-shrink-0 w-[83vw] md:w-[calc(28.57%-12px)] min-w-[280px] bg-cream rounded-xl animate-pulse h-[180px] snap-start"
                   />
                 ))
               : filteredCities.length === 0
@@ -232,7 +232,7 @@ const ExploreCities = () => {
                     <Link
                       key={city.slug}
                       to={`/city/${city.slug}`}
-                      className="group relative flex flex-col flex-shrink-0 w-[75vw] md:w-[calc(25%-12px)] rounded-xl bg-cream border-l-4 border-sage p-5 no-underline shadow-[0_2px_8px_rgba(45,50,52,0.06)] hover:shadow-[0_4px_16px_rgba(45,50,52,0.12)] transition-all duration-200 cursor-pointer overflow-hidden snap-start"
+                      className="group relative flex flex-col flex-shrink-0 w-[83vw] md:w-[calc(28.57%-12px)] min-w-[280px] rounded-xl bg-cream border-l-4 border-sage p-6 no-underline shadow-[0_2px_8px_rgba(45,50,52,0.06)] hover:shadow-[0_4px_16px_rgba(45,50,52,0.12)] transition-all duration-200 cursor-pointer overflow-hidden snap-start"
                       style={{
                         backgroundImage:
                           "linear-gradient(to right, rgba(124,139,110,0.07) 1px, transparent 1px), linear-gradient(to bottom, rgba(124,139,110,0.07) 1px, transparent 1px)",
@@ -245,10 +245,10 @@ const ExploreCities = () => {
                       <p className="relative mt-1 font-body text-[13px] text-warm-gray">
                         {city.district} District
                       </p>
-                      <p className="relative mt-2 font-body text-[14px] text-warm-gray leading-snug whitespace-nowrap overflow-hidden">
+                      <p className="relative mt-2 font-body text-[14px] text-warm-gray leading-snug">
                         {city.tagline || `${city.district} District`}
                       </p>
-                      <span className="relative mt-auto pt-3 font-body font-medium text-[14px] text-horizon-blue group-hover:underline">
+                      <span className="relative mt-auto pt-4 font-body font-medium text-[14px] text-horizon-blue group-hover:underline">
                         Explore →
                       </span>
                     </Link>
