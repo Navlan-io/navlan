@@ -317,7 +317,7 @@ const TrendsTab = ({ city, prices, districtIndices }: TrendsTabProps) => {
       {latestPrice && (
         <section>
           <h3 className="font-heading font-semibold text-[18px] text-charcoal mb-4">Price by Room Count</h3>
-          <div className="overflow-x-auto">
+        <div className="overflow-x-auto no-scrollbar">
             <table className="w-full max-w-lg">
               <thead>
                 <tr className="border-b border-grid-line">
