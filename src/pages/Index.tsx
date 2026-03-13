@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { supabase } from "@/integrations/supabase/client";
+import heroImage from "@/assets/hero-landscape.png";
 import NavBar from "@/components/NavBar";
 import Footer from "@/components/Footer";
 import SearchBar from "@/components/SearchBar";
