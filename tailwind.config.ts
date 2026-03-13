@@ -13,6 +13,10 @@ export default {
       },
     },
     extend: {
+      fontFamily: {
+        heading: ['"DM Sans"', 'sans-serif'],
+        body: ['Inter', 'sans-serif'],
+      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
@@ -47,6 +51,23 @@ export default {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
+        sage: {
+          DEFAULT: "#7C8B6E",
+          dark: "#6A7A5E",
+        },
+        "sand-gold": "#C4A96A",
+        "warm-white": "#FAF8F5",
+        cream: "#F2EDE4",
+        charcoal: "#2D3234",
+        "warm-gray": "#6B7178",
+        "horizon-blue": "#4A7F8B",
+        "deep-olive": "#4A5540",
+        "growth-green": "#5B8C5A",
+        "terra-red": "#C25B4A",
+        "stone-gray": "#9CA3A8",
+        amber: "#D4A843",
+        "border-light": "#D4CFC6",
+        "grid-line": "#E8E4DE",
         sidebar: {
           DEFAULT: "hsl(var(--sidebar-background))",
           foreground: "hsl(var(--sidebar-foreground))",
@@ -63,22 +84,17 @@ export default {
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
       },
+      boxShadow: {
+        card: "0 2px 8px rgba(45, 50, 52, 0.06)",
+      },
       keyframes: {
         "accordion-down": {
-          from: {
-            height: "0",
-          },
-          to: {
-            height: "var(--radix-accordion-content-height)",
-          },
+          from: { height: "0" },
+          to: { height: "var(--radix-accordion-content-height)" },
         },
         "accordion-up": {
-          from: {
-            height: "var(--radix-accordion-content-height)",
-          },
-          to: {
-            height: "0",
-          },
+          from: { height: "var(--radix-accordion-content-height)" },
+          to: { height: "0" },
         },
       },
       animation: {
