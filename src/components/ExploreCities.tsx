@@ -134,7 +134,7 @@ const ExploreCities = () => {
             ? Array.from({ length: 8 }).map((_, i) => (
                 <div
                   key={i}
-                  className="bg-deep-olive/60 rounded-xl animate-pulse h-[100px]"
+                  className="w-[calc(50%-8px)] lg:w-[calc(25%-12px)] bg-deep-olive/60 rounded-xl animate-pulse h-[100px]"
                 />
               ))
             : filteredCities.length === 0
