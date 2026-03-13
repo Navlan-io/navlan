@@ -1,4 +1,4 @@
-
+import ProfileMarkdown from "./ProfileMarkdown";
 
 interface CostOfLivingTabProps {
   city: { english_name: string };
