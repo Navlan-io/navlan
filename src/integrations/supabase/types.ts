@@ -113,6 +113,48 @@ export type Database = {
         }
         Relationships: []
       }
+      city_rentals: {
+        Row: {
+          avg_rent_1_2_rooms: number | null
+          avg_rent_2_5_3_rooms: number | null
+          avg_rent_3_5_4_rooms: number | null
+          avg_rent_4_5_6_rooms: number | null
+          avg_rent_total: number | null
+          cbs_code: number
+          city_name: string
+          district: string | null
+          fetched_at: string | null
+          id: number
+          period: string
+        }
+        Insert: {
+          avg_rent_1_2_rooms?: number | null
+          avg_rent_2_5_3_rooms?: number | null
+          avg_rent_3_5_4_rooms?: number | null
+          avg_rent_4_5_6_rooms?: number | null
+          avg_rent_total?: number | null
+          cbs_code: number
+          city_name: string
+          district?: string | null
+          fetched_at?: string | null
+          id?: number
+          period: string
+        }
+        Update: {
+          avg_rent_1_2_rooms?: number | null
+          avg_rent_2_5_3_rooms?: number | null
+          avg_rent_3_5_4_rooms?: number | null
+          avg_rent_4_5_6_rooms?: number | null
+          avg_rent_total?: number | null
+          cbs_code?: number
+          city_name?: string
+          district?: string | null
+          fetched_at?: string | null
+          id?: number
+          period?: string
+        }
+        Relationships: []
+      }
       construction_costs: {
         Row: {
           fetched_at: string | null
