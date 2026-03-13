@@ -6,8 +6,8 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { CurrencyProvider } from "@/contexts/CurrencyContext";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
+import CityPage from "./pages/CityPage";
 import {
-  CityPage,
   MarketData,
   StartHereGuide,
   DiraGuide,
