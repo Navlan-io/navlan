@@ -18,20 +18,6 @@ const CostOfLivingTab = ({ city, profile }: CostOfLivingTabProps) => {
       ) : (
         <p className="font-body text-warm-gray">Cost of living information coming soon.</p>
       )}
-
-      <Card className="p-5 bg-cream border-0">
-        <p className="font-body text-[14px] text-charcoal">
-          For personalized budgeting and financial planning, visit{" "}
-          <a
-            href="https://bluewhitefinance.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-horizon-blue hover:underline"
-          >
-            Blue & White Finance
-          </a>
-        </p>
-      </Card>
     </div>
   );
 };

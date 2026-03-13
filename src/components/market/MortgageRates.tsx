@@ -117,10 +117,7 @@ const MortgageRates = () => {
       <Card className="mt-6 p-5 bg-cream border-0 border-l-4 border-l-sage shadow-card">
         <p className="font-body text-[14px] text-charcoal">
           Israeli mortgages are structured differently than in the US/UK. Most borrowers use a mix of 3–4 tracks.
-          For personalized mortgage planning, consult{" "}
-          <a href="https://bluewhitefinance.com" target="_blank" rel="noopener noreferrer" className="text-horizon-blue hover:underline">
-            Blue & White Finance
-          </a>.
+          Consult a licensed mortgage advisor for personalized planning.
         </p>
       </Card>
     </section>
