@@ -47,8 +47,7 @@ const MortgageRates = () => {
       const { data } = await supabase
         .from("mortgage_rates")
         .select("track_label, track_type, rate_type, value")
-        .eq("period", latestPeriod)
-        .eq("rate_type", "interest_rate");
+        .eq("period", latestPeriod);
 
       setRates((data as MortgageRow[]) ?? []);
       setLoading(false);
