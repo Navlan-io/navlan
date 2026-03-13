@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import { supabase } from "@/integrations/supabase/client";
+import { useCurrency } from "@/contexts/CurrencyContext";
 import heroImage from "@/assets/hero-landscape.png";
 import NavBar from "@/components/NavBar";
 import Footer from "@/components/Footer";
@@ -8,66 +10,93 @@ import ExploreCities from "@/components/ExploreCities";
 import MarketSnapshot from "@/components/MarketSnapshot";
 import NewToIsrael from "@/components/NewToIsrael";
 
-const FALLBACK_STATS = [
-  { label: "Price Index", value: "181.6" },
-  { label: "Prices", value: "+4.0% YoY", positive: true },
-  { label: "Construction Costs", value: "+2.2% YoY", positive: true },
-];
+interface HeroStat {
+  label: string;
+  value: string;
+  href: string;
+  colorClass?: string;
+}
 
 const Index = () => {
-  const [stats, setStats] = useState(FALLBACK_STATS);
+  const { currency, rates } = useCurrency();
+  const [avgPriceNis, setAvgPriceNis] = useState<number | null>(null);
+  const [priceYoy, setPriceYoy] = useState<number | null>(null);
+  const [mortgageRate, setMortgageRate] = useState<number | null>(null);
 
   useEffect(() => {
-    const fetchStats = async () => {
-      try {
-        const [priceRes, costRes] = await Promise.all([
-          supabase
-            .from("price_indices")
-            .select("value, percent_yoy")
-            .eq("index_code", 40010)
-            .order("year", { ascending: false })
-            .order("month", { ascending: false })
-            .limit(1),
-          supabase
-            .from("construction_costs")
-            .select("percent_yoy")
-            .eq("index_code", 200010)
-            .order("year", { ascending: false })
-            .order("month", { ascending: false })
-            .limit(1),
-        ]);
+    const fetch = async () => {
+      const [priceRes, indexRes, mortgageRes] = await Promise.all([
+        supabase
+          .from("city_prices")
+          .select("avg_price_total, period")
+          .not("avg_price_total", "is", null)
+          .order("period", { ascending: false })
+          .limit(500),
+        supabase
+          .from("price_indices")
+          .select("percent_yoy")
+          .eq("index_code", 40010)
+          .order("year", { ascending: false })
+          .order("month", { ascending: false })
+          .limit(1),
+        supabase
+          .from("mortgage_rates")
+          .select("value")
+          .eq("series_key", "BNK_99034_LR_BIR_MRTG_467")
+          .order("period", { ascending: false })
+          .limit(1),
+      ]);
 
-        const pi = priceRes.data?.[0];
-        const cc = costRes.data?.[0];
-
-        if (pi || cc) {
-          setStats([
-            {
-              label: "Price Index",
-              value: pi ? pi.value?.toFixed(1) ?? "181.6" : "181.6",
-            },
-            {
-              label: "Prices",
-              value: pi
-                ? `${(pi.percent_yoy ?? 0) >= 0 ? "+" : ""}${(pi.percent_yoy ?? 4.0).toFixed(1)}% YoY`
-                : "+4.0% YoY",
-              positive: (pi?.percent_yoy ?? 4.0) >= 0,
-            },
-            {
-              label: "Construction Costs",
-              value: cc
-                ? `${(cc.percent_yoy ?? 0) >= 0 ? "+" : ""}${(cc.percent_yoy ?? 2.2).toFixed(1)}% YoY`
-                : "+2.2% YoY",
-              positive: (cc?.percent_yoy ?? 2.2) >= 0,
-            },
-          ]);
+      // National avg: average of most recent period's prices
+      if (priceRes.data && priceRes.data.length > 0) {
+        const latestPeriod = priceRes.data[0].period;
+        const latestPrices = priceRes.data.filter((r) => r.period === latestPeriod && r.avg_price_total);
+        if (latestPrices.length > 0) {
+          const avg = latestPrices.reduce((s, r) => s + (r.avg_price_total ?? 0), 0) / latestPrices.length;
+          setAvgPriceNis(avg);
         }
-      } catch {
-        // keep fallback
       }
+
+      if (indexRes.data?.[0]) setPriceYoy(indexRes.data[0].percent_yoy);
+      if (mortgageRes.data?.[0]) setMortgageRate(mortgageRes.data[0].value);
     };
-    fetchStats();
+    fetch().catch(() => {});
   }, []);
+
+  // Format avg price respecting currency
+  const formatAvgPrice = (): string => {
+    const nis = avgPriceNis ?? 2210000;
+    if (currency === "₪") {
+      return `₪${(nis / 1_000_000).toFixed(2)}M`;
+    }
+    const rate = currency === "$" ? rates.USD : rates.EUR;
+    const converted = nis / rate;
+    return `${currency}${(converted / 1_000_000).toFixed(2)}M`;
+  };
+
+  const yoy = priceYoy ?? 0.4;
+  const yoyPositive = yoy >= 0;
+  const yoyColor = yoyPositive ? "text-growth-green" : "text-terra-red";
+  const yoyArrow = yoyPositive ? "↑" : "↓";
+
+  const stats: HeroStat[] = [
+    {
+      label: "Avg. Home Price",
+      value: formatAvgPrice(),
+      href: "/market#national-trend",
+    },
+    {
+      label: "Prices",
+      value: `${yoyArrow} ${yoy >= 0 ? "+" : ""}${yoy.toFixed(1)}% YoY`,
+      href: "/market#district-comparison",
+      colorClass: yoyColor,
+    },
+    {
+      label: "Mortgage Rate",
+      value: `${(mortgageRate ?? 5.2).toFixed(1)}%`,
+      href: "/market#mortgage-rates",
+    },
+  ];
 
   return (
     <div className="min-h-screen flex flex-col bg-warm-white">
@@ -98,17 +127,18 @@ const Index = () => {
           {/* Live stat pills */}
           <div className="mt-8 flex flex-wrap justify-center gap-3">
             {stats.map((stat) => (
-              <div
+              <Link
                 key={stat.label}
-                className="flex items-center gap-2 bg-white/90 backdrop-blur-sm rounded-full px-4 py-2 shadow-card"
+                to={stat.href}
+                className="flex items-center gap-2 bg-white/90 backdrop-blur-sm rounded-full px-4 py-2 shadow-card no-underline hover:shadow-[0_4px_16px_rgba(45,50,52,0.15)] transition-shadow duration-200 cursor-pointer"
               >
                 <span className="font-body text-[13px] text-warm-gray">
                   {stat.label}:
                 </span>
-                <span className="font-body font-bold text-[14px] text-charcoal">
+                <span className={`font-body font-bold text-[14px] ${stat.colorClass ?? "text-charcoal"}`}>
                   {stat.value}
                 </span>
-              </div>
+              </Link>
             ))}
           </div>
         </div>
