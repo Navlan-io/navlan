@@ -27,7 +27,7 @@ const sections = [
   { key: "what_to_know", title: "What to Know" },
 ] as const;
 
-const CommunityTab = ({ city, profile }: CommunityTabProps) => {
+const CommunityTab = ({ city, profile, onSwitchTab }: CommunityTabProps) => {
   const hasContent = profile && sections.some((s) => profile[s.key]);
 
   if (!hasContent) {
