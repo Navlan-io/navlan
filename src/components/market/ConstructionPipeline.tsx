@@ -153,8 +153,8 @@ const ConstructionPipeline = () => {
         <div>
           <h3 className="font-heading font-semibold text-[18px] text-charcoal mb-4">Unsold Inventory Trend</h3>
           {unsoldChart.length > 0 ? (
-            <div style={{ minHeight: 280 }}>
-              <ResponsiveContainer width="100%" height={280}>
+            <div style={{ minHeight: 250 }}>
+              <ResponsiveContainer width="100%" height={260}>
                 <AreaChart data={unsoldChart}>
                   <defs>
                     <linearGradient id="unsoldGrad" x1="0" y1="0" x2="0" y2="1">
