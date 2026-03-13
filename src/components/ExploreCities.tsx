@@ -217,7 +217,7 @@ const ExploreCities = () => {
               ? Array.from({ length: 6 }).map((_, i) => (
                   <div
                     key={i}
-                    className="flex-shrink-0 w-[75vw] md:w-[calc(25%-12px)] bg-cream rounded-xl animate-pulse h-[140px] snap-start"
+                    className="flex-shrink-0 w-[83vw] md:w-[calc(28.57%-12px)] min-w-[280px] bg-cream rounded-xl animate-pulse h-[180px] snap-start"
                   />
                 ))
               : filteredCities.length === 0
