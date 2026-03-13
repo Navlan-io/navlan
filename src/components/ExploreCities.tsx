@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useMemo } from "react";
 import { Link } from "react-router-dom";
 import { supabase } from "@/integrations/supabase/client";
 import { useCurrency } from "@/contexts/CurrencyContext";
@@ -10,11 +10,17 @@ interface CityData {
   price: number;
   trend: "up" | "down" | "flat";
   trendValue: string;
+  district: string;
 }
 
-const CITY_ORDER = [
-  "Jerusalem", "Tel Aviv", "Ra'anana", "Herzliya", "Beit Shemesh", "Modi'in",
-  "Kfar Saba", "Netanya", "Haifa", "Petah Tikva", "Beer Sheva", "Ashkelon",
+const DISTRICT_FILTERS = [
+  "All",
+  "Jerusalem",
+  "Tel Aviv",
+  "Central",
+  "Haifa",
+  "South",
+  "North",
 ];
 
 const toSlug = (name: string) =>
@@ -23,6 +29,7 @@ const toSlug = (name: string) =>
 const ExploreCities = () => {
   const [cities, setCities] = useState<CityData[]>([]);
   const [loading, setLoading] = useState(true);
+  const [activeFilter, setActiveFilter] = useState("All");
   const { formatPrice } = useCurrency();
 
   useEffect(() => {
@@ -30,13 +37,14 @@ const ExploreCities = () => {
       try {
         const { data: localities } = await supabase
           .from("localities")
-          .select("english_name, cbs_code")
+          .select("english_name, cbs_code, district")
           .eq("is_anglo_city", true)
           .eq("entity_type", "city");
 
         const { data: prices } = await supabase
           .from("city_prices")
           .select("cbs_code, period, avg_price_total")
+          .not("avg_price_total", "is", null)
           .order("period", { ascending: false });
 
         if (!localities || !prices) {
@@ -44,35 +52,33 @@ const ExploreCities = () => {
           return;
         }
 
-        const cityDataMap: CityData[] = localities.map((loc) => {
-          const cityPrices = prices
-            .filter((p) => p.cbs_code === loc.cbs_code)
-            .sort((a, b) => b.period.localeCompare(a.period));
+        const cityDataMap: CityData[] = localities
+          .map((loc) => {
+            const cityPrices = prices
+              .filter((p) => p.cbs_code === loc.cbs_code && p.avg_price_total != null)
+              .sort((a, b) => b.period.localeCompare(a.period));
 
-          const latest = cityPrices[0]?.avg_price_total ?? 0;
-          const prev = cityPrices[1]?.avg_price_total ?? latest;
-          const change = prev > 0 ? ((latest - prev) / prev) * 100 : 0;
+            if (cityPrices.length === 0) return null;
 
-          return {
-            name: loc.english_name,
-            slug: toSlug(loc.english_name),
-            price: latest,
-            trend: change > 0 ? "up" : change < 0 ? "down" : "flat",
-            trendValue: `${change >= 0 ? "+" : ""}${change.toFixed(1)}%`,
-          };
-        });
+            const latest = cityPrices[0].avg_price_total!;
+            const prev = cityPrices[1]?.avg_price_total ?? latest;
+            const change = prev > 0 ? ((latest - prev) / prev) * 100 : 0;
 
-        // Sort by predefined order
-        const sorted = CITY_ORDER
-          .map((name) => cityDataMap.find((c) => c.name === name))
+            return {
+              name: loc.english_name,
+              slug: toSlug(loc.english_name),
+              price: latest,
+              trend: (change > 0 ? "up" : change < 0 ? "down" : "flat") as "up" | "down" | "flat",
+              trendValue: `${change >= 0 ? "+" : ""}${change.toFixed(1)}%`,
+              district: loc.district,
+            };
+          })
           .filter(Boolean) as CityData[];
 
-        // Add any cities not in the order list
-        const remaining = cityDataMap.filter(
-          (c) => !CITY_ORDER.includes(c.name)
-        );
+        // Sort by price descending
+        cityDataMap.sort((a, b) => b.price - a.price);
 
-        setCities([...sorted, ...remaining]);
+        setCities(cityDataMap);
       } catch {
         // fallback handled by empty state
       } finally {
@@ -81,6 +87,13 @@ const ExploreCities = () => {
     };
     fetchCities();
   }, []);
+
+  const filteredCities = useMemo(() => {
+    if (activeFilter === "All") {
+      return cities.slice(0, 12);
+    }
+    return cities.filter((c) => c.district === activeFilter);
+  }, [cities, activeFilter]);
 
   return (
     <section id="explore-cities" className="py-16 bg-warm-white">
@@ -92,7 +105,24 @@ const ExploreCities = () => {
           Data-driven profiles for Israel's most popular anglo communities
         </p>
 
-        <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+        {/* District filter pills */}
+        <div className="mt-6 flex gap-2 overflow-x-auto pb-2 scrollbar-hide">
+          {DISTRICT_FILTERS.map((filter) => (
+            <button
+              key={filter}
+              onClick={() => setActiveFilter(filter)}
+              className={`whitespace-nowrap rounded-full px-4 py-1.5 font-body text-[14px] font-medium transition-colors ${
+                activeFilter === filter
+                  ? "bg-sage text-white"
+                  : "bg-cream text-charcoal hover:bg-sage/20"
+              }`}
+            >
+              {filter}
+            </button>
+          ))}
+        </div>
+
+        <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
           {loading
             ? Array.from({ length: 8 }).map((_, i) => (
                 <div
@@ -100,7 +130,15 @@ const ExploreCities = () => {
                   className="bg-cream rounded-xl p-5 animate-pulse h-[140px]"
                 />
               ))
-            : cities.map((city) => (
+            : filteredCities.length === 0
+              ? (
+                <div className="col-span-full text-center py-8">
+                  <p className="font-body text-[15px] text-warm-gray">
+                    No city data available for this district yet.
+                  </p>
+                </div>
+              )
+              : filteredCities.map((city) => (
                 <div
                   key={city.slug}
                   className="bg-cream rounded-xl p-5 shadow-card hover:shadow-[0_4px_12px_rgba(45,50,52,0.10)] hover:-translate-y-0.5 transition-all duration-200"
