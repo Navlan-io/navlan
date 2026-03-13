@@ -115,10 +115,10 @@ const Index = () => {
         <div className="absolute inset-0 bg-charcoal/40" />
 
         <div className="relative z-10 container py-20 md:py-28 flex flex-col items-center text-center">
-          <h1 className="text-white text-[32px] md:text-[44px] font-heading font-bold leading-tight max-w-2xl drop-shadow-sm">
-            Navigate Israeli Real Estate. In English.
+          <h1 className="text-white text-[28px] md:text-[44px] font-heading font-bold leading-tight max-w-2xl drop-shadow-sm">
+            Navigate Israeli Real&nbsp;Estate. In&nbsp;English.
           </h1>
-          <p className="mt-4 text-white/90 font-body text-[17px] md:text-[19px] max-w-lg drop-shadow-sm">
+          <p className="mt-4 text-white/90 font-body text-[16px] md:text-[19px] max-w-lg drop-shadow-sm">
             Market data, city guides, and community resources for English
             speakers
           </p>
