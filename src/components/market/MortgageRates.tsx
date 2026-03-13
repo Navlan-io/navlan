@@ -18,9 +18,9 @@ const PRIME_RATE = 6.0;
 
 const TRACK_NOTES: Record<string, string> = {
   "non_indexed_fixed": "Most common track",
-  "prime_linked_variable": `Effective: ~${(PRIME_RATE + 0.85).toFixed(2)}% (Prime ${PRIME_RATE.toFixed(1)}% + margin)`,
-  "cpi_indexed_fixed": "Real rate; actual payments increase with CPI",
-  "cpi_indexed_variable": "Lower initial rate, inflation risk",
+  "prime_variable": `Effective: ~${(PRIME_RATE + 0.85).toFixed(2)}% (Prime ${PRIME_RATE.toFixed(1)}% + margin)`,
+  "cpi_fixed": "Real rate; actual payments increase with CPI",
+  "cpi_variable": "Lower initial rate, inflation risk",
   "non_indexed_combined": "Blended fixed/variable",
 };
 
