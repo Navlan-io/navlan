@@ -37,12 +37,28 @@ const ANGLO_PRIORITY = [
 const toSlug = (name: string) =>
   name.toLowerCase().replace(/'/g, "").replace(/\s+/g, "-");
 
-const firstSentence = (text: string | null): string | null => {
+const cleanOverview = (text: string | null, cityName: string): string | null => {
   if (!text) return null;
   // Strip markdown formatting
-  const clean = text.replace(/[#*_`>\[\]()]/g, "").trim();
+  let clean = text.replace(/[#*_`>\[\]()]/g, "").trim();
+  // Remove "CityName Overview" prefix pattern
+  const headerPattern = new RegExp(`^${cityName.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}\\s+Overview\\s*`, "i");
+  clean = clean.replace(headerPattern, "").trim();
+  // Get first sentence
   const match = clean.match(/^(.+?[.!?])\s/);
-  return match ? match[1] : clean.slice(0, 120);
+  let sentence = match ? match[1] : clean.slice(0, 120);
+  // If sentence starts with city name, trim it to remove redundancy
+  const namePattern = new RegExp(`^${cityName.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}\\s+(is|has|was|offers|sits|lies|stands)\\s+`, "i");
+  const nameMatch = sentence.match(namePattern);
+  if (nameMatch) {
+    // Capitalize the verb and rest: "Ra'anana is a..." -> "A..."
+    const afterName = sentence.slice(nameMatch[0].length);
+    const verb = nameMatch[1].toLowerCase();
+    if (verb === "is" && afterName) {
+      sentence = afterName.charAt(0).toUpperCase() + afterName.slice(1);
+    }
+  }
+  return sentence;
 };
 
 const ExploreCities = () => {
