@@ -1,3 +1,5 @@
+import ProfileMarkdown from "./ProfileMarkdown";
+
 interface GettingAroundTabProps {
   city: { english_name: string };
   profile: { transportation: string | null } | null;
