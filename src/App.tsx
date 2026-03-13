@@ -14,6 +14,7 @@ import DiraGuidePage from "./pages/DiraGuidePage";
 import ResourcesPage from "./pages/ResourcesPage";
 import AboutPage from "./pages/AboutPage";
 import { DisclaimerPage, PrivacyPage, TermsPage } from "./pages/LegalPage";
+import ScrollToTop from "./components/ScrollToTop";
 
 const queryClient = new QueryClient();
 
@@ -24,6 +25,7 @@ const App = () => (
         <Toaster />
         <Sonner />
         <BrowserRouter>
+          <ScrollToTop />
           <Routes>
             <Route path="/" element={<Index />} />
             <Route path="/city/:slug" element={<CityPage />} />
