@@ -18,9 +18,9 @@ const PRIME_RATE = 6.0;
 
 const TRACK_NOTES: Record<string, string> = {
   "non_indexed_fixed": "Most common track",
-  "prime_linked_variable": `Effective: ~${(PRIME_RATE + 0.85).toFixed(2)}% (Prime ${PRIME_RATE.toFixed(1)}% + margin)`,
-  "cpi_indexed_fixed": "Real rate; actual payments increase with CPI",
-  "cpi_indexed_variable": "Lower initial rate, inflation risk",
+  "prime_variable": `Effective: ~${(PRIME_RATE + 0.85).toFixed(2)}% (Prime ${PRIME_RATE.toFixed(1)}% + margin)`,
+  "cpi_fixed": "Real rate; actual payments increase with CPI",
+  "cpi_variable": "Lower initial rate, inflation risk",
   "non_indexed_combined": "Blended fixed/variable",
 };
 
@@ -47,8 +47,7 @@ const MortgageRates = () => {
       const { data } = await supabase
         .from("mortgage_rates")
         .select("track_label, track_type, rate_type, value")
-        .eq("period", latestPeriod)
-        .eq("rate_type", "interest_rate");
+        .eq("period", latestPeriod);
 
       setRates((data as MortgageRow[]) ?? []);
       setLoading(false);
@@ -91,12 +90,11 @@ const MortgageRates = () => {
                 <TableRow key={r.track_type}>
                   <TableCell className="font-body text-[15px] text-charcoal">{r.track_label}</TableCell>
                   <TableCell className="font-body text-[15px] text-charcoal font-semibold">
-                    {r.value != null ? `${r.value.toFixed(2)}%` : "—"}
-                    {r.track_type === "prime_linked_variable" && r.value != null && (
-                      <span className="text-warm-gray font-normal text-[13px] ml-1">
-                        +{r.value.toFixed(2)}% margin
-                      </span>
-                    )}
+                    {r.value != null
+                      ? r.rate_type === "margin"
+                        ? `+${r.value.toFixed(2)}% margin`
+                        : `${r.value.toFixed(2)}%`
+                      : "—"}
                   </TableCell>
                   <TableCell className="font-body text-[13px] text-warm-gray">
                     {TRACK_NOTES[r.track_type] ?? ""}
