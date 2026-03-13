@@ -26,6 +26,11 @@ export const CurrencyProvider = ({ children }: { children: ReactNode }) => {
   });
   const [rates, setRates] = useState({ USD: 3.688, EUR: 3.846 });
 
+  const setCurrency = (c: CurrencySymbol) => {
+    setCurrencyState(c);
+    localStorage.setItem("navlan-currency", c);
+  };
+
   useEffect(() => {
     const fetchRates = async () => {
       try {
