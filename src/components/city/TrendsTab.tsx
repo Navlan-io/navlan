@@ -104,7 +104,16 @@ const TrendsTab = ({ city, prices, districtIndices }: TrendsTabProps) => {
   }, [compareCity, compareCities]);
 
   // Chart data for price history
-  const priceChartData = prices.map((p) => {
+  // Sort prices chronologically by parsing "Q3-2024" → year + quarter
+  const sortedPrices = [...prices].sort((a, b) => {
+    const parseP = (p: string) => {
+      const m = p.match(/Q(\d)[- ]?(\d{4})/i);
+      return m ? Number(m[2]) * 10 + Number(m[1]) : 0;
+    };
+    return parseP(a.period) - parseP(b.period);
+  });
+
+  const priceChartData = sortedPrices.map((p) => {
     const row: any = {
       period: formatPeriodShort(p.period),
       price: p.avg_price_total,
