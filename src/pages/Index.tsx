@@ -60,12 +60,20 @@ const Index = () => {
 
   // Format avg price respecting currency
   const formatAvgPrice = (): string => {
-    const nis = avgPriceNis ?? 2210000;
+    // avg_price_total is in NIS thousands (e.g. 2350.9 = ₪2,350,900)
+    const nisThousands = avgPriceNis ?? 2210;
+    const nisFull = nisThousands * 1000;
     if (currency === "₪") {
-      return `₪${(nis / 1_000_000).toFixed(2)}M`;
+      return `₪${(nisFull / 1_000_000).toFixed(2)}M`;
     }
     const rate = currency === "$" ? rates.USD : rates.EUR;
-    const converted = nis / rate;
+    if (!rate || rate <= 0) {
+      return `₪${(nisFull / 1_000_000).toFixed(2)}M`;
+    }
+    const converted = nisFull / rate;
+    if (converted < 1_000_000) {
+      return `${currency}${Math.round(converted / 1000)}K`;
+    }
     return `${currency}${(converted / 1_000_000).toFixed(2)}M`;
   };
 
