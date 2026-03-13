@@ -7,7 +7,6 @@ const PlaceholderPage = ({ title }: { title: string }) => (
   </div>
 );
 
-export const CityPage = () => <PlaceholderPage title="City page coming soon" />;
 export const MarketData = () => <PlaceholderPage title="Market data coming soon" />;
 export const StartHereGuide = () => <PlaceholderPage title="Start Here Guide coming soon" />;
 export const DiraGuide = () => <PlaceholderPage title="Dira BeHanacha Guide coming soon" />;
