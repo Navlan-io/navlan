@@ -1,6 +1,14 @@
+import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 
-const quickLinks = ["About", "Start Here", "Resources", "Disclaimer", "Privacy", "Terms"];
+const quickLinks = [
+  { label: "About", to: "/about" },
+  { label: "Start Here", to: "/guides/start-here" },
+  { label: "Resources", to: "/resources" },
+  { label: "Disclaimer", to: "/disclaimer" },
+  { label: "Privacy", to: "/privacy" },
+  { label: "Terms", to: "/terms" },
+];
 
 const Footer = () => {
   return (
@@ -9,7 +17,9 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
           {/* Left */}
           <div>
-            <span className="font-heading font-bold text-2xl">Navlan</span>
+            <Link to="/" className="font-heading font-bold text-2xl text-white no-underline hover:no-underline">
+              Navlan
+            </Link>
             <p className="mt-2 text-white/70 font-body text-[15px]">
               Navigate Israeli Real Estate. In English.
             </p>
@@ -20,12 +30,13 @@ const Footer = () => {
             <h4 className="font-heading font-semibold text-[15px] text-white mb-4">Quick Links</h4>
             <div className="grid grid-cols-2 gap-2">
               {quickLinks.map((link) => (
-                <span
-                  key={link}
-                  className="font-body text-[14px] text-white/70 hover:text-white cursor-pointer transition-colors"
+                <Link
+                  key={link.to}
+                  to={link.to}
+                  className="font-body text-[14px] text-white/70 hover:text-white no-underline transition-colors"
                 >
-                  {link}
-                </span>
+                  {link.label}
+                </Link>
               ))}
             </div>
           </div>

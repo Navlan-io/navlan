@@ -8,13 +8,12 @@ import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import CityPage from "./pages/CityPage";
 import MarketDataPage from "./pages/MarketDataPage";
+import GuidesIndexPage from "./pages/GuidesIndexPage";
 import StartHereGuidePage from "./pages/StartHereGuidePage";
 import DiraGuidePage from "./pages/DiraGuidePage";
-import GuidesIndexPage from "./pages/GuidesIndexPage";
-import {
-  Resources,
-  About,
-} from "./pages/PlaceholderPages";
+import ResourcesPage from "./pages/ResourcesPage";
+import AboutPage from "./pages/AboutPage";
+import { DisclaimerPage, PrivacyPage, TermsPage } from "./pages/LegalPage";
 
 const queryClient = new QueryClient();
 
@@ -32,8 +31,11 @@ const App = () => (
             <Route path="/guides" element={<GuidesIndexPage />} />
             <Route path="/guides/start-here" element={<StartHereGuidePage />} />
             <Route path="/guides/dira-behanacha" element={<DiraGuidePage />} />
-            <Route path="/resources" element={<Resources />} />
-            <Route path="/about" element={<About />} />
+            <Route path="/resources" element={<ResourcesPage />} />
+            <Route path="/about" element={<AboutPage />} />
+            <Route path="/disclaimer" element={<DisclaimerPage />} />
+            <Route path="/privacy" element={<PrivacyPage />} />
+            <Route path="/terms" element={<TermsPage />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </BrowserRouter>
