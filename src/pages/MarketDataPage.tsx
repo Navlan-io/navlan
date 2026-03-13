@@ -29,12 +29,12 @@ const MarketDataPage = () => {
           <div className="border-b border-grid-line mt-6 mb-10" />
 
           <div className="space-y-12">
-            <NationalPriceTrend />
-            <DistrictComparison />
-            <ConstructionPipeline />
-            <MortgageRates />
-            <RentalMarket />
-            <ConstructionCosts />
+            <div id="national-trend" className="scroll-mt-24"><NationalPriceTrend /></div>
+            <div id="district-comparison" className="scroll-mt-24"><DistrictComparison /></div>
+            <div id="construction-pipeline" className="scroll-mt-24"><ConstructionPipeline /></div>
+            <div id="mortgage-rates" className="scroll-mt-24"><MortgageRates /></div>
+            <div id="rental-market" className="scroll-mt-24"><RentalMarket /></div>
+            <div id="construction-costs" className="scroll-mt-24"><ConstructionCosts /></div>
           </div>
         </div>
       </main>
