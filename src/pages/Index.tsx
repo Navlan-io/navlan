@@ -29,9 +29,10 @@ const Index = () => {
         supabase
           .from("city_prices")
           .select("avg_price_total, period")
+          .eq("city_name", "Total")
           .not("avg_price_total", "is", null)
           .order("period", { ascending: false })
-          .limit(500),
+          .limit(1),
         supabase
           .from("price_indices")
           .select("percent_yoy")
@@ -47,14 +48,8 @@ const Index = () => {
           .limit(1),
       ]);
 
-      // National avg: average of most recent period's prices
-      if (priceRes.data && priceRes.data.length > 0) {
-        const latestPeriod = priceRes.data[0].period;
-        const latestPrices = priceRes.data.filter((r) => r.period === latestPeriod && r.avg_price_total);
-        if (latestPrices.length > 0) {
-          const avg = latestPrices.reduce((s, r) => s + (r.avg_price_total ?? 0), 0) / latestPrices.length;
-          setAvgPriceNis(avg);
-        }
+      if (priceRes.data?.[0]?.avg_price_total) {
+        setAvgPriceNis(priceRes.data[0].avg_price_total);
       }
 
       if (indexRes.data?.[0]) setPriceYoy(indexRes.data[0].percent_yoy);
@@ -65,12 +60,20 @@ const Index = () => {
 
   // Format avg price respecting currency
   const formatAvgPrice = (): string => {
-    const nis = avgPriceNis ?? 2210000;
+    // avg_price_total is in NIS thousands (e.g. 2350.9 = ₪2,350,900)
+    const nisThousands = avgPriceNis ?? 2210;
+    const nisFull = nisThousands * 1000;
     if (currency === "₪") {
-      return `₪${(nis / 1_000_000).toFixed(2)}M`;
+      return `₪${(nisFull / 1_000_000).toFixed(2)}M`;
     }
     const rate = currency === "$" ? rates.USD : rates.EUR;
-    const converted = nis / rate;
+    if (!rate || rate <= 0) {
+      return `₪${(nisFull / 1_000_000).toFixed(2)}M`;
+    }
+    const converted = nisFull / rate;
+    if (converted < 1_000_000) {
+      return `${currency}${Math.round(converted / 1000)}K`;
+    }
     return `${currency}${(converted / 1_000_000).toFixed(2)}M`;
   };
 
