@@ -5,8 +5,9 @@ import { supabase } from "@/integrations/supabase/client";
 interface CityData {
   name: string;
   slug: string;
-  price: number;
   district: string;
+  hasPrice: boolean;
+  hasProfile: boolean;
 }
 
 const DISTRICT_FILTERS = [
@@ -31,41 +32,52 @@ const ExploreCities = () => {
   useEffect(() => {
     const fetchCities = async () => {
       try {
-        const { data: localities } = await supabase
-          .from("localities")
-          .select("english_name, cbs_code, district")
-          .eq("entity_type", "city");
+        const [{ data: localities }, { data: prices }, { data: profiles }] = await Promise.all([
+          supabase
+            .from("localities")
+            .select("english_name, cbs_code, district")
+            .eq("entity_type", "city"),
+          supabase
+            .from("city_prices")
+            .select("cbs_code")
+            .not("avg_price_total", "is", null),
+          supabase
+            .from("city_profiles")
+            .select("city_name"),
+        ]);
 
-        const { data: prices } = await supabase
-          .from("city_prices")
-          .select("cbs_code, period, avg_price_total")
-          .not("avg_price_total", "is", null)
-          .order("period", { ascending: false });
-
-        if (!localities || !prices) {
+        if (!localities) {
           setLoading(false);
           return;
         }
 
-        const cityDataMap: CityData[] = localities
+        const cbsWithPrices = new Set((prices ?? []).map((p) => p.cbs_code));
+        const namesWithProfiles = new Set((profiles ?? []).map((p) => p.city_name));
+
+        const cityList: CityData[] = localities
           .map((loc) => {
-            const cityPrices = prices
-              .filter((p) => p.cbs_code === loc.cbs_code && p.avg_price_total != null)
-              .sort((a, b) => b.period.localeCompare(a.period));
-
-            if (cityPrices.length === 0) return null;
-
+            const hasPrice = loc.cbs_code != null && cbsWithPrices.has(loc.cbs_code);
+            const hasProfile = namesWithProfiles.has(loc.english_name);
+            if (!hasPrice && !hasProfile) return null;
             return {
               name: loc.english_name,
               slug: toSlug(loc.english_name),
-              price: cityPrices[0].avg_price_total!,
               district: loc.district,
+              hasPrice,
+              hasProfile,
             };
           })
           .filter(Boolean) as CityData[];
 
-        cityDataMap.sort((a, b) => b.price - a.price);
-        setCities(cityDataMap);
+        // Sort: both profile+price first, then profile only, then alphabetically within groups
+        cityList.sort((a, b) => {
+          const scoreA = (a.hasProfile && a.hasPrice ? 2 : a.hasProfile ? 1 : 0);
+          const scoreB = (b.hasProfile && b.hasPrice ? 2 : b.hasProfile ? 1 : 0);
+          if (scoreB !== scoreA) return scoreB - scoreA;
+          return a.name.localeCompare(b.name);
+        });
+
+        setCities(cityList);
       } catch {
         // fallback handled by empty state
       } finally {
@@ -122,7 +134,7 @@ const ExploreCities = () => {
             ? Array.from({ length: 8 }).map((_, i) => (
                 <div
                   key={i}
-                  className="bg-sage/60 rounded-xl animate-pulse h-[100px]"
+                  className="bg-charcoal/60 rounded-xl animate-pulse h-[100px]"
                 />
               ))
             : filteredCities.length === 0
@@ -137,14 +149,14 @@ const ExploreCities = () => {
                 <Link
                   key={city.slug}
                   to={`/city/${city.slug}`}
-                  className="group relative rounded-xl p-7 bg-sage overflow-hidden no-underline hover:-translate-y-0.5 hover:shadow-[0_8px_24px_rgba(45,50,52,0.18)] hover:brightness-110 transition-all duration-200"
+                  className="group relative rounded-xl p-7 bg-charcoal overflow-hidden no-underline hover:-translate-y-0.5 hover:shadow-[0_8px_24px_rgba(45,50,52,0.24)] hover:brightness-[1.15] transition-all duration-200"
                 >
                   {/* Geometric grid overlay */}
                   <div
                     className="absolute inset-0 pointer-events-none"
                     style={{
                       backgroundImage:
-                        "linear-gradient(to right, rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(to bottom, rgba(255,255,255,0.1) 1px, transparent 1px)",
+                        "linear-gradient(to right, rgba(255,255,255,0.08) 1px, transparent 1px), linear-gradient(to bottom, rgba(255,255,255,0.08) 1px, transparent 1px)",
                       backgroundSize: "40px 40px",
                     }}
                   />
@@ -152,7 +164,7 @@ const ExploreCities = () => {
                     <h3 className="font-heading font-bold text-[22px] text-white leading-tight">
                       {city.name}
                     </h3>
-                    <p className="mt-1.5 font-body text-[13px] text-white/70">
+                    <p className="mt-1.5 font-body text-[13px] text-white/60">
                       {city.district} District
                     </p>
                   </div>
