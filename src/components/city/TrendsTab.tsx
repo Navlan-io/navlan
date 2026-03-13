@@ -62,7 +62,9 @@ function formatPeriodShort(period: string) {
 }
 
 const TrendsTab = ({ city, prices, districtIndices }: TrendsTabProps) => {
-  const { formatPrice, currency, usdRate, eurRate } = useCurrency();
+  const { formatPrice, currency, rates } = useCurrency();
+  const usdRate = rates.USD;
+  const eurRate = rates.EUR;
   const [compareCity, setCompareCity] = useState<string | null>(null);
   const [comparePrices, setComparePrices] = useState<any[]>([]);
   const [compareCities, setCompareCities] = useState<{ english_name: string; cbs_code: number | null }[]>([]);
