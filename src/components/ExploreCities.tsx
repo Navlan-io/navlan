@@ -167,12 +167,12 @@ const ExploreCities = () => {
         </p>
 
         {/* District filter pills */}
-        <div className="mt-6 flex gap-2 overflow-x-auto pb-2 scrollbar-hide">
+        <div className="mt-6 flex flex-wrap gap-2 pb-2">
           {DISTRICT_FILTERS.map((filter) => (
             <button
               key={filter}
               onClick={() => handleFilterChange(filter)}
-              className={`whitespace-nowrap rounded-full px-4 py-1.5 font-body text-[14px] font-medium transition-colors ${
+              className={`whitespace-nowrap rounded-full px-4 py-1.5 min-h-[44px] font-body text-[14px] font-medium transition-colors ${
                 activeFilter === filter
                   ? "bg-sage text-white"
                   : "bg-cream text-charcoal hover:bg-sage/20"
