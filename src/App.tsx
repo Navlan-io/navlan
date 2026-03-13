@@ -7,8 +7,8 @@ import { CurrencyProvider } from "@/contexts/CurrencyContext";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import CityPage from "./pages/CityPage";
+import MarketDataPage from "./pages/MarketDataPage";
 import {
-  MarketData,
   StartHereGuide,
   DiraGuide,
   Resources,
