@@ -51,7 +51,29 @@ const AboutPage = () => {
               </p>
             </section>
 
-            {/* Who It's For */}
+            {/* Our Data */}
+            <section>
+              <h2 className="font-heading font-semibold text-[22px] text-charcoal mb-4">Our Data</h2>
+              <p className="mb-4">
+                All market data on Navlan comes from official Israeli government sources — primarily the Central Bureau of Statistics (CBS) and the Bank of Israel. We don't scrape listings or rely on broker estimates. Our data includes:
+              </p>
+              <ul className="list-disc pl-6 space-y-2 mb-4 marker:text-sage">
+                <li>Dwelling price data from CBS statistical publications</li>
+                <li>National and district-level price indices updated monthly</li>
+                <li>Mortgage rates published by the Bank of Israel</li>
+                <li>Construction activity statistics (permits, starts, inventory)</li>
+                <li>Rental market data from CBS surveys of actual lease contracts</li>
+                <li>Exchange rates from the Bank of Israel</li>
+              </ul>
+              <p className="mb-4">
+                Data is updated periodically as new government publications become available. Some figures may lag 1–3 months behind real-time due to CBS publication schedules. Provisional data points are clearly marked where applicable.
+              </p>
+              <p>
+                For questions about our data or methodology, contact{" "}
+                <a href="mailto:hello@navlan.io" className="text-horizon-blue no-underline hover:underline">hello@navlan.io</a>.
+              </p>
+            </section>
+
             <section>
               <h2 className="font-heading font-semibold text-[22px] text-charcoal mb-4">Who Navlan Is For</h2>
               <p className="mb-4">
