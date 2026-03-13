@@ -30,6 +30,7 @@ const ExploreCities = () => {
   const [cities, setCities] = useState<CityData[]>([]);
   const [loading, setLoading] = useState(true);
   const [activeFilter, setActiveFilter] = useState("All");
+  const [showAll, setShowAll] = useState(false);
   const { formatPrice } = useCurrency();
 
   useEffect(() => {
@@ -38,7 +39,6 @@ const ExploreCities = () => {
         const { data: localities } = await supabase
           .from("localities")
           .select("english_name, cbs_code, district")
-          .eq("is_anglo_city", true)
           .eq("entity_type", "city");
 
         const { data: prices } = await supabase
@@ -75,9 +75,7 @@ const ExploreCities = () => {
           })
           .filter(Boolean) as CityData[];
 
-        // Sort by price descending
         cityDataMap.sort((a, b) => b.price - a.price);
-
         setCities(cityDataMap);
       } catch {
         // fallback handled by empty state
@@ -90,10 +88,19 @@ const ExploreCities = () => {
 
   const filteredCities = useMemo(() => {
     if (activeFilter === "All") {
-      return cities.slice(0, 12);
+      return showAll ? cities : cities.slice(0, 12);
     }
     return cities.filter((c) => c.district === activeFilter);
-  }, [cities, activeFilter]);
+  }, [cities, activeFilter, showAll]);
+
+  const totalCount = cities.length;
+  const showViewAllLink = activeFilter === "All" && totalCount > 12;
+
+  // Reset showAll when switching filters
+  const handleFilterChange = (filter: string) => {
+    setActiveFilter(filter);
+    setShowAll(false);
+  };
 
   return (
     <section id="explore-cities" className="py-16 bg-warm-white">
@@ -110,7 +117,7 @@ const ExploreCities = () => {
           {DISTRICT_FILTERS.map((filter) => (
             <button
               key={filter}
-              onClick={() => setActiveFilter(filter)}
+              onClick={() => handleFilterChange(filter)}
               className={`whitespace-nowrap rounded-full px-4 py-1.5 font-body text-[14px] font-medium transition-colors ${
                 activeFilter === filter
                   ? "bg-sage text-white"
@@ -161,6 +168,20 @@ const ExploreCities = () => {
                 </div>
               ))}
         </div>
+
+        {/* View all toggle */}
+        {!loading && showViewAllLink && (
+          <div className="mt-6 text-center">
+            <button
+              onClick={() => setShowAll(!showAll)}
+              className="font-body font-medium text-[15px] text-horizon-blue hover:underline"
+            >
+              {showAll
+                ? "Show top 12 ←"
+                : `View all ${totalCount} cities with data →`}
+            </button>
+          </div>
+        )}
       </div>
     </section>
   );
