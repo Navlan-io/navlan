@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { supabase } from "@/integrations/supabase/client";
+import heroImage from "@/assets/hero-landscape.png";
 import NavBar from "@/components/NavBar";
 import Footer from "@/components/Footer";
 import SearchBar from "@/components/SearchBar";
@@ -74,14 +75,12 @@ const Index = () => {
 
       {/* Hero */}
       <section className="relative overflow-hidden">
-        <div
-          className="absolute inset-0"
-          style={{
-            background:
-              "linear-gradient(135deg, rgba(124,139,110,0.6), rgba(196,169,106,0.6), rgba(74,127,139,0.6))",
-          }}
+        <img
+          src={heroImage}
+          alt="Israeli hillside landscape at golden hour"
+          className="absolute inset-0 w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-warm-white/40" />
+        <div className="absolute inset-0 bg-charcoal/40" />
 
         <div className="relative z-10 container py-20 md:py-28 flex flex-col items-center text-center">
           <h1 className="text-white text-[32px] md:text-[44px] font-heading font-bold leading-tight max-w-2xl drop-shadow-sm">
