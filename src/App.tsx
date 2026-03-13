@@ -8,9 +8,9 @@ import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import CityPage from "./pages/CityPage";
 import MarketDataPage from "./pages/MarketDataPage";
+import StartHereGuidePage from "./pages/StartHereGuidePage";
+import DiraGuidePage from "./pages/DiraGuidePage";
 import {
-  StartHereGuide,
-  DiraGuide,
   Resources,
   About,
 } from "./pages/PlaceholderPages";
