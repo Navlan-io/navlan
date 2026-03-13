@@ -76,7 +76,7 @@ const MortgageRates = () => {
           <p className="font-body text-warm-gray">Data coming soon</p>
         </Card>
       ) : (
-        <div className="overflow-x-auto">
+        <div className="overflow-x-auto no-scrollbar">
           <Table>
             <TableHeader>
               <TableRow className="bg-cream hover:bg-cream">

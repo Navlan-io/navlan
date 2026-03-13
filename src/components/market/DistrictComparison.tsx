@@ -124,7 +124,7 @@ const DistrictComparison = () => {
         </ResponsiveContainer>
       </div>
 
-      <div className="flex flex-wrap items-center gap-4 mt-4">
+      <div className="flex flex-wrap items-center gap-3 mt-4">
         {DISTRICTS.map((d) => (
           <a
             key={d.code}

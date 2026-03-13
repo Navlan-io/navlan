@@ -95,14 +95,14 @@ const NavBar = () => {
       </div>
 
       {mobileOpen && (
-        <div className="md:hidden bg-warm-white border-b border-grid-line px-6 py-4 space-y-3">
+        <div className="md:hidden bg-warm-white border-b border-grid-line px-4 py-3 space-y-1">
           {navLinks.map((link) =>
             link.href.startsWith("/#") ? (
               <a
                 key={link.label}
                 href={link.href}
                 onClick={(e) => handleNavClick(link.href, e)}
-                className="block font-body font-medium text-[15px] text-charcoal no-underline hover:text-sage"
+                className="block min-h-[44px] flex items-center font-body font-medium text-[15px] text-charcoal no-underline hover:text-sage"
               >
                 {link.label}
               </a>
@@ -111,7 +111,7 @@ const NavBar = () => {
                 key={link.label}
                 to={link.href}
                 onClick={() => setMobileOpen(false)}
-                className="block font-body font-medium text-[15px] text-charcoal no-underline hover:text-sage"
+                className="block min-h-[44px] flex items-center font-body font-medium text-[15px] text-charcoal no-underline hover:text-sage"
               >
                 {link.label}
               </Link>

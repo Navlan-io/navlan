@@ -232,7 +232,7 @@ const ExploreCities = () => {
                     <Link
                       key={city.slug}
                       to={`/city/${city.slug}`}
-                      className="group relative flex flex-col flex-shrink-0 w-[83vw] md:w-[calc(28.57%-12px)] min-w-[280px] rounded-xl bg-cream border-l-4 border-sage p-6 no-underline shadow-[0_2px_8px_rgba(45,50,52,0.06)] hover:shadow-[0_4px_16px_rgba(45,50,52,0.12)] transition-all duration-200 cursor-pointer overflow-hidden snap-start"
+                      className="group relative flex flex-col flex-shrink-0 w-[78vw] md:w-[calc(28.57%-12px)] min-w-[280px] rounded-xl bg-cream border-l-4 border-sage p-6 no-underline shadow-[0_2px_8px_rgba(45,50,52,0.06)] hover:shadow-[0_4px_16px_rgba(45,50,52,0.12)] transition-all duration-200 cursor-pointer overflow-hidden snap-start"
                       style={{
                         backgroundImage:
                           "linear-gradient(to right, rgba(124,139,110,0.07) 1px, transparent 1px), linear-gradient(to bottom, rgba(124,139,110,0.07) 1px, transparent 1px)",

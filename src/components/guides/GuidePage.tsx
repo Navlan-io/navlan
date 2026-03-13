@@ -158,7 +158,7 @@ const GuidePage = ({
                   <h2 className="font-heading font-semibold text-[22px] text-charcoal mt-10 mb-4 first:mt-0">
                     {section.title}
                   </h2>
-                  <div className="guide-content font-body text-[16px] text-charcoal leading-[1.75]">
+                  <div className="guide-content font-body text-[16px] text-charcoal leading-[1.6] md:leading-[1.75]">
                     {section.content}
                   </div>
                 </section>

@@ -128,12 +128,12 @@ const Index = () => {
           </div>
 
           {/* Live stat pills */}
-          <div className="mt-8 flex flex-wrap justify-center gap-3">
+          <div className="mt-8 flex flex-col sm:flex-row flex-wrap justify-center gap-2 sm:gap-3 w-full max-w-xl">
             {stats.map((stat) => (
               <Link
                 key={stat.label}
                 to={stat.href}
-                className="flex items-center gap-2 bg-white/90 backdrop-blur-sm rounded-full px-4 py-2 shadow-card no-underline hover:shadow-[0_4px_16px_rgba(45,50,52,0.15)] transition-shadow duration-200 cursor-pointer"
+                className="flex items-center justify-center gap-2 bg-white/90 backdrop-blur-sm rounded-full px-4 py-2.5 min-h-[44px] shadow-card no-underline hover:shadow-[0_4px_16px_rgba(45,50,52,0.15)] transition-shadow duration-200 cursor-pointer"
               >
                 <span className="font-body text-[13px] text-warm-gray">
                   {stat.label}:

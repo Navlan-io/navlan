@@ -359,7 +359,7 @@ const TrendsTab = ({ city, prices, districtIndices }: TrendsTabProps) => {
             </span>
           </Card>
 
-          <div className="overflow-x-auto">
+          <div className="overflow-x-auto no-scrollbar">
             <table className="w-full max-w-lg">
               <thead>
                 <tr className="border-b border-grid-line">
