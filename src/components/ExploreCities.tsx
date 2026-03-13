@@ -245,10 +245,10 @@ const ExploreCities = () => {
                       <p className="relative mt-1 font-body text-[13px] text-warm-gray">
                         {city.district} District
                       </p>
-                      <p className="relative mt-2 font-body text-[14px] text-warm-gray leading-snug whitespace-nowrap overflow-hidden">
+                      <p className="relative mt-2 font-body text-[14px] text-warm-gray leading-snug">
                         {city.tagline || `${city.district} District`}
                       </p>
-                      <span className="relative mt-auto pt-3 font-body font-medium text-[14px] text-horizon-blue group-hover:underline">
+                      <span className="relative mt-auto pt-4 font-body font-medium text-[14px] text-horizon-blue group-hover:underline">
                         Explore →
                       </span>
                     </Link>
