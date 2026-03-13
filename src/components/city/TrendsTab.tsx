@@ -429,8 +429,8 @@ const TrendsTab = ({ city, prices, districtIndices }: TrendsTabProps) => {
             <p className="font-body text-warm-gray">District index data not yet available</p>
           </Card>
         ) : (
-          <div className="w-full" style={{ minHeight: 300 }}>
-            <ResponsiveContainer width="100%" height={300}>
+          <div className="w-full" style={{ minHeight: 250 }}>
+            <ResponsiveContainer width="100%" height={280}>
               <AreaChart data={filteredDistrictData}>
                 <defs>
                   <linearGradient id="distGrad" x1="0" y1="0" x2="0" y2="1">
