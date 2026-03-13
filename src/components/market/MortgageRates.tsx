@@ -90,12 +90,11 @@ const MortgageRates = () => {
                 <TableRow key={r.track_type}>
                   <TableCell className="font-body text-[15px] text-charcoal">{r.track_label}</TableCell>
                   <TableCell className="font-body text-[15px] text-charcoal font-semibold">
-                    {r.value != null ? `${r.value.toFixed(2)}%` : "—"}
-                    {r.track_type === "prime_linked_variable" && r.value != null && (
-                      <span className="text-warm-gray font-normal text-[13px] ml-1">
-                        +{r.value.toFixed(2)}% margin
-                      </span>
-                    )}
+                    {r.value != null
+                      ? r.rate_type === "margin"
+                        ? `+${r.value.toFixed(2)}% margin`
+                        : `${r.value.toFixed(2)}%`
+                      : "—"}
                   </TableCell>
                   <TableCell className="font-body text-[13px] text-warm-gray">
                     {TRACK_NOTES[r.track_type] ?? ""}
