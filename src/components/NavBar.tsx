@@ -86,7 +86,7 @@ const NavBar = () => {
           </div>
 
           <button
-            className="md:hidden p-1 text-charcoal"
+            className="md:hidden p-2 min-h-[44px] min-w-[44px] flex items-center justify-center text-charcoal"
             onClick={() => setMobileOpen(!mobileOpen)}
           >
             {mobileOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
