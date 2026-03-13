@@ -62,12 +62,33 @@ function formatPeriodShort(period: string) {
 }
 
 const TrendsTab = ({ city, prices, districtIndices }: TrendsTabProps) => {
-  const { formatPrice, currency } = useCurrency();
+  const { formatPrice, currency, usdRate, eurRate } = useCurrency();
   const [compareCity, setCompareCity] = useState<string | null>(null);
   const [comparePrices, setComparePrices] = useState<any[]>([]);
   const [compareCities, setCompareCities] = useState<{ english_name: string; cbs_code: number | null }[]>([]);
   const [showCompareDropdown, setShowCompareDropdown] = useState(false);
   const [districtRange, setDistrictRange] = useState<(typeof TIME_RANGES)[number]>("Max");
+  const [rentalData, setRentalData] = useState<any>(null);
+  const [rentalLoading, setRentalLoading] = useState(true);
+
+  // Fetch rental data for this city
+  useEffect(() => {
+    if (!city.cbs_code) {
+      setRentalLoading(false);
+      return;
+    }
+    const fetchRental = async () => {
+      const { data } = await supabase
+        .from("city_rentals")
+        .select("*")
+        .eq("cbs_code", city.cbs_code!)
+        .order("period", { ascending: false })
+        .limit(1);
+      setRentalData(data?.[0] ?? null);
+      setRentalLoading(false);
+    };
+    fetchRental();
+  }, [city.cbs_code]);
 
   // Fetch available comparison cities
   useEffect(() => {
