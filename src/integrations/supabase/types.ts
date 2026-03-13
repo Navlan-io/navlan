@@ -73,6 +73,7 @@ export type Database = {
           overview: string | null
           real_estate_character: string | null
           religious_infrastructure: string | null
+          tagline: string | null
           tier: number | null
           transportation: string | null
           updated_at: string | null
@@ -89,6 +90,7 @@ export type Database = {
           overview?: string | null
           real_estate_character?: string | null
           religious_infrastructure?: string | null
+          tagline?: string | null
           tier?: number | null
           transportation?: string | null
           updated_at?: string | null
@@ -105,6 +107,7 @@ export type Database = {
           overview?: string | null
           real_estate_character?: string | null
           religious_infrastructure?: string | null
+          tagline?: string | null
           tier?: number | null
           transportation?: string | null
           updated_at?: string | null
