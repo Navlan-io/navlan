@@ -38,7 +38,7 @@ const NavBar = () => {
   };
 
   return (
-    <nav className="sticky top-0 z-50 h-16 bg-warm-white border-b border-grid-line">
+    <nav className="sticky top-0 z-50 h-14 md:h-16 bg-warm-white border-b border-grid-line">
       <div className="container h-full flex items-center justify-between">
         <Link to="/" className="font-heading font-bold text-2xl text-charcoal no-underline hover:no-underline">
           Navlan
