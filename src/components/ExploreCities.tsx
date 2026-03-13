@@ -200,20 +200,25 @@ const ExploreCities = () => {
                   <Link
                     key={city.slug}
                     to={`/city/${city.slug}`}
-                    className="group flex flex-col w-[calc(50%-8px)] lg:w-[calc(25%-12px)] rounded-xl bg-cream border-l-4 border-sage p-5 no-underline shadow-[0_2px_8px_rgba(45,50,52,0.06)] hover:shadow-[0_4px_16px_rgba(45,50,52,0.12)] transition-all duration-200 cursor-pointer"
+                    className="group relative flex flex-col w-[calc(50%-8px)] lg:w-[calc(25%-12px)] rounded-xl bg-cream border-l-4 border-sage p-5 no-underline shadow-[0_2px_8px_rgba(45,50,52,0.06)] hover:shadow-[0_4px_16px_rgba(45,50,52,0.12)] transition-all duration-200 cursor-pointer overflow-hidden"
+                    style={{
+                      backgroundImage:
+                        "linear-gradient(to right, rgba(124,139,110,0.07) 1px, transparent 1px), linear-gradient(to bottom, rgba(124,139,110,0.07) 1px, transparent 1px)",
+                      backgroundSize: "22px 22px",
+                    }}
                   >
-                    <h3 className="font-heading font-semibold text-[18px] text-charcoal leading-tight">
+                    <h3 className="relative font-heading font-semibold text-[18px] text-charcoal leading-tight">
                       {city.name}
                     </h3>
-                    <p className="mt-1 font-body text-[13px] text-warm-gray">
+                    <p className="relative mt-1 font-body text-[13px] text-warm-gray">
                       {city.district} District
                     </p>
                     {desc && (
-                      <p className="mt-2 font-body text-[14px] text-charcoal leading-snug line-clamp-2">
+                      <p className="relative mt-2 font-body text-[14px] text-charcoal leading-snug line-clamp-2">
                         {desc}
                       </p>
                     )}
-                    <span className="mt-auto pt-3 font-body font-medium text-[14px] text-horizon-blue group-hover:underline">
+                    <span className="relative mt-auto pt-3 font-body font-medium text-[14px] text-horizon-blue group-hover:underline">
                       Explore →
                     </span>
                   </Link>
