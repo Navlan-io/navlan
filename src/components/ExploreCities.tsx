@@ -8,6 +8,8 @@ interface CityData {
   district: string;
   hasPrice: boolean;
   hasProfile: boolean;
+  isAnglo: boolean;
+  overview: string | null;
 }
 
 const DISTRICT_FILTERS = [
@@ -20,8 +22,28 @@ const DISTRICT_FILTERS = [
   "North",
 ];
 
+// Priority anglo cities in display order
+const ANGLO_PRIORITY = [
+  "Jerusalem",
+  "Tel Aviv",
+  "Ra'anana",
+  "Beit Shemesh",
+  "Modi'in",
+  "Herzliya",
+  "Haifa",
+  "Netanya",
+];
+
 const toSlug = (name: string) =>
   name.toLowerCase().replace(/'/g, "").replace(/\s+/g, "-");
+
+const firstSentence = (text: string | null): string | null => {
+  if (!text) return null;
+  // Strip markdown formatting
+  const clean = text.replace(/[#*_`>\[\]()]/g, "").trim();
+  const match = clean.match(/^(.+?[.!?])\s/);
+  return match ? match[1] : clean.slice(0, 120);
+};
 
 const ExploreCities = () => {
   const [cities, setCities] = useState<CityData[]>([]);
@@ -35,7 +57,7 @@ const ExploreCities = () => {
         const [{ data: localities }, { data: prices }, { data: profiles }] = await Promise.all([
           supabase
             .from("localities")
-            .select("english_name, cbs_code, district")
+            .select("english_name, cbs_code, district, is_anglo_city")
             .eq("entity_type", "city"),
           supabase
             .from("city_prices")
@@ -43,7 +65,7 @@ const ExploreCities = () => {
             .not("avg_price_total", "is", null),
           supabase
             .from("city_profiles")
-            .select("city_name"),
+            .select("city_name, overview"),
         ]);
 
         if (!localities) {
@@ -52,12 +74,14 @@ const ExploreCities = () => {
         }
 
         const cbsWithPrices = new Set((prices ?? []).map((p) => p.cbs_code));
-        const namesWithProfiles = new Set((profiles ?? []).map((p) => p.city_name));
+        const profileMap = new Map(
+          (profiles ?? []).map((p) => [p.city_name, p.overview])
+        );
 
         const cityList: CityData[] = localities
           .map((loc) => {
             const hasPrice = loc.cbs_code != null && cbsWithPrices.has(loc.cbs_code);
-            const hasProfile = namesWithProfiles.has(loc.english_name);
+            const hasProfile = profileMap.has(loc.english_name);
             if (!hasPrice && !hasProfile) return null;
             return {
               name: loc.english_name,
@@ -65,15 +89,24 @@ const ExploreCities = () => {
               district: loc.district,
               hasPrice,
               hasProfile,
+              isAnglo: loc.is_anglo_city === true,
+              overview: profileMap.get(loc.english_name) ?? null,
             };
           })
           .filter(Boolean) as CityData[];
 
-        // Sort: both profile+price first, then profile only, then alphabetically within groups
+        // Sort: priority anglo cities first (in order), then other anglo cities, then rest alphabetically
         cityList.sort((a, b) => {
-          const scoreA = (a.hasProfile && a.hasPrice ? 2 : a.hasProfile ? 1 : 0);
-          const scoreB = (b.hasProfile && b.hasPrice ? 2 : b.hasProfile ? 1 : 0);
-          if (scoreB !== scoreA) return scoreB - scoreA;
+          const idxA = ANGLO_PRIORITY.indexOf(a.name);
+          const idxB = ANGLO_PRIORITY.indexOf(b.name);
+          // Both in priority list — use priority order
+          if (idxA !== -1 && idxB !== -1) return idxA - idxB;
+          // One in priority list — it wins
+          if (idxA !== -1) return -1;
+          if (idxB !== -1) return 1;
+          // Both anglo but not in priority — alphabetical
+          if (a.isAnglo && !b.isAnglo) return -1;
+          if (!a.isAnglo && b.isAnglo) return 1;
           return a.name.localeCompare(b.name);
         });
 
@@ -134,7 +167,7 @@ const ExploreCities = () => {
             ? Array.from({ length: 8 }).map((_, i) => (
                 <div
                   key={i}
-                  className="w-[calc(50%-8px)] lg:w-[calc(25%-12px)] bg-deep-olive/60 rounded-xl animate-pulse h-[100px]"
+                  className="w-[calc(50%-8px)] lg:w-[calc(25%-12px)] bg-cream rounded-xl animate-pulse h-[140px]"
                 />
               ))
             : filteredCities.length === 0
@@ -145,31 +178,31 @@ const ExploreCities = () => {
                   </p>
                 </div>
               )
-              : filteredCities.map((city) => (
-                <Link
-                  key={city.slug}
-                  to={`/city/${city.slug}`}
-                  className="group relative w-[calc(50%-8px)] lg:w-[calc(25%-12px)] rounded-xl p-7 bg-deep-olive/90 overflow-hidden no-underline hover:-translate-y-0.5 hover:shadow-[0_8px_24px_rgba(45,50,52,0.24)] hover:brightness-[1.15] transition-all duration-200"
-                >
-                  {/* Geometric grid overlay */}
-                  <div
-                    className="absolute inset-0 pointer-events-none"
-                    style={{
-                      backgroundImage:
-                        "linear-gradient(to right, rgba(255,255,255,0.08) 1px, transparent 1px), linear-gradient(to bottom, rgba(255,255,255,0.08) 1px, transparent 1px)",
-                      backgroundSize: "40px 40px",
-                    }}
-                  />
-                  <div className="relative">
-                    <h3 className="font-heading font-bold text-[22px] text-white leading-tight">
+              : filteredCities.map((city) => {
+                const desc = firstSentence(city.overview);
+                return (
+                  <Link
+                    key={city.slug}
+                    to={`/city/${city.slug}`}
+                    className="group flex flex-col w-[calc(50%-8px)] lg:w-[calc(25%-12px)] rounded-xl bg-cream border-l-4 border-sage p-5 no-underline shadow-[0_2px_8px_rgba(45,50,52,0.06)] hover:shadow-[0_4px_16px_rgba(45,50,52,0.12)] transition-all duration-200 cursor-pointer"
+                  >
+                    <h3 className="font-heading font-semibold text-[18px] text-charcoal leading-tight">
                       {city.name}
                     </h3>
-                    <p className="mt-1.5 font-body text-[13px] text-white/60">
+                    <p className="mt-1 font-body text-[13px] text-warm-gray">
                       {city.district} District
                     </p>
-                  </div>
-                </Link>
-              ))}
+                    {desc && (
+                      <p className="mt-2 font-body text-[14px] text-charcoal leading-snug line-clamp-2">
+                        {desc}
+                      </p>
+                    )}
+                    <span className="mt-auto pt-3 font-body font-medium text-[14px] text-horizon-blue group-hover:underline">
+                      Explore →
+                    </span>
+                  </Link>
+                );
+              })}
         </div>
 
         {/* View all toggle */}
