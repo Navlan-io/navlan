@@ -441,15 +441,17 @@ const TrendsTab = ({ city, prices, districtIndices }: TrendsTabProps) => {
                 <CartesianGrid horizontal vertical={false} stroke="#E8E4DE" />
                 <XAxis
                   dataKey="label"
-                  tick={{ fontSize: 12, fill: "#6B7178", fontFamily: "Inter" }}
+                  tick={{ fontSize: 10, fill: "#6B7178", fontFamily: "Inter" }}
                   axisLine={false}
                   tickLine={false}
+                  interval="preserveStartEnd"
                 />
                 <YAxis
-                  tick={{ fontSize: 12, fill: "#6B7178", fontFamily: "Inter" }}
+                  tick={{ fontSize: 10, fill: "#6B7178", fontFamily: "Inter" }}
                   axisLine={false}
                   tickLine={false}
                   domain={["auto", "auto"]}
+                  width={40}
                 />
                 <Tooltip
                   contentStyle={{
