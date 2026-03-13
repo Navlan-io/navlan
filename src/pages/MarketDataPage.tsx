@@ -8,6 +8,7 @@ import DistrictComparison from "@/components/market/DistrictComparison";
 import ConstructionPipeline from "@/components/market/ConstructionPipeline";
 import MortgageRates from "@/components/market/MortgageRates";
 import ConstructionCosts from "@/components/market/ConstructionCosts";
+import RentalMarket from "@/components/market/RentalMarket";
 
 const MarketDataPage = () => {
   useEffect(() => {
