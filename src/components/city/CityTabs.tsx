@@ -27,7 +27,7 @@ const CityTabs = ({ city, profile, prices, districtIndices }: CityTabsProps) => 
   return (
     <div>
       {/* Tab bar */}
-      <div className="sticky top-16 z-40 bg-warm-white border-b border-grid-line">
+      <div className="sticky top-14 md:top-16 z-40 bg-warm-white border-b border-grid-line">
         <div className="container max-w-[1200px]">
           <div className="flex overflow-x-auto no-scrollbar relative">
             {TABS.map((tab) => (
