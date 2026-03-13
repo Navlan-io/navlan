@@ -149,7 +149,7 @@ const ExploreCities = () => {
                 <Link
                   key={city.slug}
                   to={`/city/${city.slug}`}
-                  className="group relative rounded-xl p-7 bg-charcoal overflow-hidden no-underline hover:-translate-y-0.5 hover:shadow-[0_8px_24px_rgba(45,50,52,0.24)] hover:brightness-[1.15] transition-all duration-200"
+                  className="group relative rounded-xl p-7 bg-deep-olive/90 overflow-hidden no-underline hover:-translate-y-0.5 hover:shadow-[0_8px_24px_rgba(45,50,52,0.24)] hover:brightness-[1.15] transition-all duration-200"
                 >
                   {/* Geometric grid overlay */}
                   <div

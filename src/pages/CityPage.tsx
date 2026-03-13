@@ -67,29 +67,72 @@ const CityPage = () => {
 
     const fetchCity = async () => {
       setLoading(true);
-      // Try to find city by matching slug
+
+      // Fetch all cities (no anglo filter) to match slug flexibly
       const { data: localities } = await supabase
         .from("localities")
-        .select("english_name, hebrew_name, cbs_code, district")
-        .eq("is_anglo_city", true)
+        .select("english_name, hebrew_name, cbs_code, district, english_alt_spellings")
         .eq("entity_type", "city");
 
-      if (!localities || localities.length === 0) {
-        setNotFound(true);
-        setLoading(false);
-        return;
+      let matched: CityData | null = null;
+
+      if (localities && localities.length > 0) {
+        // 1. Match slug against english_name (slug-ified)
+        matched = localities.find((loc) => {
+          const citySlug = loc.english_name
+            .toLowerCase()
+            .replace(/'/g, "")
+            .replace(/\s+/g, "-");
+          return citySlug === slug;
+        }) ?? null;
+
+        // 2. Match slug against english_name with ILIKE-style comparison
+        if (!matched) {
+          matched = localities.find((loc) =>
+            loc.english_name.toLowerCase() === searchName.toLowerCase()
+          ) ?? null;
+        }
+
+        // 3. Match against english_alt_spellings (pipe-separated)
+        if (!matched) {
+          matched = localities.find((loc) => {
+            if (!loc.english_alt_spellings) return false;
+            const alts = loc.english_alt_spellings.split("|").map((s: string) => s.trim().toLowerCase());
+            return alts.some((alt: string) =>
+              alt === searchName.toLowerCase() ||
+              alt.replace(/'/g, "").replace(/\s+/g, "-") === slug
+            );
+          }) ?? null;
+        }
       }
 
-      // Match slug to city name
-      const matched = localities.find((loc) => {
-        const citySlug = loc.english_name
-          .toLowerCase()
-          .replace(/'/g, "")
-          .replace(/\s+/g, "-");
-        return citySlug === slug;
-      }) || localities.find((loc) =>
-        loc.english_name.toLowerCase() === searchName.toLowerCase()
-      );
+      // 4. Fallback: try matching against city_profiles.city_name
+      if (!matched) {
+        const { data: profileMatch } = await supabase
+          .from("city_profiles")
+          .select("city_name")
+          .ilike("city_name", searchName)
+          .limit(1);
+
+        if (profileMatch && profileMatch.length > 0) {
+          const profileName = profileMatch[0].city_name;
+          // Try to find the locality again by profile name
+          const loc = localities?.find(
+            (l) => l.english_name.toLowerCase() === profileName.toLowerCase()
+          );
+          if (loc) {
+            matched = loc;
+          } else {
+            // Create a minimal city data from profile name
+            matched = {
+              english_name: profileName,
+              hebrew_name: null,
+              cbs_code: null,
+              district: "Unknown",
+            };
+          }
+        }
+      }
 
       if (!matched) {
         setNotFound(true);
