@@ -3,23 +3,39 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
-import Index from "./pages/Index.tsx";
-import NotFound from "./pages/NotFound.tsx";
+import { CurrencyProvider } from "@/contexts/CurrencyContext";
+import Index from "./pages/Index";
+import NotFound from "./pages/NotFound";
+import {
+  CityPage,
+  MarketData,
+  StartHereGuide,
+  DiraGuide,
+  Resources,
+  About,
+} from "./pages/PlaceholderPages";
 
 const queryClient = new QueryClient();
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
     <TooltipProvider>
-      <Toaster />
-      <Sonner />
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Index />} />
-          {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-      </BrowserRouter>
+      <CurrencyProvider>
+        <Toaster />
+        <Sonner />
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<Index />} />
+            <Route path="/city/:slug" element={<CityPage />} />
+            <Route path="/market" element={<MarketData />} />
+            <Route path="/guides/start-here" element={<StartHereGuide />} />
+            <Route path="/guides/dira-behanacha" element={<DiraGuide />} />
+            <Route path="/resources" element={<Resources />} />
+            <Route path="/about" element={<About />} />
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </BrowserRouter>
+      </CurrencyProvider>
     </TooltipProvider>
   </QueryClientProvider>
 );
