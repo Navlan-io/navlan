@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
-import {
+import { supabase } from "@/integrations/supabase/client";
+
   LineChart,
   Line,
   XAxis,
