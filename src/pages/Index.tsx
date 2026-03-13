@@ -123,7 +123,7 @@ const Index = () => {
             speakers
           </p>
 
-          <div className="mt-8 w-full max-w-xl">
+          <div className="mt-8 w-full max-w-xl px-0">
             <SearchBar />
           </div>
 
