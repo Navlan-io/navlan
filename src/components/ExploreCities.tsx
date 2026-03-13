@@ -195,7 +195,7 @@ const ExploreCities = () => {
                 </div>
               )
               : filteredCities.map((city) => {
-                const desc = firstSentence(city.overview);
+                const desc = cleanOverview(city.overview, city.name);
                 return (
                   <Link
                     key={city.slug}
