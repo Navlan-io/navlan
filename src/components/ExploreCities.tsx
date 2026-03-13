@@ -216,7 +216,7 @@ const ExploreCities = () => {
               WebkitOverflowScrolling: "touch",
             }}
           >
-            <style>{`[data-carousel]::-webkit-scrollbar { display: none; }`}</style>
+            <style>{`.carousel-hide-scrollbar::-webkit-scrollbar { display: none; }`}</style>
             {loading
               ? Array.from({ length: 6 }).map((_, i) => (
                   <div
