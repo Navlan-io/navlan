@@ -33,6 +33,7 @@ const MarketDataPage = () => {
             <DistrictComparison />
             <ConstructionPipeline />
             <MortgageRates />
+            <RentalMarket />
             <ConstructionCosts />
           </div>
         </div>
