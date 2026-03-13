@@ -3,6 +3,7 @@ import ProfileMarkdown from "./ProfileMarkdown";
 
 interface CommunityTabProps {
   city: { english_name: string };
+  onSwitchTab?: (tab: string) => void;
   profile: {
     overview: string | null;
     anglo_community: string | null;
