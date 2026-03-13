@@ -259,16 +259,9 @@ const ExploreCities = () => {
         {/* View all link */}
         {!loading && totalCount > 0 && (
           <div className="mt-6 text-center">
-            <Link
-              to="/city/jerusalem"
-              onClick={(e) => {
-                e.preventDefault();
-                // Scroll to show all — could link to a dedicated page
-              }}
-              className="font-body font-medium text-[15px] text-horizon-blue hover:underline"
-            >
+            <span className="font-body font-medium text-[15px] text-horizon-blue">
               View all {totalCount} cities with data →
-            </Link>
+            </span>
           </div>
         )}
       </div>
