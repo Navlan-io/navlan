@@ -1,4 +1,4 @@
-import { Card } from "@/components/ui/card";
+
 
 interface CostOfLivingTabProps {
   city: { english_name: string };
