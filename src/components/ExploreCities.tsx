@@ -139,7 +139,7 @@ const ExploreCities = () => {
               ))
             : filteredCities.length === 0
               ? (
-                <div className="col-span-full text-center py-8">
+                <div className="w-full text-center py-8">
                   <p className="font-body text-[15px] text-warm-gray">
                     No city data available for this district yet.
                   </p>
