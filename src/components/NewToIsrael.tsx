@@ -1,0 +1,59 @@
+import { Link } from "react-router-dom";
+import { BookOpen, Home } from "lucide-react";
+
+const guides = [
+  {
+    icon: BookOpen,
+    title: "How Israeli Real Estate Works",
+    description:
+      "The purchase process, costs, mortgages, and common mistakes — explained for English speakers.",
+    link: "/guides/start-here",
+  },
+  {
+    icon: Home,
+    title: "Dira BeHanacha: Subsidized Housing",
+    description:
+      "Israel's government housing program — eligibility, how to apply, and what to expect. The most complete English guide available.",
+    link: "/guides/dira-behanacha",
+  },
+];
+
+const NewToIsrael = () => {
+  return (
+    <section className="py-16 bg-warm-white">
+      <div className="container max-w-[800px] text-center">
+        <h2 className="font-heading font-semibold text-[24px] text-charcoal">
+          New to Israel?
+        </h2>
+        <p className="mt-1 font-body text-[15px] text-warm-gray">
+          Essential guides for English-speaking property buyers
+        </p>
+
+        <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-6">
+          {guides.map((guide) => (
+            <div
+              key={guide.title}
+              className="bg-cream rounded-xl p-7 shadow-card text-left hover:shadow-[0_4px_12px_rgba(45,50,52,0.10)] hover:-translate-y-0.5 transition-all duration-200"
+            >
+              <guide.icon className="h-8 w-8 text-sage" />
+              <h3 className="mt-4 font-heading font-semibold text-[18px] text-charcoal">
+                {guide.title}
+              </h3>
+              <p className="mt-2 font-body text-[14px] text-warm-gray leading-relaxed">
+                {guide.description}
+              </p>
+              <Link
+                to={guide.link}
+                className="mt-3 inline-block font-body font-medium text-[14px] text-horizon-blue no-underline hover:underline"
+              >
+                Read Guide →
+              </Link>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default NewToIsrael;
