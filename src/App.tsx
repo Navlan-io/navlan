@@ -10,6 +10,7 @@ import CityPage from "./pages/CityPage";
 import MarketDataPage from "./pages/MarketDataPage";
 import StartHereGuidePage from "./pages/StartHereGuidePage";
 import DiraGuidePage from "./pages/DiraGuidePage";
+import GuidesIndexPage from "./pages/GuidesIndexPage";
 import {
   Resources,
   About,
@@ -28,6 +29,7 @@ const App = () => (
             <Route path="/" element={<Index />} />
             <Route path="/city/:slug" element={<CityPage />} />
             <Route path="/market" element={<MarketDataPage />} />
+            <Route path="/guides" element={<GuidesIndexPage />} />
             <Route path="/guides/start-here" element={<StartHereGuidePage />} />
             <Route path="/guides/dira-behanacha" element={<DiraGuidePage />} />
             <Route path="/resources" element={<Resources />} />
