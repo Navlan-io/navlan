@@ -115,10 +115,10 @@ const GuidePage = ({
           >
             ← Guides
           </Link>
-          <h1 className="font-heading font-bold text-[32px] text-charcoal leading-tight">
+          <h1 className="font-heading font-bold text-[26px] md:text-[32px] text-charcoal leading-tight">
             {title}
           </h1>
-          <p className="mt-3 font-body text-[16px] text-warm-gray max-w-[600px]">
+          <p className="mt-3 font-body text-[16px] text-warm-gray max-w-[600px] leading-relaxed">
             {subtitle}
           </p>
           <p className="mt-2 font-body text-[13px] text-warm-gray">{date}</p>
@@ -127,10 +127,10 @@ const GuidePage = ({
           {headerContent}
 
           {/* Mobile TOC */}
-          <div className="lg:hidden mb-8">
+          <div className="lg:hidden mb-8 sticky top-14 md:top-16 z-30 bg-warm-white py-2 -mx-4 px-4">
             <button
               onClick={() => setTocOpen(!tocOpen)}
-              className="w-full flex items-center justify-between bg-cream rounded-lg px-4 py-3 font-body font-medium text-[15px] text-charcoal"
+              className="w-full flex items-center justify-between bg-cream rounded-lg px-4 py-3 min-h-[44px] font-body font-medium text-[15px] text-charcoal"
             >
               Table of Contents
               {tocOpen ? <ChevronDown className="h-4 w-4" /> : <ChevronRight className="h-4 w-4" />}
@@ -158,7 +158,7 @@ const GuidePage = ({
                   <h2 className="font-heading font-semibold text-[22px] text-charcoal mt-10 mb-4 first:mt-0">
                     {section.title}
                   </h2>
-                  <div className="guide-content font-body text-[16px] text-charcoal leading-[1.75]">
+                  <div className="guide-content font-body text-[16px] text-charcoal leading-[1.6] md:leading-[1.75]">
                     {section.content}
                   </div>
                 </section>

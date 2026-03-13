@@ -231,8 +231,8 @@ const TrendsTab = ({ city, prices, districtIndices }: TrendsTabProps) => {
           </Card>
         ) : (
           <>
-            <div className="w-full" style={{ minHeight: 300 }}>
-              <ResponsiveContainer width="100%" height={300}>
+            <div className="w-full" style={{ minHeight: 250 }}>
+              <ResponsiveContainer width="100%" height={280}>
                 <AreaChart data={priceChartData}>
                   <defs>
                     <linearGradient id="priceGrad" x1="0" y1="0" x2="0" y2="1">
@@ -243,14 +243,16 @@ const TrendsTab = ({ city, prices, districtIndices }: TrendsTabProps) => {
                   <CartesianGrid horizontal vertical={false} stroke="#E8E4DE" />
                   <XAxis
                     dataKey="period"
-                    tick={{ fontSize: 12, fill: "#6B7178", fontFamily: "Inter" }}
+                    tick={{ fontSize: 10, fill: "#6B7178", fontFamily: "Inter" }}
                     axisLine={false}
                     tickLine={false}
+                    interval="preserveStartEnd"
                   />
                   <YAxis
-                    tick={{ fontSize: 12, fill: "#6B7178", fontFamily: "Inter" }}
+                    tick={{ fontSize: 10, fill: "#6B7178", fontFamily: "Inter" }}
                     axisLine={false}
                     tickLine={false}
+                    width={40}
                     tickFormatter={(v) => `${Math.round(v / (currency === "₪" ? 1 : currency === "$" ? 3.688 : 3.846))}K`}
                     domain={["auto", "auto"]}
                   />
@@ -315,7 +317,7 @@ const TrendsTab = ({ city, prices, districtIndices }: TrendsTabProps) => {
       {latestPrice && (
         <section>
           <h3 className="font-heading font-semibold text-[18px] text-charcoal mb-4">Price by Room Count</h3>
-          <div className="overflow-x-auto">
+        <div className="overflow-x-auto no-scrollbar">
             <table className="w-full max-w-lg">
               <thead>
                 <tr className="border-b border-grid-line">
@@ -357,7 +359,7 @@ const TrendsTab = ({ city, prices, districtIndices }: TrendsTabProps) => {
             </span>
           </Card>
 
-          <div className="overflow-x-auto">
+          <div className="overflow-x-auto no-scrollbar">
             <table className="w-full max-w-lg">
               <thead>
                 <tr className="border-b border-grid-line">
@@ -427,8 +429,8 @@ const TrendsTab = ({ city, prices, districtIndices }: TrendsTabProps) => {
             <p className="font-body text-warm-gray">District index data not yet available</p>
           </Card>
         ) : (
-          <div className="w-full" style={{ minHeight: 300 }}>
-            <ResponsiveContainer width="100%" height={300}>
+          <div className="w-full" style={{ minHeight: 250 }}>
+            <ResponsiveContainer width="100%" height={280}>
               <AreaChart data={filteredDistrictData}>
                 <defs>
                   <linearGradient id="distGrad" x1="0" y1="0" x2="0" y2="1">
@@ -439,15 +441,17 @@ const TrendsTab = ({ city, prices, districtIndices }: TrendsTabProps) => {
                 <CartesianGrid horizontal vertical={false} stroke="#E8E4DE" />
                 <XAxis
                   dataKey="label"
-                  tick={{ fontSize: 12, fill: "#6B7178", fontFamily: "Inter" }}
+                  tick={{ fontSize: 10, fill: "#6B7178", fontFamily: "Inter" }}
                   axisLine={false}
                   tickLine={false}
+                  interval="preserveStartEnd"
                 />
                 <YAxis
-                  tick={{ fontSize: 12, fill: "#6B7178", fontFamily: "Inter" }}
+                  tick={{ fontSize: 10, fill: "#6B7178", fontFamily: "Inter" }}
                   axisLine={false}
                   tickLine={false}
                   domain={["auto", "auto"]}
+                  width={40}
                 />
                 <Tooltip
                   contentStyle={{

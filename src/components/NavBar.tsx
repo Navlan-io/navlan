@@ -38,7 +38,7 @@ const NavBar = () => {
   };
 
   return (
-    <nav className="sticky top-0 z-50 h-16 bg-warm-white border-b border-grid-line">
+    <nav className="sticky top-0 z-50 h-14 md:h-16 bg-warm-white border-b border-grid-line">
       <div className="container h-full flex items-center justify-between">
         <Link to="/" className="font-heading font-bold text-2xl text-charcoal no-underline hover:no-underline">
           Navlan
@@ -74,7 +74,7 @@ const NavBar = () => {
                 key={c}
                 onClick={() => setCurrency(c)}
                 className={cn(
-                  "px-3 py-1 rounded-full text-sm font-body font-medium transition-colors",
+                  "px-3 py-1.5 min-h-[44px] min-w-[44px] flex items-center justify-center rounded-full text-sm font-body font-medium transition-colors",
                   currency === c
                     ? "bg-sage text-white"
                     : "text-charcoal hover:bg-sage/10"
@@ -86,7 +86,7 @@ const NavBar = () => {
           </div>
 
           <button
-            className="md:hidden p-1 text-charcoal"
+            className="md:hidden p-2 min-h-[44px] min-w-[44px] flex items-center justify-center text-charcoal"
             onClick={() => setMobileOpen(!mobileOpen)}
           >
             {mobileOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
@@ -95,14 +95,14 @@ const NavBar = () => {
       </div>
 
       {mobileOpen && (
-        <div className="md:hidden bg-warm-white border-b border-grid-line px-6 py-4 space-y-3">
+        <div className="md:hidden bg-warm-white border-b border-grid-line px-4 py-3 space-y-1">
           {navLinks.map((link) =>
             link.href.startsWith("/#") ? (
               <a
                 key={link.label}
                 href={link.href}
                 onClick={(e) => handleNavClick(link.href, e)}
-                className="block font-body font-medium text-[15px] text-charcoal no-underline hover:text-sage"
+                className="block min-h-[44px] flex items-center font-body font-medium text-[15px] text-charcoal no-underline hover:text-sage"
               >
                 {link.label}
               </a>
@@ -111,7 +111,7 @@ const NavBar = () => {
                 key={link.label}
                 to={link.href}
                 onClick={() => setMobileOpen(false)}
-                className="block font-body font-medium text-[15px] text-charcoal no-underline hover:text-sage"
+                className="block min-h-[44px] flex items-center font-body font-medium text-[15px] text-charcoal no-underline hover:text-sage"
               >
                 {link.label}
               </Link>

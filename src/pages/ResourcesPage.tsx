@@ -141,7 +141,7 @@ const ResourcesPage = () => {
           </p>
           <div className="border-b border-grid-line mt-6 mb-10" />
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-start">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-10 items-start">
             {categories.map((cat) => (
               <section key={cat.title}>
                 <div className="flex items-center gap-2.5 mb-4">

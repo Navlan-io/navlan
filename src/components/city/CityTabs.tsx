@@ -27,7 +27,7 @@ const CityTabs = ({ city, profile, prices, districtIndices }: CityTabsProps) => 
   return (
     <div>
       {/* Tab bar */}
-      <div className="sticky top-16 z-40 bg-warm-white border-b border-grid-line">
+      <div className="sticky top-14 md:top-16 z-40 bg-warm-white border-b border-grid-line">
         <div className="container max-w-[1200px]">
           <div className="flex overflow-x-auto no-scrollbar relative">
             {TABS.map((tab) => (
@@ -35,7 +35,7 @@ const CityTabs = ({ city, profile, prices, districtIndices }: CityTabsProps) => 
                 key={tab}
                 onClick={() => setActiveTab(tab)}
                 className={cn(
-                  "px-4 py-3 font-body font-medium text-[15px] whitespace-nowrap transition-colors border-b-2 -mb-px",
+                  "px-4 py-3 min-h-[44px] font-body font-medium text-[14px] md:text-[15px] whitespace-nowrap transition-colors border-b-2 -mb-px",
                   activeTab === tab
                     ? "text-sage border-sage"
                     : "text-warm-gray border-transparent hover:text-charcoal"

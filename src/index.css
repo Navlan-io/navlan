@@ -96,3 +96,43 @@
     @apply text-horizon-blue no-underline hover:underline transition-colors;
   }
 }
+
+/* Global overflow prevention */
+html, body {
+  overflow-x: hidden;
+}
+
+/* Utility: no-scrollbar */
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Ensure images never overflow */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Tables: scroll hint fade */
+.table-scroll-wrapper {
+  position: relative;
+}
+.table-scroll-wrapper::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 24px;
+  background: linear-gradient(to left, hsl(var(--warm-white)), transparent);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+.table-scroll-wrapper.has-overflow::after {
+  opacity: 1;
+}

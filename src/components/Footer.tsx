@@ -48,9 +48,9 @@ const Footer = () => {
               <input
                 type="email"
                 placeholder="Your email"
-                className="flex-1 h-11 px-4 rounded-lg bg-white/10 border border-white/20 text-white font-body text-[14px] placeholder:text-white/40 focus:outline-none focus:border-sage transition-colors"
+                className="flex-1 min-w-0 h-12 px-4 rounded-lg bg-white/10 border border-white/20 text-white font-body text-[14px] placeholder:text-white/40 focus:outline-none focus:border-sage transition-colors"
               />
-              <Button size="default">Subscribe</Button>
+              <Button size="default" className="min-h-[48px] shrink-0">Subscribe</Button>
             </div>
             <p className="mt-2 text-white/50 font-body text-[12px]">
               Subscribe to The Navlan Report

@@ -131,8 +131,8 @@ const RentalMarket = () => {
         </div>
       </div>
 
-      <div style={{ minHeight: 350 }}>
-        <ResponsiveContainer width="100%" height={350}>
+      <div style={{ minHeight: 250 }}>
+        <ResponsiveContainer width="100%" height={300}>
           <AreaChart data={chartData}>
             <defs>
               <linearGradient id="rentGrad" x1="0" y1="0" x2="0" y2="1">
@@ -141,8 +141,8 @@ const RentalMarket = () => {
               </linearGradient>
             </defs>
             <CartesianGrid horizontal vertical={false} stroke="#E8E4DE" />
-            <XAxis dataKey="label" tick={{ fontSize: 12, fill: "#6B7178", fontFamily: "Inter" }} axisLine={false} tickLine={false} />
-            <YAxis tick={{ fontSize: 12, fill: "#6B7178", fontFamily: "Inter" }} axisLine={false} tickLine={false} domain={["auto", "auto"]} />
+            <XAxis dataKey="label" tick={{ fontSize: 10, fill: "#6B7178", fontFamily: "Inter" }} axisLine={false} tickLine={false} interval="preserveStartEnd" />
+            <YAxis tick={{ fontSize: 10, fill: "#6B7178", fontFamily: "Inter" }} axisLine={false} tickLine={false} domain={["auto", "auto"]} width={40} />
             <Tooltip content={<CustomTooltip />} />
             <Area type="monotone" dataKey="value" stroke="#C4A96A" strokeWidth={2} fill="url(#rentGrad)" dot={false} />
           </AreaChart>

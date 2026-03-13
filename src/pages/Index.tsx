@@ -115,25 +115,25 @@ const Index = () => {
         <div className="absolute inset-0 bg-charcoal/40" />
 
         <div className="relative z-10 container py-20 md:py-28 flex flex-col items-center text-center">
-          <h1 className="text-white text-[32px] md:text-[44px] font-heading font-bold leading-tight max-w-2xl drop-shadow-sm">
-            Navigate Israeli Real Estate. In English.
+          <h1 className="text-white text-[28px] md:text-[44px] font-heading font-bold leading-tight max-w-2xl drop-shadow-sm">
+            Navigate Israeli Real&nbsp;Estate. In&nbsp;English.
           </h1>
-          <p className="mt-4 text-white/90 font-body text-[17px] md:text-[19px] max-w-lg drop-shadow-sm">
+          <p className="mt-4 text-white/90 font-body text-[16px] md:text-[19px] max-w-lg drop-shadow-sm">
             Market data, city guides, and community resources for English
             speakers
           </p>
 
-          <div className="mt-8 w-full max-w-xl">
+          <div className="mt-8 w-full max-w-xl px-0">
             <SearchBar />
           </div>
 
           {/* Live stat pills */}
-          <div className="mt-8 flex flex-wrap justify-center gap-3">
+          <div className="mt-8 flex flex-col sm:flex-row flex-wrap justify-center gap-2 sm:gap-3 w-full max-w-xl">
             {stats.map((stat) => (
               <Link
                 key={stat.label}
                 to={stat.href}
-                className="flex items-center gap-2 bg-white/90 backdrop-blur-sm rounded-full px-4 py-2 shadow-card no-underline hover:shadow-[0_4px_16px_rgba(45,50,52,0.15)] transition-shadow duration-200 cursor-pointer"
+                className="flex items-center justify-center gap-2 bg-white/90 backdrop-blur-sm rounded-full px-4 py-2.5 min-h-[44px] shadow-card no-underline hover:shadow-[0_4px_16px_rgba(45,50,52,0.15)] transition-shadow duration-200 cursor-pointer"
               >
                 <span className="font-body text-[13px] text-warm-gray">
                   {stat.label}:

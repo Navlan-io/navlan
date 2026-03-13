@@ -102,12 +102,12 @@ const DistrictComparison = () => {
         Regional price index trends across Israel's six statistical districts
       </p>
 
-      <div style={{ minHeight: 350 }}>
-        <ResponsiveContainer width="100%" height={350}>
+      <div style={{ minHeight: 250 }}>
+        <ResponsiveContainer width="100%" height={300}>
           <LineChart data={chartData}>
             <CartesianGrid horizontal vertical={false} stroke="#E8E4DE" />
-            <XAxis dataKey="label" tick={{ fontSize: 12, fill: "#6B7178", fontFamily: "Inter" }} axisLine={false} tickLine={false} />
-            <YAxis tick={{ fontSize: 12, fill: "#6B7178", fontFamily: "Inter" }} axisLine={false} tickLine={false} domain={["auto", "auto"]} />
+            <XAxis dataKey="label" tick={{ fontSize: 10, fill: "#6B7178", fontFamily: "Inter" }} axisLine={false} tickLine={false} interval="preserveStartEnd" />
+            <YAxis tick={{ fontSize: 10, fill: "#6B7178", fontFamily: "Inter" }} axisLine={false} tickLine={false} domain={["auto", "auto"]} width={40} />
             <Tooltip content={<CustomTooltip />} />
             {DISTRICTS.map((d) => (
               <Line
@@ -124,7 +124,7 @@ const DistrictComparison = () => {
         </ResponsiveContainer>
       </div>
 
-      <div className="flex flex-wrap items-center gap-4 mt-4">
+      <div className="flex flex-wrap items-center gap-3 mt-4">
         {DISTRICTS.map((d) => (
           <a
             key={d.code}

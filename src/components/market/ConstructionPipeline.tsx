@@ -153,8 +153,8 @@ const ConstructionPipeline = () => {
         <div>
           <h3 className="font-heading font-semibold text-[18px] text-charcoal mb-4">Unsold Inventory Trend</h3>
           {unsoldChart.length > 0 ? (
-            <div style={{ minHeight: 280 }}>
-              <ResponsiveContainer width="100%" height={280}>
+            <div style={{ minHeight: 250 }}>
+              <ResponsiveContainer width="100%" height={260}>
                 <AreaChart data={unsoldChart}>
                   <defs>
                     <linearGradient id="unsoldGrad" x1="0" y1="0" x2="0" y2="1">
@@ -163,8 +163,8 @@ const ConstructionPipeline = () => {
                     </linearGradient>
                   </defs>
                   <CartesianGrid horizontal vertical={false} stroke="#E8E4DE" />
-                  <XAxis dataKey="label" tick={{ fontSize: 12, fill: "#6B7178", fontFamily: "Inter" }} axisLine={false} tickLine={false} />
-                  <YAxis tick={{ fontSize: 12, fill: "#6B7178", fontFamily: "Inter" }} axisLine={false} tickLine={false} />
+                  <XAxis dataKey="label" tick={{ fontSize: 10, fill: "#6B7178", fontFamily: "Inter" }} axisLine={false} tickLine={false} interval="preserveStartEnd" />
+                  <YAxis tick={{ fontSize: 10, fill: "#6B7178", fontFamily: "Inter" }} axisLine={false} tickLine={false} width={40} />
                   <Tooltip content={<ChartTooltip />} />
                   <Area type="monotone" dataKey="value" stroke="#C25B4A" strokeWidth={2} fill="url(#unsoldGrad)" dot={false} />
                 </AreaChart>
@@ -181,8 +181,8 @@ const ConstructionPipeline = () => {
         <div>
           <h3 className="font-heading font-semibold text-[18px] text-charcoal mb-4">Construction Starts</h3>
           {startsChart.length > 0 ? (
-            <div style={{ minHeight: 280 }}>
-              <ResponsiveContainer width="100%" height={280}>
+            <div style={{ minHeight: 250 }}>
+              <ResponsiveContainer width="100%" height={260}>
                 <AreaChart data={startsChart}>
                   <defs>
                     <linearGradient id="startsGrad" x1="0" y1="0" x2="0" y2="1">
@@ -191,8 +191,8 @@ const ConstructionPipeline = () => {
                     </linearGradient>
                   </defs>
                   <CartesianGrid horizontal vertical={false} stroke="#E8E4DE" />
-                  <XAxis dataKey="label" tick={{ fontSize: 12, fill: "#6B7178", fontFamily: "Inter" }} axisLine={false} tickLine={false} />
-                  <YAxis tick={{ fontSize: 12, fill: "#6B7178", fontFamily: "Inter" }} axisLine={false} tickLine={false} />
+                  <XAxis dataKey="label" tick={{ fontSize: 10, fill: "#6B7178", fontFamily: "Inter" }} axisLine={false} tickLine={false} interval="preserveStartEnd" />
+                  <YAxis tick={{ fontSize: 10, fill: "#6B7178", fontFamily: "Inter" }} axisLine={false} tickLine={false} width={40} />
                   <Tooltip content={<ChartTooltip />} />
                   <Area type="monotone" dataKey="value" stroke="#4A7F8B" strokeWidth={2} fill="url(#startsGrad)" dot={false} />
                 </AreaChart>
