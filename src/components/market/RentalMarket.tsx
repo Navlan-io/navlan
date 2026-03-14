@@ -7,6 +7,7 @@ import { Card } from "@/components/ui/card";
 import TrendPill from "@/components/TrendPill";
 import { Skeleton } from "@/components/ui/skeleton";
 import { cn } from "@/lib/utils";
+import InsightCard from "./InsightCard";
 
 const MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
 const TIME_RANGES = ["1Y", "3Y", "5Y", "Max"] as const;
