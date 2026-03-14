@@ -7,8 +7,8 @@ import { Card } from "@/components/ui/card";
 import TrendPill from "@/components/TrendPill";
 import { Skeleton } from "@/components/ui/skeleton";
 import InsightCard from "./InsightCard";
-
-const MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+import { useIsMobile } from "@/hooks/use-mobile";
+import { buildLabel, getXAxisConfig, getNiceYDomain, type ChartPoint } from "@/lib/chartUtils";
 
 interface CostRow {
   month: number;
@@ -20,6 +20,7 @@ interface CostRow {
 const ConstructionCosts = () => {
   const [data, setData] = useState<CostRow[]>([]);
   const [loading, setLoading] = useState(true);
+  const isMobile = useIsMobile();
 
   useEffect(() => {
     const fetch = async () => {
@@ -47,10 +48,15 @@ const ConstructionCosts = () => {
 
   const latest = data.length > 0 ? data[data.length - 1] : null;
 
-  const chartData = data.map((r) => ({
-    label: `${MONTHS[r.month - 1]} '${String(r.year).slice(2)}`,
+  const chartData: ChartPoint[] = data.map((r) => ({
+    label: buildLabel(r.month, r.year),
+    year: r.year,
+    month: r.month,
     value: r.value ?? 0,
   }));
+
+  const xAxisConfig = getXAxisConfig(chartData, isMobile);
+  const yDomain = getNiceYDomain(chartData.map(d => d.value as number));
 
   const CustomTooltip = ({ active, payload, label }: any) => {
     if (!active || !payload?.length) return null;
@@ -98,8 +104,22 @@ const ConstructionCosts = () => {
               </linearGradient>
             </defs>
             <CartesianGrid horizontal vertical={false} stroke="#E8E4DE" />
-            <XAxis dataKey="label" tick={{ fontSize: 10, fill: "#6B7178", fontFamily: "Inter" }} axisLine={false} tickLine={false} interval="preserveStartEnd" />
-            <YAxis tick={{ fontSize: 10, fill: "#6B7178", fontFamily: "Inter" }} axisLine={false} tickLine={false} domain={["auto", "auto"]} width={40} />
+            <XAxis
+              dataKey="label"
+              ticks={xAxisConfig.ticks}
+              tickFormatter={xAxisConfig.tickFormatter}
+              tick={{ fontSize: 10, fill: "#6B7178", fontFamily: "Inter" }}
+              axisLine={false}
+              tickLine={false}
+            />
+            <YAxis
+              domain={yDomain.domain}
+              ticks={yDomain.ticks}
+              tick={{ fontSize: 10, fill: "#6B7178", fontFamily: "Inter" }}
+              axisLine={false}
+              tickLine={false}
+              width={40}
+            />
             <Tooltip content={<CustomTooltip />} />
             <Area type="monotone" dataKey="value" stroke="#C4A96A" strokeWidth={2} fill="url(#costGrad)" dot={false} />
           </AreaChart>

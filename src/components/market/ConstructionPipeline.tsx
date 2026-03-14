@@ -7,6 +7,8 @@ import { Card } from "@/components/ui/card";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Badge } from "@/components/ui/badge";
 import InsightCard from "./InsightCard";
+import { useIsMobile } from "@/hooks/use-mobile";
+import { buildLabel, getXAxisConfig, getNiceYDomain, type ChartPoint } from "@/lib/chartUtils";
 
 const MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
 
@@ -22,9 +24,10 @@ const ConstructionPipeline = () => {
   const [unsoldLatest, setUnsoldLatest] = useState<number | null>(null);
   const [monthsSupply, setMonthsSupply] = useState<number | null>(null);
   const [startsLatest, setStartsLatest] = useState<number | null>(null);
-  const [unsoldChart, setUnsoldChart] = useState<any[]>([]);
-  const [startsChart, setStartsChart] = useState<any[]>([]);
+  const [unsoldChart, setUnsoldChart] = useState<ChartPoint[]>([]);
+  const [startsChart, setStartsChart] = useState<ChartPoint[]>([]);
   const [loading, setLoading] = useState(true);
+  const isMobile = useIsMobile();
 
   useEffect(() => {
     const fetch = async () => {
@@ -73,9 +76,11 @@ const ConstructionPipeline = () => {
       setMonthsSupply(supplyRes.data?.[0]?.value ?? null);
       setStartsLatest(startsRes.data?.[0]?.value ?? null);
 
-      const toChart = (rows: StatRow[] | null) =>
+      const toChart = (rows: StatRow[] | null): ChartPoint[] =>
         (rows ?? []).map((r) => ({
-          label: r.month ? `${MONTHS[r.month - 1]} '${String(r.year).slice(2)}` : `${r.year}`,
+          label: r.month ? buildLabel(r.month, r.year) : `${r.year}`,
+          year: r.year,
+          month: r.month ?? 1,
           value: r.value ?? 0,
         }));
 
@@ -85,6 +90,11 @@ const ConstructionPipeline = () => {
     };
     fetch();
   }, []);
+
+  const unsoldXAxis = getXAxisConfig(unsoldChart, isMobile);
+  const unsoldYDomain = getNiceYDomain(unsoldChart.map(d => d.value as number));
+  const startsXAxis = getXAxisConfig(startsChart, isMobile);
+  const startsYDomain = getNiceYDomain(startsChart.map(d => d.value as number));
 
   if (loading) {
     return (
@@ -164,8 +174,23 @@ const ConstructionPipeline = () => {
                     </linearGradient>
                   </defs>
                   <CartesianGrid horizontal vertical={false} stroke="#E8E4DE" />
-                  <XAxis dataKey="label" tick={{ fontSize: 10, fill: "#6B7178", fontFamily: "Inter" }} axisLine={false} tickLine={false} interval="preserveStartEnd" />
-                  <YAxis tick={{ fontSize: 10, fill: "#6B7178", fontFamily: "Inter" }} axisLine={false} tickLine={false} width={40} />
+                  <XAxis
+                    dataKey="label"
+                    ticks={unsoldXAxis.ticks}
+                    tickFormatter={unsoldXAxis.tickFormatter}
+                    tick={{ fontSize: 10, fill: "#6B7178", fontFamily: "Inter" }}
+                    axisLine={false}
+                    tickLine={false}
+                  />
+                  <YAxis
+                    domain={unsoldYDomain.domain}
+                    ticks={unsoldYDomain.ticks}
+                    tick={{ fontSize: 10, fill: "#6B7178", fontFamily: "Inter" }}
+                    axisLine={false}
+                    tickLine={false}
+                    width={50}
+                    tickFormatter={(v) => `${Math.round(v / 1000)}K`}
+                  />
                   <Tooltip content={<ChartTooltip />} />
                   <Area type="monotone" dataKey="value" stroke="#C25B4A" strokeWidth={2} fill="url(#unsoldGrad)" dot={false} />
                 </AreaChart>
@@ -192,8 +217,23 @@ const ConstructionPipeline = () => {
                     </linearGradient>
                   </defs>
                   <CartesianGrid horizontal vertical={false} stroke="#E8E4DE" />
-                  <XAxis dataKey="label" tick={{ fontSize: 10, fill: "#6B7178", fontFamily: "Inter" }} axisLine={false} tickLine={false} interval="preserveStartEnd" />
-                  <YAxis tick={{ fontSize: 10, fill: "#6B7178", fontFamily: "Inter" }} axisLine={false} tickLine={false} width={40} />
+                  <XAxis
+                    dataKey="label"
+                    ticks={startsXAxis.ticks}
+                    tickFormatter={startsXAxis.tickFormatter}
+                    tick={{ fontSize: 10, fill: "#6B7178", fontFamily: "Inter" }}
+                    axisLine={false}
+                    tickLine={false}
+                  />
+                  <YAxis
+                    domain={startsYDomain.domain}
+                    ticks={startsYDomain.ticks}
+                    tick={{ fontSize: 10, fill: "#6B7178", fontFamily: "Inter" }}
+                    axisLine={false}
+                    tickLine={false}
+                    width={50}
+                    tickFormatter={(v) => `${Math.round(v / 1000)}K`}
+                  />
                   <Tooltip content={<ChartTooltip />} />
                   <Area type="monotone" dataKey="value" stroke="#4A7F8B" strokeWidth={2} fill="url(#startsGrad)" dot={false} />
                 </AreaChart>
