@@ -110,10 +110,14 @@ const ConstructionCosts = () => {
         Source: CBS Construction Cost Input Index
       </p>
 
-      <p className="font-body text-[14px] text-warm-gray mt-4">
-        The construction cost index tracks input costs (labor, materials, equipment) for residential building.
-        Rising construction costs contribute to higher new-build prices.
-      </p>
+      {latest && (() => {
+        const yoy = latest.percent_yoy ?? 0;
+        let narrative = "";
+        if (yoy > 5) narrative = `Construction costs are surging at +${yoy.toFixed(1)}% annually — expect this to push new-build prices higher.`;
+        else if (yoy >= 2) narrative = `Construction costs are rising at +${yoy.toFixed(1)}% — above general inflation but not a major market driver.`;
+        else narrative = `Construction costs have stabilized at +${yoy.toFixed(1)}% — removing one source of upward price pressure.`;
+        return <InsightCard>{narrative}</InsightCard>;
+      })()}
     </section>
   );
 };

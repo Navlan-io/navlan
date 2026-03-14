@@ -207,18 +207,19 @@ const ConstructionPipeline = () => {
         </div>
       </div>
 
-      {monthsSupply != null && monthsSupply > 24 && (
-        <Card className="p-5 bg-cream border-0 border-l-4 border-l-amber shadow-card">
-          <p className="font-body text-[14px] text-charcoal">
-            Current supply levels ({monthsSupply.toFixed(1)} months) suggest a buyer's market for new construction.
-            Historically, 12–18 months is considered balanced.
-          </p>
-        </Card>
-      )}
-
       <p className="font-body text-[12px] text-warm-gray mt-4">
         Source: CBS Construction Statistics
       </p>
+
+      {monthsSupply != null && (
+        <InsightCard>
+          {monthsSupply > 24
+            ? `With ${monthsSupply.toFixed(1)} months of unsold inventory, the new construction market favors buyers. Historically, 12–18 months is considered balanced.`
+            : monthsSupply >= 18
+              ? `At ${monthsSupply.toFixed(1)} months of supply, inventory is elevated but not extreme.`
+              : `At ${monthsSupply.toFixed(1)} months of supply, the new construction market is relatively balanced.`}
+        </InsightCard>
+      )}
     </section>
   );
 };
