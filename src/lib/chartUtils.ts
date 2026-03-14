@@ -78,7 +78,7 @@ export function getXAxisConfig(data: ChartPoint[], isMobile: boolean) {
  */
 export function getNiceYDomain(
   data: number[],
-  tickCount: number = 5
+  tickCount: number = 6
 ): { domain: [number, number]; ticks: number[] } {
   if (data.length === 0) return { domain: [0, 100], ticks: [0, 25, 50, 75, 100] };
 
