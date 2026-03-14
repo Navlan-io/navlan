@@ -9,13 +9,14 @@ import {
   ResponsiveContainer,
   Area,
   AreaChart,
-  Legend,
 } from "recharts";
 import { supabase } from "@/integrations/supabase/client";
 import { useCurrency } from "@/contexts/CurrencyContext";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
+import { useIsMobile } from "@/hooks/use-mobile";
+import { buildLabel, getXAxisConfig, getNiceYDomain, type ChartPoint } from "@/lib/chartUtils";
 
 interface TrendsTabProps {
   city: {
@@ -55,7 +56,6 @@ const MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "
 const TIME_RANGES = ["1Y", "3Y", "5Y", "Max"] as const;
 
 function formatPeriodShort(period: string) {
-  // period like "2025-Q1" or "2024Q4" etc
   const match = period.match(/(\d{4})[- ]?Q(\d)/i);
   if (match) return `Q${match[2]} '${match[1].slice(2)}`;
   return period;
@@ -65,6 +65,7 @@ const TrendsTab = ({ city, prices, districtIndices }: TrendsTabProps) => {
   const { formatPrice, currency, rates } = useCurrency();
   const usdRate = rates.USD;
   const eurRate = rates.EUR;
+  const isMobile = useIsMobile();
   const [compareCity, setCompareCity] = useState<string | null>(null);
   const [comparePrices, setComparePrices] = useState<any[]>([]);
   const [compareCities, setCompareCities] = useState<{ english_name: string; cbs_code: number | null }[]>([]);
@@ -73,7 +74,6 @@ const TrendsTab = ({ city, prices, districtIndices }: TrendsTabProps) => {
   const [rentalData, setRentalData] = useState<any>(null);
   const [rentalLoading, setRentalLoading] = useState(true);
 
-  // Fetch rental data for this city
   useEffect(() => {
     if (!city.cbs_code) {
       setRentalLoading(false);
@@ -92,7 +92,6 @@ const TrendsTab = ({ city, prices, districtIndices }: TrendsTabProps) => {
     fetchRental();
   }, [city.cbs_code]);
 
-  // Fetch available comparison cities
   useEffect(() => {
     const fetchCities = async () => {
       const { data } = await supabase
@@ -106,7 +105,6 @@ const TrendsTab = ({ city, prices, districtIndices }: TrendsTabProps) => {
     fetchCities();
   }, [city.english_name]);
 
-  // Fetch comparison city prices
   useEffect(() => {
     if (!compareCity) {
       setComparePrices([]);
@@ -126,8 +124,6 @@ const TrendsTab = ({ city, prices, districtIndices }: TrendsTabProps) => {
     fetch();
   }, [compareCity, compareCities]);
 
-  // Chart data for price history
-  // Sort prices chronologically by parsing "Q3-2024" → year + quarter
   const sortedPrices = [...prices]
     .filter((p) => !p.period.includes("Annual"))
     .sort((a, b) => {
@@ -150,7 +146,9 @@ const TrendsTab = ({ city, prices, districtIndices }: TrendsTabProps) => {
     return row;
   });
 
-  // Latest price row for room breakdown
+  const priceValues = priceChartData.map(d => d.price).filter((v): v is number => v != null);
+  const priceYDomain = getNiceYDomain(priceValues);
+
   const latestPrice = prices.length > 0 ? prices[prices.length - 1] : null;
 
   const roomData = latestPrice
@@ -163,15 +161,14 @@ const TrendsTab = ({ city, prices, districtIndices }: TrendsTabProps) => {
       ]
     : [];
 
-  // District index chart data
-  const districtChartData = districtIndices.map((d) => ({
-    label: `${MONTHS[d.month - 1]} '${String(d.year).slice(2)}`,
-    value: d.value,
+  // District index chart data with ChartPoint structure
+  const districtChartData: ChartPoint[] = districtIndices.map((d) => ({
+    label: buildLabel(d.month, d.year),
     year: d.year,
     month: d.month,
+    value: d.value ?? 0,
   }));
 
-  // Filter district data by time range
   const now = new Date();
   const filteredDistrictData = districtChartData.filter((d) => {
     if (districtRange === "Max") return true;
@@ -180,6 +177,9 @@ const TrendsTab = ({ city, prices, districtIndices }: TrendsTabProps) => {
     const dataDate = new Date(d.year, d.month - 1, 1);
     return dataDate >= cutoff;
   });
+
+  const districtXAxis = getXAxisConfig(filteredDistrictData, isMobile);
+  const districtYDomain = getNiceYDomain(filteredDistrictData.map(d => d.value as number));
 
   const noPriceData = prices.length === 0;
 
@@ -249,12 +249,16 @@ const TrendsTab = ({ city, prices, districtIndices }: TrendsTabProps) => {
                     interval="preserveStartEnd"
                   />
                   <YAxis
+                    domain={priceYDomain.domain}
+                    ticks={priceYDomain.ticks}
                     tick={{ fontSize: 10, fill: "#6B7178", fontFamily: "Inter" }}
                     axisLine={false}
                     tickLine={false}
-                    width={40}
-                    tickFormatter={(v) => `${Math.round(v / (currency === "₪" ? 1 : currency === "$" ? 3.688 : 3.846))}K`}
-                    domain={["auto", "auto"]}
+                    width={50}
+                    tickFormatter={(v) => {
+                      const divisor = currency === "₪" ? 1 : currency === "$" ? usdRate : eurRate;
+                      return `${Math.round(v / divisor / 1000)}K`;
+                    }}
                   />
                   <Tooltip
                     contentStyle={{
@@ -441,16 +445,18 @@ const TrendsTab = ({ city, prices, districtIndices }: TrendsTabProps) => {
                 <CartesianGrid horizontal vertical={false} stroke="#E8E4DE" />
                 <XAxis
                   dataKey="label"
+                  ticks={districtXAxis.ticks}
+                  tickFormatter={districtXAxis.tickFormatter}
                   tick={{ fontSize: 10, fill: "#6B7178", fontFamily: "Inter" }}
                   axisLine={false}
                   tickLine={false}
-                  interval="preserveStartEnd"
                 />
                 <YAxis
+                  domain={districtYDomain.domain}
+                  ticks={districtYDomain.ticks}
                   tick={{ fontSize: 10, fill: "#6B7178", fontFamily: "Inter" }}
                   axisLine={false}
                   tickLine={false}
-                  domain={["auto", "auto"]}
                   width={40}
                 />
                 <Tooltip
