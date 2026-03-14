@@ -130,7 +130,7 @@ const MarketSnapshot = () => {
           {/* Commentary - 2/5 */}
           <div className="lg:col-span-2 flex flex-col justify-center">
             <h3 className="font-heading font-semibold text-[18px] text-charcoal">
-              Israel Housing Market — Q4 2025
+              Market Snapshot
             </h3>
 
             <div className="mt-5 space-y-4">
@@ -162,20 +162,23 @@ const MarketSnapshot = () => {
               </div>
             </div>
 
-            <p className="mt-5 font-body text-[15px] text-charcoal leading-[1.65]">
-              Israeli housing prices continued their gradual climb through late
-              2025, with the national price index reaching{" "}
-              {latest.value.toFixed(1)}. Year-over-year growth has moderated from
-              nearly 7% at the start of the year to {latest.yoy.toFixed(1)}%,
-              suggesting a cooling but still-appreciating market. Construction
-              costs have stabilized, rising just 2.2% annually.
-            </p>
+            <div className="mt-5 rounded-lg bg-cream border-l-4 border-l-sage p-4">
+              <p className="font-body text-[15px] text-charcoal leading-[1.6] m-0">
+                {(() => {
+                  const yoy = latest.yoy;
+                  if (yoy > 5) return `Israeli home prices are rising ${yoy.toFixed(1)}% year-over-year — the fastest pace in recent years.`;
+                  if (yoy >= 2) return `Israeli home prices are up ${yoy.toFixed(1)}% this year, growing at a moderate pace.`;
+                  if (yoy >= 0) return `Israeli home prices are nearly flat at +${yoy.toFixed(1)}% this year — the slowest growth in years.`;
+                  return `Israeli home prices have dipped ${yoy.toFixed(1)}% — a rare market correction.`;
+                })()}
+              </p>
+            </div>
 
             <Link
               to="/market"
               className="mt-4 inline-block font-body font-medium text-[15px] text-horizon-blue no-underline hover:underline"
             >
-              View Full Market Data →
+              See full market analysis →
             </Link>
           </div>
         </div>
