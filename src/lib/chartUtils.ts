@@ -72,8 +72,9 @@ export function getXAxisConfig(data: ChartPoint[], isMobile: boolean) {
 }
 
 /**
- * Compute nice Y-axis domain with rounded bounds.
- * E.g. for data range 405-610, returns [400, 650] with ticks at [400, 450, 500, 550, 600, 650].
+ * Compute nice Y-axis domain that tightly frames the data.
+ * Uses a small buffer (~5-10%) above max and below min, then snaps to round numbers.
+ * E.g. for data range 405-601 → domain [400, 650], ticks [400, 450, 500, 550, 600, 650].
  */
 export function getNiceYDomain(
   data: number[],
@@ -85,10 +86,16 @@ export function getNiceYDomain(
   const max = Math.max(...data);
   const range = max - min || 1;
 
-  // Pick a nice step size
-  const rawStep = range / (tickCount - 1);
+  // Add a small buffer (5% of range on each side, minimum 1)
+  const buffer = Math.max(range * 0.05, 1);
+  const bufferedMin = min - buffer;
+  const bufferedMax = max + buffer;
+  const bufferedRange = bufferedMax - bufferedMin;
+
+  // Pick a nice step size based on the buffered range
+  const rawStep = bufferedRange / (tickCount - 1);
   const magnitude = Math.pow(10, Math.floor(Math.log10(rawStep)));
-  const niceSteps = [1, 2, 2.5, 5, 10];
+  const niceSteps = [1, 1.5, 2, 2.5, 5, 10];
   let step = magnitude;
   for (const ns of niceSteps) {
     if (ns * magnitude >= rawStep) {
@@ -97,8 +104,13 @@ export function getNiceYDomain(
     }
   }
 
-  const niceMin = Math.floor(min / step) * step;
-  const niceMax = Math.ceil(max / step) * step;
+  const niceMin = Math.floor(bufferedMin / step) * step;
+  // Snap niceMax to just cover the actual max, not the over-buffered value
+  let niceMax = Math.ceil(max / step) * step;
+  // Ensure at least one step of headroom above max
+  if (niceMax - max < step * 0.1) {
+    niceMax += step;
+  }
 
   const ticks: number[] = [];
   for (let v = niceMin; v <= niceMax + step * 0.01; v += step) {
