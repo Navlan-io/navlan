@@ -97,7 +97,33 @@ const NationalPriceTrend = () => {
     <section>
       <h2 className="font-heading font-semibold text-[22px] text-charcoal mb-6">National Price Index</h2>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mb-8">
+      {/* Compact metric row on mobile, 3-col grid on desktop */}
+      <Card className="p-5 bg-cream border-0 shadow-card mb-8 md:hidden">
+        <div className="flex items-center justify-between">
+          <div>
+            <span className="font-body text-[13px] text-warm-gray block">Price Index</span>
+            <span className="font-body font-bold text-[24px] text-charcoal">{latest.value?.toFixed(1)}</span>
+          </div>
+          <div className="flex items-center gap-3">
+            <div className="text-center">
+              <span className="font-body text-[11px] text-warm-gray block mb-0.5">YoY</span>
+              <TrendPill
+                direction={(latest.percent_yoy ?? 0) >= 0 ? "up" : "down"}
+                value={`${(latest.percent_yoy ?? 0) >= 0 ? "+" : ""}${(latest.percent_yoy ?? 0).toFixed(1)}%`}
+              />
+            </div>
+            <div className="text-center">
+              <span className="font-body text-[11px] text-warm-gray block mb-0.5">MoM</span>
+              <TrendPill
+                direction={(latest.percent_mom ?? 0) >= 0 ? "up" : "down"}
+                value={`${(latest.percent_mom ?? 0) >= 0 ? "+" : ""}${(latest.percent_mom ?? 0).toFixed(1)}%`}
+              />
+            </div>
+          </div>
+        </div>
+      </Card>
+
+      <div className="hidden md:grid grid-cols-3 gap-5 mb-8">
         <Card className="p-5 bg-cream border-0 shadow-card">
           <span className="font-body text-[13px] text-warm-gray block">Price Index</span>
           <span className="font-body font-bold text-[28px] text-charcoal">{latest.value?.toFixed(1)}</span>

@@ -2,11 +2,9 @@ import { useState } from "react";
 import { cn } from "@/lib/utils";
 import TrendsTab from "./TrendsTab";
 import CommunityTab from "./CommunityTab";
-import CostOfLivingTab from "./CostOfLivingTab";
-import GettingAroundTab from "./GettingAroundTab";
 import ResourcesTab from "./ResourcesTab";
 
-const TABS = ["Trends", "Community", "Cost of Living", "Getting Around", "Resources"] as const;
+const TABS = ["Trends", "Community", "Resources"] as const;
 type TabName = (typeof TABS)[number];
 
 interface CityTabsProps {
@@ -56,8 +54,6 @@ const CityTabs = ({ city, profile, prices, districtIndices }: CityTabsProps) => 
           <TrendsTab city={city} prices={prices} districtIndices={districtIndices} />
         )}
         {activeTab === "Community" && <CommunityTab city={city} profile={profile} onSwitchTab={(tab) => setActiveTab(tab as TabName)} />}
-        {activeTab === "Cost of Living" && <CostOfLivingTab city={city} profile={profile} />}
-        {activeTab === "Getting Around" && <GettingAroundTab city={city} profile={profile} />}
         {activeTab === "Resources" && <ResourcesTab city={city} />}
       </div>
     </div>
