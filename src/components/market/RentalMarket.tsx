@@ -8,8 +8,9 @@ import TrendPill from "@/components/TrendPill";
 import { Skeleton } from "@/components/ui/skeleton";
 import { cn } from "@/lib/utils";
 import InsightCard from "./InsightCard";
+import { useIsMobile } from "@/hooks/use-mobile";
+import { buildLabel, getXAxisConfig, getNiceYDomain, type ChartPoint } from "@/lib/chartUtils";
 
-const MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
 const TIME_RANGES = ["1Y", "3Y", "5Y", "Max"] as const;
 
 interface IndexRow {
@@ -24,6 +25,7 @@ const RentalMarket = () => {
   const [data, setData] = useState<IndexRow[]>([]);
   const [loading, setLoading] = useState(true);
   const [range, setRange] = useState<(typeof TIME_RANGES)[number]>("Max");
+  const isMobile = useIsMobile();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -49,12 +51,17 @@ const RentalMarket = () => {
     return new Date(d.year, d.month - 1, 1) >= cutoff;
   });
 
-  const chartData = filtered.map((r) => ({
-    label: `${MONTHS[r.month - 1]} '${String(r.year).slice(2)}`,
+  const chartData: ChartPoint[] = filtered.map((r) => ({
+    label: buildLabel(r.month, r.year),
+    year: r.year,
+    month: r.month,
     value: r.value ?? 0,
     mom: r.percent_mom,
     yoy: r.percent_yoy,
   }));
+
+  const xAxisConfig = getXAxisConfig(chartData, isMobile);
+  const yDomain = getNiceYDomain(chartData.map(d => d.value as number));
 
   if (loading) {
     return (
@@ -142,8 +149,22 @@ const RentalMarket = () => {
               </linearGradient>
             </defs>
             <CartesianGrid horizontal vertical={false} stroke="#E8E4DE" />
-            <XAxis dataKey="label" tick={{ fontSize: 10, fill: "#6B7178", fontFamily: "Inter" }} axisLine={false} tickLine={false} interval="preserveStartEnd" />
-            <YAxis tick={{ fontSize: 10, fill: "#6B7178", fontFamily: "Inter" }} axisLine={false} tickLine={false} domain={["auto", "auto"]} width={40} />
+            <XAxis
+              dataKey="label"
+              ticks={xAxisConfig.ticks}
+              tickFormatter={xAxisConfig.tickFormatter}
+              tick={{ fontSize: 10, fill: "#6B7178", fontFamily: "Inter" }}
+              axisLine={false}
+              tickLine={false}
+            />
+            <YAxis
+              domain={yDomain.domain}
+              ticks={yDomain.ticks}
+              tick={{ fontSize: 10, fill: "#6B7178", fontFamily: "Inter" }}
+              axisLine={false}
+              tickLine={false}
+              width={40}
+            />
             <Tooltip content={<CustomTooltip />} />
             <Area type="monotone" dataKey="value" stroke="#C4A96A" strokeWidth={2} fill="url(#rentGrad)" dot={false} />
           </AreaChart>

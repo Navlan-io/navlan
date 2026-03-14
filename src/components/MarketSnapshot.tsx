@@ -11,8 +11,8 @@ import {
 } from "recharts";
 import { supabase } from "@/integrations/supabase/client";
 import TrendPill from "@/components/TrendPill";
-
-const MONTH_LABELS = ["", "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+import { useIsMobile } from "@/hooks/use-mobile";
+import { buildLabel, getXAxisConfig, getNiceYDomain, type ChartPoint } from "@/lib/chartUtils";
 
 interface IndexRow {
   month: number;
@@ -23,10 +23,11 @@ interface IndexRow {
 }
 
 const MarketSnapshot = () => {
-  const [chartData, setChartData] = useState<{ label: string; value: number; mom: number }[]>([]);
+  const [chartData, setChartData] = useState<ChartPoint[]>([]);
   const [latest, setLatest] = useState({ value: 601.4, yoy: 0.4, mom: 0.8 });
   const [constructionYoy, setConstructionYoy] = useState(2.5);
   const [loading, setLoading] = useState(true);
+  const isMobile = useIsMobile();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -51,7 +52,9 @@ const MarketSnapshot = () => {
           const rows = priceRes.data as IndexRow[];
           setChartData(
             rows.map((r) => ({
-              label: `${MONTH_LABELS[r.month]} '${String(r.year).slice(2)}`,
+              label: buildLabel(r.month, r.year),
+              year: r.year,
+              month: r.month,
               value: r.value ?? 0,
               mom: r.percent_mom ?? 0,
             }))
@@ -76,6 +79,9 @@ const MarketSnapshot = () => {
     fetchData();
   }, []);
 
+  const xAxisConfig = getXAxisConfig(chartData, isMobile);
+  const yDomain = getNiceYDomain(chartData.map(d => d.value as number));
+
   const CustomTooltip = ({ active, payload, label }: any) => {
     if (!active || !payload?.length) return null;
     return (
@@ -92,7 +98,6 @@ const MarketSnapshot = () => {
   return (
     <section className="py-16 bg-cream">
       <div className="container max-w-[1200px]">
-        {/* Full-width chart */}
         {loading ? (
           <div className="bg-warm-white rounded-xl h-[300px] animate-pulse" />
         ) : (
@@ -112,14 +117,16 @@ const MarketSnapshot = () => {
                 />
                 <XAxis
                   dataKey="label"
-                  tick={{ fontSize: 11, fill: "#6B7178", fontFamily: "Inter" }}
+                  ticks={xAxisConfig.ticks}
+                  tickFormatter={xAxisConfig.tickFormatter}
+                  tick={{ fontSize: 10, fill: "#6B7178", fontFamily: "Inter" }}
                   axisLine={false}
                   tickLine={false}
-                  interval="preserveStartEnd"
                 />
                 <YAxis
-                  domain={["auto", "auto"]}
-                  tick={{ fontSize: 11, fill: "#6B7178", fontFamily: "Inter" }}
+                  domain={yDomain.domain}
+                  ticks={yDomain.ticks}
+                  tick={{ fontSize: 10, fill: "#6B7178", fontFamily: "Inter" }}
                   axisLine={false}
                   tickLine={false}
                 />
@@ -136,7 +143,6 @@ const MarketSnapshot = () => {
           </div>
         )}
 
-        {/* Below-chart content */}
         <div className="mt-8 max-w-[720px]">
           <h2 className="font-heading font-semibold text-[24px] text-charcoal mb-4">
             Market Snapshot

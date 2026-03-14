@@ -1,13 +1,13 @@
 import { useEffect, useState } from "react";
 import {
-  LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Legend,
+  LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer,
 } from "recharts";
 import { supabase } from "@/integrations/supabase/client";
 import { Card } from "@/components/ui/card";
 import { Skeleton } from "@/components/ui/skeleton";
 import InsightCard from "./InsightCard";
-
-const MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+import { useIsMobile } from "@/hooks/use-mobile";
+import { buildLabel, getXAxisConfig, getNiceYDomain, type ChartPoint } from "@/lib/chartUtils";
 
 const DISTRICTS = [
   { code: 60000, name: "Jerusalem", color: "#7C8B6E" },
@@ -19,8 +19,9 @@ const DISTRICTS = [
 ];
 
 const DistrictComparison = () => {
-  const [chartData, setChartData] = useState<any[]>([]);
+  const [chartData, setChartData] = useState<ChartPoint[]>([]);
   const [loading, setLoading] = useState(true);
+  const isMobile = useIsMobile();
 
   useEffect(() => {
     const fetch = async () => {
@@ -37,13 +38,14 @@ const DistrictComparison = () => {
         return;
       }
 
-      // Group by year-month
       const map = new Map<string, any>();
       for (const row of data) {
         const key = `${row.year}-${row.month}`;
         if (!map.has(key)) {
           map.set(key, {
-            label: `${MONTHS[row.month - 1]} '${String(row.year).slice(2)}`,
+            label: buildLabel(row.month, row.year),
+            year: row.year,
+            month: row.month,
             sortKey: row.year * 100 + row.month,
           });
         }
@@ -80,6 +82,16 @@ const DistrictComparison = () => {
     );
   }
 
+  // Collect all district values for Y domain
+  const allValues: number[] = [];
+  for (const point of chartData) {
+    for (const d of DISTRICTS) {
+      if (point[d.name] != null) allValues.push(point[d.name] as number);
+    }
+  }
+  const xAxisConfig = getXAxisConfig(chartData, isMobile);
+  const yDomain = getNiceYDomain(allValues);
+
   const CustomTooltip = ({ active, payload, label }: any) => {
     if (!active || !payload?.length) return null;
     return (
@@ -107,8 +119,22 @@ const DistrictComparison = () => {
         <ResponsiveContainer width="100%" height={300}>
           <LineChart data={chartData}>
             <CartesianGrid horizontal vertical={false} stroke="#E8E4DE" />
-            <XAxis dataKey="label" tick={{ fontSize: 10, fill: "#6B7178", fontFamily: "Inter" }} axisLine={false} tickLine={false} interval="preserveStartEnd" />
-            <YAxis tick={{ fontSize: 10, fill: "#6B7178", fontFamily: "Inter" }} axisLine={false} tickLine={false} domain={["auto", "auto"]} width={40} />
+            <XAxis
+              dataKey="label"
+              ticks={xAxisConfig.ticks}
+              tickFormatter={xAxisConfig.tickFormatter}
+              tick={{ fontSize: 10, fill: "#6B7178", fontFamily: "Inter" }}
+              axisLine={false}
+              tickLine={false}
+            />
+            <YAxis
+              domain={yDomain.domain}
+              ticks={yDomain.ticks}
+              tick={{ fontSize: 10, fill: "#6B7178", fontFamily: "Inter" }}
+              axisLine={false}
+              tickLine={false}
+              width={40}
+            />
             <Tooltip content={<CustomTooltip />} />
             {DISTRICTS.map((d) => (
               <Line
@@ -150,7 +176,6 @@ const DistrictComparison = () => {
         const highest = districtValues[0];
         const lowest = districtValues[districtValues.length - 1];
         const spread = (highest.value ?? 0) - (lowest.value ?? 0);
-        // Check previous year spread
         const prevIdx = Math.max(0, chartData.length - 13);
         const prevPoint = chartData[prevIdx];
         const prevHigh = Math.max(...DISTRICTS.map(d => (prevPoint[d.name] as number) ?? 0));
