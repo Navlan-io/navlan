@@ -7,6 +7,7 @@ import { Card } from "@/components/ui/card";
 import TrendPill from "@/components/TrendPill";
 import { Skeleton } from "@/components/ui/skeleton";
 import { cn } from "@/lib/utils";
+import InsightCard from "./InsightCard";
 
 const MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
 const TIME_RANGES = ["1Y", "3Y", "5Y", "Max"] as const;
@@ -183,6 +184,22 @@ const NationalPriceTrend = () => {
       <p className="font-body text-[12px] text-warm-gray mt-3">
         Source: CBS Dwelling Price Index (Base: 2015-2016 = 100)
       </p>
+
+      {latest && (
+        <InsightCard>
+          {(() => {
+            const yoy = latest.percent_yoy ?? 0;
+            const val = latest.value ?? 0;
+            const multiplier = Math.round(val / 100);
+            let narrative = "";
+            if (yoy > 5) narrative = `Prices are rising rapidly at +${yoy.toFixed(1)}% year-over-year — one of the hotter growth periods in recent history.`;
+            else if (yoy >= 2) narrative = `Prices are growing moderately at +${yoy.toFixed(1)}% year-over-year — a steady but not overheated market.`;
+            else if (yoy >= 0) narrative = `Price growth has slowed to +${yoy.toFixed(1)}% year-over-year — one of the coolest periods in the past decade.`;
+            else narrative = `Prices have declined ${yoy.toFixed(1)}% year-over-year — a rare correction in the Israeli market.`;
+            return `${narrative} The index value of ${val.toFixed(1)} means prices are roughly ${multiplier}× higher than the 1993 base period.`;
+          })()}
+        </InsightCard>
+      )}
     </section>
   );
 };

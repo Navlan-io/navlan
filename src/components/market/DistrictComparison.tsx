@@ -5,6 +5,7 @@ import {
 import { supabase } from "@/integrations/supabase/client";
 import { Card } from "@/components/ui/card";
 import { Skeleton } from "@/components/ui/skeleton";
+import InsightCard from "./InsightCard";
 
 const MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
 
@@ -140,6 +141,28 @@ const DistrictComparison = () => {
       <p className="font-body text-[12px] text-warm-gray mt-3">
         Source: CBS Dwelling Price Index by District
       </p>
+
+      {chartData.length > 0 && (() => {
+        const lastPoint = chartData[chartData.length - 1];
+        const districtValues = DISTRICTS.map(d => ({ name: d.name, value: lastPoint[d.name] as number | undefined })).filter(d => d.value != null);
+        if (districtValues.length < 2) return null;
+        districtValues.sort((a, b) => (b.value ?? 0) - (a.value ?? 0));
+        const highest = districtValues[0];
+        const lowest = districtValues[districtValues.length - 1];
+        const spread = (highest.value ?? 0) - (lowest.value ?? 0);
+        // Check previous year spread
+        const prevIdx = Math.max(0, chartData.length - 13);
+        const prevPoint = chartData[prevIdx];
+        const prevHigh = Math.max(...DISTRICTS.map(d => (prevPoint[d.name] as number) ?? 0));
+        const prevLow = Math.min(...DISTRICTS.map(d => (prevPoint[d.name] as number) ?? Infinity).filter(v => v !== Infinity && v > 0));
+        const prevSpread = prevHigh - prevLow;
+        const spreadDir = spread > prevSpread ? "widened" : "narrowed";
+        return (
+          <InsightCard>
+            The {highest.name} district leads with an index of {highest.value?.toFixed(1)}, while {lowest.name} is lowest at {lowest.value?.toFixed(1)}. The gap between the most and least expensive regions has {spreadDir} over the past year.
+          </InsightCard>
+        );
+      })()}
     </section>
   );
 };

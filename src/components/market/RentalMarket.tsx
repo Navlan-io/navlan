@@ -7,6 +7,7 @@ import { Card } from "@/components/ui/card";
 import TrendPill from "@/components/TrendPill";
 import { Skeleton } from "@/components/ui/skeleton";
 import { cn } from "@/lib/utils";
+import InsightCard from "./InsightCard";
 
 const MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
 const TIME_RANGES = ["1Y", "3Y", "5Y", "Max"] as const;
@@ -153,11 +154,14 @@ const RentalMarket = () => {
         Source: CBS Consumer Price Index — Rent Sub-Component (Code 120460)
       </p>
 
-      <Card className="mt-6 p-4 bg-cream border-0 border-l-4 border-l-sand-gold">
-        <p className="font-body text-[14px] text-warm-gray">
-          The CBS rent index tracks existing lease renewals and may understate actual market rent increases for new tenants by approximately 2×, according to Bank of Israel research.
-        </p>
-      </Card>
+      {latest && (() => {
+        const yoy = latest.percent_yoy ?? 0;
+        let narrative = "";
+        if (yoy > 3) narrative = `Rents are climbing at +${yoy.toFixed(1)}% annually based on lease renewals. New tenants likely face increases roughly double this rate — closer to ${Math.round(yoy * 2)}% — since the index weights existing contracts heavily (Bank of Israel research).`;
+        else if (yoy >= 0) narrative = `Rent growth is moderate at +${yoy.toFixed(1)}% year-over-year.`;
+        else narrative = `Rents have dipped ${yoy.toFixed(1)}% — unusual in the Israeli market.`;
+        return <InsightCard>{narrative}</InsightCard>;
+      })()}
     </section>
   );
 };
