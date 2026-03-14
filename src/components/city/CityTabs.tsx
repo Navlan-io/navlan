@@ -2,11 +2,9 @@ import { useState } from "react";
 import { cn } from "@/lib/utils";
 import TrendsTab from "./TrendsTab";
 import CommunityTab from "./CommunityTab";
-import CostOfLivingTab from "./CostOfLivingTab";
-import GettingAroundTab from "./GettingAroundTab";
 import ResourcesTab from "./ResourcesTab";
 
-const TABS = ["Trends", "Community", "Cost of Living", "Getting Around", "Resources"] as const;
+const TABS = ["Trends", "Community", "Resources"] as const;
 type TabName = (typeof TABS)[number];
 
 interface CityTabsProps {
