@@ -1,8 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import {
-  LineChart,
-  Line,
   XAxis,
   YAxis,
   CartesianGrid,
@@ -26,34 +24,48 @@ interface IndexRow {
 
 const MarketSnapshot = () => {
   const [chartData, setChartData] = useState<{ label: string; value: number; mom: number }[]>([]);
-  const [latest, setLatest] = useState({ value: 181.6, yoy: 4.0, mom: 0.2 });
+  const [latest, setLatest] = useState({ value: 601.4, yoy: 0.4, mom: 0.8 });
+  const [constructionYoy, setConstructionYoy] = useState(2.5);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const fetch = async () => {
+    const fetchData = async () => {
       try {
-        const { data } = await supabase
-          .from("price_indices")
-          .select("month, year, value, percent_mom, percent_yoy")
-          .eq("index_code", 40010)
-          .order("year", { ascending: true })
-          .order("month", { ascending: true });
+        const [priceRes, costRes] = await Promise.all([
+          supabase
+            .from("price_indices")
+            .select("month, year, value, percent_mom, percent_yoy")
+            .eq("index_code", 40010)
+            .order("year", { ascending: true })
+            .order("month", { ascending: true }),
+          supabase
+            .from("construction_costs")
+            .select("percent_yoy")
+            .eq("index_code", 200010)
+            .order("year", { ascending: false })
+            .order("month", { ascending: false })
+            .limit(1),
+        ]);
 
-        if (data && data.length > 0) {
-          const rows = data as IndexRow[];
+        if (priceRes.data && priceRes.data.length > 0) {
+          const rows = priceRes.data as IndexRow[];
           setChartData(
             rows.map((r) => ({
-              label: MONTH_LABELS[r.month] || `M${r.month}`,
+              label: `${MONTH_LABELS[r.month]} '${String(r.year).slice(2)}`,
               value: r.value ?? 0,
               mom: r.percent_mom ?? 0,
             }))
           );
           const last = rows[rows.length - 1];
           setLatest({
-            value: last.value ?? 181.6,
-            yoy: last.percent_yoy ?? 4.0,
-            mom: last.percent_mom ?? 0.2,
+            value: last.value ?? 601.4,
+            yoy: last.percent_yoy ?? 0.4,
+            mom: last.percent_mom ?? 0.8,
           });
+        }
+
+        if (costRes.data && costRes.data.length > 0) {
+          setConstructionYoy((costRes.data[0] as any).percent_yoy ?? 2.5);
         }
       } catch {
         // keep defaults
@@ -61,126 +73,110 @@ const MarketSnapshot = () => {
         setLoading(false);
       }
     };
-    fetch();
+    fetchData();
   }, []);
 
   const CustomTooltip = ({ active, payload, label }: any) => {
     if (!active || !payload?.length) return null;
     return (
       <div className="bg-white rounded-lg px-3 py-2 shadow-[0_2px_8px_rgba(0,0,0,0.1)] font-body text-[13px]">
-        <p className="text-charcoal font-semibold">{label} 2025</p>
+        <p className="text-charcoal font-semibold">{label}</p>
         <p className="text-charcoal">Index: {payload[0].value.toFixed(1)}</p>
-        <p className="text-warm-gray">MoM: +{payload[0].payload.mom.toFixed(1)}%</p>
+        <p className="text-warm-gray">MoM: {payload[0].payload.mom >= 0 ? "+" : ""}{payload[0].payload.mom.toFixed(1)}%</p>
       </div>
     );
   };
 
+  const editorialText = `Israeli housing prices continued their gradual climb through late 2025, with the national price index reaching ${latest.value.toFixed(1)}. Year-over-year growth has moderated from nearly 7% at the start of the year to ${latest.yoy >= 0 ? "+" : ""}${latest.yoy.toFixed(1)}%, suggesting a cooling but still-appreciating market. Construction costs have stabilized, rising just ${constructionYoy.toFixed(1)}% annually.`;
+
   return (
     <section className="py-16 bg-cream">
       <div className="container max-w-[1200px]">
-        <div className="grid grid-cols-1 lg:grid-cols-5 gap-10">
-          {/* Chart - 3/5 */}
-          <div className="lg:col-span-3">
-            <h2 className="font-heading font-semibold text-[24px] text-charcoal mb-6">
-              Market Snapshot
-            </h2>
-            {loading ? (
-              <div className="bg-warm-white rounded-xl h-[300px] animate-pulse" />
-            ) : (
-              <div className="h-[300px]">
-                <ResponsiveContainer width="100%" height="100%">
-                  <AreaChart data={chartData}>
-                    <defs>
-                      <linearGradient id="colorValue" x1="0" y1="0" x2="0" y2="1">
-                        <stop offset="0%" stopColor="#4A7F8B" stopOpacity={0.15} />
-                        <stop offset="100%" stopColor="#4A7F8B" stopOpacity={0} />
-                      </linearGradient>
-                    </defs>
-                    <CartesianGrid
-                      strokeDasharray="0"
-                      stroke="#E8E4DE"
-                      vertical={false}
-                    />
-                    <XAxis
-                      dataKey="label"
-                      tick={{ fontSize: 12, fill: "#6B7178", fontFamily: "Inter" }}
-                      axisLine={false}
-                      tickLine={false}
-                    />
-                    <YAxis
-                      domain={["auto", "auto"]}
-                      tick={{ fontSize: 12, fill: "#6B7178", fontFamily: "Inter" }}
-                      axisLine={false}
-                      tickLine={false}
-                    />
-                    <Tooltip content={<CustomTooltip />} />
-                    <Area
-                      type="monotone"
-                      dataKey="value"
-                      stroke="#4A7F8B"
-                      strokeWidth={2}
-                      fill="url(#colorValue)"
-                    />
-                  </AreaChart>
-                </ResponsiveContainer>
-              </div>
-            )}
+        {/* Full-width chart */}
+        {loading ? (
+          <div className="bg-warm-white rounded-xl h-[300px] animate-pulse" />
+        ) : (
+          <div className="h-[300px]">
+            <ResponsiveContainer width="100%" height="100%">
+              <AreaChart data={chartData}>
+                <defs>
+                  <linearGradient id="colorValue" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0%" stopColor="#4A7F8B" stopOpacity={0.15} />
+                    <stop offset="100%" stopColor="#4A7F8B" stopOpacity={0} />
+                  </linearGradient>
+                </defs>
+                <CartesianGrid
+                  strokeDasharray="0"
+                  stroke="#E8E4DE"
+                  vertical={false}
+                />
+                <XAxis
+                  dataKey="label"
+                  tick={{ fontSize: 11, fill: "#6B7178", fontFamily: "Inter" }}
+                  axisLine={false}
+                  tickLine={false}
+                  interval="preserveStartEnd"
+                />
+                <YAxis
+                  domain={["auto", "auto"]}
+                  tick={{ fontSize: 11, fill: "#6B7178", fontFamily: "Inter" }}
+                  axisLine={false}
+                  tickLine={false}
+                />
+                <Tooltip content={<CustomTooltip />} />
+                <Area
+                  type="monotone"
+                  dataKey="value"
+                  stroke="#4A7F8B"
+                  strokeWidth={2}
+                  fill="url(#colorValue)"
+                />
+              </AreaChart>
+            </ResponsiveContainer>
+          </div>
+        )}
+
+        {/* Below-chart content */}
+        <div className="mt-8 max-w-[720px]">
+          <h2 className="font-heading font-semibold text-[24px] text-charcoal mb-4">
+            Market Snapshot
+          </h2>
+
+          <div className="flex flex-wrap items-center gap-x-6 gap-y-3 mb-5">
+            <div>
+              <span className="font-body text-[13px] text-warm-gray block">
+                Price Index
+              </span>
+              <span className="font-body font-bold text-[28px] text-charcoal">
+                {latest.value.toFixed(1)}
+              </span>
+            </div>
+            <div className="flex items-center gap-2">
+              <span className="font-body text-[13px] text-warm-gray">YoY</span>
+              <TrendPill
+                direction={latest.yoy >= 0 ? "up" : "down"}
+                value={`${latest.yoy >= 0 ? "+" : ""}${latest.yoy.toFixed(1)}%`}
+              />
+            </div>
+            <div className="flex items-center gap-2">
+              <span className="font-body text-[13px] text-warm-gray">MoM</span>
+              <TrendPill
+                direction={latest.mom >= 0 ? "up" : "down"}
+                value={`${latest.mom >= 0 ? "+" : ""}${latest.mom.toFixed(1)}%`}
+              />
+            </div>
           </div>
 
-          {/* Commentary - 2/5 */}
-          <div className="lg:col-span-2 flex flex-col justify-center">
-            <h3 className="font-heading font-semibold text-[18px] text-charcoal">
-              Market Snapshot
-            </h3>
+          <p className="font-body text-[15px] text-charcoal leading-[1.6] mb-4">
+            {editorialText}
+          </p>
 
-            <div className="mt-5 space-y-4">
-              <div>
-                <span className="font-body text-[13px] text-warm-gray block">
-                  Price Index
-                </span>
-                <span className="font-body font-bold text-[28px] text-charcoal">
-                  {latest.value.toFixed(1)}
-                </span>
-              </div>
-              <div className="flex items-center gap-3">
-                <span className="font-body text-[13px] text-warm-gray">
-                  Year-over-Year
-                </span>
-                <TrendPill
-                  direction={latest.yoy >= 0 ? "up" : "down"}
-                  value={`${latest.yoy >= 0 ? "+" : ""}${latest.yoy.toFixed(1)}%`}
-                />
-              </div>
-              <div className="flex items-center gap-3">
-                <span className="font-body text-[13px] text-warm-gray">
-                  Month-over-Month
-                </span>
-                <TrendPill
-                  direction={latest.mom >= 0 ? "up" : "down"}
-                  value={`${latest.mom >= 0 ? "+" : ""}${latest.mom.toFixed(1)}%`}
-                />
-              </div>
-            </div>
-
-            <div className="mt-5 rounded-lg bg-cream border-l-4 border-l-sage p-4">
-              <p className="font-body text-[15px] text-charcoal leading-[1.6] m-0">
-                {(() => {
-                  const yoy = latest.yoy;
-                  if (yoy > 5) return `Israeli home prices are rising ${yoy.toFixed(1)}% year-over-year — the fastest pace in recent years.`;
-                  if (yoy >= 2) return `Israeli home prices are up ${yoy.toFixed(1)}% this year, growing at a moderate pace.`;
-                  if (yoy >= 0) return `Israeli home prices are nearly flat at +${yoy.toFixed(1)}% this year — the slowest growth in years.`;
-                  return `Israeli home prices have dipped ${yoy.toFixed(1)}% — a rare market correction.`;
-                })()}
-              </p>
-            </div>
-
-            <Link
-              to="/market"
-              className="mt-4 inline-block font-body font-medium text-[15px] text-horizon-blue no-underline hover:underline"
-            >
-              See full market analysis →
-            </Link>
-          </div>
+          <Link
+            to="/market"
+            className="inline-block font-body font-medium text-[15px] text-horizon-blue no-underline hover:underline"
+          >
+            View Full Market Data →
+          </Link>
         </div>
       </div>
     </section>
