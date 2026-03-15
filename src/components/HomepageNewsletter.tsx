@@ -2,7 +2,7 @@ import NewsletterSignup from "@/components/NewsletterSignup";
 
 const HomepageNewsletter = () => {
   return (
-    <section className="bg-cream py-16 md:py-20">
+    <section className="bg-cream py-16 md:py-20 border-t border-border-light">
       <div className="container max-w-[560px] text-center">
         <h2 className="font-heading font-bold text-[24px] md:text-[28px] text-charcoal">
           The Navlan Report

@@ -13,6 +13,7 @@ import { supabase } from "@/integrations/supabase/client";
 import TrendPill from "@/components/TrendPill";
 import { useIsMobile } from "@/hooks/use-mobile";
 import { buildLabel, getXAxisConfig, getNiceYDomain, type ChartPoint } from "@/lib/chartUtils";
+import { chartColors, axisTick } from "@/lib/chartColors";
 
 interface IndexRow {
   month: number;
@@ -24,7 +25,7 @@ interface IndexRow {
 
 const MarketSnapshot = () => {
   const [chartData, setChartData] = useState<ChartPoint[]>([]);
-  const [latest, setLatest] = useState({ value: 601.4, yoy: 0.4, mom: 0.8 });
+  const [latest, setLatest] = useState({ value: 601.4, yoy: 0.4, mom: 0.8, month: 0, year: 0 });
   const [constructionYoy, setConstructionYoy] = useState(2.5);
   const [loading, setLoading] = useState(true);
   const isMobile = useIsMobile();
@@ -64,6 +65,8 @@ const MarketSnapshot = () => {
             value: last.value ?? 601.4,
             yoy: last.percent_yoy ?? 0.4,
             mom: last.percent_mom ?? 0.8,
+            month: last.month,
+            year: last.year,
           });
         }
 
@@ -106,27 +109,27 @@ const MarketSnapshot = () => {
               <AreaChart data={chartData}>
                 <defs>
                   <linearGradient id="colorValue" x1="0" y1="0" x2="0" y2="1">
-                    <stop offset="0%" stopColor="#4A7F8B" stopOpacity={0.15} />
-                    <stop offset="100%" stopColor="#4A7F8B" stopOpacity={0} />
+                    <stop offset="0%" stopColor={chartColors.horizonBlue} stopOpacity={0.15} />
+                    <stop offset="100%" stopColor={chartColors.horizonBlue} stopOpacity={0} />
                   </linearGradient>
                 </defs>
                 <CartesianGrid
                   strokeDasharray="0"
-                  stroke="#E8E4DE"
+                  stroke={chartColors.gridLine}
                   vertical={false}
                 />
                 <XAxis
                   dataKey="label"
                   ticks={xAxisConfig.ticks}
                   tickFormatter={xAxisConfig.tickFormatter}
-                  tick={{ fontSize: 10, fill: "#6B7178", fontFamily: "Inter" }}
+                  tick={axisTick}
                   axisLine={false}
                   tickLine={false}
                 />
                 <YAxis
                   domain={yDomain.domain}
                   ticks={yDomain.ticks}
-                  tick={{ fontSize: 10, fill: "#6B7178", fontFamily: "Inter" }}
+                  tick={axisTick}
                   axisLine={false}
                   tickLine={false}
                 />
@@ -134,7 +137,7 @@ const MarketSnapshot = () => {
                 <Area
                   type="monotone"
                   dataKey="value"
-                  stroke="#4A7F8B"
+                  stroke={chartColors.horizonBlue}
                   strokeWidth={2}
                   fill="url(#colorValue)"
                 />
@@ -144,9 +147,14 @@ const MarketSnapshot = () => {
         )}
 
         <div className="mt-8 max-w-[720px]">
-          <h2 className="font-heading font-semibold text-[24px] text-charcoal mb-4">
+          <h2 className="font-heading font-semibold text-[24px] text-charcoal mb-1">
             Market Snapshot
           </h2>
+          {latest.year > 0 && (
+            <p className="font-body text-[13px] text-warm-gray mb-4">
+              Data as of: {new Date(latest.year, latest.month - 1).toLocaleString("en-US", { month: "long", year: "numeric" })}
+            </p>
+          )}
 
           <div className="flex flex-wrap items-center gap-x-6 gap-y-3 mb-5">
             <div>

@@ -10,6 +10,7 @@ import { cn } from "@/lib/utils";
 import InsightCard from "./InsightCard";
 import { useIsMobile } from "@/hooks/use-mobile";
 import { buildLabel, getXAxisConfig, getNiceYDomain, type ChartPoint } from "@/lib/chartUtils";
+import { chartColors, axisTick } from "@/lib/chartColors";
 
 const TIME_RANGES = ["1Y", "3Y", "5Y", "Max"] as const;
 
@@ -176,29 +177,29 @@ const NationalPriceTrend = () => {
           <AreaChart data={chartData}>
             <defs>
               <linearGradient id="natPriceGrad" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="0%" stopColor="#4A7F8B" stopOpacity={0.12} />
-                <stop offset="100%" stopColor="#4A7F8B" stopOpacity={0} />
+                <stop offset="0%" stopColor={chartColors.horizonBlue} stopOpacity={0.12} />
+                <stop offset="100%" stopColor={chartColors.horizonBlue} stopOpacity={0} />
               </linearGradient>
             </defs>
-            <CartesianGrid horizontal vertical={false} stroke="#E8E4DE" />
+            <CartesianGrid horizontal vertical={false} stroke={chartColors.gridLine} />
             <XAxis
               dataKey="label"
               ticks={xAxisConfig.ticks}
               tickFormatter={xAxisConfig.tickFormatter}
-              tick={{ fontSize: 10, fill: "#6B7178", fontFamily: "Inter" }}
+              tick={axisTick}
               axisLine={false}
               tickLine={false}
             />
             <YAxis
               domain={yDomain.domain}
               ticks={yDomain.ticks}
-              tick={{ fontSize: 10, fill: "#6B7178", fontFamily: "Inter" }}
+              tick={axisTick}
               axisLine={false}
               tickLine={false}
               width={40}
             />
             <Tooltip content={<CustomTooltip />} />
-            <Area type="monotone" dataKey="value" stroke="#4A7F8B" strokeWidth={2} fill="url(#natPriceGrad)" dot={false} />
+            <Area type="monotone" dataKey="value" stroke={chartColors.horizonBlue} strokeWidth={2} fill="url(#natPriceGrad)" dot={false} />
           </AreaChart>
         </ResponsiveContainer>
       </div>

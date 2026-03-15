@@ -155,6 +155,13 @@ const Index = () => {
             <SearchBar />
           </div>
 
+          <Link
+            to="/guides/start-here"
+            className="mt-3 inline-block font-body text-[14px] text-white/80 no-underline hover:text-white hover:underline transition-colors"
+          >
+            Or start with our Buyer's Guide →
+          </Link>
+
           {/* Live stat pills */}
           <div className="mt-8 flex flex-col sm:flex-row flex-wrap justify-center gap-2 sm:gap-3 w-full max-w-xl">
             {stats.map((stat) => (

@@ -9,6 +9,7 @@ import { Badge } from "@/components/ui/badge";
 import InsightCard from "./InsightCard";
 import { useIsMobile } from "@/hooks/use-mobile";
 import { buildLabel, getXAxisConfig, getNiceYDomain, type ChartPoint } from "@/lib/chartUtils";
+import { chartColors, axisTick } from "@/lib/chartColors";
 
 const MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
 
@@ -169,30 +170,30 @@ const ConstructionPipeline = () => {
                 <AreaChart data={unsoldChart}>
                   <defs>
                     <linearGradient id="unsoldGrad" x1="0" y1="0" x2="0" y2="1">
-                      <stop offset="0%" stopColor="#C25B4A" stopOpacity={0.1} />
-                      <stop offset="100%" stopColor="#C25B4A" stopOpacity={0} />
+                      <stop offset="0%" stopColor={chartColors.terraRed} stopOpacity={0.1} />
+                      <stop offset="100%" stopColor={chartColors.terraRed} stopOpacity={0} />
                     </linearGradient>
                   </defs>
-                  <CartesianGrid horizontal vertical={false} stroke="#E8E4DE" />
+                  <CartesianGrid horizontal vertical={false} stroke={chartColors.gridLine} />
                   <XAxis
                     dataKey="label"
                     ticks={unsoldXAxis.ticks}
                     tickFormatter={unsoldXAxis.tickFormatter}
-                    tick={{ fontSize: 10, fill: "#6B7178", fontFamily: "Inter" }}
+                    tick={axisTick}
                     axisLine={false}
                     tickLine={false}
                   />
                   <YAxis
                     domain={unsoldYDomain.domain}
                     ticks={unsoldYDomain.ticks}
-                    tick={{ fontSize: 10, fill: "#6B7178", fontFamily: "Inter" }}
+                    tick={axisTick}
                     axisLine={false}
                     tickLine={false}
                     width={50}
                     tickFormatter={(v) => `${Math.round(v / 1000)}K`}
                   />
                   <Tooltip content={<ChartTooltip />} />
-                  <Area type="monotone" dataKey="value" stroke="#C25B4A" strokeWidth={2} fill="url(#unsoldGrad)" dot={false} />
+                  <Area type="monotone" dataKey="value" stroke={chartColors.terraRed} strokeWidth={2} fill="url(#unsoldGrad)" dot={false} />
                 </AreaChart>
               </ResponsiveContainer>
             </div>
@@ -212,30 +213,30 @@ const ConstructionPipeline = () => {
                 <AreaChart data={startsChart}>
                   <defs>
                     <linearGradient id="startsGrad" x1="0" y1="0" x2="0" y2="1">
-                      <stop offset="0%" stopColor="#4A7F8B" stopOpacity={0.1} />
-                      <stop offset="100%" stopColor="#4A7F8B" stopOpacity={0} />
+                      <stop offset="0%" stopColor={chartColors.horizonBlue} stopOpacity={0.1} />
+                      <stop offset="100%" stopColor={chartColors.horizonBlue} stopOpacity={0} />
                     </linearGradient>
                   </defs>
-                  <CartesianGrid horizontal vertical={false} stroke="#E8E4DE" />
+                  <CartesianGrid horizontal vertical={false} stroke={chartColors.gridLine} />
                   <XAxis
                     dataKey="label"
                     ticks={startsXAxis.ticks}
                     tickFormatter={startsXAxis.tickFormatter}
-                    tick={{ fontSize: 10, fill: "#6B7178", fontFamily: "Inter" }}
+                    tick={axisTick}
                     axisLine={false}
                     tickLine={false}
                   />
                   <YAxis
                     domain={startsYDomain.domain}
                     ticks={startsYDomain.ticks}
-                    tick={{ fontSize: 10, fill: "#6B7178", fontFamily: "Inter" }}
+                    tick={axisTick}
                     axisLine={false}
                     tickLine={false}
                     width={50}
                     tickFormatter={(v) => `${Math.round(v / 1000)}K`}
                   />
                   <Tooltip content={<ChartTooltip />} />
-                  <Area type="monotone" dataKey="value" stroke="#4A7F8B" strokeWidth={2} fill="url(#startsGrad)" dot={false} />
+                  <Area type="monotone" dataKey="value" stroke={chartColors.horizonBlue} strokeWidth={2} fill="url(#startsGrad)" dot={false} />
                 </AreaChart>
               </ResponsiveContainer>
             </div>

@@ -256,14 +256,6 @@ const ExploreCities = () => {
           </div>
         </div>
 
-        {/* View all link */}
-        {!loading && totalCount > 0 && (
-          <div className="mt-6 text-center">
-            <span className="font-body font-medium text-[15px] text-horizon-blue">
-              View all {totalCount} cities with data →
-            </span>
-          </div>
-        )}
       </div>
     </section>
   );

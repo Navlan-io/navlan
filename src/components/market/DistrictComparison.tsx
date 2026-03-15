@@ -8,14 +8,15 @@ import { Skeleton } from "@/components/ui/skeleton";
 import InsightCard from "./InsightCard";
 import { useIsMobile } from "@/hooks/use-mobile";
 import { buildLabel, getXAxisConfig, getNiceYDomain, type ChartPoint } from "@/lib/chartUtils";
+import { chartColors, axisTick, districtColors } from "@/lib/chartColors";
 
 const DISTRICTS = [
-  { code: 60000, name: "Jerusalem", color: "#7C8B6E" },
-  { code: 60100, name: "North", color: "#C4A96A" },
-  { code: 60200, name: "Haifa", color: "#4A7F8B" },
-  { code: 60300, name: "Central", color: "#4A5540" },
-  { code: 60400, name: "Tel Aviv", color: "#C25B4A" },
-  { code: 60500, name: "South", color: "#5B8C5A" },
+  { code: 60000, name: "Jerusalem", color: districtColors.Jerusalem },
+  { code: 60100, name: "North", color: districtColors.North },
+  { code: 60200, name: "Haifa", color: districtColors.Haifa },
+  { code: 60300, name: "Central", color: districtColors.Central },
+  { code: 60400, name: "Tel Aviv", color: districtColors["Tel Aviv"] },
+  { code: 60500, name: "South", color: districtColors.South },
 ];
 
 const DistrictComparison = () => {
@@ -118,19 +119,19 @@ const DistrictComparison = () => {
       <div style={{ minHeight: 250 }} aria-label="Price index comparison across Israel's six districts">
         <ResponsiveContainer width="100%" height={300}>
           <LineChart data={chartData}>
-            <CartesianGrid horizontal vertical={false} stroke="#E8E4DE" />
+            <CartesianGrid horizontal vertical={false} stroke={chartColors.gridLine} />
             <XAxis
               dataKey="label"
               ticks={xAxisConfig.ticks}
               tickFormatter={xAxisConfig.tickFormatter}
-              tick={{ fontSize: 10, fill: "#6B7178", fontFamily: "Inter" }}
+              tick={axisTick}
               axisLine={false}
               tickLine={false}
             />
             <YAxis
               domain={yDomain.domain}
               ticks={yDomain.ticks}
-              tick={{ fontSize: 10, fill: "#6B7178", fontFamily: "Inter" }}
+              tick={axisTick}
               axisLine={false}
               tickLine={false}
               width={40}

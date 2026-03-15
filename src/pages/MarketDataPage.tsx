@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import { supabase } from "@/integrations/supabase/client";
 import NavBar from "@/components/NavBar";
 import Footer from "@/components/Footer";
@@ -11,6 +12,26 @@ import ConstructionCosts from "@/components/market/ConstructionCosts";
 import RentalMarket from "@/components/market/RentalMarket";
 
 const MarketDataPage = () => {
+  const [dataAsOf, setDataAsOf] = useState<string | null>(null);
+
+  useEffect(() => {
+    supabase
+      .from("price_indices")
+      .select("month, year")
+      .eq("index_code", 40010)
+      .order("year", { ascending: false })
+      .order("month", { ascending: false })
+      .limit(1)
+      .then(({ data }) => {
+        if (data?.[0]) {
+          const d = data[0] as { month: number; year: number };
+          setDataAsOf(
+            new Date(d.year, d.month - 1).toLocaleString("en-US", { month: "long", year: "numeric" })
+          );
+        }
+      });
+  }, []);
+
   return (
     <div className="min-h-screen flex flex-col bg-warm-white">
       <SEO
@@ -36,6 +57,11 @@ const MarketDataPage = () => {
           <p className="mt-2 font-body text-[15px] text-warm-gray">
             National market data from the Central Bureau of Statistics and Bank of Israel
           </p>
+          {dataAsOf && (
+            <p className="mt-2 font-body text-[13px] text-stone-gray">
+              Data as of: {dataAsOf}
+            </p>
+          )}
           <div className="border-b border-grid-line mt-6 mb-10" />
 
           <div className="space-y-12">

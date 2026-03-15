@@ -9,6 +9,7 @@ import { Skeleton } from "@/components/ui/skeleton";
 import InsightCard from "./InsightCard";
 import { useIsMobile } from "@/hooks/use-mobile";
 import { buildLabel, getXAxisConfig, getNiceYDomain, type ChartPoint } from "@/lib/chartUtils";
+import { chartColors, axisTick } from "@/lib/chartColors";
 
 interface CostRow {
   month: number;
@@ -99,29 +100,29 @@ const ConstructionCosts = () => {
           <AreaChart data={chartData}>
             <defs>
               <linearGradient id="costGrad" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="0%" stopColor="#C4A96A" stopOpacity={0.12} />
-                <stop offset="100%" stopColor="#C4A96A" stopOpacity={0} />
+                <stop offset="0%" stopColor={chartColors.sandGold} stopOpacity={0.12} />
+                <stop offset="100%" stopColor={chartColors.sandGold} stopOpacity={0} />
               </linearGradient>
             </defs>
-            <CartesianGrid horizontal vertical={false} stroke="#E8E4DE" />
+            <CartesianGrid horizontal vertical={false} stroke={chartColors.gridLine} />
             <XAxis
               dataKey="label"
               ticks={xAxisConfig.ticks}
               tickFormatter={xAxisConfig.tickFormatter}
-              tick={{ fontSize: 10, fill: "#6B7178", fontFamily: "Inter" }}
+              tick={axisTick}
               axisLine={false}
               tickLine={false}
             />
             <YAxis
               domain={yDomain.domain}
               ticks={yDomain.ticks}
-              tick={{ fontSize: 10, fill: "#6B7178", fontFamily: "Inter" }}
+              tick={axisTick}
               axisLine={false}
               tickLine={false}
               width={40}
             />
             <Tooltip content={<CustomTooltip />} />
-            <Area type="monotone" dataKey="value" stroke="#C4A96A" strokeWidth={2} fill="url(#costGrad)" dot={false} />
+            <Area type="monotone" dataKey="value" stroke={chartColors.sandGold} strokeWidth={2} fill="url(#costGrad)" dot={false} />
           </AreaChart>
         </ResponsiveContainer>
       </div>
