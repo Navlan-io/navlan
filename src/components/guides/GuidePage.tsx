@@ -4,6 +4,7 @@ import { ChevronDown, ChevronRight } from "lucide-react";
 import NavBar from "@/components/NavBar";
 import Footer from "@/components/Footer";
 import NewsletterSignup from "@/components/NewsletterSignup";
+import SEO from "@/components/SEO";
 import { cn } from "@/lib/utils";
 
 export interface GuideSection {
@@ -24,6 +25,7 @@ interface BottomNav {
 
 interface GuidePageProps {
   title: string;
+  seoTitle: string;
   subtitle: string;
   date: string;
   metaDescription: string;
@@ -35,6 +37,7 @@ interface GuidePageProps {
 
 const GuidePage = ({
   title,
+  seoTitle,
   subtitle,
   date,
   metaDescription,
@@ -48,17 +51,8 @@ const GuidePage = ({
   const sectionRefs = useRef<Map<string, HTMLElement>>(new Map());
 
   useEffect(() => {
-    document.title = `${title} | Navlan.io`;
-    // Set meta description
-    let meta = document.querySelector('meta[name="description"]');
-    if (!meta) {
-      meta = document.createElement("meta");
-      meta.setAttribute("name", "description");
-      document.head.appendChild(meta);
-    }
-    meta.setAttribute("content", metaDescription);
     window.scrollTo(0, 0);
-  }, [title, metaDescription]);
+  }, [title]);
 
   // Intersection observer for active section tracking
   useEffect(() => {
@@ -106,6 +100,31 @@ const GuidePage = ({
 
   return (
     <div className="min-h-screen flex flex-col bg-warm-white">
+      <SEO
+        title={seoTitle}
+        description={metaDescription}
+        structuredData={[
+          {
+            "@context": "https://schema.org",
+            "@type": "Article",
+            headline: title,
+            description: metaDescription,
+            author: { "@type": "Organization", name: "Navlan" },
+            publisher: { "@type": "Organization", name: "Navlan", url: "https://navlan.io" },
+            datePublished: "2026-01-15",
+            dateModified: "2026-03-01",
+          },
+          {
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            itemListElement: [
+              { "@type": "ListItem", position: 1, name: "Home", item: "https://navlan.io/" },
+              { "@type": "ListItem", position: 2, name: "Guides", item: "https://navlan.io/guides" },
+              { "@type": "ListItem", position: 3, name: title },
+            ],
+          },
+        ]}
+      />
       <NavBar />
       <main className="flex-1">
         <div className="container max-w-[1040px] pt-12 pb-16">

@@ -1,18 +1,17 @@
-import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Instagram, Twitter, Facebook } from "lucide-react";
 import NavBar from "@/components/NavBar";
 import Footer from "@/components/Footer";
 import NewsletterSignup from "@/components/NewsletterSignup";
+import SEO from "@/components/SEO";
 
 const AboutPage = () => {
-  useEffect(() => {
-    document.title = "About — Navlan.io";
-    window.scrollTo(0, 0);
-  }, []);
-
   return (
     <div className="min-h-screen flex flex-col bg-warm-white">
+      <SEO
+        title="About Navlan — Independent Israeli Real Estate Data in English | Navlan.io"
+        description="Navlan provides independent, transparent Israeli real estate data and resources for English-speaking buyers — no sales agenda, just data."
+      />
       <NavBar />
       <main className="flex-1">
         <div className="container max-w-[720px] pt-12 pb-16">

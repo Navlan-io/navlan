@@ -1,8 +1,8 @@
-import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Users, Landmark, Calculator, Plane, Briefcase, BookOpen, ExternalLink } from "lucide-react";
 import NavBar from "@/components/NavBar";
 import Footer from "@/components/Footer";
+import SEO from "@/components/SEO";
 import type { LucideIcon } from "lucide-react";
 
 interface Resource {
@@ -123,13 +123,12 @@ const ResourceRow = ({ resource }: { resource: Resource }) => {
 };
 
 const ResourcesPage = () => {
-  useEffect(() => {
-    document.title = "Resources for English-Speaking Property Buyers | Navlan.io";
-    window.scrollTo(0, 0);
-  }, []);
-
   return (
     <div className="min-h-screen flex flex-col bg-warm-white">
+      <SEO
+        title="Resources for English-Speaking Property Buyers in Israel | Navlan.io"
+        description="Curated directory of resources for English speakers buying property in Israel — community groups, government agencies, financial tools, and professional services."
+      />
       <NavBar />
       <main className="flex-1">
         <div className="container max-w-[900px] pt-12 pb-16">

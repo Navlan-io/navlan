@@ -218,6 +218,7 @@ const sections: GuideSection[] = [
 const StartHereGuidePage = () => (
   <GuidePage
     title="Buying Property in Israel: A Guide for English Speakers"
+    seoTitle="Buying Property in Israel: A Guide for English Speakers | Navlan.io"
     subtitle="Everything you need to know about the Israeli real estate market — the purchase process, costs, mortgages, and common pitfalls."
     date="Last updated: March 2026"
     metaDescription="A comprehensive English-language guide to buying property in Israel. Covers the purchase process, costs, mortgages, legal framework, and common mistakes for olim and foreign buyers."

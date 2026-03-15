@@ -196,6 +196,7 @@ const sections: GuideSection[] = [
 const DiraGuidePageComponent = () => (
   <GuidePage
     title="Dira BeHanacha: Israel's Subsidized Housing Program"
+    seoTitle="Dira BeHanacha: Israel's Subsidized Housing Program — Complete English Guide | Navlan.io"
     subtitle="The most complete English-language guide to Israel's government housing lottery — eligibility, how to apply, and what to expect."
     date="Last updated: March 2026"
     metaDescription="Complete English guide to Israel's Dira BeHanacha subsidized housing program. Learn about eligibility, the lottery process, and how olim can apply for discounted apartments."

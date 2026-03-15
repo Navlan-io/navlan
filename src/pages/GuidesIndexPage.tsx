@@ -1,9 +1,9 @@
-import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { BookOpen, Home } from "lucide-react";
 import NavBar from "@/components/NavBar";
 import Footer from "@/components/Footer";
 import { Card, CardContent } from "@/components/ui/card";
+import SEO from "@/components/SEO";
 import type { LucideIcon } from "lucide-react";
 
 interface GuideCardData {
@@ -32,13 +32,22 @@ const guides: GuideCardData[] = [
 ];
 
 const GuidesIndexPage = () => {
-  useEffect(() => {
-    document.title = "Guides | Navlan.io";
-    window.scrollTo(0, 0);
-  }, []);
-
   return (
     <div className="min-h-screen flex flex-col bg-warm-white">
+      <SEO
+        title="Guides for Buying Property in Israel — English-Language Resources | Navlan.io"
+        description="In-depth guides for English speakers navigating Israeli real estate — from the buying process to government housing programs like Dira BeHanacha."
+        structuredData={[
+          {
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            itemListElement: [
+              { "@type": "ListItem", position: 1, name: "Home", item: "https://navlan.io/" },
+              { "@type": "ListItem", position: 2, name: "Guides", item: "https://navlan.io/guides" },
+            ],
+          },
+        ]}
+      />
       <NavBar />
       <main className="flex-1">
         <div className="container max-w-[860px] pt-12 pb-16">
@@ -53,9 +62,9 @@ const GuidesIndexPage = () => {
               <Card key={guide.to} className="bg-cream border-grid-line shadow-card rounded-xl">
                 <CardContent className="p-6 flex flex-col gap-3">
                   <guide.icon className="h-7 w-7 text-sage" />
-                  <h3 className="font-heading font-semibold text-[18px] text-charcoal leading-snug">
+                  <h2 className="font-heading font-semibold text-[18px] text-charcoal leading-snug">
                     {guide.title}
-                  </h3>
+                  </h2>
                   <p className="font-body text-[15px] text-warm-gray leading-relaxed">
                     {guide.description}
                   </p>

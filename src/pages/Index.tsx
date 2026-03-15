@@ -10,6 +10,7 @@ import ExploreCities from "@/components/ExploreCities";
 import MarketSnapshot from "@/components/MarketSnapshot";
 import HomepageNewsletter from "@/components/HomepageNewsletter";
 import NewToIsrael from "@/components/NewToIsrael";
+import SEO from "@/components/SEO";
 
 interface HeroStat {
   label: string;
@@ -104,6 +105,31 @@ const Index = () => {
 
   return (
     <div className="min-h-screen flex flex-col bg-warm-white">
+      <SEO
+        title="Israeli Real Estate Data in English — Prices, City Guides & Market Trends | Navlan.io"
+        description="Navigate Israeli real estate in English. Market data, city-by-city price guides, mortgage rates, and community resources for English-speaking buyers."
+        structuredData={[
+          {
+            "@context": "https://schema.org",
+            "@type": "Organization",
+            name: "Navlan",
+            url: "https://navlan.io",
+            logo: "https://navlan.io/favicon.ico",
+            sameAs: ["https://twitter.com/navlan"],
+          },
+          {
+            "@context": "https://schema.org",
+            "@type": "WebSite",
+            name: "Navlan",
+            url: "https://navlan.io",
+            potentialAction: {
+              "@type": "SearchAction",
+              target: "https://navlan.io/city/{search_term_string}",
+              "query-input": "required name=search_term_string",
+            },
+          },
+        ]}
+      />
       <NavBar />
 
       {/* Hero */}

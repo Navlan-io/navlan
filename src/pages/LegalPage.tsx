@@ -1,21 +1,21 @@
-import { useEffect } from "react";
 import NavBar from "@/components/NavBar";
 import Footer from "@/components/Footer";
+import SEO from "@/components/SEO";
 
 interface LegalPageProps {
   title: string;
   metaTitle: string;
+  metaDescription?: string;
   children: React.ReactNode;
 }
 
-const LegalPage = ({ title, metaTitle, children }: LegalPageProps) => {
-  useEffect(() => {
-    document.title = metaTitle;
-    window.scrollTo(0, 0);
-  }, [metaTitle]);
-
+const LegalPage = ({ title, metaTitle, metaDescription, children }: LegalPageProps) => {
   return (
     <div className="min-h-screen flex flex-col bg-warm-white">
+      <SEO
+        title={metaTitle}
+        description={metaDescription ?? `${title} — Navlan.io`}
+      />
       <NavBar />
       <main className="flex-1">
         <div className="container max-w-[720px] pt-12 pb-16">

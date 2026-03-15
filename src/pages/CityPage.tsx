@@ -8,6 +8,7 @@ import NewsletterSignup from "@/components/NewsletterSignup";
 import CityHero from "@/components/city/CityHero";
 import CityTabs from "@/components/city/CityTabs";
 import { Skeleton } from "@/components/ui/skeleton";
+import SEO from "@/components/SEO";
 
 interface CityData {
   english_name: string;
@@ -142,7 +143,6 @@ const CityPage = () => {
       }
 
       setCity(matched);
-      document.title = `${matched.english_name} — Real Estate Data | Navlan.io`;
 
       // Fetch profile, prices, and district indices in parallel
       const [profileRes, pricesRes] = await Promise.all([
@@ -204,6 +204,23 @@ const CityPage = () => {
 
   return (
     <div className="min-h-screen flex flex-col bg-warm-white">
+      {city && (
+        <SEO
+          title={`${city.english_name} Real Estate Data — Prices, Rent & Community Guide | Navlan.io`}
+          description={`Explore real estate data for ${city.english_name}, Israel — average home prices, price trends, rental data, and community information for English speakers.`}
+          structuredData={[
+            {
+              "@context": "https://schema.org",
+              "@type": "BreadcrumbList",
+              itemListElement: [
+                { "@type": "ListItem", position: 1, name: "Home", item: "https://navlan.io/" },
+                { "@type": "ListItem", position: 2, name: "Cities", item: "https://navlan.io/" },
+                { "@type": "ListItem", position: 3, name: city.english_name, item: `https://navlan.io/city/${slug}` },
+              ],
+            },
+          ]}
+        />
+      )}
       <NavBar />
       <main className="flex-1">
         {loading ? (

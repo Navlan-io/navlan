@@ -1,7 +1,7 @@
-import { useEffect, useState } from "react";
 import { supabase } from "@/integrations/supabase/client";
 import NavBar from "@/components/NavBar";
 import Footer from "@/components/Footer";
+import SEO from "@/components/SEO";
 import { Skeleton } from "@/components/ui/skeleton";
 import NationalPriceTrend from "@/components/market/NationalPriceTrend";
 import DistrictComparison from "@/components/market/DistrictComparison";
@@ -11,12 +11,22 @@ import ConstructionCosts from "@/components/market/ConstructionCosts";
 import RentalMarket from "@/components/market/RentalMarket";
 
 const MarketDataPage = () => {
-  useEffect(() => {
-    document.title = "Market Data — Israel Housing Market | Navlan.io";
-  }, []);
-
   return (
     <div className="min-h-screen flex flex-col bg-warm-white">
+      <SEO
+        title="Israel Housing Market Data — Price Index, Mortgage Rates & Construction Trends | Navlan.io"
+        description="Track Israel's housing market with national price indices, district comparisons, mortgage rates, construction pipeline data, and rental market trends — all in English."
+        structuredData={[
+          {
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            itemListElement: [
+              { "@type": "ListItem", position: 1, name: "Home", item: "https://navlan.io/" },
+              { "@type": "ListItem", position: 2, name: "Market Data", item: "https://navlan.io/market" },
+            ],
+          },
+        ]}
+      />
       <NavBar />
       <main className="flex-1">
         <div className="container max-w-[1200px] py-10">
