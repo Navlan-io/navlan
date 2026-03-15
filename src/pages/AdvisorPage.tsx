@@ -527,7 +527,7 @@ const AdvisorPage = () => {
                   className={`max-w-[85%] md:max-w-[640px] rounded-2xl px-4 py-3 ${
                     msg.role === "user"
                       ? "bg-white shadow-card text-charcoal"
-                      : "bg-sage/8 backdrop-blur-sm text-charcoal border border-sage/10"
+                      : "bg-sage/15 backdrop-blur-sm text-charcoal border border-sage/10"
                   }`}
                   onClick={msg.role === "assistant" ? handleMarkdownClick : undefined}
                 >
