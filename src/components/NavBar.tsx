@@ -6,6 +6,7 @@ import { useCurrency } from "@/contexts/CurrencyContext";
 
 const navLinks = [
   { label: "Cities", href: "/#explore-cities" },
+  { label: "Advisor", href: "/advisor" },
   { label: "Market Data", href: "/market" },
   { label: "Guides", href: "/guides" },
   { label: "Resources", href: "/resources" },

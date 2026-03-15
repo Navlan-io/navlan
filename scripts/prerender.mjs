@@ -26,6 +26,7 @@ const STATIC_ROUTES = [
   "/guides/start-here",
   "/guides/dira-behanacha",
   "/resources",
+  "/advisor",
   "/about",
   "/disclaimer",
   "/privacy",

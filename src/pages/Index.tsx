@@ -10,6 +10,7 @@ import ExploreCities from "@/components/ExploreCities";
 import MarketSnapshot from "@/components/MarketSnapshot";
 import HomepageNewsletter from "@/components/HomepageNewsletter";
 import NewToIsrael from "@/components/NewToIsrael";
+import HomepageAdvisorTeaser from "@/components/HomepageAdvisorTeaser";
 import SEO from "@/components/SEO";
 
 interface HeroStat {
@@ -184,6 +185,7 @@ const Index = () => {
 
       <ExploreCities />
       <MarketSnapshot />
+      <HomepageAdvisorTeaser />
       <HomepageNewsletter />
       <NewToIsrael />
       </main>
