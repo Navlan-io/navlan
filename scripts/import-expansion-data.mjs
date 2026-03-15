@@ -6,8 +6,8 @@
  *   node scripts/import-expansion-data.mjs
  *
  * Requires env vars (or .env file in project root):
- *   VITE_SUPABASE_URL        — your Supabase project URL
- *   SUPABASE_SERVICE_ROLE_KEY — service role key (NOT the anon key)
+ *   VITE_SUPABASE_URL              — your Supabase project URL
+ *   VITE_SUPABASE_PUBLISHABLE_KEY  — anon/publishable key (RLS policies must allow inserts)
  *
  * The script reads JSON files from data/expansion/ relative to the repo root.
  */
@@ -22,7 +22,7 @@ const ROOT = resolve(__dirname, "..");
 const DATA_DIR = resolve(ROOT, "data", "expansion");
 
 // ---------------------------------------------------------------------------
-// Supabase client (service role for inserts)
+// Supabase client (anon key — relies on RLS insert policies)
 // ---------------------------------------------------------------------------
 // Try .env file manually (no dotenv dependency)
 function loadEnv() {
@@ -41,10 +41,10 @@ function loadEnv() {
 loadEnv();
 
 const SUPABASE_URL = process.env.VITE_SUPABASE_URL;
-const SUPABASE_KEY = process.env.SUPABASE_SERVICE_ROLE_KEY;
+const SUPABASE_KEY = process.env.VITE_SUPABASE_PUBLISHABLE_KEY;
 
 if (!SUPABASE_URL || !SUPABASE_KEY) {
-  console.error("Missing VITE_SUPABASE_URL or SUPABASE_SERVICE_ROLE_KEY env vars.");
+  console.error("Missing VITE_SUPABASE_URL or VITE_SUPABASE_PUBLISHABLE_KEY env vars.");
   console.error("Set them in .env or export them before running this script.");
   process.exit(1);
 }
