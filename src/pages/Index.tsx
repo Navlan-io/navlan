@@ -57,7 +57,7 @@ const Index = () => {
       if (indexRes.data?.[0]) setPriceYoy(indexRes.data[0].percent_yoy);
       if (mortgageRes.data?.[0]) setMortgageRate(mortgageRes.data[0].value);
     };
-    fetch().catch(() => {});
+    fetch().catch(console.error);
   }, []);
 
   // Format avg price respecting currency

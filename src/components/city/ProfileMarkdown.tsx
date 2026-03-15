@@ -1,4 +1,5 @@
 import ReactMarkdown from "react-markdown";
+import rehypeSanitize from "rehype-sanitize";
 
 interface ProfileMarkdownProps {
   content: string;
@@ -6,6 +7,7 @@ interface ProfileMarkdownProps {
 
 const ProfileMarkdown = ({ content }: ProfileMarkdownProps) => (
   <ReactMarkdown
+    rehypePlugins={[rehypeSanitize]}
     components={{
       h1: ({ children }) => (
         <h3 className="font-heading font-semibold text-[20px] text-charcoal mt-6 mb-3 first:mt-0">{children}</h3>
