@@ -62,7 +62,7 @@ const ConstructionCosts = () => {
   const CustomTooltip = ({ active, payload, label }: any) => {
     if (!active || !payload?.length) return null;
     return (
-      <div className="bg-white rounded-lg px-3 py-2 shadow-[0_2px_8px_rgba(0,0,0,0.1)] font-body text-[13px]">
+      <div className="bg-cream border border-sage/20 rounded-lg px-3 py-2 shadow-[0_2px_8px_rgba(0,0,0,0.1)] font-body text-[13px]">
         <p className="text-charcoal font-semibold">{label}</p>
         <p className="text-charcoal">Index: {payload[0].value.toFixed(1)}</p>
       </div>

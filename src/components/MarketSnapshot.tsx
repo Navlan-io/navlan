@@ -88,7 +88,7 @@ const MarketSnapshot = () => {
   const CustomTooltip = ({ active, payload, label }: any) => {
     if (!active || !payload?.length) return null;
     return (
-      <div className="bg-white rounded-lg px-3 py-2 shadow-[0_2px_8px_rgba(0,0,0,0.1)] font-body text-[13px]">
+      <div className="bg-cream rounded-lg px-3 py-2 shadow-[0_2px_8px_rgba(0,0,0,0.1)] border border-sage/20 font-body text-[13px]">
         <p className="text-charcoal font-semibold">{label}</p>
         <p className="text-charcoal">Index: {payload[0].value.toFixed(1)}</p>
         <p className="text-warm-gray">MoM: {payload[0].payload.mom >= 0 ? "+" : ""}{payload[0].payload.mom.toFixed(1)}%</p>
@@ -99,7 +99,7 @@ const MarketSnapshot = () => {
   const editorialText = `Israeli housing prices continued their gradual climb through late 2025, with the national price index reaching ${latest.value.toFixed(1)}. Year-over-year growth has moderated from nearly 7% at the start of the year to ${latest.yoy >= 0 ? "+" : ""}${latest.yoy.toFixed(1)}%, suggesting a cooling but still-appreciating market. Construction costs have stabilized, rising just ${constructionYoy.toFixed(1)}% annually.`;
 
   return (
-    <section className="py-16 bg-cream">
+    <section className="py-20 bg-cream">
       <div className="container max-w-[1200px]">
         {loading ? (
           <div className="bg-warm-white rounded-xl h-[300px] animate-pulse" />
@@ -151,9 +151,12 @@ const MarketSnapshot = () => {
             Market Snapshot
           </h2>
           {latest.year > 0 && (
-            <p className="font-body text-[13px] text-warm-gray mb-4">
-              Data as of: {new Date(latest.year, latest.month - 1).toLocaleString("en-US", { month: "long", year: "numeric" })}
-            </p>
+            <>
+              <p className="font-body text-[13px] text-warm-gray mb-1">
+                Data as of: {new Date(latest.year, latest.month - 1).toLocaleString("en-US", { month: "long", year: "numeric" })}
+              </p>
+              <p className="font-body text-[12px] text-warm-gray/70 mt-1 mb-4">Data updates monthly from CBS</p>
+            </>
           )}
 
           <div className="flex flex-wrap items-center gap-x-6 gap-y-3 mb-5">

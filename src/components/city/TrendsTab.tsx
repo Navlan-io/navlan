@@ -232,7 +232,7 @@ const TrendsTab = ({ city, prices, districtIndices }: TrendsTabProps) => {
         ) : (
           <>
             <div className="w-full" style={{ minHeight: 250 }}>
-              <ResponsiveContainer width="100%" height={280}>
+              <ResponsiveContainer width="100%" height={350}>
                 <AreaChart data={priceChartData}>
                   <defs>
                     <linearGradient id="priceGrad" x1="0" y1="0" x2="0" y2="1">
@@ -313,7 +313,7 @@ const TrendsTab = ({ city, prices, districtIndices }: TrendsTabProps) => {
         )}
 
         <p className="font-body text-[12px] text-warm-gray mt-3">
-          Source: CBS Table 2.2 — Average Dwelling Prices
+          Source: Central Bureau of Statistics — Average Dwelling Prices
         </p>
       </section>
 
@@ -331,7 +331,7 @@ const TrendsTab = ({ city, prices, districtIndices }: TrendsTabProps) => {
               </thead>
               <tbody>
                 {roomData.map((row) => (
-                  <tr key={row.rooms} className="border-b border-grid-line last:border-0">
+                  <tr key={row.rooms} className={cn("border-b border-grid-line last:border-0", (row.rooms === "3 Rooms" || row.rooms === "4 Rooms") && "bg-cream/50")}>
                     <td className="font-body text-[15px] text-charcoal py-3 pr-6">{row.rooms}</td>
                     <td className="text-right font-body text-[15px] text-charcoal py-3">
                       {row.value != null ? formatPrice(row.value) : "—"}
@@ -341,7 +341,7 @@ const TrendsTab = ({ city, prices, districtIndices }: TrendsTabProps) => {
               </tbody>
             </table>
           </div>
-          <p className="font-body text-[12px] text-warm-gray mt-3">Source: CBS Table 2.2</p>
+          <p className="font-body text-[12px] text-warm-gray mt-3">Source: Central Bureau of Statistics</p>
         </section>
       )}
 
@@ -394,7 +394,7 @@ const TrendsTab = ({ city, prices, districtIndices }: TrendsTabProps) => {
               </tbody>
             </table>
           </div>
-          <p className="font-body text-[12px] text-warm-gray mt-3">Source: CBS Table 4.9 — Average Monthly Rent Prices</p>
+          <p className="font-body text-[12px] text-warm-gray mt-3">Source: Central Bureau of Statistics — Average Monthly Rent Prices</p>
         </section>
       ) : !rentalLoading && !rentalData ? (
         <section>
@@ -434,7 +434,7 @@ const TrendsTab = ({ city, prices, districtIndices }: TrendsTabProps) => {
           </Card>
         ) : (
           <div className="w-full" style={{ minHeight: 250 }}>
-            <ResponsiveContainer width="100%" height={280}>
+            <ResponsiveContainer width="100%" height={350}>
               <AreaChart data={filteredDistrictData}>
                 <defs>
                   <linearGradient id="distGrad" x1="0" y1="0" x2="0" y2="1">
@@ -483,7 +483,7 @@ const TrendsTab = ({ city, prices, districtIndices }: TrendsTabProps) => {
           </div>
         )}
 
-        <p className="font-body text-[12px] text-warm-gray mt-3">Source: CBS Dwelling Price Index</p>
+        <p className="font-body text-[12px] text-warm-gray mt-3">Source: Central Bureau of Statistics — Dwelling Price Index</p>
       </section>
     </div>
   );

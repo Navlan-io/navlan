@@ -35,7 +35,7 @@ const CityTabs = ({ city, profile, prices, districtIndices }: CityTabsProps) => 
                 className={cn(
                   "px-4 py-3 min-h-[44px] font-body font-medium text-[14px] md:text-[15px] whitespace-nowrap transition-colors border-b-2 -mb-px",
                   activeTab === tab
-                    ? "text-sage border-sage"
+                    ? "text-sage border-sand-gold"
                     : "text-warm-gray border-transparent hover:text-charcoal"
                 )}
               >

@@ -96,7 +96,7 @@ const DistrictComparison = () => {
   const CustomTooltip = ({ active, payload, label }: any) => {
     if (!active || !payload?.length) return null;
     return (
-      <div className="bg-white rounded-lg px-3 py-2 shadow-[0_2px_8px_rgba(0,0,0,0.1)] font-body text-[13px] min-w-[140px]">
+      <div className="bg-cream border border-sage/20 rounded-lg px-3 py-2 shadow-[0_2px_8px_rgba(0,0,0,0.1)] font-body text-[13px] min-w-[140px]">
         <p className="text-charcoal font-semibold mb-1">{label}</p>
         {payload.map((p: any) => (
           <div key={p.dataKey} className="flex items-center gap-2">

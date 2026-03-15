@@ -2,13 +2,13 @@ import NewsletterSignup from "@/components/NewsletterSignup";
 
 const HomepageNewsletter = () => {
   return (
-    <section className="bg-cream py-16 md:py-20 border-t border-border-light">
+    <section className="bg-cream py-20 md:py-24 border-t border-border-light">
       <div className="container max-w-[560px] text-center">
         <h2 className="font-heading font-bold text-[24px] md:text-[28px] text-charcoal">
-          The Navlan Report
+          Get CBS data explained in plain English — monthly
         </h2>
         <p className="mt-4 font-body text-[16px] text-warm-gray leading-relaxed">
-          A plain-English interpretation of the latest Israeli housing data — delivered monthly. Join English-speaking property buyers who want the real numbers, not broker opinions.
+          Join English-speaking property buyers who want the real numbers, not broker opinions. Free, monthly, unsubscribe anytime.
         </p>
         <div className="mt-8 max-w-md mx-auto">
           <NewsletterSignup source="homepage" />

@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { Card } from "@/components/ui/card";
 import TrendPill from "@/components/TrendPill";
 import { useCurrency } from "@/contexts/CurrencyContext";
+import { Share2 } from "lucide-react";
 
 const DISTRICT_INDEX_MAP: Record<string, number> = {
   Jerusalem: 60000,
@@ -70,16 +71,30 @@ const CityHero = ({ city, profile, prices, districtIndices }: CityHeroProps) => 
           ← All Cities
         </Link>
 
-        <div className="flex items-baseline gap-3 flex-wrap">
-          <h1 className="font-heading font-bold text-[28px] md:text-[32px] text-charcoal">
+        <div>
+          <h1 className="font-heading font-bold text-[32px] md:text-[38px] text-charcoal">
             {city.english_name}
           </h1>
           {city.hebrew_name && (
-            <span className="font-body text-[18px] text-warm-gray">({city.hebrew_name})</span>
+            <p className="font-body text-[18px] text-warm-gray mt-1">{city.hebrew_name}</p>
           )}
         </div>
 
-        <p className="mt-2 font-body text-[15px] text-warm-gray max-w-2xl">{overviewLine}</p>
+        <p className="mt-2 font-body text-[17px] leading-[1.75] text-warm-gray max-w-2xl">{overviewLine}</p>
+
+        <div className="flex items-center gap-3 mt-3">
+          <button
+            onClick={() => {
+              const url = window.location.href;
+              const text = `Check out ${city.english_name} real estate data on Navlan — ${url}`;
+              window.open(`https://wa.me/?text=${encodeURIComponent(text)}`, '_blank');
+            }}
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-lg border border-sage/30 text-sage font-body text-[14px] font-medium hover:bg-sage/5 transition-colors"
+          >
+            <Share2 className="h-4 w-4" />
+            Share
+          </button>
+        </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mt-8">
           {/* Average Price */}

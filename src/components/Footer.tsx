@@ -43,10 +43,10 @@ const Footer = () => {
 
           {/* Right */}
           <div>
-            <h4 className="font-heading font-semibold text-[15px] text-white mb-4">Stay Updated</h4>
+            <h4 className="font-heading font-semibold text-[15px] text-white mb-4">Free monthly market briefing — in English</h4>
             <NewsletterSignup source="footer" variant="dark" />
             <p className="mt-2 text-white/50 font-body text-[12px]">
-              Subscribe to The Navlan Report
+              No spam. Unsubscribe anytime.
             </p>
           </div>
         </div>

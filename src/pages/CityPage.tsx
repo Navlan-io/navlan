@@ -7,6 +7,7 @@ import Footer from "@/components/Footer";
 import NewsletterSignup from "@/components/NewsletterSignup";
 import CityHero from "@/components/city/CityHero";
 import CityTabs from "@/components/city/CityTabs";
+import SimilarCities from "@/components/city/SimilarCities";
 import { Skeleton } from "@/components/ui/skeleton";
 import SEO from "@/components/SEO";
 
@@ -249,19 +250,24 @@ const CityPage = () => {
 
       {/* Newsletter CTA */}
       {!loading && city && (
-        <div className="bg-cream py-12">
+        <div className="bg-cream py-16">
           <div className="container max-w-[560px] text-center">
             <p className="font-heading font-semibold text-[20px] text-charcoal mb-2">
-              Stay informed on the Israeli market
+              Getting useful insights? Get them monthly.
             </p>
             <p className="font-body text-[15px] text-warm-gray mb-6">
-              Get The Navlan Report — free, monthly, in English.
+              CBS data explained in plain English — free, no spam.
             </p>
             <div className="max-w-sm mx-auto">
               <NewsletterSignup source="city" />
             </div>
           </div>
         </div>
+      )}
+
+      {/* Similar Cities */}
+      {!loading && city && (
+        <SimilarCities currentCity={city.english_name} district={city.district} />
       )}
 
       <Footer />

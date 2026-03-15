@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import {
-  AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer,
+  AreaChart, Area, BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer,
 } from "recharts";
 import { supabase } from "@/integrations/supabase/client";
 import { Card } from "@/components/ui/card";
@@ -114,7 +114,7 @@ const ConstructionPipeline = () => {
   const ChartTooltip = ({ active, payload, label }: any) => {
     if (!active || !payload?.length) return null;
     return (
-      <div className="bg-white rounded-lg px-3 py-2 shadow-[0_2px_8px_rgba(0,0,0,0.1)] font-body text-[13px]">
+      <div className="bg-cream border border-sage/20 rounded-lg px-3 py-2 shadow-[0_2px_8px_rgba(0,0,0,0.1)] font-body text-[13px]">
         <p className="text-charcoal font-semibold">{label}</p>
         <p className="text-charcoal">{formatNumber(payload[0].value)}</p>
       </div>
@@ -210,13 +210,7 @@ const ConstructionPipeline = () => {
           {startsChart.length > 0 ? (
             <div style={{ minHeight: 250 }} aria-label="Monthly construction starts trend chart">
               <ResponsiveContainer width="100%" height={260}>
-                <AreaChart data={startsChart}>
-                  <defs>
-                    <linearGradient id="startsGrad" x1="0" y1="0" x2="0" y2="1">
-                      <stop offset="0%" stopColor={chartColors.horizonBlue} stopOpacity={0.1} />
-                      <stop offset="100%" stopColor={chartColors.horizonBlue} stopOpacity={0} />
-                    </linearGradient>
-                  </defs>
+                <BarChart data={startsChart}>
                   <CartesianGrid horizontal vertical={false} stroke={chartColors.gridLine} />
                   <XAxis
                     dataKey="label"
@@ -236,8 +230,8 @@ const ConstructionPipeline = () => {
                     tickFormatter={(v) => `${Math.round(v / 1000)}K`}
                   />
                   <Tooltip content={<ChartTooltip />} />
-                  <Area type="monotone" dataKey="value" stroke={chartColors.horizonBlue} strokeWidth={2} fill="url(#startsGrad)" dot={false} />
-                </AreaChart>
+                  <Bar dataKey="value" fill={chartColors.horizonBlue} radius={[2, 2, 0, 0]} />
+                </BarChart>
               </ResponsiveContainer>
             </div>
           ) : (

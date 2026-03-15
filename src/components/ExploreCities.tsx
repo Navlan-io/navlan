@@ -34,6 +34,15 @@ const ANGLO_PRIORITY = [
   "Netanya",
 ];
 
+const DISTRICT_BORDER_COLORS: Record<string, string> = {
+  Jerusalem: "border-sand-gold",
+  "Tel Aviv": "border-horizon-blue",
+  Haifa: "border-deep-olive",
+  Central: "border-sage",
+  South: "border-terra-red",
+  North: "border-growth-green",
+};
+
 const toSlug = (name: string) =>
   name.toLowerCase().replace(/'/g, "").replace(/\s+/g, "-");
 
@@ -157,7 +166,7 @@ const ExploreCities = () => {
   };
 
   return (
-    <section id="explore-cities" className="py-16 bg-warm-white">
+    <section id="explore-cities" className="py-20 bg-warm-white">
       <div className="container max-w-[1200px]">
         <h2 className="font-heading font-semibold text-[24px] text-charcoal">
           Explore Cities
@@ -232,7 +241,7 @@ const ExploreCities = () => {
                     <Link
                       key={city.slug}
                       to={`/city/${city.slug}`}
-                      className="group relative flex flex-col flex-shrink-0 w-[78vw] md:w-[calc(28.57%-12px)] min-w-[280px] rounded-xl bg-cream border-l-4 border-sage p-6 no-underline shadow-[0_2px_8px_rgba(45,50,52,0.06)] hover:shadow-[0_4px_16px_rgba(45,50,52,0.12)] transition-all duration-200 cursor-pointer overflow-hidden snap-start"
+                      className={`group relative flex flex-col flex-shrink-0 w-[78vw] md:w-[calc(28.57%-12px)] min-w-[280px] rounded-xl bg-cream border-l-4 ${DISTRICT_BORDER_COLORS[city.district] || "border-sage"} p-6 no-underline shadow-[0_2px_8px_rgba(45,50,52,0.06)] hover:shadow-[0_4px_16px_rgba(45,50,52,0.12)] transition-all duration-200 cursor-pointer overflow-hidden snap-start`}
                       style={{
                         backgroundImage:
                           "linear-gradient(to right, rgba(124,139,110,0.07) 1px, transparent 1px), linear-gradient(to bottom, rgba(124,139,110,0.07) 1px, transparent 1px)",
@@ -249,7 +258,7 @@ const ExploreCities = () => {
                         {city.tagline || `${city.district} District`}
                       </p>
                       <span className="relative mt-auto pt-4 font-body font-medium text-[14px] text-horizon-blue group-hover:underline">
-                        Explore →
+                        See Prices →
                       </span>
                     </Link>
                   ))}

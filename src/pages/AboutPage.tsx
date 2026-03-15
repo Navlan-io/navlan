@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Instagram, Twitter, Facebook } from "lucide-react";
+
 import NavBar from "@/components/NavBar";
 import Footer from "@/components/Footer";
 import NewsletterSignup from "@/components/NewsletterSignup";
@@ -18,10 +18,10 @@ const AboutPage = () => {
           <h1 className="font-heading font-bold text-[32px] text-charcoal">About Navlan</h1>
           <div className="border-b border-grid-line mt-6 mb-10" />
 
-          <div className="space-y-10 font-body text-[16px] text-charcoal leading-[1.75]">
+          <div className="space-y-14 font-body text-[16px] text-charcoal leading-[1.75]">
             {/* Why Navlan Exists */}
             <section>
-              <h2 className="font-heading font-semibold text-[22px] text-charcoal mb-4">Why Navlan Exists</h2>
+              <h2 className="font-heading font-semibold text-[26px] text-charcoal mb-4">Why Navlan Exists</h2>
               <p className="mb-4">
                 If you've ever tried to understand the Israeli real estate market as an English speaker, you already know the problem.
               </p>
@@ -33,7 +33,7 @@ const AboutPage = () => {
 
             {/* What Navlan Is */}
             <section>
-              <h2 className="font-heading font-semibold text-[22px] text-charcoal mb-4">What Navlan Is</h2>
+              <h2 className="font-heading font-semibold text-[26px] text-charcoal mb-4">What Navlan Is</h2>
               <p className="mb-4">
                 Navlan is a free, independent data platform that translates Israeli government housing data into clear English. We pull from the Central Bureau of Statistics, the Bank of Israel, and other public sources to give you:
               </p>
@@ -50,7 +50,7 @@ const AboutPage = () => {
 
             {/* Our Data */}
             <section>
-              <h2 className="font-heading font-semibold text-[22px] text-charcoal mb-4">Our Data</h2>
+              <h2 className="font-heading font-semibold text-[26px] text-charcoal mb-4">Our Data</h2>
               <p className="mb-4">
                 All market data on Navlan comes from official Israeli government sources — primarily the Central Bureau of Statistics (CBS) and the Bank of Israel. We don't scrape listings or rely on broker estimates. Our data includes:
               </p>
@@ -72,23 +72,32 @@ const AboutPage = () => {
             </section>
 
             <section>
-              <h2 className="font-heading font-semibold text-[22px] text-charcoal mb-4">Who Navlan Is For</h2>
+              <h2 className="font-heading font-semibold text-[26px] text-charcoal mb-4">Who Navlan Is For</h2>
               <p className="mb-4">
                 <span className="font-semibold">New olim</span> figuring out where to live and what they can afford. Start with our city guides and the{" "}
                 <Link to="/guides/start-here" className="text-horizon-blue no-underline hover:underline">Start Here guide</Link>.
+              </p>
+              <p className="mt-1 mb-4">
+                <Link to="/guides/start-here" className="font-body font-medium text-[14px] text-sage no-underline hover:underline">&rarr; Start with our Buyer's Guide</Link>
               </p>
               <p className="mb-4">
                 <span className="font-semibold">Long-time Anglo residents</span> ready to buy or sell, who want to verify what their broker is telling them. Dive into the{" "}
                 <Link to="/market" className="text-horizon-blue no-underline hover:underline">market data</Link>.
               </p>
+              <p className="mt-1 mb-4">
+                <Link to="/market" className="font-body font-medium text-[14px] text-sage no-underline hover:underline">&rarr; Explore Market Data</Link>
+              </p>
               <p>
                 <span className="font-semibold">Diaspora investors</span> exploring Israeli property from abroad, who need market context and city comparisons before making any decisions.
+              </p>
+              <p className="mt-1">
+                <Link to="/#explore-cities" className="font-body font-medium text-[14px] text-sage no-underline hover:underline">&rarr; Compare Cities</Link>
               </p>
             </section>
 
             {/* The Name */}
             <section>
-              <h2 className="font-heading font-semibold text-[22px] text-charcoal mb-4">The Name</h2>
+              <h2 className="font-heading font-semibold text-[26px] text-charcoal mb-4">The Name</h2>
               <p>
                 Navlan is a portmanteau of "navigate" and "nadlan" (נדל"ן — Hebrew for real estate). Navigate nadlan. That's what we're here to help you do.
               </p>
@@ -96,26 +105,18 @@ const AboutPage = () => {
 
             {/* Stay Updated */}
             <section>
-              <h2 className="font-heading font-semibold text-[22px] text-charcoal mb-4">Stay Updated</h2>
+              <h2 className="font-heading font-semibold text-[26px] text-charcoal mb-4">Stay Updated</h2>
               <p className="mb-6">
-                We publish The Navlan Report — a plain-English interpretation of the latest Israeli housing data. No broker spin, no speculation, just the numbers and what they mean.
+                Want to follow our journey? We publish The Navlan Report — a plain-English interpretation of the latest Israeli housing data. No broker spin, no speculation, just the numbers and what they mean.
               </p>
               <div className="max-w-md">
                 <NewsletterSignup source="about" />
-              </div>
-              <div className="mt-4 flex items-center gap-2">
-                <p className="font-body text-[14px] text-warm-gray">Social media coming soon.</p>
-                <div className="flex items-center gap-1.5">
-                  <span className="p-1.5 text-warm-gray/40"><Instagram className="h-5 w-5" /></span>
-                  <span className="p-1.5 text-warm-gray/40"><Twitter className="h-5 w-5" /></span>
-                  <span className="p-1.5 text-warm-gray/40"><Facebook className="h-5 w-5" /></span>
-                </div>
               </div>
             </section>
 
             {/* Get in Touch */}
             <section>
-              <h2 className="font-heading font-semibold text-[22px] text-charcoal mb-4">Get in Touch</h2>
+              <h2 className="font-heading font-semibold text-[26px] text-charcoal mb-4">Get in Touch</h2>
               <p className="mb-4">Questions, feedback, or tips? We'd love to hear from you.</p>
               <p className="mb-4">
                 Email:{" "}

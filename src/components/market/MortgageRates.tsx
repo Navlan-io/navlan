@@ -87,7 +87,7 @@ const MortgageRates = () => {
             </TableHeader>
             <TableBody>
               {rates.map((r) => (
-                <TableRow key={r.track_type}>
+                <TableRow key={r.track_type} className={r.track_type === "non_indexed_fixed" || r.track_type === "prime_variable" ? "bg-sand-gold/10 font-semibold" : ""}>
                   <TableCell className="font-body text-[15px] text-charcoal">{r.track_label}</TableCell>
                   <TableCell className="font-body text-[15px] text-charcoal font-semibold">
                     {r.value != null

@@ -1,5 +1,8 @@
 import { Link } from "react-router-dom";
 import GuidePage, { GuideSection } from "@/components/guides/GuidePage";
+import InlineNewsletterCTA from "@/components/ui/InlineNewsletterCTA";
+import PullQuote from "@/components/ui/PullQuote";
+import CalloutBox from "@/components/ui/CalloutBox";
 
 const sections: GuideSection[] = [
   {
@@ -33,6 +36,9 @@ const sections: GuideSection[] = [
         <p className="mb-4">
           Before purchasing any property, your lawyer should obtain and review a fresh Nesach Tabu. This document is the closest equivalent to a title search in the US. It can be ordered online through the Tabu website for a small fee. Never rely on an old or seller-provided extract — always pull your own.
         </p>
+        <CalloutBox title="Key Fact">
+          All property transactions in Israel must be registered with the Tabu (Land Registry). Always verify ownership before signing any agreement.
+        </CalloutBox>
       </>
     ),
   },
@@ -110,6 +116,7 @@ const sections: GuideSection[] = [
             </tbody>
           </table>
         </div>
+        <InlineNewsletterCTA source="guide" />
       </>
     ),
   },
@@ -168,6 +175,8 @@ const sections: GuideSection[] = [
     id: "common-mistakes",
     title: "Common Mistakes Anglos Make",
     content: (
+      <>
+      <PullQuote>The biggest mistake English-speaking buyers make is assuming Israeli real estate works like the US or UK market. It doesn't.</PullQuote>
       <ul className="list-disc pl-6 space-y-3 marker:text-sage">
         <li><strong>Trusting a broker's market timing advice without checking data.</strong> Brokers earn commissions on sales — they're incentivized to tell you "now is the time to buy." Check the actual market data yourself.</li>
         <li><strong>Not hiring your own lawyer.</strong> Some buyers try to save money by using the seller's lawyer or skipping legal representation entirely. This is a recipe for disaster in Israel's lawyer-driven system.</li>
@@ -177,6 +186,7 @@ const sections: GuideSection[] = [
         <li><strong>Rushing to buy during the "olim panic" in the first year.</strong> Many new immigrants feel pressure to buy immediately. The market will still be there in year two — take time to learn the market and settle in.</li>
         <li><strong>Not factoring in ongoing costs.</strong> Arnona, vaad bayit (building maintenance fees), and utility costs vary significantly by city and building. Budget for these before committing.</li>
       </ul>
+      </>
     ),
   },
   {
@@ -221,6 +231,7 @@ const StartHereGuidePage = () => (
     seoTitle="Buying Property in Israel: A Guide for English Speakers | Navlan.io"
     subtitle="Everything you need to know about the Israeli real estate market — the purchase process, costs, mortgages, and common pitfalls."
     date="Last updated: March 2026"
+    readTime="~18 min read"
     metaDescription="A comprehensive English-language guide to buying property in Israel. Covers the purchase process, costs, mortgages, legal framework, and common mistakes for olim and foreign buyers."
     sections={sections}
     bottomNav={{

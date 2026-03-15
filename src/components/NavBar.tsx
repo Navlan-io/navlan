@@ -46,13 +46,16 @@ const NavBar = () => {
         </Link>
 
         <div className="hidden md:flex items-center gap-8">
-          {navLinks.map((link) =>
-            link.href.startsWith("/#") ? (
+          {navLinks.map((link) => {
+            const isActive = link.href === "/#explore-cities"
+              ? location.pathname === "/"
+              : location.pathname.startsWith(link.href);
+            return link.href.startsWith("/#") ? (
               <a
                 key={link.label}
                 href={link.href}
                 onClick={(e) => handleNavClick(link.href, e)}
-                className="font-body font-medium text-[15px] text-charcoal no-underline hover:text-sage hover:no-underline transition-colors"
+                className={`font-body font-medium text-[15px] no-underline hover:text-sage hover:no-underline transition-colors ${isActive ? 'text-sage' : 'text-charcoal'}`}
               >
                 {link.label}
               </a>
@@ -60,12 +63,12 @@ const NavBar = () => {
               <Link
                 key={link.label}
                 to={link.href}
-                className="font-body font-medium text-[15px] text-charcoal no-underline hover:text-sage hover:no-underline transition-colors"
+                className={`font-body font-medium text-[15px] no-underline hover:text-sage hover:no-underline transition-colors ${isActive ? 'text-sage' : 'text-charcoal'}`}
               >
                 {link.label}
               </Link>
-            )
-          )}
+            );
+          })}
         </div>
 
         <div className="flex items-center gap-3">

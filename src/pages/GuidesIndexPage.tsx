@@ -11,6 +11,7 @@ interface GuideCardData {
   title: string;
   description: string;
   updated: string;
+  readTime: string;
   to: string;
 }
 
@@ -20,6 +21,7 @@ const guides: GuideCardData[] = [
     title: "Buying Property in Israel: A Guide for English Speakers",
     description: "Everything you need to know about the Israeli real estate market — the purchase process, costs, mortgages, and common pitfalls.",
     updated: "Last updated: March 2026",
+    readTime: "~18 min read",
     to: "/guides/start-here",
   },
   {
@@ -27,6 +29,7 @@ const guides: GuideCardData[] = [
     title: "Dira BeHanacha: Israel's Subsidized Housing Program",
     description: "The most complete English-language guide to Israel's government housing lottery — eligibility, how to apply, and what to expect.",
     updated: "Last updated: March 2026",
+    readTime: "~20 min read",
     to: "/guides/dira-behanacha",
   },
 ];
@@ -69,6 +72,7 @@ const GuidesIndexPage = () => {
                     {guide.description}
                   </p>
                   <p className="font-body text-[13px] text-warm-gray">{guide.updated}</p>
+                  <p className="font-body text-[13px] text-warm-gray mt-2">{guide.readTime}</p>
                   <Link
                     to={guide.to}
                     className="font-body font-medium text-[15px] text-horizon-blue no-underline hover:underline mt-1"

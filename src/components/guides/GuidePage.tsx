@@ -28,6 +28,7 @@ interface GuidePageProps {
   seoTitle: string;
   subtitle: string;
   date: string;
+  readTime?: string;
   metaDescription: string;
   sections: GuideSection[];
   bottomNav: BottomNav;
@@ -40,6 +41,7 @@ const GuidePage = ({
   seoTitle,
   subtitle,
   date,
+  readTime,
   metaDescription,
   sections,
   bottomNav,
@@ -142,6 +144,9 @@ const GuidePage = ({
             {subtitle}
           </p>
           <p className="mt-2 font-body text-[13px] text-warm-gray">{date}</p>
+          {readTime && (
+            <p className="font-body text-[13px] text-warm-gray mt-2">{readTime}</p>
+          )}
           <div className="border-b border-grid-line mt-6 mb-8" />
 
           {headerContent}

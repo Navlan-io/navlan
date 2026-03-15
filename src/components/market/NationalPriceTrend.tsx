@@ -93,7 +93,7 @@ const NationalPriceTrend = () => {
     if (!active || !payload?.length) return null;
     const d = payload[0].payload;
     return (
-      <div className="bg-white rounded-lg px-3 py-2 shadow-[0_2px_8px_rgba(0,0,0,0.1)] font-body text-[13px]">
+      <div className="bg-cream border border-sage/20 rounded-lg px-3 py-2 shadow-[0_2px_8px_rgba(0,0,0,0.1)] font-body text-[13px]">
         <p className="text-charcoal font-semibold">{label}</p>
         <p className="text-charcoal">Index: {d.value.toFixed(1)}</p>
         {d.mom != null && <p className="text-warm-gray">MoM: {d.mom >= 0 ? "+" : ""}{d.mom.toFixed(1)}%</p>}
@@ -205,7 +205,7 @@ const NationalPriceTrend = () => {
       </div>
 
       <p className="font-body text-[12px] text-warm-gray mt-3">
-        Source: CBS Dwelling Price Index (Base: 2015-2016 = 100)
+        Source: Central Bureau of Statistics Dwelling Price Index (Base: 2015-2016 = 100)
       </p>
 
       {latest && (

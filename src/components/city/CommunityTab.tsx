@@ -1,8 +1,9 @@
 import { Card } from "@/components/ui/card";
 import ProfileMarkdown from "./ProfileMarkdown";
+import InlineNewsletterCTA from "@/components/ui/InlineNewsletterCTA";
 
 interface CommunityTabProps {
-  city: { english_name: string };
+  city: { english_name: string; district: string };
   onSwitchTab?: (tab: string) => void;
   profile: {
     overview: string | null;
@@ -47,29 +48,61 @@ const CommunityTab = ({ city, profile, onSwitchTab }: CommunityTabProps) => {
   }
 
   return (
-    <div className="max-w-[720px] space-y-8">
-      <div className="bg-cream rounded-lg px-5 py-4">
-        <p className="font-body text-[13px] text-warm-gray leading-relaxed">
-          Price ranges mentioned below are approximate editorial estimates and may be outdated. See the{" "}
-          <button
-            onClick={() => onSwitchTab?.("Trends")}
-            className="text-horizon-blue hover:underline font-medium"
-          >
-            Trends tab
-          </button>{" "}
-          for current market data.
-        </p>
+    <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
+      <div className="lg:col-span-8 max-w-[720px] space-y-8">
+        <div className="bg-cream rounded-lg px-5 py-4">
+          <p className="font-body text-[13px] text-warm-gray leading-relaxed">
+            Price ranges mentioned below are approximate editorial estimates and may be outdated. See the{" "}
+            <button
+              onClick={() => onSwitchTab?.("Trends")}
+              className="text-horizon-blue hover:underline font-medium"
+            >
+              Trends tab
+            </button>{" "}
+            for current market data.
+          </p>
+        </div>
+        {sections.map(({ key, title }) => {
+          const content = profile?.[key];
+          if (!content) return null;
+          return (
+            <div key={key}>
+              <h3 className="font-heading font-semibold text-[18px] text-charcoal mb-3">{title}</h3>
+              <ProfileMarkdown content={content} />
+            </div>
+          );
+        })}
+        <InlineNewsletterCTA source="city" />
       </div>
-      {sections.map(({ key, title }) => {
-        const content = profile?.[key];
-        if (!content) return null;
-        return (
-          <div key={key}>
-            <h3 className="font-heading font-semibold text-[18px] text-charcoal mb-3">{title}</h3>
-            <ProfileMarkdown content={content} />
-          </div>
-        );
-      })}
+
+      {/* Quick facts sidebar — visible on lg+ */}
+      <aside className="hidden lg:block lg:col-span-4">
+        <div className="sticky top-32 space-y-5">
+          <Card className="p-5 bg-cream border-0 shadow-card">
+            <h4 className="font-heading font-semibold text-[15px] text-charcoal mb-3">Quick Facts</h4>
+            <ul className="space-y-3 font-body text-[14px]">
+              <li className="flex justify-between">
+                <span className="text-warm-gray">District</span>
+                <span className="text-charcoal font-medium">{city.district}</span>
+              </li>
+            </ul>
+            <div className="mt-4 pt-4 border-t border-grid-line space-y-2">
+              <button
+                onClick={() => onSwitchTab?.("Trends")}
+                className="block w-full text-left font-body text-[14px] text-horizon-blue hover:underline font-medium"
+              >
+                View Trends &rarr;
+              </button>
+              <button
+                onClick={() => onSwitchTab?.("Resources")}
+                className="block w-full text-left font-body text-[14px] text-horizon-blue hover:underline font-medium"
+              >
+                View Resources &rarr;
+              </button>
+            </div>
+          </Card>
+        </div>
+      </aside>
     </div>
   );
 };

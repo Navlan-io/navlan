@@ -5,7 +5,7 @@ import { toast } from "sonner";
 import { Loader2 } from "lucide-react";
 
 interface NewsletterSignupProps {
-  source: "footer" | "about" | "homepage" | "guide" | "city";
+  source: "footer" | "about" | "homepage" | "guide" | "city" | "market";
   /** "dark" for footer (white text on dark bg), "light" for cream/white sections */
   variant?: "dark" | "light";
 }

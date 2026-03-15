@@ -1,5 +1,8 @@
 import GuidePage, { GuideSection } from "@/components/guides/GuidePage";
 import { Card } from "@/components/ui/card";
+import InlineNewsletterCTA from "@/components/ui/InlineNewsletterCTA";
+import PullQuote from "@/components/ui/PullQuote";
+import CalloutBox from "@/components/ui/CalloutBox";
 import {
   Accordion,
   AccordionContent,
@@ -35,6 +38,7 @@ const sections: GuideSection[] = [
         <p className="mb-4">
           Dira BeHanacha (דירה בהנחה, literally "apartment at a discount") is an Israeli government program offering new apartments at below-market prices to eligible residents. The program replaced the older "Mechir LaMishtaken" (Buyer's Price) program and has become one of the most significant paths to homeownership for young Israelis and new immigrants.
         </p>
+        <PullQuote>Dira BeHanacha discounts typically range from 20-30% below market price — savings of hundreds of thousands of shekels for eligible buyers.</PullQuote>
         <p className="mb-4">
           The mechanics are straightforward: private developers build apartments on government-owned land, with price caps set by the state. The discounts typically range from 20-30% below comparable market prices, representing savings of hundreds of thousands of shekels in most locations.
         </p>
@@ -59,11 +63,9 @@ const sections: GuideSection[] = [
           <li>Married couples register together as one household</li>
           <li>A <strong>priority points system</strong> influences your lottery ranking: age, number of children, years of marriage, military service, and living in peripheral areas all affect your score</li>
         </ul>
-        <blockquote className="border-l-[3px] border-sand-gold pl-5 my-6 bg-cream/50 py-3 pr-4 rounded-r-lg">
-          <p className="font-body italic text-[16px] text-warm-gray">
-            Important: Eligibility is checked at registration AND at the time of purchase. Your chaser dira status must hold throughout the entire process — if you purchase a property between registering and winning, you'll be disqualified.
-          </p>
-        </blockquote>
+        <CalloutBox title="Eligibility Warning">
+          Eligibility is checked at registration AND at the time of purchase. Your chaser dira status must hold throughout the entire process — if you purchase a property between registering and winning, you'll be disqualified.
+        </CalloutBox>
       </>
     ),
   },
@@ -87,6 +89,7 @@ const sections: GuideSection[] = [
         <p className="mb-4">
           The lottery is genuinely random — there's no way to influence the outcome beyond having more priority points, which only affect certain tiebreaker scenarios. Many applicants register for multiple projects across different cities to improve their chances.
         </p>
+        <InlineNewsletterCTA source="guide" />
       </>
     ),
   },
@@ -199,6 +202,7 @@ const DiraGuidePageComponent = () => (
     seoTitle="Dira BeHanacha: Israel's Subsidized Housing Program — Complete English Guide | Navlan.io"
     subtitle="The most complete English-language guide to Israel's government housing lottery — eligibility, how to apply, and what to expect."
     date="Last updated: March 2026"
+    readTime="~20 min read"
     metaDescription="Complete English guide to Israel's Dira BeHanacha subsidized housing program. Learn about eligibility, the lottery process, and how olim can apply for discounted apartments."
     sections={sections}
     bottomNav={{

@@ -10,6 +10,8 @@ import ConstructionPipeline from "@/components/market/ConstructionPipeline";
 import MortgageRates from "@/components/market/MortgageRates";
 import ConstructionCosts from "@/components/market/ConstructionCosts";
 import RentalMarket from "@/components/market/RentalMarket";
+import InlineNewsletterCTA from "@/components/ui/InlineNewsletterCTA";
+import { Share2 } from "lucide-react";
 
 const MarketDataPage = () => {
   const [dataAsOf, setDataAsOf] = useState<string | null>(null);
@@ -50,7 +52,7 @@ const MarketDataPage = () => {
       />
       <NavBar />
       <main className="flex-1">
-        <div className="container max-w-[1200px] py-10">
+        <div className="container max-w-[1200px] py-12">
           <h1 className="font-heading font-bold text-[32px] text-charcoal">
             Israel Housing Market
           </h1>
@@ -62,15 +64,28 @@ const MarketDataPage = () => {
               Data as of: {dataAsOf}
             </p>
           )}
+          <p className="mt-1 font-body text-[12px] text-warm-gray/70">Data updates monthly from CBS</p>
+          <button
+            onClick={() => {
+              const url = window.location.href;
+              const text = `Israel housing market data on Navlan — ${url}`;
+              window.open(`https://wa.me/?text=${encodeURIComponent(text)}`, '_blank');
+            }}
+            className="mt-3 inline-flex items-center gap-2 px-4 py-2 rounded-lg border border-sage/30 text-sage font-body text-[14px] font-medium hover:bg-sage/5 transition-colors"
+          >
+            <Share2 className="h-4 w-4" />
+            Share
+          </button>
           <div className="border-b border-grid-line mt-6 mb-10" />
 
-          <div className="space-y-12">
+          <div>
             <div id="national-trend" className="scroll-mt-24"><NationalPriceTrend /></div>
-            <div id="district-comparison" className="scroll-mt-24"><DistrictComparison /></div>
-            <div id="construction-pipeline" className="scroll-mt-24"><ConstructionPipeline /></div>
-            <div id="mortgage-rates" className="scroll-mt-24"><MortgageRates /></div>
-            <div id="rental-market" className="scroll-mt-24"><RentalMarket /></div>
-            <div id="construction-costs" className="scroll-mt-24"><ConstructionCosts /></div>
+            <div id="district-comparison" className="scroll-mt-24 mt-16"><DistrictComparison /></div>
+            <div id="construction-pipeline" className="scroll-mt-24 mt-16"><ConstructionPipeline /></div>
+            <InlineNewsletterCTA source="market" />
+            <div id="mortgage-rates" className="scroll-mt-24 mt-12"><MortgageRates /></div>
+            <div id="rental-market" className="scroll-mt-24 mt-16"><RentalMarket /></div>
+            <div id="construction-costs" className="scroll-mt-24 mt-16"><ConstructionCosts /></div>
           </div>
         </div>
       </main>

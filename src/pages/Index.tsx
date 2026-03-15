@@ -25,10 +25,11 @@ const Index = () => {
   const [avgPriceNis, setAvgPriceNis] = useState<number | null>(null);
   const [priceYoy, setPriceYoy] = useState<number | null>(null);
   const [mortgageRate, setMortgageRate] = useState<number | null>(null);
+  const [avgRentNis, setAvgRentNis] = useState<number | null>(null);
 
   useEffect(() => {
     const fetch = async () => {
-      const [priceRes, indexRes, mortgageRes] = await Promise.all([
+      const [priceRes, indexRes, mortgageRes, rentalRes] = await Promise.all([
         supabase
           .from("city_prices")
           .select("avg_price_total, period")
@@ -49,6 +50,13 @@ const Index = () => {
           .eq("series_key", "BNK_99034_LR_BIR_MRTG_467")
           .order("period", { ascending: false })
           .limit(1),
+        supabase
+          .from("city_rentals")
+          .select("avg_rent_total")
+          .eq("city_name", "Total")
+          .not("avg_rent_total", "is", null)
+          .order("period", { ascending: false })
+          .limit(1),
       ]);
 
       if (priceRes.data?.[0]?.avg_price_total) {
@@ -57,6 +65,9 @@ const Index = () => {
 
       if (indexRes.data?.[0]) setPriceYoy(indexRes.data[0].percent_yoy);
       if (mortgageRes.data?.[0]) setMortgageRate(mortgageRes.data[0].value);
+      if (rentalRes.data?.[0]?.avg_rent_total) {
+        setAvgRentNis(rentalRes.data[0].avg_rent_total);
+      }
     };
     fetch().catch(console.error);
   }, []);
@@ -80,6 +91,14 @@ const Index = () => {
     return `${currency}${(converted / 1_000_000).toFixed(2)}M`;
   };
 
+  const formatAvgRent = (): string => {
+    const nis = avgRentNis ?? 4800;
+    if (currency === "₪") return `₪${nis.toLocaleString()}`;
+    const rate = currency === "$" ? rates.USD : rates.EUR;
+    if (!rate || rate <= 0) return `₪${nis.toLocaleString()}`;
+    return `${currency}${Math.round(nis / rate).toLocaleString()}`;
+  };
+
   const yoy = priceYoy ?? 0.4;
   const yoyPositive = yoy >= 0;
   const yoyColor = yoyPositive ? "text-growth-green" : "text-terra-red";
@@ -98,9 +117,9 @@ const Index = () => {
       colorClass: yoyColor,
     },
     {
-      label: "Mortgage Rate",
-      value: `${(mortgageRate ?? 5.2).toFixed(1)}%`,
-      href: "/market#mortgage-rates",
+      label: "Avg. Rent",
+      value: `${formatAvgRent()}/mo`,
+      href: "/market#rental-market",
     },
   ];
 
@@ -144,37 +163,37 @@ const Index = () => {
         <div className="absolute inset-0 bg-charcoal/40" />
 
         <div className="relative z-10 container py-20 md:py-28 flex flex-col items-center text-center">
-          <h1 className="text-white text-[28px] md:text-[44px] font-heading font-bold leading-tight max-w-2xl drop-shadow-sm">
+          <h1 className="text-white text-[34px] md:text-[48px] tracking-[-0.02em] font-heading font-bold leading-tight max-w-2xl drop-shadow-sm animate-fade-up">
             Navigate Israeli Real&nbsp;Estate. In&nbsp;English.
           </h1>
-          <p className="mt-4 text-white/90 font-body text-[16px] md:text-[19px] max-w-lg drop-shadow-sm">
+          <p className="mt-4 text-white/90 font-body text-[16px] md:text-[19px] max-w-lg drop-shadow-sm animate-fade-up [animation-delay:100ms]">
             Market data, city guides, and community resources for English
             speakers
           </p>
 
-          <div className="mt-8 w-full max-w-xl px-0">
+          <div className="mt-8 w-full max-w-xl px-0 animate-fade-up [animation-delay:200ms]">
             <SearchBar />
           </div>
 
           <Link
             to="/guides/start-here"
-            className="mt-3 inline-block font-body text-[14px] text-white/80 no-underline hover:text-white hover:underline transition-colors"
+            className="mt-3 inline-block font-body text-[14px] text-white/80 no-underline hover:text-white hover:underline transition-colors animate-fade-up [animation-delay:300ms]"
           >
             Or start with our Buyer's Guide →
           </Link>
 
           {/* Live stat pills */}
-          <div className="mt-8 flex flex-col sm:flex-row flex-wrap justify-center gap-2 sm:gap-3 w-full max-w-xl">
+          <div className="mt-8 flex flex-col sm:flex-row flex-wrap justify-center gap-2 sm:gap-3 w-full max-w-xl animate-fade-up [animation-delay:400ms]">
             {stats.map((stat) => (
               <Link
                 key={stat.label}
                 to={stat.href}
-                className="flex items-center justify-center gap-2 bg-white/90 backdrop-blur-sm rounded-full px-4 py-2.5 min-h-[44px] shadow-card no-underline hover:shadow-[0_4px_16px_rgba(45,50,52,0.15)] transition-shadow duration-200 cursor-pointer"
+                className="flex items-center justify-center gap-2 bg-white/90 backdrop-blur-sm rounded-full px-5 py-3 min-h-[44px] shadow-card no-underline hover:shadow-[0_4px_16px_rgba(45,50,52,0.15)] transition-shadow duration-200 cursor-pointer"
               >
-                <span className="font-body text-[13px] text-warm-gray">
+                <span className="font-body text-[14px] text-warm-gray">
                   {stat.label}:
                 </span>
-                <span className={`font-body font-bold text-[14px] ${stat.colorClass ?? "text-charcoal"}`}>
+                <span className={`font-body text-[15px] font-semibold ${stat.colorClass ?? "text-charcoal"}`}>
                   {stat.value}
                 </span>
               </Link>

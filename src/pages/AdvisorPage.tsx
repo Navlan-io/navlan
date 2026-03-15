@@ -465,7 +465,7 @@ const AdvisorPage = () => {
   const showWelcome = messages.length === 0;
 
   return (
-    <div className="min-h-screen flex flex-col bg-warm-white">
+    <div className="min-h-screen flex flex-col bg-gradient-to-br from-warm-white via-cream/30 to-sage/5">
       <SEO
         title="AI Real Estate Advisor for English Speakers in Israel | Navlan.io"
         description="Get personalized city and neighborhood recommendations from our AI advisor. Tell us about your situation and we'll suggest the best areas in Israel for English speakers."
@@ -481,22 +481,26 @@ const AdvisorPage = () => {
           <div className="container max-w-2xl py-6 md:py-10 space-y-4">
             {showWelcome && (
               <div className="flex flex-col items-center text-center pt-8 md:pt-16 pb-4">
+                <div className="w-16 h-16 rounded-full bg-gradient-to-br from-sage/20 to-sand-gold/20 flex items-center justify-center mb-6">
+                  <div className="w-8 h-8 rounded-full bg-gradient-to-br from-sage/40 to-sand-gold/30" />
+                </div>
                 <h1 className="font-heading font-bold text-[28px] md:text-[36px] text-charcoal leading-tight">
-                  AI Real Estate Advisor
+                  Ask our AI advisor about any city in Israel
                 </h1>
                 <p className="mt-3 font-body text-[16px] md:text-[18px] text-warm-gray max-w-md leading-relaxed">
-                  Tell me about your situation and I'll suggest cities and
-                  neighborhoods that match your needs.
+                  Describe your situation — budget, family size, lifestyle,
+                  priorities — and get personalized city recommendations based
+                  on real CBS data.
                 </p>
 
                 {/* Starter pills */}
-                <div className="mt-8 flex flex-wrap justify-center gap-2 max-w-lg">
+                <div className="mt-8 flex flex-wrap justify-center gap-3 max-w-lg">
                   {STARTER_PROMPTS.map((prompt) => (
                     <button
                       key={prompt}
                       onClick={() => handleStarterClick(prompt)}
                       disabled={isLoading || !contextLoaded}
-                      className="px-4 py-2.5 bg-white border border-grid-line rounded-full font-body text-[14px] text-charcoal hover:border-sage hover:text-sage transition-colors disabled:opacity-50 disabled:cursor-not-allowed text-left"
+                      className="px-5 py-3 bg-white/80 backdrop-blur-sm border border-grid-line rounded-xl shadow-card font-body text-[15px] text-charcoal hover:border-sage hover:text-sage transition-colors disabled:opacity-50 disabled:cursor-not-allowed text-left"
                     >
                       {prompt}
                     </button>
@@ -504,7 +508,7 @@ const AdvisorPage = () => {
                 </div>
 
                 {/* Disclaimer */}
-                <p className="mt-6 font-body text-[12px] text-warm-gray/70 max-w-md leading-relaxed">
+                <p className="mt-6 font-body text-[12px] text-warm-gray/50 max-w-md leading-relaxed">
                   The Advisor provides general information based on public data
                   and community insights. It is not financial, legal, or
                   immigration advice. Always consult qualified Israeli
@@ -520,10 +524,10 @@ const AdvisorPage = () => {
                 className={`flex ${msg.role === "user" ? "justify-end" : "justify-start"}`}
               >
                 <div
-                  className={`max-w-[85%] md:max-w-[75%] rounded-2xl px-4 py-3 ${
+                  className={`max-w-[85%] md:max-w-[640px] rounded-2xl px-4 py-3 ${
                     msg.role === "user"
                       ? "bg-white shadow-card text-charcoal"
-                      : "bg-cream text-charcoal"
+                      : "bg-sage/8 backdrop-blur-sm text-charcoal border border-sage/10"
                   }`}
                   onClick={msg.role === "assistant" ? handleMarkdownClick : undefined}
                 >
@@ -545,7 +549,7 @@ const AdvisorPage = () => {
             {/* Typing indicator */}
             {isLoading && messages[messages.length - 1]?.role === "user" && (
               <div className="flex justify-start">
-                <div className="bg-cream rounded-2xl px-4 py-3">
+                <div className="bg-sage/8 backdrop-blur-sm border border-sage/10 rounded-2xl px-4 py-3">
                   <div className="flex gap-1.5 items-center h-5">
                     <span className="w-2 h-2 bg-warm-gray/40 rounded-full animate-bounce [animation-delay:0ms]" />
                     <span className="w-2 h-2 bg-warm-gray/40 rounded-full animate-bounce [animation-delay:150ms]" />
@@ -560,7 +564,7 @@ const AdvisorPage = () => {
         </div>
 
         {/* Input bar */}
-        <div className="sticky bottom-0 border-t border-grid-line bg-warm-white">
+        <div className="sticky bottom-0 border-t border-grid-line bg-white/80 backdrop-blur-md">
           <form
             onSubmit={handleSubmit}
             className="container max-w-2xl py-3 flex gap-2 items-end"
@@ -577,7 +581,7 @@ const AdvisorPage = () => {
               }
               disabled={!contextLoaded}
               rows={1}
-              className="flex-1 resize-none rounded-xl border border-grid-line bg-white px-4 py-3 font-body text-[15px] text-charcoal placeholder:text-warm-gray/60 focus:outline-none focus:border-sage focus:ring-1 focus:ring-sage/30 disabled:opacity-50 min-h-[48px] max-h-32"
+              className="flex-1 resize-none rounded-xl border border-grid-line bg-white/90 px-4 py-3 font-body text-[15px] text-charcoal placeholder:text-warm-gray/60 focus:outline-none focus:border-sage focus:ring-1 focus:ring-sage/30 disabled:opacity-50 min-h-[48px] max-h-32"
               style={{ fieldSizing: "content" } as React.CSSProperties}
             />
             <button

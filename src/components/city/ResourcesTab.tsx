@@ -23,12 +23,10 @@ const ResourcesTab = ({ city }: ResourcesTabProps) => {
           </a>
         </li>
         <li className="font-body text-[15px] text-charcoal">
-          <span className="text-charcoal">Municipal Website</span>{" "}
-          <span className="text-warm-gray text-[13px]">— Link coming soon</span>
+          <span className="text-charcoal">Municipal Website</span>
         </li>
         <li className="font-body text-[15px] text-charcoal">
-          <span className="text-charcoal">Local Anglo Facebook Groups</span>{" "}
-          <span className="text-warm-gray text-[13px]">— Directory coming soon</span>
+          <span className="text-charcoal">Local Anglo Facebook Groups</span>
         </li>
       </ul>
 
@@ -41,9 +39,6 @@ const ResourcesTab = ({ city }: ResourcesTabProps) => {
         </p>
       </Card>
 
-      <p className="font-body text-[14px] text-warm-gray italic">
-        Looking for an English-speaking real estate professional? Our directory is coming soon.
-      </p>
     </div>
   );
 };

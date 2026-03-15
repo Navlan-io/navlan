@@ -16,7 +16,7 @@ export const chartColors = {
 export const axisTick = {
   fontSize: 10,
   fill: chartColors.warmGray,
-  fontFamily: "Inter",
+  fontFamily: "DM Sans",
 } as const;
 
 // District color mapping for multi-line charts
