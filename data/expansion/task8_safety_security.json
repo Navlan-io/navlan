@@ -1,0 +1,1082 @@
+{
+  "Jerusalem": {
+    "general_security_assessment": "moderate",
+    "security_notes_for_anglos": "Located in West Bank territory with mixed Jewish and Arab populations. Historically the most contested city in Israel. Large English-speaking expatriate and tourist community. Generally safe in Jewish west Jerusalem; avoid Old City at night. Home Front Command provides civil defense guidance.",
+    "distance_to_nearest_border_km": {
+      "border_name": "West Bank",
+      "distance_km": 0
+    },
+    "border_proximity_concern": "high",
+    "mamad_prevalence": {
+      "newer_buildings": "Standard requirement since 1993. All new residential units must include a Mamad or access to protected space. Modern Mamads in Jerusalem typically 9-12 sqm with reinforced concrete, blast-proof doors, ventilation systems.",
+      "older_buildings": "Pre-1993 buildings may lack dedicated Mamads; some have shared communal bomb shelters (Mamak). Building codes were updated in 2010 to require ventilation and filtering systems.",
+      "notes": "Mamad requirement strictly enforced in Jerusalem. Many older Arab and Jewish neighborhoods have makeshift shelters or shared spaces."
+    },
+    "rocket_threat_level": "low",
+    "security_infrastructure": "Multiple public bomb shelters throughout city. Civil defense sirens and alert systems in place. Iron Dome battery presence in greater Jerusalem region.",
+    "current_security_considerations": "Post-Oct 7: Tensions remain high. Large populations of both Jewish and Arab residents create ongoing political sensitivities. Tourism has recovered but situational awareness recommended.",
+    "crime_level": "moderate",
+    "notes": "Jerusalem ranks #114 globally for safety. Major tourist destination with large English-speaking community. West Jerusalem considered safer than east. October 2000 riots caused significant damage in mixed neighborhoods.",
+    "confidence": "HIGH"
+  },
+  "Tel Aviv": {
+    "general_security_assessment": "safe",
+    "security_notes_for_anglos": "Israel's largest city with the largest English-speaking expat community. Modern metropolitan center with excellent infrastructure. Low violent crime rates. Nightlife and beaches popular with foreign nationals. Some petty crime in crowded areas like markets and central bus station.",
+    "distance_to_nearest_border_km": {
+      "border_name": "Gaza",
+      "distance_km": 73
+    },
+    "border_proximity_concern": "low",
+    "mamad_prevalence": {
+      "newer_buildings": "100% compliance with post-1993 building codes. All new apartments include certified Mamads meeting Israeli Standard 4570. Modern units feature blast-proof doors, airtight sealing, ventilation with filtration.",
+      "older_buildings": "Pre-1993 buildings may have converted bomb shelters or shared communal spaces. Some older apartment buildings retrofitted with Mamads.",
+      "notes": "High building density necessitated careful Mamad integration. Many newer buildings have rooftop gardens on Mamad structures."
+    },
+    "rocket_threat_level": "low",
+    "security_infrastructure": "Civil defense sirens, alert system (Tzeva Adom). Public shelters mapped throughout city. Iron Dome batteries present in region.",
+    "current_security_considerations": "Post-Oct 7: Recovered quickly. Remains Israel's economic and cultural center. Rocket barrage from Gaza in Oct 2023 caused minimal damage due to air defenses. International flights resumed. Beach areas fully operational.",
+    "crime_level": "low",
+    "notes": "Ranked #41 globally for safety (Numbeo 2024). Crime index 26.02, safety index 73.98. Low violent crime, pickpocketing in crowded areas main concern. Vibrant nightlife and 24/7 culture.",
+    "confidence": "HIGH"
+  },
+  "Haifa": {
+    "general_security_assessment": "safe",
+    "security_notes_for_anglos": "Israel's primary port city on northern coast. Mixed Jewish and Arab population. Very low violent crime rate, ranked #3 safest for women. Petty crime and pickpocketing concerns in crowded tourist areas. Hadar neighborhood best avoided at night.",
+    "distance_to_nearest_border_km": {
+      "border_name": "Lebanon",
+      "distance_km": 45
+    },
+    "border_proximity_concern": "moderate",
+    "mamad_prevalence": {
+      "newer_buildings": "Full compliance with mamad requirements. Modern buildings include individual Mamads or communal spaces with ventilation systems.",
+      "older_buildings": "Many pre-1993 buildings lack adequate protection. Some retrofitted with safe rooms. Soviet-era high-rise apartments particularly limited in protection options.",
+      "notes": "Haifa's topography and high-rise buildings made Mamad integration challenging; many buildings use shared shelter spaces."
+    },
+    "rocket_threat_level": "moderate",
+    "security_infrastructure": "Air raid sirens throughout city. Civil defense infrastructure. Hezbollah rockets have reached Haifa multiple times. Some neighborhoods have insufficient shelter access.",
+    "current_security_considerations": "Post-Oct 7: Hezbollah increased range of attacks. Sirens sounded multiple times in 2024-2025. Kiryat Motzkin and Krayot neighborhoods south of Haifa heavily targeted. City adapts with drills and security measures.",
+    "crime_level": "low",
+    "notes": "Crime index 28.25, safety index 71.75 (Numbeo). Northern city has experienced rocket attacks from Lebanon. Tourism and business remain stable. English-speaking community moderate but growing.",
+    "confidence": "HIGH"
+  },
+  "Ra'anana": {
+    "general_security_assessment": "very_safe",
+    "security_notes_for_anglos": "Affluent suburb north of Tel Aviv. High quality of life, excellent schools, and large English-speaking community. Historically one of Israel's safest cities. Well-maintained infrastructure and low crime. Conservative, family-oriented community.",
+    "distance_to_nearest_border_km": {
+      "border_name": "Gaza",
+      "distance_km": 75
+    },
+    "border_proximity_concern": "none",
+    "mamad_prevalence": {
+      "newer_buildings": "All new construction includes certified Mamads meeting full specifications. Strict building code enforcement.",
+      "older_buildings": "Most pre-1993 buildings retrofitted or have communal shelters. High property values incentivized upgrades.",
+      "notes": "Affluent community ensured modern infrastructure from early on. Building codes well-maintained."
+    },
+    "rocket_threat_level": "very_low",
+    "security_infrastructure": "Modern alert systems, civil defense infrastructure. Far from any border. Community-oriented security culture.",
+    "current_security_considerations": "Post-Oct 7: Minimal direct impact. Residents formed security committees but threats remain theoretical rather than immediate. Normal life resumed quickly.",
+    "crime_level": "very_low",
+    "notes": "High quality of life rankings. Affluent suburb with strong community. English-speaking population approximately 10-15% of residents. Excellent schools and services attract international families.",
+    "confidence": "HIGH"
+  },
+  "Modi'in": {
+    "general_security_assessment": "safe",
+    "security_notes_for_anglos": "Planned city between Tel Aviv and Jerusalem. Growing population with mixed demographics. Excellent infrastructure, modern neighborhoods. Large young family demographic. English-speaking community growing. Safe neighborhoods but some mixed Arab-Jewish areas require awareness.",
+    "distance_to_nearest_border_km": {
+      "border_name": "West Bank",
+      "distance_km": 8
+    },
+    "border_proximity_concern": "low",
+    "mamad_prevalence": {
+      "newer_buildings": "Planned city from 1990s onward; most construction follows current codes. New neighborhoods feature modern Mamads.",
+      "older_buildings": "Central areas built in late 1990s-2000s with current mamad standards. City-wide infrastructure well-planned.",
+      "notes": "As a planned city, Modi'in has more consistent mamad implementation than older cities."
+    },
+    "rocket_threat_level": "low",
+    "security_infrastructure": "Modern civil defense infrastructure in planned city. Alert systems functional. Community shelter awareness high.",
+    "current_security_considerations": "Post-Oct 7: Proximity to West Bank creates moderate concern. Several terror attacks in greater area. City remains strategically important and well-defended.",
+    "crime_level": "low",
+    "notes": "Planned city with lower crime rates than older established cities. Growing English-speaking expatriate community, particularly among tech sector workers. Excellent schools and recreational facilities.",
+    "confidence": "HIGH"
+  },
+  "Beit Shemesh": {
+    "general_security_assessment": "safe",
+    "security_notes_for_anglos": "Mixed ultra-Orthodox (Haredi) and secular Jewish city west of Jerusalem. Quality of life ranked 8th nationally. Significant housing growth attracting families. Some tension between communities but safe overall. Growing English-speaking community.",
+    "distance_to_nearest_border_km": {
+      "border_name": "West Bank",
+      "distance_km": 15
+    },
+    "border_proximity_concern": "low",
+    "mamad_prevalence": {
+      "newer_buildings": "Modern construction follows full mamad codes. New neighborhoods built with protection standards.",
+      "older_buildings": "Older ultra-Orthodox neighborhoods may have shared communal shelters. Retrofitting ongoing.",
+      "notes": "Rapid growth in 2010s-2020s ensures many modern buildings meet standards."
+    },
+    "rocket_threat_level": "very_low",
+    "security_infrastructure": "Civil defense systems in place. Distance from borders limits immediate threat. Community-level security awareness.",
+    "current_security_considerations": "Post-Oct 7: Moderate tension due to West Bank proximity but no direct attacks. Commuter city to Jerusalem experiences political sensitivities.",
+    "crime_level": "low",
+    "notes": "Quality of life score mid-range. Second in self-assessed health ratings. Lower trust in healthcare system than national average. Growing young family demographics.",
+    "confidence": "MEDIUM"
+  },
+  "Herzliya": {
+    "general_security_assessment": "very_safe",
+    "security_notes_for_anglos": "Affluent coastal suburb north of Tel Aviv. High-income community with excellent infrastructure and low crime. Significant English-speaking international business community (tech, diamonds, finance). Beautiful beaches and marina. Premium real estate market.",
+    "distance_to_nearest_border_km": {
+      "border_name": "Gaza",
+      "distance_km": 80
+    },
+    "border_proximity_concern": "none",
+    "mamad_prevalence": {
+      "newer_buildings": "All modern construction fully compliant. Luxury buildings feature state-of-the-art protected spaces.",
+      "older_buildings": "Most buildings retrofitted due to high property values. Strict community standards.",
+      "notes": "Affluent community prioritized Mamad installation and maintenance from early requirements."
+    },
+    "rocket_threat_level": "very_low",
+    "security_infrastructure": "Modern alert systems. Minimal rocket threat due to distance. Community infrastructure excellent.",
+    "current_security_considerations": "Post-Oct 7: Minimal impact. International business community returned quickly. Beach tourism remains strong.",
+    "crime_level": "very_low",
+    "notes": "Highest median household income among Israeli cities. Lowest housing density, highest trust in legal system. Popular destination for expats in finance and tech. English widely spoken.",
+    "confidence": "HIGH"
+  },
+  "Netanya": {
+    "general_security_assessment": "safe",
+    "security_notes_for_anglos": "Coastal city north of Tel Aviv. Popular with retirees and tourists. Beaches and Mediterranean lifestyle attract foreign residents. Organized crime history largely eliminated by police. Safe for families and seniors. Some petty crime in tourist areas.",
+    "distance_to_nearest_border_km": {
+      "border_name": "Gaza",
+      "distance_km": 85
+    },
+    "border_proximity_concern": "low",
+    "mamad_prevalence": {
+      "newer_buildings": "Modern construction includes Mamads per code requirements.",
+      "older_buildings": "Some older buildings have shared communal shelters. Retrofitting available.",
+      "notes": "Tourist city ensured security infrastructure for residents."
+    },
+    "rocket_threat_level": "very_low",
+    "security_infrastructure": "Civil defense systems. Alert infrastructure functional. Distance from borders limits immediate threat.",
+    "current_security_considerations": "Post-Oct 7: Minimal direct impact. Tourist industry recovered. City ranks among highest quality of life cities nationally.",
+    "crime_level": "low",
+    "notes": "Quality of life rankings high. Past organized crime issues largely resolved. Popular with English-speaking retirees, particularly from South Africa and North America. Good healthcare facilities.",
+    "confidence": "HIGH"
+  },
+  "Ashdod": {
+    "general_security_assessment": "elevated_concern",
+    "security_notes_for_anglos": "Coastal city 30km from Gaza. Strategic port city experiencing regular rocket fire. U.S. government restricts employee personal travel here. Well-developed civil defense infrastructure including public shelters and alert systems. Modern city with good services despite security challenges.",
+    "distance_to_nearest_border_km": {
+      "border_name": "Gaza",
+      "distance_km": 30
+    },
+    "border_proximity_concern": "high",
+    "mamad_prevalence": {
+      "newer_buildings": "All new buildings must include Mamads. Modern construction strictly enforced given proximity to Gaza.",
+      "older_buildings": "Retrofitting programs ongoing. Shared communal shelters in some areas.",
+      "notes": "Rocket threat necessitated robust mamad implementation throughout city."
+    },
+    "rocket_threat_level": "high",
+    "security_infrastructure": "Multiple public shelters throughout city. Air raid siren system highly functional. Iron Dome batteries positioned nearby. 15-30 second warning times for rockets.",
+    "current_security_considerations": "Post-Oct 7: Ongoing rocket alerts from Gaza. May 2025 saw barrage attacks. Residents accustomed to drills. Evacuation zones may apply during escalations. U.S. government advises caution.",
+    "crime_level": "moderate",
+    "notes": "Located 30km from Gaza; rocket attacks frequent. Iron Dome provides significant protection but strikes still occur. Organized crime largely eliminated. Safe daily life but security consciousness essential.",
+    "confidence": "HIGH"
+  },
+  "Ashkelon": {
+    "general_security_assessment": "elevated_concern",
+    "security_notes_for_anglos": "Coastal city 20km from Gaza. Experiences frequent rocket alerts and attacks. U.S. government restricts employee travel here. Has extensive civil defense infrastructure. Major port city with long history and beautiful beaches. Growing community despite security challenges.",
+    "distance_to_nearest_border_km": {
+      "border_name": "Gaza",
+      "distance_km": 20
+    },
+    "border_proximity_concern": "high",
+    "mamad_prevalence": {
+      "newer_buildings": "Mandatory Mamads in all new construction. Modern buildings exceed minimum requirements due to threat level.",
+      "older_buildings": "Retrofit programs ongoing. Older buildings may have limited protection. Shared shelters available.",
+      "notes": "Proximity to Gaza necessitated advanced mamad standards throughout construction."
+    },
+    "rocket_threat_level": "high",
+    "security_infrastructure": "Extensive public shelter network. Iron Dome batteries stationed nearby. Air raid sirens throughout city. 15-30 second warning system.",
+    "current_security_considerations": "Post-Oct 7: Frequency of attacks increased. May 2025 rocket barrages documented. IDF redeployed Iron Dome systems near city. Residents maintain constant security awareness.",
+    "crime_level": "moderate",
+    "notes": "20km from Gaza puts city within frequent rocket range. Crime rose 16% 2011-2013 but stabilized. Beautiful beaches remain operational. Tourism and daily life possible with security consciousness.",
+    "confidence": "HIGH"
+  },
+  "Beer Sheva": {
+    "general_security_assessment": "moderate",
+    "security_notes_for_anglos": "Capital of Negev region, 41km from Gaza. Growing modern city with universities and tech industry. Rocket threat lower than Gaza border cities but documented attacks. Large English-speaking community, particularly students and tech workers. Good infrastructure and services.",
+    "distance_to_nearest_border_km": {
+      "border_name": "Gaza",
+      "distance_km": 41
+    },
+    "border_proximity_concern": "moderate",
+    "mamad_prevalence": {
+      "newer_buildings": "All new construction includes mamads per code.",
+      "older_buildings": "Soviet-era apartment blocks may have limited protection. Retrofitting programs available.",
+      "notes": "Modern expansion includes proper mamad integration."
+    },
+    "rocket_threat_level": "moderate",
+    "security_infrastructure": "Civil defense systems operational. Public shelters throughout city. Alert system functional. Distance from Gaza provides more warning time than border cities.",
+    "current_security_considerations": "Post-Oct 7: Sirens sounded multiple times. Hamas aimed to reach Beersheba but was blocked. Strategic Negev location makes city important militarily. University programs resumed.",
+    "crime_level": "low",
+    "notes": "Regional center with universities (Ben-Gurion University). Tech industry growing. Crime relatively low. English-speaking students and tech workers present. Strategic position between Gaza and Arad.",
+    "confidence": "MEDIUM"
+  },
+  "Petah Tikva": {
+    "general_security_assessment": "safe",
+    "security_notes_for_anglos": "Established city east of Tel Aviv. Large population (220,000+). Good infrastructure and services. Minor organized crime incidents documented but overall safe. Growing English-speaking community. Family-oriented neighborhoods.",
+    "distance_to_nearest_border_km": {
+      "border_name": "Gaza",
+      "distance_km": 75
+    },
+    "border_proximity_concern": "low",
+    "mamad_prevalence": {
+      "newer_buildings": "Modern construction includes mamads. Newer neighborhoods well-equipped.",
+      "older_buildings": "Mixed compliance. Some older buildings have retrofitted protection. Community shelters available.",
+      "notes": "As established city, mamad coverage varies by neighborhood age."
+    },
+    "rocket_threat_level": "low",
+    "security_infrastructure": "Civil defense infrastructure present. Alert systems functional. Shelters throughout city.",
+    "current_security_considerations": "Post-Oct 7: Rocket alerts occurred but no major damage. Commuter city to Tel Aviv experiences secondary effects. Life returned to normal quickly.",
+    "crime_level": "moderate",
+    "notes": "Crime index 30.04, safety index 69.96 (slightly higher crime than Tel Aviv). Car thefts and assaults documented. Ranked #9 safest for solo female travelers. Generally secure day-to-day.",
+    "confidence": "MEDIUM"
+  },
+  "Kfar Saba": {
+    "general_security_assessment": "very_safe",
+    "security_notes_for_anglos": "Ranks #1 nationally for quality of life (2024). Safe, affluent suburb with excellent schools and community infrastructure. Low crime, high life expectancy (85 vs. 82.7 national average). English-speaking international community. No traffic fatalities in 2024.",
+    "distance_to_nearest_border_km": {
+      "border_name": "Gaza",
+      "distance_km": 72
+    },
+    "border_proximity_concern": "none",
+    "mamad_prevalence": {
+      "newer_buildings": "Full compliance with all mamad requirements. Modern buildings exceed standards.",
+      "older_buildings": "Community ensures upgrades. High property values incentivize maintenance.",
+      "notes": "Top-ranked quality of life community prioritizes safety infrastructure."
+    },
+    "rocket_threat_level": "very_low",
+    "security_infrastructure": "Modern civil defense systems. Alert infrastructure operational. Community security culture strong.",
+    "current_security_considerations": "Post-Oct 7: Minimal direct impact. Security committees formed but threats remain theoretical. Normal life resumed immediately.",
+    "crime_level": "very_low",
+    "notes": "Highest job satisfaction, life expectancy, park satisfaction nationally. 90% feel safe walking at night (vs. 80% national). No fatal traffic accidents in 2024. Excellent for families.",
+    "confidence": "HIGH"
+  },
+  "Rehovot": {
+    "general_security_assessment": "very_safe",
+    "security_notes_for_anglos": "Science and tech hub (Weizmann Institute). Ranks 4th nationally for quality of life. Excellent schools and research institutions. Safe, family-oriented community. Growing English-speaking population in tech and academia. No traffic deaths in 2020.",
+    "distance_to_nearest_border_km": {
+      "border_name": "Gaza",
+      "distance_km": 70
+    },
+    "border_proximity_concern": "none",
+    "mamad_prevalence": {
+      "newer_buildings": "Full mamad compliance in modern construction.",
+      "older_buildings": "Well-maintained community with good retrofit coverage.",
+      "notes": "Academic community emphasizes infrastructure quality."
+    },
+    "rocket_threat_level": "very_low",
+    "security_infrastructure": "Modern alert and shelter systems. Civil defense infrastructure functional.",
+    "current_security_considerations": "Post-Oct 7: Minimal impact. Weizmann Institute and universities resumed operations. Research and education continued.",
+    "crime_level": "very_low",
+    "notes": "Home to Weizmann Institute of Science. Quality of life top-ranked. Safe research and academic community. Growing English-speaking academic population.",
+    "confidence": "HIGH"
+  },
+  "Rishon LeZion": {
+    "general_security_assessment": "safe",
+    "security_notes_for_anglos": "Large city south of Tel Aviv (250,000+). Industrial and commercial hub. Good infrastructure and services. Ranks first in lowest feelings of discrimination and satisfaction with parks. Some rocket alerts from Gaza but minor impact.",
+    "distance_to_nearest_border_km": {
+      "border_name": "Gaza",
+      "distance_km": 70
+    },
+    "border_proximity_concern": "low",
+    "mamad_prevalence": {
+      "newer_buildings": "Modern construction includes mamads.",
+      "older_buildings": "Retrofitting programs available. Community shelters in place.",
+      "notes": "Large city with mixed building ages."
+    },
+    "rocket_threat_level": "low",
+    "security_infrastructure": "Civil defense systems. Alert infrastructure. Public shelters.",
+    "current_security_considerations": "Post-Oct 7: Rocket alerts and minor impacts documented. City resilience demonstrated. Tourism and business recovered.",
+    "crime_level": "low",
+    "notes": "Ranks first for lowest discrimination. High satisfaction with parks and green spaces. Industrial hub with diverse employment. Some homicides documented but rate low.",
+    "confidence": "MEDIUM"
+  },
+  "Efrat": {
+    "general_security_assessment": "moderate",
+    "security_notes_for_anglos": "WEST BANK SETTLEMENT - 12km south of Jerusalem in Judean Mountains. Population 12,300. Gush Etzion bloc capital. Heavy Israeli military presence and security infrastructure. Significant security protocol required for daily life. Barrier-enclosed settlement with check points.",
+    "distance_to_nearest_border_km": {
+      "border_name": "Green Line (West Bank)",
+      "distance_km": 0
+    },
+    "border_proximity_concern": "high",
+    "mamad_prevalence": {
+      "newer_buildings": "All buildings include mamads. Military requirements exceed standard Israeli codes.",
+      "older_buildings": "Well-fortified older structures. Community entirely within fortified perimeter.",
+      "notes": "Settlement design prioritizes security. All structures built with defense considerations."
+    },
+    "rocket_threat_level": "moderate",
+    "security_infrastructure": "Military-grade security perimeter. Checkpoint entry/exit. Military patrols. Alert systems functional. Concrete barrier surrounds settlement.",
+    "current_security_considerations": "Post-Oct 7: Tensions extremely high. Settlement expansion announced. Palestinian security attacks periodic. Military presence constant. International legal status contested.",
+    "crime_level": "low",
+    "notes": "Isolated Jewish settlement with homogeneous population. Limited outside services accessible. International controversy over settlement legality. Security-conscious community. Children educated about security protocols.",
+    "confidence": "MEDIUM"
+  },
+  "Maale Adumim": {
+    "general_security_assessment": "moderate",
+    "security_notes_for_anglos": "WEST BANK SETTLEMENT - 10km east of Jerusalem. Largest settlement (46,000+). East 1 expansion area proposed. Heavy Israeli military presence. Barrier-enclosed community with checkpoint access. Strategic defensive position east of Jerusalem.",
+    "distance_to_nearest_border_km": {
+      "border_name": "Green Line (West Bank)",
+      "distance_km": 0
+    },
+    "border_proximity_concern": "high",
+    "mamad_prevalence": {
+      "newer_buildings": "All buildings include military-standard mamads.",
+      "older_buildings": "Fortified structures throughout community.",
+      "notes": "Settlement design integrates defense requirements."
+    },
+    "rocket_threat_level": "moderate",
+    "security_infrastructure": "Military perimeter, checkpoint control, military patrols, alert systems, concrete barriers.",
+    "current_security_considerations": "Post-Oct 7: Major expansion plans announced (3,401 housing units in E1 area). Settlement tensions very high. Military presence constant. International legal dispute ongoing.",
+    "crime_level": "low",
+    "notes": "Largest West Bank settlement with Hebrew-speaking population primarily. Limited outside commerce access. Palestinian attacks periodic. Strategic position valued by Israeli government for Jerusalem defense.",
+    "confidence": "MEDIUM"
+  },
+  "Givat Shmuel": {
+    "general_security_assessment": "safe",
+    "security_notes_for_anglos": "Small suburb northeast of Tel Aviv. Quiet residential community with good infrastructure. Safe neighborhoods, low crime. Family-oriented environment. Limited English-speaking population but services available.",
+    "distance_to_nearest_border_km": {
+      "border_name": "Gaza",
+      "distance_km": 75
+    },
+    "border_proximity_concern": "none",
+    "mamad_prevalence": {
+      "newer_buildings": "Modern buildings include mamads.",
+      "older_buildings": "Community shelters available.",
+      "notes": "Small community with consistent building standards."
+    },
+    "rocket_threat_level": "very_low",
+    "security_infrastructure": "Local alert systems. Community shelters.",
+    "current_security_considerations": "Post-Oct 7: Minimal impact. Commuter community to Tel Aviv. Life returned to normal quickly.",
+    "crime_level": "very_low",
+    "notes": "Small quiet suburban community. Limited English-speaking population. Good schools and family services. Safe, stable neighborhood.",
+    "confidence": "MEDIUM"
+  },
+  "Ramat Gan": {
+    "general_security_assessment": "safe",
+    "security_notes_for_anglos": "Large city in Tel Aviv metropolitan area. Business and financial hub. Good infrastructure and services. Leads nationally in employment and high school graduation. Lowest infant mortality rate. Growing English-speaking business community.",
+    "distance_to_nearest_border_km": {
+      "border_name": "Gaza",
+      "distance_km": 73
+    },
+    "border_proximity_concern": "low",
+    "mamad_prevalence": {
+      "newer_buildings": "Modern buildings include mamads per code.",
+      "older_buildings": "Mixed compliance with retrofitting available.",
+      "notes": "Established city with varied building ages."
+    },
+    "rocket_threat_level": "low",
+    "security_infrastructure": "Alert systems and shelter infrastructure operational.",
+    "current_security_considerations": "Post-Oct 7: Blast incident near Ramat Gan documented but minor. City resilience strong. Business sector resumed operations quickly.",
+    "crime_level": "low",
+    "notes": "Ranks high in employment and education. Lowest infant mortality. Quality of life top-ranked. Financial hub with English-speaking business community. Safe metropolitan area.",
+    "confidence": "HIGH"
+  },
+  "Givatayim": {
+    "general_security_assessment": "safe",
+    "security_notes_for_anglos": "Suburb of Tel Aviv with good infrastructure and services. Safe residential community. Limited direct English-speaking population but services available. Family-oriented neighborhoods.",
+    "distance_to_nearest_border_km": {
+      "border_name": "Gaza",
+      "distance_km": 74
+    },
+    "border_proximity_concern": "none",
+    "mamad_prevalence": {
+      "newer_buildings": "Modern buildings include mamads.",
+      "older_buildings": "Community shelters in place.",
+      "notes": "Suburban area with consistent safety standards."
+    },
+    "rocket_threat_level": "very_low",
+    "security_infrastructure": "Local alert and shelter systems.",
+    "current_security_considerations": "Post-Oct 7: Minimal impact. Commuter suburb. Normal life resumed quickly.",
+    "crime_level": "low",
+    "notes": "Safe Tel Aviv suburb. Good schools and services. Quiet family-oriented environment.",
+    "confidence": "MEDIUM"
+  },
+  "Holon": {
+    "general_security_assessment": "safe",
+    "security_notes_for_anglos": "Large city south of Tel Aviv. Ranks 14th in quality of life (dropped from 10th). Good infrastructure and services. Industrial base. Some violent crime incidents documented but generally safe.",
+    "distance_to_nearest_border_km": {
+      "border_name": "Gaza",
+      "distance_km": 72
+    },
+    "border_proximity_concern": "low",
+    "mamad_prevalence": {
+      "newer_buildings": "Modern buildings include mamads.",
+      "older_buildings": "Retrofitting and shared shelters available.",
+      "notes": "Established industrial city with mixed building stock."
+    },
+    "rocket_threat_level": "low",
+    "security_infrastructure": "Alert and shelter systems in place.",
+    "current_security_considerations": "Post-Oct 7: Rocket alerts with minor impacts. City resilience demonstrated. Recovery quick.",
+    "crime_level": "moderate",
+    "notes": "Industrial city with diverse demographics. Some domestic violence incidents documented. Quality of life mid-range. Rail service suspended at night in some periods due to security.",
+    "confidence": "MEDIUM"
+  },
+  "Bat Yam": {
+    "general_security_assessment": "safe",
+    "security_notes_for_anglos": "Coastal suburb south of Tel Aviv. Ranks 17th in quality of life. Lowest self-reported depression rates. Good public transport satisfaction. Beach community atmosphere. Some crime and domestic violence incidents.",
+    "distance_to_nearest_border_km": {
+      "border_name": "Gaza",
+      "distance_km": 72
+    },
+    "border_proximity_concern": "low",
+    "mamad_prevalence": {
+      "newer_buildings": "Modern buildings include mamads.",
+      "older_buildings": "Community shelters available.",
+      "notes": "Coastal community with good safety infrastructure."
+    },
+    "rocket_threat_level": "low",
+    "security_infrastructure": "Alert and shelter systems operational.",
+    "current_security_considerations": "Post-Oct 7: Rocket alerts documented with minor impacts. Beach community recovered. Tourism resumed.",
+    "crime_level": "moderate",
+    "notes": "Coastal city south of Tel Aviv. Climbing quality of life rankings. Some domestic violence incidents. Good beach and leisure facilities.",
+    "confidence": "MEDIUM"
+  },
+  "Bnei Brak": {
+    "general_security_assessment": "safe",
+    "security_notes_for_anglos": "Predominantly Ultra-Orthodox (Haredi) city east of Tel Aviv. Ranks among highest in resident feelings of safety. High infant birthrate and election participation. Growing but insular community. Limited English-speaking population outside immediate services.",
+    "distance_to_nearest_border_km": {
+      "border_name": "Gaza",
+      "distance_km": 75
+    },
+    "border_proximity_concern": "low",
+    "mamad_prevalence": {
+      "newer_buildings": "Modern construction includes mamads.",
+      "older_buildings": "Shared communal shelters common. Retrofitting available.",
+      "notes": "Traditional community with modern safety provisions."
+    },
+    "rocket_threat_level": "low",
+    "security_infrastructure": "Alert and community shelter systems operational.",
+    "current_security_considerations": "Post-Oct 7: Rocket alerts with minor impacts. Residents accustomed to drills. Community cohesion strong.",
+    "crime_level": "very_low",
+    "notes": "Historically Israel's safest large town (older data). Ultra-Orthodox community with strong internal security culture. Limited English-speaking population. Good community services within religious context.",
+    "confidence": "MEDIUM"
+  },
+  "Ramat HaSharon": {
+    "general_security_assessment": "very_safe",
+    "security_notes_for_anglos": "Affluent suburb north of Tel Aviv. Highly desirable residential community with excellent reputation for safety. Wide boulevards and extensive gardens. Upper-middle-class families predominate. English-speaking international business and diplomatic community present.",
+    "distance_to_nearest_border_km": {
+      "border_name": "Gaza",
+      "distance_km": 73
+    },
+    "border_proximity_concern": "none",
+    "mamad_prevalence": {
+      "newer_buildings": "Full mamad compliance in modern construction.",
+      "older_buildings": "Retrofitted to safety standards due to high property values.",
+      "notes": "Affluent community prioritizes safety infrastructure."
+    },
+    "rocket_threat_level": "very_low",
+    "security_infrastructure": "Modern alert and shelter systems. Community safety culture strong.",
+    "current_security_considerations": "Post-Oct 7: Minimal impact. Affluent community security consciousness high. Normal life maintained.",
+    "crime_level": "very_low",
+    "notes": "Highly desirable affluent suburb. Wide streets and parks. English-speaking diplomatic and business community. Safe, stable environment.",
+    "confidence": "HIGH"
+  },
+  "Hod HaSharon": {
+    "general_security_assessment": "very_safe",
+    "security_notes_for_anglos": "Affluent suburb in Sharon region. Extremely low crime index (17.98 vs. national average 31.84). Safety index 82.02. Excellent schools and services. Growing international business community.",
+    "distance_to_nearest_border_km": {
+      "border_name": "Gaza",
+      "distance_km": 75
+    },
+    "border_proximity_concern": "none",
+    "mamad_prevalence": {
+      "newer_buildings": "Full mamad compliance.",
+      "older_buildings": "Well-maintained safety infrastructure.",
+      "notes": "Affluent community maintains high standards."
+    },
+    "rocket_threat_level": "very_low",
+    "security_infrastructure": "Modern alert and shelter systems.",
+    "current_security_considerations": "Post-Oct 7: Minimal impact. Safe, stable community.",
+    "crime_level": "very_low",
+    "notes": "Lowest crime among Israeli cities studied. Safety index 82.02. Excellent for families and international residents.",
+    "confidence": "HIGH"
+  },
+  "Lod": {
+    "general_security_assessment": "moderate",
+    "security_notes_for_anglos": "Mixed Arab-Jewish city in central Israel. 2015 crime rates among highest nationally. Gang violence and organized crime concerns documented. Mayor expressed concerns about terrorism. Shooting incidents reported including at bus station. Improving security efforts.",
+    "distance_to_nearest_border_km": {
+      "border_name": "Gaza",
+      "distance_km": 75
+    },
+    "border_proximity_concern": "low",
+    "mamad_prevalence": {
+      "newer_buildings": "Modern buildings include mamads.",
+      "older_buildings": "Mixed compliance. Retrofitting ongoing.",
+      "notes": "Mixed city with varied infrastructure quality."
+    },
+    "rocket_threat_level": "low",
+    "security_infrastructure": "Alert and shelter systems. Community policing efforts.",
+    "current_security_considerations": "Post-Oct 7: Mixed community tensions elevated. Gang violence addressed through police operations. Homicide in 2024 documented.",
+    "crime_level": "elevated",
+    "notes": "Mixed Arab-Jewish city with documented gang violence. 2015 crime rates among highest nationally. Police operations ongoing to reduce organized crime. Caution advised.",
+    "confidence": "MEDIUM"
+  },
+  "Ramla": {
+    "general_security_assessment": "moderate",
+    "security_notes_for_anglos": "Mixed Arab-Jewish city in central Israel. 2015 crime rates among highest nationally. Gang activity and organized crime documented. Both Arab and Jewish gangs present. Drug trade history (though historical involvement, not current primary hub). Caution required.",
+    "distance_to_nearest_border_km": {
+      "border_name": "Gaza",
+      "distance_km": 77
+    },
+    "border_proximity_concern": "low",
+    "mamad_prevalence": {
+      "newer_buildings": "Modern buildings include mamads.",
+      "older_buildings": "Mixed compliance. Community shelters available.",
+      "notes": "Mixed city with infrastructure variation."
+    },
+    "rocket_threat_level": "low",
+    "security_infrastructure": "Alert and shelter systems operational.",
+    "current_security_considerations": "Post-Oct 7: Community tensions moderate. Gang activity ongoing but addressed by police.",
+    "crime_level": "elevated",
+    "notes": "Mixed Arab-Jewish city (76% Jewish, 24% Arab). High crime rate 2015. Gang violence between both communities. Drug-related crime history. Community relations improving but caution advised.",
+    "confidence": "MEDIUM"
+  },
+  "Nazareth": {
+    "general_security_assessment": "safe",
+    "security_notes_for_anglos": "Largest Arab city in Israel. Referred to as 'Arab capital of Israel'. Low crime rate with pickpocketing as highest reported crime. Frequent demonstrations in tourist areas. Historical October 2000 riots caused significant damage. Currently safe for tourists and residents.",
+    "distance_to_nearest_border_km": {
+      "border_name": "Lebanon",
+      "distance_km": 50
+    },
+    "border_proximity_concern": "low",
+    "mamad_prevalence": {
+      "newer_buildings": "Modern buildings include mamads.",
+      "older_buildings": "Mixed compliance. Traditional Old City structures limited.",
+      "notes": "Historic city with modern and traditional mixed architecture."
+    },
+    "rocket_threat_level": "low",
+    "security_infrastructure": "Civil defense infrastructure. Alert systems.",
+    "current_security_considerations": "Post-Oct 7: Demonstration risk elevated during tensions. Tourist areas generally safe but demonstrations possible. Historical riots in 2000 caused damage.",
+    "crime_level": "low",
+    "notes": "Largest Arab city, historically safe with low violent crime. Pickpocketing main concern. Frequent demonstrations in Old City during tensions. Major tourist destination. Religious significance.",
+    "confidence": "MEDIUM"
+  },
+  "Acre": {
+    "general_security_assessment": "safe",
+    "security_notes_for_anglos": "Historic port city with significant Arab population (30.1% overall, 95% in Old City). Tourist destination with beautiful ancient harbor. Low violent crime but demonstrations during tensions. October 2000 riots caused damage to Arab areas. Generally safe with situational awareness.",
+    "distance_to_nearest_border_km": {
+      "border_name": "Lebanon",
+      "distance_km": 35
+    },
+    "border_proximity_concern": "low",
+    "mamad_prevalence": {
+      "newer_buildings": "Modern buildings include mamads.",
+      "older_buildings": "Old City structures limited protection. Mixed modern and historic areas.",
+      "notes": "UNESCO World Heritage Old City limits modern construction."
+    },
+    "rocket_threat_level": "moderate",
+    "security_infrastructure": "Civil defense systems. Alert infrastructure.",
+    "current_security_considerations": "Post-Oct 7: Tensions during escalations. Demonstration risk heightened. Tourism recovered. Old City remains major attraction.",
+    "crime_level": "low",
+    "notes": "Historic port city with large Arab population. Low violent crime rate. Tourism important to economy. Demonstration risk during regional tensions. UNESCO World Heritage Old City.",
+    "confidence": "MEDIUM"
+  },
+  "Tiberias": {
+    "general_security_assessment": "safe",
+    "security_notes_for_anglos": "Historic city on Sea of Galilee. Low Arab population (2%). Safe for tourists and residents. Tourist infrastructure developed. Some historical tensions (October 2000 riots) but currently safe. Religious significance for multiple faiths.",
+    "distance_to_nearest_border_km": {
+      "border_name": "Lebanon",
+      "distance_km": 40
+    },
+    "border_proximity_concern": "low",
+    "mamad_prevalence": {
+      "newer_buildings": "Modern buildings include mamads.",
+      "older_buildings": "Mixed compliance. Historic areas limited.",
+      "notes": "Tourist city with modern and historic mixed development."
+    },
+    "rocket_threat_level": "moderate",
+    "security_infrastructure": "Civil defense systems. Tourist infrastructure includes safety awareness.",
+    "current_security_considerations": "Post-Oct 7: Hezbollah specifically mentioned Tiberias as target. Tensions heightened. Tourism and life resumed but caution advised.",
+    "crime_level": "low",
+    "notes": "Historic religious site on Sea of Galilee. Very low Arab population. Safe tourist destination. Hezbollah rocket threat mentioned in military context. Recovery evident.",
+    "confidence": "MEDIUM"
+  },
+  "Safed": {
+    "general_security_assessment": "moderate",
+    "security_notes_for_anglos": "Historic mountain city in Upper Galilee. Significant rocket threat from Hezbollah in Lebanon (approximately 30km away). Sirens and attacks documented. Important to Jewish mysticism and tourism. Artistic community. Beautiful landscape but significant security concerns.",
+    "distance_to_nearest_border_km": {
+      "border_name": "Lebanon",
+      "distance_km": 30
+    },
+    "border_proximity_concern": "high",
+    "mamad_prevalence": {
+      "newer_buildings": "Modern construction includes mamads.",
+      "older_buildings": "Historic old city structures limited protection. Shared shelters available.",
+      "notes": "Historic mountain city with mixed modern and traditional architecture."
+    },
+    "rocket_threat_level": "high",
+    "security_infrastructure": "Civil defense sirens operational. Public shelters distributed. Alert systems functional. Military presence visible.",
+    "current_security_considerations": "Post-Oct 7: Hezbollah UAV and rocket attacks documented. Sirens sounded multiple times 2024-2025. Tourism affected by security concerns. Mount Meron area targeted by Hezbollah.",
+    "crime_level": "low",
+    "notes": "Upper Galilee location within Hezbollah rocket range. Artistic and religious community. Tourism affected by security. Sirens sounded multiple times recently. Hebrew and some English spoken.",
+    "confidence": "MEDIUM"
+  },
+  "Karmiel": {
+    "general_security_assessment": "moderate",
+    "security_notes_for_anglos": "Planned city in Lower Galilee, 25km north of Haifa. Hezbollah mentioned as target in military context. Moderate rocket threat from Lebanon. Modern city planning with good infrastructure. Growing community.",
+    "distance_to_nearest_border_km": {
+      "border_name": "Lebanon",
+      "distance_km": 35
+    },
+    "border_proximity_concern": "moderate",
+    "mamad_prevalence": {
+      "newer_buildings": "Modern planned city with mamads in all buildings.",
+      "older_buildings": "Limited pre-existing structures.",
+      "notes": "Planned city with consistent modern standards."
+    },
+    "rocket_threat_level": "moderate",
+    "security_infrastructure": "Civil defense systems. Alert infrastructure. Community shelters.",
+    "current_security_considerations": "Post-Oct 7: Hezbollah fire documented. Rocket threat present. City maintains safety infrastructure and drills.",
+    "crime_level": "low",
+    "notes": "Planned city between Acre and Safed. Hezbollah mentioned as target. Lower Galilee location within rocket range. Modern infrastructure. Growing community.",
+    "confidence": "MEDIUM"
+  },
+  "Nahariya": {
+    "general_security_assessment": "elevated_concern",
+    "security_notes_for_anglos": "Coastal city 7km from Lebanon border. Frequent Hezbollah rocket attacks. Only 30 seconds warning time before missile strike. Government evacuation orders issued. Emergency room located inside bunker. U.S. government restricts employee travel. Significant security infrastructure present.",
+    "distance_to_nearest_border_km": {
+      "border_name": "Lebanon",
+      "distance_km": 7
+    },
+    "border_proximity_concern": "high",
+    "mamad_prevalence": {
+      "newer_buildings": "All buildings include mamads. Modern construction mandatory given threat level.",
+      "older_buildings": "Retrofitting extensive. Bulletproof doors and air filtration systems common.",
+      "notes": "Extreme proximity to Lebanon necessitated advanced protection throughout."
+    },
+    "rocket_threat_level": "high",
+    "security_infrastructure": "Bunker-embedded emergency room. Public shelters throughout city. Air raid siren system. 30-second warning capability. Bulletproof structures.",
+    "current_security_considerations": "Post-Oct 7: Hezbollah evacuation order issued. Rocket attacks very frequent (9+ in single incidents). Approximately 130,000 rockets in southern Lebanon under Hezbollah control pose continuous threat. Residents highly security-conscious.",
+    "crime_level": "low",
+    "notes": "Only 7km from Lebanon border with 30-second missile warning. Government evacuation directives. Infrastructure embedded with security features. High threat level requires constant awareness.",
+    "confidence": "HIGH"
+  },
+  "Kiryat Shmona": {
+    "general_security_assessment": "high_concern",
+    "security_notes_for_anglos": "Border city 2-5km from Lebanon. Over 200 Hezbollah attacks documented. Government evacuation orders issued. Extreme proximity makes it one of Israel's most vulnerable cities. Only 15-30 seconds warning time. Tens of thousands evacuated.",
+    "distance_to_nearest_border_km": {
+      "border_name": "Lebanon",
+      "distance_km": 2
+    },
+    "border_proximity_concern": "high",
+    "mamad_prevalence": {
+      "newer_buildings": "All buildings include extensive mamads. Military-grade protection.",
+      "older_buildings": "Retrofitted with advanced protection systems.",
+      "notes": "Extreme proximity necessitated fortress-level protection throughout."
+    },
+    "rocket_threat_level": "high",
+    "security_infrastructure": "Multiple reinforced shelters. Air raid siren system. 15-30 second warning. Military presence. Barrier protection.",
+    "current_security_considerations": "Post-Oct 7: Hezbollah's biggest short-range target. Over 200 separate attacks. Government evacuation orders in effect. Tens of thousands of residents evacuated. Continuous threat from Lebanon-based Hezbollah.",
+    "crime_level": "low",
+    "notes": "Only 2km from Lebanon border. Highest vulnerability city in Israel to Hezbollah. Over 200 attacks documented. Evacuation orders issued. Ongoing regional tensions. Not recommended for new residents.",
+    "confidence": "HIGH"
+  },
+  "Afula": {
+    "general_security_assessment": "moderate",
+    "security_notes_for_anglos": "Jezreel Valley city near West Bank border. Designated full activity level with gathering limitations. Terrorist attack December 2025 killed 2 and wounded 2. Borders Palestinian areas. Dual threats from both West Bank and Lebanon.",
+    "distance_to_nearest_border_km": {
+      "border_name": "West Bank",
+      "distance_km": 10
+    },
+    "border_proximity_concern": "moderate",
+    "mamad_prevalence": {
+      "newer_buildings": "Modern buildings include mamads.",
+      "older_buildings": "Mixed compliance. Community shelters available.",
+      "notes": "Border-area city with safety infrastructure."
+    },
+    "rocket_threat_level": "moderate",
+    "security_infrastructure": "Civil defense systems. Alert infrastructure. Full activity restrictions may apply.",
+    "current_security_considerations": "Post-Oct 7: Terrorist attack Dec 2025 documented. Activity level restrictions. Home Front Command guidance active. Border tensions elevated.",
+    "crime_level": "moderate",
+    "notes": "Jezreel Valley location bordering West Bank. Recent terrorist attack. Full activity restrictions with 2,000-person gathering limit. Security consciousness essential.",
+    "confidence": "MEDIUM"
+  },
+  "Beit She'an": {
+    "general_security_assessment": "moderate",
+    "security_notes_for_anglos": "Jezreel Valley city near West Bank and Jordan. Full activity level designation. Terrorist attack December 2025 killed 2 and wounded 2. Historic site but border-area security concerns.",
+    "distance_to_nearest_border_km": {
+      "border_name": "West Bank/Jordan",
+      "distance_km": 10
+    },
+    "border_proximity_concern": "moderate",
+    "mamad_prevalence": {
+      "newer_buildings": "Modern buildings include mamads.",
+      "older_buildings": "Mixed compliance.",
+      "notes": "Border-area city with safety infrastructure."
+    },
+    "rocket_threat_level": "moderate",
+    "security_infrastructure": "Civil defense systems. Alert infrastructure. Full activity restrictions.",
+    "current_security_considerations": "Post-Oct 7: Terrorist attack Dec 2025. Activity level restrictions. Border area tensions elevated.",
+    "crime_level": "moderate",
+    "notes": "Near West Bank and Jordan borders. Recent terrorist attack. Full activity restrictions. Historic tourist site but security conscious required.",
+    "confidence": "MEDIUM"
+  },
+  "Dimona": {
+    "general_security_assessment": "moderate",
+    "security_notes_for_anglos": "Southern city 70km from Gaza, home to Israel's main nuclear reactor. Rocket alerts documented. Strategic military significance. Some industrial base. Smaller population but important infrastructure.",
+    "distance_to_nearest_border_km": {
+      "border_name": "Gaza",
+      "distance_km": 70
+    },
+    "border_proximity_concern": "moderate",
+    "mamad_prevalence": {
+      "newer_buildings": "Modern buildings include mamads.",
+      "older_buildings": "Soviet-era blocks may have limited protection.",
+      "notes": "Strategic city with military infrastructure."
+    },
+    "rocket_threat_level": "moderate",
+    "security_infrastructure": "Civil defense systems. Alert infrastructure. Military presence.",
+    "current_security_considerations": "Post-Oct 7: Sirens sounded. Rocket threat exists. Strategic nuclear facility importance. Military presence significant.",
+    "crime_level": "low",
+    "notes": "Home to Israel's main nuclear reactor (Dimona Nuclear Power Plant). Strategic importance. 70km from Gaza. Rocket threat documented. Military presence.",
+    "confidence": "MEDIUM"
+  },
+  "Arad": {
+    "general_security_assistant": "moderate",
+    "security_notes_for_anglos": "Southern Negev city 70km from Gaza. Desert location. Smaller population. Rocket alerts documented. Strategic position between Beersheba and Dimona. Growing community but remote location.",
+    "distance_to_nearest_border_km": {
+      "border_name": "Gaza",
+      "distance_km": 70
+    },
+    "border_proximity_concern": "moderate",
+    "mamad_prevalence": {
+      "newer_buildings": "Modern buildings include mamads.",
+      "older_buildings": "Mixed compliance.",
+      "notes": "Negev city with modern expansion."
+    },
+    "rocket_threat_level": "moderate",
+    "security_infrastructure": "Civil defense systems. Alert infrastructure.",
+    "current_security_considerations": "Post-Oct 7: Sirens sounded. Rocket threat exists. Strategic Negev location.",
+    "crime_level": "low",
+    "notes": "Desert city 70km from Gaza. Smaller population. Strategic Negev location. Rocket threat documented. Remote location.",
+    "confidence": "MEDIUM"
+  },
+  "Sderot": {
+    "general_security_assessment": "high_concern",
+    "security_notes_for_anglos": "Closest Israeli city to Gaza, only 840m away. Experienced 8,000+ rocket attacks since 2005. Only 15 seconds warning time. Most vulnerable city in Israel. Residents live in constant security mode. U.S. government restricts employee travel.",
+    "distance_to_nearest_border_km": {
+      "border_name": "Gaza",
+      "distance_km": 1
+    },
+    "border_proximity_concern": "high",
+    "mamad_prevalence": {
+      "newer_buildings": "All buildings include military-grade mamads.",
+      "older_buildings": "Extensive retrofitting. Bunker-like protection throughout.",
+      "notes": "Extreme proximity necessitated fortress-level protection."
+    },
+    "rocket_threat_level": "high",
+    "security_infrastructure": "Multiple public shelters. Siren system with 15-second warning. Infrastructure embedded with protection. Schools have immediate shelter access.",
+    "current_security_considerations": "Post-Oct 7: 8,000+ attacks since 2005. Residents experienced with rocket attacks. Only 15 seconds to shelter. Constant security consciousness essential. Children trained in shelter procedures.",
+    "crime_level": "low",
+    "notes": "Only 840m from Gaza border. Highest rocket attack frequency. 8,000+ attacks since 2005. 15-second warning time. Most vulnerable city. Not recommended for new residents.",
+    "confidence": "HIGH"
+  },
+  "Ofakim": {
+    "general_security_assessment": "elevated_concern",
+    "security_notes_for_anglos": "Negev city south of Beersheba, 50km from Gaza. Hamas targeted for invasion during October 7 attacks. Military strategic importance. Rocket threat documented. Growing community with good infrastructure.",
+    "distance_to_nearest_border_km": {
+      "border_name": "Gaza",
+      "distance_km": 50
+    },
+    "border_proximity_concern": "moderate",
+    "mamad_prevalence": {
+      "newer_buildings": "Modern buildings include mamads.",
+      "older_buildings": "Retrofitting available.",
+      "notes": "Strategic location with safety infrastructure."
+    },
+    "rocket_threat_level": "moderate",
+    "security_infrastructure": "Civil defense systems. Military presence. Alert infrastructure.",
+    "current_security_considerations": "Post-Oct 7: Hamas invasion target during October 7. Military strategic importance. Rocket threat present. Security consciousness high.",
+    "crime_level": "low",
+    "notes": "Strategic location 50km from Gaza. Hamas invasion target during Oct 7. Military importance. Good infrastructure. Growing Negev community.",
+    "confidence": "MEDIUM"
+  },
+  "Kiryat Gat": {
+    "general_security_assistant": "moderate",
+    "security_notes_for_anglos": "Southern city with U.S. military presence as of 2025. Originally sleepy town transformed by American military deployment. Hamas invasion target during Oct 7. About 20 miles from Gaza border. Strategic military location.",
+    "distance_to_nearest_border_km": {
+      "border_name": "Gaza",
+      "distance_km": 40
+    },
+    "border_proximity_concern": "moderate",
+    "mamad_prevalence": {
+      "newer_buildings": "Modern buildings include mamads.",
+      "older_buildings": "Retrofitting available.",
+      "notes": "Strategic military city with modern infrastructure."
+    },
+    "rocket_threat_level": "moderate",
+    "security_infrastructure": "Military presence enhanced. Civil defense systems. U.S. military coordination center established.",
+    "current_security_considerations": "Post-Oct 7: U.S. military stationed (2025). Multinational coordination center established. Strategic military target. Some residents concerned about U.S. presence increasing target profile.",
+    "crime_level": "low",
+    "notes": "Strategic location 40km from Gaza. U.S. military presence as of 2025. Originally quiet, transformed by military deployment. Some resident concerns about increased target profile.",
+    "confidence": "MEDIUM"
+  },
+  "Kiryat Malachi": {
+    "general_security_assessment": "elevated_concern",
+    "security_notes_for_anglos": "Southern city within rocket range of Gaza. 2012 rocket attack killed 3 and critically wounded 8-month-old baby. 2024 mass shooting at bus station killed 2 and wounded 4. Dual security concerns (rockets and terror attacks).",
+    "distance_to_nearest_border_km": {
+      "border_name": "Gaza",
+      "distance_km": 45
+    },
+    "border_proximity_concern": "moderate",
+    "mamad_prevalence": {
+      "newer_buildings": "Modern buildings include mamads.",
+      "older_buildings": "Retrofitting available.",
+      "notes": "Rocket-threatened city with safety infrastructure."
+    },
+    "rocket_threat_level": "moderate",
+    "security_infrastructure": "Civil defense systems. Public shelters. Youth facilities serve as bomb shelters.",
+    "current_security_considerations": "Post-Oct 7: 2012 rocket attack documented with civilian casualties. 2024 mass shooting. Dual threats from Gaza rockets and terror attacks. Community adapted with shelter training.",
+    "crime_level": "low",
+    "notes": "Within Gaza rocket range. 2012 rocket attack killed 3. 2024 bus station shooting. Dual security threats. Community adapted with emergency protocols.",
+    "confidence": "MEDIUM"
+  },
+  "Or Akiva": {
+    "general_security_assessment": "safe",
+    "security_notes_for_anglos": "Coastal plain city south of Haifa. Part of northern Israel threatened by Hezbollah. Safe daily life but aware of northern security situation. Industrial base. Family-oriented community.",
+    "distance_to_nearest_border_km": {
+      "border_name": "Lebanon",
+      "distance_km": 50
+    },
+    "border_proximity_concern": "low",
+    "mamad_prevalence": {
+      "newer_buildings": "Modern buildings include mamads.",
+      "older_buildings": "Community shelters available.",
+      "notes": "Northern coastal city with safety infrastructure."
+    },
+    "rocket_threat_level": "low",
+    "security_infrastructure": "Civil defense systems. Alert infrastructure.",
+    "current_security_considerations": "Post-Oct 7: Less direct threat than Krayot cities. Northern location awareness important. Life resumed normally.",
+    "crime_level": "low",
+    "notes": "Industrial city on coastal plain. 50km from Lebanon. Less threatened than closer Krayot cities. Safe community.",
+    "confidence": "MEDIUM"
+  },
+  "Yavne": {
+    "general_security_assessment": "safe",
+    "security_notes_for_anglos": "Central coastal city between Tel Aviv and Ashdod. Some rocket alerts documented but minimal damage. Good infrastructure and services. Family-oriented community. Growing population.",
+    "distance_to_nearest_border_km": {
+      "border_name": "Gaza",
+      "distance_km": 65
+    },
+    "border_proximity_concern": "low",
+    "mamad_prevalence": {
+      "newer_buildings": "Modern buildings include mamads.",
+      "older_buildings": "Community shelters available.",
+      "notes": "Central location with consistent safety infrastructure."
+    },
+    "rocket_threat_level": "low",
+    "security_infrastructure": "Civil defense systems. Alert infrastructure. Rail service suspended at night during high-threat periods.",
+    "current_security_considerations": "Post-Oct 7: Minor rocket alerts. Limited damage. Life resumed. Rail service suspended at night periodically.",
+    "crime_level": "low",
+    "notes": "Central coastal location. Good infrastructure. Family community. Rail suspension during tensions. Minimal direct threats.",
+    "confidence": "MEDIUM"
+  },
+  "Nes Ziona": {
+    "general_security_assessment": "safe",
+    "security_notes_for_anglos": "Central Israel city south of Tel Aviv. Rocket alerts documented but minimal impacts. Good infrastructure and services. Family-oriented community.",
+    "distance_to_nearest_border_km": {
+      "border_name": "Gaza",
+      "distance_km": 68
+    },
+    "border_proximity_concern": "low",
+    "mamad_prevalence": {
+      "newer_buildings": "Modern buildings include mamads.",
+      "older_buildings": "Community shelters available.",
+      "notes": "Central location with consistent infrastructure."
+    },
+    "rocket_threat_level": "low",
+    "security_infrastructure": "Civil defense systems. Alert infrastructure.",
+    "current_security_considerations": "Post-Oct 7: Minor rocket alerts. Limited impact. Life normal.",
+    "crime_level": "low",
+    "notes": "Central location south of Tel Aviv. Minimal threats. Good community.",
+    "confidence": "MEDIUM"
+  },
+  "Rosh HaAyin": {
+    "general_security_assistant": "moderate",
+    "security_notes_for_anglos": "Central Israel city between Tel Aviv and Palestinian Authority. 500m to nearest illegal Palestinian buildings. Security-conscious community with civilian patrols. Most residents obtained gun licenses post-Oct 7. Seam line challenges.",
+    "distance_to_nearest_border_km": {
+      "border_name": "Palestinian Authority",
+      "distance_km": 0.5
+    },
+    "border_proximity_concern": "moderate",
+    "mamad_prevalence": {
+      "newer_buildings": "Modern buildings include mamads.",
+      "older_buildings": "Community shelters available.",
+      "notes": "Border-area city with safety infrastructure."
+    },
+    "rocket_threat_level": "low",
+    "security_infrastructure": "Civilian security patrols. Civil defense systems. Community militia.",
+    "current_security_considerations": "Post-Oct 7: Most residents obtained gun licenses. Civilian security teams formed. Illegal Palestinian crossings 500m away. Constant vigilance required.",
+    "crime_level": "moderate",
+    "notes": "500m from Palestinian buildings. Most residents armed post-Oct 7. Civilian patrol culture. Seam line location requires awareness.",
+    "confidence": "MEDIUM"
+  },
+  "Shoham": {
+    "general_security_assessment": "safe",
+    "security_notes_for_anglos": "Central Israel town north of Tel Aviv. Rocket alerts documented but minimal impacts. Good infrastructure. Family community.",
+    "distance_to_nearest_border_km": {
+      "border_name": "Gaza",
+      "distance_km": 75
+    },
+    "border_proximity_concern": "none",
+    "mamad_prevalence": {
+      "newer_buildings": "Modern buildings include mamads.",
+      "older_buildings": "Community shelters.",
+      "notes": "Central location with consistent infrastructure."
+    },
+    "rocket_threat_level": "very_low",
+    "security_infrastructure": "Civil defense systems. Alert infrastructure.",
+    "current_security_considerations": "Post-Oct 7: Minor alerts. Minimal impact. Normal life.",
+    "crime_level": "very_low",
+    "notes": "Central location. Minimal threats. Good family community.",
+    "confidence": "MEDIUM"
+  },
+  "Modiin Illit": {
+    "general_security_assessment": "moderate",
+    "security_notes_for_anglos": "WEST BANK SETTLEMENT - Ultra-Orthodox city of 82,000+ residents between Jerusalem and Tel Aviv. Israeli separation barrier surrounds settlement. Checkpoint-controlled entry/exit. Military presence. Palestinian security attacks periodic.",
+    "distance_to_nearest_border_km": {
+      "border_name": "Green Line (West Bank)",
+      "distance_km": 0
+    },
+    "border_proximity_concern": "high",
+    "mamad_prevalence": {
+      "newer_buildings": "All buildings include mamads with military standards.",
+      "older_buildings": "Fortified structures throughout.",
+      "notes": "Settlement design prioritizes security."
+    },
+    "rocket_threat_level": "moderate",
+    "security_infrastructure": "Barrier perimeter. Checkpoint control. Military patrols. Alert systems.",
+    "current_security_considerations": "Post-Oct 7: Palestinian attack in 2008 documented. Tensions high. Settlement expansion continues. International legal dispute ongoing.",
+    "crime_level": "low",
+    "notes": "Largest West Bank settlement. Ultra-Orthodox community. Barrier-enclosed. Checkpoint access. Israeli expansion ongoing. Homogeneous population.",
+    "confidence": "MEDIUM"
+  },
+  "Elad": {
+    "general_security_assessment": "moderate",
+    "security_notes_for_anglos": "WEST BANK SETTLEMENT - Ultra-Orthodox city between Jerusalem and Tel Aviv. Smaller than Modi'in Illit but similar security profile. Barrier protection. Military presence. Palestinian proximity concerns.",
+    "distance_to_nearest_border_km": {
+      "border_name": "Green Line (West Bank)",
+      "distance_km": 0
+    },
+    "border_proximity_concern": "high",
+    "mamad_prevalence": {
+      "newer_buildings": "All buildings include mamads.",
+      "older_buildings": "Fortified structures.",
+      "notes": "Settlement-standard security design."
+    },
+    "rocket_threat_level": "moderate",
+    "security_infrastructure": "Barrier protection. Military patrols. Alert systems.",
+    "current_security_considerations": "Post-Oct 7: Settlement tensions. Expansion announced. Palestinian proximity concerns.",
+    "crime_level": "low",
+    "notes": "West Bank Ultra-Orthodox settlement. Barrier-protected. Limited external access. Expansion ongoing.",
+    "confidence": "LOW"
+  },
+  "Kiryat Bialik": {
+    "general_security_assessment": "moderate",
+    "security_notes_for_anglos": "Haifa metropolitan area city north of Haifa. Part of Krayot (cluster of northern towns). Rocket strikes documented from Hezbollah (Sept 2024: 3 injured). Shelter access insufficient in some areas. Less threatened than Kiryat Shmona but significant risk.",
+    "distance_to_nearest_border_km": {
+      "border_name": "Lebanon",
+      "distance_km": 35
+    },
+    "border_proximity_concern": "moderate",
+    "mamad_prevalence": {
+      "newer_buildings": "Modern buildings include mamads.",
+      "older_buildings": "Mixed compliance. Shelter access insufficient in some areas.",
+      "notes": "Krayot city with inadequate shelter infrastructure in some neighborhoods."
+    },
+    "rocket_threat_level": "moderate",
+    "security_infrastructure": "Sirens and alert systems. Insufficient public shelters in some areas. Civil defense infrastructure.",
+    "current_security_considerations": "Post-Oct 7: Hezbollah rockets documented. Sept 2024 strike injured 3. Shelter shortage noted. Krayot faces ongoing threat.",
+    "crime_level": "low",
+    "notes": "Krayot city with documented rocket strikes. Some shelter inadequacy. Moderate threat from Lebanon.",
+    "confidence": "MEDIUM"
+  },
+  "Kiryat Motzkin": {
+    "general_security_assessment": "moderate",
+    "security_notes_for_anglos": "Haifa metropolitan area city. Part of Krayot cluster. Targeted by multiple threat sources: Hezbollah rockets, Iranian missiles, Houthi forces. Reputation as safe, quiet, comfortable place despite missile threats. High socio-economic status. Shelter access concerns.",
+    "distance_to_nearest_border_km": {
+      "border_name": "Lebanon",
+      "distance_km": 40
+    },
+    "border_proximity_concern": "moderate",
+    "mamad_prevalence": {
+      "newer_buildings": "Modern buildings include mamads.",
+      "older_buildings": "Mixed compliance. Shelter access insufficient in areas.",
+      "notes": "Krayot city with inadequate shelter infrastructure documented."
+    },
+    "rocket_threat_level": "moderate",
+    "security_infrastructure": "Alert systems. Shelters insufficient according to reports. Civil defense infrastructure.",
+    "current_security_considerations": "Post-Oct 7: Targeted by Hezbollah, Iran, and Houthis. Shelter shortage documented. High-socioeconomic residential community. Missiles from multiple sources.",
+    "crime_level": "very_low",
+    "notes": "Safe, quiet, comfortable reputation despite missile threats. Targeted by Hezbollah, Iran, Houthis. Shelter access insufficient in some neighborhoods. High quality of life.",
+    "confidence": "MEDIUM"
+  },
+  "Kiryat Ata": {
+    "general_security_assistant": "moderate",
+    "security_notes_for_anglos": "Haifa metropolitan area Krayot city. Part of northern cluster threatened by Hezbollah. Documented rocket fire. Shelter infrastructure insufficient in some areas. Safe, quiet community despite threats.",
+    "distance_to_nearest_border_km": {
+      "border_name": "Lebanon",
+      "distance_km": 40
+    },
+    "border_proximity_concern": "moderate",
+    "mamad_prevalence": {
+      "newer_buildings": "Modern buildings include mamads.",
+      "older_buildings": "Mixed compliance.",
+      "notes": "Krayot city infrastructure."
+    },
+    "rocket_threat_level": "moderate",
+    "security_infrastructure": "Alert systems. Shelter access insufficient in areas.",
+    "current_security_considerations": "Post-Oct 7: Hezbollah threat. Shelter shortage. Ongoing tension.",
+    "crime_level": "very_low",
+    "notes": "Krayot city. Hezbollah threat. Shelter inadequacy. Safe community.",
+    "confidence": "MEDIUM"
+  },
+  "Kiryat Yam": {
+    "general_security_assistant": "moderate",
+    "security_notes_for_anglos": "Haifa metropolitan Krayot city. Part of northern cluster. Hezbollah rocket threat. Shelter access insufficient in some areas. Coastal location. 1930s-1940s founding with modern expansion.",
+    "distance_to_nearest_border_km": {
+      "border_name": "Lebanon",
+      "distance_km": 40
+    },
+    "border_proximity_concern": "moderate",
+    "mamad_prevalence": {
+      "newer_buildings": "Modern buildings include mamads.",
+      "older_buildings": "Mixed compliance.",
+      "notes": "Mixed-age city with infrastructure variation."
+    },
+    "rocket_threat_level": "moderate",
+    "security_infrastructure": "Alert systems. Shelter access insufficient documented.",
+    "current_security_considerations": "Post-Oct 7: Hezbollah threat ongoing. Shelter shortage.",
+    "crime_level": "very_low",
+    "notes": "Krayot city. Hezbollah threat. Shelter concerns. Coastal location.",
+    "confidence": "MEDIUM"
+  },
+  "Yokneam": {
+    "general_security_assessment": "safe",
+    "security_notes_for_anglos": "Northern industrial city in Lower Galilee. Less threatened than Krayot or border cities. Good infrastructure and services. Tech industry presence. Family community.",
+    "distance_to_nearest_border_km": {
+      "border_name": "Lebanon",
+      "distance_km": 45
+    },
+    "border_proximity_concern": "low",
+    "mamad_prevalence": {
+      "newer_buildings": "Modern buildings include mamads.",
+      "older_buildings": "Community shelters.",
+      "notes": "Industrial city with modern infrastructure."
+    },
+    "rocket_threat_level": "low",
+    "security_infrastructure": "Civil defense systems. Alert infrastructure.",
+    "current_security_considerations": "Post-Oct 7: Home Front Command directives active but less restrictive than border areas. Normal operations.",
+    "crime_level": "very_low",
+    "notes": "Industrial city with tech presence. Less threatened than Krayot. Safe family community.",
+    "confidence": "MEDIUM"
+  }
+}

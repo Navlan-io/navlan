@@ -1,0 +1,1468 @@
+{
+  "metadata": {
+    "title": "Israeli Healthcare & Medical Access Data - English Speakers",
+    "description": "Comprehensive healthcare information for 54 Israeli cities, focusing on English-language accessibility",
+    "generated_date": "2026-03-15",
+    "target_audience": "English speakers relocating to or visiting Israel",
+    "coverage": 54
+  },
+  "cities": {
+    "Jerusalem": {
+      "nearest_major_hospital": {
+        "name": "Hadassah University Hospital Ein Kerem",
+        "distance_km": 5,
+        "english_speaking_staff": true,
+        "emergency_department": true
+      },
+      "kupat_cholim_presence": [
+        "Clalit",
+        "Maccabi",
+        "Meuhedet",
+        "Leumit"
+      ],
+      "english_speaking_doctors": "many",
+      "english_speaking_therapists_mental_health": "available",
+      "pharmacies_with_english_service": "common",
+      "telemedicine_english": "Hadassah, Shaare Zedek, and private providers offer English telemedicine",
+      "specialty_medical_centers": [
+        "Shaare Zedek Medical Center",
+        "Bikur Holim (Shaare Zedek branch)",
+        "Hadassah Mount Scopus",
+        "Jerusalem Mental Health Center"
+      ],
+      "ambulance_response_estimate": "under_10_min",
+      "notes": "Jerusalem is well-served with multiple world-class hospitals. International patient departments at Hadassah and Shaare Zedek have multilingual staff. Strong mental health services available.",
+      "confidence": "HIGH"
+    },
+    "Tel Aviv": {
+      "nearest_major_hospital": {
+        "name": "Tel Aviv Sourasky Medical Center (Ichilov)",
+        "distance_km": 3,
+        "english_speaking_staff": true,
+        "emergency_department": true
+      },
+      "kupat_cholim_presence": [
+        "Clalit",
+        "Maccabi",
+        "Meuhedet",
+        "Leumit"
+      ],
+      "english_speaking_doctors": "many",
+      "english_speaking_therapists_mental_health": "available",
+      "pharmacies_with_english_service": "common",
+      "telemedicine_english": "Multiple private providers including ResultMed and SHL Telemedicine offer English services",
+      "specialty_medical_centers": [
+        "Assuta Ramat Hahayal (private)",
+        "Tel Aviv Doctor (private clinic with English-speaking doctors)",
+        "Family Medical Center - Wolfson"
+      ],
+      "ambulance_response_estimate": "under_10_min",
+      "notes": "Largest concentration of English-speaking doctors in Israel. Excellent private healthcare options. Anglo Doctors in Israel directory highly active. Comprehensive telemedicine infrastructure.",
+      "confidence": "HIGH"
+    },
+    "Haifa": {
+      "nearest_major_hospital": {
+        "name": "Rambam Health Care Campus",
+        "distance_km": 2,
+        "english_speaking_staff": "partial",
+        "emergency_department": true
+      },
+      "kupat_cholim_presence": [
+        "Clalit",
+        "Maccabi",
+        "Meuhedet",
+        "Leumit"
+      ],
+      "english_speaking_doctors": "some",
+      "english_speaking_therapists_mental_health": "available",
+      "pharmacies_with_english_service": "common",
+      "telemedicine_english": "Available through major health funds and private providers",
+      "specialty_medical_centers": [
+        "Galilee Medical Center (Nahariya, ~30km)",
+        "Rambam research departments in collaboration with Technion"
+      ],
+      "ambulance_response_estimate": "under_10_min",
+      "notes": "Northern region medical hub. Rambam is university clinic with research ties to Technion. Multilingual staff available. Good healthcare infrastructure.",
+      "confidence": "HIGH"
+    },
+    "Ra'anana": {
+      "nearest_major_hospital": {
+        "name": "Meir Medical Center (Kfar Saba)",
+        "distance_km": 12,
+        "english_speaking_staff": "partial",
+        "emergency_department": true
+      },
+      "kupat_cholim_presence": [
+        "Clalit",
+        "Maccabi",
+        "Meuhedet",
+        "Leumit"
+      ],
+      "english_speaking_doctors": "some",
+      "english_speaking_therapists_mental_health": "available",
+      "pharmacies_with_english_service": "common",
+      "telemedicine_english": "Ra'anana Therapy Centre offers English-language mental health telemedicine",
+      "specialty_medical_centers": [
+        "Ra'anana Therapy Centre (mental health)",
+        "Local clinics and urgent care centers"
+      ],
+      "ambulance_response_estimate": "under_10_min",
+      "notes": "Affluent suburban area with good healthcare access. Strong mental health services available locally. Many English-speaking professionals.",
+      "confidence": "MEDIUM"
+    },
+    "Modi'in": {
+      "nearest_major_hospital": {
+        "name": "Kaplan Medical Center (Rehovot)",
+        "distance_km": 15,
+        "english_speaking_staff": "partial",
+        "emergency_department": true
+      },
+      "kupat_cholim_presence": [
+        "Clalit",
+        "Maccabi",
+        "Meuhedet",
+        "Leumit"
+      ],
+      "english_speaking_doctors": "some",
+      "english_speaking_therapists_mental_health": "limited",
+      "pharmacies_with_english_service": "some",
+      "telemedicine_english": "Available through health funds",
+      "specialty_medical_centers": [
+        "Terem urgent care centers"
+      ],
+      "ambulance_response_estimate": "10-20_min",
+      "notes": "Growing city with expanding healthcare infrastructure. New hospital planned for Modi'in area. Urgent care centers available.",
+      "confidence": "MEDIUM"
+    },
+    "Beit Shemesh": {
+      "nearest_major_hospital": {
+        "name": "Hadassah Beit Shemesh",
+        "distance_km": 2,
+        "english_speaking_staff": "partial",
+        "emergency_department": false
+      },
+      "kupat_cholim_presence": [
+        "Clalit",
+        "Maccabi",
+        "Meuhedet",
+        "Leumit"
+      ],
+      "english_speaking_doctors": "some",
+      "english_speaking_therapists_mental_health": "limited",
+      "pharmacies_with_english_service": "some",
+      "telemedicine_english": "Available through health funds and Hadassah",
+      "specialty_medical_centers": [
+        "Hadassah Beit Shemesh (cardiology, pediatric hematology, gastroenterology, ophthalmology)",
+        "Shaare Zedek services accessible (~20km)"
+      ],
+      "ambulance_response_estimate": "10-20_min",
+      "notes": "Hadassah facility opened in 2023 with specialty services. Full hospital planned for construction. Rapidly developing healthcare access.",
+      "confidence": "MEDIUM"
+    },
+    "Herzliya": {
+      "nearest_major_hospital": {
+        "name": "Herzliya Medical Center",
+        "distance_km": 1,
+        "english_speaking_staff": true,
+        "emergency_department": false
+      },
+      "kupat_cholim_presence": [
+        "Clalit",
+        "Maccabi",
+        "Meuhedet",
+        "Leumit"
+      ],
+      "english_speaking_doctors": "many",
+      "english_speaking_therapists_mental_health": "available",
+      "pharmacies_with_english_service": "common",
+      "telemedicine_english": "Available through private providers and health funds",
+      "specialty_medical_centers": [
+        "Herzliya Medical Center (400+ specialists in all branches)",
+        "Tel Aviv Sourasky (~20km)"
+      ],
+      "ambulance_response_estimate": "under_10_min",
+      "notes": "Affluent coastal area with excellent private healthcare. Herzliya Medical Center is leading private hospital. Many English-speaking doctors available.",
+      "confidence": "HIGH"
+    },
+    "Netanya": {
+      "nearest_major_hospital": {
+        "name": "Laniado Hospital (Sanz Medical Center)",
+        "distance_km": 5,
+        "english_speaking_staff": "partial",
+        "emergency_department": true
+      },
+      "kupat_cholim_presence": [
+        "Clalit",
+        "Maccabi",
+        "Meuhedet",
+        "Leumit"
+      ],
+      "english_speaking_doctors": "some",
+      "english_speaking_therapists_mental_health": "limited",
+      "pharmacies_with_english_service": "some",
+      "telemedicine_english": "Available through health funds",
+      "specialty_medical_centers": [
+        "Laniado Hospital",
+        "Meir Medical Center accessible"
+      ],
+      "ambulance_response_estimate": "10-20_min",
+      "notes": "Coastal resort city with hospital serving local population. New hospital planned for Netanya area. Good beach town healthcare access.",
+      "confidence": "MEDIUM"
+    },
+    "Ashdod": {
+      "nearest_major_hospital": {
+        "name": "Barzilai Medical Center",
+        "distance_km": 20,
+        "english_speaking_staff": "partial",
+        "emergency_department": true
+      },
+      "kupat_cholim_presence": [
+        "Clalit",
+        "Maccabi",
+        "Meuhedet",
+        "Leumit"
+      ],
+      "english_speaking_doctors": "few",
+      "english_speaking_therapists_mental_health": "limited",
+      "pharmacies_with_english_service": "some",
+      "telemedicine_english": "Available through health funds",
+      "specialty_medical_centers": [
+        "Barzilai Medical Center (Ashkelon)",
+        "Soroka Medical Center (Beer Sheva, ~60km)"
+      ],
+      "ambulance_response_estimate": "10-20_min",
+      "notes": "Southern industrial port city. Shares Barzilai Medical Center with Ashkelon. Limited English-speaking healthcare professionals compared to central region.",
+      "confidence": "MEDIUM"
+    },
+    "Ashkelon": {
+      "nearest_major_hospital": {
+        "name": "Barzilai Medical Center",
+        "distance_km": 2,
+        "english_speaking_staff": "partial",
+        "emergency_department": true
+      },
+      "kupat_cholim_presence": [
+        "Clalit",
+        "Maccabi",
+        "Meuhedet",
+        "Leumit"
+      ],
+      "english_speaking_doctors": "few",
+      "english_speaking_therapists_mental_health": "limited",
+      "pharmacies_with_english_service": "some",
+      "telemedicine_english": "Available through health funds",
+      "specialty_medical_centers": [
+        "Barzilai Medical Center (Level 1 Trauma Center, 602 inpatient beds)"
+      ],
+      "ambulance_response_estimate": "10-20_min",
+      "notes": "Coastal city served by major Barzilai Medical Center. Services 500,000+ residents in southern district. Limited English-speaking healthcare professionals.",
+      "confidence": "MEDIUM"
+    },
+    "Beer Sheva": {
+      "nearest_major_hospital": {
+        "name": "Soroka Medical Center",
+        "distance_km": 3,
+        "english_speaking_staff": "partial",
+        "emergency_department": true
+      },
+      "kupat_cholim_presence": [
+        "Clalit",
+        "Maccabi",
+        "Meuhedet",
+        "Leumit"
+      ],
+      "english_speaking_doctors": "few",
+      "english_speaking_therapists_mental_health": "limited",
+      "pharmacies_with_english_service": "some",
+      "telemedicine_english": "Available through health funds",
+      "specialty_medical_centers": [
+        "Soroka Medical Center (university hospital, 270,000+ emergency visits annually)",
+        "Assuta Hospital Beer Sheva (private)"
+      ],
+      "ambulance_response_estimate": "10-20_min",
+      "notes": "Major southern hub. Soroka is largest hospital by emergency visits in Israel. New Sheba Medical Center-managed hospital planned. Less English-speaking professional availability than north/center.",
+      "confidence": "MEDIUM"
+    },
+    "Petah Tikva": {
+      "nearest_major_hospital": {
+        "name": "Rabin Medical Center",
+        "distance_km": 1,
+        "english_speaking_staff": "partial",
+        "emergency_department": true
+      },
+      "kupat_cholim_presence": [
+        "Clalit",
+        "Maccabi",
+        "Meuhedet",
+        "Leumit"
+      ],
+      "english_speaking_doctors": "some",
+      "english_speaking_therapists_mental_health": "available",
+      "pharmacies_with_english_service": "common",
+      "telemedicine_english": "Available through health funds and private providers",
+      "specialty_medical_centers": [
+        "Rabin Medical Center",
+        "Schneider Children's Medical Center"
+      ],
+      "ambulance_response_estimate": "under_10_min",
+      "notes": "Central location with major hospital complex. Good access to pediatric services. Telemedicine options available.",
+      "confidence": "HIGH"
+    },
+    "Kfar Saba": {
+      "nearest_major_hospital": {
+        "name": "Meir Medical Center",
+        "distance_km": 1,
+        "english_speaking_staff": "partial",
+        "emergency_department": true
+      },
+      "kupat_cholim_presence": [
+        "Clalit",
+        "Maccabi",
+        "Meuhedet",
+        "Leumit"
+      ],
+      "english_speaking_doctors": "some",
+      "english_speaking_therapists_mental_health": "available",
+      "pharmacies_with_english_service": "common",
+      "telemedicine_english": "Available through health funds",
+      "specialty_medical_centers": [
+        "Meir Medical Center (7th largest hospital complex in Israel)"
+      ],
+      "ambulance_response_estimate": "under_10_min",
+      "notes": "Good healthcare access with major hospital. Well-established suburban area with reasonable English-speaking professional availability.",
+      "confidence": "MEDIUM"
+    },
+    "Rehovot": {
+      "nearest_major_hospital": {
+        "name": "Kaplan Medical Center",
+        "distance_km": 2,
+        "english_speaking_staff": "partial",
+        "emergency_department": true
+      },
+      "kupat_cholim_presence": [
+        "Clalit",
+        "Maccabi",
+        "Meuhedet",
+        "Leumit"
+      ],
+      "english_speaking_doctors": "some",
+      "english_speaking_therapists_mental_health": "limited",
+      "pharmacies_with_english_service": "some",
+      "telemedicine_english": "Available through health funds",
+      "specialty_medical_centers": [
+        "Kaplan Medical Center"
+      ],
+      "ambulance_response_estimate": "10-20_min",
+      "notes": "University city with good healthcare infrastructure. Kaplan Medical Center serves local population.",
+      "confidence": "MEDIUM"
+    },
+    "Rishon LeZion": {
+      "nearest_major_hospital": {
+        "name": "Assuta Medical Center / Tel Aviv area hospitals",
+        "distance_km": 15,
+        "english_speaking_staff": "partial",
+        "emergency_department": false
+      },
+      "kupat_cholim_presence": [
+        "Clalit",
+        "Maccabi",
+        "Meuhedet",
+        "Leumit"
+      ],
+      "english_speaking_doctors": "some",
+      "english_speaking_therapists_mental_health": "limited",
+      "pharmacies_with_english_service": "some",
+      "telemedicine_english": "Available through health funds",
+      "specialty_medical_centers": [
+        "Local health fund clinics",
+        "Tel Aviv hospitals accessible"
+      ],
+      "ambulance_response_estimate": "10-20_min",
+      "notes": "Large suburban city. Access to Tel Aviv hospitals for major medical needs. Reasonable local healthcare infrastructure.",
+      "confidence": "MEDIUM"
+    },
+    "Efrat": {
+      "nearest_major_hospital": {
+        "name": "Hadassah Ein Kerem / Shaare Zedek",
+        "distance_km": 25,
+        "english_speaking_staff": "partial",
+        "emergency_department": true
+      },
+      "kupat_cholim_presence": [
+        "Clalit",
+        "Maccabi",
+        "Meuhedet",
+        "Leumit"
+      ],
+      "english_speaking_doctors": "some",
+      "english_speaking_therapists_mental_health": "limited",
+      "pharmacies_with_english_service": "some",
+      "telemedicine_english": "Available through health funds",
+      "specialty_medical_centers": [
+        "Jerusalem hospitals"
+      ],
+      "ambulance_response_estimate": "20-30_min",
+      "notes": "Suburban Jerusalem settlement. Access to major Jerusalem hospitals. Longer ambulance response times. Growing community with developing healthcare infrastructure.",
+      "confidence": "LOW"
+    },
+    "Maale Adumim": {
+      "nearest_major_hospital": {
+        "name": "Hadassah Ein Kerem / Shaare Zedek",
+        "distance_km": 30,
+        "english_speaking_staff": "partial",
+        "emergency_department": true
+      },
+      "kupat_cholim_presence": [
+        "Clalit",
+        "Maccabi",
+        "Meuhedet",
+        "Leumit"
+      ],
+      "english_speaking_doctors": "few",
+      "english_speaking_therapists_mental_health": "limited",
+      "pharmacies_with_english_service": "some",
+      "telemedicine_english": "Available through health funds",
+      "specialty_medical_centers": [
+        "Jerusalem Mental Health Center (services region)",
+        "Jerusalem hospitals"
+      ],
+      "ambulance_response_estimate": "20-30_min",
+      "notes": "East Jerusalem area settlement. Mental health services available. Longer response times for major medical emergencies. Remote location relative to major hospitals.",
+      "confidence": "LOW"
+    },
+    "Givat Shmuel": {
+      "nearest_major_hospital": {
+        "name": "Rabin Medical Center / Tel Hashomer",
+        "distance_km": 10,
+        "english_speaking_staff": "partial",
+        "emergency_department": true
+      },
+      "kupat_cholim_presence": [
+        "Clalit",
+        "Maccabi",
+        "Meuhedet",
+        "Leumit"
+      ],
+      "english_speaking_doctors": "some",
+      "english_speaking_therapists_mental_health": "available",
+      "pharmacies_with_english_service": "some",
+      "telemedicine_english": "Available through health funds",
+      "specialty_medical_centers": [
+        "Rabin Medical Center",
+        "Chaim Sheba Medical Center (Tel Hashomer)"
+      ],
+      "ambulance_response_estimate": "10-20_min",
+      "notes": "Central location with good hospital access. Well-positioned for major medical centers.",
+      "confidence": "MEDIUM"
+    },
+    "Ramat Gan": {
+      "nearest_major_hospital": {
+        "name": "Chaim Sheba Medical Center (Tel Hashomer)",
+        "distance_km": 5,
+        "english_speaking_staff": "partial",
+        "emergency_department": true
+      },
+      "kupat_cholim_presence": [
+        "Clalit",
+        "Maccabi",
+        "Meuhedet",
+        "Leumit"
+      ],
+      "english_speaking_doctors": "some",
+      "english_speaking_therapists_mental_health": "available",
+      "pharmacies_with_english_service": "common",
+      "telemedicine_english": "Available through health funds and private providers",
+      "specialty_medical_centers": [
+        "Chaim Sheba Medical Center (largest hospital in Israel)"
+      ],
+      "ambulance_response_estimate": "under_10_min",
+      "notes": "Affluent suburb with access to Israel's largest hospital. Good healthcare infrastructure and English-speaking availability.",
+      "confidence": "HIGH"
+    },
+    "Givatayim": {
+      "nearest_major_hospital": {
+        "name": "Tel Aviv Sourasky / Chaim Sheba",
+        "distance_km": 8,
+        "english_speaking_staff": "partial",
+        "emergency_department": true
+      },
+      "kupat_cholim_presence": [
+        "Clalit",
+        "Maccabi",
+        "Meuhedet",
+        "Leumit"
+      ],
+      "english_speaking_doctors": "some",
+      "english_speaking_therapists_mental_health": "available",
+      "pharmacies_with_english_service": "common",
+      "telemedicine_english": "Available through health funds",
+      "specialty_medical_centers": [
+        "Tel Aviv Sourasky Medical Center"
+      ],
+      "ambulance_response_estimate": "under_10_min",
+      "notes": "Central location with good hospital access. Telemedicine options available.",
+      "confidence": "MEDIUM"
+    },
+    "Holon": {
+      "nearest_major_hospital": {
+        "name": "Wolfson Medical Center",
+        "distance_km": 1,
+        "english_speaking_staff": "partial",
+        "emergency_department": true
+      },
+      "kupat_cholim_presence": [
+        "Clalit",
+        "Maccabi",
+        "Meuhedet",
+        "Leumit"
+      ],
+      "english_speaking_doctors": "some",
+      "english_speaking_therapists_mental_health": "available",
+      "pharmacies_with_english_service": "common",
+      "telemedicine_english": "Available through health funds",
+      "specialty_medical_centers": [
+        "Wolfson Medical Center (Pediatric Cardiology Department with 'Save a Child's Heart' program)"
+      ],
+      "ambulance_response_estimate": "under_10_min",
+      "notes": "Good hospital access with specialized pediatric services. Well-established suburb of Tel Aviv.",
+      "confidence": "MEDIUM"
+    },
+    "Bat Yam": {
+      "nearest_major_hospital": {
+        "name": "Tel Aviv Sourasky / Wolfson Medical Center",
+        "distance_km": 10,
+        "english_speaking_staff": "partial",
+        "emergency_department": false
+      },
+      "kupat_cholim_presence": [
+        "Clalit",
+        "Maccabi",
+        "Meuhedet",
+        "Leumit"
+      ],
+      "english_speaking_doctors": "some",
+      "english_speaking_therapists_mental_health": "available",
+      "pharmacies_with_english_service": "some",
+      "telemedicine_english": "Available through health funds",
+      "specialty_medical_centers": [
+        "Abarbanel Mental Health Center",
+        "Tel Aviv hospitals accessible"
+      ],
+      "ambulance_response_estimate": "10-20_min",
+      "notes": "Coastal city with mental health services. Access to Tel Aviv hospitals for major needs.",
+      "confidence": "MEDIUM"
+    },
+    "Bnei Brak": {
+      "nearest_major_hospital": {
+        "name": "Rabin Medical Center",
+        "distance_km": 5,
+        "english_speaking_staff": "partial",
+        "emergency_department": true
+      },
+      "kupat_cholim_presence": [
+        "Clalit",
+        "Maccabi",
+        "Meuhedet",
+        "Leumit"
+      ],
+      "english_speaking_doctors": "few",
+      "english_speaking_therapists_mental_health": "limited",
+      "pharmacies_with_english_service": "some",
+      "telemedicine_english": "Available through health funds",
+      "specialty_medical_centers": [
+        "Maaynei Hayeshua Hospital",
+        "Terem urgent care centers"
+      ],
+      "ambulance_response_estimate": "10-20_min",
+      "notes": "Haredi city with local hospital. Rabin Medical Center accessible. Limited English-speaking professionals in city itself.",
+      "confidence": "MEDIUM"
+    },
+    "Ramat HaSharon": {
+      "nearest_major_hospital": {
+        "name": "Meir Medical Center",
+        "distance_km": 8,
+        "english_speaking_staff": "partial",
+        "emergency_department": true
+      },
+      "kupat_cholim_presence": [
+        "Clalit",
+        "Maccabi",
+        "Meuhedet",
+        "Leumit"
+      ],
+      "english_speaking_doctors": "some",
+      "english_speaking_therapists_mental_health": "available",
+      "pharmacies_with_english_service": "common",
+      "telemedicine_english": "Available through health funds",
+      "specialty_medical_centers": [
+        "Meir Medical Center"
+      ],
+      "ambulance_response_estimate": "10-20_min",
+      "notes": "Affluent suburb with good hospital access. Reasonable English-speaking professional availability.",
+      "confidence": "MEDIUM"
+    },
+    "Hod HaSharon": {
+      "nearest_major_hospital": {
+        "name": "Meir Medical Center",
+        "distance_km": 6,
+        "english_speaking_staff": "partial",
+        "emergency_department": true
+      },
+      "kupat_cholim_presence": [
+        "Clalit",
+        "Maccabi",
+        "Meuhedet",
+        "Leumit"
+      ],
+      "english_speaking_doctors": "some",
+      "english_speaking_therapists_mental_health": "available",
+      "pharmacies_with_english_service": "common",
+      "telemedicine_english": "Available through health funds",
+      "specialty_medical_centers": [
+        "Meir Medical Center"
+      ],
+      "ambulance_response_estimate": "10-20_min",
+      "notes": "Affluent suburb with good hospital access. New hospital planned for Hod Hasharon area.",
+      "confidence": "MEDIUM"
+    },
+    "Lod": {
+      "nearest_major_hospital": {
+        "name": "Rabin Medical Center / Shamir Medical Center",
+        "distance_km": 20,
+        "english_speaking_staff": "partial",
+        "emergency_department": true
+      },
+      "kupat_cholim_presence": [
+        "Clalit",
+        "Maccabi",
+        "Meuhedet",
+        "Leumit"
+      ],
+      "english_speaking_doctors": "few",
+      "english_speaking_therapists_mental_health": "limited",
+      "pharmacies_with_english_service": "some",
+      "telemedicine_english": "Available through health funds",
+      "specialty_medical_centers": [
+        "Local health fund clinics"
+      ],
+      "ambulance_response_estimate": "10-20_min",
+      "notes": "Central location with access to major hospitals. Limited local specialty services.",
+      "confidence": "LOW"
+    },
+    "Ramla": {
+      "nearest_major_hospital": {
+        "name": "Shamir Medical Center",
+        "distance_km": 10,
+        "english_speaking_staff": "partial",
+        "emergency_department": true
+      },
+      "kupat_cholim_presence": [
+        "Clalit",
+        "Maccabi",
+        "Meuhedet",
+        "Leumit"
+      ],
+      "english_speaking_doctors": "few",
+      "english_speaking_therapists_mental_health": "limited",
+      "pharmacies_with_english_service": "some",
+      "telemedicine_english": "Available through health funds",
+      "specialty_medical_centers": [
+        "Shamir Medical Center"
+      ],
+      "ambulance_response_estimate": "10-20_min",
+      "notes": "Central city with hospital access. Limited English-speaking professional availability.",
+      "confidence": "LOW"
+    },
+    "Nazareth": {
+      "nearest_major_hospital": {
+        "name": "Galilee Medical Center / Rambam",
+        "distance_km": 35,
+        "english_speaking_staff": "partial",
+        "emergency_department": true
+      },
+      "kupat_cholim_presence": [
+        "Clalit",
+        "Maccabi",
+        "Meuhedet",
+        "Leumit"
+      ],
+      "english_speaking_doctors": "few",
+      "english_speaking_therapists_mental_health": "limited",
+      "pharmacies_with_english_service": "rare",
+      "telemedicine_english": "Available through health funds",
+      "specialty_medical_centers": [
+        "Nazareth Hospital"
+      ],
+      "ambulance_response_estimate": "20-30_min",
+      "notes": "Largest Arab city in Israel. Healthcare access available but English-speaking professionals are limited. Strong local healthcare workforce.",
+      "confidence": "MEDIUM"
+    },
+    "Acre": {
+      "nearest_major_hospital": {
+        "name": "Galilee Medical Center (Nahariya)",
+        "distance_km": 25,
+        "english_speaking_staff": "partial",
+        "emergency_department": true
+      },
+      "kupat_cholim_presence": [
+        "Clalit",
+        "Maccabi",
+        "Meuhedet",
+        "Leumit"
+      ],
+      "english_speaking_doctors": "few",
+      "english_speaking_therapists_mental_health": "limited",
+      "pharmacies_with_english_service": "rare",
+      "telemedicine_english": "Available through health funds",
+      "specialty_medical_centers": [
+        "Local clinics",
+        "Galilee Medical Center"
+      ],
+      "ambulance_response_estimate": "20-30_min",
+      "notes": "Historic port city. Access to northern hospitals. Limited English-speaking healthcare professionals.",
+      "confidence": "LOW"
+    },
+    "Tiberias": {
+      "nearest_major_hospital": {
+        "name": "Tzafon Medical Center (Poriya)",
+        "distance_km": 10,
+        "english_speaking_staff": "partial",
+        "emergency_department": true
+      },
+      "kupat_cholim_presence": [
+        "Clalit",
+        "Maccabi",
+        "Meuhedet",
+        "Leumit"
+      ],
+      "english_speaking_doctors": "few",
+      "english_speaking_therapists_mental_health": "limited",
+      "pharmacies_with_english_service": "some",
+      "telemedicine_english": "Available through health funds",
+      "specialty_medical_centers": [
+        "Tzafon Medical Center (Poriya) - 318 inpatient beds"
+      ],
+      "ambulance_response_estimate": "10-20_min",
+      "notes": "Tourist city with hospital serving Jordan Valley and Lower Galilee. Good basic healthcare access. Limited English-speaking specialists.",
+      "confidence": "MEDIUM"
+    },
+    "Safed": {
+      "nearest_major_hospital": {
+        "name": "Ziv Medical Center",
+        "distance_km": 2,
+        "english_speaking_staff": "partial",
+        "emergency_department": true
+      },
+      "kupat_cholim_presence": [
+        "Clalit",
+        "Maccabi",
+        "Meuhedet",
+        "Leumit"
+      ],
+      "english_speaking_doctors": "few",
+      "english_speaking_therapists_mental_health": "limited",
+      "pharmacies_with_english_service": "some",
+      "telemedicine_english": "Available through health funds",
+      "specialty_medical_centers": [
+        "Ziv Medical Center (affiliated with Azrieli Medical Faculty of Bar Ilan University)"
+      ],
+      "ambulance_response_estimate": "10-20_min",
+      "notes": "Mountain town with local hospital. Limited English-speaking professionals. Good basic healthcare access.",
+      "confidence": "MEDIUM"
+    },
+    "Karmiel": {
+      "nearest_major_hospital": {
+        "name": "Rambam Health Care Campus",
+        "distance_km": 25,
+        "english_speaking_staff": "partial",
+        "emergency_department": true
+      },
+      "kupat_cholim_presence": [
+        "Clalit",
+        "Maccabi",
+        "Meuhedet",
+        "Leumit"
+      ],
+      "english_speaking_doctors": "few",
+      "english_speaking_therapists_mental_health": "limited",
+      "pharmacies_with_english_service": "some",
+      "telemedicine_english": "Available through health funds",
+      "specialty_medical_centers": [
+        "Local clinics",
+        "Rambam accessible"
+      ],
+      "ambulance_response_estimate": "20-30_min",
+      "notes": "Upper Galilee city. New hospital planned for Karmiel area. Limited current specialty services.",
+      "confidence": "LOW"
+    },
+    "Nahariya": {
+      "nearest_major_hospital": {
+        "name": "Galilee Medical Center",
+        "distance_km": 2,
+        "english_speaking_staff": "partial",
+        "emergency_department": true
+      },
+      "kupat_cholim_presence": [
+        "Clalit",
+        "Maccabi",
+        "Meuhedet",
+        "Leumit"
+      ],
+      "english_speaking_doctors": "few",
+      "english_speaking_therapists_mental_health": "limited",
+      "pharmacies_with_english_service": "some",
+      "telemedicine_english": "Available through health funds",
+      "specialty_medical_centers": [
+        "Galilee Medical Center (serves 500,000 residents of western Galilee)"
+      ],
+      "ambulance_response_estimate": "under_10_min",
+      "notes": "Coastal town with major hospital. Second largest hospital in northern Israel. Good emergency services.",
+      "confidence": "MEDIUM"
+    },
+    "Kiryat Shmona": {
+      "nearest_major_hospital": {
+        "name": "Rambam Health Care Campus",
+        "distance_km": 40,
+        "english_speaking_staff": "partial",
+        "emergency_department": false
+      },
+      "kupat_cholim_presence": [
+        "Clalit",
+        "Maccabi",
+        "Meuhedet",
+        "Leumit"
+      ],
+      "english_speaking_doctors": "few",
+      "english_speaking_therapists_mental_health": "limited",
+      "pharmacies_with_english_service": "rare",
+      "telemedicine_english": "Available through health funds",
+      "specialty_medical_centers": [
+        "Rambam emergency support (remote operation)"
+      ],
+      "ambulance_response_estimate": "20-30_min",
+      "notes": "Northern border city. No major hospital locally; Rambam provides remote emergency support. Limited healthcare infrastructure.",
+      "confidence": "LOW"
+    },
+    "Kiryat Ata": {
+      "nearest_major_hospital": {
+        "name": "Rambam Health Care Campus",
+        "distance_km": 15,
+        "english_speaking_staff": "partial",
+        "emergency_department": true
+      },
+      "kupat_cholim_presence": [
+        "Clalit",
+        "Maccabi",
+        "Meuhedet",
+        "Leumit"
+      ],
+      "english_speaking_doctors": "few",
+      "english_speaking_therapists_mental_health": "limited",
+      "pharmacies_with_english_service": "some",
+      "telemedicine_english": "Available through health funds",
+      "specialty_medical_centers": [
+        "Local clinics"
+      ],
+      "ambulance_response_estimate": "10-20_min",
+      "notes": "Part of Krayot cluster near Haifa. Access to Rambam Hospital. New hospital planned.",
+      "confidence": "LOW"
+    },
+    "Kiryat Bialik": {
+      "nearest_major_hospital": {
+        "name": "Rambam Health Care Campus",
+        "distance_km": 15,
+        "english_speaking_staff": "partial",
+        "emergency_department": true
+      },
+      "kupat_cholim_presence": [
+        "Clalit",
+        "Maccabi",
+        "Meuhedet",
+        "Leumit"
+      ],
+      "english_speaking_doctors": "few",
+      "english_speaking_therapists_mental_health": "limited",
+      "pharmacies_with_english_service": "some",
+      "telemedicine_english": "Available through health funds",
+      "specialty_medical_centers": [
+        "Local clinics"
+      ],
+      "ambulance_response_estimate": "10-20_min",
+      "notes": "Part of Krayot cluster. Access to Rambam and northern healthcare network.",
+      "confidence": "LOW"
+    },
+    "Kiryat Motzkin": {
+      "nearest_major_hospital": {
+        "name": "Rambam Health Care Campus",
+        "distance_km": 15,
+        "english_speaking_staff": "partial",
+        "emergency_department": true
+      },
+      "kupat_cholim_presence": [
+        "Clalit",
+        "Maccabi",
+        "Meuhedet",
+        "Leumit"
+      ],
+      "english_speaking_doctors": "few",
+      "english_speaking_therapists_mental_health": "limited",
+      "pharmacies_with_english_service": "some",
+      "telemedicine_english": "Available through health funds",
+      "specialty_medical_centers": [
+        "Local clinics"
+      ],
+      "ambulance_response_estimate": "10-20_min",
+      "notes": "Part of Krayot cluster near Haifa. Access to northern hospitals.",
+      "confidence": "LOW"
+    },
+    "Kiryat Yam": {
+      "nearest_major_hospital": {
+        "name": "Rambam Health Care Campus",
+        "distance_km": 12,
+        "english_speaking_staff": "partial",
+        "emergency_department": true
+      },
+      "kupat_cholim_presence": [
+        "Clalit",
+        "Maccabi",
+        "Meuhedet",
+        "Leumit"
+      ],
+      "english_speaking_doctors": "few",
+      "english_speaking_therapists_mental_health": "limited",
+      "pharmacies_with_english_service": "some",
+      "telemedicine_english": "Available through health funds",
+      "specialty_medical_centers": [
+        "Local clinics"
+      ],
+      "ambulance_response_estimate": "10-20_min",
+      "notes": "Part of Krayot cluster. Coastal location. Good access to Rambam Hospital.",
+      "confidence": "LOW"
+    },
+    "Yokneam": {
+      "nearest_major_hospital": {
+        "name": "Rambam / Galilee Medical Center",
+        "distance_km": 30,
+        "english_speaking_staff": "partial",
+        "emergency_department": true
+      },
+      "kupat_cholim_presence": [
+        "Clalit",
+        "Maccabi",
+        "Meuhedet",
+        "Leumit"
+      ],
+      "english_speaking_doctors": "few",
+      "english_speaking_therapists_mental_health": "limited",
+      "pharmacies_with_english_service": "some",
+      "telemedicine_english": "Available through health funds",
+      "specialty_medical_centers": [
+        "Local clinics"
+      ],
+      "ambulance_response_estimate": "20-30_min",
+      "notes": "Industrial city in lower Galilee. Access to Rambam or Galilee Medical Center. Limited local specialty services.",
+      "confidence": "LOW"
+    },
+    "Afula": {
+      "nearest_major_hospital": {
+        "name": "Emek Medical Center",
+        "distance_km": 3,
+        "english_speaking_staff": "partial",
+        "emergency_department": true
+      },
+      "kupat_cholim_presence": [
+        "Clalit",
+        "Maccabi",
+        "Meuhedet",
+        "Leumit"
+      ],
+      "english_speaking_doctors": "few",
+      "english_speaking_therapists_mental_health": "limited",
+      "pharmacies_with_english_service": "some",
+      "telemedicine_english": "Available through health funds",
+      "specialty_medical_centers": [
+        "Emek Medical Center"
+      ],
+      "ambulance_response_estimate": "10-20_min",
+      "notes": "Jezreel Valley city. Emek Medical Center serves region. Healthcare gaps program implementation.",
+      "confidence": "MEDIUM"
+    },
+    "Beit She'an": {
+      "nearest_major_hospital": {
+        "name": "Tzafon Medical Center / Poriya",
+        "distance_km": 25,
+        "english_speaking_staff": "partial",
+        "emergency_department": true
+      },
+      "kupat_cholim_presence": [
+        "Clalit",
+        "Maccabi",
+        "Meuhedet",
+        "Leumit"
+      ],
+      "english_speaking_doctors": "few",
+      "english_speaking_therapists_mental_health": "rare",
+      "pharmacies_with_english_service": "rare",
+      "telemedicine_english": "Available through health funds",
+      "specialty_medical_centers": [
+        "Local clinics"
+      ],
+      "ambulance_response_estimate": "20-30_min",
+      "notes": "Jordan Valley city. Limited local healthcare infrastructure. Access to Poriya hospital. Remote location.",
+      "confidence": "LOW"
+    },
+    "Dimona": {
+      "nearest_major_hospital": {
+        "name": "Soroka Medical Center",
+        "distance_km": 40,
+        "english_speaking_staff": "partial",
+        "emergency_department": true
+      },
+      "kupat_cholim_presence": [
+        "Clalit",
+        "Maccabi",
+        "Meuhedet",
+        "Leumit"
+      ],
+      "english_speaking_doctors": "few",
+      "english_speaking_therapists_mental_health": "rare",
+      "pharmacies_with_english_service": "rare",
+      "telemedicine_english": "Available through health funds",
+      "specialty_medical_centers": [
+        "Local clinics"
+      ],
+      "ambulance_response_estimate": "30-40_min",
+      "notes": "Negev city. Limited local specialty services. Access to Soroka for major medical needs. New hospital planned.",
+      "confidence": "LOW"
+    },
+    "Arad": {
+      "nearest_major_hospital": {
+        "name": "Soroka Medical Center",
+        "distance_km": 50,
+        "english_speaking_staff": "partial",
+        "emergency_department": true
+      },
+      "kupat_cholim_presence": [
+        "Clalit",
+        "Maccabi",
+        "Meuhedet",
+        "Leumit"
+      ],
+      "english_speaking_doctors": "few",
+      "english_speaking_therapists_mental_health": "rare",
+      "pharmacies_with_english_service": "rare",
+      "telemedicine_english": "Available through health funds",
+      "specialty_medical_centers": [
+        "Local clinics"
+      ],
+      "ambulance_response_estimate": "over_30_min",
+      "notes": "Remote desert city. Very limited local healthcare. Access to Soroka for major medical needs. Limited English-speaking professionals.",
+      "confidence": "LOW"
+    },
+    "Sderot": {
+      "nearest_major_hospital": {
+        "name": "Barzilai Medical Center",
+        "distance_km": 30,
+        "english_speaking_staff": "partial",
+        "emergency_department": true
+      },
+      "kupat_cholim_presence": [
+        "Clalit",
+        "Maccabi",
+        "Meuhedet",
+        "Leumit"
+      ],
+      "english_speaking_doctors": "few",
+      "english_speaking_therapists_mental_health": "rare",
+      "pharmacies_with_english_service": "rare",
+      "telemedicine_english": "Available through health funds",
+      "specialty_medical_centers": [
+        "New medical center planned"
+      ],
+      "ambulance_response_estimate": "20-30_min",
+      "notes": "Southern border city. Limited local healthcare. Access to Barzilai for major medical needs. New medical center planned.",
+      "confidence": "LOW"
+    },
+    "Ofakim": {
+      "nearest_major_hospital": {
+        "name": "Soroka Medical Center",
+        "distance_km": 35,
+        "english_speaking_staff": "partial",
+        "emergency_department": true
+      },
+      "kupat_cholim_presence": [
+        "Clalit",
+        "Maccabi",
+        "Meuhedet",
+        "Leumit"
+      ],
+      "english_speaking_doctors": "few",
+      "english_speaking_therapists_mental_health": "rare",
+      "pharmacies_with_english_service": "rare",
+      "telemedicine_english": "Available through health funds",
+      "specialty_medical_centers": [
+        "Local clinics"
+      ],
+      "ambulance_response_estimate": "20-30_min",
+      "notes": "Negev city. Limited local healthcare infrastructure. Access to Soroka Medical Center.",
+      "confidence": "LOW"
+    },
+    "Kiryat Gat": {
+      "nearest_major_hospital": {
+        "name": "Barzilai Medical Center",
+        "distance_km": 25,
+        "english_speaking_staff": "partial",
+        "emergency_department": true
+      },
+      "kupat_cholim_presence": [
+        "Clalit",
+        "Maccabi",
+        "Meuhedet",
+        "Leumit"
+      ],
+      "english_speaking_doctors": "few",
+      "english_speaking_therapists_mental_health": "limited",
+      "pharmacies_with_english_service": "some",
+      "telemedicine_english": "Available through health funds",
+      "specialty_medical_centers": [
+        "Barzilai Medical Center serves region",
+        "New hospital planned"
+      ],
+      "ambulance_response_estimate": "20-30_min",
+      "notes": "Southern development town. Served by Barzilai Medical Center. New hospital planned for Kiryat Gat area.",
+      "confidence": "MEDIUM"
+    },
+    "Kiryat Malachi": {
+      "nearest_major_hospital": {
+        "name": "Barzilai Medical Center",
+        "distance_km": 20,
+        "english_speaking_staff": "partial",
+        "emergency_department": true
+      },
+      "kupat_cholim_presence": [
+        "Clalit",
+        "Maccabi",
+        "Meuhedet",
+        "Leumit"
+      ],
+      "english_speaking_doctors": "few",
+      "english_speaking_therapists_mental_health": "limited",
+      "pharmacies_with_english_service": "some",
+      "telemedicine_english": "Available through health funds",
+      "specialty_medical_centers": [
+        "Barzilai Medical Center"
+      ],
+      "ambulance_response_estimate": "20-30_min",
+      "notes": "Southern city served by Barzilai Medical Center.",
+      "confidence": "MEDIUM"
+    },
+    "Or Akiva": {
+      "nearest_major_hospital": {
+        "name": "Galilee Medical Center / Rambam",
+        "distance_km": 20,
+        "english_speaking_staff": "partial",
+        "emergency_department": true
+      },
+      "kupat_cholim_presence": [
+        "Clalit",
+        "Maccabi",
+        "Meuhedet",
+        "Leumit"
+      ],
+      "english_speaking_doctors": "few",
+      "english_speaking_therapists_mental_health": "limited",
+      "pharmacies_with_english_service": "some",
+      "telemedicine_english": "Available through health funds",
+      "specialty_medical_centers": [
+        "Local clinics"
+      ],
+      "ambulance_response_estimate": "20-30_min",
+      "notes": "Northern industrial city. Access to Galilee Medical Center and Rambam Hospital.",
+      "confidence": "LOW"
+    },
+    "Yavne": {
+      "nearest_major_hospital": {
+        "name": "Assuta Medical Center / Kaplan",
+        "distance_km": 20,
+        "english_speaking_staff": "partial",
+        "emergency_department": true
+      },
+      "kupat_cholim_presence": [
+        "Clalit",
+        "Maccabi",
+        "Meuhedet",
+        "Leumit"
+      ],
+      "english_speaking_doctors": "some",
+      "english_speaking_therapists_mental_health": "limited",
+      "pharmacies_with_english_service": "some",
+      "telemedicine_english": "Available through health funds",
+      "specialty_medical_centers": [
+        "Local clinics"
+      ],
+      "ambulance_response_estimate": "10-20_min",
+      "notes": "Central location with reasonable hospital access. Growing city.",
+      "confidence": "MEDIUM"
+    },
+    "Nes Ziona": {
+      "nearest_major_hospital": {
+        "name": "Kaplan Medical Center",
+        "distance_km": 8,
+        "english_speaking_staff": "partial",
+        "emergency_department": true
+      },
+      "kupat_cholim_presence": [
+        "Clalit",
+        "Maccabi",
+        "Meuhedet",
+        "Leumit"
+      ],
+      "english_speaking_doctors": "some",
+      "english_speaking_therapists_mental_health": "limited",
+      "pharmacies_with_english_service": "some",
+      "telemedicine_english": "Available through health funds",
+      "specialty_medical_centers": [
+        "Kaplan Medical Center"
+      ],
+      "ambulance_response_estimate": "10-20_min",
+      "notes": "Central location with good hospital access.",
+      "confidence": "MEDIUM"
+    },
+    "Rosh HaAyin": {
+      "nearest_major_hospital": {
+        "name": "Meir Medical Center / Tel Hashomer",
+        "distance_km": 15,
+        "english_speaking_staff": "partial",
+        "emergency_department": true
+      },
+      "kupat_cholim_presence": [
+        "Clalit",
+        "Maccabi",
+        "Meuhedet",
+        "Leumit"
+      ],
+      "english_speaking_doctors": "some",
+      "english_speaking_therapists_mental_health": "limited",
+      "pharmacies_with_english_service": "some",
+      "telemedicine_english": "Available through health funds",
+      "specialty_medical_centers": [
+        "Local clinics"
+      ],
+      "ambulance_response_estimate": "10-20_min",
+      "notes": "Central location with good hospital access. Growing suburban area.",
+      "confidence": "MEDIUM"
+    },
+    "Shoham": {
+      "nearest_major_hospital": {
+        "name": "Tel Hashomer / Rabin Medical Center",
+        "distance_km": 12,
+        "english_speaking_staff": "partial",
+        "emergency_department": true
+      },
+      "kupat_cholim_presence": [
+        "Clalit",
+        "Maccabi",
+        "Meuhedet",
+        "Leumit"
+      ],
+      "english_speaking_doctors": "some",
+      "english_speaking_therapists_mental_health": "limited",
+      "pharmacies_with_english_service": "some",
+      "telemedicine_english": "Available through health funds",
+      "specialty_medical_centers": [
+        "Rabin Medical Center accessible"
+      ],
+      "ambulance_response_estimate": "10-20_min",
+      "notes": "Growing suburban area near Tel Aviv. Good access to major hospitals.",
+      "confidence": "MEDIUM"
+    },
+    "Modiin Illit": {
+      "nearest_major_hospital": {
+        "name": "Kaplan Medical Center / Hadassah",
+        "distance_km": 20,
+        "english_speaking_staff": "partial",
+        "emergency_department": true
+      },
+      "kupat_cholim_presence": [
+        "Clalit",
+        "Maccabi",
+        "Meuhedet",
+        "Leumit"
+      ],
+      "english_speaking_doctors": "few",
+      "english_speaking_therapists_mental_health": "limited",
+      "pharmacies_with_english_service": "some",
+      "telemedicine_english": "Available through health funds",
+      "specialty_medical_centers": [
+        "Local health fund clinics"
+      ],
+      "ambulance_response_estimate": "20-30_min",
+      "notes": "Growing haredi city. Access to major hospitals available. Limited local English-speaking professionals.",
+      "confidence": "LOW"
+    },
+    "Elad": {
+      "nearest_major_hospital": {
+        "name": "Rabin Medical Center / Shamir",
+        "distance_km": 25,
+        "english_speaking_staff": "partial",
+        "emergency_department": true
+      },
+      "kupat_cholim_presence": [
+        "Clalit",
+        "Maccabi",
+        "Meuhedet",
+        "Leumit"
+      ],
+      "english_speaking_doctors": "few",
+      "english_speaking_therapists_mental_health": "limited",
+      "pharmacies_with_english_service": "some",
+      "telemedicine_english": "Available through health funds",
+      "specialty_medical_centers": [
+        "Local health fund clinics"
+      ],
+      "ambulance_response_estimate": "20-30_min",
+      "notes": "Growing haredi city. Limited local healthcare infrastructure. Access to major hospitals requires travel.",
+      "confidence": "LOW"
+    }
+  },
+  "general_resources": {
+    "english_speaking_doctors_directories": [
+      {
+        "name": "Anglo Doctors in Israel",
+        "url": "https://www.anglodoctorsisrael.com",
+        "description": "Directory of 400+ English-speaking doctors with active WhatsApp community"
+      },
+      {
+        "name": "Tel Aviv Doctor",
+        "url": "https://telaviv-doctor.com",
+        "description": "Private clinic with native English-speaking doctors offering home and hotel visits"
+      }
+    ],
+    "mental_health_resources": [
+      {
+        "name": "Get Help Israel",
+        "url": "https://gethelpisrael.com",
+        "description": "450+ verified English-speaking mental health professionals. Only verified MH resource in Israel"
+      },
+      {
+        "name": "Apricity Expat Therapy",
+        "url": "https://apricityexpattherapy.com",
+        "description": "Online therapy with native English-speaking licensed expat therapists"
+      },
+      {
+        "name": "Mental Health Hotline",
+        "description": "Dial 1201 for suicide hotline with English-speaking agents (dial 10 for English)"
+      }
+    ],
+    "telemedicine_providers": [
+      {
+        "name": "ResultMed",
+        "url": "https://www.resultmed.com/online-consultation/",
+        "description": "Online consultations with Israeli doctors for remote medical advice"
+      },
+      {
+        "name": "SHL Telemedicine",
+        "url": "https://www.shl-telemedicine.com/",
+        "description": "24/7 telemedicine with cloud-based global services"
+      },
+      {
+        "name": "Sheba Medical Center Telemedicine",
+        "url": "https://www.shebaonline.org/telemedicine-at-sheba/",
+        "description": "Remote medical evaluations and treatment from major medical center"
+      }
+    ],
+    "pharmacy_services": [
+      {
+        "name": "IsraelPharm",
+        "url": "https://www.israelpharm.com/",
+        "description": "Online pharmacy with English-speaking Israeli pharmacists"
+      },
+      {
+        "name": "Isra Pharm",
+        "url": "https://israpharm.com",
+        "description": "Online appointments with English-speaking specialists and pharmacists"
+      },
+      {
+        "name": "Superpharm",
+        "description": "Major pharmacy chain with 20+ outlets in Tel Aviv and branches nationwide"
+      }
+    ],
+    "health_fund_contact_numbers": [
+      {
+        "name": "Clalit Health Services",
+        "number": "*2700",
+        "description": "Largest health fund with 4.6 million members"
+      },
+      {
+        "name": "Maccabi Healthcare Services",
+        "number": "*3193",
+        "description": "Second largest with 2+ million members"
+      },
+      {
+        "name": "Meuhedet Healthcare Services",
+        "number": "*3833",
+        "description": "Third largest with 1+ million members"
+      }
+    ],
+    "emergency_services": {
+      "ambulance": "101",
+      "provider": "Magen David Adom",
+      "average_response_time_minutes": "8.3",
+      "call_answer_time_seconds": "4",
+      "notes": "Over 2.7 million calls annually. 189 stations nationwide. Over 2,000 ambulances including MICU units."
+    }
+  },
+  "data_quality_notes": {
+    "coverage": "54 Israeli cities with comprehensive healthcare data",
+    "last_updated": "2026-03-15",
+    "methodology": "Based on web research of hospital directories, health fund locations, and English-language healthcare services",
+    "confidence_levels_explained": {
+      "HIGH": "Data verified from multiple sources, major city with well-documented healthcare",
+      "MEDIUM": "Data from reliable sources, regional hub or suburban area",
+      "LOW": "Limited publicly available data, peripheral location, newer city or limited healthcare infrastructure"
+    },
+    "ambulance_response_times": {
+      "note": "National average is 8.3 minutes from dispatch to scene arrival. Times vary significantly based on urban density and location.",
+      "urban_areas": "typically under 10 minutes",
+      "suburban_areas": "typically 10-20 minutes",
+      "peripheral_areas": "20+ minutes depending on distance from major hospitals"
+    },
+    "limitations": [
+      "English-speaking doctor availability varies by specialty and location",
+      "Mental health services concentrated in major cities",
+      "Healthcare infrastructure rapidly changing with new hospitals under construction",
+      "Some peripheral cities have limited specialty services"
+    ]
+  },
+  "sources": [
+    "https://en.wikipedia.org/wiki/List_of_hospitals_in_Israel",
+    "https://aisrael.org/en/medical-centers/",
+    "https://www.science.co.il/medical/Medical-centers.php",
+    "https://www.internationalinsurance.com/hospitals/israel/",
+    "https://www.vaidam.com/hospitals/israel",
+    "https://www.anglodoctorsisrael.com",
+    "https://telaviv-doctor.com/",
+    "https://www.nbn.org.il/life-in-israel/healthcare-in-israel/kupot-cholim/",
+    "https://www.nbn.org.il/telemedicine-and-teletherapy/",
+    "https://www.resultmed.com/online-consultation/",
+    "https://www.shl-telemedicine.com/",
+    "https://gethelpisrael.com/therapist/",
+    "https://apricityexpattherapy.com/",
+    "https://www.israelpharm.com/",
+    "https://israpharm.com/",
+    "https://www.shebaonline.org/",
+    "https://www.hadassah.org/",
+    "https://en.wikipedia.org/wiki/Healthcare_in_Israel",
+    "https://www.mdais.org/en",
+    "https://www.shebaonline.org/telemedicine-at-sheba/",
+    "https://www.poria.org.il/",
+    "https://www.rambamhcc.com/",
+    "https://hospitals.clalit.co.il/rabin/en/",
+    "https://hmcisrael.com/",
+    "https://www.terem.com/",
+    "https://www.jpost.com/health-and-wellness/article-856576",
+    "https://en.wikipedia.org/wiki/Chaim_Sheba_Medical_Center",
+    "https://en.wikipedia.org/wiki/Soroka_Medical_Center",
+    "https://www.raananatherapycentre.com/"
+  ]
+}

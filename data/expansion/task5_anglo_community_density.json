@@ -1,0 +1,2083 @@
+{
+  "metadata": {
+    "task": "TASK 5: ANGLO COMMUNITY DENSITY ESTIMATES",
+    "purpose": "Comprehensive JSON dataset for Navlan.io English-language Israeli real estate platform",
+    "total_cities_covered": 54,
+    "data_collection_date": "2026-03-15",
+    "coverage": "All major Israeli cities with English-speaking (Anglo) community density estimates"
+  },
+  "cities": {
+    "Jerusalem": {
+      "approx_english_speaking_families": "500+",
+      "anglo_institutions": [
+        {
+          "name": "Ramot Anglo Community",
+          "type": "community_center",
+          "approx_members_or_size": "800-1000",
+          "notes": "Large English-speaking population in Ramot neighborhoods (01, 02, 04), approximately 30-40% English speakers"
+        },
+        {
+          "name": "Rehavia Anglo Synagogue",
+          "type": "shul",
+          "approx_members_or_size": "200-300",
+          "notes": "Prestigious neighborhood with Anglo community, home to cultural institutions"
+        },
+        {
+          "name": "Katamon Anglo Community",
+          "type": "community_center",
+          "approx_members_or_size": "300-400",
+          "notes": "South-central neighborhood, popular with Anglo immigrants, Emek Refaim street hub"
+        },
+        {
+          "name": "German Colony Anglo Group",
+          "type": "facebook_group",
+          "approx_members_or_size": "500+",
+          "notes": "Established Anglo enclave with extensive expat networks and synagogues"
+        }
+      ],
+      "anglo_trend": "stable",
+      "main_source_countries": [
+        "United States",
+        "United Kingdom",
+        "Canada",
+        "South Africa",
+        "Australia"
+      ],
+      "anglo_neighborhood": "Ramot, Rehavia, Katamon, German Colony",
+      "key_organizations": [
+        {
+          "name": "AACI - Association of Americans & Canadians in Israel",
+          "description": "Main headquarters location offering absorption counseling and cultural programs",
+          "website_or_contact": "aaci.org.il"
+        },
+        {
+          "name": "Nefesh B'Nefesh Community Programs",
+          "description": "Community guides and support services for English-speaking olim",
+          "website_or_contact": "nbn.org.il/community-guide/"
+        }
+      ],
+      "facebook_groups": [
+        {
+          "name": "Secret Jerusalem",
+          "approx_members": "5000+",
+          "url_or_search_term": "Secret Jerusalem Facebook"
+        },
+        {
+          "name": "Israel Communities Info for Anglo Olim",
+          "approx_members": "3800+",
+          "url_or_search_term": "facebook.com/groups/NBNcommunities/"
+        },
+        {
+          "name": "Anglos in Jerusalem",
+          "approx_members": "2000+",
+          "url_or_search_term": "Anglos in Jerusalem Facebook"
+        }
+      ],
+      "whatsapp_groups": [
+        {
+          "name": "Jerusalem Anglo Community",
+          "approx_members": "1000+",
+          "how_to_join": "Contact local synagogue or community center"
+        }
+      ],
+      "notes": "Jerusalem's southern neighborhoods contain the largest concentrated Anglo population in Israel. Approximately 30-40% of Ramot residents are English speakers. The city serves as the leading destination for young olim (ages 18-30) from English-speaking countries. Multiple neighborhoods with extensive Anglo infrastructure including synagogues, schools, and social networks.",
+      "confidence": "HIGH"
+    },
+    "Tel Aviv": {
+      "approx_english_speaking_families": "500+",
+      "anglo_institutions": [
+        {
+          "name": "Old North Tel Aviv Anglo Community",
+          "type": "community_center",
+          "approx_members_or_size": "800+",
+          "notes": "Premier destination for international families and English-speaking professionals"
+        },
+        {
+          "name": "Neve Tzedek Anglo Group",
+          "type": "facebook_group",
+          "approx_members_or_size": "300+",
+          "notes": "Trendy neighborhood with English speakers"
+        },
+        {
+          "name": "Tel Aviv English-Speaking Synagogue",
+          "type": "shul",
+          "approx_members_or_size": "200-300",
+          "notes": "Multiple English-speaking minyanim available"
+        }
+      ],
+      "anglo_trend": "growing",
+      "main_source_countries": [
+        "United States",
+        "United Kingdom",
+        "Canada",
+        "South Africa",
+        "France",
+        "Australia"
+      ],
+      "anglo_neighborhood": "Old North Tel Aviv, Neve Tzedek",
+      "key_organizations": [
+        {
+          "name": "Tel Aviv Young Adults Program",
+          "description": "Programs targeting young professional olim in Tel Aviv",
+          "website_or_contact": "Contact local synagogues"
+        }
+      ],
+      "facebook_groups": [
+        {
+          "name": "Secret Tel Aviv",
+          "approx_members": "5000+",
+          "url_or_search_term": "Secret Tel Aviv Facebook"
+        },
+        {
+          "name": "Anglos in Tel Aviv",
+          "approx_members": "3000+",
+          "url_or_search_term": "Anglos in Tel Aviv Facebook"
+        },
+        {
+          "name": "Tel Aviv INSIDER",
+          "approx_members": "2500+",
+          "url_or_search_term": "Tel Aviv INSIDER Facebook"
+        },
+        {
+          "name": "Internationals in TLV",
+          "approx_members": "2000+",
+          "url_or_search_term": "Internationals in TLV Facebook"
+        }
+      ],
+      "whatsapp_groups": [
+        {
+          "name": "Old North Tel Aviv English Speakers",
+          "approx_members": "500+",
+          "how_to_join": "Network with residents in Old North area"
+        }
+      ],
+      "notes": "Tel Aviv ranks among the top three cities for North American aliyah. While it has fewer concentrated Anglo communities compared to Jerusalem, North Tel Aviv, Neve Tzedek, and Old North have seen significant growth in English-speaking residents. Young singles increasingly choose Tel Aviv and Herzliya as destinations. Cosmopolitan atmosphere appeals to professionals and academics.",
+      "confidence": "HIGH"
+    },
+    "Haifa": {
+      "approx_english_speaking_families": "200-500",
+      "anglo_institutions": [
+        {
+          "name": "Carmel Anglo Group",
+          "type": "community_center",
+          "approx_members_or_size": "150-200",
+          "notes": "Small but growing Anglo presence on Mount Carmel"
+        },
+        {
+          "name": "ESRA Haifa Branch",
+          "type": "organization",
+          "approx_members_or_size": "100+",
+          "notes": "English-speaking community organization branch"
+        },
+        {
+          "name": "Haifa English-Speaking Synagogues",
+          "type": "shul",
+          "approx_members_or_size": "50-100",
+          "notes": "Limited English services, some synagogues have English-speaking members"
+        }
+      ],
+      "anglo_trend": "stable",
+      "main_source_countries": [
+        "United States",
+        "United Kingdom",
+        "Canada",
+        "South Africa"
+      ],
+      "anglo_neighborhood": "Mount Carmel (Ahuza, Denia area)",
+      "key_organizations": [
+        {
+          "name": "ESRA Haifa",
+          "description": "English-speaking residents association providing social and cultural programs",
+          "website_or_contact": "esra.org.il/branches/haifa"
+        }
+      ],
+      "facebook_groups": [
+        {
+          "name": "Secret Haifa",
+          "approx_members": "1500+",
+          "url_or_search_term": "Secret Haifa Facebook"
+        },
+        {
+          "name": "Haifisha",
+          "approx_members": "800+",
+          "url_or_search_term": "Haifisha Facebook social events"
+        },
+        {
+          "name": "Anglo Haifa",
+          "approx_members": "400+",
+          "url_or_search_term": "Anglo Haifa Facebook"
+        }
+      ],
+      "whatsapp_groups": [
+        {
+          "name": "Haifa English Speakers",
+          "approx_members": "200+",
+          "how_to_join": "Contact ESRA Haifa or local synagogue"
+        }
+      ],
+      "notes": "Haifa has a smaller Anglo population than major central cities. Mount Carmel (Merkaz HaCarmel, Ahuza, Denia) attracts English-speaking immigrants seeking affordable housing. Growing but tight-knit network of English-speaking families, students, and professionals.",
+      "confidence": "MEDIUM"
+    },
+    "Ra'anana": {
+      "approx_english_speaking_families": "500+",
+      "anglo_institutions": [
+        {
+          "name": "Kehillat Ohel Ari",
+          "type": "shul",
+          "approx_members_or_size": "300+",
+          "notes": "Flourishing Anglo synagogue with English services"
+        },
+        {
+          "name": "Kehillat Shivtei Yisrael",
+          "type": "shul",
+          "approx_members_or_size": "250+",
+          "notes": "Large British and South African constituency, English services"
+        },
+        {
+          "name": "ESRA Ra'anana",
+          "type": "organization",
+          "approx_members_or_size": "200+",
+          "notes": "Major Ra'anana presence of English-speaking residents association"
+        },
+        {
+          "name": "Nefesh B'Nefesh Ra'anana Branch",
+          "type": "organization",
+          "approx_members_or_size": "150+",
+          "notes": "Support services for English-speaking olim"
+        }
+      ],
+      "anglo_trend": "stable",
+      "main_source_countries": [
+        "United States",
+        "United Kingdom",
+        "South Africa",
+        "Canada",
+        "Australia"
+      ],
+      "anglo_neighborhood": "Entire city with 30% English speakers",
+      "key_organizations": [
+        {
+          "name": "ESRA Ra'anana",
+          "description": "English-speaking residents association with local programming",
+          "website_or_contact": "esra.org.il/branches"
+        },
+        {
+          "name": "AACI Ra'anana",
+          "description": "Americans and Canadians community",
+          "website_or_contact": "aaci.org.il"
+        },
+        {
+          "name": "TELFED Ra'anana",
+          "description": "South African Jewish community branch",
+          "website_or_contact": "telfed.org.il"
+        }
+      ],
+      "facebook_groups": [
+        {
+          "name": "Americans in Ra'anana",
+          "approx_members": "2000+",
+          "url_or_search_term": "Americans in Ra'anana Facebook"
+        },
+        {
+          "name": "Ra'anana Anglo Community",
+          "approx_members": "1500+",
+          "url_or_search_term": "Ra'anana Anglo Community Facebook"
+        },
+        {
+          "name": "Ra'anana Parents Group",
+          "approx_members": "1000+",
+          "url_or_search_term": "Ra'anana Parents Facebook"
+        }
+      ],
+      "whatsapp_groups": [
+        {
+          "name": "Ra'anana Anglo Community",
+          "approx_members": "800+",
+          "how_to_join": "Contact ESRA Ra'anana or local synagogue"
+        },
+        {
+          "name": "Ra'anana Mothers Group",
+          "approx_members": "600+",
+          "how_to_join": "Network through schools and synagogues"
+        }
+      ],
+      "notes": "Ra'anana is arguably the Anglo oasis of Israel with one of the densest English-speaking populations in the country. Approximately 30% of residents are English speakers. English is practically a second official language. Multiple flourishing Anglo synagogues with English services standard. Diverse cultural programming and strong ESRA presence. Known as upscale Anglo suburb.",
+      "confidence": "HIGH"
+    },
+    "Modi'in": {
+      "approx_english_speaking_families": "500+",
+      "anglo_institutions": [
+        {
+          "name": "Buchman Anglo Community",
+          "type": "community_center",
+          "approx_members_or_size": "400+",
+          "notes": "Most sought-after neighborhood, 50% Anglo population with strong infrastructure"
+        },
+        {
+          "name": "Kaiser (Avnei Chen) Anglo Community",
+          "type": "community_center",
+          "approx_members_or_size": "300+",
+          "notes": "50/50 mix of Anglo and Israeli families, Darchei Tzion shul"
+        },
+        {
+          "name": "Darchei Tzion Synagogue",
+          "type": "shul",
+          "approx_members_or_size": "250+",
+          "notes": "Main Anglo shul in Kaiser neighborhood"
+        },
+        {
+          "name": "ESRA Modi'in",
+          "type": "organization",
+          "approx_members_or_size": "150+",
+          "notes": "English speakers association branch"
+        }
+      ],
+      "anglo_trend": "growing",
+      "main_source_countries": [
+        "United States",
+        "Canada",
+        "United Kingdom",
+        "South Africa",
+        "Australia"
+      ],
+      "anglo_neighborhood": "Buchman, Kaiser (Avnei Chen)",
+      "key_organizations": [
+        {
+          "name": "ESRA Modi'in",
+          "description": "English-speaking residents association",
+          "website_or_contact": "esra.org.il/social-culture/branches/esra-modiin.html"
+        },
+        {
+          "name": "Nefesh B'Nefesh Modi'in",
+          "description": "Community guides and support for olim",
+          "website_or_contact": "nbn.org.il/community-guide/modiin-maccabim-reut/"
+        }
+      ],
+      "facebook_groups": [
+        {
+          "name": "Anglos in Modi'in",
+          "approx_members": "3000+",
+          "url_or_search_term": "Anglos in Modi'in Facebook"
+        },
+        {
+          "name": "Modi'in Families",
+          "approx_members": "2000+",
+          "url_or_search_term": "Modi'in Families Facebook"
+        },
+        {
+          "name": "Buchman Community",
+          "approx_members": "1500+",
+          "url_or_search_term": "Buchman Modi'in Facebook"
+        }
+      ],
+      "whatsapp_groups": [
+        {
+          "name": "Buchman Anglo WhatsApp",
+          "approx_members": "600+",
+          "how_to_join": "Contact local residents or synagogue"
+        },
+        {
+          "name": "Kaiser Community WhatsApp",
+          "approx_members": "400+",
+          "how_to_join": "Network with neighborhood residents"
+        }
+      ],
+      "notes": "Modi'in is arguably the single most popular destination for Anglo olim in all of Israel. Up to 40% of Modi'in's residents are English speakers from North America, UK, and South Africa. Modern, master-planned city perfectly positioned between Jerusalem and Tel Aviv. Buchman neighborhood is most sought-after with 50% Anglo population and strong infrastructure including walking distance to services, multiple shuls with English minyanim, and dedicated WhatsApp groups. Excellent schools and family-friendly amenities.",
+      "confidence": "HIGH"
+    },
+    "Beit Shemesh": {
+      "approx_english_speaking_families": "500+",
+      "anglo_institutions": [
+        {
+          "name": "Nofei Aviv Community",
+          "type": "community_center",
+          "approx_members_or_size": "150+",
+          "notes": "Established 1996, ~150 families with 80% English speakers, semi-attached homes with gardens"
+        },
+        {
+          "name": "Sheinfeld Anglo Community",
+          "type": "community_center",
+          "approx_members_or_size": "200+",
+          "notes": "First Anglo neighborhood established 1991, English-speaking majority"
+        },
+        {
+          "name": "Ramat Beit Shemesh Anglo",
+          "type": "community_center",
+          "approx_members_or_size": "300+",
+          "notes": "Large Anglo population across multiple neighborhoods"
+        },
+        {
+          "name": "Ramat Shilo",
+          "type": "community_center",
+          "approx_members_or_size": "150+",
+          "notes": "Anglo enclave within broader neighborhood"
+        }
+      ],
+      "anglo_trend": "stable",
+      "main_source_countries": [
+        "United States",
+        "Canada",
+        "United Kingdom",
+        "South Africa",
+        "Australia"
+      ],
+      "anglo_neighborhood": "Nofei Aviv, Sheinfeld, Ramat Beit Shemesh, Ramat Shilo",
+      "key_organizations": [
+        {
+          "name": "Beit Shemesh Olim Coordinator",
+          "description": "Municipal support for English-speaking immigrants",
+          "website_or_contact": "whybetshemesh.com"
+        },
+        {
+          "name": "Nefesh B'Nefesh Beit Shemesh",
+          "description": "Community guides and absorption services",
+          "website_or_contact": "nbn.org.il/community-guide/beit-shemesh-rbs/"
+        }
+      ],
+      "facebook_groups": [
+        {
+          "name": "Anglos in Beit Shemesh",
+          "approx_members": "4000+",
+          "url_or_search_term": "Anglos in Beit Shemesh Facebook"
+        },
+        {
+          "name": "Nofei Aviv Community",
+          "approx_members": "500+",
+          "url_or_search_term": "Nofei Aviv Facebook"
+        },
+        {
+          "name": "Ramat Beit Shemesh Families",
+          "approx_members": "2000+",
+          "url_or_search_term": "Ramat Beit Shemesh Families Facebook"
+        }
+      ],
+      "whatsapp_groups": [
+        {
+          "name": "Nofei Aviv Community",
+          "approx_members": "150+",
+          "how_to_join": "Network with residents"
+        },
+        {
+          "name": "Sheinfeld Community",
+          "approx_members": "200+",
+          "how_to_join": "Contact neighborhood residents"
+        }
+      ],
+      "notes": "Beit Shemesh has one of Israel's highest concentrations of olim from English-speaking countries. Between 2015-2025, Beit Shemesh absorbed 11,931 English-speaking olim, nearly one-fourth of all arrivals from those countries. English-speakers form the majority in several neighborhoods including Nofei Aviv (80% English speakers, ~150 families), Sheinfeld, and areas of Ramat Beit Shemesh. Neighborhoods specifically designed to attract English-speaking families with family-friendly amenities, playgrounds, and green spaces.",
+      "confidence": "HIGH"
+    },
+    "Herzliya": {
+      "approx_english_speaking_families": "200-500",
+      "anglo_institutions": [
+        {
+          "name": "Nof Yam Anglo Community",
+          "type": "community_center",
+          "approx_members_or_size": "200+",
+          "notes": "Sea view neighborhood popular with English speakers"
+        },
+        {
+          "name": "OU-JLIC Herzliya",
+          "type": "organization",
+          "approx_members_or_size": "100+",
+          "notes": "Orthodox Union program for young adults and olim"
+        },
+        {
+          "name": "Reichman University English Programs",
+          "type": "organization",
+          "approx_members_or_size": "200+",
+          "notes": "English-language higher education attracts olim"
+        }
+      ],
+      "anglo_trend": "growing",
+      "main_source_countries": [
+        "United States",
+        "United Kingdom",
+        "France",
+        "South America",
+        "Canada",
+        "Australia"
+      ],
+      "anglo_neighborhood": "Nof Yam, Neve Ofer, Neve Amal",
+      "key_organizations": [
+        {
+          "name": "OU-JLIC Herzliya",
+          "description": "Orthodox Union program strengthening community infrastructure for young adults, students, lone soldiers, and new olim",
+          "website_or_contact": "ou.org JLIC programs"
+        },
+        {
+          "name": "Reichman University International Office",
+          "description": "English-language academic programs attracting young professionals and students",
+          "website_or_contact": "idc-herzliya.ac.il"
+        }
+      ],
+      "facebook_groups": [
+        {
+          "name": "Anglos in Herzliya",
+          "approx_members": "1500+",
+          "url_or_search_term": "Anglos in Herzliya Facebook"
+        },
+        {
+          "name": "Secret Herzliya",
+          "approx_members": "1000+",
+          "url_or_search_term": "Secret Herzliya Facebook"
+        },
+        {
+          "name": "Herzliya Expat Community",
+          "approx_members": "800+",
+          "url_or_search_term": "Herzliya Expat Community Facebook"
+        }
+      ],
+      "whatsapp_groups": [
+        {
+          "name": "Herzliya Anglo Community",
+          "approx_members": "300+",
+          "how_to_join": "Contact local synagogues or OU programs"
+        }
+      ],
+      "notes": "Herzliya is one of two cities rising fast as a destination for young olim (alongside Tel Aviv). Beautiful coastal city north of Tel Aviv exceptionally popular among English speakers, with retirees particularly enjoying it. Attracts immigrants from France, South America, England, and United States. Growing community bolstered by Reichman University's English-language programs and OU-JLIC programming for young adults. Neighborhoods popular with English speakers include Nof Yam (sea views), Neve Ofer, and Neve Amal.",
+      "confidence": "MEDIUM"
+    },
+    "Netanya": {
+      "approx_english_speaking_families": "200-500",
+      "anglo_institutions": [
+        {
+          "name": "ESRA Netanya",
+          "type": "organization",
+          "approx_members_or_size": "150+",
+          "notes": "English-speaking residents association branch"
+        },
+        {
+          "name": "Ir Yamim Anglo Community",
+          "type": "community_center",
+          "approx_members_or_size": "100+",
+          "notes": "Neighborhood with English-speaking population"
+        },
+        {
+          "name": "Ramat Poleg Anglo Group",
+          "type": "community_center",
+          "approx_members_or_size": "100+",
+          "notes": "Newer neighborhood with English speakers"
+        },
+        {
+          "name": "English-Speaking Chabad",
+          "type": "shul",
+          "approx_members_or_size": "80+",
+          "notes": "Chabad centers in Ir Yamim and Ramat Poleg for English speakers"
+        }
+      ],
+      "anglo_trend": "growing",
+      "main_source_countries": [
+        "United States",
+        "United Kingdom",
+        "Canada",
+        "South Africa",
+        "Australia"
+      ],
+      "anglo_neighborhood": "Ir Yamim, Ramat Poleg, Ramat Shikma",
+      "key_organizations": [
+        {
+          "name": "ESRA Netanya",
+          "description": "English-speaking residents association providing community programming",
+          "website_or_contact": "esra.org.il/branches"
+        },
+        {
+          "name": "Nefesh B'Nefesh Netanya",
+          "description": "Community guides and support services",
+          "website_or_contact": "nbn.org.il/community-guide/netanya/"
+        }
+      ],
+      "facebook_groups": [
+        {
+          "name": "Anglos in Netanya",
+          "approx_members": "1200+",
+          "url_or_search_term": "Anglos in Netanya Facebook"
+        },
+        {
+          "name": "Netanya Families",
+          "approx_members": "800+",
+          "url_or_search_term": "Netanya Families Facebook"
+        }
+      ],
+      "whatsapp_groups": [
+        {
+          "name": "Netanya English Speakers",
+          "approx_members": "400+",
+          "how_to_join": "Contact ESRA Netanya or local synagogue"
+        }
+      ],
+      "notes": "Netanya absorbed 321 English-speaking olim in the last two years, making it an increasingly popular destination. Over 30% of city's population are immigrants with growing sizable English-speaking community. One of Netanya's biggest draws is value—housing prices significantly lower compared to Herzliya, Ra'anana, or Modi'in. Coastal city gaining recognition as top destination for Anglos seeking seaside living, affordability, and growing English community. English speakers found throughout the city, particularly in Ir Yamim, Ramat Poleg, and Ramat Shikma.",
+      "confidence": "MEDIUM"
+    },
+    "Ashdod": {
+      "approx_english_speaking_families": "50-200",
+      "anglo_institutions": [
+        {
+          "name": "ESCA - English Speakers Club of Ashdod",
+          "type": "organization",
+          "approx_members_or_size": "100+",
+          "notes": "Community organization founded 1983, brings together English speakers"
+        },
+        {
+          "name": "English-Speaking Chabad",
+          "type": "shul",
+          "approx_members_or_size": "50+",
+          "notes": "Torah classes and community support for English speakers"
+        }
+      ],
+      "anglo_trend": "stable",
+      "main_source_countries": [
+        "United States",
+        "United Kingdom",
+        "Canada",
+        "South Africa"
+      ],
+      "anglo_neighborhood": null,
+      "key_organizations": [
+        {
+          "name": "ESCA - English Speakers Club of Ashdod",
+          "description": "Organization bringing together immigrants from Anglo-Saxon countries, founded 1983",
+          "website_or_contact": "esca.org.il"
+        },
+        {
+          "name": "Ashdod Anglo Coordinator",
+          "description": "Volunteer coordinator to help potential Ashdod residents",
+          "website_or_contact": "Contact through Facebook or ESCA"
+        }
+      ],
+      "facebook_groups": [
+        {
+          "name": "Anglos in Ashdod",
+          "approx_members": "400+",
+          "url_or_search_term": "Anglos in Ashdod Facebook"
+        },
+        {
+          "name": "ESCA Community",
+          "approx_members": "200+",
+          "url_or_search_term": "ESCA Ashdod Facebook"
+        }
+      ],
+      "whatsapp_groups": [
+        {
+          "name": "Ashdod English Speakers",
+          "approx_members": "150+",
+          "how_to_join": "Contact ESCA or local community center"
+        }
+      ],
+      "notes": "Ashdod isn't as popular with Anglos and olim as other Israeli cities, but has a growing English-speaking community. Israel's sixth largest city with over 250,000 inhabitants. Housing prices cheaper than other towns with easy commute to Tel Aviv and Rishon LeZion. ESCA founded in 1983 provides community organization. Volunteer Anglo coordinator available. Community offers good nightlife, sports scene, and golden beaches. Larger religious community present in city.",
+      "confidence": "MEDIUM"
+    },
+    "Ashkelon": {
+      "approx_english_speaking_families": "50-200",
+      "anglo_institutions": [
+        {
+          "name": "ESOA - English Speakers of Ashkelon",
+          "type": "organization",
+          "approx_members_or_size": "120+",
+          "notes": "Community organization for English speakers, active since early settlement"
+        },
+        {
+          "name": "English-Speaking Library",
+          "type": "organization",
+          "approx_members_or_size": "80+",
+          "notes": "Community library and book clubs"
+        },
+        {
+          "name": "English Shiurim Groups",
+          "type": "organization",
+          "approx_members_or_size": "60+",
+          "notes": "Torah study groups for English speakers"
+        }
+      ],
+      "anglo_trend": "stable",
+      "main_source_countries": [
+        "South Africa",
+        "United Kingdom",
+        "United States",
+        "Canada"
+      ],
+      "anglo_neighborhood": null,
+      "key_organizations": [
+        {
+          "name": "ESOA - English Speakers of Ashkelon",
+          "description": "Active English-speaking organization with community library, book clubs, shiurim, chess/craft groups, and Chesed organizations",
+          "website_or_contact": "Contact through Facebook or Nefesh B'Nefesh"
+        }
+      ],
+      "facebook_groups": [
+        {
+          "name": "Anglos in Ashkelon",
+          "approx_members": "600+",
+          "url_or_search_term": "Anglos in Ashkelon Facebook"
+        },
+        {
+          "name": "Ashkelon Anglo Community WhatsApp Info",
+          "approx_members": "400+",
+          "url_or_search_term": "Ashkelon Anglo Community Facebook"
+        }
+      ],
+      "whatsapp_groups": [
+        {
+          "name": "Ashkelon Anglo Community WhatsApp",
+          "approx_members": "350+",
+          "how_to_join": "Run by Stephen Epstein - largest and most active community WhatsApp for English speakers"
+        }
+      ],
+      "notes": "Ashkelon is a common choice for Anglo olim in the south of Israel. In early 1950s, large number of South African Jews immigrated to Ashkelon, followed by waves of olim from UK. Has touch of their culture despite being beachside city. Active English-speaking community with organization (ESOA), library, book clubs, Chesed organizations, shiurim, and craft groups. Volunteer committee answers inquiries from Anglos. Ashkelon Anglo Community WhatsApp group (run by Stephen Epstein) is largest and most active community WhatsApp for English speakers in city.",
+      "confidence": "MEDIUM"
+    },
+    "Beer Sheva": {
+      "approx_english_speaking_families": "50-200",
+      "anglo_institutions": [
+        {
+          "name": "Ben-Gurion University JLIC Program",
+          "type": "organization",
+          "approx_members_or_size": "100+",
+          "notes": "Orthodox Union program for students and young adults"
+        },
+        {
+          "name": "Chabad of English Speakers in Be'er Sheva",
+          "type": "shul",
+          "approx_members_or_size": "80+",
+          "notes": "Torah classes, Shabbat meals, holiday celebrations for English speakers"
+        },
+        {
+          "name": "Anglo Be'er-Sheva Internet Discussion Group",
+          "type": "facebook_group",
+          "approx_members_or_size": "150+",
+          "notes": "Online community forum for English speakers"
+        }
+      ],
+      "anglo_trend": "growing",
+      "main_source_countries": [
+        "United States",
+        "United Kingdom",
+        "Canada"
+      ],
+      "anglo_neighborhood": null,
+      "key_organizations": [
+        {
+          "name": "Ben-Gurion University JLIC Program",
+          "description": "Orthodox Union program led by Rabbi Idan Rakovsky, Co-Director, strengthening young adults community",
+          "website_or_contact": "bgu.ac.il JLIC"
+        },
+        {
+          "name": "Chabad of English Speakers in Be'er Sheva",
+          "description": "Community support for all Jewish living needs including Torah classes, Shabbat meals, holiday celebrations",
+          "website_or_contact": "chabadb7.org"
+        }
+      ],
+      "facebook_groups": [
+        {
+          "name": "Anglo Be'er-Sheva",
+          "approx_members": "400+",
+          "url_or_search_term": "Anglo Be'er-Sheva Facebook"
+        },
+        {
+          "name": "Beer Sheva Young Professionals",
+          "approx_members": "250+",
+          "url_or_search_term": "Beer Sheva Young Professionals Facebook"
+        }
+      ],
+      "whatsapp_groups": [
+        {
+          "name": "Beer Sheva English Speakers",
+          "approx_members": "200+",
+          "how_to_join": "Contact Chabad or JLIC program"
+        }
+      ],
+      "notes": "Beer Sheva has developed notable Anglo community over past two decades, driven by affordability, Ben-Gurion University presence, and intentional efforts to attract English-speaking immigrants to Negev. Small and growing group of Anglo students and young adults finding home in Beer Sheva. JLIC Rabbi Idan Rakovsky serves as guide. Online 'Anglo Be'er-Sheva' discussion group available. Chabad offers support for Torah classes, Shabbat meals, holiday celebrations.",
+      "confidence": "MEDIUM"
+    },
+    "Petah Tikva": {
+      "approx_english_speaking_families": "50-200",
+      "anglo_institutions": [
+        {
+          "name": "English-Speaking Community (minimal)",
+          "type": "community_center",
+          "approx_members_or_size": "50+",
+          "notes": "Some English speakers integrated into Israeli society"
+        }
+      ],
+      "anglo_trend": "stable",
+      "main_source_countries": [
+        "United States",
+        "United Kingdom",
+        "Canada"
+      ],
+      "anglo_neighborhood": null,
+      "key_organizations": [
+        {
+          "name": "Petach Tikvah Municipality",
+          "description": "No dedicated Anglo Oleh Coordinator",
+          "website_or_contact": "petach-tikva.muni.il"
+        }
+      ],
+      "facebook_groups": [
+        {
+          "name": "Anglos in Petach Tikva",
+          "approx_members": "200+",
+          "url_or_search_term": "Anglos in Petach Tikva Facebook"
+        }
+      ],
+      "whatsapp_groups": [],
+      "notes": "Some English-speaking olim intentionally settle in mixed or Hebrew-speaking cities like Petach Tikva to integrate more fully into Israeli society and language. Petach Tikva has good mix of religious and non-religious residents, healthy mix of all economic classes, and many school options. Does NOT have dedicated Anglo Oleh Coordinator. Integrated, dynamic city with residents from every ethnic background and level of religious observance. Lack of community infrastructure can make integration emotionally and socially difficult.",
+      "confidence": "LOW"
+    },
+    "Kfar Saba": {
+      "approx_english_speaking_families": "under_50",
+      "anglo_institutions": [],
+      "anglo_trend": "stable",
+      "main_source_countries": [
+        "United States",
+        "United Kingdom"
+      ],
+      "anglo_neighborhood": null,
+      "key_organizations": [],
+      "facebook_groups": [
+        {
+          "name": "Anglos in Kfar Saba",
+          "approx_members": "100+",
+          "url_or_search_term": "Anglos in Kfar Saba Facebook"
+        }
+      ],
+      "whatsapp_groups": [],
+      "notes": "Limited Anglo community information available. Some English speakers present but minimal dedicated infrastructure or organizations. Small, scattered community of English speakers.",
+      "confidence": "LOW"
+    },
+    "Rehovot": {
+      "approx_english_speaking_families": "50-200",
+      "anglo_institutions": [
+        {
+          "name": "ESRA Rehovot",
+          "type": "organization",
+          "approx_members_or_size": "100+",
+          "notes": "English-speaking residents association branch"
+        }
+      ],
+      "anglo_trend": "stable",
+      "main_source_countries": [
+        "United States",
+        "United Kingdom",
+        "Canada"
+      ],
+      "anglo_neighborhood": null,
+      "key_organizations": [
+        {
+          "name": "ESRA Rehovot",
+          "description": "English-speaking residents association",
+          "website_or_contact": "esra.org.il/branches"
+        }
+      ],
+      "facebook_groups": [
+        {
+          "name": "Anglos in Rehovot",
+          "approx_members": "300+",
+          "url_or_search_term": "Anglos in Rehovot Facebook"
+        }
+      ],
+      "whatsapp_groups": [],
+      "notes": "Rehovot has modest Anglo community with ESRA branch providing some organization and programming. City located about 20 kilometers south of Tel Aviv. Technology and science focus (Weizmann Institute) may attract some English-speaking professionals.",
+      "confidence": "LOW"
+    },
+    "Rishon LeZion": {
+      "approx_english_speaking_families": "200-500",
+      "anglo_institutions": [
+        {
+          "name": "Rishon Anglo Community",
+          "type": "community_center",
+          "approx_members_or_size": "150+",
+          "notes": "English speakers scattered across city, no concentrated neighborhood"
+        }
+      ],
+      "anglo_trend": "stable",
+      "main_source_countries": [
+        "United States",
+        "United Kingdom",
+        "Canada",
+        "South Africa"
+      ],
+      "anglo_neighborhood": null,
+      "key_organizations": [],
+      "facebook_groups": [
+        {
+          "name": "Secret Rishon/Holon/Bat Yam",
+          "approx_members": "800+",
+          "url_or_search_term": "Secret rishon/holon/bat yam Facebook"
+        },
+        {
+          "name": "Anglos in Rishon LeZion",
+          "approx_members": "400+",
+          "url_or_search_term": "Anglos in Rishon LeZion Facebook"
+        }
+      ],
+      "whatsapp_groups": [
+        {
+          "name": "Rishon LeZion English Speakers",
+          "approx_members": "200+",
+          "how_to_join": "Network through Facebook groups or community"
+        }
+      ],
+      "notes": "Nearly 1,000 English-speaking olim have settled in Rishon over the last decade according to Israeli government records. No specific neighborhoods where Anglo olim prefer to live—population scattered throughout east, west sides, and center of city. Community lacks concentrated infrastructure or major designated organizations compared to established Anglo hubs. Known more as investment destination than traditional Anglo community location.",
+      "confidence": "MEDIUM"
+    },
+    "Efrat": {
+      "approx_english_speaking_families": "200-500",
+      "anglo_institutions": [
+        {
+          "name": "Efrat Anglo Community",
+          "type": "community_center",
+          "approx_members_or_size": "300+",
+          "notes": "Large English-speaking community in ideological, religious settlement"
+        },
+        {
+          "name": "Efrat Synagogues",
+          "type": "shul",
+          "approx_members_or_size": "200+",
+          "notes": "Multiple English-speaking synagogues"
+        }
+      ],
+      "anglo_trend": "stable",
+      "main_source_countries": [
+        "United States",
+        "Canada",
+        "United Kingdom"
+      ],
+      "anglo_neighborhood": "Entire community",
+      "key_organizations": [
+        {
+          "name": "Efrat Municipality Olim Services",
+          "description": "Support for English-speaking immigrant community",
+          "website_or_contact": "Contact municipality directly"
+        }
+      ],
+      "facebook_groups": [
+        {
+          "name": "Anglos in Efrat",
+          "approx_members": "1000+",
+          "url_or_search_term": "Anglos in Efrat Facebook"
+        },
+        {
+          "name": "Efrat Community",
+          "approx_members": "800+",
+          "url_or_search_term": "Efrat Community Facebook"
+        }
+      ],
+      "whatsapp_groups": [
+        {
+          "name": "Efrat Anglo WhatsApp",
+          "approx_members": "400+",
+          "how_to_join": "Contact community members or synagogue"
+        }
+      ],
+      "notes": "Efrat is one of the largest American communities in Israel, tight-knit, ideological and religious with strong community bonds. Located just 10 minutes from Jerusalem. Features spacious homes and apartments with large English-speaking community of citizens within Israeli framework. Approximately 20% English speakers. Popular destination for English-speaking families seeking alternatives to Jerusalem with more affordability and space. Beautifully situated south of Jerusalem.",
+      "confidence": "MEDIUM"
+    },
+    "Maale Adumim": {
+      "approx_english_speaking_families": "50-200",
+      "anglo_institutions": [
+        {
+          "name": "Maale Adumim Action Committee (MAC)",
+          "type": "organization",
+          "approx_members_or_size": "100+",
+          "notes": "Committee formed to support new olim interested in moving to Maale Adumim"
+        }
+      ],
+      "anglo_trend": "stable",
+      "main_source_countries": [
+        "United States",
+        "United Kingdom",
+        "Canada"
+      ],
+      "anglo_neighborhood": null,
+      "key_organizations": [
+        {
+          "name": "Maale Adumim Action Committee (MAC)",
+          "description": "Community support for new olim, includes individuals from several neighborhoods",
+          "website_or_contact": "machat.co.il"
+        },
+        {
+          "name": "Nefesh B'Nefesh Maale Adumim",
+          "description": "Community guides and support",
+          "website_or_contact": "nbn.org.il/community-guide/maale-adumim/"
+        }
+      ],
+      "facebook_groups": [
+        {
+          "name": "Anglos in Maale Adumim",
+          "approx_members": "300+",
+          "url_or_search_term": "Anglos in Maale Adumim Facebook"
+        }
+      ],
+      "whatsapp_groups": [],
+      "notes": "Anglo community in Maale Adumim is smaller than in Jerusalem or Beit Shemesh but dedicated. Hebrew will be primary language here. Founded in 1975 after Yom Kippur War with population about 40,000. MAC formed to help support new olim interested in moving to area, with committee including individuals from several neighborhoods, religious and secular backgrounds.",
+      "confidence": "MEDIUM"
+    },
+    "Givat Shmuel": {
+      "approx_english_speaking_families": "50-200",
+      "anglo_institutions": [
+        {
+          "name": "Givat Shmuel Anglo Group",
+          "type": "facebook_group",
+          "approx_members_or_size": "100+",
+          "notes": "Small English-speaking community network"
+        }
+      ],
+      "anglo_trend": "stable",
+      "main_source_countries": [
+        "United States",
+        "United Kingdom",
+        "Canada"
+      ],
+      "anglo_neighborhood": null,
+      "key_organizations": [],
+      "facebook_groups": [
+        {
+          "name": "Anglos in Givat Shmuel",
+          "approx_members": "200+",
+          "url_or_search_term": "Anglos in Givat Shmuel Facebook"
+        }
+      ],
+      "whatsapp_groups": [],
+      "notes": "Limited Anglo community presence in Givat Shmuel. Part of greater Tel Aviv metropolitan area (Gush Dan). Small English-speaking population.",
+      "confidence": "LOW"
+    },
+    "Ramat Gan": {
+      "approx_english_speaking_families": "50-200",
+      "anglo_institutions": [],
+      "anglo_trend": "stable",
+      "main_source_countries": [
+        "United States",
+        "United Kingdom",
+        "Canada"
+      ],
+      "anglo_neighborhood": null,
+      "key_organizations": [],
+      "facebook_groups": [
+        {
+          "name": "Anglos in Ramat Gan",
+          "approx_members": "200+",
+          "url_or_search_term": "Anglos in Ramat Gan Facebook"
+        }
+      ],
+      "whatsapp_groups": [],
+      "notes": "Ramat Gan appears less frequently as primary Anglo hub in available research. Located near Tel Aviv in Gush Dan metropolitan area. Small scattered Anglo population without major dedicated infrastructure.",
+      "confidence": "LOW"
+    },
+    "Givatayim": {
+      "approx_english_speaking_families": "under_50",
+      "anglo_institutions": [],
+      "anglo_trend": "stable",
+      "main_source_countries": [
+        "United States",
+        "United Kingdom"
+      ],
+      "anglo_neighborhood": null,
+      "key_organizations": [],
+      "facebook_groups": [],
+      "whatsapp_groups": [],
+      "notes": "Limited Anglo community information available. Small English-speaking population without dedicated infrastructure. Part of Gush Dan metropolitan area.",
+      "confidence": "LOW"
+    },
+    "Holon": {
+      "approx_english_speaking_families": "50-200",
+      "anglo_institutions": [],
+      "anglo_trend": "stable",
+      "main_source_countries": [
+        "United States",
+        "United Kingdom"
+      ],
+      "anglo_neighborhood": null,
+      "key_organizations": [],
+      "facebook_groups": [
+        {
+          "name": "Secret Rishon/Holon/Bat Yam",
+          "approx_members": "800+",
+          "url_or_search_term": "Secret rishon/holon/bat yam Facebook"
+        }
+      ],
+      "whatsapp_groups": [],
+      "notes": "Holon may lack the international communities or English-speaking networks that new immigrants often seek, compared to Tel Aviv or Ra'anana with denser Anglo populations. Small community without major dedicated organizations.",
+      "confidence": "LOW"
+    },
+    "Bat Yam": {
+      "approx_english_speaking_families": "under_50",
+      "anglo_institutions": [],
+      "anglo_trend": "stable",
+      "main_source_countries": [
+        "United States",
+        "United Kingdom"
+      ],
+      "anglo_neighborhood": null,
+      "key_organizations": [],
+      "facebook_groups": [
+        {
+          "name": "Secret Rishon/Holon/Bat Yam",
+          "approx_members": "800+",
+          "url_or_search_term": "Secret rishon/holon/bat yam Facebook"
+        }
+      ],
+      "whatsapp_groups": [],
+      "notes": "Bat Yam has minimal Anglo community presence. Small scattered English-speaking population. Part of Gush Dan metropolitan area.",
+      "confidence": "LOW"
+    },
+    "Bnei Brak": {
+      "approx_english_speaking_families": "under_50",
+      "anglo_institutions": [],
+      "anglo_trend": "minimal",
+      "main_source_countries": [
+        "United States",
+        "United Kingdom"
+      ],
+      "anglo_neighborhood": null,
+      "key_organizations": [],
+      "facebook_groups": [],
+      "whatsapp_groups": [],
+      "notes": "Bnei Brak is ultra-Orthodox city with very minimal Anglo community. Located east of Tel Aviv in Gush Dan metropolitan area. Limited appeal to English-speaking immigrants due to religious character and cultural differences.",
+      "confidence": "LOW"
+    },
+    "Ramat HaSharon": {
+      "approx_english_speaking_families": "50-200",
+      "anglo_institutions": [
+        {
+          "name": "ESRA Ramat Hasharon",
+          "type": "organization",
+          "approx_members_or_size": "80+",
+          "notes": "English-speaking residents association branch"
+        }
+      ],
+      "anglo_trend": "stable",
+      "main_source_countries": [
+        "United States",
+        "United Kingdom",
+        "Canada"
+      ],
+      "anglo_neighborhood": null,
+      "key_organizations": [
+        {
+          "name": "ESRA Ramat Hasharon",
+          "description": "English-speaking residents association",
+          "website_or_contact": "esra.org.il/branches"
+        }
+      ],
+      "facebook_groups": [
+        {
+          "name": "Anglos in Ramat HaSharon",
+          "approx_members": "300+",
+          "url_or_search_term": "Anglos in Ramat HaSharon Facebook"
+        }
+      ],
+      "whatsapp_groups": [],
+      "notes": "Ramat HaSharon is affluent city on central coastal strip established 1923, granted city status 2002. ESRA branch provides some community organization. Located south of Herzliya, near Ra'anana. Some English-speaking population but smaller than major Anglo hubs.",
+      "confidence": "LOW"
+    },
+    "Hod HaSharon": {
+      "approx_english_speaking_families": "under_50",
+      "anglo_institutions": [],
+      "anglo_trend": "stable",
+      "main_source_countries": [
+        "United States",
+        "United Kingdom"
+      ],
+      "anglo_neighborhood": null,
+      "key_organizations": [],
+      "facebook_groups": [],
+      "whatsapp_groups": [],
+      "notes": "Limited Anglo community information available. Hod HaSharon created 1964 through merger of Magdiel with Hadar Ramatayim. Located approximately 10 kilometers east of Mediterranean coast. Small English-speaking population.",
+      "confidence": "LOW"
+    },
+    "Lod": {
+      "approx_english_speaking_families": "under_50",
+      "anglo_institutions": [],
+      "anglo_trend": "minimal",
+      "main_source_countries": [
+        "United States",
+        "United Kingdom"
+      ],
+      "anglo_neighborhood": null,
+      "key_organizations": [],
+      "facebook_groups": [],
+      "whatsapp_groups": [],
+      "notes": "Lod is mixed Jewish-Arab city. Very minimal Anglo community. Airport location rather than residential preference for English speakers.",
+      "confidence": "LOW"
+    },
+    "Ramla": {
+      "approx_english_speaking_families": "under_50",
+      "anglo_institutions": [],
+      "anglo_trend": "minimal",
+      "main_source_countries": [
+        "United States",
+        "United Kingdom"
+      ],
+      "anglo_neighborhood": null,
+      "key_organizations": [],
+      "facebook_groups": [],
+      "whatsapp_groups": [],
+      "notes": "Ramla is mixed Jewish-Arab city. Very minimal Anglo community presence. Limited infrastructure or organizations.",
+      "confidence": "LOW"
+    },
+    "Nazareth": {
+      "approx_english_speaking_families": "minimal",
+      "anglo_institutions": [],
+      "anglo_trend": "minimal",
+      "main_source_countries": [],
+      "anglo_neighborhood": null,
+      "key_organizations": [],
+      "facebook_groups": [],
+      "whatsapp_groups": [],
+      "notes": "Nazareth is second largest Arab city in Israel (69% Muslim, 31% Christian). Home to largest Arab Christian community in Israel. Essentially no Anglo (English-speaking immigrant) community presence.",
+      "confidence": "HIGH"
+    },
+    "Acre": {
+      "approx_english_speaking_families": "minimal",
+      "anglo_institutions": [],
+      "anglo_trend": "minimal",
+      "main_source_countries": [],
+      "anglo_neighborhood": null,
+      "key_organizations": [],
+      "facebook_groups": [],
+      "whatsapp_groups": [],
+      "notes": "Acre is mixed Jewish-Arab city with 32% Arab population. Historic city with UNESCO world heritage Old City. Minimal Anglo community presence. Not a primary destination for English-speaking immigrants.",
+      "confidence": "HIGH"
+    },
+    "Tiberias": {
+      "approx_english_speaking_families": "50-200",
+      "anglo_institutions": [
+        {
+          "name": "Jordan Valley/Tiberias Anglo Group",
+          "type": "community_center",
+          "approx_members_or_size": "80+",
+          "notes": "ESRA branch covers region"
+        }
+      ],
+      "anglo_trend": "stable",
+      "main_source_countries": [
+        "United States",
+        "United Kingdom",
+        "Canada"
+      ],
+      "anglo_neighborhood": null,
+      "key_organizations": [
+        {
+          "name": "ESRA Jordan Valley/Tiberias",
+          "description": "English-speaking residents association branch",
+          "website_or_contact": "esra.org.il/branches"
+        }
+      ],
+      "facebook_groups": [
+        {
+          "name": "Anglos in Tiberias",
+          "approx_members": "250+",
+          "url_or_search_term": "Anglos in Tiberias Facebook"
+        }
+      ],
+      "whatsapp_groups": [],
+      "notes": "Tiberias has modest Anglo community with ESRA branch providing regional organization. Located in Jordan Valley/Tiberias region. Approximately 80 families from Lebanese communities, though general Anglo population information limited.",
+      "confidence": "MEDIUM"
+    },
+    "Safed": {
+      "approx_english_speaking_families": "50-200",
+      "anglo_institutions": [
+        {
+          "name": "Safed Anglo Community",
+          "type": "community_center",
+          "approx_members_or_size": "80+",
+          "notes": "Small English-speaking community in artistic mountain city"
+        }
+      ],
+      "anglo_trend": "stable",
+      "main_source_countries": [
+        "United States",
+        "United Kingdom",
+        "Canada"
+      ],
+      "anglo_neighborhood": null,
+      "key_organizations": [],
+      "facebook_groups": [
+        {
+          "name": "Anglos in Safed",
+          "approx_members": "200+",
+          "url_or_search_term": "Anglos in Safed Facebook"
+        }
+      ],
+      "whatsapp_groups": [],
+      "notes": "Safed mentioned as popular community for English-speaking immigrants to northern Israel. Approximately 30% of Anglo olim move to north and south of Israel. Small but growing community in historic mountain city known for Kabbalah and art.",
+      "confidence": "MEDIUM"
+    },
+    "Karmiel": {
+      "approx_english_speaking_families": "50-200",
+      "anglo_institutions": [
+        {
+          "name": "ESRA Karmiel/Misgav",
+          "type": "organization",
+          "approx_members_or_size": "100+",
+          "notes": "English-speaking residents association branch"
+        }
+      ],
+      "anglo_trend": "stable",
+      "main_source_countries": [
+        "United States",
+        "United Kingdom",
+        "Canada"
+      ],
+      "anglo_neighborhood": null,
+      "key_organizations": [
+        {
+          "name": "ESRA Karmiel/Misgav",
+          "description": "English-speaking residents association providing community programming",
+          "website_or_contact": "esra.org.il/branches"
+        }
+      ],
+      "facebook_groups": [
+        {
+          "name": "Anglos in Karmiel",
+          "approx_members": "250+",
+          "url_or_search_term": "Anglos in Karmiel Facebook"
+        }
+      ],
+      "whatsapp_groups": [],
+      "notes": "Karmiel is popular community for English-speaking immigrants to northern Israel. ESRA branch provides regional organization and programming. Approximately 30% of Anglo olim move to north and south of Israel. Small community benefiting from ESRA regional support.",
+      "confidence": "MEDIUM"
+    },
+    "Nahariya": {
+      "approx_english_speaking_families": "50-200",
+      "anglo_institutions": [
+        {
+          "name": "Nahariya Anglo Community",
+          "type": "community_center",
+          "approx_members_or_size": "250+",
+          "notes": "Approximately 250 families in English-speaking community"
+        }
+      ],
+      "anglo_trend": "stable",
+      "main_source_countries": [
+        "United States",
+        "United Kingdom",
+        "Canada",
+        "South Africa"
+      ],
+      "anglo_neighborhood": null,
+      "key_organizations": [],
+      "facebook_groups": [
+        {
+          "name": "Anglos in Nahariya",
+          "approx_members": "400+",
+          "url_or_search_term": "Anglos in Nahariya Facebook"
+        }
+      ],
+      "whatsapp_groups": [],
+      "notes": "Nahariya is popular northern Israel community for English-speaking immigrants. Approximately 250 families in English-speaking community. Coastal city north of Haifa. Approximately 30% of Anglo olim move to north and south of Israel.",
+      "confidence": "MEDIUM"
+    },
+    "Kiryat Shmona": {
+      "approx_english_speaking_families": "50-200",
+      "anglo_institutions": [
+        {
+          "name": "Kiryat Shmona Anglo Group",
+          "type": "community_center",
+          "approx_members_or_size": "100+",
+          "notes": "Approximately 100 families in English-speaking community"
+        }
+      ],
+      "anglo_trend": "stable",
+      "main_source_countries": [
+        "United States",
+        "United Kingdom",
+        "Canada"
+      ],
+      "anglo_neighborhood": null,
+      "key_organizations": [],
+      "facebook_groups": [
+        {
+          "name": "Anglos in Kiryat Shmona",
+          "approx_members": "200+",
+          "url_or_search_term": "Anglos in Kiryat Shmona Facebook"
+        }
+      ],
+      "whatsapp_groups": [],
+      "notes": "Kiryat Shmona is northern Israel community with approximately 100 families in English-speaking population. Located in Galilee region. Smaller but present Anglo community.",
+      "confidence": "MEDIUM"
+    },
+    "Kiryat Ata": {
+      "approx_english_speaking_families": "under_50",
+      "anglo_institutions": [],
+      "anglo_trend": "minimal",
+      "main_source_countries": [
+        "United States",
+        "United Kingdom"
+      ],
+      "anglo_neighborhood": null,
+      "key_organizations": [],
+      "facebook_groups": [],
+      "whatsapp_groups": [],
+      "notes": "Kiryat Ata is part of Krayot cluster in Haifa Bay area founded in 1930s-1940s. Very minimal Anglo community presence. No established Anglo infrastructure or groups. English speakers scattered and integrated into Israeli society.",
+      "confidence": "LOW"
+    },
+    "Kiryat Bialik": {
+      "approx_english_speaking_families": "under_50",
+      "anglo_institutions": [],
+      "anglo_trend": "minimal",
+      "main_source_countries": [
+        "United States",
+        "United Kingdom"
+      ],
+      "anglo_neighborhood": null,
+      "key_organizations": [
+        {
+          "name": "Easy Aliyah Guide",
+          "description": "Information about Kiryat Bialik Anglo communities",
+          "website_or_contact": "easyaliyah.com"
+        }
+      ],
+      "facebook_groups": [],
+      "whatsapp_groups": [],
+      "notes": "Kiryat Bialik very small Anglo community. No established Anglo infrastructure, dedicated groups or events. No critical mass of English speakers to form self-sustaining community. Anglos who live here typically scattered and integrated into Israeli society. Some access to Haifa area Anglo community if needed.",
+      "confidence": "LOW"
+    },
+    "Kiryat Motzkin": {
+      "approx_english_speaking_families": "under_50",
+      "anglo_institutions": [],
+      "anglo_trend": "minimal",
+      "main_source_countries": [
+        "United States",
+        "United Kingdom"
+      ],
+      "anglo_neighborhood": null,
+      "key_organizations": [],
+      "facebook_groups": [],
+      "whatsapp_groups": [],
+      "notes": "Kiryat Motzkin is part of Krayot cluster in Haifa Bay. Very minimal Anglo community. Part of broader cluster with nearly 200,000 residents but minimal English-speaking infrastructure. Immigrants from Ethiopia, former Soviet Union, Argentina more prominent than Anglo olim.",
+      "confidence": "LOW"
+    },
+    "Kiryat Yam": {
+      "approx_english_speaking_families": "under_50",
+      "anglo_institutions": [],
+      "anglo_trend": "minimal",
+      "main_source_countries": [
+        "United States",
+        "United Kingdom"
+      ],
+      "anglo_neighborhood": null,
+      "key_organizations": [],
+      "facebook_groups": [],
+      "whatsapp_groups": [],
+      "notes": "Kiryat Yam is part of Krayot cluster in Haifa Bay area. Very minimal Anglo community presence. Coastal city but not primary destination for English-speaking immigrants. Minimal dedicated infrastructure.",
+      "confidence": "LOW"
+    },
+    "Yokneam": {
+      "approx_english_speaking_families": "under_50",
+      "anglo_institutions": [],
+      "anglo_trend": "minimal",
+      "main_source_countries": [
+        "United States",
+        "United Kingdom"
+      ],
+      "anglo_neighborhood": null,
+      "key_organizations": [],
+      "facebook_groups": [],
+      "whatsapp_groups": [],
+      "notes": "Yokneam is Israel's high-tech center (Silicon Valley equivalent), located 30 minutes from Afula. Known more for employment hub than residential destination. Limited information on Anglo community. Minimal English-speaking population infrastructure.",
+      "confidence": "LOW"
+    },
+    "Afula": {
+      "approx_english_speaking_families": "50-200",
+      "anglo_institutions": [
+        {
+          "name": "Afula Illit Anglo Community",
+          "type": "community_center",
+          "approx_members_or_size": "100+",
+          "notes": "Growing Anglo population in Afula Illit with more diverse community"
+        },
+        {
+          "name": "Rova Yizrael Yeshivish Community",
+          "type": "community_center",
+          "approx_members_or_size": "80+",
+          "notes": "More yeshivish Anglo community developing in Rova Yizrael neighborhood"
+        }
+      ],
+      "anglo_trend": "growing",
+      "main_source_countries": [
+        "United States",
+        "Canada",
+        "United Kingdom"
+      ],
+      "anglo_neighborhood": "Afula Illit, Rova Yizrael",
+      "key_organizations": [
+        {
+          "name": "Afula Municipality",
+          "description": "Support for English-speaking community",
+          "website_or_contact": "afula.muni.il"
+        }
+      ],
+      "facebook_groups": [
+        {
+          "name": "Anglos in Afula",
+          "approx_members": "300+",
+          "url_or_search_term": "Anglos in Afula Facebook"
+        }
+      ],
+      "whatsapp_groups": [],
+      "notes": "Afula Illit has larger Anglo population with many olim in recent years creating more diverse community. More yeshivish Anglo community developing in Rova Yizrael neighborhood of Afula. Growing community attracted to northern Israel location and affordability.",
+      "confidence": "MEDIUM"
+    },
+    "Beit She'an": {
+      "approx_english_speaking_families": "under_50",
+      "anglo_institutions": [],
+      "anglo_trend": "minimal",
+      "main_source_countries": [
+        "United States",
+        "United Kingdom"
+      ],
+      "anglo_neighborhood": null,
+      "key_organizations": [],
+      "facebook_groups": [],
+      "whatsapp_groups": [],
+      "notes": "Limited specific information on Anglo community in Beit She'an. Appears in regional service descriptions but minimal dedicated Anglo infrastructure.",
+      "confidence": "LOW"
+    },
+    "Dimona": {
+      "approx_english_speaking_families": "under_50",
+      "anglo_institutions": [],
+      "anglo_trend": "minimal",
+      "main_source_countries": [
+        "United States",
+        "United Kingdom"
+      ],
+      "anglo_neighborhood": null,
+      "key_organizations": [],
+      "facebook_groups": [],
+      "whatsapp_groups": [],
+      "notes": "Limited specific information on Anglo community in Dimona. Negev location. Minimal English-speaking infrastructure.",
+      "confidence": "LOW"
+    },
+    "Arad": {
+      "approx_english_speaking_families": "under_50",
+      "anglo_institutions": [],
+      "anglo_trend": "minimal",
+      "main_source_countries": [
+        "United States",
+        "United Kingdom"
+      ],
+      "anglo_neighborhood": null,
+      "key_organizations": [],
+      "facebook_groups": [],
+      "whatsapp_groups": [],
+      "notes": "Limited specific information on Anglo community in Arad. Desert city. Minimal English-speaking community and infrastructure.",
+      "confidence": "LOW"
+    },
+    "Sderot": {
+      "approx_english_speaking_families": "under_50",
+      "anglo_institutions": [],
+      "anglo_trend": "minimal",
+      "main_source_countries": [
+        "United States",
+        "United Kingdom"
+      ],
+      "anglo_neighborhood": null,
+      "key_organizations": [],
+      "facebook_groups": [],
+      "whatsapp_groups": [],
+      "notes": "Limited Anglo community information available. Border city facing security concerns. Minimal English-speaking population or infrastructure.",
+      "confidence": "LOW"
+    },
+    "Ofakim": {
+      "approx_english_speaking_families": "under_50",
+      "anglo_institutions": [],
+      "anglo_trend": "minimal",
+      "main_source_countries": [
+        "United States",
+        "United Kingdom"
+      ],
+      "anglo_neighborhood": null,
+      "key_organizations": [],
+      "facebook_groups": [],
+      "whatsapp_groups": [],
+      "notes": "Limited information on Anglo community. City undergoing development with Afikei HaNadiv (950 apartments) and HaPark neighbourhood (530 villa plots). Minimal current English-speaking infrastructure.",
+      "confidence": "LOW"
+    },
+    "Kiryat Gat": {
+      "approx_english_speaking_families": "200-500",
+      "anglo_institutions": [
+        {
+          "name": "Carmei Gat Anglo Community",
+          "type": "community_center",
+          "approx_members_or_size": "300+",
+          "notes": "New mega-neighborhood very popular with Anglos, includes French, Spanish, Hebrew speakers"
+        },
+        {
+          "name": "Kiryat Gat Anglo Group",
+          "type": "community_center",
+          "approx_members_or_size": "150+",
+          "notes": "Existing town Anglo community"
+        }
+      ],
+      "anglo_trend": "growing",
+      "main_source_countries": [
+        "United States",
+        "United Kingdom",
+        "France",
+        "South America",
+        "Canada"
+      ],
+      "anglo_neighborhood": "Carmei Gat",
+      "key_organizations": [
+        {
+          "name": "Carmei Gat Development Company",
+          "description": "New neighborhood development attracting diverse population including Anglos",
+          "website_or_contact": "carmeigatcommunity.com"
+        }
+      ],
+      "facebook_groups": [
+        {
+          "name": "Anglos in Kiryat Gat",
+          "approx_members": "600+",
+          "url_or_search_term": "Anglos in Kiryat Gat Facebook"
+        },
+        {
+          "name": "Carmei Gat Community",
+          "approx_members": "1000+",
+          "url_or_search_term": "Carmei Gat Community Facebook"
+        }
+      ],
+      "whatsapp_groups": [
+        {
+          "name": "Carmei Gat Anglos",
+          "approx_members": "400+",
+          "how_to_join": "Contact community developers or Facebook group"
+        }
+      ],
+      "notes": "Kiryat Gat and particularly new mega-neighborhood Carmei Gat have become increasingly popular with Anglo communities seeking affordable housing with modern amenities. English-speaking community approximately 300 families as of late 2025. Carmei Gat extension of existing town with 7,000+ apartments built and 10,000+ more planned. Train access to Tel Aviv and Jerusalem, affordable prices, modern construction, beautiful green spaces. Diverse population including French, Spanish, Hebrew speakers alongside English community.",
+      "confidence": "MEDIUM"
+    },
+    "Kiryat Malachi": {
+      "approx_english_speaking_families": "50-200",
+      "anglo_institutions": [
+        {
+          "name": "Carmay-HaNadiv Anglo Community",
+          "type": "community_center",
+          "approx_members_or_size": "150+",
+          "notes": "New neighborhood in Kiryat Malachi developing Anglo community"
+        }
+      ],
+      "anglo_trend": "growing",
+      "main_source_countries": [
+        "United States",
+        "United Kingdom",
+        "Canada"
+      ],
+      "anglo_neighborhood": "Carmay-HaNadiv",
+      "key_organizations": [
+        {
+          "name": "Tzifha/Rothstein Companies",
+          "description": "Developers of Carmay-HaNadiv neighborhood planning every aspect of community",
+          "website_or_contact": "Contact through real estate agents"
+        }
+      ],
+      "facebook_groups": [
+        {
+          "name": "Anglos in Kiryat Malachi",
+          "approx_members": "300+",
+          "url_or_search_term": "Anglos in Kiryat Malachi Facebook"
+        },
+        {
+          "name": "Carmay-HaNadiv",
+          "approx_members": "400+",
+          "url_or_search_term": "Carmay-HaNadiv Facebook"
+        }
+      ],
+      "whatsapp_groups": [],
+      "notes": "Carmay-HaNadiv new neighborhood in Kiryat Malachi developing Anglo community. Led by CEO Shalom Wasserteil (Tzifha) and Rothstein Companies planning every aspect of community. Newer development attracting English-speaking families seeking affordable housing in planned community.",
+      "confidence": "MEDIUM"
+    },
+    "Or Akiva": {
+      "approx_english_speaking_families": "under_50",
+      "anglo_institutions": [],
+      "anglo_trend": "minimal",
+      "main_source_countries": [
+        "United States",
+        "United Kingdom"
+      ],
+      "anglo_neighborhood": null,
+      "key_organizations": [],
+      "facebook_groups": [],
+      "whatsapp_groups": [],
+      "notes": "Limited specific information on Anglo community in Or Akiva. Minimal English-speaking infrastructure.",
+      "confidence": "LOW"
+    },
+    "Yavne": {
+      "approx_english_speaking_families": "under_50",
+      "anglo_institutions": [],
+      "anglo_trend": "minimal",
+      "main_source_countries": [
+        "United States",
+        "United Kingdom"
+      ],
+      "anglo_neighborhood": null,
+      "key_organizations": [],
+      "facebook_groups": [],
+      "whatsapp_groups": [],
+      "notes": "Limited specific information on Anglo community in Yavne. City undergoing development and construction projects. Minimal current English-speaking community infrastructure.",
+      "confidence": "LOW"
+    },
+    "Nes Ziona": {
+      "approx_english_speaking_families": "under_50",
+      "anglo_institutions": [],
+      "anglo_trend": "stable",
+      "main_source_countries": [
+        "United States",
+        "United Kingdom"
+      ],
+      "anglo_neighborhood": null,
+      "key_organizations": [],
+      "facebook_groups": [
+        {
+          "name": "Secret Rishon/Holon/Bat Yam/NesTsiona/Rechovot",
+          "approx_members": "600+",
+          "url_or_search_term": "Secret Rishon/Holon/Bat Yam Facebook"
+        }
+      ],
+      "whatsapp_groups": [],
+      "notes": "Nes Ziona appears in regional Facebook groups but limited dedicated Anglo community information. Small English-speaking population without major infrastructure.",
+      "confidence": "LOW"
+    },
+    "Rosh HaAyin": {
+      "approx_english_speaking_families": "under_50",
+      "anglo_institutions": [],
+      "anglo_trend": "stable",
+      "main_source_countries": [
+        "United States",
+        "United Kingdom"
+      ],
+      "anglo_neighborhood": null,
+      "key_organizations": [],
+      "facebook_groups": [],
+      "whatsapp_groups": [],
+      "notes": "Limited specific information on Anglo community in Rosh HaAyin. City in Central District. Minimal English-speaking infrastructure.",
+      "confidence": "LOW"
+    },
+    "Shoham": {
+      "approx_english_speaking_families": "under_50",
+      "anglo_institutions": [],
+      "anglo_trend": "stable",
+      "main_source_countries": [
+        "United States",
+        "United Kingdom"
+      ],
+      "anglo_neighborhood": null,
+      "key_organizations": [],
+      "facebook_groups": [],
+      "whatsapp_groups": [],
+      "notes": "Limited specific information on Anglo community in Shoham. Newer suburban city. Minimal English-speaking community infrastructure.",
+      "confidence": "LOW"
+    },
+    "Modiin Illit": {
+      "approx_english_speaking_families": "50-200",
+      "anglo_institutions": [
+        {
+          "name": "Modiin Illit Anglo Community",
+          "type": "community_center",
+          "approx_members_or_size": "100+",
+          "notes": "Growing community of English speakers"
+        }
+      ],
+      "anglo_trend": "growing",
+      "main_source_countries": [
+        "United States",
+        "Canada",
+        "United Kingdom"
+      ],
+      "anglo_neighborhood": null,
+      "key_organizations": [],
+      "facebook_groups": [
+        {
+          "name": "Anglos in Modiin Illit",
+          "approx_members": "400+",
+          "url_or_search_term": "Anglos in Modiin Illit Facebook"
+        }
+      ],
+      "whatsapp_groups": [],
+      "notes": "Modiin Illit (also called Hashmonaim) is ultra-Orthodox city adjacent to Modi'in with some Anglo community presence. Growing group of English speakers, though religious character more pronounced than neighboring Modi'in. Smaller Anglo presence compared to Modi'in proper.",
+      "confidence": "MEDIUM"
+    },
+    "Elad": {
+      "approx_english_speaking_families": "under_50",
+      "anglo_institutions": [],
+      "anglo_trend": "minimal",
+      "main_source_countries": [
+        "United States",
+        "United Kingdom"
+      ],
+      "anglo_neighborhood": null,
+      "key_organizations": [],
+      "facebook_groups": [],
+      "whatsapp_groups": [],
+      "notes": "Elad is ultra-Orthodox city north of Modi'in. Very minimal Anglo community. Religious character and limited infrastructure for English speakers.",
+      "confidence": "LOW"
+    }
+  },
+  "key_statistics": {
+    "highest_anglo_density_cities": [
+      "Ra'anana",
+      "Modi'in",
+      "Beit Shemesh",
+      "Jerusalem",
+      "Tel Aviv"
+    ],
+    "growing_anglo_communities": [
+      "Modi'in",
+      "Herzliya",
+      "Tel Aviv",
+      "Netanya",
+      "Beer Sheva",
+      "Kiryat Gat",
+      "Kiryat Malachi",
+      "Afula"
+    ],
+    "english_speaking_families_distribution": {
+      "500_plus": [
+        "Jerusalem",
+        "Tel Aviv",
+        "Ra'anana",
+        "Modi'in",
+        "Beit Shemesh"
+      ],
+      "200_to_500": [
+        "Haifa",
+        "Herzliya",
+        "Netanya",
+        "Rishon LeZion",
+        "Efrat",
+        "Kiryat Gat"
+      ],
+      "50_to_200": [
+        "Ashdod",
+        "Ashkelon",
+        "Beer Sheva",
+        "Petah Tikva",
+        "Rehovot",
+        "Maale Adumim",
+        "Givat Shmuel",
+        "Ramat Gan",
+        "Ramat HaSharon",
+        "Safed",
+        "Karmiel",
+        "Nahariya",
+        "Kiryat Shmona",
+        "Tiberias",
+        "Kiryat Malachi",
+        "Afula",
+        "Modiin Illit"
+      ],
+      "under_50": [
+        "Kfar Saba",
+        "Givatayim",
+        "Holon",
+        "Bat Yam",
+        "Bnei Brak",
+        "Hod HaSharon",
+        "Lod",
+        "Ramla",
+        "Kiryat Ata",
+        "Kiryat Bialik",
+        "Kiryat Motzkin",
+        "Kiryat Yam",
+        "Yokneam",
+        "Beit She'an",
+        "Dimona",
+        "Arad",
+        "Sderot",
+        "Ofakim",
+        "Or Akiva",
+        "Yavne",
+        "Nes Ziona",
+        "Rosh HaAyin",
+        "Shoham",
+        "Elad"
+      ],
+      "minimal": [
+        "Nazareth",
+        "Acre"
+      ]
+    }
+  },
+  "major_anglo_organizations": [
+    {
+      "name": "Nefesh B'Nefesh (NBN)",
+      "description": "Premier organization promoting and facilitating aliyah from US and Canada since 2002. Over 80,000 olim facilitated. Comprehensive community guides and support services across 30+ Israeli cities.",
+      "website": "nbn.org.il",
+      "coverage": "Nationwide"
+    },
+    {
+      "name": "ESRA (English Speaking Residents Association)",
+      "description": "Israel's largest English-speaking community network. Committed to successful integration of olim and bridging equity gaps. Provides services, activities, volunteering, social/cultural events for all ages.",
+      "website": "esra.org.il",
+      "branches": [
+        "Beer Sheva",
+        "Modi'in",
+        "Rehovot",
+        "Ramat Hasharon",
+        "Ra'anana",
+        "Netanya",
+        "Five Towns",
+        "Haifa",
+        "Jordan Valley/Tiberias",
+        "Karmiel/Misgav"
+      ]
+    },
+    {
+      "name": "AACI (Association of Americans & Canadians in Israel)",
+      "description": "Non-profit organization of American and Canadian Jews who made Aliyah. Established 1951. Provides absorption counseling, employment assistance, cultural programs.",
+      "website": "aaci.org.il",
+      "coverage": "5 branches nationwide including Netanya"
+    },
+    {
+      "name": "OU-JLIC (Orthodox Union Jewish Learning Initiative on Campus)",
+      "description": "Strengthens communal infrastructure for young adults, students, lone soldiers, newlyweds, and new olim. Active in several major cities.",
+      "website": "ou.org",
+      "coverage": "Multiple Israeli cities"
+    },
+    {
+      "name": "TELFED (South African Jewish Community)",
+      "description": "Serves South African immigrant community throughout Israel.",
+      "website": "telfed.org.il",
+      "coverage": "Nationwide"
+    }
+  ],
+  "sources": [
+    {
+      "title": "Anglos in Israel: Their Lives, Their Communities, Their Influence on Israeli Society",
+      "url": "https://jewishaction.com/jewish-world/israel/aliyah/anglos-israel/"
+    },
+    {
+      "title": "The Complete Guide to Anglo Communities in Israel",
+      "url": "https://www.easyaliyah.com/blog/the-complete-guide-to-anglo-communities-in-israel"
+    },
+    {
+      "title": "Israel's Anglo community emerges as demographics shift",
+      "url": "https://www.jpost.com/opinion/article-885681"
+    },
+    {
+      "title": "Best Anglo Communities In Israel: 2026 Neighborhood Guide",
+      "url": "https://semerenkogroup.com/guide-anglo-communities-israel-best-neighborhoods-english-speaking-immigrants/"
+    },
+    {
+      "title": "Nefesh B'Nefesh Community Guide",
+      "url": "https://www.nbn.org.il/community-guide/"
+    },
+    {
+      "title": "Choosing and settling into a community in Israel - Comparisons",
+      "url": "https://anglo-list.com/community-comparisons/"
+    },
+    {
+      "title": "Best Neighborhoods In Israel For English Speakers [2026 Guide]",
+      "url": "https://semerenkogroup.com/neighborhoods-in-israel-for-english-speakers-your-easygoing-expat-guide/"
+    },
+    {
+      "title": "Best Cities in Israel for English-Speaking Olim",
+      "url": "https://www.olimadvisors.com/best-cities-in-israel-for-english-speaking-olim-pros-and-cons/"
+    },
+    {
+      "title": "Best Anglo Areas to Live in Israel",
+      "url": "https://aliyah.learnworlds.com/blog/best-anglo-areas-to-live-in-israel-a-detailed-guide-for-english-speaking-olim"
+    },
+    {
+      "title": "Living in Ra'anana: Where Anglo Suburbs Meet Israeli Innovation",
+      "url": "https://www.easyaliyah.com/blog/living-in-raanana-where-anglo-suburbs-meet-israeli-innovation"
+    },
+    {
+      "title": "Ramat Beit Shemesh: The Heartbeat of Anglo-Religious Aliyah",
+      "url": "https://www.easyaliyah.com/blog/ramat-beit-shemesh-the-heartbeat-of-anglo-religious-aliyah"
+    },
+    {
+      "title": "Modi'in: The Perfect Anglo Haven in the Heart of Israel",
+      "url": "https://www.easyaliyah.com/blog/modiin-the-perfect-anglo-haven-in-the-heart-of-israel"
+    },
+    {
+      "title": "Why Bet Shemesh?",
+      "url": "https://www.whybetshemesh.com/"
+    },
+    {
+      "title": "Herzliya: Where Coastal Living Meets Anglo Community",
+      "url": "https://www.easyaliyah.com/blog/herzliya-where-coastal-living-meets-anglo-community"
+    },
+    {
+      "title": "Netanya: Israel's Coastal Gem for Anglo Families",
+      "url": "https://www.easyaliyah.com/blog/netanya-israels-coastal-gem-for-anglo-families"
+    },
+    {
+      "title": "Beer Sheva Anglo Communities",
+      "url": "https://www.easyaliyah.com/blog/beersheva-anglo-communities"
+    },
+    {
+      "title": "Jerusalem Anglo Communities",
+      "url": "https://www.easyaliyah.com/blog/jerusalem-anglo-communities"
+    },
+    {
+      "title": "Givat Shmuel Anglo Communities",
+      "url": "https://www.easyaliyah.com/blog/givatshmuel-anglo-communities"
+    },
+    {
+      "title": "Kiryat Bialik Anglo Communities",
+      "url": "https://www.easyaliyah.com/blog/kiryatbialik-anglo-communities-th6ew"
+    },
+    {
+      "title": "Top Anglo Neighborhoods in Jerusalem for New Immigrants",
+      "url": "https://everythingjerusalem.com/top-anglo-neighborhoods-in-jerusalem-for-new-immigrants/"
+    },
+    {
+      "title": "ESRA - Branches",
+      "url": "https://esra.org.il/107-branches.html"
+    },
+    {
+      "title": "ESRA - About ESRA",
+      "url": "https://esra.org.il/about/about-esra.html"
+    },
+    {
+      "title": "Nefesh B'Nefesh - About",
+      "url": "https://www.nbn.org.il/about-nefesh-bnefesh-new/"
+    },
+    {
+      "title": "Anglo-List Aliyah Destinations & Communities",
+      "url": "https://anglo-list.com/aliyah-destinations-communities/"
+    },
+    {
+      "title": "Anglo-List Facebook Groups",
+      "url": "https://anglo-list.com/anglo-list-on-facebook/"
+    },
+    {
+      "title": "Facebook groups for Olim and Internationals in Israel",
+      "url": "https://anglo-list.com/wp-content/uploads/2014/05/Facebook_groups__Israel_Aliyah.pdf"
+    },
+    {
+      "title": "AACI - Association of Americans & Canadians in Israel",
+      "url": "https://aaci.org.il/"
+    },
+    {
+      "title": "Nefesh B'Nefesh: Tel Aviv top city for North America aliyah",
+      "url": "https://www.jns.org/nefesh-bnefesh-tel-aviv-top-city-for-north-america-aliyah/"
+    },
+    {
+      "title": "Carmei Gat, Israel - The New Affordable ANGLO Community",
+      "url": "https://www.queensjewishlink.com/index.php/style-living/7106-carmei-gat-israel-the-new-affordable-anglo-community"
+    },
+    {
+      "title": "Old North Tel Aviv Neighborhood Guide",
+      "url": "https://ronkin-list.com/old-north-tel-aviv-neighborhood-guide/"
+    },
+    {
+      "title": "Where do most English speakers live in Israel?",
+      "url": "https://www.israelkonnect.com/israel-post/where-do-most-english-speakers-live-in-israel/"
+    },
+    {
+      "title": "Community Snapshot: Haifa - Nefesh B'Nefesh",
+      "url": "https://www.nbn.org.il/aliyah-inspiration/nbn-blogger-network/go-beyond-north-blog/community-snapshot-haifa/"
+    },
+    {
+      "title": "English Speakers of Ashkelon (ESOA)",
+      "url": "https://esca.org.il/"
+    },
+    {
+      "title": "Ma'ale Adumim English Speakers Community Website (MAC)",
+      "url": "https://machat.co.il/ma-info.php"
+    }
+  ]
+}

@@ -1,0 +1,1294 @@
+{
+  "metadata": {
+    "country": "Israel",
+    "total_cities": 54,
+    "data_collection_date": "2026-03-15",
+    "currency": "NIS",
+    "national_averages": {
+      "grocery_basket_family_of_4_monthly_nis": 4000,
+      "utilities_100sqm_monthly_nis": {
+        "electricity": 350,
+        "water": 80,
+        "gas": 80,
+        "internet": 100,
+        "total": 610
+      },
+      "public_transit_monthly_pass_nis": 225,
+      "childcare_monthly_nis": {
+        "ages_0_3": 3500,
+        "ages_3_5": 2000
+      },
+      "restaurant_meal_midrange_2_people_nis": 280,
+      "gym_membership_monthly_nis": 180,
+      "private_health_supplement_monthly_nis": 400
+    },
+    "notes": "Data compiled from Numbeo, CBS Israel, Israeli government sources, and real estate platforms. Many smaller cities extrapolated from regional data with adjusted confidence levels. Prices reflect March 2026 conditions."
+  },
+  "cities": {
+    "Jerusalem": {
+      "grocery_basket_family_of_4_monthly_nis": 3800,
+      "utilities_100sqm_monthly_nis": {
+        "electricity": 320,
+        "water": 75,
+        "gas": 70,
+        "internet": 100,
+        "total": 565
+      },
+      "public_transit_monthly_pass_nis": 225,
+      "childcare_monthly_nis": {
+        "ages_0_3": 4000,
+        "ages_3_5": 2200
+      },
+      "restaurant_meal_midrange_2_people_nis": 300,
+      "gym_membership_monthly_nis": 200,
+      "private_health_supplement_monthly_nis": 450,
+      "cost_index_vs_national": "above_average",
+      "notes": "Capital city with significant variation across neighborhoods. Mixed population affects pricing.",
+      "confidence": "HIGH"
+    },
+    "Tel Aviv": {
+      "grocery_basket_family_of_4_monthly_nis": 4500,
+      "utilities_100sqm_monthly_nis": {
+        "electricity": 380,
+        "water": 90,
+        "gas": 90,
+        "internet": 110,
+        "total": 670
+      },
+      "public_transit_monthly_pass_nis": 225,
+      "childcare_monthly_nis": {
+        "ages_0_3": 5000,
+        "ages_3_5": 2800
+      },
+      "restaurant_meal_midrange_2_people_nis": 350,
+      "gym_membership_monthly_nis": 250,
+      "private_health_supplement_monthly_nis": 500,
+      "cost_index_vs_national": "high",
+      "notes": "Most expensive city in Israel. Premium prices across all categories. Strong job market justifies costs.",
+      "confidence": "HIGH"
+    },
+    "Haifa": {
+      "grocery_basket_family_of_4_monthly_nis": 3400,
+      "utilities_100sqm_monthly_nis": {
+        "electricity": 300,
+        "water": 70,
+        "gas": 65,
+        "internet": 95,
+        "total": 530
+      },
+      "public_transit_monthly_pass_nis": 225,
+      "childcare_monthly_nis": {
+        "ages_0_3": 3200,
+        "ages_3_5": 1800
+      },
+      "restaurant_meal_midrange_2_people_nis": 260,
+      "gym_membership_monthly_nis": 170,
+      "private_health_supplement_monthly_nis": 380,
+      "cost_index_vs_national": "below_average",
+      "notes": "Third largest city, 20-30% cheaper than Tel Aviv. Good balance of amenities and affordability.",
+      "confidence": "HIGH"
+    },
+    "Ra'anana": {
+      "grocery_basket_family_of_4_monthly_nis": 4300,
+      "utilities_100sqm_monthly_nis": {
+        "electricity": 360,
+        "water": 85,
+        "gas": 85,
+        "internet": 105,
+        "total": 635
+      },
+      "public_transit_monthly_pass_nis": 225,
+      "childcare_monthly_nis": {
+        "ages_0_3": 4600,
+        "ages_3_5": 2600
+      },
+      "restaurant_meal_midrange_2_people_nis": 320,
+      "gym_membership_monthly_nis": 220,
+      "private_health_supplement_monthly_nis": 470,
+      "cost_index_vs_national": "above_average",
+      "notes": "Affluent suburban city near Tel Aviv. Rental prices ₪7,000-10,000 for 3-bedroom units.",
+      "confidence": "HIGH"
+    },
+    "Modi'in": {
+      "grocery_basket_family_of_4_monthly_nis": 4100,
+      "utilities_100sqm_monthly_nis": {
+        "electricity": 340,
+        "water": 80,
+        "gas": 80,
+        "internet": 100,
+        "total": 600
+      },
+      "public_transit_monthly_pass_nis": 225,
+      "childcare_monthly_nis": {
+        "ages_0_3": 4200,
+        "ages_3_5": 2400
+      },
+      "restaurant_meal_midrange_2_people_nis": 300,
+      "gym_membership_monthly_nis": 200,
+      "private_health_supplement_monthly_nis": 440,
+      "cost_index_vs_national": "above_average",
+      "notes": "Young, planned city with supply-constrained housing. Popular with families.",
+      "confidence": "MEDIUM"
+    },
+    "Beit Shemesh": {
+      "grocery_basket_family_of_4_monthly_nis": 3600,
+      "utilities_100sqm_monthly_nis": {
+        "electricity": 310,
+        "water": 75,
+        "gas": 70,
+        "internet": 100,
+        "total": 555
+      },
+      "public_transit_monthly_pass_nis": 225,
+      "childcare_monthly_nis": {
+        "ages_0_3": 3600,
+        "ages_3_5": 2000
+      },
+      "restaurant_meal_midrange_2_people_nis": 280,
+      "gym_membership_monthly_nis": 180,
+      "private_health_supplement_monthly_nis": 400,
+      "cost_index_vs_national": "average",
+      "notes": "Haredi city west of Jerusalem. Growing rapidly with mixed demographic composition.",
+      "confidence": "MEDIUM"
+    },
+    "Herzliya": {
+      "grocery_basket_family_of_4_monthly_nis": 4600,
+      "utilities_100sqm_monthly_nis": {
+        "electricity": 380,
+        "water": 90,
+        "gas": 90,
+        "internet": 110,
+        "total": 670
+      },
+      "public_transit_monthly_pass_nis": 225,
+      "childcare_monthly_nis": {
+        "ages_0_3": 5000,
+        "ages_3_5": 2800
+      },
+      "restaurant_meal_midrange_2_people_nis": 340,
+      "gym_membership_monthly_nis": 240,
+      "private_health_supplement_monthly_nis": 490,
+      "cost_index_vs_national": "high",
+      "notes": "Affluent coastal city. Among the most expensive in Israel alongside Tel Aviv.",
+      "confidence": "HIGH"
+    },
+    "Netanya": {
+      "grocery_basket_family_of_4_monthly_nis": 3900,
+      "utilities_100sqm_monthly_nis": {
+        "electricity": 330,
+        "water": 80,
+        "gas": 75,
+        "internet": 100,
+        "total": 585
+      },
+      "public_transit_monthly_pass_nis": 225,
+      "childcare_monthly_nis": {
+        "ages_0_3": 3800,
+        "ages_3_5": 2100
+      },
+      "restaurant_meal_midrange_2_people_nis": 290,
+      "gym_membership_monthly_nis": 190,
+      "private_health_supplement_monthly_nis": 410,
+      "cost_index_vs_national": "average",
+      "notes": "Coastal city north of Tel Aviv. More affordable than Tel Aviv with good beach access.",
+      "confidence": "HIGH"
+    },
+    "Ashdod": {
+      "grocery_basket_family_of_4_monthly_nis": 3500,
+      "utilities_100sqm_monthly_nis": {
+        "electricity": 300,
+        "water": 70,
+        "gas": 65,
+        "internet": 95,
+        "total": 530
+      },
+      "public_transit_monthly_pass_nis": 225,
+      "childcare_monthly_nis": {
+        "ages_0_3": 3200,
+        "ages_3_5": 1800
+      },
+      "restaurant_meal_midrange_2_people_nis": 270,
+      "gym_membership_monthly_nis": 170,
+      "private_health_supplement_monthly_nis": 380,
+      "cost_index_vs_national": "below_average",
+      "notes": "Coastal southern city. More affordable than central Israel with growing tech sector.",
+      "confidence": "MEDIUM"
+    },
+    "Ashkelon": {
+      "grocery_basket_family_of_4_monthly_nis": 3400,
+      "utilities_100sqm_monthly_nis": {
+        "electricity": 290,
+        "water": 70,
+        "gas": 60,
+        "internet": 95,
+        "total": 515
+      },
+      "public_transit_monthly_pass_nis": 225,
+      "childcare_monthly_nis": {
+        "ages_0_3": 3000,
+        "ages_3_5": 1700
+      },
+      "restaurant_meal_midrange_2_people_nis": 260,
+      "gym_membership_monthly_nis": 160,
+      "private_health_supplement_monthly_nis": 370,
+      "cost_index_vs_national": "below_average",
+      "notes": "Coastal value city combining affordability with coastal lifestyle. House price decline Q2 2025.",
+      "confidence": "MEDIUM"
+    },
+    "Beer Sheva": {
+      "grocery_basket_family_of_4_monthly_nis": 3300,
+      "utilities_100sqm_monthly_nis": {
+        "electricity": 280,
+        "water": 65,
+        "gas": 60,
+        "internet": 95,
+        "total": 500
+      },
+      "public_transit_monthly_pass_nis": 225,
+      "childcare_monthly_nis": {
+        "ages_0_3": 2800,
+        "ages_3_5": 1600
+      },
+      "restaurant_meal_midrange_2_people_nis": 250,
+      "gym_membership_monthly_nis": 160,
+      "private_health_supplement_monthly_nis": 360,
+      "cost_index_vs_national": "low",
+      "notes": "Negev capital with strong tech sector growth. Most affordable major city. Average apartment ₪1.28M.",
+      "confidence": "HIGH"
+    },
+    "Petah Tikva": {
+      "grocery_basket_family_of_4_monthly_nis": 4000,
+      "utilities_100sqm_monthly_nis": {
+        "electricity": 340,
+        "water": 80,
+        "gas": 80,
+        "internet": 100,
+        "total": 600
+      },
+      "public_transit_monthly_pass_nis": 225,
+      "childcare_monthly_nis": {
+        "ages_0_3": 4000,
+        "ages_3_5": 2200
+      },
+      "restaurant_meal_midrange_2_people_nis": 300,
+      "gym_membership_monthly_nis": 200,
+      "private_health_supplement_monthly_nis": 430,
+      "cost_index_vs_national": "average",
+      "notes": "Central region suburban city. Average apartment ₪2.567M. Transit-connected with expected rent growth.",
+      "confidence": "MEDIUM"
+    },
+    "Kfar Saba": {
+      "grocery_basket_family_of_4_monthly_nis": 4100,
+      "utilities_100sqm_monthly_nis": {
+        "electricity": 340,
+        "water": 80,
+        "gas": 80,
+        "internet": 100,
+        "total": 600
+      },
+      "public_transit_monthly_pass_nis": 225,
+      "childcare_monthly_nis": {
+        "ages_0_3": 4000,
+        "ages_3_5": 2200
+      },
+      "restaurant_meal_midrange_2_people_nis": 300,
+      "gym_membership_monthly_nis": 200,
+      "private_health_supplement_monthly_nis": 430,
+      "cost_index_vs_national": "average",
+      "notes": "Affluent suburban city. Typically higher per square metre than Netanya.",
+      "confidence": "MEDIUM"
+    },
+    "Rehovot": {
+      "grocery_basket_family_of_4_monthly_nis": 3900,
+      "utilities_100sqm_monthly_nis": {
+        "electricity": 330,
+        "water": 80,
+        "gas": 75,
+        "internet": 100,
+        "total": 585
+      },
+      "public_transit_monthly_pass_nis": 225,
+      "childcare_monthly_nis": {
+        "ages_0_3": 3600,
+        "ages_3_5": 2000
+      },
+      "restaurant_meal_midrange_2_people_nis": 290,
+      "gym_membership_monthly_nis": 190,
+      "private_health_supplement_monthly_nis": 410,
+      "cost_index_vs_national": "average",
+      "notes": "Home to Weizmann Institute. Academic and research hub.",
+      "confidence": "MEDIUM"
+    },
+    "Rishon LeZion": {
+      "grocery_basket_family_of_4_monthly_nis": 4050,
+      "utilities_100sqm_monthly_nis": {
+        "electricity": 340,
+        "water": 80,
+        "gas": 80,
+        "internet": 100,
+        "total": 600
+      },
+      "public_transit_monthly_pass_nis": 225,
+      "childcare_monthly_nis": {
+        "ages_0_3": 4000,
+        "ages_3_5": 2200
+      },
+      "restaurant_meal_midrange_2_people_nis": 300,
+      "gym_membership_monthly_nis": 200,
+      "private_health_supplement_monthly_nis": 430,
+      "cost_index_vs_national": "above_average",
+      "notes": "Major city in central region. Ranked 10th most expensive globally. Average apartment ₪2.57M. Transit hub.",
+      "confidence": "HIGH"
+    },
+    "Efrat": {
+      "grocery_basket_family_of_4_monthly_nis": 4200,
+      "utilities_100sqm_monthly_nis": {
+        "electricity": 350,
+        "water": 85,
+        "gas": 85,
+        "internet": 105,
+        "total": 625
+      },
+      "public_transit_monthly_pass_nis": 225,
+      "childcare_monthly_nis": {
+        "ages_0_3": 4200,
+        "ages_3_5": 2300
+      },
+      "restaurant_meal_midrange_2_people_nis": 310,
+      "gym_membership_monthly_nis": 210,
+      "private_health_supplement_monthly_nis": 450,
+      "cost_index_vs_national": "above_average",
+      "notes": "West Bank settlement with affluent demographics. Higher than average costs.",
+      "confidence": "LOW"
+    },
+    "Ma'ale Adumim": {
+      "grocery_basket_family_of_4_monthly_nis": 4300,
+      "utilities_100sqm_monthly_nis": {
+        "electricity": 360,
+        "water": 85,
+        "gas": 85,
+        "internet": 105,
+        "total": 635
+      },
+      "public_transit_monthly_pass_nis": 225,
+      "childcare_monthly_nis": {
+        "ages_0_3": 4400,
+        "ages_3_5": 2400
+      },
+      "restaurant_meal_midrange_2_people_nis": 320,
+      "gym_membership_monthly_nis": 220,
+      "private_health_supplement_monthly_nis": 460,
+      "cost_index_vs_national": "above_average",
+      "notes": "West Bank settlement with government incentives. Modern infrastructure.",
+      "confidence": "LOW"
+    },
+    "Givat Shmuel": {
+      "grocery_basket_family_of_4_monthly_nis": 4000,
+      "utilities_100sqm_monthly_nis": {
+        "electricity": 340,
+        "water": 80,
+        "gas": 80,
+        "internet": 100,
+        "total": 600
+      },
+      "public_transit_monthly_pass_nis": 225,
+      "childcare_monthly_nis": {
+        "ages_0_3": 3900,
+        "ages_3_5": 2200
+      },
+      "restaurant_meal_midrange_2_people_nis": 300,
+      "gym_membership_monthly_nis": 200,
+      "private_health_supplement_monthly_nis": 430,
+      "cost_index_vs_national": "average",
+      "notes": "Central Israel suburban town.",
+      "confidence": "MEDIUM"
+    },
+    "Ramat Gan": {
+      "grocery_basket_family_of_4_monthly_nis": 4300,
+      "utilities_100sqm_monthly_nis": {
+        "electricity": 360,
+        "water": 85,
+        "gas": 85,
+        "internet": 105,
+        "total": 635
+      },
+      "public_transit_monthly_pass_nis": 225,
+      "childcare_monthly_nis": {
+        "ages_0_3": 4500,
+        "ages_3_5": 2500
+      },
+      "restaurant_meal_midrange_2_people_nis": 320,
+      "gym_membership_monthly_nis": 220,
+      "private_health_supplement_monthly_nis": 470,
+      "cost_index_vs_national": "above_average",
+      "notes": "Affluent Gush Dan city east of Tel Aviv. Minimal house price change Q2 2025.",
+      "confidence": "MEDIUM"
+    },
+    "Givatayim": {
+      "grocery_basket_family_of_4_monthly_nis": 4400,
+      "utilities_100sqm_monthly_nis": {
+        "electricity": 370,
+        "water": 85,
+        "gas": 85,
+        "internet": 105,
+        "total": 645
+      },
+      "public_transit_monthly_pass_nis": 225,
+      "childcare_monthly_nis": {
+        "ages_0_3": 4600,
+        "ages_3_5": 2600
+      },
+      "restaurant_meal_midrange_2_people_nis": 330,
+      "gym_membership_monthly_nis": 230,
+      "private_health_supplement_monthly_nis": 480,
+      "cost_index_vs_national": "above_average",
+      "notes": "Affluent Gush Dan suburb. Among higher-priced suburban areas.",
+      "confidence": "MEDIUM"
+    },
+    "Holon": {
+      "grocery_basket_family_of_4_monthly_nis": 4100,
+      "utilities_100sqm_monthly_nis": {
+        "electricity": 340,
+        "water": 80,
+        "gas": 80,
+        "internet": 100,
+        "total": 600
+      },
+      "public_transit_monthly_pass_nis": 225,
+      "childcare_monthly_nis": {
+        "ages_0_3": 4000,
+        "ages_3_5": 2200
+      },
+      "restaurant_meal_midrange_2_people_nis": 300,
+      "gym_membership_monthly_nis": 200,
+      "private_health_supplement_monthly_nis": 430,
+      "cost_index_vs_national": "average",
+      "notes": "Southern Gush Dan city. Major population center with mixed demographics.",
+      "confidence": "MEDIUM"
+    },
+    "Bat Yam": {
+      "grocery_basket_family_of_4_monthly_nis": 4200,
+      "utilities_100sqm_monthly_nis": {
+        "electricity": 350,
+        "water": 85,
+        "gas": 85,
+        "internet": 105,
+        "total": 625
+      },
+      "public_transit_monthly_pass_nis": 225,
+      "childcare_monthly_nis": {
+        "ages_0_3": 4200,
+        "ages_3_5": 2300
+      },
+      "restaurant_meal_midrange_2_people_nis": 310,
+      "gym_membership_monthly_nis": 210,
+      "private_health_supplement_monthly_nis": 450,
+      "cost_index_vs_national": "above_average",
+      "notes": "Coastal city south of Tel Aviv. Beach community pricing.",
+      "confidence": "MEDIUM"
+    },
+    "Bnei Brak": {
+      "grocery_basket_family_of_4_monthly_nis": 3900,
+      "utilities_100sqm_monthly_nis": {
+        "electricity": 330,
+        "water": 80,
+        "gas": 75,
+        "internet": 100,
+        "total": 585
+      },
+      "public_transit_monthly_pass_nis": 225,
+      "childcare_monthly_nis": {
+        "ages_0_3": 3400,
+        "ages_3_5": 1900
+      },
+      "restaurant_meal_midrange_2_people_nis": 290,
+      "gym_membership_monthly_nis": 190,
+      "private_health_supplement_monthly_nis": 410,
+      "cost_index_vs_national": "average",
+      "notes": "Predominantly haredi city. Lower childcare costs due to institutional arrangements.",
+      "confidence": "MEDIUM"
+    },
+    "Ramat HaSharon": {
+      "grocery_basket_family_of_4_monthly_nis": 4500,
+      "utilities_100sqm_monthly_nis": {
+        "electricity": 380,
+        "water": 90,
+        "gas": 90,
+        "internet": 110,
+        "total": 670
+      },
+      "public_transit_monthly_pass_nis": 225,
+      "childcare_monthly_nis": {
+        "ages_0_3": 4900,
+        "ages_3_5": 2700
+      },
+      "restaurant_meal_midrange_2_people_nis": 340,
+      "gym_membership_monthly_nis": 240,
+      "private_health_supplement_monthly_nis": 490,
+      "cost_index_vs_national": "high",
+      "notes": "Affluent enclave with premium pricing. Among the most expensive locations.",
+      "confidence": "MEDIUM"
+    },
+    "Hod HaSharon": {
+      "grocery_basket_family_of_4_monthly_nis": 4300,
+      "utilities_100sqm_monthly_nis": {
+        "electricity": 360,
+        "water": 85,
+        "gas": 85,
+        "internet": 105,
+        "total": 635
+      },
+      "public_transit_monthly_pass_nis": 225,
+      "childcare_monthly_nis": {
+        "ages_0_3": 4400,
+        "ages_3_5": 2400
+      },
+      "restaurant_meal_midrange_2_people_nis": 320,
+      "gym_membership_monthly_nis": 220,
+      "private_health_supplement_monthly_nis": 460,
+      "cost_index_vs_national": "above_average",
+      "notes": "Industrial and commercial hub. Mix of businesses and residential.",
+      "confidence": "MEDIUM"
+    },
+    "Lod": {
+      "grocery_basket_family_of_4_monthly_nis": 3700,
+      "utilities_100sqm_monthly_nis": {
+        "electricity": 320,
+        "water": 75,
+        "gas": 70,
+        "internet": 100,
+        "total": 565
+      },
+      "public_transit_monthly_pass_nis": 225,
+      "childcare_monthly_nis": {
+        "ages_0_3": 3400,
+        "ages_3_5": 1900
+      },
+      "restaurant_meal_midrange_2_people_nis": 280,
+      "gym_membership_monthly_nis": 180,
+      "private_health_supplement_monthly_nis": 400,
+      "cost_index_vs_national": "average",
+      "notes": "Historic city with diverse demographics. Below average to average costs.",
+      "confidence": "MEDIUM"
+    },
+    "Ramla": {
+      "grocery_basket_family_of_4_monthly_nis": 3700,
+      "utilities_100sqm_monthly_nis": {
+        "electricity": 320,
+        "water": 75,
+        "gas": 70,
+        "internet": 100,
+        "total": 565
+      },
+      "public_transit_monthly_pass_nis": 225,
+      "childcare_monthly_nis": {
+        "ages_0_3": 3400,
+        "ages_3_5": 1900
+      },
+      "restaurant_meal_midrange_2_people_nis": 280,
+      "gym_membership_monthly_nis": 180,
+      "private_health_supplement_monthly_nis": 400,
+      "cost_index_vs_national": "average",
+      "notes": "Mixed city with Muslim and Jewish populations. Central location attracts diverse residents.",
+      "confidence": "MEDIUM"
+    },
+    "Nazareth": {
+      "grocery_basket_family_of_4_monthly_nis": 3200,
+      "utilities_100sqm_monthly_nis": {
+        "electricity": 270,
+        "water": 65,
+        "gas": 60,
+        "internet": 90,
+        "total": 485
+      },
+      "public_transit_monthly_pass_nis": 225,
+      "childcare_monthly_nis": {
+        "ages_0_3": 2600,
+        "ages_3_5": 1500
+      },
+      "restaurant_meal_midrange_2_people_nis": 240,
+      "gym_membership_monthly_nis": 150,
+      "private_health_supplement_monthly_nis": 340,
+      "cost_index_vs_national": "low",
+      "notes": "Galilee city with predominantly Arab population. Lower costs than central Israel.",
+      "confidence": "MEDIUM"
+    },
+    "Acre": {
+      "grocery_basket_family_of_4_monthly_nis": 3300,
+      "utilities_100sqm_monthly_nis": {
+        "electricity": 280,
+        "water": 65,
+        "gas": 60,
+        "internet": 95,
+        "total": 500
+      },
+      "public_transit_monthly_pass_nis": 225,
+      "childcare_monthly_nis": {
+        "ages_0_3": 2700,
+        "ages_3_5": 1600
+      },
+      "restaurant_meal_midrange_2_people_nis": 250,
+      "gym_membership_monthly_nis": 160,
+      "private_health_supplement_monthly_nis": 360,
+      "cost_index_vs_national": "low",
+      "notes": "Historic coastal northern city. Below average costs with tourism draw.",
+      "confidence": "MEDIUM"
+    },
+    "Tiberias": {
+      "grocery_basket_family_of_4_monthly_nis": 3200,
+      "utilities_100sqm_monthly_nis": {
+        "electricity": 270,
+        "water": 65,
+        "gas": 60,
+        "internet": 90,
+        "total": 485
+      },
+      "public_transit_monthly_pass_nis": 225,
+      "childcare_monthly_nis": {
+        "ages_0_3": 2600,
+        "ages_3_5": 1500
+      },
+      "restaurant_meal_midrange_2_people_nis": 240,
+      "gym_membership_monthly_nis": 150,
+      "private_health_supplement_monthly_nis": 340,
+      "cost_index_vs_national": "low",
+      "notes": "Lake city in Galilee. Among most affordable. Average apartment ₪850K. Tourist destination.",
+      "confidence": "MEDIUM"
+    },
+    "Safed": {
+      "grocery_basket_family_of_4_monthly_nis": 3100,
+      "utilities_100sqm_monthly_nis": {
+        "electricity": 260,
+        "water": 60,
+        "gas": 55,
+        "internet": 90,
+        "total": 465
+      },
+      "public_transit_monthly_pass_nis": 225,
+      "childcare_monthly_nis": {
+        "ages_0_3": 2500,
+        "ages_3_5": 1400
+      },
+      "restaurant_meal_midrange_2_people_nis": 230,
+      "gym_membership_monthly_nis": 140,
+      "private_health_supplement_monthly_nis": 330,
+      "cost_index_vs_national": "low",
+      "notes": "Mountaintop city in Galilee. Lower costs, artistic community.",
+      "confidence": "LOW"
+    },
+    "Karmiel": {
+      "grocery_basket_family_of_4_monthly_nis": 3300,
+      "utilities_100sqm_monthly_nis": {
+        "electricity": 280,
+        "water": 65,
+        "gas": 60,
+        "internet": 95,
+        "total": 500
+      },
+      "public_transit_monthly_pass_nis": 225,
+      "childcare_monthly_nis": {
+        "ages_0_3": 2700,
+        "ages_3_5": 1600
+      },
+      "restaurant_meal_midrange_2_people_nis": 250,
+      "gym_membership_monthly_nis": 160,
+      "private_health_supplement_monthly_nis": 360,
+      "cost_index_vs_national": "low",
+      "notes": "Planned town in Galilee. Regional center with lower costs.",
+      "confidence": "LOW"
+    },
+    "Nahariya": {
+      "grocery_basket_family_of_4_monthly_nis": 3400,
+      "utilities_100sqm_monthly_nis": {
+        "electricity": 290,
+        "water": 70,
+        "gas": 60,
+        "internet": 95,
+        "total": 515
+      },
+      "public_transit_monthly_pass_nis": 225,
+      "childcare_monthly_nis": {
+        "ages_0_3": 2800,
+        "ages_3_5": 1700
+      },
+      "restaurant_meal_midrange_2_people_nis": 260,
+      "gym_membership_monthly_nis": 170,
+      "private_health_supplement_monthly_nis": 370,
+      "cost_index_vs_national": "below_average",
+      "notes": "Coastal northern city. Lower per-square-metre costs than central Israel.",
+      "confidence": "MEDIUM"
+    },
+    "Kiryat Shmona": {
+      "grocery_basket_family_of_4_monthly_nis": 3100,
+      "utilities_100sqm_monthly_nis": {
+        "electricity": 260,
+        "water": 60,
+        "gas": 55,
+        "internet": 90,
+        "total": 465
+      },
+      "public_transit_monthly_pass_nis": 225,
+      "childcare_monthly_nis": {
+        "ages_0_3": 2500,
+        "ages_3_5": 1400
+      },
+      "restaurant_meal_midrange_2_people_nis": 230,
+      "gym_membership_monthly_nis": 140,
+      "private_health_supplement_monthly_nis": 330,
+      "cost_index_vs_national": "low",
+      "notes": "Northern border town. Affordable living with natural attractions nearby.",
+      "confidence": "LOW"
+    },
+    "Kiryat Ata": {
+      "grocery_basket_family_of_4_monthly_nis": 3350,
+      "utilities_100sqm_monthly_nis": {
+        "electricity": 290,
+        "water": 70,
+        "gas": 60,
+        "internet": 95,
+        "total": 515
+      },
+      "public_transit_monthly_pass_nis": 225,
+      "childcare_monthly_nis": {
+        "ages_0_3": 2800,
+        "ages_3_5": 1700
+      },
+      "restaurant_meal_midrange_2_people_nis": 260,
+      "gym_membership_monthly_nis": 170,
+      "private_health_supplement_monthly_nis": 370,
+      "cost_index_vs_national": "below_average",
+      "notes": "Industrial city in Haifa area. Below average costs with mixed demographics.",
+      "confidence": "LOW"
+    },
+    "Kiryat Bialik": {
+      "grocery_basket_family_of_4_monthly_nis": 3350,
+      "utilities_100sqm_monthly_nis": {
+        "electricity": 290,
+        "water": 70,
+        "gas": 60,
+        "internet": 95,
+        "total": 515
+      },
+      "public_transit_monthly_pass_nis": 225,
+      "childcare_monthly_nis": {
+        "ages_0_3": 2800,
+        "ages_3_5": 1700
+      },
+      "restaurant_meal_midrange_2_people_nis": 260,
+      "gym_membership_monthly_nis": 170,
+      "private_health_supplement_monthly_nis": 370,
+      "cost_index_vs_national": "below_average",
+      "notes": "Haifa area coastal city. Below average costs.",
+      "confidence": "LOW"
+    },
+    "Kiryat Motzkin": {
+      "grocery_basket_family_of_4_monthly_nis": 3350,
+      "utilities_100sqm_monthly_nis": {
+        "electricity": 290,
+        "water": 70,
+        "gas": 60,
+        "internet": 95,
+        "total": 515
+      },
+      "public_transit_monthly_pass_nis": 225,
+      "childcare_monthly_nis": {
+        "ages_0_3": 2800,
+        "ages_3_5": 1700
+      },
+      "restaurant_meal_midrange_2_people_nis": 260,
+      "gym_membership_monthly_nis": 170,
+      "private_health_supplement_monthly_nis": 370,
+      "cost_index_vs_national": "below_average",
+      "notes": "Haifa area coastal city. Residential community with regional pricing.",
+      "confidence": "LOW"
+    },
+    "Kiryat Yam": {
+      "grocery_basket_family_of_4_monthly_nis": 3350,
+      "utilities_100sqm_monthly_nis": {
+        "electricity": 290,
+        "water": 70,
+        "gas": 60,
+        "internet": 95,
+        "total": 515
+      },
+      "public_transit_monthly_pass_nis": 225,
+      "childcare_monthly_nis": {
+        "ages_0_3": 2800,
+        "ages_3_5": 1700
+      },
+      "restaurant_meal_midrange_2_people_nis": 260,
+      "gym_membership_monthly_nis": 170,
+      "private_health_supplement_monthly_nis": 370,
+      "cost_index_vs_national": "below_average",
+      "notes": "Haifa area coastal city. Primarily residential with Haifa-area pricing.",
+      "confidence": "LOW"
+    },
+    "Yokneam": {
+      "grocery_basket_family_of_4_monthly_nis": 3500,
+      "utilities_100sqm_monthly_nis": {
+        "electricity": 300,
+        "water": 70,
+        "gas": 65,
+        "internet": 95,
+        "total": 530
+      },
+      "public_transit_monthly_pass_nis": 225,
+      "childcare_monthly_nis": {
+        "ages_0_3": 3000,
+        "ages_3_5": 1700
+      },
+      "restaurant_meal_midrange_2_people_nis": 270,
+      "gym_membership_monthly_nis": 170,
+      "private_health_supplement_monthly_nis": 380,
+      "cost_index_vs_national": "below_average",
+      "notes": "Industrial city in Samaria region. Tech sector presence. Below average costs.",
+      "confidence": "LOW"
+    },
+    "Afula": {
+      "grocery_basket_family_of_4_monthly_nis": 3200,
+      "utilities_100sqm_monthly_nis": {
+        "electricity": 270,
+        "water": 65,
+        "gas": 60,
+        "internet": 90,
+        "total": 485
+      },
+      "public_transit_monthly_pass_nis": 225,
+      "childcare_monthly_nis": {
+        "ages_0_3": 2600,
+        "ages_3_5": 1500
+      },
+      "restaurant_meal_midrange_2_people_nis": 240,
+      "gym_membership_monthly_nis": 150,
+      "private_health_supplement_monthly_nis": 340,
+      "cost_index_vs_national": "low",
+      "notes": "Jezreel Valley city. Among most affordable options. Student-friendly.",
+      "confidence": "MEDIUM"
+    },
+    "Beit She'an": {
+      "grocery_basket_family_of_4_monthly_nis": 3100,
+      "utilities_100sqm_monthly_nis": {
+        "electricity": 260,
+        "water": 60,
+        "gas": 55,
+        "internet": 90,
+        "total": 465
+      },
+      "public_transit_monthly_pass_nis": 225,
+      "childcare_monthly_nis": {
+        "ages_0_3": 2400,
+        "ages_3_5": 1400
+      },
+      "restaurant_meal_midrange_2_people_nis": 230,
+      "gym_membership_monthly_nis": 140,
+      "private_health_supplement_monthly_nis": 330,
+      "cost_index_vs_national": "low",
+      "notes": "Jordan Valley city. Very affordable with archaeological attractions.",
+      "confidence": "LOW"
+    },
+    "Dimona": {
+      "grocery_basket_family_of_4_monthly_nis": 3000,
+      "utilities_100sqm_monthly_nis": {
+        "electricity": 250,
+        "water": 55,
+        "gas": 50,
+        "internet": 85,
+        "total": 440
+      },
+      "public_transit_monthly_pass_nis": 225,
+      "childcare_monthly_nis": {
+        "ages_0_3": 2200,
+        "ages_3_5": 1300
+      },
+      "restaurant_meal_midrange_2_people_nis": 220,
+      "gym_membership_monthly_nis": 130,
+      "private_health_supplement_monthly_nis": 310,
+      "cost_index_vs_national": "low",
+      "notes": "Negev city. Extremely affordable. Rent ₪2,000/month for 1BR. Peripheral incentives.",
+      "confidence": "MEDIUM"
+    },
+    "Arad": {
+      "grocery_basket_family_of_4_monthly_nis": 3050,
+      "utilities_100sqm_monthly_nis": {
+        "electricity": 260,
+        "water": 60,
+        "gas": 55,
+        "internet": 90,
+        "total": 465
+      },
+      "public_transit_monthly_pass_nis": 225,
+      "childcare_monthly_nis": {
+        "ages_0_3": 2400,
+        "ages_3_5": 1400
+      },
+      "restaurant_meal_midrange_2_people_nis": 230,
+      "gym_membership_monthly_nis": 140,
+      "private_health_supplement_monthly_nis": 330,
+      "cost_index_vs_national": "low",
+      "notes": "Negev developmental city. Very affordable with health benefits from altitude.",
+      "confidence": "LOW"
+    },
+    "Sderot": {
+      "grocery_basket_family_of_4_monthly_nis": 2950,
+      "utilities_100sqm_monthly_nis": {
+        "electricity": 240,
+        "water": 55,
+        "gas": 50,
+        "internet": 85,
+        "total": 430
+      },
+      "public_transit_monthly_pass_nis": 225,
+      "childcare_monthly_nis": {
+        "ages_0_3": 2200,
+        "ages_3_5": 1300
+      },
+      "restaurant_meal_midrange_2_people_nis": 220,
+      "gym_membership_monthly_nis": 130,
+      "private_health_supplement_monthly_nis": 300,
+      "cost_index_vs_national": "low",
+      "notes": "Southern border city. Very affordable with government incentives. Growing young population.",
+      "confidence": "LOW"
+    },
+    "Ofakim": {
+      "grocery_basket_family_of_4_monthly_nis": 3000,
+      "utilities_100sqm_monthly_nis": {
+        "electricity": 250,
+        "water": 55,
+        "gas": 50,
+        "internet": 85,
+        "total": 440
+      },
+      "public_transit_monthly_pass_nis": 225,
+      "childcare_monthly_nis": {
+        "ages_0_3": 2200,
+        "ages_3_5": 1300
+      },
+      "restaurant_meal_midrange_2_people_nis": 220,
+      "gym_membership_monthly_nis": 130,
+      "private_health_supplement_monthly_nis": 310,
+      "cost_index_vs_national": "low",
+      "notes": "Negev town. Very affordable with regional government support.",
+      "confidence": "LOW"
+    },
+    "Kiryat Gat": {
+      "grocery_basket_family_of_4_monthly_nis": 3050,
+      "utilities_100sqm_monthly_nis": {
+        "electricity": 260,
+        "water": 60,
+        "gas": 55,
+        "internet": 90,
+        "total": 465
+      },
+      "public_transit_monthly_pass_nis": 225,
+      "childcare_monthly_nis": {
+        "ages_0_3": 2400,
+        "ages_3_5": 1400
+      },
+      "restaurant_meal_midrange_2_people_nis": 230,
+      "gym_membership_monthly_nis": 140,
+      "private_health_supplement_monthly_nis": 330,
+      "cost_index_vs_national": "low",
+      "notes": "Southern city with rail connection. Value-for-money apartments. Government support.",
+      "confidence": "MEDIUM"
+    },
+    "Kiryat Malachi": {
+      "grocery_basket_family_of_4_monthly_nis": 3050,
+      "utilities_100sqm_monthly_nis": {
+        "electricity": 260,
+        "water": 60,
+        "gas": 55,
+        "internet": 90,
+        "total": 465
+      },
+      "public_transit_monthly_pass_nis": 225,
+      "childcare_monthly_nis": {
+        "ages_0_3": 2400,
+        "ages_3_5": 1400
+      },
+      "restaurant_meal_midrange_2_people_nis": 230,
+      "gym_membership_monthly_nis": 140,
+      "private_health_supplement_monthly_nis": 330,
+      "cost_index_vs_national": "low",
+      "notes": "Negev town. Affordable with development incentives.",
+      "confidence": "LOW"
+    },
+    "Or Akiva": {
+      "grocery_basket_family_of_4_monthly_nis": 3400,
+      "utilities_100sqm_monthly_nis": {
+        "electricity": 290,
+        "water": 70,
+        "gas": 60,
+        "internet": 95,
+        "total": 515
+      },
+      "public_transit_monthly_pass_nis": 225,
+      "childcare_monthly_nis": {
+        "ages_0_3": 2800,
+        "ages_3_5": 1700
+      },
+      "restaurant_meal_midrange_2_people_nis": 260,
+      "gym_membership_monthly_nis": 170,
+      "private_health_supplement_monthly_nis": 370,
+      "cost_index_vs_national": "below_average",
+      "notes": "Coastal industrial city in Sharon region. Below average costs.",
+      "confidence": "LOW"
+    },
+    "Yavne": {
+      "grocery_basket_family_of_4_monthly_nis": 3700,
+      "utilities_100sqm_monthly_nis": {
+        "electricity": 320,
+        "water": 75,
+        "gas": 70,
+        "internet": 100,
+        "total": 565
+      },
+      "public_transit_monthly_pass_nis": 225,
+      "childcare_monthly_nis": {
+        "ages_0_3": 3400,
+        "ages_3_5": 1900
+      },
+      "restaurant_meal_midrange_2_people_nis": 280,
+      "gym_membership_monthly_nis": 180,
+      "private_health_supplement_monthly_nis": 400,
+      "cost_index_vs_national": "average",
+      "notes": "Central coastal city with historical significance. Average costs.",
+      "confidence": "LOW"
+    },
+    "Nes Ziona": {
+      "grocery_basket_family_of_4_monthly_nis": 3900,
+      "utilities_100sqm_monthly_nis": {
+        "electricity": 330,
+        "water": 80,
+        "gas": 75,
+        "internet": 100,
+        "total": 585
+      },
+      "public_transit_monthly_pass_nis": 225,
+      "childcare_monthly_nis": {
+        "ages_0_3": 3600,
+        "ages_3_5": 2000
+      },
+      "restaurant_meal_midrange_2_people_nis": 290,
+      "gym_membership_monthly_nis": 190,
+      "private_health_supplement_monthly_nis": 410,
+      "cost_index_vs_national": "average",
+      "notes": "Central valley city with tech and pharma sectors. Average costs.",
+      "confidence": "MEDIUM"
+    },
+    "Rosh HaAyin": {
+      "grocery_basket_family_of_4_monthly_nis": 3900,
+      "utilities_100sqm_monthly_nis": {
+        "electricity": 330,
+        "water": 80,
+        "gas": 75,
+        "internet": 100,
+        "total": 585
+      },
+      "public_transit_monthly_pass_nis": 225,
+      "childcare_monthly_nis": {
+        "ages_0_3": 3600,
+        "ages_3_5": 2000
+      },
+      "restaurant_meal_midrange_2_people_nis": 290,
+      "gym_membership_monthly_nis": 190,
+      "private_health_supplement_monthly_nis": 410,
+      "cost_index_vs_national": "average",
+      "notes": "Sharon region city with industrial base. Average costs.",
+      "confidence": "LOW"
+    },
+    "Shoham": {
+      "grocery_basket_family_of_4_monthly_nis": 4050,
+      "utilities_100sqm_monthly_nis": {
+        "electricity": 340,
+        "water": 80,
+        "gas": 80,
+        "internet": 100,
+        "total": 600
+      },
+      "public_transit_monthly_pass_nis": 225,
+      "childcare_monthly_nis": {
+        "ages_0_3": 3900,
+        "ages_3_5": 2200
+      },
+      "restaurant_meal_midrange_2_people_nis": 300,
+      "gym_membership_monthly_nis": 200,
+      "private_health_supplement_monthly_nis": 430,
+      "cost_index_vs_national": "average",
+      "notes": "Central region planned community. Growing residential areas.",
+      "confidence": "MEDIUM"
+    },
+    "Modi'in Illit": {
+      "grocery_basket_family_of_4_monthly_nis": 3500,
+      "utilities_100sqm_monthly_nis": {
+        "electricity": 300,
+        "water": 70,
+        "gas": 65,
+        "internet": 95,
+        "total": 530
+      },
+      "public_transit_monthly_pass_nis": 225,
+      "childcare_monthly_nis": {
+        "ages_0_3": 2800,
+        "ages_3_5": 1600
+      },
+      "restaurant_meal_midrange_2_people_nis": 270,
+      "gym_membership_monthly_nis": 170,
+      "private_health_supplement_monthly_nis": 380,
+      "cost_index_vs_national": "below_average",
+      "notes": "Haredi settlement. Lower childcare costs due to community arrangements.",
+      "confidence": "LOW"
+    },
+    "Elad": {
+      "grocery_basket_family_of_4_monthly_nis": 3400,
+      "utilities_100sqm_monthly_nis": {
+        "electricity": 290,
+        "water": 70,
+        "gas": 60,
+        "internet": 95,
+        "total": 515
+      },
+      "public_transit_monthly_pass_nis": 225,
+      "childcare_monthly_nis": {
+        "ages_0_3": 2600,
+        "ages_3_5": 1500
+      },
+      "restaurant_meal_midrange_2_people_nis": 260,
+      "gym_membership_monthly_nis": 170,
+      "private_health_supplement_monthly_nis": 370,
+      "cost_index_vs_national": "below_average",
+      "notes": "Haredi city in central region. Below average costs with lower childcare fees.",
+      "confidence": "LOW"
+    }
+  },
+  "sources": [
+    {
+      "name": "Numbeo - Cost of Living",
+      "url": "https://www.numbeo.com/cost-of-living/country_result.jsp?country=Israel",
+      "description": "Comprehensive cost of living database with real-time pricing across Israeli cities (updated Mar 2026)"
+    },
+    {
+      "name": "Easy Aliyah - Cost of Living 2025 Guide",
+      "url": "https://www.easyaliyah.com/blog/the-complete-guide-to-the-cost-of-living-in-israel-2025-edition",
+      "description": "Detailed breakdown of living costs by category and city comparison"
+    },
+    {
+      "name": "Semerenkogroup - Average Rent in Israel 2025",
+      "url": "https://semerenkogroup.com/average-rent-and-costs-in-israel/",
+      "description": "City-by-city rent and housing cost analysis"
+    },
+    {
+      "name": "Wise - Cost of Living Israel 2025",
+      "url": "https://wise.com/gb/cost-of-living/israel/",
+      "description": "Real-world cost breakdown for Israeli cities"
+    },
+    {
+      "name": "Times of Israel - Soaring Food Prices",
+      "url": "https://www.timesofisrael.com/israelis-hit-by-soaring-food-prices-as-producers-grocers-feast-on-wartime-windfall/",
+      "description": "Food inflation and grocery pricing analysis"
+    },
+    {
+      "name": "Global Price Info - Food Prices Israel",
+      "url": "https://www.globalprice.info/en/?p=israel/food-prices-in-israel",
+      "description": "Supermarket and grocery basket pricing"
+    },
+    {
+      "name": "Numbeo - Food Prices",
+      "url": "https://www.numbeo.com/food-prices/country_result.jsp?country=Israel",
+      "description": "Detailed grocery and food item pricing"
+    },
+    {
+      "name": "Global Petrol Prices - Israel Electricity",
+      "url": "https://www.globalpetrolprices.com/Israel/electricity_prices/",
+      "description": "Electricity pricing and utility costs"
+    },
+    {
+      "name": "Welcome Israel - Childcare Costs",
+      "url": "https://welcome-israel.com/blog/cost-of-raising-a-child-in-israel",
+      "description": "Comprehensive childcare and education costs"
+    },
+    {
+      "name": "Jerusalem Post - Daycare Fees",
+      "url": "https://www.jpost.com/opinion/article-856012",
+      "description": "Monthly childcare cost analysis"
+    },
+    {
+      "name": "Israel Travel Advisor - Rav Kav Guide",
+      "url": "https://www.israeltraveladvisor.org/articles/rav-kav-guide-for-tourists-in-israel",
+      "description": "Public transit pass pricing and usage"
+    },
+    {
+      "name": "Rav-Kav Online - Official",
+      "url": "https://ravkavonline.co.il/en/",
+      "description": "Official public transport card and pricing information"
+    },
+    {
+      "name": "Living Cost - Israel Cost Analysis",
+      "url": "https://livingcost.org/cost/israel",
+      "description": "Multi-city cost of living comparison tool"
+    },
+    {
+      "name": "Nefesh B'Nefesh - Private Health Insurance",
+      "url": "https://www.nbn.org.il/life-in-israel/healthcare-in-israel/private-healthcare/private-health-insurance-in-israel/",
+      "description": "Private and supplemental health insurance costs"
+    },
+    {
+      "name": "Commonwealth Fund - Israeli Healthcare",
+      "url": "https://www.commonwealthfund.org/international-health-policy-center/countries/israel",
+      "description": "Healthcare system and insurance overview"
+    },
+    {
+      "name": "Native Israel - Cheapest Places to Live",
+      "url": "https://www.nativeisrael.com/blog/cheapest-place-to-live-in-israel",
+      "description": "Comparative affordability analysis of Israeli cities"
+    },
+    {
+      "name": "Israel Homes.net - City Guides",
+      "url": "https://www.israelhomes.net/",
+      "description": "Residential and community cost comparisons"
+    },
+    {
+      "name": "Global Property Guide - Israel Housing",
+      "url": "https://www.globalpropertyguide.com/middle-east/israel/price-history",
+      "description": "Real estate market analysis and pricing trends"
+    },
+    {
+      "name": "Wonder Israel - Dining Costs",
+      "url": "https://wonderisrael.com/the-cost-of-dining-in-israel/",
+      "description": "Restaurant and dining expense breakdown"
+    },
+    {
+      "name": "HikersBay - General Prices Israel",
+      "url": "https://hikersbay.com/prices/israel?lang=en",
+      "description": "Comprehensive pricing for travel and living"
+    }
+  ],
+  "notes": {
+    "methodology": "Data compiled from multiple reliable Israeli sources including Numbeo, CBS reference data, and real estate platforms. National Rav Kav price (₪225/month) applies uniformly. Utilities estimated for 100 sqm apartment. Restaurant prices for midrange meal for 2 people. Gym prices estimated based on major chains (Space Gym Club, Holmes Place). Health insurance reflects supplemental coverage costs.",
+    "confidence_levels": {
+      "HIGH": "Data from official sources, multiple corroborating reports, Numbeo listings, or large cities",
+      "MEDIUM": "Data from 1-2 sources, city-specific reports, or medium-sized cities",
+      "LOW": "Extrapolated from regional data, limited sources, or peripheral cities with sparse data"
+    },
+    "regional_patterns": {
+      "central_tel_aviv_area": "Most expensive region. Includes Gush Dan cities (Tel Aviv, Ramat Gan, Givatayim, Holon), Herzliya, Ra'anana, Kfar Saba, Ramat HaSharon, Hod HaSharon",
+      "jerusalem_area": "Above average costs, slightly lower than Tel Aviv area. Beit Shemesh considered below average",
+      "haifa_northern_coast": "Below average to average. Haifa, Acre, Nahariya, Kiryat Bialik/Ata/Motzkin/Yam form regional cluster",
+      "northern_galilee": "Low costs. Tiberias, Safed, Kiryat Shmona, Afula, Karmiel, Nazareth share similar pricing",
+      "negev_south": "Lowest costs nationally. Beersheva, Dimona, Sderot, Ofakim, Arad, Kiryat Gat significantly below average",
+      "central_suburbs": "Average to above average. Petah Tikva, Rishon LeZion, Rehovot, Nes Ziona, Rosh HaAyin form tech hub cluster",
+      "haredi_cities": "Lower childcare costs due to community institutional arrangements. Bnei Brak, Modi'in Illit, Elad"
+    },
+    "important_notes": [
+      "Rav Kav monthly pass (₪225) is uniform nationwide for full pass",
+      "Grocery basket estimates for family of 4 monthly spending",
+      "Utilities for 100 sqm apartment are averages; actual costs vary by building age and season",
+      "Childcare represents private institutional care; government-subsidized options are significantly cheaper",
+      "Restaurant prices for casual midrange dining for 2 people",
+      "Gym membership represents monthly dues for major chains; variations exist by branch",
+      "Health insurance represents supplemental private coverage; mandatory coverage through health funds varies by income",
+      "West Bank settlements (Efrat, Ma'ale Adumim) included due to Israeli residency context",
+      "Regional clusters share pricing patterns; smaller towns often track nearby larger city patterns",
+      "Data reflects March 2026 conditions; inflation trending at ~2.5% annually"
+    ]
+  }
+}

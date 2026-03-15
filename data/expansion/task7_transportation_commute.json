@@ -1,0 +1,2400 @@
+{
+  "cities": {
+    "Jerusalem": {
+      "commute_to_tel_aviv": {
+        "distance_km": 67.5,
+        "drive_minutes_typical": 67,
+        "drive_minutes_rush_hour": 90,
+        "train_available": true,
+        "train_minutes": 32,
+        "bus_minutes": 45
+      },
+      "commute_to_jerusalem": {
+        "distance_km": 0,
+        "drive_minutes_typical": 0,
+        "drive_minutes_rush_hour": 0,
+        "train_available": true,
+        "train_minutes": 0,
+        "bus_minutes": 0
+      },
+      "train_station": {
+        "exists": true,
+        "station_name": "Jerusalem Yitzhak Navon",
+        "line": "Tel Aviv-Jerusalem Railway (electrified)",
+        "walking_distance_from_center": "1-2 km from city center"
+      },
+      "light_rail": {
+        "exists": true,
+        "planned": false,
+        "details": "Red Line operational. Green Line section (Binyanei Hauma-Malcha) opens May 2026, full completion 2027"
+      },
+      "major_bus_routes": [
+        {
+          "route_number_or_name": "Egged intercity routes",
+          "destination": "Tel Aviv, Haifa, Beer Sheva",
+          "frequency": "Every 10-15 minutes to Tel Aviv"
+        },
+        {
+          "route_number_or_name": "Multiple urban lines",
+          "destination": "City center and suburbs",
+          "frequency": "Frequent throughout day"
+        }
+      ],
+      "cycling_infrastructure": "good",
+      "ben_gurion_airport": {
+        "distance_km": 45,
+        "drive_minutes": 45
+      },
+      "notes": "Major transportation hub. Direct high-speed train to Tel Aviv reduces journey to 32 minutes. Plans for Blue Line metro by 2030. Extensive bus network operated by Egged.",
+      "confidence": "HIGH"
+    },
+    "Tel Aviv": {
+      "commute_to_tel_aviv": {
+        "distance_km": 0,
+        "drive_minutes_typical": 0,
+        "drive_minutes_rush_hour": 0,
+        "train_available": true,
+        "train_minutes": 0,
+        "bus_minutes": 0
+      },
+      "commute_to_jerusalem": {
+        "distance_km": 67.5,
+        "drive_minutes_typical": 67,
+        "drive_minutes_rush_hour": 90,
+        "train_available": true,
+        "train_minutes": 32,
+        "bus_minutes": 45
+      },
+      "train_station": {
+        "exists": true,
+        "station_name": "Tel Aviv Savidor Central, Tel Aviv HaHagana, Tel Aviv HaShalom, Tel Aviv University",
+        "line": "Multiple lines: Coastal (Nahariya-Beersheba), Jerusalem line, Suburban lines",
+        "walking_distance_from_center": "0.5-3 km from city center"
+      },
+      "light_rail": {
+        "exists": true,
+        "planned": true,
+        "details": "Red Line operational since August 2023. Green Line planned to open in segments from 2026 onwards, full completion 2028+"
+      },
+      "major_bus_routes": [
+        {
+          "route_number_or_name": "Dan Bus Company",
+          "destination": "Metropolitan area",
+          "frequency": "Very frequent"
+        },
+        {
+          "route_number_or_name": "Egged intercity",
+          "destination": "All major cities",
+          "frequency": "Every 10-30 minutes"
+        },
+        {
+          "route_number_or_name": "Multiple urban lines",
+          "destination": "Central Bus Station hub",
+          "frequency": "Frequent all day"
+        }
+      ],
+      "cycling_infrastructure": "good",
+      "ben_gurion_airport": {
+        "distance_km": 20,
+        "drive_minutes": 19
+      },
+      "notes": "Israel's largest transportation hub. Central Bus Station is world's second largest. Four major train stations. Red Line light rail operational. Rail hub with trains to all major destinations.",
+      "confidence": "HIGH"
+    },
+    "Haifa": {
+      "commute_to_tel_aviv": {
+        "distance_km": 97,
+        "drive_minutes_typical": 77,
+        "drive_minutes_rush_hour": 100,
+        "train_available": true,
+        "train_minutes": 60,
+        "bus_minutes": 90
+      },
+      "commute_to_jerusalem": {
+        "distance_km": 180,
+        "drive_minutes_typical": 150,
+        "drive_minutes_rush_hour": 180,
+        "train_available": false,
+        "train_minutes": null,
+        "bus_minutes": 180
+      },
+      "train_station": {
+        "exists": true,
+        "station_name": "Haifa Center HaShmona",
+        "line": "Coastal line (Nahariya-Beer Sheva main line)",
+        "walking_distance_from_center": "1-2 km from city center"
+      },
+      "light_rail": {
+        "exists": false,
+        "planned": false,
+        "details": "No light rail planned for Haifa at this time"
+      },
+      "major_bus_routes": [
+        {
+          "route_number_or_name": "Egged intercity",
+          "destination": "Tel Aviv, Jerusalem, Beer Sheva",
+          "frequency": "Hourly"
+        },
+        {
+          "route_number_or_name": "Urban bus lines",
+          "destination": "City and northern suburbs",
+          "frequency": "Frequent"
+        }
+      ],
+      "cycling_infrastructure": "moderate",
+      "ben_gurion_airport": {
+        "distance_km": 115,
+        "drive_minutes": 90
+      },
+      "notes": "Major port city with good rail connections northward. 4 trains per hour to Tel Aviv during peak hours. Gateway to northern Israel.",
+      "confidence": "HIGH"
+    },
+    "Ra'anana": {
+      "commute_to_tel_aviv": {
+        "distance_km": 25,
+        "drive_minutes_typical": 20,
+        "drive_minutes_rush_hour": 35,
+        "train_available": true,
+        "train_minutes": 11,
+        "bus_minutes": 25
+      },
+      "commute_to_jerusalem": {
+        "distance_km": 90,
+        "drive_minutes_typical": 75,
+        "drive_minutes_rush_hour": 100,
+        "train_available": false,
+        "train_minutes": null,
+        "bus_minutes": 90
+      },
+      "train_station": {
+        "exists": true,
+        "station_name": "Ra'anana South, Ra'anana West",
+        "line": "Tel Aviv-Netanya suburban line (Sharon Railway)",
+        "walking_distance_from_center": "1-2 km from city center"
+      },
+      "light_rail": {
+        "exists": false,
+        "planned": true,
+        "details": "Planned as part of Tel Aviv metro expansion. M1 northern section will include Ra'anana stations."
+      },
+      "major_bus_routes": [
+        {
+          "route_number_or_name": "Egged lines 501-520",
+          "destination": "Tel Aviv, Herzliya, Netanya",
+          "frequency": "Every 20-30 minutes"
+        }
+      ],
+      "cycling_infrastructure": "moderate",
+      "ben_gurion_airport": {
+        "distance_km": 40,
+        "drive_minutes": 30
+      },
+      "notes": "Bedroom community for Tel Aviv workers. Two train stations with 11-minute commute to Tel Aviv. Sharon Railway circular route provides good connectivity.",
+      "confidence": "HIGH"
+    },
+    "Modi'in": {
+      "commute_to_tel_aviv": {
+        "distance_km": 32,
+        "drive_minutes_typical": 30,
+        "drive_minutes_rush_hour": 45,
+        "train_available": true,
+        "train_minutes": 25,
+        "bus_minutes": 40
+      },
+      "commute_to_jerusalem": {
+        "distance_km": 45,
+        "drive_minutes_typical": 40,
+        "drive_minutes_rush_hour": 55,
+        "train_available": true,
+        "train_minutes": 22,
+        "bus_minutes": 45
+      },
+      "train_station": {
+        "exists": true,
+        "station_name": "Modi'in Central",
+        "line": "Coastal main line and Modi'in-Jerusalem line",
+        "walking_distance_from_center": "Underground station in city center"
+      },
+      "light_rail": {
+        "exists": false,
+        "planned": false,
+        "details": "No light rail planned, but served by regional rail network"
+      },
+      "major_bus_routes": [
+        {
+          "route_number_or_name": "Egged intercity",
+          "destination": "Tel Aviv, Jerusalem, Haifa",
+          "frequency": "Hourly"
+        }
+      ],
+      "cycling_infrastructure": "moderate",
+      "ben_gurion_airport": {
+        "distance_km": 35,
+        "drive_minutes": 28
+      },
+      "notes": "First underground train station in Israel at Modi'in Central. Direct trains to Tel Aviv, Jerusalem, and Haifa. Growing tech hub.",
+      "confidence": "HIGH"
+    },
+    "Beit Shemesh": {
+      "commute_to_tel_aviv": {
+        "distance_km": 50,
+        "drive_minutes_typical": 45,
+        "drive_minutes_rush_hour": 60,
+        "train_available": true,
+        "train_minutes": 49,
+        "bus_minutes": 55
+      },
+      "commute_to_jerusalem": {
+        "distance_km": 25,
+        "drive_minutes_typical": 25,
+        "drive_minutes_rush_hour": 35,
+        "train_available": false,
+        "train_minutes": null,
+        "bus_minutes": 25
+      },
+      "train_station": {
+        "exists": true,
+        "station_name": "Beit Shemesh",
+        "line": "Jerusalem-Tel Aviv line",
+        "walking_distance_from_center": "1 km from city center"
+      },
+      "light_rail": {
+        "exists": false,
+        "planned": false,
+        "details": "No light rail planned for Beit Shemesh"
+      },
+      "major_bus_routes": [
+        {
+          "route_number_or_name": "Egged local and intercity",
+          "destination": "Jerusalem, Tel Aviv, surrounding towns",
+          "frequency": "Hourly"
+        },
+        {
+          "route_number_or_name": "Bus 77",
+          "destination": "Efrat and southern communities",
+          "frequency": "Regular service"
+        }
+      ],
+      "cycling_infrastructure": "poor",
+      "ben_gurion_airport": {
+        "distance_km": 55,
+        "drive_minutes": 45
+      },
+      "notes": "Located between Tel Aviv and Jerusalem. Hourly trains to Tel Aviv (49 min). Direct bus connections to Jerusalem (25 min). Growing residential hub.",
+      "confidence": "HIGH"
+    },
+    "Herzliya": {
+      "commute_to_tel_aviv": {
+        "distance_km": 13,
+        "drive_minutes_typical": 12,
+        "drive_minutes_rush_hour": 25,
+        "train_available": true,
+        "train_minutes": 13,
+        "bus_minutes": 19
+      },
+      "commute_to_jerusalem": {
+        "distance_km": 75,
+        "drive_minutes_typical": 70,
+        "drive_minutes_rush_hour": 95,
+        "train_available": false,
+        "train_minutes": null,
+        "bus_minutes": 90
+      },
+      "train_station": {
+        "exists": true,
+        "station_name": "Herzliya",
+        "line": "Tel Aviv-Netanya suburban line (Sharon Railway)",
+        "walking_distance_from_center": "1.5 km from city center"
+      },
+      "light_rail": {
+        "exists": false,
+        "planned": true,
+        "details": "Planned as northern terminus of Tel Aviv Green Line light rail (planned 2026+)"
+      },
+      "major_bus_routes": [
+        {
+          "route_number_or_name": "Egged lines 29, 201",
+          "destination": "Tel Aviv, Ramat HaSharon, Netanya",
+          "frequency": "Every 20 minutes"
+        }
+      ],
+      "cycling_infrastructure": "good",
+      "ben_gurion_airport": {
+        "distance_km": 28,
+        "drive_minutes": 25
+      },
+      "notes": "Upscale coastal city close to Tel Aviv. 13-minute train commute. Tech and leisure destination. Part of Sharon Railway circular route.",
+      "confidence": "HIGH"
+    },
+    "Netanya": {
+      "commute_to_tel_aviv": {
+        "distance_km": 42,
+        "drive_minutes_typical": 35,
+        "drive_minutes_rush_hour": 50,
+        "train_available": true,
+        "train_minutes": 28,
+        "bus_minutes": 40
+      },
+      "commute_to_jerusalem": {
+        "distance_km": 105,
+        "drive_minutes_typical": 95,
+        "drive_minutes_rush_hour": 120,
+        "train_available": false,
+        "train_minutes": null,
+        "bus_minutes": 120
+      },
+      "train_station": {
+        "exists": true,
+        "station_name": "Netanya",
+        "line": "Tel Aviv-Netanya suburban line (terminus)",
+        "walking_distance_from_center": "1.5 km from city center"
+      },
+      "light_rail": {
+        "exists": false,
+        "planned": false,
+        "details": "No light rail planned for Netanya"
+      },
+      "major_bus_routes": [
+        {
+          "route_number_or_name": "Egged intercity",
+          "destination": "Tel Aviv, Haifa, Jerusalem",
+          "frequency": "Every 30 minutes"
+        },
+        {
+          "route_number_or_name": "Local urban lines",
+          "destination": "City and beaches",
+          "frequency": "Frequent"
+        }
+      ],
+      "cycling_infrastructure": "good",
+      "ben_gurion_airport": {
+        "distance_km": 55,
+        "drive_minutes": 45
+      },
+      "notes": "Coastal resort city. Northern terminus of suburban rail line. 28-minute train to Tel Aviv. Major tourist destination with good transportation links.",
+      "confidence": "HIGH"
+    },
+    "Ashdod": {
+      "commute_to_tel_aviv": {
+        "distance_km": 35,
+        "drive_minutes_typical": 30,
+        "drive_minutes_rush_hour": 45,
+        "train_available": true,
+        "train_minutes": 35,
+        "bus_minutes": 40
+      },
+      "commute_to_jerusalem": {
+        "distance_km": 95,
+        "drive_minutes_typical": 80,
+        "drive_minutes_rush_hour": 100,
+        "train_available": false,
+        "train_minutes": null,
+        "bus_minutes": 110
+      },
+      "train_station": {
+        "exists": true,
+        "station_name": "Ashdod Ad Halom",
+        "line": "Coastal main line (Tel Aviv-Ashkelon-Beer Sheva)",
+        "walking_distance_from_center": "2-3 km from city center"
+      },
+      "light_rail": {
+        "exists": false,
+        "planned": true,
+        "details": "Planned as part of Tel Aviv Green Line extension south to Rishon LeZion and beyond (2028+)"
+      },
+      "major_bus_routes": [
+        {
+          "route_number_or_name": "Egged intercity",
+          "destination": "Tel Aviv, Beer Sheva, Jerusalem",
+          "frequency": "Every 30-45 minutes"
+        }
+      ],
+      "cycling_infrastructure": "poor",
+      "ben_gurion_airport": {
+        "distance_km": 50,
+        "drive_minutes": 40
+      },
+      "notes": "Port city with good rail connections. 35-minute train to Tel Aviv. Gateway to southern Israel and tourism destinations.",
+      "confidence": "HIGH"
+    },
+    "Ashkelon": {
+      "commute_to_tel_aviv": {
+        "distance_km": 54,
+        "drive_minutes_typical": 50,
+        "drive_minutes_rush_hour": 70,
+        "train_available": true,
+        "train_minutes": 65,
+        "bus_minutes": 70
+      },
+      "commute_to_jerusalem": {
+        "distance_km": 125,
+        "drive_minutes_typical": 110,
+        "drive_minutes_rush_hour": 135,
+        "train_available": false,
+        "train_minutes": null,
+        "bus_minutes": 140
+      },
+      "train_station": {
+        "exists": true,
+        "station_name": "Ashkelon",
+        "line": "Coastal main line (Tel Aviv-Ashkelon-Beer Sheva)",
+        "walking_distance_from_center": "2-3 km from city center"
+      },
+      "light_rail": {
+        "exists": false,
+        "planned": false,
+        "details": "No light rail planned for Ashkelon"
+      },
+      "major_bus_routes": [
+        {
+          "route_number_or_name": "Egged intercity",
+          "destination": "Tel Aviv, Beer Sheva, Sderot",
+          "frequency": "Every 45 minutes to 1 hour"
+        }
+      ],
+      "cycling_infrastructure": "poor",
+      "ben_gurion_airport": {
+        "distance_km": 70,
+        "drive_minutes": 60
+      },
+      "notes": "Coastal city with historical significance. Train to Tel Aviv takes 65 minutes. Connection point for southern Israel destinations.",
+      "confidence": "MEDIUM"
+    },
+    "Beer Sheva": {
+      "commute_to_tel_aviv": {
+        "distance_km": 115,
+        "drive_minutes_typical": 100,
+        "drive_minutes_rush_hour": 130,
+        "train_available": true,
+        "train_minutes": 70,
+        "bus_minutes": 100
+      },
+      "commute_to_jerusalem": {
+        "distance_km": 160,
+        "drive_minutes_typical": 130,
+        "drive_minutes_rush_hour": 160,
+        "train_available": false,
+        "train_minutes": null,
+        "bus_minutes": 150
+      },
+      "train_station": {
+        "exists": true,
+        "station_name": "Beer Sheva Center",
+        "line": "Coastal main line terminus south",
+        "walking_distance_from_center": "1-2 km from city center"
+      },
+      "light_rail": {
+        "exists": false,
+        "planned": false,
+        "details": "No light rail planned for Beer Sheva at this time"
+      },
+      "major_bus_routes": [
+        {
+          "route_number_or_name": "Egged intercity",
+          "destination": "Tel Aviv, Jerusalem, Haifa",
+          "frequency": "Every hour"
+        },
+        {
+          "route_number_or_name": "Local lines",
+          "destination": "City center and suburbs",
+          "frequency": "Frequent"
+        }
+      ],
+      "cycling_infrastructure": "poor",
+      "ben_gurion_airport": {
+        "distance_km": 110,
+        "drive_minutes": 90
+      },
+      "notes": "Major city in Negev. Capital of southern Israel. 3 trains per hour to central Israel during most hours. Important economic hub.",
+      "confidence": "HIGH"
+    },
+    "Petah Tikva": {
+      "commute_to_tel_aviv": {
+        "distance_km": 15,
+        "drive_minutes_typical": 15,
+        "drive_minutes_rush_hour": 30,
+        "train_available": true,
+        "train_minutes": 10,
+        "bus_minutes": 20
+      },
+      "commute_to_jerusalem": {
+        "distance_km": 80,
+        "drive_minutes_typical": 70,
+        "drive_minutes_rush_hour": 95,
+        "train_available": false,
+        "train_minutes": null,
+        "bus_minutes": 100
+      },
+      "train_station": {
+        "exists": true,
+        "station_name": "Petah Tikva Kiryat Aryeh, Petah Tikva Segula",
+        "line": "Sharon Railway circular route and suburban lines",
+        "walking_distance_from_center": "2-3 km from city center"
+      },
+      "light_rail": {
+        "exists": true,
+        "planned": false,
+        "details": "Red Line light rail operational since August 2023"
+      },
+      "major_bus_routes": [
+        {
+          "route_number_or_name": "Dan local lines",
+          "destination": "Tel Aviv, surrounding suburbs",
+          "frequency": "Very frequent"
+        },
+        {
+          "route_number_or_name": "Egged intercity",
+          "destination": "Haifa, Beer Sheva",
+          "frequency": "Hourly"
+        }
+      ],
+      "cycling_infrastructure": "moderate",
+      "ben_gurion_airport": {
+        "distance_km": 28,
+        "drive_minutes": 22
+      },
+      "notes": "Industrial hub east of Tel Aviv. Red Line light rail and two train stations. 10-minute train to Tel Aviv. Major employment center.",
+      "confidence": "HIGH"
+    },
+    "Kfar Saba": {
+      "commute_to_tel_aviv": {
+        "distance_km": 28,
+        "drive_minutes_typical": 25,
+        "drive_minutes_rush_hour": 40,
+        "train_available": true,
+        "train_minutes": 18,
+        "bus_minutes": 30
+      },
+      "commute_to_jerusalem": {
+        "distance_km": 95,
+        "drive_minutes_typical": 85,
+        "drive_minutes_rush_hour": 110,
+        "train_available": false,
+        "train_minutes": null,
+        "bus_minutes": 110
+      },
+      "train_station": {
+        "exists": true,
+        "station_name": "Kfar Saba",
+        "line": "Tel Aviv-Rosh HaAyin line (Sharon Railway)",
+        "walking_distance_from_center": "1.5 km from city center"
+      },
+      "light_rail": {
+        "exists": false,
+        "planned": true,
+        "details": "Planned M1 metro line will connect Kfar Saba to Tel Aviv metropolitan area via Herzliya and Hod HaSharon"
+      },
+      "major_bus_routes": [
+        {
+          "route_number_or_name": "Egged lines 500-520",
+          "destination": "Tel Aviv, Netanya, Ramat HaSharon",
+          "frequency": "Every 25 minutes"
+        }
+      ],
+      "cycling_infrastructure": "moderate",
+      "ben_gurion_airport": {
+        "distance_km": 35,
+        "drive_minutes": 28
+      },
+      "notes": "Bedroom community northeast of Tel Aviv. 18-minute train ride to Tel Aviv. Part of Sharon Railway network. Growing residential area.",
+      "confidence": "HIGH"
+    },
+    "Rehovot": {
+      "commute_to_tel_aviv": {
+        "distance_km": 29,
+        "drive_minutes_typical": 25,
+        "drive_minutes_rush_hour": 40,
+        "train_available": true,
+        "train_minutes": 23,
+        "bus_minutes": 35
+      },
+      "commute_to_jerusalem": {
+        "distance_km": 85,
+        "drive_minutes_typical": 70,
+        "drive_minutes_rush_hour": 95,
+        "train_available": false,
+        "train_minutes": null,
+        "bus_minutes": 100
+      },
+      "train_station": {
+        "exists": true,
+        "station_name": "Rehovot",
+        "line": "Coastal line south from Tel Aviv",
+        "walking_distance_from_center": "1-2 km from city center"
+      },
+      "light_rail": {
+        "exists": false,
+        "planned": true,
+        "details": "Planned as southern segment of Tel Aviv Green Line (Holon-Rishon LeZion-Rehovot, opening 2028+)"
+      },
+      "major_bus_routes": [
+        {
+          "route_number_or_name": "Egged lines 200, 277",
+          "destination": "Tel Aviv, Ashdod, Rishon LeZion",
+          "frequency": "Every 30 minutes"
+        }
+      ],
+      "cycling_infrastructure": "moderate",
+      "ben_gurion_airport": {
+        "distance_km": 32,
+        "drive_minutes": 25
+      },
+      "notes": "Academic hub (Technion faculty, research institutes). 23-minute train to Tel Aviv. Good transportation links southward.",
+      "confidence": "HIGH"
+    },
+    "Rishon LeZion": {
+      "commute_to_tel_aviv": {
+        "distance_km": 13,
+        "drive_minutes_typical": 15,
+        "drive_minutes_rush_hour": 25,
+        "train_available": true,
+        "train_minutes": 19,
+        "bus_minutes": 25
+      },
+      "commute_to_jerusalem": {
+        "distance_km": 75,
+        "drive_minutes_typical": 65,
+        "drive_minutes_rush_hour": 85,
+        "train_available": false,
+        "train_minutes": null,
+        "bus_minutes": 85
+      },
+      "train_station": {
+        "exists": true,
+        "station_name": "Rishon LeZion HaRishonim, Rishon LeZion Moshe Dayan",
+        "line": "Coastal line and new Modi'in-Rishon LeZion line",
+        "walking_distance_from_center": "1-2 km from city center"
+      },
+      "light_rail": {
+        "exists": false,
+        "planned": true,
+        "details": "Planned as southern terminus of Tel Aviv Green Line (opening 2028+)"
+      },
+      "major_bus_routes": [
+        {
+          "route_number_or_name": "Egged lines 200, 220",
+          "destination": "Tel Aviv, Ashdod, Rehovot",
+          "frequency": "Every 20-30 minutes"
+        }
+      ],
+      "cycling_infrastructure": "moderate",
+      "ben_gurion_airport": {
+        "distance_km": 25,
+        "drive_minutes": 20
+      },
+      "notes": "Suburban bedroom community. Close proximity to Tel Aviv (13 km, 19-minute train). New Modi'in line reduces commute times. Tech and services hub.",
+      "confidence": "HIGH"
+    },
+    "Efrat": {
+      "commute_to_tel_aviv": {
+        "distance_km": 55,
+        "drive_minutes_typical": 50,
+        "drive_minutes_rush_hour": 70,
+        "train_available": false,
+        "train_minutes": null,
+        "bus_minutes": 65
+      },
+      "commute_to_jerusalem": {
+        "distance_km": 30,
+        "drive_minutes_typical": 30,
+        "drive_minutes_rush_hour": 40,
+        "train_available": false,
+        "train_minutes": null,
+        "bus_minutes": 30
+      },
+      "train_station": {
+        "exists": false,
+        "station_name": null,
+        "line": null,
+        "walking_distance_from_center": null
+      },
+      "light_rail": {
+        "exists": false,
+        "planned": false,
+        "details": "No light rail planned for Efrat"
+      },
+      "major_bus_routes": [
+        {
+          "route_number_or_name": "Egged Bus 77",
+          "destination": "Jerusalem, Beit Shemesh, Beitar",
+          "frequency": "Regular service"
+        }
+      ],
+      "cycling_infrastructure": "poor",
+      "ben_gurion_airport": {
+        "distance_km": 60,
+        "drive_minutes": 50
+      },
+      "notes": "Settlement in Gush Etzion south of Jerusalem. No direct train service. Bus connections to Jerusalem and Tel Aviv. Tourism-oriented economy.",
+      "confidence": "MEDIUM"
+    },
+    "Maale Adumim": {
+      "commute_to_tel_aviv": {
+        "distance_km": 70,
+        "drive_minutes_typical": 60,
+        "drive_minutes_rush_hour": 80,
+        "train_available": false,
+        "train_minutes": null,
+        "bus_minutes": 80
+      },
+      "commute_to_jerusalem": {
+        "distance_km": 7,
+        "drive_minutes_typical": 15,
+        "drive_minutes_rush_hour": 20,
+        "train_available": false,
+        "train_minutes": null,
+        "bus_minutes": 25
+      },
+      "train_station": {
+        "exists": false,
+        "station_name": null,
+        "line": null,
+        "walking_distance_from_center": null
+      },
+      "light_rail": {
+        "exists": false,
+        "planned": false,
+        "details": "No light rail planned for Maale Adumim"
+      },
+      "major_bus_routes": [
+        {
+          "route_number_or_name": "Bus 174",
+          "destination": "Jerusalem",
+          "frequency": "Regular service"
+        }
+      ],
+      "cycling_infrastructure": "minimal",
+      "ben_gurion_airport": {
+        "distance_km": 65,
+        "drive_minutes": 55
+      },
+      "notes": "Settlement east of Jerusalem. Very short commute to Jerusalem (15 min drive). No train service. Primarily serves Jerusalem employment market.",
+      "confidence": "MEDIUM"
+    },
+    "Givat Shmuel": {
+      "commute_to_tel_aviv": {
+        "distance_km": 18,
+        "drive_minutes_typical": 18,
+        "drive_minutes_rush_hour": 30,
+        "train_available": true,
+        "train_minutes": 15,
+        "bus_minutes": 25
+      },
+      "commute_to_jerusalem": {
+        "distance_km": 85,
+        "drive_minutes_typical": 75,
+        "drive_minutes_rush_hour": 100,
+        "train_available": false,
+        "train_minutes": null,
+        "bus_minutes": 110
+      },
+      "train_station": {
+        "exists": true,
+        "station_name": "Bnei Brak-Ramat HaHayal",
+        "line": "Yarkon suburban line",
+        "walking_distance_from_center": "1-2 km from city center"
+      },
+      "light_rail": {
+        "exists": true,
+        "planned": false,
+        "details": "Red Line light rail accessible via nearby Bnei Brak station"
+      },
+      "major_bus_routes": [
+        {
+          "route_number_or_name": "Dan local lines",
+          "destination": "Tel Aviv, Ramat Gan, Petah Tikva",
+          "frequency": "Very frequent"
+        }
+      ],
+      "cycling_infrastructure": "moderate",
+      "ben_gurion_airport": {
+        "distance_km": 32,
+        "drive_minutes": 25
+      },
+      "notes": "Small residential city in Gush Dan metropolitan area. Good commute to Tel Aviv. Access to Red Line light rail via nearby station.",
+      "confidence": "HIGH"
+    },
+    "Ramat Gan": {
+      "commute_to_tel_aviv": {
+        "distance_km": 8,
+        "drive_minutes_typical": 12,
+        "drive_minutes_rush_hour": 20,
+        "train_available": true,
+        "train_minutes": 8,
+        "bus_minutes": 15
+      },
+      "commute_to_jerusalem": {
+        "distance_km": 75,
+        "drive_minutes_typical": 68,
+        "drive_minutes_rush_hour": 90,
+        "train_available": false,
+        "train_minutes": null,
+        "bus_minutes": 100
+      },
+      "train_station": {
+        "exists": true,
+        "station_name": "Ramat Gan",
+        "line": "Yarkon suburban line",
+        "walking_distance_from_center": "1-2 km from city center"
+      },
+      "light_rail": {
+        "exists": true,
+        "planned": false,
+        "details": "Red Line light rail operational since August 2023, connecting to Tel Aviv and Petah Tikva"
+      },
+      "major_bus_routes": [
+        {
+          "route_number_or_name": "Dan local lines",
+          "destination": "Tel Aviv, Givatayim, Ramat HaSharon",
+          "frequency": "Very frequent"
+        }
+      ],
+      "cycling_infrastructure": "moderate",
+      "ben_gurion_airport": {
+        "distance_km": 28,
+        "drive_minutes": 22
+      },
+      "notes": "East of Tel Aviv in Gush Dan metro. Excellent rail and light rail connections. Short commute to Tel Aviv (8 min by train/light rail).",
+      "confidence": "HIGH"
+    },
+    "Givatayim": {
+      "commute_to_tel_aviv": {
+        "distance_km": 5,
+        "drive_minutes_typical": 10,
+        "drive_minutes_rush_hour": 15,
+        "train_available": false,
+        "train_minutes": null,
+        "bus_minutes": 10
+      },
+      "commute_to_jerusalem": {
+        "distance_km": 70,
+        "drive_minutes_typical": 65,
+        "drive_minutes_rush_hour": 85,
+        "train_available": false,
+        "train_minutes": null,
+        "bus_minutes": 95
+      },
+      "train_station": {
+        "exists": false,
+        "station_name": null,
+        "line": null,
+        "walking_distance_from_center": null
+      },
+      "light_rail": {
+        "exists": false,
+        "planned": true,
+        "details": "Planned for future Tel Aviv light rail expansion"
+      },
+      "major_bus_routes": [
+        {
+          "route_number_or_name": "Dan local lines",
+          "destination": "Tel Aviv, Ramat Gan, Petah Tikva",
+          "frequency": "Very frequent"
+        }
+      ],
+      "cycling_infrastructure": "moderate",
+      "ben_gurion_airport": {
+        "distance_km": 27,
+        "drive_minutes": 20
+      },
+      "notes": "Small residential city, effectively suburb of Tel Aviv. No train station but excellent bus service and very close to Tel Aviv center.",
+      "confidence": "HIGH"
+    },
+    "Holon": {
+      "commute_to_tel_aviv": {
+        "distance_km": 10,
+        "drive_minutes_typical": 12,
+        "drive_minutes_rush_hour": 20,
+        "train_available": true,
+        "train_minutes": 12,
+        "bus_minutes": 15
+      },
+      "commute_to_jerusalem": {
+        "distance_km": 75,
+        "drive_minutes_typical": 68,
+        "drive_minutes_rush_hour": 90,
+        "train_available": false,
+        "train_minutes": null,
+        "bus_minutes": 100
+      },
+      "train_station": {
+        "exists": true,
+        "station_name": "Holon Junction, Holon Wolfson",
+        "line": "Rosh HaAyin-Beersheba line",
+        "walking_distance_from_center": "2-3 km from city center"
+      },
+      "light_rail": {
+        "exists": true,
+        "planned": true,
+        "details": "Red Line light rail accessible via nearby Bat Yam station. Green Line extension to Holon planned for 2028+"
+      },
+      "major_bus_routes": [
+        {
+          "route_number_or_name": "Dan local lines",
+          "destination": "Tel Aviv, Bat Yam, Rishon LeZion",
+          "frequency": "Frequent"
+        }
+      ],
+      "cycling_infrastructure": "poor",
+      "ben_gurion_airport": {
+        "distance_km": 25,
+        "drive_minutes": 20
+      },
+      "notes": "South of Tel Aviv. Good rail connections via two stations. 12-minute train to Tel Aviv. Future light rail expansion planned.",
+      "confidence": "HIGH"
+    },
+    "Bat Yam": {
+      "commute_to_tel_aviv": {
+        "distance_km": 12,
+        "drive_minutes_typical": 15,
+        "drive_minutes_rush_hour": 25,
+        "train_available": true,
+        "train_minutes": 10,
+        "bus_minutes": 20
+      },
+      "commute_to_jerusalem": {
+        "distance_km": 75,
+        "drive_minutes_typical": 68,
+        "drive_minutes_rush_hour": 90,
+        "train_available": false,
+        "train_minutes": null,
+        "bus_minutes": 100
+      },
+      "train_station": {
+        "exists": true,
+        "station_name": "Bat Yam Yoseftal",
+        "line": "Rosh HaAyin-Beersheba line",
+        "walking_distance_from_center": "2-3 km from city center"
+      },
+      "light_rail": {
+        "exists": true,
+        "planned": true,
+        "details": "Red Line light rail southwestern terminus. Future southern extension of Green Line planned."
+      },
+      "major_bus_routes": [
+        {
+          "route_number_or_name": "Dan local lines",
+          "destination": "Tel Aviv, Holon, Rishon LeZion",
+          "frequency": "Frequent"
+        }
+      ],
+      "cycling_infrastructure": "good",
+      "ben_gurion_airport": {
+        "distance_km": 26,
+        "drive_minutes": 20
+      },
+      "notes": "Coastal city south of Tel Aviv. Red Line light rail southwestern terminus. Short train commute (10 min) to Tel Aviv.",
+      "confidence": "HIGH"
+    },
+    "Bnei Brak": {
+      "commute_to_tel_aviv": {
+        "distance_km": 12,
+        "drive_minutes_typical": 15,
+        "drive_minutes_rush_hour": 25,
+        "train_available": true,
+        "train_minutes": 12,
+        "bus_minutes": 18
+      },
+      "commute_to_jerusalem": {
+        "distance_km": 80,
+        "drive_minutes_typical": 72,
+        "drive_minutes_rush_hour": 95,
+        "train_available": false,
+        "train_minutes": null,
+        "bus_minutes": 105
+      },
+      "train_station": {
+        "exists": true,
+        "station_name": "Bnei Brak-Ramat HaHayal",
+        "line": "Yarkon suburban line",
+        "walking_distance_from_center": "2-3 km from city center"
+      },
+      "light_rail": {
+        "exists": true,
+        "planned": false,
+        "details": "Red Line light rail passes through city"
+      },
+      "major_bus_routes": [
+        {
+          "route_number_or_name": "Dan local lines",
+          "destination": "Tel Aviv, Ramat Gan, Petah Tikva",
+          "frequency": "Very frequent"
+        }
+      ],
+      "cycling_infrastructure": "poor",
+      "ben_gurion_airport": {
+        "distance_km": 30,
+        "drive_minutes": 23
+      },
+      "notes": "Major Orthodox Jewish population center. Red Line light rail operational. 12-minute train to Tel Aviv. Part of Gush Dan metro.",
+      "confidence": "HIGH"
+    },
+    "Ramat HaSharon": {
+      "commute_to_tel_aviv": {
+        "distance_km": 11,
+        "drive_minutes_typical": 10,
+        "drive_minutes_rush_hour": 20,
+        "train_available": true,
+        "train_minutes": 12,
+        "bus_minutes": 18
+      },
+      "commute_to_jerusalem": {
+        "distance_km": 80,
+        "drive_minutes_typical": 72,
+        "drive_minutes_rush_hour": 95,
+        "train_available": false,
+        "train_minutes": null,
+        "bus_minutes": 110
+      },
+      "train_station": {
+        "exists": true,
+        "station_name": "Ramat HaSharon",
+        "line": "Tel Aviv-Netanya suburban line",
+        "walking_distance_from_center": "1-2 km from city center"
+      },
+      "light_rail": {
+        "exists": false,
+        "planned": true,
+        "details": "Planned M1 metro line will connect Ramat HaSharon to Tel Aviv via Herzliya"
+      },
+      "major_bus_routes": [
+        {
+          "route_number_or_name": "Egged lines 29, 201",
+          "destination": "Tel Aviv, Herzliya, Hod HaSharon",
+          "frequency": "Every 20-30 minutes"
+        }
+      ],
+      "cycling_infrastructure": "good",
+      "ben_gurion_airport": {
+        "distance_km": 32,
+        "drive_minutes": 26
+      },
+      "notes": "Affluent residential community in Sharon region. Short commute to Tel Aviv (10-12 min). Part of planned metro expansion.",
+      "confidence": "HIGH"
+    },
+    "Hod HaSharon": {
+      "commute_to_tel_aviv": {
+        "distance_km": 19,
+        "drive_minutes_typical": 18,
+        "drive_minutes_rush_hour": 30,
+        "train_available": true,
+        "train_minutes": 15,
+        "bus_minutes": 25
+      },
+      "commute_to_jerusalem": {
+        "distance_km": 85,
+        "drive_minutes_typical": 75,
+        "drive_minutes_rush_hour": 100,
+        "train_available": false,
+        "train_minutes": null,
+        "bus_minutes": 115
+      },
+      "train_station": {
+        "exists": true,
+        "station_name": "Hod HaSharon-Sokolov",
+        "line": "Tel Aviv-Netanya suburban line (Sharon Railway)",
+        "walking_distance_from_center": "1-2 km from city center"
+      },
+      "light_rail": {
+        "exists": false,
+        "planned": true,
+        "details": "Planned M1 metro line will connect through Hod HaSharon linking Kfar Saba to Tel Aviv"
+      },
+      "major_bus_routes": [
+        {
+          "route_number_or_name": "Egged lines 29, 201, 510",
+          "destination": "Tel Aviv, Kfar Saba, Ramat HaSharon, Netanya",
+          "frequency": "Every 20-30 minutes"
+        }
+      ],
+      "cycling_infrastructure": "moderate",
+      "ben_gurion_airport": {
+        "distance_km": 35,
+        "drive_minutes": 28
+      },
+      "notes": "Part of Sharon region between Tel Aviv and Netanya. 15-minute train to Tel Aviv. Planned as central node of metro expansion.",
+      "confidence": "HIGH"
+    },
+    "Lod": {
+      "commute_to_tel_aviv": {
+        "distance_km": 22,
+        "drive_minutes_typical": 20,
+        "drive_minutes_rush_hour": 35,
+        "train_available": true,
+        "train_minutes": 18,
+        "bus_minutes": 25
+      },
+      "commute_to_jerusalem": {
+        "distance_km": 50,
+        "drive_minutes_typical": 45,
+        "drive_minutes_rush_hour": 60,
+        "train_available": false,
+        "train_minutes": null,
+        "bus_minutes": 60
+      },
+      "train_station": {
+        "exists": true,
+        "station_name": "Lod",
+        "line": "Coastal main line",
+        "walking_distance_from_center": "1-2 km from city center"
+      },
+      "light_rail": {
+        "exists": false,
+        "planned": false,
+        "details": "No light rail planned for Lod"
+      },
+      "major_bus_routes": [
+        {
+          "route_number_or_name": "Egged intercity",
+          "destination": "Tel Aviv, Jerusalem, Haifa",
+          "frequency": "Regular service"
+        }
+      ],
+      "cycling_infrastructure": "poor",
+      "ben_gurion_airport": {
+        "distance_km": 5,
+        "drive_minutes": 8
+      },
+      "notes": "Historic city near Ben Gurion Airport. 18-minute train to Tel Aviv. Gateway to airport and central Israel.",
+      "confidence": "HIGH"
+    },
+    "Ramla": {
+      "commute_to_tel_aviv": {
+        "distance_km": 22,
+        "drive_minutes_typical": 18,
+        "drive_minutes_rush_hour": 30,
+        "train_available": true,
+        "train_minutes": 25,
+        "bus_minutes": 25
+      },
+      "commute_to_jerusalem": {
+        "distance_km": 50,
+        "drive_minutes_typical": 45,
+        "drive_minutes_rush_hour": 60,
+        "train_available": false,
+        "train_minutes": null,
+        "bus_minutes": 60
+      },
+      "train_station": {
+        "exists": true,
+        "station_name": "Ramla",
+        "line": "Coastal main line (Beer Sheva-Nahariya service)",
+        "walking_distance_from_center": "2 km from city center"
+      },
+      "light_rail": {
+        "exists": false,
+        "planned": false,
+        "details": "No light rail planned for Ramla"
+      },
+      "major_bus_routes": [
+        {
+          "route_number_or_name": "Egged intercity",
+          "destination": "Tel Aviv, Jerusalem, Haifa",
+          "frequency": "Regular service"
+        }
+      ],
+      "cycling_infrastructure": "poor",
+      "ben_gurion_airport": {
+        "distance_km": 20,
+        "drive_minutes": 18
+      },
+      "notes": "Historic city near Lod. 25-minute train to Tel Aviv. Regional hub connecting to Beer Sheva and northern routes.",
+      "confidence": "MEDIUM"
+    },
+    "Nazareth": {
+      "commute_to_tel_aviv": {
+        "distance_km": 105,
+        "drive_minutes_typical": 90,
+        "drive_minutes_rush_hour": 120,
+        "train_available": false,
+        "train_minutes": null,
+        "bus_minutes": 110
+      },
+      "commute_to_jerusalem": {
+        "distance_km": 160,
+        "drive_minutes_typical": 140,
+        "drive_minutes_rush_hour": 170,
+        "train_available": false,
+        "train_minutes": null,
+        "bus_minutes": 180
+      },
+      "train_station": {
+        "exists": false,
+        "station_name": null,
+        "line": null,
+        "walking_distance_from_center": null
+      },
+      "light_rail": {
+        "exists": false,
+        "planned": false,
+        "details": "No light rail planned for Nazareth"
+      },
+      "major_bus_routes": [
+        {
+          "route_number_or_name": "NTT Bus 431",
+          "destination": "Tiberias, Safed",
+          "frequency": "Every 2 hours"
+        },
+        {
+          "route_number_or_name": "Egged Bus 833",
+          "destination": "Tel Aviv",
+          "frequency": "Hourly"
+        },
+        {
+          "route_number_or_name": "Egged Bus 353",
+          "destination": "Acre",
+          "frequency": "Hourly"
+        }
+      ],
+      "cycling_infrastructure": "poor",
+      "ben_gurion_airport": {
+        "distance_km": 130,
+        "drive_minutes": 110
+      },
+      "notes": "Major city in Galilee, important Christian pilgrimage center. No train service. Primary transport by bus to surrounding cities and Tel Aviv.",
+      "confidence": "MEDIUM"
+    },
+    "Acre": {
+      "commute_to_tel_aviv": {
+        "distance_km": 120,
+        "drive_minutes_typical": 100,
+        "drive_minutes_rush_hour": 130,
+        "train_available": true,
+        "train_minutes": 85,
+        "bus_minutes": 130
+      },
+      "commute_to_jerusalem": {
+        "distance_km": 190,
+        "drive_minutes_typical": 160,
+        "drive_minutes_rush_hour": 190,
+        "train_available": false,
+        "train_minutes": null,
+        "bus_minutes": 210
+      },
+      "train_station": {
+        "exists": true,
+        "station_name": "Acre",
+        "line": "Coastal main line (Nahariya-Beersheba)",
+        "walking_distance_from_center": "3-4 km from city center"
+      },
+      "light_rail": {
+        "exists": false,
+        "planned": false,
+        "details": "No light rail planned for Acre"
+      },
+      "major_bus_routes": [
+        {
+          "route_number_or_name": "Egged intercity",
+          "destination": "Haifa, Tel Aviv, Nazareth",
+          "frequency": "Regular service"
+        }
+      ],
+      "cycling_infrastructure": "poor",
+      "ben_gurion_airport": {
+        "distance_km": 140,
+        "drive_minutes": 115
+      },
+      "notes": "Historic crusader port city. Train to Tel Aviv takes 85+ minutes. Important gateway to northern sites and Lebanon connections.",
+      "confidence": "MEDIUM"
+    },
+    "Tiberias": {
+      "commute_to_tel_aviv": {
+        "distance_km": 135,
+        "drive_minutes_typical": 110,
+        "drive_minutes_rush_hour": 140,
+        "train_available": false,
+        "train_minutes": null,
+        "bus_minutes": 140
+      },
+      "commute_to_jerusalem": {
+        "distance_km": 150,
+        "drive_minutes_typical": 130,
+        "drive_minutes_rush_hour": 160,
+        "train_available": false,
+        "train_minutes": null,
+        "bus_minutes": 160
+      },
+      "train_station": {
+        "exists": false,
+        "station_name": null,
+        "line": null,
+        "walking_distance_from_center": null
+      },
+      "light_rail": {
+        "exists": false,
+        "planned": false,
+        "details": "No light rail planned for Tiberias"
+      },
+      "major_bus_routes": [
+        {
+          "route_number_or_name": "NTT Bus 431",
+          "destination": "Nazareth, Safed",
+          "frequency": "Every 2 hours"
+        },
+        {
+          "route_number_or_name": "NTT Bus 450",
+          "destination": "Safed",
+          "frequency": "Hourly"
+        }
+      ],
+      "cycling_infrastructure": "poor",
+      "ben_gurion_airport": {
+        "distance_km": 160,
+        "drive_minutes": 130
+      },
+      "notes": "Major resort city on Sea of Galilee. No train service. Primary tourism and pilgrimage hub. Bus connections to northern cities.",
+      "confidence": "MEDIUM"
+    },
+    "Safed": {
+      "commute_to_tel_aviv": {
+        "distance_km": 160,
+        "drive_minutes_typical": 140,
+        "drive_minutes_rush_hour": 170,
+        "train_available": false,
+        "train_minutes": null,
+        "bus_minutes": 180
+      },
+      "commute_to_jerusalem": {
+        "distance_km": 210,
+        "drive_minutes_typical": 180,
+        "drive_minutes_rush_hour": 220,
+        "train_available": false,
+        "train_minutes": null,
+        "bus_minutes": 240
+      },
+      "train_station": {
+        "exists": false,
+        "station_name": null,
+        "line": null,
+        "walking_distance_from_center": null
+      },
+      "light_rail": {
+        "exists": false,
+        "planned": true,
+        "details": "Planned railway extension from Karmiel to Safed and Kiryat Shmona (future development)"
+      },
+      "major_bus_routes": [
+        {
+          "route_number_or_name": "NTT Bus 450",
+          "destination": "Tiberias",
+          "frequency": "Hourly"
+        }
+      ],
+      "cycling_infrastructure": "poor",
+      "ben_gurion_airport": {
+        "distance_km": 180,
+        "drive_minutes": 150
+      },
+      "notes": "Hilltop holy city and art center in upper Galilee. No train service. Bus connections limited. Popular tourist and pilgrimage destination.",
+      "confidence": "LOW"
+    },
+    "Karmiel": {
+      "commute_to_tel_aviv": {
+        "distance_km": 130,
+        "drive_minutes_typical": 110,
+        "drive_minutes_rush_hour": 140,
+        "train_available": true,
+        "train_minutes": 95,
+        "bus_minutes": 140
+      },
+      "commute_to_jerusalem": {
+        "distance_km": 200,
+        "drive_minutes_typical": 170,
+        "drive_minutes_rush_hour": 210,
+        "train_available": false,
+        "train_minutes": null,
+        "bus_minutes": 240
+      },
+      "train_station": {
+        "exists": true,
+        "station_name": "Karmiel",
+        "line": "Karmiel line (opened 2017)",
+        "walking_distance_from_center": "1-2 km from city center"
+      },
+      "light_rail": {
+        "exists": false,
+        "planned": true,
+        "details": "Future planned extension to Kiryat Shmona and Safed"
+      },
+      "major_bus_routes": [
+        {
+          "route_number_or_name": "Egged intercity",
+          "destination": "Haifa, Tel Aviv, Acre",
+          "frequency": "Regular service"
+        }
+      ],
+      "cycling_infrastructure": "poor",
+      "ben_gurion_airport": {
+        "distance_km": 150,
+        "drive_minutes": 125
+      },
+      "notes": "Industrial and technological hub in upper Galilee. Railway opened 2017 connecting to Acre area. ~95-minute train to Tel Aviv.",
+      "confidence": "MEDIUM"
+    },
+    "Nahariya": {
+      "commute_to_tel_aviv": {
+        "distance_km": 135,
+        "drive_minutes_typical": 110,
+        "drive_minutes_rush_hour": 140,
+        "train_available": true,
+        "train_minutes": 90,
+        "bus_minutes": 140
+      },
+      "commute_to_jerusalem": {
+        "distance_km": 205,
+        "drive_minutes_typical": 175,
+        "drive_minutes_rush_hour": 210,
+        "train_available": false,
+        "train_minutes": null,
+        "bus_minutes": 240
+      },
+      "train_station": {
+        "exists": true,
+        "station_name": "Nahariya",
+        "line": "Coastal main line (northern terminus)",
+        "walking_distance_from_center": "1 km from city center"
+      },
+      "light_rail": {
+        "exists": false,
+        "planned": false,
+        "details": "No light rail planned for Nahariya"
+      },
+      "major_bus_routes": [
+        {
+          "route_number_or_name": "Egged intercity",
+          "destination": "Haifa, Acre, Tel Aviv",
+          "frequency": "Regular service"
+        }
+      ],
+      "cycling_infrastructure": "good",
+      "ben_gurion_airport": {
+        "distance_km": 155,
+        "drive_minutes": 130
+      },
+      "notes": "Northernmost coastal resort city. Train terminus on main coastal line. ~90-minute train to Tel Aviv. Beach tourism destination.",
+      "confidence": "MEDIUM"
+    },
+    "Kiryat Shmona": {
+      "commute_to_tel_aviv": {
+        "distance_km": 165,
+        "drive_minutes_typical": 145,
+        "drive_minutes_rush_hour": 175,
+        "train_available": false,
+        "train_minutes": null,
+        "bus_minutes": 190
+      },
+      "commute_to_jerusalem": {
+        "distance_km": 230,
+        "drive_minutes_typical": 200,
+        "drive_minutes_rush_hour": 240,
+        "train_available": false,
+        "train_minutes": null,
+        "bus_minutes": 280
+      },
+      "train_station": {
+        "exists": false,
+        "station_name": null,
+        "line": null,
+        "walking_distance_from_center": null
+      },
+      "light_rail": {
+        "exists": false,
+        "planned": true,
+        "details": "Planned railway extension from Karmiel to Kiryat Shmona (future development, timeline uncertain)"
+      },
+      "major_bus_routes": [
+        {
+          "route_number_or_name": "Egged intercity",
+          "destination": "Haifa, Tel Aviv, Tiberias",
+          "frequency": "Regular service"
+        }
+      ],
+      "cycling_infrastructure": "poor",
+      "ben_gurion_airport": {
+        "distance_km": 185,
+        "drive_minutes": 160
+      },
+      "notes": "Northernmost city in Israel near Lebanese border. Currently no train service. Planned rail extension uncertain. Primarily tourism-oriented.",
+      "confidence": "LOW"
+    },
+    "Kiryat Ata": {
+      "commute_to_tel_aviv": {
+        "distance_km": 100,
+        "drive_minutes_typical": 80,
+        "drive_minutes_rush_hour": 110,
+        "train_available": true,
+        "train_minutes": 75,
+        "bus_minutes": 100
+      },
+      "commute_to_jerusalem": {
+        "distance_km": 185,
+        "drive_minutes_typical": 160,
+        "drive_minutes_rush_hour": 190,
+        "train_available": false,
+        "train_minutes": null,
+        "bus_minutes": 210
+      },
+      "train_station": {
+        "exists": true,
+        "station_name": "Kiryat Haim (nearby)",
+        "line": "Coastal main line",
+        "walking_distance_from_center": "3-4 km from city center"
+      },
+      "light_rail": {
+        "exists": false,
+        "planned": false,
+        "details": "No light rail planned for Kiryat Ata area"
+      },
+      "major_bus_routes": [
+        {
+          "route_number_or_name": "Egged local lines",
+          "destination": "Haifa area, suburbs",
+          "frequency": "Regular service"
+        }
+      ],
+      "cycling_infrastructure": "poor",
+      "ben_gurion_airport": {
+        "distance_km": 120,
+        "drive_minutes": 100
+      },
+      "notes": "Northern suburb of Haifa. Nearby Kiryat Haim station provides rail access. Industrial area with limited long-distance commuting.",
+      "confidence": "MEDIUM"
+    },
+    "Kiryat Bialik": {
+      "commute_to_tel_aviv": {
+        "distance_km": 102,
+        "drive_minutes_typical": 82,
+        "drive_minutes_rush_hour": 112,
+        "train_available": true,
+        "train_minutes": 80,
+        "bus_minutes": 105
+      },
+      "commute_to_jerusalem": {
+        "distance_km": 185,
+        "drive_minutes_typical": 160,
+        "drive_minutes_rush_hour": 190,
+        "train_available": false,
+        "train_minutes": null,
+        "bus_minutes": 210
+      },
+      "train_station": {
+        "exists": true,
+        "station_name": "Kiryat Motzkin (nearby)",
+        "line": "Coastal main line and suburban line",
+        "walking_distance_from_center": "3-4 km from city center"
+      },
+      "light_rail": {
+        "exists": false,
+        "planned": false,
+        "details": "No light rail planned for Kiryat Bialik"
+      },
+      "major_bus_routes": [
+        {
+          "route_number_or_name": "Egged local lines",
+          "destination": "Haifa area, Kiryat suburbs",
+          "frequency": "Regular service"
+        }
+      ],
+      "cycling_infrastructure": "poor",
+      "ben_gurion_airport": {
+        "distance_km": 122,
+        "drive_minutes": 102
+      },
+      "notes": "Northern Haifa suburb. Kiryat Motzkin station provides rail access. ~80-minute train to Tel Aviv. Industrial area.",
+      "confidence": "MEDIUM"
+    },
+    "Kiryat Motzkin": {
+      "commute_to_tel_aviv": {
+        "distance_km": 101,
+        "drive_minutes_typical": 81,
+        "drive_minutes_rush_hour": 111,
+        "train_available": true,
+        "train_minutes": 75,
+        "bus_minutes": 105
+      },
+      "commute_to_jerusalem": {
+        "distance_km": 185,
+        "drive_minutes_typical": 160,
+        "drive_minutes_rush_hour": 190,
+        "train_available": false,
+        "train_minutes": null,
+        "bus_minutes": 210
+      },
+      "train_station": {
+        "exists": true,
+        "station_name": "Kiryat Motzkin",
+        "line": "Coastal main line (Nahariya-Beersheba) and suburban Kerayot line",
+        "walking_distance_from_center": "1-2 km from city center"
+      },
+      "light_rail": {
+        "exists": false,
+        "planned": false,
+        "details": "No light rail planned for Kiryat Motzkin"
+      },
+      "major_bus_routes": [
+        {
+          "route_number_or_name": "Egged local and intercity",
+          "destination": "Haifa, Acre, Tel Aviv",
+          "frequency": "Regular service"
+        }
+      ],
+      "cycling_infrastructure": "poor",
+      "ben_gurion_airport": {
+        "distance_km": 120,
+        "drive_minutes": 100
+      },
+      "notes": "Northern Haifa suburb with major train station. ~75-minute train to Tel Aviv. Gateway to Kerayot (Haifa Bay area).",
+      "confidence": "HIGH"
+    },
+    "Kiryat Yam": {
+      "commute_to_tel_aviv": {
+        "distance_km": 103,
+        "drive_minutes_typical": 83,
+        "drive_minutes_rush_hour": 113,
+        "train_available": true,
+        "train_minutes": 80,
+        "bus_minutes": 105
+      },
+      "commute_to_jerusalem": {
+        "distance_km": 185,
+        "drive_minutes_typical": 160,
+        "drive_minutes_rush_hour": 190,
+        "train_available": false,
+        "train_minutes": null,
+        "bus_minutes": 210
+      },
+      "train_station": {
+        "exists": true,
+        "station_name": "Kiryat Haim (nearby)",
+        "line": "Coastal main line",
+        "walking_distance_from_center": "2-3 km from city center"
+      },
+      "light_rail": {
+        "exists": false,
+        "planned": false,
+        "details": "No light rail planned for Kiryat Yam"
+      },
+      "major_bus_routes": [
+        {
+          "route_number_or_name": "Egged local lines",
+          "destination": "Haifa, suburbs",
+          "frequency": "Regular service"
+        }
+      ],
+      "cycling_infrastructure": "poor",
+      "ben_gurion_airport": {
+        "distance_km": 122,
+        "drive_minutes": 102
+      },
+      "notes": "Coastal suburb in Kerayot area north of Haifa. Access to trains via Kiryat Haim station. Industrial and residential area.",
+      "confidence": "MEDIUM"
+    },
+    "Yokneam": {
+      "commute_to_tel_aviv": {
+        "distance_km": 85,
+        "drive_minutes_typical": 70,
+        "drive_minutes_rush_hour": 95,
+        "train_available": false,
+        "train_minutes": null,
+        "bus_minutes": 95
+      },
+      "commute_to_jerusalem": {
+        "distance_km": 155,
+        "drive_minutes_typical": 130,
+        "drive_minutes_rush_hour": 160,
+        "train_available": false,
+        "train_minutes": null,
+        "bus_minutes": 180
+      },
+      "train_station": {
+        "exists": false,
+        "station_name": null,
+        "line": null,
+        "walking_distance_from_center": null
+      },
+      "light_rail": {
+        "exists": false,
+        "planned": false,
+        "details": "No light rail planned for Yokneam"
+      },
+      "major_bus_routes": [
+        {
+          "route_number_or_name": "Egged intercity",
+          "destination": "Haifa, Tel Aviv",
+          "frequency": "Regular service"
+        }
+      ],
+      "cycling_infrastructure": "poor",
+      "ben_gurion_airport": {
+        "distance_km": 105,
+        "drive_minutes": 85
+      },
+      "notes": "High-tech industrial hub in Menashe region. No current train service but has been discussed as potential future station. Primarily road-dependent.",
+      "confidence": "MEDIUM"
+    },
+    "Afula": {
+      "commute_to_tel_aviv": {
+        "distance_km": 110,
+        "drive_minutes_typical": 95,
+        "drive_minutes_rush_hour": 120,
+        "train_available": true,
+        "train_minutes": 85,
+        "bus_minutes": 120
+      },
+      "commute_to_jerusalem": {
+        "distance_km": 180,
+        "drive_minutes_typical": 150,
+        "drive_minutes_rush_hour": 180,
+        "train_available": false,
+        "train_minutes": null,
+        "bus_minutes": 200
+      },
+      "train_station": {
+        "exists": true,
+        "station_name": "Afula",
+        "line": "Beit She'an-Atlit line",
+        "walking_distance_from_center": "2 km from city center"
+      },
+      "light_rail": {
+        "exists": false,
+        "planned": false,
+        "details": "No light rail planned for Afula"
+      },
+      "major_bus_routes": [
+        {
+          "route_number_or_name": "Egged intercity",
+          "destination": "Tel Aviv, Haifa, Jerusalem, Tiberias",
+          "frequency": "Regular service"
+        }
+      ],
+      "cycling_infrastructure": "poor",
+      "ben_gurion_airport": {
+        "distance_km": 130,
+        "drive_minutes": 110
+      },
+      "notes": "Regional hub in Jezreel Valley. Train service connects to Beit She'an, Haifa, and Tel Aviv. Growing city with agriculture and industry.",
+      "confidence": "MEDIUM"
+    },
+    "Beit She'an": {
+      "commute_to_tel_aviv": {
+        "distance_km": 125,
+        "drive_minutes_typical": 110,
+        "drive_minutes_rush_hour": 135,
+        "train_available": true,
+        "train_minutes": 100,
+        "bus_minutes": 135
+      },
+      "commute_to_jerusalem": {
+        "distance_km": 205,
+        "drive_minutes_typical": 175,
+        "drive_minutes_rush_hour": 210,
+        "train_available": false,
+        "train_minutes": null,
+        "bus_minutes": 230
+      },
+      "train_station": {
+        "exists": true,
+        "station_name": "Beit She'an",
+        "line": "Beit She'an-Atlit line (opened 2016)",
+        "walking_distance_from_center": "2-3 km from city center"
+      },
+      "light_rail": {
+        "exists": false,
+        "planned": false,
+        "details": "No light rail planned for Beit She'an"
+      },
+      "major_bus_routes": [
+        {
+          "route_number_or_name": "Egged intercity",
+          "destination": "Tel Aviv, Haifa, Tiberias",
+          "frequency": "Regular service"
+        }
+      ],
+      "cycling_infrastructure": "poor",
+      "ben_gurion_airport": {
+        "distance_km": 145,
+        "drive_minutes": 125
+      },
+      "notes": "Historic town in Jordan Valley. New rail connection opened 2016. Important archaeological site and tourism destination.",
+      "confidence": "MEDIUM"
+    },
+    "Dimona": {
+      "commute_to_tel_aviv": {
+        "distance_km": 130,
+        "drive_minutes_typical": 115,
+        "drive_minutes_rush_hour": 145,
+        "train_available": false,
+        "train_minutes": null,
+        "bus_minutes": 150
+      },
+      "commute_to_jerusalem": {
+        "distance_km": 160,
+        "drive_minutes_typical": 135,
+        "drive_minutes_rush_hour": 165,
+        "train_available": false,
+        "train_minutes": null,
+        "bus_minutes": 180
+      },
+      "train_station": {
+        "exists": false,
+        "station_name": null,
+        "line": null,
+        "walking_distance_from_center": null
+      },
+      "light_rail": {
+        "exists": false,
+        "planned": true,
+        "details": "Planned Dimona-Eilat railway extension (future development, timeline uncertain)"
+      },
+      "major_bus_routes": [
+        {
+          "route_number_or_name": "Egged intercity",
+          "destination": "Beer Sheva, Tel Aviv",
+          "frequency": "Regular service"
+        }
+      ],
+      "cycling_infrastructure": "poor",
+      "ben_gurion_airport": {
+        "distance_km": 145,
+        "drive_minutes": 125
+      },
+      "notes": "Industrial center in Negev. No current train service but planned rail extension to Eilat. Chemical and mining industries.",
+      "confidence": "LOW"
+    },
+    "Arad": {
+      "commute_to_tel_aviv": {
+        "distance_km": 155,
+        "drive_minutes_typical": 140,
+        "drive_minutes_rush_hour": 170,
+        "train_available": false,
+        "train_minutes": null,
+        "bus_minutes": 180
+      },
+      "commute_to_jerusalem": {
+        "distance_km": 190,
+        "drive_minutes_typical": 160,
+        "drive_minutes_rush_hour": 190,
+        "train_available": false,
+        "train_minutes": null,
+        "bus_minutes": 210
+      },
+      "train_station": {
+        "exists": false,
+        "station_name": null,
+        "line": null,
+        "walking_distance_from_center": null
+      },
+      "light_rail": {
+        "exists": false,
+        "planned": true,
+        "details": "Planned railway branch to Arad from Beer Sheva area (future development)"
+      },
+      "major_bus_routes": [
+        {
+          "route_number_or_name": "Egged intercity",
+          "destination": "Beer Sheva, Jerusalem, Tel Aviv",
+          "frequency": "Regular service"
+        }
+      ],
+      "cycling_infrastructure": "poor",
+      "ben_gurion_airport": {
+        "distance_km": 170,
+        "drive_minutes": 150
+      },
+      "notes": "Desert city with natural health features. No train service. Planned rail branch uncertain. Tourist and health destination.",
+      "confidence": "LOW"
+    },
+    "Sderot": {
+      "commute_to_tel_aviv": {
+        "distance_km": 70,
+        "drive_minutes_typical": 65,
+        "drive_minutes_rush_hour": 90,
+        "train_available": true,
+        "train_minutes": 50,
+        "bus_minutes": 80
+      },
+      "commute_to_jerusalem": {
+        "distance_km": 155,
+        "drive_minutes_typical": 130,
+        "drive_minutes_rush_hour": 160,
+        "train_available": false,
+        "train_minutes": null,
+        "bus_minutes": 170
+      },
+      "train_station": {
+        "exists": true,
+        "station_name": "Sderot",
+        "line": "Ashkelon-Beersheba railway",
+        "walking_distance_from_center": "2-3 km from city center"
+      },
+      "light_rail": {
+        "exists": false,
+        "planned": false,
+        "details": "No light rail planned for Sderot"
+      },
+      "major_bus_routes": [
+        {
+          "route_number_or_name": "Egged intercity",
+          "destination": "Beer Sheva, Tel Aviv, Ashkelon",
+          "frequency": "Regular service"
+        }
+      ],
+      "cycling_infrastructure": "poor",
+      "ben_gurion_airport": {
+        "distance_km": 85,
+        "drive_minutes": 75
+      },
+      "notes": "Southern border town. Train to Tel Aviv ~50 minutes. Limited economic development due to location. Primarily local services.",
+      "confidence": "MEDIUM"
+    },
+    "Ofakim": {
+      "commute_to_tel_aviv": {
+        "distance_km": 100,
+        "drive_minutes_typical": 90,
+        "drive_minutes_rush_hour": 120,
+        "train_available": true,
+        "train_minutes": 70,
+        "bus_minutes": 120
+      },
+      "commute_to_jerusalem": {
+        "distance_km": 155,
+        "drive_minutes_typical": 130,
+        "drive_minutes_rush_hour": 160,
+        "train_available": false,
+        "train_minutes": null,
+        "bus_minutes": 170
+      },
+      "train_station": {
+        "exists": true,
+        "station_name": "Ofakim",
+        "line": "Ashkelon-Beersheba railway",
+        "walking_distance_from_center": "2 km from city center"
+      },
+      "light_rail": {
+        "exists": false,
+        "planned": false,
+        "details": "No light rail planned for Ofakim"
+      },
+      "major_bus_routes": [
+        {
+          "route_number_or_name": "Egged intercity",
+          "destination": "Beer Sheva, Sderot",
+          "frequency": "Regular service"
+        }
+      ],
+      "cycling_infrastructure": "poor",
+      "ben_gurion_airport": {
+        "distance_km": 115,
+        "drive_minutes": 100
+      },
+      "notes": "Kibbutz-based town in central Negev. Train connection to Tel Aviv and Beer Sheva. Agriculture and light industry based economy.",
+      "confidence": "MEDIUM"
+    },
+    "Kiryat Gat": {
+      "commute_to_tel_aviv": {
+        "distance_km": 110,
+        "drive_minutes_typical": 100,
+        "drive_minutes_rush_hour": 130,
+        "train_available": true,
+        "train_minutes": 75,
+        "bus_minutes": 130
+      },
+      "commute_to_jerusalem": {
+        "distance_km": 170,
+        "drive_minutes_typical": 140,
+        "drive_minutes_rush_hour": 170,
+        "train_available": false,
+        "train_minutes": null,
+        "bus_minutes": 190
+      },
+      "train_station": {
+        "exists": true,
+        "station_name": "Kiryat Gat",
+        "line": "Ashkelon-Beersheba railway",
+        "walking_distance_from_center": "2-3 km from city center"
+      },
+      "light_rail": {
+        "exists": false,
+        "planned": false,
+        "details": "No light rail planned for Kiryat Gat"
+      },
+      "major_bus_routes": [
+        {
+          "route_number_or_name": "Egged intercity",
+          "destination": "Beer Sheva, Sderot, Tel Aviv",
+          "frequency": "Regular service"
+        }
+      ],
+      "cycling_infrastructure": "poor",
+      "ben_gurion_airport": {
+        "distance_km": 125,
+        "drive_minutes": 110
+      },
+      "notes": "Regional center in western Negev. Train ~75 minutes to Tel Aviv. Hub for agricultural and industrial activity in the region.",
+      "confidence": "MEDIUM"
+    },
+    "Kiryat Malachi": {
+      "commute_to_tel_aviv": {
+        "distance_km": 70,
+        "drive_minutes_typical": 65,
+        "drive_minutes_rush_hour": 90,
+        "train_available": true,
+        "train_minutes": 50,
+        "bus_minutes": 75
+      },
+      "commute_to_jerusalem": {
+        "distance_km": 100,
+        "drive_minutes_typical": 85,
+        "drive_minutes_rush_hour": 110,
+        "train_available": false,
+        "train_minutes": null,
+        "bus_minutes": 120
+      },
+      "train_station": {
+        "exists": true,
+        "station_name": "Kiryat Malachi",
+        "line": "Ashkelon-Beersheba railway",
+        "walking_distance_from_center": "2 km from city center"
+      },
+      "light_rail": {
+        "exists": false,
+        "planned": true,
+        "details": "Possible future inclusion in southern light rail expansion"
+      },
+      "major_bus_routes": [
+        {
+          "route_number_or_name": "Egged intercity",
+          "destination": "Tel Aviv, Beer Sheva, Ashdod",
+          "frequency": "Regular service"
+        }
+      ],
+      "cycling_infrastructure": "poor",
+      "ben_gurion_airport": {
+        "distance_km": 75,
+        "drive_minutes": 65
+      },
+      "notes": "Regional city between Ashdod and Beer Sheva. Train ~50 minutes to Tel Aviv. Growing residential and industrial area.",
+      "confidence": "MEDIUM"
+    },
+    "Or Akiva": {
+      "commute_to_tel_aviv": {
+        "distance_km": 35,
+        "drive_minutes_typical": 30,
+        "drive_minutes_rush_hour": 45,
+        "train_available": true,
+        "train_minutes": 35,
+        "bus_minutes": 45
+      },
+      "commute_to_jerusalem": {
+        "distance_km": 100,
+        "drive_minutes_typical": 85,
+        "drive_minutes_rush_hour": 110,
+        "train_available": false,
+        "train_minutes": null,
+        "bus_minutes": 130
+      },
+      "train_station": {
+        "exists": true,
+        "station_name": "Or Akiva",
+        "line": "Coastal main line (Tel Aviv-Nahariya)",
+        "walking_distance_from_center": "1-2 km from city center"
+      },
+      "light_rail": {
+        "exists": false,
+        "planned": false,
+        "details": "No light rail planned for Or Akiva"
+      },
+      "major_bus_routes": [
+        {
+          "route_number_or_name": "Egged intercity",
+          "destination": "Tel Aviv, Haifa, Beer Sheva",
+          "frequency": "Regular service"
+        }
+      ],
+      "cycling_infrastructure": "poor",
+      "ben_gurion_airport": {
+        "distance_km": 45,
+        "drive_minutes": 40
+      },
+      "notes": "Industrial city between Ashdod and Haifa. Train station on main coastal line. ~35-minute train to Tel Aviv.",
+      "confidence": "MEDIUM"
+    },
+    "Yavne": {
+      "commute_to_tel_aviv": {
+        "distance_km": 25,
+        "drive_minutes_typical": 20,
+        "drive_minutes_rush_hour": 35,
+        "train_available": true,
+        "train_minutes": 22,
+        "bus_minutes": 30
+      },
+      "commute_to_jerusalem": {
+        "distance_km": 85,
+        "drive_minutes_typical": 70,
+        "drive_minutes_rush_hour": 95,
+        "train_available": false,
+        "train_minutes": null,
+        "bus_minutes": 100
+      },
+      "train_station": {
+        "exists": true,
+        "station_name": "Yavne West",
+        "line": "Coastal main line",
+        "walking_distance_from_center": "1.5 km from city center"
+      },
+      "light_rail": {
+        "exists": false,
+        "planned": true,
+        "details": "Planned as part of Tel Aviv Green Line southern extension (2028+)"
+      },
+      "major_bus_routes": [
+        {
+          "route_number_or_name": "Egged lines 200, 220",
+          "destination": "Tel Aviv, Ashdod, Rehovot",
+          "frequency": "Every 30 minutes"
+        }
+      ],
+      "cycling_infrastructure": "moderate",
+      "ben_gurion_airport": {
+        "distance_km": 30,
+        "drive_minutes": 25
+      },
+      "notes": "Historic and modern city south of Tel Aviv. 22-minute train to Tel Aviv. Future light rail planned. Agricultural and industrial sectors.",
+      "confidence": "HIGH"
+    },
+    "Nes Ziona": {
+      "commute_to_tel_aviv": {
+        "distance_km": 30,
+        "drive_minutes_typical": 28,
+        "drive_minutes_rush_hour": 40,
+        "train_available": false,
+        "train_minutes": null,
+        "bus_minutes": 40
+      },
+      "commute_to_jerusalem": {
+        "distance_km": 75,
+        "drive_minutes_typical": 65,
+        "drive_minutes_rush_hour": 85,
+        "train_available": false,
+        "train_minutes": null,
+        "bus_minutes": 95
+      },
+      "train_station": {
+        "exists": false,
+        "station_name": "Rehovot (2.5 km away)",
+        "line": "Coastal line (nearest station)",
+        "walking_distance_from_center": "2.5 km walk to Rehovot station"
+      },
+      "light_rail": {
+        "exists": false,
+        "planned": false,
+        "details": "No direct light rail planned for Nes Ziona"
+      },
+      "major_bus_routes": [
+        {
+          "route_number_or_name": "Egged lines 200, 277",
+          "destination": "Tel Aviv, Ashdod, Rehovot",
+          "frequency": "Every 30-40 minutes"
+        }
+      ],
+      "cycling_infrastructure": "moderate",
+      "ben_gurion_airport": {
+        "distance_km": 32,
+        "drive_minutes": 27
+      },
+      "notes": "City without direct rail but close to Rehovot station (2.5 km). Bus primary transport to Tel Aviv. Industrial and agricultural base.",
+      "confidence": "MEDIUM"
+    },
+    "Rosh HaAyin": {
+      "commute_to_tel_aviv": {
+        "distance_km": 35,
+        "drive_minutes_typical": 30,
+        "drive_minutes_rush_hour": 45,
+        "train_available": true,
+        "train_minutes": 22,
+        "bus_minutes": 35
+      },
+      "commute_to_jerusalem": {
+        "distance_km": 95,
+        "drive_minutes_typical": 80,
+        "drive_minutes_rush_hour": 105,
+        "train_available": false,
+        "train_minutes": null,
+        "bus_minutes": 110
+      },
+      "train_station": {
+        "exists": true,
+        "station_name": "Rosh HaAyin",
+        "line": "Tel Aviv-Rosh HaAyin line (Sharon Railway)",
+        "walking_distance_from_center": "1-2 km from city center"
+      },
+      "light_rail": {
+        "exists": false,
+        "planned": true,
+        "details": "Planned as terminus of Tel Aviv metro M1 line extension"
+      },
+      "major_bus_routes": [
+        {
+          "route_number_or_name": "Egged lines 500-520",
+          "destination": "Tel Aviv, Kfar Saba, Jerusalem",
+          "frequency": "Every 20-30 minutes"
+        }
+      ],
+      "cycling_infrastructure": "moderate",
+      "ben_gurion_airport": {
+        "distance_km": 40,
+        "drive_minutes": 32
+      },
+      "notes": "Growing residential and industrial hub east of Tel Aviv. 22-minute train to Tel Aviv. Part of Sharon Railway network.",
+      "confidence": "HIGH"
+    },
+    "Shoham": {
+      "commute_to_tel_aviv": {
+        "distance_km": 32,
+        "drive_minutes_typical": 28,
+        "drive_minutes_rush_hour": 45,
+        "train_available": false,
+        "train_minutes": null,
+        "bus_minutes": 40
+      },
+      "commute_to_jerusalem": {
+        "distance_km": 95,
+        "drive_minutes_typical": 82,
+        "drive_minutes_rush_hour": 110,
+        "train_available": false,
+        "train_minutes": null,
+        "bus_minutes": 120
+      },
+      "train_station": {
+        "exists": false,
+        "station_name": null,
+        "line": null,
+        "walking_distance_from_center": null
+      },
+      "light_rail": {
+        "exists": false,
+        "planned": true,
+        "details": "Planned for inclusion in new rail line connecting eastern suburbs (Tira-Kochav Yair-Rosh HaAyin-Elad-Shoham)"
+      },
+      "major_bus_routes": [
+        {
+          "route_number_or_name": "Egged lines 502, 503",
+          "destination": "Tel Aviv, Rosh HaAyin",
+          "frequency": "Every 30-40 minutes"
+        }
+      ],
+      "cycling_infrastructure": "moderate",
+      "ben_gurion_airport": {
+        "distance_km": 38,
+        "drive_minutes": 30
+      },
+      "notes": "Growing residential city east of Tel Aviv. No current train but planned rail expansion. Primary transport by bus.",
+      "confidence": "MEDIUM"
+    },
+    "Modiin Illit": {
+      "commute_to_tel_aviv": {
+        "distance_km": 45,
+        "drive_minutes_typical": 40,
+        "drive_minutes_rush_hour": 60,
+        "train_available": false,
+        "train_minutes": null,
+        "bus_minutes": 60
+      },
+      "commute_to_jerusalem": {
+        "distance_km": 25,
+        "drive_minutes_typical": 25,
+        "drive_minutes_rush_hour": 35,
+        "train_available": false,
+        "train_minutes": null,
+        "bus_minutes": 40
+      },
+      "train_station": {
+        "exists": false,
+        "station_name": null,
+        "line": null,
+        "walking_distance_from_center": null
+      },
+      "light_rail": {
+        "exists": false,
+        "planned": false,
+        "details": "No light rail planned for Modi'in Illit"
+      },
+      "major_bus_routes": [
+        {
+          "route_number_or_name": "Egged intercity",
+          "destination": "Jerusalem, Tel Aviv, Beit Shemesh",
+          "frequency": "Regular service"
+        }
+      ],
+      "cycling_infrastructure": "poor",
+      "ben_gurion_airport": {
+        "distance_km": 50,
+        "drive_minutes": 42
+      },
+      "notes": "Haredi community city between Tel Aviv and Jerusalem. No train service. Bus primary transport. Growing population center.",
+      "confidence": "MEDIUM"
+    },
+    "Elad": {
+      "commute_to_tel_aviv": {
+        "distance_km": 32,
+        "drive_minutes_typical": 28,
+        "drive_minutes_rush_hour": 45,
+        "train_available": false,
+        "train_minutes": null,
+        "bus_minutes": 40
+      },
+      "commute_to_jerusalem": {
+        "distance_km": 95,
+        "drive_minutes_typical": 82,
+        "drive_minutes_rush_hour": 110,
+        "train_available": false,
+        "train_minutes": null,
+        "bus_minutes": 120
+      },
+      "train_station": {
+        "exists": false,
+        "station_name": null,
+        "line": null,
+        "walking_distance_from_center": null
+      },
+      "light_rail": {
+        "exists": false,
+        "planned": true,
+        "details": "Planned for new rail line connecting eastern suburbs (Rosh HaAyin-Elad-Shoham line)"
+      },
+      "major_bus_routes": [
+        {
+          "route_number_or_name": "Egged lines 502, 505",
+          "destination": "Tel Aviv, Rosh HaAyin, Petah Tikva",
+          "frequency": "Every 30-40 minutes"
+        }
+      ],
+      "cycling_infrastructure": "moderate",
+      "ben_gurion_airport": {
+        "distance_km": 38,
+        "drive_minutes": 30
+      },
+      "notes": "Growing residential city east of Tel Aviv. No current train station but planned rail expansion uncertain. Bus and car dependent.",
+      "confidence": "MEDIUM"
+    }
+  },
+  "sources": [
+    "Israel Railways (rail.co.il) - Official schedule and route information",
+    "Google Maps - Distance calculations and driving times",
+    "Rome2Rio - Multi-modal transportation route planning",
+    "Moovit - Public transportation schedules and information",
+    "The Times of Israel - Transportation news and updates",
+    "Wikipedia - Rail transport in Israel, Jerusalem Light Rail, Tel Aviv Light Rail",
+    "Tel Aviv-Yafo Municipality - Public transportation and cycling infrastructure",
+    "Jerusalem Transportation Authority (Jet.gov.il) - Light rail planning",
+    "Egged Bus Company - Intercity and urban bus routes",
+    "Dan Bus Company - Metropolitan Tel Aviv bus service",
+    "Israel Bicycle Association - Cycling infrastructure information",
+    "Easy Aliyah - Israel Railway guide for commuters",
+    "Tourist Israel - Transportation guides",
+    "Globes - Transportation infrastructure news",
+    "International Railway Journal - Israeli rail projects"
+  ],
+  "notes": "Data compiled from March 2026. Train times are estimates and may vary with service changes. Bus frequencies are approximate. Light rail opening dates are based on latest announcements but subject to delays. Cycling infrastructure ratings based on availability of dedicated lanes and network connectivity.",
+  "last_updated": "2026-03-15"
+}

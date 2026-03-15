@@ -1,0 +1,1006 @@
+{
+  "Jerusalem": {
+    "international_schools": [
+      {
+        "name": "Jerusalem American International School (JAIS)",
+        "curriculum_type": "American",
+        "approx_annual_tuition_nis": 45000,
+        "location_in_city": "Jerusalem",
+        "confidence": "HIGH"
+      },
+      {
+        "name": "Anglican International School Jerusalem (AISJ)",
+        "curriculum_type": "IB",
+        "approx_annual_tuition_nis": 52000,
+        "location_in_city": "Hanevi'im Street",
+        "confidence": "HIGH"
+      },
+      {
+        "name": "Lycée français de Jérusalem",
+        "curriculum_type": "French",
+        "approx_annual_tuition_nis": 48000,
+        "location_in_city": "Jerusalem",
+        "confidence": "MEDIUM"
+      }
+    ],
+    "anglo_popular_state_religious_schools": [
+      {
+        "name": "YTA for Girls (Ramat Bet Shemesh branch)",
+        "type": "Modern Orthodox",
+        "notes": "English-language high school education",
+        "confidence": "MEDIUM"
+      },
+      {
+        "name": "YTA for Boys",
+        "type": "Modern Orthodox",
+        "notes": "English-language high school education in Jerusalem",
+        "confidence": "MEDIUM"
+      }
+    ],
+    "ulpan_options": [
+      {
+        "name": "Ulpan Aviv - Jerusalem Branch",
+        "type": "private",
+        "english_instruction": false,
+        "notes": "Intensive 10-day individualized courses available",
+        "confidence": "HIGH"
+      },
+      {
+        "name": "Ulpan La-Inyan - Jerusalem Campus",
+        "type": "private",
+        "english_instruction": false,
+        "notes": "Conversational Hebrew for adults, established 2008",
+        "confidence": "HIGH"
+      },
+      {
+        "name": "Government Ulpan (Misrad Haklita)",
+        "type": "government",
+        "english_instruction": false,
+        "notes": "Free courses for new Olim immigrants",
+        "confidence": "HIGH"
+      }
+    ],
+    "after_school_english_programs": [
+      {
+        "name": "A.H.A.V.A. - Jerusalem Area",
+        "description": "After-school English learning programs for Hebrew and English speakers, K-8th grade. Currently 8 classes in Jerusalem area",
+        "confidence": "HIGH"
+      }
+    ],
+    "english_speaking_ganim": [
+      {
+        "name": "A.H.A.V.A. Kindergarten Programs",
+        "ages": "Ages 3-6",
+        "notes": "English-focused instruction, limited locations",
+        "confidence": "MEDIUM"
+      }
+    ],
+    "special_education_english": "Israel Elwyn offers preschool developmental centers and educational services for children with special needs. KESHER provides support groups with English, Hebrew, Arabic, and Russian-speaking staff. Sulam serves children with intellectual disabilities, motor dysfunction, and autism.",
+    "notes": "Jerusalem has the highest concentration of international schools in Israel. Multiple IB programs available. Strong support network for English-speaking families and special education services.",
+    "confidence": "HIGH"
+  },
+  "Tel Aviv": {
+    "international_schools": [
+      {
+        "name": "Walworth Barbour American International School (WBAIS)",
+        "curriculum_type": "American",
+        "approx_annual_tuition_nis": 75000,
+        "location_in_city": "Even Yehuda (20km north of Tel Aviv)",
+        "confidence": "HIGH"
+      },
+      {
+        "name": "TreeHouse International School (THIS)",
+        "curriculum_type": "IB",
+        "approx_annual_tuition_nis": 65000,
+        "location_in_city": "Herzliya Pituah (8km from Tel Aviv)",
+        "confidence": "HIGH"
+      },
+      {
+        "name": "Tabeetha School",
+        "curriculum_type": "British",
+        "approx_annual_tuition_nis": 55000,
+        "location_in_city": "21 Yeffet Street, Jaffa",
+        "confidence": "HIGH"
+      },
+      {
+        "name": "Tel Aviv International School",
+        "curriculum_type": "British",
+        "approx_annual_tuition_nis": 58000,
+        "location_in_city": "Heart of Tel Aviv",
+        "confidence": "MEDIUM"
+      }
+    ],
+    "anglo_popular_state_religious_schools": [
+      {
+        "name": "Morasha Jewish Day School",
+        "type": "Jewish Heritage Focus",
+        "notes": "Bilingual Hebrew-English education for expat families",
+        "confidence": "MEDIUM"
+      }
+    ],
+    "ulpan_options": [
+      {
+        "name": "Ulpan Aviv - Tel Aviv Branch",
+        "type": "private",
+        "english_instruction": false,
+        "notes": "Multiple locations in Tel Aviv with tailor-made programs",
+        "confidence": "HIGH"
+      },
+      {
+        "name": "Ulpan Bayit",
+        "type": "private",
+        "english_instruction": false,
+        "notes": "Located in Florentin, uses Israeli media texts and poetry",
+        "confidence": "HIGH"
+      },
+      {
+        "name": "This Is Not An Ulpan (TINAU)",
+        "type": "private",
+        "english_instruction": true,
+        "notes": "Hebrew and Arabic for all levels in Tel Aviv and Jerusalem",
+        "confidence": "MEDIUM"
+      }
+    ],
+    "after_school_english_programs": [
+      {
+        "name": "Ahava English Programs - Tel Aviv Area",
+        "description": "After-school English learning for native and Hebrew speakers, K-8th grade",
+        "confidence": "MEDIUM"
+      }
+    ],
+    "english_speaking_ganim": [
+      {
+        "name": "Wonder School",
+        "ages": "Ages 9 months - 3 years",
+        "notes": "One of Israel's most expensive kindergartens, bilingual Hebrew-English, selective enrollment",
+        "confidence": "HIGH"
+      },
+      {
+        "name": "Rainbow Nursery",
+        "ages": "Ages 6 months - kindergarten",
+        "notes": "Bilingual nursery in Tel Aviv, English and Hebrew programs",
+        "confidence": "MEDIUM"
+      },
+      {
+        "name": "CityKids",
+        "ages": "Ages 6 months - kindergarten",
+        "notes": "Ministry of Education approved nursery with 6 classrooms",
+        "confidence": "MEDIUM"
+      }
+    ],
+    "special_education_english": "Access to English-speaking special education services through major organizations. KESHER and Israel Elwyn have operations in Tel Aviv area.",
+    "notes": "Major international school hub. Extensive English-speaking kindergarten options available. Multiple ulpan options for adults. Strong expat community support.",
+    "confidence": "HIGH"
+  },
+  "Haifa": {
+    "international_schools": [
+      {
+        "name": "Reali School",
+        "curriculum_type": "Other",
+        "approx_annual_tuition_nis": 45000,
+        "location_in_city": "Haifa",
+        "confidence": "MEDIUM"
+      },
+      {
+        "name": "Haifa International School",
+        "curriculum_type": "Other",
+        "approx_annual_tuition_nis": 40000,
+        "location_in_city": "Haifa",
+        "confidence": "MEDIUM"
+      },
+      {
+        "name": "The Waldorf School in Haifa",
+        "curriculum_type": "Other",
+        "approx_annual_tuition_nis": 38000,
+        "location_in_city": "Haifa",
+        "confidence": "MEDIUM"
+      },
+      {
+        "name": "Morasha Jewish Day School",
+        "curriculum_type": "Other",
+        "approx_annual_tuition_nis": 42000,
+        "location_in_city": "Haifa",
+        "confidence": "MEDIUM"
+      }
+    ],
+    "anglo_popular_state_religious_schools": [],
+    "ulpan_options": [
+      {
+        "name": "Ulpan Bayit - Haifa Branch",
+        "type": "private",
+        "english_instruction": false,
+        "notes": "Face-to-face classes and online options available",
+        "confidence": "MEDIUM"
+      }
+    ],
+    "after_school_english_programs": [
+      {
+        "name": "Speak Up - Haifa",
+        "description": "Private English language school founded 2013, 450+ students weekly, native English teachers for group and private lessons",
+        "confidence": "HIGH"
+      }
+    ],
+    "english_speaking_ganim": null,
+    "special_education_english": "Some English-speaking support available through general Israeli special education system",
+    "notes": "Fewer international schools compared to Jerusalem and Tel Aviv. Good private English language school options. Limited English-speaking kindergarten options documented.",
+    "confidence": "MEDIUM"
+  },
+  "Ra'anana": {
+    "international_schools": [],
+    "anglo_popular_state_religious_schools": [
+      {
+        "name": "AMIT Noam Elementary",
+        "type": "Religious Zionist",
+        "notes": "Located in Kfar Batya, Ra'anana. Strong Anglo community",
+        "confidence": "MEDIUM"
+      }
+    ],
+    "ulpan_options": [],
+    "after_school_english_programs": null,
+    "english_speaking_ganim": null,
+    "special_education_english": null,
+    "notes": "Ra'anana is known for welcoming Anglo community and family-friendly atmosphere. Several state religious schools with some English-medium instruction. Data on international schools limited.",
+    "confidence": "LOW"
+  },
+  "Modi'in": {
+    "international_schools": [],
+    "anglo_popular_state_religious_schools": [
+      {
+        "name": "Mr. and Mrs. Lester Sutker AMIT School for Boys",
+        "type": "Religious",
+        "notes": "AMIT network school",
+        "confidence": "MEDIUM"
+      },
+      {
+        "name": "Midreshet AMIT Arts & Sciences Junior & Senior High School for Girls",
+        "type": "Religious",
+        "notes": "AMIT network school for girls",
+        "confidence": "MEDIUM"
+      },
+      {
+        "name": "Yachad Modiin High School",
+        "type": "Integrated Religious-Secular",
+        "notes": "Founded 2005, largest school incorporating religious and secular students learning together",
+        "confidence": "MEDIUM"
+      }
+    ],
+    "ulpan_options": [],
+    "after_school_english_programs": null,
+    "english_speaking_ganim": null,
+    "special_education_english": null,
+    "notes": "Modi'in located midway between Jerusalem and Tel Aviv. Excellent transportation. Strong religious school options. Limited documented international schools.",
+    "confidence": "MEDIUM"
+  },
+  "Beit Shemesh": {
+    "international_schools": [],
+    "anglo_popular_state_religious_schools": [
+      {
+        "name": "AMIT Bellows Ulpanat Noga High School",
+        "type": "Religious",
+        "notes": "High school for girls in Beit Shemesh",
+        "confidence": "MEDIUM"
+      }
+    ],
+    "ulpan_options": [],
+    "after_school_english_programs": null,
+    "english_speaking_ganim": null,
+    "special_education_english": null,
+    "notes": "Enormous range of school options including Dati Leumi, Haredi, and Anglo-oriented schools. Many schools teach partially in English. Growing Anglo community.",
+    "confidence": "MEDIUM"
+  },
+  "Herzliya": {
+    "international_schools": [
+      {
+        "name": "TreeHouse International School (THIS) - Multiple Campuses",
+        "curriculum_type": "IB",
+        "approx_annual_tuition_nis": 65000,
+        "location_in_city": "Herzliya Pituah, Ramat Yam 55",
+        "confidence": "HIGH"
+      }
+    ],
+    "anglo_popular_state_religious_schools": [],
+    "ulpan_options": [],
+    "after_school_english_programs": null,
+    "english_speaking_ganim": null,
+    "special_education_english": null,
+    "notes": "TreeHouse has 5 campuses (TH1-TH5) serving ages 1-18. IB World School accreditation. Strong international community.",
+    "confidence": "HIGH"
+  },
+  "Netanya": {
+    "international_schools": [],
+    "anglo_popular_state_religious_schools": [],
+    "ulpan_options": [
+      {
+        "name": "Ulpan Israeli",
+        "type": "private",
+        "english_instruction": false,
+        "notes": "Based in Netanya, multiple levels available. Customized group programs",
+        "confidence": "HIGH"
+      },
+      {
+        "name": "Ulpan Bayit",
+        "type": "private",
+        "english_instruction": false,
+        "notes": "Face-to-face and online classes via Zoom",
+        "confidence": "MEDIUM"
+      }
+    ],
+    "after_school_english_programs": null,
+    "english_speaking_ganim": null,
+    "special_education_english": null,
+    "notes": "Primary hub for French-speaking community but lacks French school. Good ulpan options. Limited international school data documented.",
+    "confidence": "MEDIUM"
+  },
+  "Ashdod": {
+    "international_schools": [],
+    "anglo_popular_state_religious_schools": [],
+    "ulpan_options": [
+      {
+        "name": "Ulpan Bayit - Ashdod Branch",
+        "type": "private",
+        "english_instruction": false,
+        "notes": "Face-to-face and online options available",
+        "confidence": "MEDIUM"
+      }
+    ],
+    "after_school_english_programs": null,
+    "english_speaking_ganim": null,
+    "special_education_english": null,
+    "notes": "Part of French-speaking community hub. Emerging neighborhood attracting more expats. Limited international school documentation.",
+    "confidence": "LOW"
+  },
+  "Ashkelon": {
+    "international_schools": [],
+    "anglo_popular_state_religious_schools": [],
+    "ulpan_options": [
+      {
+        "name": "Ulpan Bayit - Ashkelon Branch",
+        "type": "private",
+        "english_instruction": false,
+        "notes": "Face-to-face and online options",
+        "confidence": "MEDIUM"
+      }
+    ],
+    "after_school_english_programs": null,
+    "english_speaking_ganim": null,
+    "special_education_english": null,
+    "notes": "Southern coast city. Limited international school data available.",
+    "confidence": "LOW"
+  },
+  "Beer Sheva": {
+    "international_schools": [
+      {
+        "name": "Beersheba International School",
+        "curriculum_type": "Other",
+        "approx_annual_tuition_nis": 35000,
+        "location_in_city": "Beer Sheva",
+        "confidence": "MEDIUM"
+      }
+    ],
+    "anglo_popular_state_religious_schools": [],
+    "ulpan_options": [],
+    "after_school_english_programs": [
+      {
+        "name": "Experiential School for English Language Studies",
+        "description": "English enrichment classes for children grades 2-8",
+        "confidence": "MEDIUM"
+      },
+      {
+        "name": "Berlitz Language School",
+        "description": "Private English language instruction, located in Kiryat Hamishla mall",
+        "confidence": "MEDIUM"
+      }
+    ],
+    "english_speaking_ganim": null,
+    "special_education_english": "Supported by Youth Futures mentoring programs for at-risk children",
+    "notes": "Southern hub with educational disparities. No gifted classes documented. Growing support programs for disadvantaged populations.",
+    "confidence": "MEDIUM"
+  },
+  "Petah Tikva": {
+    "international_schools": [],
+    "anglo_popular_state_religious_schools": [],
+    "ulpan_options": [],
+    "after_school_english_programs": null,
+    "english_speaking_ganim": null,
+    "special_education_english": null,
+    "notes": "Limited international school and English program documentation available. Part of central Israel region.",
+    "confidence": "LOW"
+  },
+  "Kfar Saba": {
+    "international_schools": [],
+    "anglo_popular_state_religious_schools": [
+      {
+        "name": "NAALE Amana - Kfar Saba",
+        "type": "Modern Orthodox Girls",
+        "notes": "One of Israel's most prestigious high schools for religious girls",
+        "confidence": "MEDIUM"
+      }
+    ],
+    "ulpan_options": [],
+    "after_school_english_programs": null,
+    "english_speaking_ganim": null,
+    "special_education_english": null,
+    "notes": "Family-friendly city known for excellent schools and quiet residential areas. Limited international school documentation.",
+    "confidence": "MEDIUM"
+  },
+  "Rehovot": {
+    "international_schools": [],
+    "anglo_popular_state_religious_schools": [],
+    "ulpan_options": [],
+    "after_school_english_programs": null,
+    "english_speaking_ganim": null,
+    "special_education_english": null,
+    "notes": "Academic and scientific hub, home to Weizmann Institute. Limited international school documentation.",
+    "confidence": "LOW"
+  },
+  "Rishon LeZion": {
+    "international_schools": [],
+    "anglo_popular_state_religious_schools": [],
+    "ulpan_options": [],
+    "after_school_english_programs": null,
+    "english_speaking_ganim": null,
+    "special_education_english": null,
+    "notes": "Rapidly growing city near Tel Aviv. Limited international school data documented.",
+    "confidence": "LOW"
+  },
+  "Efrat": {
+    "international_schools": [],
+    "anglo_popular_state_religious_schools": [],
+    "ulpan_options": [],
+    "after_school_english_programs": null,
+    "english_speaking_ganim": null,
+    "special_education_english": null,
+    "notes": "Limited data available. Documented as having well-developed educational facilities.",
+    "confidence": "LOW"
+  },
+  "Maale Adumim": {
+    "international_schools": [],
+    "anglo_popular_state_religious_schools": [
+      {
+        "name": "AMIT Ma'ale Adumim",
+        "type": "Religious",
+        "notes": "Complete junior and senior high school, opened 2003, 360+ students",
+        "confidence": "MEDIUM"
+      }
+    ],
+    "ulpan_options": [],
+    "after_school_english_programs": [
+      {
+        "name": "A.H.A.V.A. English Programs",
+        "description": "After-school English programs with K and 1st-grade frontal classes when possible",
+        "confidence": "MEDIUM"
+      }
+    ],
+    "english_speaking_ganim": [
+      {
+        "name": "A.H.A.V.A. Kindergarten",
+        "ages": "Ages 3-6",
+        "notes": "English-focused instruction available",
+        "confidence": "MEDIUM"
+      }
+    ],
+    "special_education_english": null,
+    "notes": "High quality of life with well-developed educational and recreational facilities. Growing English-speaking population with supporting programs.",
+    "confidence": "MEDIUM"
+  },
+  "Givat Shmuel": {
+    "international_schools": [],
+    "anglo_popular_state_religious_schools": [
+      {
+        "name": "Ulpanat AMIT Givat Shmuel",
+        "type": "Religious",
+        "notes": "High school for girls, 100% bagrut pass rate, ranked top school in city",
+        "confidence": "MEDIUM"
+      },
+      {
+        "name": "Yeshivat Bnei Akiva",
+        "type": "Religious Zionist",
+        "notes": "High school for boys",
+        "confidence": "MEDIUM"
+      }
+    ],
+    "ulpan_options": [],
+    "after_school_english_programs": null,
+    "english_speaking_ganim": null,
+    "special_education_english": null,
+    "notes": "Mix of secular and religious schools. Tichon Givat Shmuel is secular co-ed high school.",
+    "confidence": "MEDIUM"
+  },
+  "Ramat Gan": {
+    "international_schools": [],
+    "anglo_popular_state_religious_schools": [
+      {
+        "name": "AMIT Ginsburg Bar Ilan Gush Dan",
+        "type": "Religious",
+        "notes": "Ranked top religious high school in Israel and eighth overall",
+        "confidence": "HIGH"
+      }
+    ],
+    "ulpan_options": [],
+    "after_school_english_programs": null,
+    "english_speaking_ganim": null,
+    "special_education_english": null,
+    "notes": "Ramat Gan hosts Ohel Shem, a secular high school with 1,550 students. Strong religious school options.",
+    "confidence": "MEDIUM"
+  },
+  "Givatayim": {
+    "international_schools": [],
+    "anglo_popular_state_religious_schools": [],
+    "ulpan_options": [],
+    "after_school_english_programs": null,
+    "english_speaking_ganim": null,
+    "special_education_english": null,
+    "notes": "41 kindergartens, 9 elementary schools, 4 high schools. One of highest secondary school matriculation rates in Israel. Brenner School pioneered entrepreneurship programs.",
+    "confidence": "MEDIUM"
+  },
+  "Holon": {
+    "international_schools": [
+      {
+        "name": "Collège-lycée franco-israélien Marcel et Lucette Drahi",
+        "curriculum_type": "French",
+        "approx_annual_tuition_nis": 48000,
+        "location_in_city": "Holon",
+        "confidence": "MEDIUM"
+      }
+    ],
+    "anglo_popular_state_religious_schools": [],
+    "ulpan_options": [],
+    "after_school_english_programs": null,
+    "english_speaking_ganim": null,
+    "special_education_english": null,
+    "notes": "French school member of AEFE (French Education Abroad network). Limited English program documentation.",
+    "confidence": "MEDIUM"
+  },
+  "Bat Yam": {
+    "international_schools": [],
+    "anglo_popular_state_religious_schools": [],
+    "ulpan_options": [],
+    "after_school_english_programs": null,
+    "english_speaking_ganim": null,
+    "special_education_english": null,
+    "notes": "Ramot Comprehensive School offers entrepreneurship classes. Limited international school documentation.",
+    "confidence": "LOW"
+  },
+  "Bnei Brak": {
+    "international_schools": [],
+    "anglo_popular_state_religious_schools": [],
+    "ulpan_options": [],
+    "after_school_english_programs": null,
+    "english_speaking_ganim": null,
+    "special_education_english": null,
+    "notes": "Haredi community city. Limited international or English-language school documentation available.",
+    "confidence": "LOW"
+  },
+  "Ramat HaSharon": {
+    "international_schools": [],
+    "anglo_popular_state_religious_schools": [
+      {
+        "name": "Morasha School",
+        "type": "Jewish Heritage",
+        "notes": "Bilingual school in Ramat HaSharon",
+        "confidence": "MEDIUM"
+      }
+    ],
+    "ulpan_options": [],
+    "after_school_english_programs": null,
+    "english_speaking_ganim": null,
+    "special_education_english": null,
+    "notes": "City has 7 elementary schools, 2 middle schools, 2 high schools. Home to Rimon School of Jazz and Contemporary Music.",
+    "confidence": "MEDIUM"
+  },
+  "Hod HaSharon": {
+    "international_schools": [
+      {
+        "name": "Alexander Muss High School in Israel",
+        "curriculum_type": "Other",
+        "approx_annual_tuition_nis": null,
+        "location_in_city": "Hod HaSharon",
+        "confidence": "MEDIUM"
+      }
+    ],
+    "anglo_popular_state_religious_schools": [],
+    "ulpan_options": [],
+    "after_school_english_programs": null,
+    "english_speaking_ganim": null,
+    "special_education_english": null,
+    "notes": "Alexander Muss program for international students from US/Canada, 2 months to full semester. 12 elementary, 4 middle, 5 high schools documented.",
+    "confidence": "MEDIUM"
+  },
+  "Lod": {
+    "international_schools": [],
+    "anglo_popular_state_religious_schools": [],
+    "ulpan_options": [],
+    "after_school_english_programs": null,
+    "english_speaking_ganim": null,
+    "special_education_english": null,
+    "notes": "Limited documented data on international or English-language schools.",
+    "confidence": "LOW"
+  },
+  "Ramla": {
+    "international_schools": [],
+    "anglo_popular_state_religious_schools": [],
+    "ulpan_options": [],
+    "after_school_english_programs": null,
+    "english_speaking_ganim": null,
+    "special_education_english": null,
+    "notes": "Limited documented data on international or English-language schools.",
+    "confidence": "LOW"
+  },
+  "Nazareth": {
+    "international_schools": [
+      {
+        "name": "Nazareth Baptist School",
+        "curriculum_type": "Other",
+        "approx_annual_tuition_nis": 25000,
+        "location_in_city": "Nazareth",
+        "confidence": "MEDIUM"
+      }
+    ],
+    "anglo_popular_state_religious_schools": [],
+    "ulpan_options": [],
+    "after_school_english_programs": null,
+    "english_speaking_ganim": null,
+    "special_education_english": null,
+    "notes": "K-12 Evangelical Christian school founded 1935-1936. Arab Christian schools include St. Joseph's Eclerical School and Nuns of St. Joseph School. About 50% of students attend Christian schools.",
+    "confidence": "MEDIUM"
+  },
+  "Acre": {
+    "international_schools": [],
+    "anglo_popular_state_religious_schools": [],
+    "ulpan_options": [],
+    "after_school_english_programs": null,
+    "english_speaking_ganim": null,
+    "special_education_english": null,
+    "notes": "Limited documented data on schools. Northern coastal city with historical significance.",
+    "confidence": "LOW"
+  },
+  "Tiberias": {
+    "international_schools": [],
+    "anglo_popular_state_religious_schools": [],
+    "ulpan_options": [],
+    "after_school_english_programs": null,
+    "english_speaking_ganim": null,
+    "special_education_english": null,
+    "notes": "Historical Alliance Israélite Universelle schools used French as medium of instruction. Bar-Ilan University teaching hospitals located here.",
+    "confidence": "LOW"
+  },
+  "Safed": {
+    "international_schools": [],
+    "anglo_popular_state_religious_schools": [],
+    "ulpan_options": [],
+    "after_school_english_programs": null,
+    "english_speaking_ganim": null,
+    "special_education_english": null,
+    "notes": "Two mamlachti elementary schools. Zefat Academic College operates in city. Received Education Prize from Ministry in 2012. Limited international school documentation.",
+    "confidence": "MEDIUM"
+  },
+  "Karmiel": {
+    "international_schools": [],
+    "anglo_popular_state_religious_schools": [],
+    "ulpan_options": [],
+    "after_school_english_programs": null,
+    "english_speaking_ganim": null,
+    "special_education_english": null,
+    "notes": "Galilee city. Limited documented data on international or English-language schools.",
+    "confidence": "LOW"
+  },
+  "Nahariya": {
+    "international_schools": [],
+    "anglo_popular_state_religious_schools": [],
+    "ulpan_options": [],
+    "after_school_english_programs": null,
+    "english_speaking_ganim": null,
+    "special_education_english": null,
+    "notes": "Northern coastal city. Limited documented data on international or English-language schools.",
+    "confidence": "LOW"
+  },
+  "Kiryat Shmona": {
+    "international_schools": [],
+    "anglo_popular_state_religious_schools": [],
+    "ulpan_options": [],
+    "after_school_english_programs": null,
+    "english_speaking_ganim": null,
+    "special_education_english": null,
+    "notes": "Northern city near Lebanese border. Limited documented data on schools. Experienced education disruptions.",
+    "confidence": "LOW"
+  },
+  "Kiryat Ata": {
+    "international_schools": [],
+    "anglo_popular_state_religious_schools": [],
+    "ulpan_options": [],
+    "after_school_english_programs": null,
+    "english_speaking_ganim": null,
+    "special_education_english": null,
+    "notes": "Part of Krayot neighborhood in Haifa Bay area. Sci-Tech school available.",
+    "confidence": "LOW"
+  },
+  "Kiryat Bialik": {
+    "international_schools": [],
+    "anglo_popular_state_religious_schools": [],
+    "ulpan_options": [],
+    "after_school_english_programs": null,
+    "english_speaking_ganim": null,
+    "special_education_english": null,
+    "notes": "Krayot neighborhood city. Sci-Tech College and technological school (college) available.",
+    "confidence": "LOW"
+  },
+  "Kiryat Motzkin": {
+    "international_schools": [],
+    "anglo_popular_state_religious_schools": [],
+    "ulpan_options": [],
+    "after_school_english_programs": null,
+    "english_speaking_ganim": null,
+    "special_education_english": null,
+    "notes": "Krayot neighborhood. 18 schools, 11,000 students documented. Sci-Tech school available.",
+    "confidence": "LOW"
+  },
+  "Kiryat Yam": {
+    "international_schools": [],
+    "anglo_popular_state_religious_schools": [],
+    "ulpan_options": [],
+    "after_school_english_programs": null,
+    "english_speaking_ganim": null,
+    "special_education_english": null,
+    "notes": "Krayot neighborhood. 15 preschools, 8 elementary, 3 high schools documented.",
+    "confidence": "LOW"
+  },
+  "Yokneam": {
+    "international_schools": [],
+    "anglo_popular_state_religious_schools": [],
+    "ulpan_options": [],
+    "after_school_english_programs": null,
+    "english_speaking_ganim": null,
+    "special_education_english": null,
+    "notes": "Schools such as Tidhar and Hata'B Hadasha documented. Limited international school data.",
+    "confidence": "LOW"
+  },
+  "Afula": {
+    "international_schools": [],
+    "anglo_popular_state_religious_schools": [],
+    "ulpan_options": [],
+    "after_school_english_programs": null,
+    "english_speaking_ganim": null,
+    "special_education_english": null,
+    "notes": "Technion's Rappaport Medical School has teaching hospitals here. Limited school documentation.",
+    "confidence": "LOW"
+  },
+  "Beit She'an": {
+    "international_schools": [],
+    "anglo_popular_state_religious_schools": [],
+    "ulpan_options": [],
+    "after_school_english_programs": null,
+    "english_speaking_ganim": null,
+    "special_education_english": null,
+    "notes": "One of Israel's most earthquake-at-risk towns. Limited school documentation.",
+    "confidence": "LOW"
+  },
+  "Dimona": {
+    "international_schools": [],
+    "anglo_popular_state_religious_schools": [],
+    "ulpan_options": [],
+    "after_school_english_programs": [
+      {
+        "name": "Lunch and Learn Program",
+        "description": "Extended school day with nourishing hot lunch for 500 at-risk elementary students",
+        "confidence": "MEDIUM"
+      }
+    ],
+    "english_speaking_ganim": null,
+    "special_education_english": "Youth Futures mentoring program assists at-risk children and families since 2006",
+    "notes": "Southern periphery city. No gifted classes documented. Known as robotics hub (World ORT Kadima Mada). Large immigrant population with support programs.",
+    "confidence": "MEDIUM"
+  },
+  "Arad": {
+    "international_schools": [],
+    "anglo_popular_state_religious_schools": [],
+    "ulpan_options": [],
+    "after_school_english_programs": null,
+    "english_speaking_ganim": null,
+    "special_education_english": "Youth Futures mentoring program available",
+    "notes": "Southern city with economic challenges. At-risk youth support programs available.",
+    "confidence": "LOW"
+  },
+  "Sderot": {
+    "international_schools": [],
+    "anglo_popular_state_religious_schools": [],
+    "ulpan_options": [],
+    "after_school_english_programs": null,
+    "english_speaking_ganim": null,
+    "special_education_english": "Youth Futures mentoring program available",
+    "notes": "Southern periphery city. No gifted classes documented. At-risk youth support programs.",
+    "confidence": "LOW"
+  },
+  "Ofakim": {
+    "international_schools": [],
+    "anglo_popular_state_religious_schools": [],
+    "ulpan_options": [],
+    "after_school_english_programs": null,
+    "english_speaking_ganim": null,
+    "special_education_english": "Youth Futures mentoring program available",
+    "notes": "Southern periphery city. No gifted classes documented. At-risk youth with support programs.",
+    "confidence": "LOW"
+  },
+  "Kiryat Gat": {
+    "international_schools": [],
+    "anglo_popular_state_religious_schools": [],
+    "ulpan_options": [],
+    "after_school_english_programs": null,
+    "english_speaking_ganim": null,
+    "special_education_english": null,
+    "notes": "Rogozin Kiryat Gat Sci-Tech Vocational School available. Limited school documentation.",
+    "confidence": "LOW"
+  },
+  "Kiryat Malachi": {
+    "international_schools": [],
+    "anglo_popular_state_religious_schools": [],
+    "ulpan_options": [],
+    "after_school_english_programs": null,
+    "english_speaking_ganim": null,
+    "special_education_english": null,
+    "notes": "Limited documented data on schools.",
+    "confidence": "LOW"
+  },
+  "Or Akiva": {
+    "international_schools": [],
+    "anglo_popular_state_religious_schools": [],
+    "ulpan_options": [],
+    "after_school_english_programs": null,
+    "english_speaking_ganim": null,
+    "special_education_english": null,
+    "notes": "Limited documented data on schools.",
+    "confidence": "LOW"
+  },
+  "Yavne": {
+    "international_schools": [],
+    "anglo_popular_state_religious_schools": [],
+    "ulpan_options": [],
+    "after_school_english_programs": null,
+    "english_speaking_ganim": null,
+    "special_education_english": null,
+    "notes": "Limited documented data on schools.",
+    "confidence": "LOW"
+  },
+  "Nes Ziona": {
+    "international_schools": [],
+    "anglo_popular_state_religious_schools": [],
+    "ulpan_options": [],
+    "after_school_english_programs": null,
+    "english_speaking_ganim": null,
+    "special_education_english": null,
+    "notes": "15 schools documented. Limited international or English-language school data.",
+    "confidence": "LOW"
+  },
+  "Rosh HaAyin": {
+    "international_schools": [],
+    "anglo_popular_state_religious_schools": [],
+    "ulpan_options": [],
+    "after_school_english_programs": null,
+    "english_speaking_ganim": null,
+    "special_education_english": null,
+    "notes": "21 schools documented. Rosh HaAyin College building identified. Limited international school documentation.",
+    "confidence": "LOW"
+  },
+  "Shoham": {
+    "international_schools": [],
+    "anglo_popular_state_religious_schools": [],
+    "ulpan_options": [],
+    "after_school_english_programs": null,
+    "english_speaking_ganim": null,
+    "special_education_english": null,
+    "notes": "13 schools documented. Limited international or English-language school data.",
+    "confidence": "LOW"
+  },
+  "Modi'in Illit": {
+    "international_schools": [],
+    "anglo_popular_state_religious_schools": [
+      {
+        "name": "Yeshiva schools and Seminaries (Haredi)",
+        "type": "Haredi",
+        "notes": "30 elementary schools, 20 secondary schools including Mir Brachfeld yeshiva",
+        "confidence": "MEDIUM"
+      }
+    ],
+    "ulpan_options": [],
+    "after_school_english_programs": null,
+    "english_speaking_ganim": null,
+    "special_education_english": null,
+    "notes": "Also known as Kiryat Sefer. Primarily Haredi community with extensive yeshiva system. Limited international school documentation.",
+    "confidence": "MEDIUM"
+  },
+  "Elad": {
+    "international_schools": [],
+    "anglo_popular_state_religious_schools": [],
+    "ulpan_options": [],
+    "after_school_english_programs": null,
+    "english_speaking_ganim": null,
+    "special_education_english": null,
+    "notes": "Ultra-Orthodox community city. Limited documented data on schools.",
+    "confidence": "LOW"
+  },
+  "sources": [
+    {
+      "title": "International Schools in Israel | Guides for your expatriation - Expat-Quotes.com",
+      "url": "https://www.expat-quotes.com/guides/israel/education/international-schools-in-israel.htm"
+    },
+    {
+      "title": "Best international schools in Israel | Expat Arrivals",
+      "url": "https://www.expatarrivals.com/middle-east/israel/international-schools-israel"
+    },
+    {
+      "title": "Jerusalem American International School",
+      "url": "https://www.jerusalemais.org/"
+    },
+    {
+      "title": "Walworth Barbour American International School",
+      "url": "https://www.wbais.net/"
+    },
+    {
+      "title": "Anglican International School Jerusalem",
+      "url": "https://www.aisj.co.il/"
+    },
+    {
+      "title": "Learn Hebrew with the Best Ulpan in Israel - Ulpan La-Inyan",
+      "url": "https://ulpan.com/"
+    },
+    {
+      "title": "Ulpan Aviv - Learn Hebrew at Ulpan Aviv",
+      "url": "https://www.ulpanaviv.com/"
+    },
+    {
+      "title": "Ulpan Israeli - Learn Hebrew with courses for all levels",
+      "url": "https://www.ulpanisraeli.com/"
+    },
+    {
+      "title": "English-Speaking Preschools in Israel | Madan",
+      "url": "https://madan.org.il/en/news/english-speaking-preschools-israel"
+    },
+    {
+      "title": "TreeHouse International School",
+      "url": "https://www.treehouse.co.il/"
+    },
+    {
+      "title": "After School English Learning Programs | Israel",
+      "url": "https://www.ahava-english.org/after-school-programs"
+    },
+    {
+      "title": "Organizations That Provide Services for Disabilities - Nefesh B'Nefesh",
+      "url": "https://www.nbn.org.il/life-in-israel/education/special-education-resources-for-disabilities/organizations-that-provide-services-for-disabilities/"
+    },
+    {
+      "title": "AMIT Building Israel. One Child at a Time. AMIT Reshet Guide",
+      "url": "https://amitchildren.org/wp-content/uploads/2017/07/AMITReshetGuide-2017.pdf"
+    },
+    {
+      "title": "IB World Schools in Israel – IB World Schools Yearbook",
+      "url": "https://www.ibyb.org/ib-world-schools-in-israel"
+    },
+    {
+      "title": "ISRAEL - International Baccalaureate®",
+      "url": "https://www.ibo.org/about-the-ib/the-ib-by-country-and-territory/i/israel/"
+    },
+    {
+      "title": "Naale Elite Academy - Study Programs In Israel",
+      "url": "https://naale-elite-academy.com/"
+    },
+    {
+      "title": "Finding Schools for Your Children: An Introduction - Nefesh B'Nefesh",
+      "url": "https://www.nbn.org.il/life-in-israel/education/child-and-teen/finding-schools-for-your-children-an-introduction/"
+    },
+    {
+      "title": "Rainbow Nursery | Bilingual Nursery in Tel Aviv",
+      "url": "https://rainbow-nursery.info/"
+    },
+    {
+      "title": "French Schools in Israel",
+      "url": "https://www.expat.com/en/guide/middle-east/israel/35786-education-in-israel.html"
+    },
+    {
+      "title": "Speak Up - English Language School in Haifa",
+      "url": "https://speakup.co.il/?lang=en"
+    },
+    {
+      "title": "Nazareth Baptist School",
+      "url": "https://www.baptist.co.il/"
+    }
+  ]
+}

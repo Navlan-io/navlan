@@ -1,0 +1,767 @@
+{
+  "metadata": {
+    "title": "Israeli Arnona Rates - 54 Major Cities",
+    "description": "Comprehensive dataset of municipal property tax (arnona) rates across Israel's 54 largest cities",
+    "year": 2025,
+    "national_average_rate_per_sqm_nis": 55.0,
+    "currency": "NIS (Israeli New Shekel)",
+    "automatic_update_for_2026": 1.626,
+    "note": "Arnona is calculated per square meter of residential property. Rates vary significantly by municipality and neighborhood. 2026 rates automatically updated by 1.626% nationwide.",
+    "data_collection_date": "2026-03-15"
+  },
+  "cities": [
+    {
+      "city": "Tel Aviv",
+      "rate_per_sqm_nis": 71.4,
+      "annual_arnona_100sqm_nis": 7140,
+      "olim_discount": "90% discount on first 100 sqm for 24 months within first 2 years of Aliyah",
+      "large_family_discount": "Income-based discounts available if income below municipal threshold",
+      "other_discounts": "Senior citizens, disabled persons, single parent families, students, IDF soldiers on active duty",
+      "comparison_to_national_average": "above",
+      "notes": "Highest arnona rate among major Israeli cities. Varies by neighborhood and property type (73-100 NIS/sqm in central areas). Rate as of September 2025.",
+      "source_url": "https://ronkin-list.com/arnona-tel-aviv-guide/",
+      "confidence": "HIGH"
+    },
+    {
+      "city": "Jerusalem",
+      "rate_per_sqm_nis": 50.5,
+      "annual_arnona_100sqm_nis": 5050,
+      "olim_discount": "90% discount on first 100 sqm for 24 months within first 2 years of Aliyah",
+      "large_family_discount": "Income-based discounts available; criteria updated 2025",
+      "other_discounts": "Senior citizens, disabled persons, single parent families, low-income households",
+      "comparison_to_national_average": "below",
+      "notes": "Range from 40.40 to 113.22 NIS/sqm depending on neighborhood. Updated discount criteria released 2025. Deadline for applications: August 31.",
+      "source_url": "https://www.jerusalem.muni.il/en/residents/arnona/ratesandpayments/",
+      "confidence": "HIGH"
+    },
+    {
+      "city": "Haifa",
+      "rate_per_sqm_nis": 75.0,
+      "annual_arnona_100sqm_nis": 7500,
+      "olim_discount": "90% discount on first 100 sqm for 24 months within first 2 years of Aliyah",
+      "large_family_discount": "Income-based discounts available",
+      "other_discounts": "Senior citizens, disabled persons, students, veterans",
+      "comparison_to_national_average": "above",
+      "notes": "Ranges from 40 to 110 NIS/sqm across 4 zones. Among highest arnona rates in country. 2025 fiscal year rates established.",
+      "source_url": "https://www.haifa.muni.il/en/residents/arnona/annual-arnona/",
+      "confidence": "MEDIUM"
+    },
+    {
+      "city": "Ra'anana",
+      "rate_per_sqm_nis": 58.0,
+      "annual_arnona_100sqm_nis": 5800,
+      "olim_discount": "90% discount on first 100 sqm for 24 months within first 2 years of Aliyah",
+      "large_family_discount": "Income-based discounts available",
+      "other_discounts": "Various discounts and exemptions for qualifying groups",
+      "comparison_to_national_average": "average",
+      "notes": "Rates set by municipality annually. Official arnona information available from municipality. Online payment options available.",
+      "source_url": "https://www.raanana.muni.il/residents/arnona/",
+      "confidence": "MEDIUM"
+    },
+    {
+      "city": "Modi'in",
+      "rate_per_sqm_nis": 48.0,
+      "annual_arnona_100sqm_nis": 4800,
+      "olim_discount": "90% discount on first 100 sqm for 24 months within first 2 years of Aliyah",
+      "large_family_discount": "Income-based discounts available",
+      "other_discounts": "Standard apartment: 48 NIS/sqm; Penthouse/detached house: 51.36 NIS/sqm; Over 170 sqm: up to 60 NIS/sqm",
+      "comparison_to_national_average": "below",
+      "notes": "Uniform rates across all neighborhoods. Tiered by property type and size. Among lowest rates in Israel.",
+      "source_url": "https://semerenkogroup.com/features/arnona-price-property-tax/",
+      "confidence": "HIGH"
+    },
+    {
+      "city": "Beit Shemesh",
+      "rate_per_sqm_nis": 44.4,
+      "annual_arnona_100sqm_nis": 4440,
+      "olim_discount": "90% discount on first 100 sqm for 24 months within first 2 years of Aliyah",
+      "large_family_discount": "Income-based discounts available",
+      "other_discounts": "Old neighborhoods: 41.26 NIS/sqm; New neighborhoods: 47.48 NIS/sqm",
+      "comparison_to_national_average": "below",
+      "notes": "Lower arnona rates in established neighborhoods. Among most affordable cities for property tax. Earned high rating in arnona affordability study.",
+      "source_url": "https://semerenkogroup.com/features/arnona-price-property-tax/",
+      "confidence": "MEDIUM"
+    },
+    {
+      "city": "Herzliya",
+      "rate_per_sqm_nis": 65.0,
+      "annual_arnona_100sqm_nis": 6500,
+      "olim_discount": "90% discount on first 100 sqm for 24 months within first 2 years of Aliyah",
+      "large_family_discount": "Income-based discounts available",
+      "other_discounts": "Comparable to other central district cities",
+      "comparison_to_national_average": "above",
+      "notes": "Less expensive than Bat Yam and Bnei Brak. Central district coastal city. Specific 2025 rates not published online.",
+      "source_url": "https://www.buyitinisrael.com/news/arnona-municipal-property-tax-in-israel/",
+      "confidence": "LOW"
+    },
+    {
+      "city": "Netanya",
+      "rate_per_sqm_nis": 59.2,
+      "annual_arnona_100sqm_nis": 5920,
+      "olim_discount": "90% discount on first 100 sqm for 24 months within first 2 years of Aliyah",
+      "large_family_discount": "Income-based discounts available",
+      "other_discounts": "Rates range from 35.78 to 82.65 NIS/sqm by zone",
+      "comparison_to_national_average": "average",
+      "notes": "Coastal city with varied zones. Average calculated from min-max range.",
+      "source_url": "https://www.netanya.muni.il/en/Pages/PropertyTax.aspx",
+      "confidence": "MEDIUM"
+    },
+    {
+      "city": "Ashdod",
+      "rate_per_sqm_nis": null,
+      "annual_arnona_100sqm_nis": null,
+      "olim_discount": "90% discount on first 100 sqm for 24 months within first 2 years of Aliyah",
+      "large_family_discount": "Income-based discounts available",
+      "other_discounts": "Specific rates to be confirmed with municipality",
+      "comparison_to_national_average": "unknown",
+      "notes": "Southern port city. Specific 2025 rates not found in public sources. Contact Iriyat Ashdod for current rates.",
+      "source_url": null,
+      "confidence": "LOW"
+    },
+    {
+      "city": "Ashkelon",
+      "rate_per_sqm_nis": null,
+      "annual_arnona_100sqm_nis": null,
+      "olim_discount": "90% discount on first 100 sqm for 24 months within first 2 years of Aliyah",
+      "large_family_discount": "Income-based discounts available",
+      "other_discounts": "Specific rates to be confirmed with municipality",
+      "comparison_to_national_average": "unknown",
+      "notes": "Southern coastal city. Specific 2025 rates not found in public sources. Contact Iriyat Ashkelon for current rates.",
+      "source_url": null,
+      "confidence": "LOW"
+    },
+    {
+      "city": "Beer Sheva",
+      "rate_per_sqm_nis": 52.0,
+      "annual_arnona_100sqm_nis": 5200,
+      "olim_discount": "90% discount on first 100 sqm for 24 months within first 2 years of Aliyah",
+      "large_family_discount": "Income-based discounts available",
+      "other_discounts": "Capital of the Negev with regional development benefits",
+      "comparison_to_national_average": "below",
+      "notes": "Largest city in Negev region. Targets young families and immigrants with affordable housing. Estimated rate based on regional patterns.",
+      "source_url": "https://www.beer-sheva.muni.il/Eng/Pages/default.aspx",
+      "confidence": "LOW"
+    },
+    {
+      "city": "Petah Tikva",
+      "rate_per_sqm_nis": 62.0,
+      "annual_arnona_100sqm_nis": 6200,
+      "olim_discount": "90% discount on first 100 sqm for 24 months within first 2 years of Aliyah",
+      "large_family_discount": "Income-based discounts available",
+      "other_discounts": "Standard municipal discounts available",
+      "comparison_to_national_average": "above",
+      "notes": "Major central district city, one of first municipalities in Israel. Estimated rate based on regional data.",
+      "source_url": null,
+      "confidence": "LOW"
+    },
+    {
+      "city": "Kfar Saba",
+      "rate_per_sqm_nis": 61.0,
+      "annual_arnona_100sqm_nis": 6100,
+      "olim_discount": "90% discount on first 100 sqm for 24 months within first 2 years of Aliyah",
+      "large_family_discount": "Income-based discounts available",
+      "other_discounts": "High-income area in Sharon region",
+      "comparison_to_national_average": "above",
+      "notes": "Affluent city in Sharon region. Property values declined ~3.5% through mid-2025. Estimated rate.",
+      "source_url": null,
+      "confidence": "LOW"
+    },
+    {
+      "city": "Rehovot",
+      "rate_per_sqm_nis": 54.0,
+      "annual_arnona_100sqm_nis": 5400,
+      "olim_discount": "90% discount on first 100 sqm for 24 months within first 2 years of Aliyah",
+      "large_family_discount": "Income-based discounts available",
+      "other_discounts": "Home to Weizmann Institute of Science, academic community benefits",
+      "comparison_to_national_average": "average",
+      "notes": "Academic and research center. Estimated rate based on central district patterns.",
+      "source_url": null,
+      "confidence": "LOW"
+    },
+    {
+      "city": "Rishon LeZion",
+      "rate_per_sqm_nis": 59.0,
+      "annual_arnona_100sqm_nis": 5900,
+      "olim_discount": "90% discount on first 100 sqm for 24 months within first 2 years of Aliyah",
+      "large_family_discount": "Income-based discounts available",
+      "other_discounts": "Large southern city with family-oriented demographics",
+      "comparison_to_national_average": "average",
+      "notes": "One of the country's largest cities, experiencing steady real estate market. Property values declined over 7% through mid-2025. Estimated rate.",
+      "source_url": null,
+      "confidence": "LOW"
+    },
+    {
+      "city": "Efrat",
+      "rate_per_sqm_nis": 45.0,
+      "annual_arnona_100sqm_nis": 4500,
+      "olim_discount": "90% discount on first 100 sqm for 24 months within first 2 years of Aliyah",
+      "large_family_discount": "Income-based discounts; larger families common in settlement",
+      "other_discounts": "Settlement in Etzion Bloc with family-friendly rates",
+      "comparison_to_national_average": "below",
+      "notes": "Urban settlement south of Jerusalem, established 1982. Part of Jerusalem metropolitan real estate market. Estimated rate.",
+      "source_url": null,
+      "confidence": "LOW"
+    },
+    {
+      "city": "Maale Adumim",
+      "rate_per_sqm_nis": 48.0,
+      "annual_arnona_100sqm_nis": 4800,
+      "olim_discount": "90% discount on first 100 sqm for 24 months within first 2 years of Aliyah",
+      "large_family_discount": "Income-based discounts available",
+      "other_discounts": "City council area with growth development plans",
+      "comparison_to_national_average": "below",
+      "notes": "Urban settlement east of Jerusalem (7 km). Part of Jerusalem metropolitan area. Attracts families with lower arnona costs. Estimated rate.",
+      "source_url": null,
+      "confidence": "LOW"
+    },
+    {
+      "city": "Givat Shmuel",
+      "rate_per_sqm_nis": 57.0,
+      "annual_arnona_100sqm_nis": 5700,
+      "olim_discount": "90% discount on first 100 sqm for 24 months within first 2 years of Aliyah",
+      "large_family_discount": "Income-based discounts; large Orthodox population",
+      "other_discounts": "City with significant immigrant and religious community",
+      "comparison_to_national_average": "average",
+      "notes": "City with large Orthodox population. Used as comparison point for suburban real estate investment. Estimated rate.",
+      "source_url": null,
+      "confidence": "LOW"
+    },
+    {
+      "city": "Ramat Gan",
+      "rate_per_sqm_nis": 72.0,
+      "annual_arnona_100sqm_nis": 7200,
+      "olim_discount": "90% discount on first 100 sqm for 24 months within first 2 years of Aliyah",
+      "large_family_discount": "Income-based discounts available",
+      "other_discounts": "Senior citizens, disabled persons, other standard categories",
+      "comparison_to_national_average": "above",
+      "notes": "Among highest arnona rates in country. Major office and commercial center. Estimated rate based on Tel Aviv proximity.",
+      "source_url": "https://www.ramat-gan.muni.il/en/department-money/content-pages/arnona-test/",
+      "confidence": "MEDIUM"
+    },
+    {
+      "city": "Givatayim",
+      "rate_per_sqm_nis": 70.0,
+      "annual_arnona_100sqm_nis": 7000,
+      "olim_discount": "90% discount on first 100 sqm for 24 months within first 2 years of Aliyah",
+      "large_family_discount": "Income-based discounts available",
+      "other_discounts": "Standard municipal discounts for eligible groups",
+      "comparison_to_national_average": "above",
+      "notes": "Tel Aviv suburb with high property values and correspondingly high arnona. Estimated rate.",
+      "source_url": null,
+      "confidence": "LOW"
+    },
+    {
+      "city": "Holon",
+      "rate_per_sqm_nis": 63.0,
+      "annual_arnona_100sqm_nis": 6300,
+      "olim_discount": "90% discount on first 100 sqm for 24 months within first 2 years of Aliyah",
+      "large_family_discount": "Income-based discounts available",
+      "other_discounts": "City near Tel Aviv metropolitan area",
+      "comparison_to_national_average": "above",
+      "notes": "Located between Tel Aviv and Beer Sheva. Major population center. Estimated rate.",
+      "source_url": null,
+      "confidence": "LOW"
+    },
+    {
+      "city": "Bat Yam",
+      "rate_per_sqm_nis": 67.0,
+      "annual_arnona_100sqm_nis": 6700,
+      "olim_discount": "90% discount on first 100 sqm for 24 months within first 2 years of Aliyah",
+      "large_family_discount": "Income-based discounts available",
+      "other_discounts": "Coastal city with beach amenities",
+      "comparison_to_national_average": "above",
+      "notes": "Coastal city south of Tel Aviv. More expensive than Herzliya but less than Bnei Brak. Estimated rate.",
+      "source_url": null,
+      "confidence": "LOW"
+    },
+    {
+      "city": "Bnei Brak",
+      "rate_per_sqm_nis": 68.0,
+      "annual_arnona_100sqm_nis": 6800,
+      "olim_discount": "90% discount on first 100 sqm for 24 months within first 2 years of Aliyah",
+      "large_family_discount": "Income-based discounts available; large families common in religious community",
+      "other_discounts": "Haredi (ultra-Orthodox) city with family-oriented policies",
+      "comparison_to_national_average": "above",
+      "notes": "More expensive for arnona than Bat Yam and Herzliya. Major haredi population center. Estimated rate.",
+      "source_url": null,
+      "confidence": "LOW"
+    },
+    {
+      "city": "Ramat HaSharon",
+      "rate_per_sqm_nis": 64.0,
+      "annual_arnona_100sqm_nis": 6400,
+      "olim_discount": "90% discount on first 100 sqm for 24 months within first 2 years of Aliyah",
+      "large_family_discount": "Income-based discounts available",
+      "other_discounts": "Affluent suburban area",
+      "comparison_to_national_average": "above",
+      "notes": "High-income suburb of Tel Aviv in Sharon region. Estimated rate based on regional data.",
+      "source_url": null,
+      "confidence": "LOW"
+    },
+    {
+      "city": "Hod HaSharon",
+      "rate_per_sqm_nis": 60.0,
+      "annual_arnona_100sqm_nis": 6000,
+      "olim_discount": "90% discount on first 100 sqm for 24 months within first 2 years of Aliyah",
+      "large_family_discount": "Income-based discounts available",
+      "other_discounts": "Central Sharon region municipality",
+      "comparison_to_national_average": "above",
+      "notes": "Sharon region town between Ra'anana and Tel Aviv. Estimated rate.",
+      "source_url": null,
+      "confidence": "LOW"
+    },
+    {
+      "city": "Lod",
+      "rate_per_sqm_nis": 50.0,
+      "annual_arnona_100sqm_nis": 5000,
+      "olim_discount": "90% discount on first 100 sqm for 24 months within first 2 years of Aliyah",
+      "large_family_discount": "Income-based discounts available",
+      "other_discounts": "Mixed Arab-Jewish city with lower property costs",
+      "comparison_to_national_average": "below",
+      "notes": "Ancient city with airport proximity. Diverse population. Estimated rate.",
+      "source_url": null,
+      "confidence": "LOW"
+    },
+    {
+      "city": "Ramla",
+      "rate_per_sqm_nis": 51.0,
+      "annual_arnona_100sqm_nis": 5100,
+      "olim_discount": "90% discount on first 100 sqm for 24 months within first 2 years of Aliyah",
+      "large_family_discount": "Income-based discounts available",
+      "other_discounts": "Historic city with mixed population",
+      "comparison_to_national_average": "below",
+      "notes": "Historic Palestinian and Jewish city. Estimated rate based on regional patterns.",
+      "source_url": null,
+      "confidence": "LOW"
+    },
+    {
+      "city": "Nazareth",
+      "rate_per_sqm_nis": 40.0,
+      "annual_arnona_100sqm_nis": 4000,
+      "olim_discount": "90% discount on first 100 sqm for 24 months within first 2 years of Aliyah",
+      "large_family_discount": "Income-based discounts available",
+      "other_discounts": "Primarily Palestinian Christian and Muslim majority city",
+      "comparison_to_national_average": "below",
+      "notes": "Largest Palestinian city in Israel, northern region. Lower property costs. Estimated rate.",
+      "source_url": null,
+      "confidence": "LOW"
+    },
+    {
+      "city": "Acre",
+      "rate_per_sqm_nis": 42.0,
+      "annual_arnona_100sqm_nis": 4200,
+      "olim_discount": "90% discount on first 100 sqm for 24 months within first 2 years of Aliyah",
+      "large_family_discount": "Income-based discounts available",
+      "other_discounts": "Ancient port city with historic character",
+      "comparison_to_national_average": "below",
+      "notes": "Historic Mediterranean port city. Mixed Jewish and Arab population. Estimated rate.",
+      "source_url": null,
+      "confidence": "LOW"
+    },
+    {
+      "city": "Tiberias",
+      "rate_per_sqm_nis": 43.0,
+      "annual_arnona_100sqm_nis": 4300,
+      "olim_discount": "90% discount on first 100 sqm for 24 months within first 2 years of Aliyah",
+      "large_family_discount": "Income-based discounts available",
+      "other_discounts": "Historic religious city on Sea of Galilee",
+      "comparison_to_national_average": "below",
+      "notes": "Major tourism destination on Sea of Galilee. Attracts retirees and pilgrims. Estimated rate.",
+      "source_url": null,
+      "confidence": "LOW"
+    },
+    {
+      "city": "Safed",
+      "rate_per_sqm_nis": 39.0,
+      "annual_arnona_100sqm_nis": 3900,
+      "olim_discount": "90% discount on first 100 sqm for 24 months within first 2 years of Aliyah",
+      "large_family_discount": "Income-based discounts available",
+      "other_discounts": "Historic mountain city with religious significance",
+      "comparison_to_national_average": "below",
+      "notes": "Mountain city in Galilee, major center for Kabbalah and Jewish mysticism. Low property costs. Estimated rate.",
+      "source_url": null,
+      "confidence": "LOW"
+    },
+    {
+      "city": "Karmiel",
+      "rate_per_sqm_nis": 47.0,
+      "annual_arnona_100sqm_nis": 4700,
+      "olim_discount": "90% discount on first 100 sqm for 24 months within first 2 years of Aliyah",
+      "large_family_discount": "Income-based discounts available",
+      "other_discounts": "Planned city in Western Galilee, attracts young families",
+      "comparison_to_national_average": "below",
+      "notes": "Planned city established 1970s in Galilee. Development town status. Estimated rate.",
+      "source_url": null,
+      "confidence": "LOW"
+    },
+    {
+      "city": "Nahariya",
+      "rate_per_sqm_nis": 46.0,
+      "annual_arnona_100sqm_nis": 4600,
+      "olim_discount": "90% discount on first 100 sqm for 24 months within first 2 years of Aliyah",
+      "large_family_discount": "Income-based discounts available",
+      "other_discounts": "Coastal Galilee city",
+      "comparison_to_national_average": "below",
+      "notes": "Northern coastal city attracting retirees and families. Estimated rate.",
+      "source_url": null,
+      "confidence": "LOW"
+    },
+    {
+      "city": "Kiryat Shmona",
+      "rate_per_sqm_nis": 45.0,
+      "annual_arnona_100sqm_nis": 4500,
+      "olim_discount": "90% discount on first 100 sqm for 24 months within first 2 years of Aliyah",
+      "large_family_discount": "Income-based discounts available",
+      "other_discounts": "Northern Galilee city",
+      "comparison_to_national_average": "below",
+      "notes": "Development town in Upper Galilee, border region. Affordable housing. Estimated rate.",
+      "source_url": null,
+      "confidence": "LOW"
+    },
+    {
+      "city": "Kiryat Ata",
+      "rate_per_sqm_nis": 55.0,
+      "annual_arnona_100sqm_nis": 5500,
+      "olim_discount": "90% discount on first 100 sqm for 24 months within first 2 years of Aliyah",
+      "large_family_discount": "Income-based discounts available",
+      "other_discounts": "Industrial city near Haifa",
+      "comparison_to_national_average": "average",
+      "notes": "Industrial city in Haifa Bay area. Estimated rate based on regional patterns.",
+      "source_url": null,
+      "confidence": "LOW"
+    },
+    {
+      "city": "Kiryat Bialik",
+      "rate_per_sqm_nis": 56.0,
+      "annual_arnona_100sqm_nis": 5600,
+      "olim_discount": "90% discount on first 100 sqm for 24 months within first 2 years of Aliyah",
+      "large_family_discount": "Income-based discounts available",
+      "other_discounts": "Residential area in Haifa Bay region",
+      "comparison_to_national_average": "average",
+      "notes": "Part of Haifa metropolitan area. Estimated rate.",
+      "source_url": null,
+      "confidence": "LOW"
+    },
+    {
+      "city": "Kiryat Motzkin",
+      "rate_per_sqm_nis": 57.0,
+      "annual_arnona_100sqm_nis": 5700,
+      "olim_discount": "90% discount on first 100 sqm for 24 months within first 2 years of Aliyah",
+      "large_family_discount": "Income-based discounts available",
+      "other_discounts": "Residential suburb in Haifa Bay",
+      "comparison_to_national_average": "average",
+      "notes": "Haifa Bay region suburb. Estimated rate.",
+      "source_url": null,
+      "confidence": "LOW"
+    },
+    {
+      "city": "Kiryat Yam",
+      "rate_per_sqm_nis": 58.0,
+      "annual_arnona_100sqm_nis": 5800,
+      "olim_discount": "90% discount on first 100 sqm for 24 months within first 2 years of Aliyah",
+      "large_family_discount": "Income-based discounts available",
+      "other_discounts": "Coastal residential city in Haifa Bay",
+      "comparison_to_national_average": "average",
+      "notes": "Haifa Bay coastal area. Estimated rate.",
+      "source_url": null,
+      "confidence": "LOW"
+    },
+    {
+      "city": "Yokneam",
+      "rate_per_sqm_nis": 52.0,
+      "annual_arnona_100sqm_nis": 5200,
+      "olim_discount": "90% discount on first 100 sqm for 24 months within first 2 years of Aliyah",
+      "large_family_discount": "Income-based discounts available",
+      "other_discounts": "Integrated Arab-Jewish city in Jezreel Valley",
+      "comparison_to_national_average": "below",
+      "notes": "High-tech hub and binational city. Estimated rate.",
+      "source_url": null,
+      "confidence": "LOW"
+    },
+    {
+      "city": "Afula",
+      "rate_per_sqm_nis": 48.0,
+      "annual_arnona_100sqm_nis": 4800,
+      "olim_discount": "90% discount on first 100 sqm for 24 months within first 2 years of Aliyah",
+      "large_family_discount": "Income-based discounts available",
+      "other_discounts": "Regional center in Jezreel Valley",
+      "comparison_to_national_average": "below",
+      "notes": "Major northern regional center. Attracts families with affordable housing. Estimated rate.",
+      "source_url": null,
+      "confidence": "LOW"
+    },
+    {
+      "city": "Beit She'an",
+      "rate_per_sqm_nis": 41.0,
+      "annual_arnona_100sqm_nis": 4100,
+      "olim_discount": "90% discount on first 100 sqm for 24 months within first 2 years of Aliyah",
+      "large_family_discount": "Income-based discounts available",
+      "other_discounts": "Historic city with national parks",
+      "comparison_to_national_average": "below",
+      "notes": "Ancient Roman-era city in Jordan Valley. Archaeological center. Very affordable. Estimated rate.",
+      "source_url": null,
+      "confidence": "LOW"
+    },
+    {
+      "city": "Dimona",
+      "rate_per_sqm_nis": 44.0,
+      "annual_arnona_100sqm_nis": 4400,
+      "olim_discount": "90% discount on first 100 sqm for 24 months within first 2 years of Aliyah",
+      "large_family_discount": "Income-based discounts available",
+      "other_discounts": "Southern development town",
+      "comparison_to_national_average": "below",
+      "notes": "Negev region industrial and development town. Estimated rate.",
+      "source_url": null,
+      "confidence": "LOW"
+    },
+    {
+      "city": "Arad",
+      "rate_per_sqm_nis": 42.0,
+      "annual_arnona_100sqm_nis": 4200,
+      "olim_discount": "90% discount on first 100 sqm for 24 months within first 2 years of Aliyah",
+      "large_family_discount": "Income-based discounts available",
+      "other_discounts": "Desert city with health and tourism focus",
+      "comparison_to_national_average": "below",
+      "notes": "Negev desert city attracts retirees and health-conscious residents. Very affordable. Estimated rate.",
+      "source_url": null,
+      "confidence": "LOW"
+    },
+    {
+      "city": "Sderot",
+      "rate_per_sqm_nis": 40.0,
+      "annual_arnona_100sqm_nis": 4000,
+      "olim_discount": "90% discount on first 100 sqm for 24 months within first 2 years of Aliyah",
+      "large_family_discount": "Income-based discounts available",
+      "other_discounts": "Development town near Gaza border",
+      "comparison_to_national_average": "below",
+      "notes": "Southern development town. Low housing costs to attract residents. Estimated rate.",
+      "source_url": null,
+      "confidence": "LOW"
+    },
+    {
+      "city": "Ofakim",
+      "rate_per_sqm_nis": 41.0,
+      "annual_arnona_100sqm_nis": 4100,
+      "olim_discount": "90% discount on first 100 sqm for 24 months within first 2 years of Aliyah",
+      "large_family_discount": "Income-based discounts available",
+      "other_discounts": "Southern development town",
+      "comparison_to_national_average": "below",
+      "notes": "Negev region development town. Affordable housing. Estimated rate.",
+      "source_url": null,
+      "confidence": "LOW"
+    },
+    {
+      "city": "Kiryat Gat",
+      "rate_per_sqm_nis": 43.0,
+      "annual_arnona_100sqm_nis": 4300,
+      "olim_discount": "90% discount on first 100 sqm for 24 months within first 2 years of Aliyah",
+      "large_family_discount": "Income-based discounts available",
+      "other_discounts": "Southern development town",
+      "comparison_to_national_average": "below",
+      "notes": "Negev region city. Estimated rate.",
+      "source_url": null,
+      "confidence": "LOW"
+    },
+    {
+      "city": "Kiryat Malachi",
+      "rate_per_sqm_nis": 42.0,
+      "annual_arnona_100sqm_nis": 4200,
+      "olim_discount": "90% discount on first 100 sqm for 24 months within first 2 years of Aliyah",
+      "large_family_discount": "Income-based discounts available",
+      "other_discounts": "Southern Shephelah region town",
+      "comparison_to_national_average": "below",
+      "notes": "South-central town attracting young families. Estimated rate.",
+      "source_url": null,
+      "confidence": "LOW"
+    },
+    {
+      "city": "Or Akiva",
+      "rate_per_sqm_nis": 49.0,
+      "annual_arnona_100sqm_nis": 4900,
+      "olim_discount": "90% discount on first 100 sqm for 24 months within first 2 years of Aliyah",
+      "large_family_discount": "Income-based discounts available",
+      "other_discounts": "Coastal Carmel region city",
+      "comparison_to_national_average": "below",
+      "notes": "Coastal city in Carmel region. Estimated rate based on regional data.",
+      "source_url": null,
+      "confidence": "LOW"
+    },
+    {
+      "city": "Yavne",
+      "rate_per_sqm_nis": 55.0,
+      "annual_arnona_100sqm_nis": 5500,
+      "olim_discount": "90% discount on first 100 sqm for 24 months within first 2 years of Aliyah",
+      "large_family_discount": "Income-based discounts available",
+      "other_discounts": "Central Shephelah region city",
+      "comparison_to_national_average": "average",
+      "notes": "Ancient city with archaeological significance. Growing residential area. Estimated rate.",
+      "source_url": null,
+      "confidence": "LOW"
+    },
+    {
+      "city": "Nes Ziona",
+      "rate_per_sqm_nis": 58.0,
+      "annual_arnona_100sqm_nis": 5800,
+      "olim_discount": "90% discount on first 100 sqm for 24 months within first 2 years of Aliyah",
+      "large_family_discount": "Income-based discounts available",
+      "other_discounts": "South-central municipality",
+      "comparison_to_national_average": "average",
+      "notes": "Growing residential suburb south of Tel Aviv. Home to major biotech companies. Estimated rate.",
+      "source_url": null,
+      "confidence": "LOW"
+    },
+    {
+      "city": "Rosh HaAyin",
+      "rate_per_sqm_nis": 56.0,
+      "annual_arnona_100sqm_nis": 5600,
+      "olim_discount": "90% discount on first 100 sqm for 24 months within first 2 years of Aliyah",
+      "large_family_discount": "Income-based discounts available",
+      "other_discounts": "Central district municipality",
+      "comparison_to_national_average": "average",
+      "notes": "Central district city attracting families. Estimated rate.",
+      "source_url": null,
+      "confidence": "LOW"
+    },
+    {
+      "city": "Shoham",
+      "rate_per_sqm_nis": 57.0,
+      "annual_arnona_100sqm_nis": 5700,
+      "olim_discount": "90% discount on first 100 sqm for 24 months within first 2 years of Aliyah",
+      "large_family_discount": "Income-based discounts available",
+      "other_discounts": "Growing suburban municipality",
+      "comparison_to_national_average": "average",
+      "notes": "Young suburban city in central district with family-oriented development. Estimated rate.",
+      "source_url": null,
+      "confidence": "LOW"
+    },
+    {
+      "city": "Modiin Illit",
+      "rate_per_sqm_nis": 47.0,
+      "annual_arnona_100sqm_nis": 4700,
+      "olim_discount": "90% discount on first 100 sqm for 24 months within first 2 years of Aliyah",
+      "large_family_discount": "Income-based discounts; large families common in haredi community",
+      "other_discounts": "Haredi (ultra-Orthodox) city council with family-oriented policies",
+      "comparison_to_national_average": "below",
+      "notes": "Haredi city in Judean Hills, west of Jerusalem. Large families with affordable housing policies. Estimated rate.",
+      "source_url": null,
+      "confidence": "LOW"
+    },
+    {
+      "city": "Elad",
+      "rate_per_sqm_nis": 48.0,
+      "annual_arnona_100sqm_nis": 4800,
+      "olim_discount": "90% discount on first 100 sqm for 24 months within first 2 years of Aliyah",
+      "large_family_discount": "Income-based discounts; designed for large families",
+      "other_discounts": "Planned city for young families and new immigrants",
+      "comparison_to_national_average": "below",
+      "notes": "Planned city (established 1985) in Judean Hills, designed for young families and immigrants with affordable housing. Estimated rate.",
+      "source_url": null,
+      "confidence": "LOW"
+    }
+  ],
+  "sources": [
+    {
+      "title": "Arnona 2026 In Israel: The Real Story Behind The 1.626% Automatic Pilot",
+      "url": "https://semerenkogroup.com/arnona-2026-in-israel-the-small-percentage-that-quietly-reshapes-every-deal-2/",
+      "accessed": "2026-03-15"
+    },
+    {
+      "title": "Israel's 2026 Arnona Updates: What Property Owners Need To Know",
+      "url": "https://semerenkogroup.com/israels-2026-arnona-schedules-go-public-in-major-cities/",
+      "accessed": "2026-03-15"
+    },
+    {
+      "title": "How Much Is Arnona? A Guide To Israeli Property Tax (2025)",
+      "url": "https://semerenkogroup.com/features/arnona-price-property-tax/",
+      "accessed": "2026-03-15"
+    },
+    {
+      "title": "Guide to the Arnona Tax in Israel",
+      "url": "https://capitil.com/blog/arnona-tax-in-israel.html",
+      "accessed": "2026-03-15"
+    },
+    {
+      "title": "Property Taxes, Fees and Costs in Israel (2026)",
+      "url": "https://sandsofwealth.com/blogs/news/israel-property-taxes-fees",
+      "accessed": "2026-03-15"
+    },
+    {
+      "title": "Arnona Tel Aviv Explained | Property Tax Rates & What to Expect",
+      "url": "https://ronkin-list.com/arnona-tel-aviv-guide/",
+      "accessed": "2026-03-15"
+    },
+    {
+      "title": "Tel Aviv property taxes for foreign owners (Sep 2025)",
+      "url": "https://sandsofwealth.com/blogs/news/tel-aviv-property-taxes-foreign",
+      "accessed": "2026-03-15"
+    },
+    {
+      "title": "Jerusalem Municipality - Property Tax (Arnona)",
+      "url": "https://www.jerusalem.muni.il/en/residents/arnona/ratesandpayments/",
+      "accessed": "2026-03-15"
+    },
+    {
+      "title": "Haifa Municipality - Arnona Information",
+      "url": "https://www.haifa.muni.il/en/residents/arnona/annual-arnona/",
+      "accessed": "2026-03-15"
+    },
+    {
+      "title": "Ra'anana Municipality - Property Tax (Arnona)",
+      "url": "https://www.raanana.muni.il/residents/arnona/",
+      "accessed": "2026-03-15"
+    },
+    {
+      "title": "Netanya Municipality - Property Tax",
+      "url": "https://www.netanya.muni.il/en/Pages/PropertyTax.aspx",
+      "accessed": "2026-03-15"
+    },
+    {
+      "title": "Ramat Gan Municipality - Arnona",
+      "url": "https://www.ramat-gan.muni.il/en/department-money/content-pages/arnona-test/",
+      "accessed": "2026-03-15"
+    },
+    {
+      "title": "Beer Sheva Municipality",
+      "url": "https://www.beer-sheva.muni.il/Eng/Pages/default.aspx",
+      "accessed": "2026-03-15"
+    },
+    {
+      "title": "Municipal Property Tax in Israel: How Arnona Works",
+      "url": "https://www.buyitinisrael.com/news/arnona-municipal-property-tax-in-israel/",
+      "accessed": "2026-03-15"
+    },
+    {
+      "title": "Arnona (Reduced Municipal Tax) - Nefesh B'Nefesh",
+      "url": "https://www.nbn.org.il/life-in-israel/government-services/rights-and-benefits/arnona-reduced-municipal-tax/",
+      "accessed": "2026-03-15"
+    },
+    {
+      "title": "Israel announces tax break for new immigrants in 2026",
+      "url": "https://www.jpost.com/aliyah/article-872962",
+      "accessed": "2026-03-15"
+    },
+    {
+      "title": "Israel unveils 0% tax rate for 2026's immigrants and returning residents",
+      "url": "https://www.timesofisrael.com/israel-unveils-0-tax-rate-for-2026s-immigrants-and-returning-residents/",
+      "accessed": "2026-03-15"
+    },
+    {
+      "title": "Understanding Israeli Property Tax Law for Foreign Buyers: 2025 Guide",
+      "url": "https://davidson-realestate.com/israel-property-taxes-for-foreign-buyers/",
+      "accessed": "2026-03-15"
+    },
+    {
+      "title": "Israel Economic Review Vol. 23, No. 1 (2025)",
+      "url": "https://www.boi.org.il/media/tbmdzeic/vol-231-2025-4.pdf",
+      "accessed": "2026-03-15"
+    }
+  ],
+  "notes": {
+    "confidence_levels": "HIGH: Official municipal source or multiple verified sources with specific 2025 rates. MEDIUM: Multiple reliable sources with consistent data. LOW: Estimated based on regional patterns and incomplete data sources.",
+    "olim_discounts": "All cities offer the standard 90% discount on first 100 sqm within 24 months of Aliyah as per 2025-2026 national policy. Olim chadashim must have teudat oleh and appear on arnona bill.",
+    "national_average": "Estimated at 55 NIS/sqm for residential properties. Major variation exists between development towns (40-45 NIS) and central district cities (65-75 NIS).",
+    "2026_update": "All 2025 rates subject to automatic 1.626% increase for 2026 per Ministry of Interior formula.",
+    "income_tax_benefits": "New immigrants arriving in 2026 will pay 0% income tax in 2026-2027, with gradual increases to 30% by 2030 on incomes up to 1 million NIS.",
+    "data_gaps": "Many smaller municipalities lack publicly available 2025 arnona rates in English. Contact municipality tax offices directly (arnonot/iriyot) for most current rates and specific discounts."
+  }
+}

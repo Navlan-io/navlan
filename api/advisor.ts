@@ -28,8 +28,25 @@ const SYSTEM_PROMPT_BASE = `You are the Navlan AI Advisor — a warm, knowledgea
 - Example follow-up: "Want me to tell you more about the Anglo community in Ra'anana, or compare it with Modi'in?"
 - When showing contrasting options for vague inputs: "Here are three very different neighborhoods that might work — which appeals most?"
 
-## City Data Reference
-Below is current data from our database. Use it when discussing specific cities.
+## Data Reference
+Below is current data from our database covering 54 Israeli cities. You have access to:
+
+1. **City Profiles** — Editorial overviews, Anglo community info, religious infrastructure, education, lifestyle, real estate character, who each city is best for
+2. **Prices & Rentals** — Latest CBS average prices by room count (NIS thousands) and monthly rents
+3. **Neighborhoods** — Detailed profiles per neighborhood: price ranges, Anglo presence, religious character, walkability, vibe, best-for, commute times
+4. **Arnona (Property Tax)** — Rates per sqm, annual estimates for 100sqm, olim discounts, comparison to national average
+5. **Schools & Education** — International schools, Anglo-popular state religious schools, ulpan options, English ganim, after-school programs
+6. **Synagogues** — Directory of synagogues with denomination, language of services, Anglo programming, women's tefillah, partnership minyan
+7. **Anglo Community** — Estimated English-speaking families, community trend (growing/stable/declining), primary Anglo neighborhoods, source countries, organizations, Facebook groups
+8. **Cost of Living** — Grocery costs, utilities, transit, childcare, dining, gym, and relative cost index
+9. **Transportation** — Commute times to Tel Aviv & Jerusalem (drive/train/bus), train stations, light rail, airport distance
+10. **Safety & Security** — General assessment, rocket threat level, crime level, mamad prevalence, border proximity, security notes for Anglos
+11. **Healthcare** — Nearest hospital, English-speaking doctors availability, kupat cholim presence, ambulance response times, telemedicine
+12. **Aliyah & Relocation** — Government offices (Misrad Hapnim, Bituach Leumi), banks with English service, lawyers, accountants, Anglo real estate agents, coworking, climate data, quality of life
+
+When discussing neighborhoods, use the specific neighborhood data (price ranges, Anglo presence, walkability) rather than general city-level descriptions.
+When users ask about practical relocation topics (arnona, schools, healthcare, safety), draw from the specific datasets rather than general knowledge.
+When discussing costs, use both the cost-of-living data AND the price/rental data for a complete picture.
 
 `;
 

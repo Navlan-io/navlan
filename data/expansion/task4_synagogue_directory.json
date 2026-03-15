@@ -1,0 +1,892 @@
+{
+  "Jerusalem": {
+    "synagogues": [
+      {
+        "name": "Jerusalem Great Synagogue",
+        "denomination": "Orthodox",
+        "language_of_services": "Hebrew with English-friendly",
+        "neighborhood": "Downtown Jerusalem",
+        "anglo_programming": "Services accessible to English speakers",
+        "womens_tefillah": null,
+        "partnership_minyan": null,
+        "website": null,
+        "confidence": "HIGH"
+      },
+      {
+        "name": "Chabad Center Jerusalem",
+        "denomination": "Chabad",
+        "language_of_services": "Hebrew with English-friendly",
+        "neighborhood": "Various locations",
+        "anglo_programming": "Torah classes, Shabbat services",
+        "womens_tefillah": null,
+        "partnership_minyan": null,
+        "website": null,
+        "confidence": "MEDIUM"
+      }
+    ],
+    "secular_community_spaces": [],
+    "notes": "Jerusalem has numerous Orthodox synagogues and Chabad centers catering to English speakers. The city is a religious center with significant Anglo community presence."
+  },
+  "Tel Aviv": {
+    "synagogues": [
+      {
+        "name": "Tel Aviv International Synagogue (TAIS)",
+        "denomination": "Modern Orthodox",
+        "language_of_services": "English with Hebrew",
+        "neighborhood": "Frishman Street, Downtown",
+        "anglo_programming": "Full English services, diverse international community from 30+ countries",
+        "womens_tefillah": null,
+        "partnership_minyan": null,
+        "website": "https://www.tais-frishman23.com/",
+        "confidence": "HIGH"
+      },
+      {
+        "name": "Chabad on the Coast",
+        "denomination": "Chabad",
+        "language_of_services": "English with Hebrew",
+        "neighborhood": "Central Tel Aviv",
+        "anglo_programming": "Shabbat services, holiday meals, Torah classes, young professional events",
+        "womens_tefillah": null,
+        "partnership_minyan": null,
+        "website": "https://www.chabadonthecoast.com/",
+        "confidence": "HIGH"
+      },
+      {
+        "name": "North Central Synagogue (NCS)",
+        "denomination": "Modern Orthodox/Dati Leumi",
+        "language_of_services": "English with Hebrew",
+        "neighborhood": "Northern Tel Aviv",
+        "anglo_programming": "Community center with English-Hebrew programming for diverse internationals",
+        "womens_tefillah": null,
+        "partnership_minyan": null,
+        "website": null,
+        "confidence": "HIGH"
+      },
+      {
+        "name": "Beit Daniel",
+        "denomination": "Reform",
+        "language_of_services": "Hebrew with English-friendly",
+        "neighborhood": "Northern Tel Aviv, 62 Bnei Dan Street",
+        "anglo_programming": null,
+        "womens_tefillah": true,
+        "partnership_minyan": true,
+        "website": null,
+        "confidence": "MEDIUM"
+      },
+      {
+        "name": "Mishkenot Ruth Daniel",
+        "denomination": "Reform",
+        "language_of_services": "Hebrew with English-friendly",
+        "neighborhood": "Jaffa, 47 Jerusalem Boulevard",
+        "anglo_programming": null,
+        "womens_tefillah": true,
+        "partnership_minyan": true,
+        "website": null,
+        "confidence": "MEDIUM"
+      },
+      {
+        "name": "Kehilat Halev",
+        "denomination": "Reform",
+        "language_of_services": "Hebrew with English-friendly",
+        "neighborhood": "Central Tel Aviv, 48 Rashi Street",
+        "anglo_programming": "Progressive community programming",
+        "womens_tefillah": true,
+        "partnership_minyan": true,
+        "website": null,
+        "confidence": "MEDIUM"
+      },
+      {
+        "name": "Kehillat Sinai",
+        "denomination": "Conservative/Masorti",
+        "language_of_services": "Hebrew with English-friendly",
+        "neighborhood": "Central Tel Aviv",
+        "anglo_programming": "Diverse community including olim",
+        "womens_tefillah": true,
+        "partnership_minyan": true,
+        "website": null,
+        "confidence": "MEDIUM"
+      },
+      {
+        "name": "Yachad",
+        "denomination": "Modern Orthodox",
+        "language_of_services": "Hebrew with English-friendly",
+        "neighborhood": "Tel Aviv",
+        "anglo_programming": "Liberal Orthodox community",
+        "womens_tefillah": null,
+        "partnership_minyan": null,
+        "website": null,
+        "confidence": "MEDIUM"
+      }
+    ],
+    "secular_community_spaces": [],
+    "notes": "Tel Aviv has the largest concentration of English-friendly synagogues in Israel, with full English services available at TAIS and Chabad on the Coast. Reform and Conservative options available for egalitarian services."
+  },
+  "Haifa": {
+    "synagogues": [
+      {
+        "name": "Maor Yehuda Synagogue",
+        "denomination": "Modern Orthodox",
+        "language_of_services": "English with Hebrew",
+        "neighborhood": "Ramat Almogi, 13A Blitental Street, Mount Carmel",
+        "anglo_programming": "Community for Technion faculty, new immigrants, diverse backgrounds",
+        "womens_tefillah": null,
+        "partnership_minyan": null,
+        "website": null,
+        "confidence": "HIGH"
+      },
+      {
+        "name": "Or Hadash",
+        "denomination": "Reform",
+        "language_of_services": "Hebrew with English-friendly",
+        "neighborhood": "Northern Haifa",
+        "anglo_programming": "Educational outreach program, accessible to new immigrants",
+        "womens_tefillah": true,
+        "partnership_minyan": true,
+        "website": null,
+        "confidence": "HIGH"
+      },
+      {
+        "name": "Chabad Haifa",
+        "denomination": "Chabad",
+        "language_of_services": "Hebrew with English-friendly",
+        "neighborhood": "Haifa",
+        "anglo_programming": "Torah classes, synagogue services",
+        "womens_tefillah": null,
+        "partnership_minyan": null,
+        "website": null,
+        "confidence": "MEDIUM"
+      }
+    ],
+    "secular_community_spaces": [],
+    "notes": "Haifa has several modern communities catering to English speakers, particularly around the Technion and Mount Carmel areas. Or Hadash is the largest Reform synagogue in northern Israel."
+  },
+  "Ra'anana": {
+    "synagogues": [
+      {
+        "name": "Yavne Shul",
+        "denomination": "Modern Orthodox",
+        "language_of_services": "English with Hebrew",
+        "neighborhood": "Ra'anana",
+        "anglo_programming": "English-speaking minyan standard",
+        "womens_tefillah": null,
+        "partnership_minyan": null,
+        "website": null,
+        "confidence": "MEDIUM"
+      }
+    ],
+    "secular_community_spaces": [],
+    "notes": "Ra'anana has one of Israel's largest and most established Anglo communities. English-speaking minyanim are the norm rather than exception. Multiple shuls across the religious spectrum with active English-language shiurim and learning programs."
+  },
+  "Modi'in": {
+    "synagogues": [
+      {
+        "name": "Kehillat Menorat Hamaor",
+        "denomination": "Modern Orthodox",
+        "language_of_services": "English with Hebrew",
+        "neighborhood": "Ramat Modi'in",
+        "anglo_programming": "Community founded by South African and Anglo families, about 18 years established",
+        "womens_tefillah": null,
+        "partnership_minyan": null,
+        "website": null,
+        "confidence": "HIGH"
+      },
+      {
+        "name": "Kehillat Nofei Hashemesh",
+        "denomination": "Modern Orthodox",
+        "language_of_services": "English with Hebrew",
+        "neighborhood": "Modi'in",
+        "anglo_programming": "50% native English speakers, led by Rabbi Shalom Rosner",
+        "womens_tefillah": null,
+        "partnership_minyan": null,
+        "website": null,
+        "confidence": "HIGH"
+      }
+    ],
+    "secular_community_spaces": [],
+    "notes": "Modi'in is considered one of the premier Anglo communities in Israel. The religious community is diverse, ranging from modern Orthodox to national-religious. Multiple neighborhoods with established Anglo populations and thriving synagogue communities."
+  },
+  "Beit Shemesh": {
+    "synagogues": [
+      {
+        "name": "Kehillat Menorat Hamaor",
+        "denomination": "Modern Orthodox",
+        "language_of_services": "English with Hebrew",
+        "neighborhood": "Ramat Beit Shemesh",
+        "anglo_programming": "Founded by South African and Anglo families",
+        "womens_tefillah": null,
+        "partnership_minyan": null,
+        "website": null,
+        "confidence": "HIGH"
+      },
+      {
+        "name": "Kehillat Nofei Hashemesh",
+        "denomination": "Modern Orthodox",
+        "language_of_services": "English with Hebrew",
+        "neighborhood": "Ramat Beit Shemesh",
+        "anglo_programming": "Significant English-speaking membership",
+        "womens_tefillah": null,
+        "partnership_minyan": null,
+        "website": null,
+        "confidence": "MEDIUM"
+      }
+    ],
+    "secular_community_spaces": [],
+    "notes": "Beit Shemesh, particularly Ramat Beit Shemesh, is a booming city with one of Israel's largest English-speaking communities. Dozens of shuls across every hashkafa with abundant English-speaking minyanim. Home to hundreds of Anglo families in neighborhoods like Nofim and Moreshet."
+  },
+  "Herzliya": {
+    "synagogues": [],
+    "secular_community_spaces": [],
+    "notes": "Limited specific data on Anglo-friendly synagogues in Herzliya. The city has religious infrastructure but Anglo community focus is less documented compared to other central locations."
+  },
+  "Netanya": {
+    "synagogues": [
+      {
+        "name": "Young Israel of North Netanya",
+        "denomination": "Modern Orthodox",
+        "language_of_services": "English with Hebrew",
+        "neighborhood": "North Netanya",
+        "anglo_programming": "English-speaking multinational community by the sea",
+        "womens_tefillah": null,
+        "partnership_minyan": null,
+        "website": "https://www.yinn.org/",
+        "confidence": "HIGH"
+      },
+      {
+        "name": "New Synagogue of Netanya",
+        "denomination": "Modern Orthodox",
+        "language_of_services": "English with Hebrew",
+        "neighborhood": "Central Netanya",
+        "anglo_programming": "Daily minyanim, shiurim in English, kiddushim, cultural programs, 50+ years established",
+        "womens_tefillah": null,
+        "partnership_minyan": null,
+        "website": null,
+        "confidence": "HIGH"
+      },
+      {
+        "name": "SNAC (South Netanya Anglo Congregation)",
+        "denomination": "Modern Orthodox",
+        "language_of_services": "English with Hebrew",
+        "neighborhood": "South Netanya",
+        "anglo_programming": "Anglo-focused community",
+        "womens_tefillah": null,
+        "partnership_minyan": null,
+        "website": "https://www.snacshul.org/",
+        "confidence": "HIGH"
+      },
+      {
+        "name": "Tefilat Yamim",
+        "denomination": "Orthodox",
+        "language_of_services": "English",
+        "neighborhood": "Beni Berman Street, Ir Yamim area",
+        "anglo_programming": "All services and speeches in English for English-speaking communities",
+        "womens_tefillah": null,
+        "partnership_minyan": null,
+        "website": "https://www.tefilatyamim.org",
+        "confidence": "HIGH"
+      },
+      {
+        "name": "Shearim Netanya",
+        "denomination": "Modern Orthodox",
+        "language_of_services": "Hebrew with English-friendly",
+        "neighborhood": "Netanya",
+        "anglo_programming": null,
+        "womens_tefillah": null,
+        "partnership_minyan": null,
+        "website": null,
+        "confidence": "MEDIUM"
+      }
+    ],
+    "secular_community_spaces": [],
+    "notes": "Netanya has the greatest concentration of English speakers among the coastal cities. Young Israel of North Netanya and SNAC are particularly well-established Anglo communities. Multiple options for English-language services."
+  },
+  "Ashdod": {
+    "synagogues": [],
+    "secular_community_spaces": [],
+    "notes": "Ashdod has significant Jewish communities, particularly Georgian communities. Limited specific data on Anglo-friendly synagogues compared to other major cities."
+  },
+  "Ashkelon": {
+    "synagogues": [
+      {
+        "name": "Kehilat Netzach Yisrael",
+        "denomination": "Reform",
+        "language_of_services": "Hebrew, English, Spanish, Russian",
+        "neighborhood": "Ashkelon",
+        "anglo_programming": "Only non-Orthodox synagogue in Ashkelon, egalitarian and family-oriented",
+        "womens_tefillah": true,
+        "partnership_minyan": true,
+        "website": null,
+        "confidence": "HIGH"
+      },
+      {
+        "name": "Central Synagogue of Afridar",
+        "denomination": "Orthodox",
+        "language_of_services": "Hebrew with English-friendly",
+        "neighborhood": "Afridar",
+        "anglo_programming": "Mix of Hebrew and English speakers, popular with US, Canadian, South African, and UK expats",
+        "womens_tefillah": null,
+        "partnership_minyan": null,
+        "website": null,
+        "confidence": "MEDIUM"
+      }
+    ],
+    "secular_community_spaces": [],
+    "notes": "Ashkelon has English-speaking options including the only non-Orthodox synagogue in the city. The Central Synagogue of Afridar is popular with Anglo expats from Western countries."
+  },
+  "Beer Sheva": {
+    "synagogues": [
+      {
+        "name": "Chabad of English Speakers in Be'er Sheva",
+        "denomination": "Chabad",
+        "language_of_services": "English with Hebrew",
+        "neighborhood": "Beer Sheva",
+        "anglo_programming": "Torah classes, Shabbat meals, holiday celebrations",
+        "womens_tefillah": null,
+        "partnership_minyan": null,
+        "website": "https://chabadb7.org/",
+        "confidence": "HIGH"
+      },
+      {
+        "name": "Eshel Avraham",
+        "denomination": "Conservative/Masorti",
+        "language_of_services": "Hebrew with English-friendly",
+        "neighborhood": "Beer Sheva",
+        "anglo_programming": "Founded by North American immigrants",
+        "womens_tefillah": true,
+        "partnership_minyan": true,
+        "website": null,
+        "confidence": "MEDIUM"
+      },
+      {
+        "name": "Hakippah",
+        "denomination": "Orthodox",
+        "language_of_services": "Hebrew with English-friendly",
+        "neighborhood": "Beer Sheva",
+        "anglo_programming": null,
+        "womens_tefillah": null,
+        "partnership_minyan": null,
+        "website": null,
+        "confidence": "MEDIUM"
+      }
+    ],
+    "secular_community_spaces": [],
+    "notes": "Beer Sheva, with ~300 synagogues, has a few Anglo-oriented congregations. The city has attracted Anglos seeking traditional but egalitarian approaches. Chabad has strong presence serving English speakers."
+  },
+  "Petah Tikva": {
+    "synagogues": [],
+    "secular_community_spaces": [],
+    "notes": "Petah Tikva has many synagogues but limited specific data available on Anglo-friendly congregations. Further research needed."
+  },
+  "Kfar Saba": {
+    "synagogues": [],
+    "secular_community_spaces": [],
+    "notes": "Kfar Saba has 105 synagogues but limited specific data on English-speaking communities. Further research needed."
+  },
+  "Rehovot": {
+    "synagogues": [
+      {
+        "name": "Congregation Adat Shalom – Emanuel",
+        "denomination": "Conservative/Masorti",
+        "language_of_services": "English with Hebrew",
+        "neighborhood": "Rehovot",
+        "anglo_programming": "About 160 families, established 1970, North American immigrant foundation, diverse international membership",
+        "womens_tefillah": true,
+        "partnership_minyan": true,
+        "website": null,
+        "confidence": "HIGH"
+      },
+      {
+        "name": "Beit Chatam",
+        "denomination": "Modern Orthodox",
+        "language_of_services": "English with Hebrew",
+        "neighborhood": "Rehovot",
+        "anglo_programming": "Predominantly English-speaking membership, English shiurim and programs",
+        "womens_tefillah": null,
+        "partnership_minyan": null,
+        "website": null,
+        "confidence": "MEDIUM"
+      },
+      {
+        "name": "Chatam Shul",
+        "denomination": "Modern Orthodox",
+        "language_of_services": "English with Hebrew",
+        "neighborhood": "Rehovot",
+        "anglo_programming": "American yeshivish style, full-service English-speaking community",
+        "womens_tefillah": null,
+        "partnership_minyan": null,
+        "website": "https://chatam.org/",
+        "confidence": "MEDIUM"
+      }
+    ],
+    "secular_community_spaces": [],
+    "notes": "Rehovot has notable English-speaking communities, particularly through Adat Shalom which serves diverse immigrants and native Israelis."
+  },
+  "Rishon LeZion": {
+    "synagogues": [
+      {
+        "name": "Congregation Adat Shalom – Emanuel",
+        "denomination": "Conservative/Masorti",
+        "language_of_services": "English with Hebrew",
+        "neighborhood": "Greater Rishon LeZion area",
+        "anglo_programming": "Serves diverse communities including immigrants",
+        "womens_tefillah": true,
+        "partnership_minyan": true,
+        "website": null,
+        "confidence": "MEDIUM"
+      }
+    ],
+    "secular_community_spaces": [],
+    "notes": "Rishon LeZion has attracted significant English-speaking immigration and has various congregations serving English speakers in the greater region."
+  },
+  "Efrat": {
+    "synagogues": [],
+    "secular_community_spaces": [],
+    "notes": "Efrat is a significant Anglo community location in the West Bank settlement with multiple synagogues. Further specific data needed on individual congregations and English-language services."
+  },
+  "Maale Adumim": {
+    "synagogues": [],
+    "secular_community_spaces": [],
+    "notes": "Ma'ale Adumim, a West Bank settlement east of Jerusalem with over 40 synagogues and several yeshivas. While not as Anglo-heavy as Efrat or Ramat Beit Shemesh, it has a significant English-speaking segment, especially in national-religious areas."
+  },
+  "Givat Shmuel": {
+    "synagogues": [],
+    "secular_community_spaces": [],
+    "notes": "Givat Shmuel, wedged between Ramat Gan and Petah Tikva, has a growing Anglo community with dedicated Facebook groups and WhatsApp chats for English speakers. While smaller than Ra'anana, it has a significant and active Anglo presence."
+  },
+  "Ramat Gan": {
+    "synagogues": [],
+    "secular_community_spaces": [],
+    "notes": "Ramat Gan has 112 synagogues, two yeshivot, and a Kabbalah Center. Limited specific data on English-friendly congregations available."
+  },
+  "Givatayim": {
+    "synagogues": [],
+    "secular_community_spaces": [],
+    "notes": "Givatayim is part of the Tel Aviv metropolitan region with religious infrastructure but limited specific data on English-speaking communities."
+  },
+  "Holon": {
+    "synagogues": [],
+    "secular_community_spaces": [],
+    "notes": "Holon is part of the Tel Aviv metropolitan region. Limited specific data on Anglo-friendly synagogues available."
+  },
+  "Bat Yam": {
+    "synagogues": [
+      {
+        "name": "Temple Bat Yam",
+        "denomination": "Reform",
+        "language_of_services": "Hebrew with English-friendly",
+        "neighborhood": "Bat Yam",
+        "anglo_programming": null,
+        "womens_tefillah": true,
+        "partnership_minyan": true,
+        "website": "https://www.tby.org/",
+        "confidence": "MEDIUM"
+      }
+    ],
+    "secular_community_spaces": [],
+    "notes": "Bat Yam has multiple synagogues including ultra-Orthodox and Chabad communities. Reform option available for egalitarian services."
+  },
+  "Bnei Brak": {
+    "synagogues": [],
+    "secular_community_spaces": [],
+    "notes": "Bnei Brak is primarily a Haredi (ultra-Orthodox) city. Limited data on English-friendly congregations. Several Hasidic synagogues and yeshivas dominate the religious landscape."
+  },
+  "Ramat HaSharon": {
+    "synagogues": [
+      {
+        "name": "Darchei Noam",
+        "denomination": "Reform",
+        "language_of_services": "Hebrew with English-friendly",
+        "neighborhood": "Ramat HaSharon",
+        "anglo_programming": "Serves Ramat HaSharon, Herzliya, and northern Tel Aviv neighborhoods",
+        "womens_tefillah": true,
+        "partnership_minyan": true,
+        "website": null,
+        "confidence": "MEDIUM"
+      }
+    ],
+    "secular_community_spaces": [],
+    "notes": "Ramat HaSharon has approximately 16 synagogues with nearly half concentrated in Neve Magen area. Established as a moshava in 1923 by Polish olim with modern religious infrastructure."
+  },
+  "Hod HaSharon": {
+    "synagogues": [],
+    "secular_community_spaces": [],
+    "notes": "Hod HaSharon (Splendor of Sharon) is located southeast of Ra'anana. Limited specific data on English-friendly congregations, though Chabad centers are present."
+  },
+  "Lod": {
+    "synagogues": [],
+    "secular_community_spaces": [],
+    "notes": "Lod is an ancient city with significant religious history. Limited specific data on contemporary English-friendly synagogues."
+  },
+  "Ramla": {
+    "synagogues": [],
+    "secular_community_spaces": [],
+    "notes": "Ramla is a mixed Muslim-Jewish-Christian city with ancient religious sites. Limited data on contemporary English-friendly Jewish congregations."
+  },
+  "Nazareth": {
+    "synagogues": [
+      {
+        "name": "Synagogue Church",
+        "denomination": "Christian/Historical",
+        "language_of_services": "Multiple",
+        "neighborhood": "Historic Nazareth",
+        "anglo_programming": null,
+        "womens_tefillah": null,
+        "partnership_minyan": null,
+        "website": null,
+        "confidence": "MEDIUM"
+      }
+    ],
+    "secular_community_spaces": [],
+    "notes": "Nazareth is primarily a Christian Arab city with limited Jewish population. The Synagogue Church is built on ruins of ancient synagogue. Note: Predominantly non-Jewish community."
+  },
+  "Acre": {
+    "synagogues": [],
+    "secular_community_spaces": [],
+    "notes": "Acre is a mixed Arab-Jewish port city in the north with historical Jewish presence. Limited data on contemporary English-friendly synagogues."
+  },
+  "Tiberias": {
+    "synagogues": [],
+    "secular_community_spaces": [],
+    "notes": "Tiberias, on the Sea of Galilee, is a historic and religious city. Hammat Tiberias ruins include ancient synagogues. Limited data on contemporary English-friendly congregations."
+  },
+  "Safed": {
+    "synagogues": [
+      {
+        "name": "Ari Sephardic Synagogue",
+        "denomination": "Sephardic",
+        "language_of_services": "Hebrew only",
+        "neighborhood": "Old City Safed",
+        "anglo_programming": null,
+        "womens_tefillah": null,
+        "partnership_minyan": null,
+        "website": null,
+        "confidence": "MEDIUM"
+      },
+      {
+        "name": "Yosef Caro Synagogue",
+        "denomination": "Sephardic",
+        "language_of_services": "Hebrew only",
+        "neighborhood": "Old City Safed",
+        "anglo_programming": null,
+        "womens_tefillah": null,
+        "partnership_minyan": null,
+        "website": null,
+        "confidence": "MEDIUM"
+      }
+    ],
+    "secular_community_spaces": [],
+    "notes": "Safed is a spiritual center for Jewish mysticism and Kabbalah since the 16th century. Multiple historic Sephardic synagogues survive from this period. Limited contemporary English-friendly programming documented."
+  },
+  "Karmiel": {
+    "synagogues": [],
+    "secular_community_spaces": [],
+    "notes": "Karmiel is a city in the north. Limited specific data on English-friendly synagogues available."
+  },
+  "Nahariya": {
+    "synagogues": [],
+    "secular_community_spaces": [],
+    "notes": "Nahariya is a northern coastal city. Limited specific data on English-friendly synagogues available."
+  },
+  "Kiryat Shmona": {
+    "synagogues": [
+      {
+        "name": "Chabad Kiryat Shmona",
+        "denomination": "Chabad",
+        "language_of_services": "Hebrew with English-friendly",
+        "neighborhood": "Kiryat Shmona",
+        "anglo_programming": "Torah classes, synagogue services",
+        "womens_tefillah": null,
+        "partnership_minyan": null,
+        "website": null,
+        "confidence": "MEDIUM"
+      }
+    ],
+    "secular_community_spaces": [],
+    "notes": "Kiryat Shmona is Israel's northernmost city near the Lebanon border. Chabad center serves the community. Limited data on additional English-friendly congregations."
+  },
+  "Kiryat Ata": {
+    "synagogues": [
+      {
+        "name": "Chabad of Kiryat Ata",
+        "denomination": "Chabad",
+        "language_of_services": "Hebrew with English-friendly",
+        "neighborhood": "HaHistadrut Avenue 248",
+        "anglo_programming": "Torah classes, synagogue services",
+        "womens_tefillah": null,
+        "partnership_minyan": null,
+        "website": null,
+        "confidence": "MEDIUM"
+      }
+    ],
+    "secular_community_spaces": [],
+    "notes": "Kiryat Ata is one of the Krayot (cluster of cities) in Haifa Bay area. Founded 1925. Chabad center provides religious services."
+  },
+  "Kiryat Bialik": {
+    "synagogues": [],
+    "secular_community_spaces": [],
+    "notes": "Kiryat Bialik is one of the Krayot cluster in Haifa Bay, founded 1934. Growing Anglo community with organized networks but limited specific documented English-friendly congregations."
+  },
+  "Kiryat Motzkin": {
+    "synagogues": [],
+    "secular_community_spaces": [],
+    "notes": "Kiryat Motzkin is one of the Krayot cluster in Haifa Bay. Limited specific data on English-friendly synagogues available."
+  },
+  "Kiryat Yam": {
+    "synagogues": [],
+    "secular_community_spaces": [],
+    "notes": "Kiryat Yam (City of the Sea) is one of the Krayot cluster, founded 1946. Limited specific data on English-friendly congregations documented."
+  },
+  "Yokneam": {
+    "synagogues": [],
+    "secular_community_spaces": [],
+    "notes": "Yokneam is a city in the north. Limited specific data on English-friendly synagogues available."
+  },
+  "Afula": {
+    "synagogues": [
+      {
+        "name": "Chabad of Afula",
+        "denomination": "Chabad",
+        "language_of_services": "Hebrew with English-friendly",
+        "neighborhood": "25 Hakneset Street",
+        "anglo_programming": "Led by Rabbi Shlomo Segal",
+        "womens_tefillah": null,
+        "partnership_minyan": null,
+        "website": null,
+        "confidence": "MEDIUM"
+      }
+    ],
+    "secular_community_spaces": [],
+    "notes": "Afula is in the Jezreel Valley. Has American-led Chabad center. Rabbi Menachem Gold, who has lived in Afula for 25 years, serves as Vice Mayor."
+  },
+  "Beit She'an": {
+    "synagogues": [],
+    "secular_community_spaces": [],
+    "notes": "Beit She'an Valley location. Limited specific data on contemporary English-friendly congregations, though Amakim email network serves the broader region."
+  },
+  "Dimona": {
+    "synagogues": [],
+    "secular_community_spaces": [],
+    "notes": "Dimona is a southern city. Limited specific data on English-friendly synagogues available."
+  },
+  "Arad": {
+    "synagogues": [],
+    "secular_community_spaces": [],
+    "notes": "Arad is a southern desert city. Limited specific data on English-friendly synagogues available."
+  },
+  "Sderot": {
+    "synagogues": [
+      {
+        "name": "Chabad of Sderot",
+        "denomination": "Chabad",
+        "language_of_services": "Hebrew with English-friendly",
+        "neighborhood": "Simtat Khativat Giv'ati 11",
+        "anglo_programming": "Led by Rabbi Moshe Zeev Pizam",
+        "womens_tefillah": null,
+        "partnership_minyan": null,
+        "website": null,
+        "confidence": "MEDIUM"
+      }
+    ],
+    "secular_community_spaces": [],
+    "notes": "Sderot is a southern city near Gaza. Chabad center serves the community. Limited data on other English-friendly congregations."
+  },
+  "Ofakim": {
+    "synagogues": [],
+    "secular_community_spaces": [],
+    "notes": "Ofakim is a southern city. Limited specific data on English-friendly synagogues available. Community receives humanitarian assistance programs."
+  },
+  "Kiryat Gat": {
+    "synagogues": [
+      {
+        "name": "Chabad of Kiryat Gat",
+        "denomination": "Chabad",
+        "language_of_services": "Hebrew with English-friendly",
+        "neighborhood": "Eliyahu ha-Navi Street 5",
+        "anglo_programming": "Led by Rabbi Moshe Havlin",
+        "womens_tefillah": null,
+        "partnership_minyan": null,
+        "website": null,
+        "confidence": "MEDIUM"
+      }
+    ],
+    "secular_community_spaces": [],
+    "notes": "Kiryat Gat is a southern city. Chabad center serves the community. Limited data on other English-friendly congregations."
+  },
+  "Kiryat Malachi": {
+    "synagogues": [
+      {
+        "name": "Chabad of Kiryat Malachi",
+        "denomination": "Chabad",
+        "language_of_services": "Hebrew with English-friendly",
+        "neighborhood": "Nachalat Har Chabad 157/11",
+        "anglo_programming": null,
+        "womens_tefillah": null,
+        "partnership_minyan": null,
+        "website": null,
+        "confidence": "MEDIUM"
+      }
+    ],
+    "secular_community_spaces": [],
+    "notes": "Kiryat Malachi is 17km northeast of Ashkelon. Chabad center serves the community."
+  },
+  "Or Akiva": {
+    "synagogues": [],
+    "secular_community_spaces": [],
+    "notes": "Or Akiva is in the Haifa District. Limited specific data on English-friendly synagogues available."
+  },
+  "Yavne": {
+    "synagogues": [
+      {
+        "name": "Chabad of Southeast Yavne",
+        "denomination": "Chabad",
+        "language_of_services": "Hebrew with English-friendly",
+        "neighborhood": "Yavne",
+        "anglo_programming": null,
+        "womens_tefillah": null,
+        "partnership_minyan": null,
+        "website": null,
+        "confidence": "MEDIUM"
+      }
+    ],
+    "secular_community_spaces": [],
+    "notes": "Yavne is historically significant for Jewish tradition, center of rabbinic Judaism after Second Temple destruction. Population ~57,725 (2023). Limited contemporary English-friendly programming data."
+  },
+  "Nes Ziona": {
+    "synagogues": [
+      {
+        "name": "Great Synagogue of Ness Ziona",
+        "denomination": "Orthodox",
+        "language_of_services": "Hebrew only",
+        "neighborhood": "Central Ness Ziona",
+        "anglo_programming": null,
+        "womens_tefillah": null,
+        "partnership_minyan": null,
+        "website": null,
+        "confidence": "MEDIUM"
+      }
+    ],
+    "secular_community_spaces": [],
+    "notes": "Ness Ziona is a historic city (population ~47,534 in 2023) with Great Synagogue built in 1920s. Limited contemporary English-friendly programming data."
+  },
+  "Rosh HaAyin": {
+    "synagogues": [],
+    "secular_community_spaces": [],
+    "notes": "Rosh HaAyin is in the Central District. Limited specific data on English-friendly synagogues available."
+  },
+  "Shoham": {
+    "synagogues": [],
+    "secular_community_spaces": [],
+    "notes": "Shoham is located between Rosh HaAyin and Elad. Limited specific data on English-friendly synagogues available."
+  },
+  "Modiin Illit": {
+    "synagogues": [],
+    "secular_community_spaces": [],
+    "notes": "Modi'in Illit is a Haredi settlement in the West Bank, midway between Jerusalem and Tel Aviv. Approximately 80 synagogues serve the primarily ultra-Orthodox population. Limited English-friendly congregation data available."
+  },
+  "Elad": {
+    "synagogues": [],
+    "secular_community_spaces": [],
+    "notes": "Elad is Israel's only officially designated religious municipality, located in the Center District between Rosh HaAyin and Shoham. Religious infrastructure dominates; limited English-friendly congregation data available."
+  },
+  "sources": [
+    {
+      "title": "Friendly synagogues in Tel Aviv you really should consider exploring",
+      "url": "https://www.giltravel.com/blog/tourist-and-olim-friendly-synagogues-in-tel-aviv/"
+    },
+    {
+      "title": "Olim Friendly Synagogues in Tel Aviv | Secret Tel Aviv",
+      "url": "https://www.secrettelaviv.com/magazine/blog/olim-friendly-synagogues-in-tel-aviv"
+    },
+    {
+      "title": "Anglo Friendly Synagogues in TLV - Nefesh B'Nefesh",
+      "url": "https://www.nbn.org.il/anglo-friendly-in-tlv/"
+    },
+    {
+      "title": "Synagogues in Israel - Anglo-List",
+      "url": "https://anglo-list.com/israel-synagogues/"
+    },
+    {
+      "title": "The Tel Aviv International Synagogue",
+      "url": "https://www.tais-frishman23.com/"
+    },
+    {
+      "title": "Chabad on the Coast",
+      "url": "https://www.chabadonthecoast.com/"
+    },
+    {
+      "title": "Young Israel of North Netanya",
+      "url": "https://www.yinn.org/"
+    },
+    {
+      "title": "A look at the synagogues in Netanya",
+      "url": "https://www.jpost.com/judaism/article-798668"
+    },
+    {
+      "title": "SNAC Shul - Netanya",
+      "url": "https://www.snacshul.org/"
+    },
+    {
+      "title": "Tefilat Yamim Synagogue",
+      "url": "https://www.tefilatyamim.org"
+    },
+    {
+      "title": "Kehilat Netzach Yisrael - Ashkelon",
+      "url": "https://reform.org.il/en/"
+    },
+    {
+      "title": "Chabad of English Speakers in Be'er Sheva",
+      "url": "https://chabadb7.org/"
+    },
+    {
+      "title": "Congregation Adat Shalom – Emanuel - Rehovot",
+      "url": "https://kbyonline.org/synagogues/congregation-adat-shalom-emanuel"
+    },
+    {
+      "title": "Chatam - Center for Torah and Jewish Studies",
+      "url": "https://chatam.org/"
+    },
+    {
+      "title": "Community Guide - Nefesh B'Nefesh",
+      "url": "https://www.nbn.org.il/community-guide/"
+    },
+    {
+      "title": "How to Find your Community in Israel - Nefesh B'Nefesh",
+      "url": "https://www.nbn.org.il/life-in-israel/community-and-housing/how-to-find-your-community-in-israel/"
+    },
+    {
+      "title": "Communities - Nefesh B'Nefesh",
+      "url": "https://www.nbn.org.il/community-profiles/"
+    },
+    {
+      "title": "Beit Shemesh/RBS - Nefesh B'Nefesh",
+      "url": "https://www.nbn.org.il/life-in-israel/community-and-housing/community-guide/beit-shemesh-rbs/"
+    },
+    {
+      "title": "Best Anglo Communities In Israel: 2026 Neighborhood Guide",
+      "url": "https://semerenkogroup.com/guide-anglo-communities-israel-best-neighborhoods-english-speaking-immigrants/"
+    },
+    {
+      "title": "The People and Synagogues of Modi'in",
+      "url": "https://www.traditional-congregation.org/single-post/the-people-and-synagogues-of-modi-in-blog-3-2023"
+    },
+    {
+      "title": "Temple Bat Yam",
+      "url": "https://www.tby.org/"
+    },
+    {
+      "title": "Darchei Noam - Ramat Hasharon",
+      "url": "https://reform.org.il/en/communities/darchei-noam-ramat-hasharon/"
+    },
+    {
+      "title": "Chabad Centers - Multiple Locations",
+      "url": "https://www.chabad.org/"
+    },
+    {
+      "title": "List of synagogues in Israel - Wikipedia",
+      "url": "https://en.wikipedia.org/wiki/List_of_synagogues_in_Israel"
+    },
+    {
+      "title": "Nachliel Newcomers Guide",
+      "url": "https://www.nachliel.org/resources"
+    }
+  ]
+}

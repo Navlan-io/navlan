@@ -1,0 +1,1915 @@
+{
+  "metadata": {
+    "title": "Israel Aliyah & Relocation Practical Data",
+    "description": "Comprehensive city-specific information for aliyah and relocation planning across 54 Israeli cities",
+    "date_compiled": "2026-03-15",
+    "coverage": "54 Israeli cities",
+    "data_quality_note": "Sources are from web search March 2026. Some cities with smaller populations have limited English-speaking professional infrastructure."
+  },
+  "cities": {
+    "Jerusalem": {
+      "misrad_hapnim_office": {
+        "exists_in_city": true,
+        "nearest_location": "1 Shlomtzion HaMalka (Downtown); 25 Eliyahu Koren Street (Har Homa)",
+        "english_service": "limited"
+      },
+      "bituach_leumi_office": {
+        "exists_in_city": true,
+        "nearest_location": "Central office with multiple branches throughout city"
+      },
+      "banks_with_english_service": [
+        "Bank Leumi",
+        "Bank Hapoalim",
+        "HSBC Israel"
+      ],
+      "post_office": {
+        "exists_in_city": true,
+        "notes": "Main office at 23 Jaffa Road. 700 branches nationwide. Call 1-599-500-171 for English support."
+      },
+      "english_speaking_lawyers": "available",
+      "english_speaking_accountants": "available",
+      "nefesh_bnefesh_regional_office": "Aliyah Campus at 10 Sderot Yitzchak Rabin (Cinema City area)",
+      "anglo_real_estate_agents": "many",
+      "coworking_spaces": [
+        {
+          "name": "Urban Place",
+          "notes": "Central location near bus station and light rail"
+        },
+        {
+          "name": "Various providers at Azrieli Towers",
+          "notes": "Multiple coworking options"
+        }
+      ],
+      "english_friendly_businesses": "common",
+      "climate": {
+        "summer_avg_high_c": 33.4,
+        "winter_avg_low_c": 9.2,
+        "annual_rainfall_mm": 525,
+        "humidity_level": "55-61%",
+        "description": "Mediterranean climate with hot summers and cool winters. Pleasant spring and autumn. Lowest humidity in May (35%), highest in January (61%)."
+      },
+      "quality_of_life_notes": "Historic and culturally rich capital with strong English-speaking communities. Excellent public transportation (light rail) and abundant cultural institutions. Higher cost of living but walkable neighborhoods with good schools.",
+      "confidence": "HIGH"
+    },
+    "Tel Aviv": {
+      "misrad_hapnim_office": {
+        "exists_in_city": true,
+        "nearest_location": "Menachem Begin 125, Tel Aviv",
+        "english_service": "limited"
+      },
+      "bituach_leumi_office": {
+        "exists_in_city": true,
+        "nearest_location": "Multiple branches throughout city"
+      },
+      "banks_with_english_service": [
+        "Bank Leumi",
+        "Bank Hapoalim",
+        "HSBC Israel",
+        "Citibank"
+      ],
+      "post_office": {
+        "exists_in_city": true,
+        "notes": "Multiple locations throughout city. English support available."
+      },
+      "english_speaking_lawyers": "available",
+      "english_speaking_accountants": "available",
+      "nefesh_bnefesh_regional_office": "Tel Aviv Center at Azrieli Round Tower, Floor 10, 132 Derech Menachem Begin",
+      "anglo_real_estate_agents": "many",
+      "coworking_spaces": [
+        {
+          "name": "WeWork Tel Aviv",
+          "notes": "Multiple locations, fully equipped"
+        },
+        {
+          "name": "Mindspace",
+          "notes": "Large facility with 24/7 access, gym, classes"
+        },
+        {
+          "name": "Urban Place",
+          "notes": "Friendly, diverse, productive workspace"
+        },
+        {
+          "name": "Spaces/Regus",
+          "notes": "Serviced offices and coworking"
+        }
+      ],
+      "english_friendly_businesses": "common",
+      "climate": {
+        "summer_avg_high_c": 27.5,
+        "winter_avg_low_c": 13,
+        "annual_rainfall_mm": 535,
+        "humidity_level": "60-67%",
+        "description": "Mediterranean climate with hot, humid summers and mild, rainy winters. High sea breeze relief. Wettest in January and December."
+      },
+      "quality_of_life_notes": "Israel's vibrant tech and cultural hub with the largest expat community. Excellent restaurants, nightlife, and beaches. High cost of living but exceptional job opportunities and English-speaking services.",
+      "confidence": "HIGH"
+    },
+    "Haifa": {
+      "misrad_hapnim_office": {
+        "exists_in_city": true,
+        "nearest_location": "Haifa branch office",
+        "english_service": "limited"
+      },
+      "bituach_leumi_office": {
+        "exists_in_city": true,
+        "nearest_location": "Central and branch offices"
+      },
+      "banks_with_english_service": [
+        "Bank Leumi",
+        "Bank Hapoalim"
+      ],
+      "post_office": {
+        "exists_in_city": true,
+        "notes": "Multiple branches, less English support than Tel Aviv"
+      },
+      "english_speaking_lawyers": "limited",
+      "english_speaking_accountants": "limited",
+      "nefesh_bnefesh_regional_office": null,
+      "anglo_real_estate_agents": "some",
+      "coworking_spaces": [
+        {
+          "name": "Spaces Haifa",
+          "notes": "Serviced workspaces, tech-friendly"
+        }
+      ],
+      "english_friendly_businesses": "some",
+      "climate": {
+        "summer_avg_high_c": 31.4,
+        "winter_avg_low_c": 8.7,
+        "annual_rainfall_mm": 650,
+        "humidity_level": "59-82%",
+        "description": "Mediterranean climate with hot, humid summers (August peak at 82% humidity). Mild winters with higher rainfall. Sea breeze provides relief."
+      },
+      "quality_of_life_notes": "Major port city with industrial character and beautiful Bahai Gardens. Smaller English-speaking community than Tel Aviv or Jerusalem. Good public transportation and beaches but fewer English-language professional services.",
+      "confidence": "MEDIUM"
+    },
+    "Ra'anana": {
+      "misrad_hapnim_office": {
+        "exists_in_city": false,
+        "nearest_location": "Tel Aviv or nearby offices"
+      },
+      "bituach_leumi_office": {
+        "exists_in_city": true,
+        "nearest_location": "Local office serving city"
+      },
+      "banks_with_english_service": [
+        "Bank Leumi",
+        "Bank Hapoalim"
+      ],
+      "post_office": {
+        "exists_in_city": true,
+        "notes": "Modern mall facilities"
+      },
+      "english_speaking_lawyers": "available",
+      "english_speaking_accountants": "available",
+      "nefesh_bnefesh_regional_office": null,
+      "anglo_real_estate_agents": "many",
+      "coworking_spaces": [
+        {
+          "name": "Multiple suburban options",
+          "notes": "Growing tech infrastructure"
+        }
+      ],
+      "english_friendly_businesses": "common",
+      "climate": {
+        "summer_avg_high_c": 27.1,
+        "winter_avg_low_c": 13.1,
+        "annual_rainfall_mm": 433,
+        "humidity_level": "moderate",
+        "description": "Long, hot summers and cool, mostly clear winters. Mediterranean climate with pleasant spring and autumn."
+      },
+      "quality_of_life_notes": "Israel's premier Anglo suburb with densest English-speaking population. Excellent schools, parks, and community infrastructure. Strong Anglo networks make integration easy. Planned suburb with modern amenities.",
+      "confidence": "HIGH"
+    },
+    "Modi'in": {
+      "misrad_hapnim_office": {
+        "exists_in_city": true,
+        "nearest_location": "1 Tiltan St. Modi'in Municipality",
+        "english_service": "limited"
+      },
+      "bituach_leumi_office": {
+        "exists_in_city": true,
+        "nearest_location": "Local office"
+      },
+      "banks_with_english_service": [
+        "Bank Leumi",
+        "Bank Hapoalim"
+      ],
+      "post_office": {
+        "exists_in_city": true,
+        "notes": "Multiple locations in city"
+      },
+      "english_speaking_lawyers": "available",
+      "english_speaking_accountants": "available",
+      "nefesh_bnefesh_regional_office": null,
+      "anglo_real_estate_agents": "some",
+      "coworking_spaces": [
+        {
+          "name": "Emerging tech spaces",
+          "notes": "Growing innovation hubs"
+        }
+      ],
+      "english_friendly_businesses": "some",
+      "climate": {
+        "summer_avg_high_c": "27-28",
+        "winter_avg_low_c": "11-12",
+        "annual_rainfall_mm": "450-500",
+        "humidity_level": "moderate",
+        "description": "Planned city with modern infrastructure. Mediterranean climate, central location between Tel Aviv and Jerusalem."
+      },
+      "quality_of_life_notes": "Modern planned city equidistant from Tel Aviv and Jerusalem. Growing Anglo community and excellent infrastructure. More affordable than coastal cities with strong family-oriented amenities.",
+      "confidence": "MEDIUM"
+    },
+    "Beit Shemesh": {
+      "misrad_hapnim_office": {
+        "exists_in_city": false,
+        "nearest_location": "Jerusalem"
+      },
+      "bituach_leumi_office": {
+        "exists_in_city": true,
+        "nearest_location": "Local office"
+      },
+      "banks_with_english_service": [
+        "Bank Leumi",
+        "Bank Hapoalim"
+      ],
+      "post_office": {
+        "exists_in_city": true,
+        "notes": "Multiple branches including malls"
+      },
+      "english_speaking_lawyers": "available",
+      "english_speaking_accountants": "available",
+      "nefesh_bnefesh_regional_office": null,
+      "anglo_real_estate_agents": "many",
+      "coworking_spaces": [
+        {
+          "name": "Emerging workspace options",
+          "notes": "Growing suburban infrastructure"
+        }
+      ],
+      "english_friendly_businesses": "some",
+      "climate": {
+        "summer_avg_high_c": 29,
+        "winter_avg_low_c": 7,
+        "annual_rainfall_mm": 600,
+        "humidity_level": "low-moderate",
+        "description": "Elevated location (271m above sea level) with hot summers and cold winters. Higher rainfall than coastal cities."
+      },
+      "quality_of_life_notes": "Religious Anglo community hub with strong Torah infrastructure. More affordable than Jerusalem. Popular with families seeking religious schools. Close to Jerusalem (30 min) but with suburban feel and green spaces.",
+      "confidence": "MEDIUM"
+    },
+    "Herzliya": {
+      "misrad_hapnim_office": {
+        "exists_in_city": false,
+        "nearest_location": "Tel Aviv or Petah Tikva"
+      },
+      "bituach_leumi_office": {
+        "exists_in_city": true,
+        "nearest_location": "Local office"
+      },
+      "banks_with_english_service": [
+        "Bank Leumi",
+        "Bank Hapoalim"
+      ],
+      "post_office": {
+        "exists_in_city": true,
+        "notes": "Modern postal services"
+      },
+      "english_speaking_lawyers": "available",
+      "english_speaking_accountants": "available",
+      "nefesh_bnefesh_regional_office": null,
+      "anglo_real_estate_agents": "many",
+      "coworking_spaces": [
+        {
+          "name": "Tech hub facilities",
+          "notes": "International business district"
+        }
+      ],
+      "english_friendly_businesses": "common",
+      "climate": {
+        "summer_avg_high_c": 27,
+        "winter_avg_low_c": 13,
+        "annual_rainfall_mm": "500-550",
+        "humidity_level": "60-70%",
+        "description": "Mediterranean coastal climate with hot, humid summers and mild winters. Sea breeze moderates temperatures."
+      },
+      "quality_of_life_notes": "Upscale coastal city north of Tel Aviv with marina, international schools, and robust expat community. Premium real estate market. Excellent for families and professionals in tech sector.",
+      "confidence": "MEDIUM"
+    },
+    "Netanya": {
+      "misrad_hapnim_office": {
+        "exists_in_city": false,
+        "nearest_location": "Nearby regional office"
+      },
+      "bituach_leumi_office": {
+        "exists_in_city": true,
+        "nearest_location": "Local office"
+      },
+      "banks_with_english_service": [
+        "Bank Leumi",
+        "Bank Hapoalim"
+      ],
+      "post_office": {
+        "exists_in_city": true,
+        "notes": "Beach town services"
+      },
+      "english_speaking_lawyers": "limited",
+      "english_speaking_accountants": "limited",
+      "nefesh_bnefesh_regional_office": null,
+      "anglo_real_estate_agents": "some",
+      "coworking_spaces": [
+        {
+          "name": "Limited options",
+          "notes": "More oriented toward leisure"
+        }
+      ],
+      "english_friendly_businesses": "some",
+      "climate": {
+        "summer_avg_high_c": 27,
+        "winter_avg_low_c": 13,
+        "annual_rainfall_mm": "500-550",
+        "humidity_level": "65-75%",
+        "description": "Beachside Mediterranean climate. Hot, humid summers; mild winters. Popular with retirees for consistent beach weather."
+      },
+      "quality_of_life_notes": "Relaxed beachside city popular with retirees and families. Largest Anglo community among southern coastal cities. Lower cost of living than Tel Aviv with laid-back lifestyle and beach access.",
+      "confidence": "MEDIUM"
+    },
+    "Ashdod": {
+      "misrad_hapnim_office": {
+        "exists_in_city": true,
+        "nearest_location": "City office"
+      },
+      "bituach_leumi_office": {
+        "exists_in_city": true,
+        "nearest_location": "Local office"
+      },
+      "banks_with_english_service": [
+        "Bank Leumi",
+        "Bank Hapoalim"
+      ],
+      "post_office": {
+        "exists_in_city": true,
+        "notes": "Multiple locations"
+      },
+      "english_speaking_lawyers": "limited",
+      "english_speaking_accountants": "limited",
+      "nefesh_bnefesh_regional_office": null,
+      "anglo_real_estate_agents": "few",
+      "coworking_spaces": null,
+      "english_friendly_businesses": "rare",
+      "climate": {
+        "summer_avg_high_c": 28,
+        "winter_avg_low_c": 12,
+        "annual_rainfall_mm": "450-500",
+        "humidity_level": "65-75%",
+        "description": "Coastal Mediterranean climate similar to Ashkelon. Hot, humid summers; mild winters."
+      },
+      "quality_of_life_notes": "Industrial port city with newer construction and lower prices. Less English-speaking infrastructure than Tel Aviv area. Commutable to Tel Aviv but more industrial character and fewer expat amenities.",
+      "confidence": "LOW"
+    },
+    "Ashkelon": {
+      "misrad_hapnim_office": {
+        "exists_in_city": false,
+        "nearest_location": "Regional office"
+      },
+      "bituach_leumi_office": {
+        "exists_in_city": true,
+        "nearest_location": "Local office"
+      },
+      "banks_with_english_service": [
+        "Bank Leumi",
+        "Bank Hapoalim"
+      ],
+      "post_office": {
+        "exists_in_city": true,
+        "notes": "Basic services"
+      },
+      "english_speaking_lawyers": "rare",
+      "english_speaking_accountants": "limited",
+      "nefesh_bnefesh_regional_office": null,
+      "anglo_real_estate_agents": "few",
+      "coworking_spaces": null,
+      "english_friendly_businesses": "rare",
+      "climate": {
+        "summer_avg_high_c": 28,
+        "winter_avg_low_c": 12,
+        "annual_rainfall_mm": "450-500",
+        "humidity_level": "65-75%",
+        "description": "Southern coastal Mediterranean climate. Identical to Ashdod. Hot summers, mild winters, moderate precipitation."
+      },
+      "quality_of_life_notes": "Southern coastal city with beaches and lower real estate prices. Limited English-speaking community. More affordable than northern coast but fewer expat services and cultural amenities.",
+      "confidence": "LOW"
+    },
+    "Beer Sheva": {
+      "misrad_hapnim_office": {
+        "exists_in_city": true,
+        "nearest_location": "City office"
+      },
+      "bituach_leumi_office": {
+        "exists_in_city": true,
+        "nearest_location": "Local office"
+      },
+      "banks_with_english_service": [
+        "Bank Leumi",
+        "Bank Hapoalim"
+      ],
+      "post_office": {
+        "exists_in_city": true,
+        "notes": "Desert city services"
+      },
+      "english_speaking_lawyers": "limited",
+      "english_speaking_accountants": "limited",
+      "nefesh_bnefesh_regional_office": null,
+      "anglo_real_estate_agents": "some",
+      "coworking_spaces": [
+        {
+          "name": "Limited options",
+          "notes": "Growing tech sector"
+        }
+      ],
+      "english_friendly_businesses": "rare",
+      "climate": {
+        "summer_avg_high_c": 32.8,
+        "winter_avg_low_c": 10,
+        "annual_rainfall_mm": 132,
+        "humidity_level": "40-55%",
+        "description": "Desert climate. Extremely hot, dry summers. Very low precipitation. Cool, mostly clear winters. Average annual temp 19.5°C."
+      },
+      "quality_of_life_notes": "Negev desert city with intense summer heat and low humidity. Limited English-speaking infrastructure. Lower cost of living and emerging high-tech sector. Challenging climate but improving amenities.",
+      "confidence": "LOW"
+    },
+    "Petah Tikva": {
+      "misrad_hapnim_office": {
+        "exists_in_city": true,
+        "nearest_location": "City office"
+      },
+      "bituach_leumi_office": {
+        "exists_in_city": true,
+        "nearest_location": "Local office"
+      },
+      "banks_with_english_service": [
+        "Bank Leumi",
+        "Bank Hapoalim"
+      ],
+      "post_office": {
+        "exists_in_city": true,
+        "notes": "Multiple locations"
+      },
+      "english_speaking_lawyers": "available",
+      "english_speaking_accountants": "available",
+      "nefesh_bnefesh_regional_office": null,
+      "anglo_real_estate_agents": "some",
+      "coworking_spaces": [
+        {
+          "name": "Industrial area spaces",
+          "notes": "Business district facilities"
+        }
+      ],
+      "english_friendly_businesses": "some",
+      "climate": {
+        "summer_avg_high_c": 26.9,
+        "winter_avg_low_c": 13,
+        "annual_rainfall_mm": 314,
+        "humidity_level": "55-70%",
+        "description": "Interior Mediterranean climate. Hot, humid summers; cool winters. Less coastal humidity than Tel Aviv."
+      },
+      "quality_of_life_notes": "Industrial and commercial hub east of Tel Aviv. Commutable to Tel Aviv job market. Growing Anglo community. More affordable than coastal cities with improving infrastructure.",
+      "confidence": "MEDIUM"
+    },
+    "Kfar Saba": {
+      "misrad_hapnim_office": {
+        "exists_in_city": false,
+        "nearest_location": "Nearby offices"
+      },
+      "bituach_leumi_office": {
+        "exists_in_city": true,
+        "nearest_location": "Local office"
+      },
+      "banks_with_english_service": [
+        "Bank Leumi",
+        "Bank Hapoalim"
+      ],
+      "post_office": {
+        "exists_in_city": true,
+        "notes": "Modern city services"
+      },
+      "english_speaking_lawyers": "available",
+      "english_speaking_accountants": "available",
+      "nefesh_bnefesh_regional_office": null,
+      "anglo_real_estate_agents": "some",
+      "coworking_spaces": [
+        {
+          "name": "Growing tech facilities",
+          "notes": "Sharon Valley tech hub"
+        }
+      ],
+      "english_friendly_businesses": "some",
+      "climate": {
+        "summer_avg_high_c": 27,
+        "winter_avg_low_c": 13,
+        "annual_rainfall_mm": "380-420",
+        "humidity_level": "55-65%",
+        "description": "Interior Mediterranean climate, mild with dry hot summers. Pleasant spring and autumn."
+      },
+      "quality_of_life_notes": "Affluent suburban city in Sharon Valley with good schools and parks. Commutable to Tel Aviv. Growing Anglo community with modern amenities and good quality of life.",
+      "confidence": "MEDIUM"
+    },
+    "Rehovot": {
+      "misrad_hapnim_office": {
+        "exists_in_city": true,
+        "nearest_location": "City office"
+      },
+      "bituach_leumi_office": {
+        "exists_in_city": true,
+        "nearest_location": "Local office"
+      },
+      "banks_with_english_service": [
+        "Bank Leumi",
+        "Bank Hapoalim"
+      ],
+      "post_office": {
+        "exists_in_city": true,
+        "notes": "Modern city services"
+      },
+      "english_speaking_lawyers": "available",
+      "english_speaking_accountants": "available",
+      "nefesh_bnefesh_regional_office": null,
+      "anglo_real_estate_agents": "some",
+      "coworking_spaces": [
+        {
+          "name": "Tech and research facilities",
+          "notes": "Weizmann Institute area"
+        }
+      ],
+      "english_friendly_businesses": "some",
+      "climate": {
+        "summer_avg_high_c": 26.7,
+        "winter_avg_low_c": 13,
+        "annual_rainfall_mm": 413,
+        "humidity_level": "55-65%",
+        "description": "Warm temperate Mediterranean climate. Mild winters with notable precipitation. Hot summers."
+      },
+      "quality_of_life_notes": "University town hosting Weizmann Institute with academic culture. Growing Anglo community. More intellectual atmosphere than commercial. Good schools and proximity to Tel Aviv.",
+      "confidence": "MEDIUM"
+    },
+    "Rishon LeZion": {
+      "misrad_hapnim_office": {
+        "exists_in_city": true,
+        "nearest_location": "City office"
+      },
+      "bituach_leumi_office": {
+        "exists_in_city": true,
+        "nearest_location": "Local office"
+      },
+      "banks_with_english_service": [
+        "Bank Leumi",
+        "Bank Hapoalim"
+      ],
+      "post_office": {
+        "exists_in_city": true,
+        "notes": "Multiple locations"
+      },
+      "english_speaking_lawyers": "available",
+      "english_speaking_accountants": "available",
+      "nefesh_bnefesh_regional_office": null,
+      "anglo_real_estate_agents": "some",
+      "coworking_spaces": [
+        {
+          "name": "Emerging options",
+          "notes": "Growing business district"
+        }
+      ],
+      "english_friendly_businesses": "some",
+      "climate": {
+        "summer_avg_high_c": 26.9,
+        "winter_avg_low_c": 13.2,
+        "annual_rainfall_mm": 413,
+        "humidity_level": "55-65%",
+        "description": "Warm temperate Mediterranean climate. Winter precipitation concentrated. Hot, dry summers."
+      },
+      "quality_of_life_notes": "Growing city south of Tel Aviv with modern infrastructure and improving schools. Commutable to Tel Aviv. More affordable than coastal Tel Aviv with suburban character.",
+      "confidence": "MEDIUM"
+    },
+    "Efrat": {
+      "misrad_hapnim_office": {
+        "exists_in_city": false,
+        "nearest_location": "Jerusalem"
+      },
+      "bituach_leumi_office": {
+        "exists_in_city": true,
+        "nearest_location": "Local office"
+      },
+      "banks_with_english_service": [
+        "Bank Leumi"
+      ],
+      "post_office": {
+        "exists_in_city": true,
+        "notes": "Limited services"
+      },
+      "english_speaking_lawyers": "limited",
+      "english_speaking_accountants": "limited",
+      "nefesh_bnefesh_regional_office": null,
+      "anglo_real_estate_agents": "some",
+      "coworking_spaces": null,
+      "english_friendly_businesses": "rare",
+      "climate": {
+        "summer_avg_high_c": 28,
+        "winter_avg_low_c": 6,
+        "annual_rainfall_mm": "600-650",
+        "humidity_level": "moderate",
+        "description": "Mountain community climate. Higher altitude (900m). Cool winters with significant rainfall. Hot summers."
+      },
+      "quality_of_life_notes": "Religious settlement community south of Jerusalem in Judean Mountains. Strong Anglo presence but limited secular services. Beautiful landscape and close-knit community. Commutable to Jerusalem.",
+      "confidence": "LOW"
+    },
+    "Maale Adumim": {
+      "misrad_hapnim_office": {
+        "exists_in_city": false,
+        "nearest_location": "Jerusalem"
+      },
+      "bituach_leumi_office": {
+        "exists_in_city": true,
+        "nearest_location": "Local office"
+      },
+      "banks_with_english_service": [
+        "Bank Leumi"
+      ],
+      "post_office": {
+        "exists_in_city": true,
+        "notes": "Mall services"
+      },
+      "english_speaking_lawyers": "limited",
+      "english_speaking_accountants": "limited",
+      "nefesh_bnefesh_regional_office": null,
+      "anglo_real_estate_agents": "some",
+      "coworking_spaces": null,
+      "english_friendly_businesses": "some",
+      "climate": {
+        "summer_avg_high_c": 32,
+        "winter_avg_low_c": 6,
+        "annual_rainfall_mm": "200-250",
+        "humidity_level": "very low",
+        "description": "Desert-edge climate at 250m elevation. Hot, dry summers; cool winters. Low humidity. Only 20 minutes from Jerusalem."
+      },
+      "quality_of_life_notes": "Modern suburban city with city amenities on desert edge. Convenient to Jerusalem (20 min). Lower prices and more space than Jerusalem. Anglo presence but less professional infrastructure.",
+      "confidence": "MEDIUM"
+    },
+    "Givat Shmuel": {
+      "misrad_hapnim_office": {
+        "exists_in_city": false,
+        "nearest_location": "Nearby offices"
+      },
+      "bituach_leumi_office": {
+        "exists_in_city": true,
+        "nearest_location": "Local office"
+      },
+      "banks_with_english_service": [
+        "Bank Leumi",
+        "Bank Hapoalim"
+      ],
+      "post_office": {
+        "exists_in_city": true,
+        "notes": "Local branch"
+      },
+      "english_speaking_lawyers": "available",
+      "english_speaking_accountants": "available",
+      "nefesh_bnefesh_regional_office": null,
+      "anglo_real_estate_agents": "some",
+      "coworking_spaces": [
+        {
+          "name": "Emerging tech spaces",
+          "notes": "Growth area"
+        }
+      ],
+      "english_friendly_businesses": "some",
+      "climate": {
+        "summer_avg_high_c": 27,
+        "winter_avg_low_c": 13,
+        "annual_rainfall_mm": "380-420",
+        "humidity_level": "55-65%",
+        "description": "Interior Mediterranean climate. Suburban location east of Tel Aviv."
+      },
+      "quality_of_life_notes": "Suburban town east of Tel Aviv with consistent yields and family-friendly amenities. Growing Anglo presence. Commutable to Tel Aviv tech sector with more space than city.",
+      "confidence": "MEDIUM"
+    },
+    "Ramat Gan": {
+      "misrad_hapnim_office": {
+        "exists_in_city": true,
+        "nearest_location": "City office"
+      },
+      "bituach_leumi_office": {
+        "exists_in_city": true,
+        "nearest_location": "Local office"
+      },
+      "banks_with_english_service": [
+        "Bank Leumi",
+        "Bank Hapoalim"
+      ],
+      "post_office": {
+        "exists_in_city": true,
+        "notes": "Multiple locations"
+      },
+      "english_speaking_lawyers": "available",
+      "english_speaking_accountants": "available",
+      "nefesh_bnefesh_regional_office": null,
+      "anglo_real_estate_agents": "some",
+      "coworking_spaces": [
+        {
+          "name": "Multiple business districts",
+          "notes": "Finance and tech hubs"
+        }
+      ],
+      "english_friendly_businesses": "common",
+      "climate": {
+        "summer_avg_high_c": 27,
+        "winter_avg_low_c": 13,
+        "annual_rainfall_mm": "410-420",
+        "humidity_level": "55-65%",
+        "description": "Interior Mediterranean climate similar to Tel Aviv area but slightly less coastal humidity."
+      },
+      "quality_of_life_notes": "Wealthy suburb directly east of Tel Aviv with excellent schools and parks. Major financial district. Strong Anglo community with full professional infrastructure and good quality of life.",
+      "confidence": "HIGH"
+    },
+    "Givatayim": {
+      "misrad_hapnim_office": {
+        "exists_in_city": false,
+        "nearest_location": "Nearby offices"
+      },
+      "bituach_leumi_office": {
+        "exists_in_city": true,
+        "nearest_location": "Local office"
+      },
+      "banks_with_english_service": [
+        "Bank Leumi",
+        "Bank Hapoalim"
+      ],
+      "post_office": {
+        "exists_in_city": true,
+        "notes": "Local branch"
+      },
+      "english_speaking_lawyers": "available",
+      "english_speaking_accountants": "available",
+      "nefesh_bnefesh_regional_office": null,
+      "anglo_real_estate_agents": "some",
+      "coworking_spaces": [
+        {
+          "name": "Suburban tech spaces",
+          "notes": "Growing options"
+        }
+      ],
+      "english_friendly_businesses": "some",
+      "climate": {
+        "summer_avg_high_c": 27,
+        "winter_avg_low_c": 13.1,
+        "annual_rainfall_mm": 413,
+        "humidity_level": "55-65%",
+        "description": "Mediterranean climate (Csa Köppen classification). Mean yearly temperature 20.5°C with ~3500 hours annual sunshine."
+      },
+      "quality_of_life_notes": "Upscale suburb east of Tel Aviv with excellent schools and cultural institutions. Strong Anglo presence with good professional infrastructure. Higher cost of living but excellent quality of life.",
+      "confidence": "MEDIUM"
+    },
+    "Holon": {
+      "misrad_hapnim_office": {
+        "exists_in_city": true,
+        "nearest_location": "City office"
+      },
+      "bituach_leumi_office": {
+        "exists_in_city": true,
+        "nearest_location": "Local office"
+      },
+      "banks_with_english_service": [
+        "Bank Leumi",
+        "Bank Hapoalim"
+      ],
+      "post_office": {
+        "exists_in_city": true,
+        "notes": "Multiple locations"
+      },
+      "english_speaking_lawyers": "available",
+      "english_speaking_accountants": "limited",
+      "nefesh_bnefesh_regional_office": null,
+      "anglo_real_estate_agents": "some",
+      "coworking_spaces": [
+        {
+          "name": "Limited options",
+          "notes": "Industrial focus"
+        }
+      ],
+      "english_friendly_businesses": "some",
+      "climate": {
+        "summer_avg_high_c": 27,
+        "winter_avg_low_c": 13,
+        "annual_rainfall_mm": "400-450",
+        "humidity_level": "55-65%",
+        "description": "Coastal Mediterranean climate. Hot, humid summers; mild winters with moderate rainfall."
+      },
+      "quality_of_life_notes": "Industrial suburb south of Tel Aviv with lower prices and good location. Improving cultural facilities and schools. Less Anglo community than Tel Aviv proper but growing presence.",
+      "confidence": "LOW"
+    },
+    "Bat Yam": {
+      "misrad_hapnim_office": {
+        "exists_in_city": false,
+        "nearest_location": "Tel Aviv or Holon"
+      },
+      "bituach_leumi_office": {
+        "exists_in_city": true,
+        "nearest_location": "Local office"
+      },
+      "banks_with_english_service": [
+        "Bank Leumi",
+        "Bank Hapoalim"
+      ],
+      "post_office": {
+        "exists_in_city": true,
+        "notes": "Beach town services"
+      },
+      "english_speaking_lawyers": "limited",
+      "english_speaking_accountants": "limited",
+      "nefesh_bnefesh_regional_office": null,
+      "anglo_real_estate_agents": "few",
+      "coworking_spaces": null,
+      "english_friendly_businesses": "some",
+      "climate": {
+        "summer_avg_high_c": 27,
+        "winter_avg_low_c": 13,
+        "annual_rainfall_mm": "450-500",
+        "humidity_level": "65-75%",
+        "description": "Coastal Mediterranean climate with sea breeze relief. Hot, humid summers; mild winters."
+      },
+      "quality_of_life_notes": "Beachside city south of Tel Aviv with lower cost of living than Tel Aviv. Beach culture and modest Anglo community. Less professional infrastructure and fewer amenities than Tel Aviv.",
+      "confidence": "LOW"
+    },
+    "Bnei Brak": {
+      "misrad_hapnim_office": {
+        "exists_in_city": false,
+        "nearest_location": "Nearby offices"
+      },
+      "bituach_leumi_office": {
+        "exists_in_city": true,
+        "nearest_location": "Local office"
+      },
+      "banks_with_english_service": [
+        "Bank Leumi"
+      ],
+      "post_office": {
+        "exists_in_city": true,
+        "notes": "Limited English service"
+      },
+      "english_speaking_lawyers": "limited",
+      "english_speaking_accountants": "limited",
+      "nefesh_bnefesh_regional_office": null,
+      "anglo_real_estate_agents": "few",
+      "coworking_spaces": null,
+      "english_friendly_businesses": "rare",
+      "climate": {
+        "summer_avg_high_c": 27,
+        "winter_avg_low_c": 13.1,
+        "annual_rainfall_mm": 413,
+        "humidity_level": "55-65%",
+        "description": "Mediterranean climate (Csa). Mean yearly temperature 20.5°C. ~3500 annual sunshine hours."
+      },
+      "quality_of_life_notes": "Heavily ultra-Orthodox (Haredi) city with limited secular infrastructure and very few English speakers. Not recommended for most new Anglo olim. Unique religious character but challenging for English-speakers.",
+      "confidence": "LOW"
+    },
+    "Ramat HaSharon": {
+      "misrad_hapnim_office": {
+        "exists_in_city": false,
+        "nearest_location": "Nearby offices"
+      },
+      "bituach_leumi_office": {
+        "exists_in_city": true,
+        "nearest_location": "Local office"
+      },
+      "banks_with_english_service": [
+        "Bank Leumi",
+        "Bank Hapoalim"
+      ],
+      "post_office": {
+        "exists_in_city": true,
+        "notes": "Local services"
+      },
+      "english_speaking_lawyers": "available",
+      "english_speaking_accountants": "available",
+      "nefesh_bnefesh_regional_office": null,
+      "anglo_real_estate_agents": "some",
+      "coworking_spaces": [
+        {
+          "name": "Suburban tech options",
+          "notes": "Growing professional district"
+        }
+      ],
+      "english_friendly_businesses": "some",
+      "climate": {
+        "summer_avg_high_c": 27,
+        "winter_avg_low_c": 12,
+        "annual_rainfall_mm": "380-420",
+        "humidity_level": "55-65%",
+        "description": "Subtropical steppe climate (BSh). Yearly average 22°C. Long, hot, humid summers; cool winters."
+      },
+      "quality_of_life_notes": "Affluent suburb in Sharon Plain with excellent schools and parks. Growing Anglo community with modern amenities. Commutable to Tel Aviv with suburban character.",
+      "confidence": "MEDIUM"
+    },
+    "Hod HaSharon": {
+      "misrad_hapnim_office": {
+        "exists_in_city": false,
+        "nearest_location": "Nearby offices"
+      },
+      "bituach_leumi_office": {
+        "exists_in_city": true,
+        "nearest_location": "Local office"
+      },
+      "banks_with_english_service": [
+        "Bank Leumi",
+        "Bank Hapoalim"
+      ],
+      "post_office": {
+        "exists_in_city": true,
+        "notes": "Local branch"
+      },
+      "english_speaking_lawyers": "available",
+      "english_speaking_accountants": "available",
+      "nefesh_bnefesh_regional_office": null,
+      "anglo_real_estate_agents": "some",
+      "coworking_spaces": [
+        {
+          "name": "Emerging options",
+          "notes": "Business district"
+        }
+      ],
+      "english_friendly_businesses": "some",
+      "climate": {
+        "summer_avg_high_c": 27,
+        "winter_avg_low_c": 12,
+        "annual_rainfall_mm": "380-420",
+        "humidity_level": "55-65%",
+        "description": "Interior Mediterranean climate. Long hot summers, cool winters, mostly clear skies."
+      },
+      "quality_of_life_notes": "Planned suburban city with modern infrastructure and parks. Some Anglo community presence. Commutable to Tel Aviv with good schools and family-friendly amenities.",
+      "confidence": "MEDIUM"
+    },
+    "Lod": {
+      "misrad_hapnim_office": {
+        "exists_in_city": false,
+        "nearest_location": "Regional offices"
+      },
+      "bituach_leumi_office": {
+        "exists_in_city": true,
+        "nearest_location": "Local office"
+      },
+      "banks_with_english_service": [
+        "Bank Leumi"
+      ],
+      "post_office": {
+        "exists_in_city": true,
+        "notes": "Basic services"
+      },
+      "english_speaking_lawyers": "limited",
+      "english_speaking_accountants": "limited",
+      "nefesh_bnefesh_regional_office": null,
+      "anglo_real_estate_agents": "few",
+      "coworking_spaces": null,
+      "english_friendly_businesses": "rare",
+      "climate": {
+        "summer_avg_high_c": 28,
+        "winter_avg_low_c": 11,
+        "annual_rainfall_mm": "350-400",
+        "humidity_level": "50-65%",
+        "description": "Interior Mediterranean climate with airport proximity. Hot summers, mild winters."
+      },
+      "quality_of_life_notes": "Industrial city near Ben Gurion Airport. Limited tourist infrastructure and small Anglo community. Lower prices but fewer amenities and professional services.",
+      "confidence": "LOW"
+    },
+    "Ramla": {
+      "misrad_hapnim_office": {
+        "exists_in_city": false,
+        "nearest_location": "Regional offices"
+      },
+      "bituach_leumi_office": {
+        "exists_in_city": true,
+        "nearest_location": "Local office"
+      },
+      "banks_with_english_service": [
+        "Bank Leumi"
+      ],
+      "post_office": {
+        "exists_in_city": true,
+        "notes": "Basic services"
+      },
+      "english_speaking_lawyers": "limited",
+      "english_speaking_accountants": "limited",
+      "nefesh_bnefesh_regional_office": null,
+      "anglo_real_estate_agents": "few",
+      "coworking_spaces": null,
+      "english_friendly_businesses": "rare",
+      "climate": {
+        "summer_avg_high_c": 28,
+        "winter_avg_low_c": 11,
+        "annual_rainfall_mm": "350-400",
+        "humidity_level": "50-65%",
+        "description": "Interior Mediterranean climate. Hot summers, mild winters with moderate precipitation."
+      },
+      "quality_of_life_notes": "Historic Arab-Jewish city with limited English-speaking infrastructure. Very affordable prices but small Anglo presence and fewer professional services.",
+      "confidence": "LOW"
+    },
+    "Nazareth": {
+      "misrad_hapnim_office": {
+        "exists_in_city": false,
+        "nearest_location": "Regional office"
+      },
+      "bituach_leumi_office": {
+        "exists_in_city": true,
+        "nearest_location": "Local office"
+      },
+      "banks_with_english_service": [
+        "Bank Leumi"
+      ],
+      "post_office": {
+        "exists_in_city": true,
+        "notes": "Limited services"
+      },
+      "english_speaking_lawyers": "limited",
+      "english_speaking_accountants": "limited",
+      "nefesh_bnefesh_regional_office": null,
+      "anglo_real_estate_agents": "few",
+      "coworking_spaces": null,
+      "english_friendly_businesses": "rare",
+      "climate": {
+        "summer_avg_high_c": 28,
+        "winter_avg_low_c": 10,
+        "annual_rainfall_mm": "550-600",
+        "humidity_level": "moderate",
+        "description": "Interior hills region at 300-500m elevation. Mild winters with cold air intrusions. Rare snow. Hot summers."
+      },
+      "quality_of_life_notes": "Historic Arab city in Galilee with Christian heritage sites. Very limited English-speaking community. Low prices but minimal expat services and professional infrastructure.",
+      "confidence": "LOW"
+    },
+    "Acre": {
+      "misrad_hapnim_office": {
+        "exists_in_city": false,
+        "nearest_location": "Regional office"
+      },
+      "bituach_leumi_office": {
+        "exists_in_city": true,
+        "nearest_location": "Local office"
+      },
+      "banks_with_english_service": [
+        "Bank Leumi"
+      ],
+      "post_office": {
+        "exists_in_city": true,
+        "notes": "Limited services"
+      },
+      "english_speaking_lawyers": "rare",
+      "english_speaking_accountants": "rare",
+      "nefesh_bnefesh_regional_office": null,
+      "anglo_real_estate_agents": "few",
+      "coworking_spaces": null,
+      "english_friendly_businesses": "rare",
+      "climate": {
+        "summer_avg_high_c": 28,
+        "winter_avg_low_c": 11,
+        "annual_rainfall_mm": "600-700",
+        "humidity_level": "65-80%",
+        "description": "Mediterranean coastal climate. Hot, humid summers with sea breeze. Mild, rainy winters."
+      },
+      "quality_of_life_notes": "Historic Crusader port city with UNESCO old town. Very limited English-speaking community. Primarily Arab city with minimal expat infrastructure and services.",
+      "confidence": "LOW"
+    },
+    "Tiberias": {
+      "misrad_hapnim_office": {
+        "exists_in_city": false,
+        "nearest_location": "Regional office"
+      },
+      "bituach_leumi_office": {
+        "exists_in_city": true,
+        "nearest_location": "Local office"
+      },
+      "banks_with_english_service": [
+        "Bank Leumi"
+      ],
+      "post_office": {
+        "exists_in_city": true,
+        "notes": "Limited services"
+      },
+      "english_speaking_lawyers": "limited",
+      "english_speaking_accountants": "limited",
+      "nefesh_bnefesh_regional_office": null,
+      "anglo_real_estate_agents": "few",
+      "coworking_spaces": null,
+      "english_friendly_businesses": "some",
+      "climate": {
+        "summer_avg_high_c": 31.5,
+        "winter_avg_low_c": 14,
+        "annual_rainfall_mm": 435,
+        "humidity_level": "moderate",
+        "description": "Jordan Valley climate below sea level. Extreme summer heat with temperatures reaching 38°C+. Mild winters with concentrated rainfall."
+      },
+      "quality_of_life_notes": "Hot Jordan Valley city on Sea of Galilee with Jewish heritage sites. Small Anglo community. Lower prices but challenging heat in summer. Religious character with tourism industry.",
+      "confidence": "LOW"
+    },
+    "Safed": {
+      "misrad_hapnim_office": {
+        "exists_in_city": false,
+        "nearest_location": "Regional office"
+      },
+      "bituach_leumi_office": {
+        "exists_in_city": true,
+        "nearest_location": "Local office"
+      },
+      "banks_with_english_service": [
+        "Bank Leumi"
+      ],
+      "post_office": {
+        "exists_in_city": true,
+        "notes": "Limited services"
+      },
+      "english_speaking_lawyers": "rare",
+      "english_speaking_accountants": "rare",
+      "nefesh_bnefesh_regional_office": null,
+      "anglo_real_estate_agents": "few",
+      "coworking_spaces": null,
+      "english_friendly_businesses": "rare",
+      "climate": {
+        "summer_avg_high_c": 24,
+        "winter_avg_low_c": 4,
+        "annual_rainfall_mm": "800-900",
+        "humidity_level": "moderate",
+        "description": "Hill town at altitude. Coolest summers in Israel at 24°C. Cold winters with occasional snow. Highest rainfall."
+      },
+      "quality_of_life_notes": "Mystical hilltop artist town at highest elevation in Galilee. Limited English-speaking infrastructure. Cool climate relief but minimal expat community and professional services.",
+      "confidence": "LOW"
+    },
+    "Karmiel": {
+      "misrad_hapnim_office": {
+        "exists_in_city": false,
+        "nearest_location": "Regional office"
+      },
+      "bituach_leumi_office": {
+        "exists_in_city": true,
+        "nearest_location": "Local office"
+      },
+      "banks_with_english_service": [
+        "Bank Leumi"
+      ],
+      "post_office": {
+        "exists_in_city": true,
+        "notes": "Limited services"
+      },
+      "english_speaking_lawyers": "limited",
+      "english_speaking_accountants": "limited",
+      "nefesh_bnefesh_regional_office": null,
+      "anglo_real_estate_agents": "few",
+      "coworking_spaces": null,
+      "english_friendly_businesses": "rare",
+      "climate": {
+        "summer_avg_high_c": 27,
+        "winter_avg_low_c": 10,
+        "annual_rainfall_mm": "550-650",
+        "humidity_level": "moderate",
+        "description": "Upper Galilee mountain town. Long hot summers, cold wet winters, mostly clear skies. Cooler than coastal areas."
+      },
+      "quality_of_life_notes": "Planned industrial town in Galilee with modern infrastructure. Small Anglo community. Lower prices than central region but fewer English-speaking services.",
+      "confidence": "LOW"
+    },
+    "Nahariya": {
+      "misrad_hapnim_office": {
+        "exists_in_city": false,
+        "nearest_location": "Regional office"
+      },
+      "bituach_leumi_office": {
+        "exists_in_city": true,
+        "nearest_location": "Local office"
+      },
+      "banks_with_english_service": [
+        "Bank Leumi"
+      ],
+      "post_office": {
+        "exists_in_city": true,
+        "notes": "Modest beach town services"
+      },
+      "english_speaking_lawyers": "limited",
+      "english_speaking_accountants": "limited",
+      "nefesh_bnefesh_regional_office": null,
+      "anglo_real_estate_agents": "few",
+      "coworking_spaces": null,
+      "english_friendly_businesses": "some",
+      "climate": {
+        "summer_avg_high_c": 26,
+        "winter_avg_low_c": 12,
+        "annual_rainfall_mm": "700-750",
+        "humidity_level": "65-75%",
+        "description": "Northern Mediterranean coastal climate. Warm summers (not oppressive), wet winters, mostly clear. Less humid than central coast."
+      },
+      "quality_of_life_notes": "Northern coastal beach town with tourist character. Limited Anglo community. Lower prices than central coast but minimal professional infrastructure.",
+      "confidence": "LOW"
+    },
+    "Kiryat Shmona": {
+      "misrad_hapnim_office": {
+        "exists_in_city": false,
+        "nearest_location": "Regional office"
+      },
+      "bituach_leumi_office": {
+        "exists_in_city": true,
+        "nearest_location": "Local office"
+      },
+      "banks_with_english_service": [
+        "Bank Leumi"
+      ],
+      "post_office": {
+        "exists_in_city": true,
+        "notes": "Limited services"
+      },
+      "english_speaking_lawyers": "rare",
+      "english_speaking_accountants": "rare",
+      "nefesh_bnefesh_regional_office": null,
+      "anglo_real_estate_agents": "few",
+      "coworking_spaces": null,
+      "english_friendly_businesses": "rare",
+      "climate": {
+        "summer_avg_high_c": 31,
+        "winter_avg_low_c": 14,
+        "annual_rainfall_mm": 658,
+        "humidity_level": "moderate",
+        "description": "Upper Galilee valley. Large seasonal temperature swings. Moderate annual rainfall with winter concentration."
+      },
+      "quality_of_life_notes": "Northern valley town close to Lebanese border. Security concerns for some. Limited English-speaking infrastructure. Very small Anglo community.",
+      "confidence": "LOW"
+    },
+    "Kiryat Ata": {
+      "misrad_hapnim_office": {
+        "exists_in_city": false,
+        "nearest_location": "Haifa offices"
+      },
+      "bituach_leumi_office": {
+        "exists_in_city": true,
+        "nearest_location": "Local office"
+      },
+      "banks_with_english_service": [
+        "Bank Leumi"
+      ],
+      "post_office": {
+        "exists_in_city": true,
+        "notes": "Limited services"
+      },
+      "english_speaking_lawyers": "limited",
+      "english_speaking_accountants": "limited",
+      "nefesh_bnefesh_regional_office": null,
+      "anglo_real_estate_agents": "few",
+      "coworking_spaces": null,
+      "english_friendly_businesses": "rare",
+      "climate": {
+        "summer_avg_high_c": 27,
+        "winter_avg_low_c": 11,
+        "annual_rainfall_mm": 524,
+        "humidity_level": "moderate",
+        "description": "Mediterranean coastal climate in Krayot agglomeration. Hot, dry summers. Cool, rainy winters with rare snow."
+      },
+      "quality_of_life_notes": "Industrial suburb in Krayot (Haifa suburbs). Limited English-speaking infrastructure. Lower prices than Haifa proper.",
+      "confidence": "LOW"
+    },
+    "Kiryat Bialik": {
+      "misrad_hapnim_office": {
+        "exists_in_city": false,
+        "nearest_location": "Haifa offices"
+      },
+      "bituach_leumi_office": {
+        "exists_in_city": true,
+        "nearest_location": "Local office"
+      },
+      "banks_with_english_service": [
+        "Bank Leumi"
+      ],
+      "post_office": {
+        "exists_in_city": true,
+        "notes": "Limited services"
+      },
+      "english_speaking_lawyers": "limited",
+      "english_speaking_accountants": "limited",
+      "nefesh_bnefesh_regional_office": null,
+      "anglo_real_estate_agents": "few",
+      "coworking_spaces": null,
+      "english_friendly_businesses": "rare",
+      "climate": {
+        "summer_avg_high_c": 27,
+        "winter_avg_low_c": 11,
+        "annual_rainfall_mm": "550-600",
+        "humidity_level": "moderate",
+        "description": "Mediterranean coastal climate. Average annual temperature 19°C. Coastal sea breeze relief."
+      },
+      "quality_of_life_notes": "Coastal suburb in Krayot agglomeration with beach access. Minimal English-speaking community. Affordable but limited professional services.",
+      "confidence": "LOW"
+    },
+    "Kiryat Motzkin": {
+      "misrad_hapnim_office": {
+        "exists_in_city": false,
+        "nearest_location": "Haifa offices"
+      },
+      "bituach_leumi_office": {
+        "exists_in_city": true,
+        "nearest_location": "Local office"
+      },
+      "banks_with_english_service": [
+        "Bank Leumi"
+      ],
+      "post_office": {
+        "exists_in_city": true,
+        "notes": "Limited services"
+      },
+      "english_speaking_lawyers": "limited",
+      "english_speaking_accountants": "limited",
+      "nefesh_bnefesh_regional_office": null,
+      "anglo_real_estate_agents": "few",
+      "coworking_spaces": null,
+      "english_friendly_businesses": "rare",
+      "climate": {
+        "summer_avg_high_c": 27,
+        "winter_avg_low_c": 11,
+        "annual_rainfall_mm": "550-600",
+        "humidity_level": "moderate",
+        "description": "Mediterranean coastal climate. Moderate rainfall from winter months."
+      },
+      "quality_of_life_notes": "Residential suburb in Krayot with more family focus. Minimal English-speaking infrastructure. Very affordable with modest amenities.",
+      "confidence": "LOW"
+    },
+    "Kiryat Yam": {
+      "misrad_hapnim_office": {
+        "exists_in_city": false,
+        "nearest_location": "Haifa offices"
+      },
+      "bituach_leumi_office": {
+        "exists_in_city": true,
+        "nearest_location": "Local office"
+      },
+      "banks_with_english_service": [
+        "Bank Leumi"
+      ],
+      "post_office": {
+        "exists_in_city": true,
+        "notes": "Limited services"
+      },
+      "english_speaking_lawyers": "limited",
+      "english_speaking_accountants": "limited",
+      "nefesh_bnefesh_regional_office": null,
+      "anglo_real_estate_agents": "few",
+      "coworking_spaces": null,
+      "english_friendly_businesses": "rare",
+      "climate": {
+        "summer_avg_high_c": 27,
+        "winter_avg_low_c": 11,
+        "annual_rainfall_mm": "550-600",
+        "humidity_level": "moderate",
+        "description": "Mediterranean coastal climate with sea access."
+      },
+      "quality_of_life_notes": "Coastal suburb in Krayot with beach proximity. Minimal English-speaking community. Very affordable with beach lifestyle orientation.",
+      "confidence": "LOW"
+    },
+    "Yokneam": {
+      "misrad_hapnim_office": {
+        "exists_in_city": false,
+        "nearest_location": "Regional office"
+      },
+      "bituach_leumi_office": {
+        "exists_in_city": true,
+        "nearest_location": "Local office"
+      },
+      "banks_with_english_service": [
+        "Bank Leumi"
+      ],
+      "post_office": {
+        "exists_in_city": true,
+        "notes": "Limited services"
+      },
+      "english_speaking_lawyers": "limited",
+      "english_speaking_accountants": "limited",
+      "nefesh_bnefesh_regional_office": null,
+      "anglo_real_estate_agents": "few",
+      "coworking_spaces": null,
+      "english_friendly_businesses": "rare",
+      "climate": {
+        "summer_avg_high_c": 27,
+        "winter_avg_low_c": 10,
+        "annual_rainfall_mm": "500-550",
+        "humidity_level": "moderate",
+        "description": "Interior Mediterranean climate in Jezreel Valley region."
+      },
+      "quality_of_life_notes": "Industrial city on valley floor with lower prices. Minimal English-speaking infrastructure. Limited professional services.",
+      "confidence": "LOW"
+    },
+    "Afula": {
+      "misrad_hapnim_office": {
+        "exists_in_city": false,
+        "nearest_location": "Regional office"
+      },
+      "bituach_leumi_office": {
+        "exists_in_city": true,
+        "nearest_location": "1 Menachem Usishkin St."
+      },
+      "banks_with_english_service": [
+        "Bank Leumi"
+      ],
+      "post_office": {
+        "exists_in_city": true,
+        "notes": "Limited services"
+      },
+      "english_speaking_lawyers": "limited",
+      "english_speaking_accountants": "limited",
+      "nefesh_bnefesh_regional_office": null,
+      "anglo_real_estate_agents": "few",
+      "coworking_spaces": null,
+      "english_friendly_businesses": "rare",
+      "climate": {
+        "summer_avg_high_c": 32,
+        "winter_avg_low_c": 10,
+        "annual_rainfall_mm": "400-450",
+        "humidity_level": "moderate-low",
+        "description": "Jezreel Valley location. Intense summer heat reaching 44°C+. Very hot climate."
+      },
+      "quality_of_life_notes": "Hot Jezreel Valley city with extreme summer temperatures. Minimal English-speaking community. Very affordable but challenging climate.",
+      "confidence": "LOW"
+    },
+    "Beit She'an": {
+      "misrad_hapnim_office": {
+        "exists_in_city": false,
+        "nearest_location": "Regional office"
+      },
+      "bituach_leumi_office": {
+        "exists_in_city": true,
+        "nearest_location": "Local office"
+      },
+      "banks_with_english_service": [
+        "Bank Leumi"
+      ],
+      "post_office": {
+        "exists_in_city": true,
+        "notes": "Limited services"
+      },
+      "english_speaking_lawyers": "rare",
+      "english_speaking_accountants": "rare",
+      "nefesh_bnefesh_regional_office": null,
+      "anglo_real_estate_agents": "few",
+      "coworking_spaces": null,
+      "english_friendly_businesses": "rare",
+      "climate": {
+        "summer_avg_high_c": 35,
+        "winter_avg_low_c": 10,
+        "annual_rainfall_mm": "300-350",
+        "humidity_level": "low",
+        "description": "Hottest region in Israel. Jordan Valley location below sea level. Extreme summer temperatures reaching 48°C+."
+      },
+      "quality_of_life_notes": "Extremely hot Jordan Valley city - hottest in Israel. Historic archaeological sites. Minimal expat infrastructure. Very challenging climate.",
+      "confidence": "LOW"
+    },
+    "Dimona": {
+      "misrad_hapnim_office": {
+        "exists_in_city": false,
+        "nearest_location": "Regional office"
+      },
+      "bituach_leumi_office": {
+        "exists_in_city": true,
+        "nearest_location": "Local office"
+      },
+      "banks_with_english_service": [
+        "Bank Leumi"
+      ],
+      "post_office": {
+        "exists_in_city": true,
+        "notes": "Limited services"
+      },
+      "english_speaking_lawyers": "rare",
+      "english_speaking_accountants": "rare",
+      "nefesh_bnefesh_regional_office": null,
+      "anglo_real_estate_agents": "few",
+      "coworking_spaces": null,
+      "english_friendly_businesses": "rare",
+      "climate": {
+        "summer_avg_high_c": 32,
+        "winter_avg_low_c": 8,
+        "annual_rainfall_mm": "150-200",
+        "humidity_level": "40-50%",
+        "description": "Negev desert climate. Long hot summers, cold dry winters, mostly clear skies. Very low precipitation."
+      },
+      "quality_of_life_notes": "Negev desert city with hot, arid climate and minimal precipitation. Very limited expat services. Extremely affordable but harsh conditions.",
+      "confidence": "LOW"
+    },
+    "Arad": {
+      "misrad_hapnim_office": {
+        "exists_in_city": false,
+        "nearest_location": "Regional office"
+      },
+      "bituach_leumi_office": {
+        "exists_in_city": true,
+        "nearest_location": "Local office"
+      },
+      "banks_with_english_service": [
+        "Bank Leumi"
+      ],
+      "post_office": {
+        "exists_in_city": true,
+        "notes": "Limited services"
+      },
+      "english_speaking_lawyers": "rare",
+      "english_speaking_accountants": "rare",
+      "nefesh_bnefesh_regional_office": null,
+      "anglo_real_estate_agents": "few",
+      "coworking_spaces": null,
+      "english_friendly_businesses": "rare",
+      "climate": {
+        "summer_avg_high_c": 33,
+        "winter_avg_low_c": 7,
+        "annual_rainfall_mm": "100-150",
+        "humidity_level": "very low",
+        "description": "High-altitude desert town (600m). Clean, dry air. Extreme heat summers, cold winters. Minimal precipitation."
+      },
+      "quality_of_life_notes": "Elevated Negev desert town with clean air known for health benefits. Extreme climate but small artistic community. Very limited professional services.",
+      "confidence": "LOW"
+    },
+    "Sderot": {
+      "misrad_hapnim_office": {
+        "exists_in_city": false,
+        "nearest_location": "Regional office"
+      },
+      "bituach_leumi_office": {
+        "exists_in_city": true,
+        "nearest_location": "Local office"
+      },
+      "banks_with_english_service": [
+        "Bank Leumi"
+      ],
+      "post_office": {
+        "exists_in_city": true,
+        "notes": "Limited services"
+      },
+      "english_speaking_lawyers": "rare",
+      "english_speaking_accountants": "rare",
+      "nefesh_bnefesh_regional_office": null,
+      "anglo_real_estate_agents": "few",
+      "coworking_spaces": null,
+      "english_friendly_businesses": "rare",
+      "climate": {
+        "summer_avg_high_c": 31,
+        "winter_avg_low_c": 9,
+        "annual_rainfall_mm": "300-350",
+        "humidity_level": "moderate-low",
+        "description": "Southern Gaza border region. Hot summers, mild winters. Semi-arid climate."
+      },
+      "quality_of_life_notes": "Southern border town with security concerns due to proximity to Gaza. Growing community but minimal expat infrastructure. Very affordable.",
+      "confidence": "LOW"
+    },
+    "Ofakim": {
+      "misrad_hapnim_office": {
+        "exists_in_city": false,
+        "nearest_location": "Regional office"
+      },
+      "bituach_leumi_office": {
+        "exists_in_city": true,
+        "nearest_location": "Local office"
+      },
+      "banks_with_english_service": [
+        "Bank Leumi"
+      ],
+      "post_office": {
+        "exists_in_city": true,
+        "notes": "Limited services"
+      },
+      "english_speaking_lawyers": "rare",
+      "english_speaking_accountants": "rare",
+      "nefesh_bnefesh_regional_office": null,
+      "anglo_real_estate_agents": "few",
+      "coworking_spaces": null,
+      "english_friendly_businesses": "rare",
+      "climate": {
+        "summer_avg_high_c": 31,
+        "winter_avg_low_c": 9,
+        "annual_rainfall_mm": "250-300",
+        "humidity_level": "moderate-low",
+        "description": "Negev semi-arid climate. Hot, dry summers; cold winters."
+      },
+      "quality_of_life_notes": "Negev town with minimal English-speaking infrastructure. Very affordable. Limited professional services and amenities.",
+      "confidence": "LOW"
+    },
+    "Kiryat Gat": {
+      "misrad_hapnim_office": {
+        "exists_in_city": false,
+        "nearest_location": "Regional office"
+      },
+      "bituach_leumi_office": {
+        "exists_in_city": true,
+        "nearest_location": "Local office"
+      },
+      "banks_with_english_service": [
+        "Bank Leumi"
+      ],
+      "post_office": {
+        "exists_in_city": true,
+        "notes": "Limited services"
+      },
+      "english_speaking_lawyers": "rare",
+      "english_speaking_accountants": "rare",
+      "nefesh_bnefesh_regional_office": null,
+      "anglo_real_estate_agents": "few",
+      "coworking_spaces": null,
+      "english_friendly_businesses": "rare",
+      "climate": {
+        "summer_avg_high_c": 30.3,
+        "winter_avg_low_c": 10,
+        "annual_rainfall_mm": "350-400",
+        "humidity_level": "moderate",
+        "description": "Southern semi-arid climate with hot summers and cool winters. Moderate rainfall in winter months."
+      },
+      "quality_of_life_notes": "Southern city with minimal expat infrastructure. Very affordable. Limited professional services.",
+      "confidence": "LOW"
+    },
+    "Kiryat Malachi": {
+      "misrad_hapnim_office": {
+        "exists_in_city": false,
+        "nearest_location": "Regional office"
+      },
+      "bituach_leumi_office": {
+        "exists_in_city": true,
+        "nearest_location": "Local office"
+      },
+      "banks_with_english_service": [
+        "Bank Leumi"
+      ],
+      "post_office": {
+        "exists_in_city": true,
+        "notes": "Limited services"
+      },
+      "english_speaking_lawyers": "rare",
+      "english_speaking_accountants": "rare",
+      "nefesh_bnefesh_regional_office": null,
+      "anglo_real_estate_agents": "few",
+      "coworking_spaces": null,
+      "english_friendly_businesses": "rare",
+      "climate": {
+        "summer_avg_high_c": 30,
+        "winter_avg_low_c": 10,
+        "annual_rainfall_mm": "350-400",
+        "humidity_level": "moderate",
+        "description": "Southern semi-arid climate with hot, dry summers and cool winters with occasional rainfall."
+      },
+      "quality_of_life_notes": "Southern city with minimal English-speaking community. Very affordable prices. Limited amenities and professional services.",
+      "confidence": "LOW"
+    },
+    "Or Akiva": {
+      "misrad_hapnim_office": {
+        "exists_in_city": false,
+        "nearest_location": "Regional office"
+      },
+      "bituach_leumi_office": {
+        "exists_in_city": true,
+        "nearest_location": "Local office"
+      },
+      "banks_with_english_service": [
+        "Bank Leumi"
+      ],
+      "post_office": {
+        "exists_in_city": true,
+        "notes": "Limited services"
+      },
+      "english_speaking_lawyers": "limited",
+      "english_speaking_accountants": "limited",
+      "nefesh_bnefesh_regional_office": null,
+      "anglo_real_estate_agents": "few",
+      "coworking_spaces": null,
+      "english_friendly_businesses": "rare",
+      "climate": {
+        "summer_avg_high_c": 27,
+        "winter_avg_low_c": 11,
+        "annual_rainfall_mm": "500-550",
+        "humidity_level": "60-70%",
+        "description": "Coastal Mediterranean climate north of Hadera. Hot, humid summers with sea breeze relief."
+      },
+      "quality_of_life_notes": "Industrial coastal city with petrochemical presence. Minimal English-speaking community. Lower cost of living but limited professional services.",
+      "confidence": "LOW"
+    },
+    "Yavne": {
+      "misrad_hapnim_office": {
+        "exists_in_city": false,
+        "nearest_location": "Nearby regional offices"
+      },
+      "bituach_leumi_office": {
+        "exists_in_city": true,
+        "nearest_location": "Local office"
+      },
+      "banks_with_english_service": [
+        "Bank Leumi"
+      ],
+      "post_office": {
+        "exists_in_city": true,
+        "notes": "Local branch"
+      },
+      "english_speaking_lawyers": "limited",
+      "english_speaking_accountants": "limited",
+      "nefesh_bnefesh_regional_office": null,
+      "anglo_real_estate_agents": "few",
+      "coworking_spaces": null,
+      "english_friendly_businesses": "some",
+      "climate": {
+        "summer_avg_high_c": 27,
+        "winter_avg_low_c": 12,
+        "annual_rainfall_mm": "450-500",
+        "humidity_level": "60-70%",
+        "description": "Coastal Mediterranean climate. Hot, humid summers; mild winters with moderate precipitation."
+      },
+      "quality_of_life_notes": "Town south of Tel Aviv with growing population and improving infrastructure. Limited but growing Anglo presence. More affordable than Tel Aviv with access to highways.",
+      "confidence": "MEDIUM"
+    },
+    "Nes Ziona": {
+      "misrad_hapnim_office": {
+        "exists_in_city": false,
+        "nearest_location": "Nearby regional offices"
+      },
+      "bituach_leumi_office": {
+        "exists_in_city": true,
+        "nearest_location": "Local office"
+      },
+      "banks_with_english_service": [
+        "Bank Leumi",
+        "Bank Hapoalim"
+      ],
+      "post_office": {
+        "exists_in_city": true,
+        "notes": "Local branch"
+      },
+      "english_speaking_lawyers": "available",
+      "english_speaking_accountants": "available",
+      "nefesh_bnefesh_regional_office": null,
+      "anglo_real_estate_agents": "some",
+      "coworking_spaces": [
+        {
+          "name": "Limited emerging options",
+          "notes": "Growing tech area"
+        }
+      ],
+      "english_friendly_businesses": "some",
+      "climate": {
+        "summer_avg_high_c": 27,
+        "winter_avg_low_c": 12,
+        "annual_rainfall_mm": "450-500",
+        "humidity_level": "55-65%",
+        "description": "Interior Mediterranean climate. Hot summers, mild winters with moderate rainfall."
+      },
+      "quality_of_life_notes": "Affluent town south of Tel Aviv with excellent schools and parks. Growing Anglo community. Good quality of life with access to Tel Aviv but more suburban feel.",
+      "confidence": "MEDIUM"
+    },
+    "Rosh HaAyin": {
+      "misrad_hapnim_office": {
+        "exists_in_city": false,
+        "nearest_location": "Regional office"
+      },
+      "bituach_leumi_office": {
+        "exists_in_city": true,
+        "nearest_location": "Local office"
+      },
+      "banks_with_english_service": [
+        "Bank Leumi",
+        "Bank Hapoalim"
+      ],
+      "post_office": {
+        "exists_in_city": true,
+        "notes": "Local branch"
+      },
+      "english_speaking_lawyers": "available",
+      "english_speaking_accountants": "limited",
+      "nefesh_bnefesh_regional_office": null,
+      "anglo_real_estate_agents": "some",
+      "coworking_spaces": [
+        {
+          "name": "Emerging tech options",
+          "notes": "Growing business district"
+        }
+      ],
+      "english_friendly_businesses": "some",
+      "climate": {
+        "summer_avg_high_c": 28,
+        "winter_avg_low_c": 11,
+        "annual_rainfall_mm": "400-450",
+        "humidity_level": "50-65%",
+        "description": "Interior Mediterranean climate with slightly lower humidity than coast. Hot summers, cool winters."
+      },
+      "quality_of_life_notes": "Central location between Tel Aviv and Jerusalem with good infrastructure. Growing community with improving services. More affordable than both cities with decent accessibility.",
+      "confidence": "MEDIUM"
+    },
+    "Shoham": {
+      "misrad_hapnim_office": {
+        "exists_in_city": false,
+        "nearest_location": "Regional office"
+      },
+      "bituach_leumi_office": {
+        "exists_in_city": true,
+        "nearest_location": "Local office"
+      },
+      "banks_with_english_service": [
+        "Bank Leumi",
+        "Bank Hapoalim"
+      ],
+      "post_office": {
+        "exists_in_city": true,
+        "notes": "Local branch"
+      },
+      "english_speaking_lawyers": "available",
+      "english_speaking_accountants": "limited",
+      "nefesh_bnefesh_regional_office": null,
+      "anglo_real_estate_agents": "some",
+      "coworking_spaces": [
+        {
+          "name": "Suburban tech spaces",
+          "notes": "Emerging business district"
+        }
+      ],
+      "english_friendly_businesses": "some",
+      "climate": {
+        "summer_avg_high_c": 28,
+        "winter_avg_low_c": 11,
+        "annual_rainfall_mm": "400-450",
+        "humidity_level": "50-65%",
+        "description": "Interior Mediterranean climate between Tel Aviv and Jerusalem. Hot summers, cool winters."
+      },
+      "quality_of_life_notes": "Planned city between Tel Aviv and Jerusalem with modern infrastructure and parks. Growing Anglo community. Good balance of affordability and amenities.",
+      "confidence": "MEDIUM"
+    },
+    "Modiin Illit": {
+      "misrad_hapnim_office": {
+        "exists_in_city": false,
+        "nearest_location": "Regional office"
+      },
+      "bituach_leumi_office": {
+        "exists_in_city": true,
+        "nearest_location": "Local office"
+      },
+      "banks_with_english_service": [
+        "Bank Leumi"
+      ],
+      "post_office": {
+        "exists_in_city": true,
+        "notes": "Local branch"
+      },
+      "english_speaking_lawyers": "limited",
+      "english_speaking_accountants": "limited",
+      "nefesh_bnefesh_regional_office": null,
+      "anglo_real_estate_agents": "few",
+      "coworking_spaces": null,
+      "english_friendly_businesses": "rare",
+      "climate": {
+        "summer_avg_high_c": 28,
+        "winter_avg_low_c": 10,
+        "annual_rainfall_mm": "500-550",
+        "humidity_level": "moderate",
+        "description": "Mountain community climate between Tel Aviv and Jerusalem. Hot summers, cool winters."
+      },
+      "quality_of_life_notes": "Ultra-Orthodox-designated religious municipality with 60% children population. Very limited secular services and English-speaking infrastructure. Not recommended for most new olim.",
+      "confidence": "LOW"
+    },
+    "Elad": {
+      "misrad_hapnim_office": {
+        "exists_in_city": false,
+        "nearest_location": "Regional office"
+      },
+      "bituach_leumi_office": {
+        "exists_in_city": true,
+        "nearest_location": "Local office"
+      },
+      "banks_with_english_service": [
+        "Bank Leumi"
+      ],
+      "post_office": {
+        "exists_in_city": true,
+        "notes": "Local branch"
+      },
+      "english_speaking_lawyers": "limited",
+      "english_speaking_accountants": "limited",
+      "nefesh_bnefesh_regional_office": null,
+      "anglo_real_estate_agents": "few",
+      "coworking_spaces": null,
+      "english_friendly_businesses": "rare",
+      "climate": {
+        "summer_avg_high_c": 28,
+        "winter_avg_low_c": 11,
+        "annual_rainfall_mm": "400-450",
+        "humidity_level": "moderate",
+        "description": "Interior Mediterranean climate. Hot summers, cool winters. Central location."
+      },
+      "quality_of_life_notes": "Young planned religious municipality between Tel Aviv and Rosh HaAyin with rapid growth. Limited secular infrastructure. Very limited English-speaking services. Not ideal for most secular olim.",
+      "confidence": "LOW"
+    }
+  },
+  "sources": [
+    "https://www.nbn.org.il/life-in-israel/government-services/government-office-locations/population-and-immigration-authority-branch-locations/",
+    "https://www.nbn.org.il/life-in-israel/government-services/government-office-locations/bituach-leumi-national-insurance-institute-branches/",
+    "https://www.nbn.org.il/",
+    "https://www.worlddata.info/asia/israel/climate.php",
+    "https://www.climatestotravel.com/climate/israel",
+    "https://en.climate-data.org/asia/israel/",
+    "https://weatherspark.com/countries/IL",
+    "https://postdocisrael.com/banking-in-israel/",
+    "https://www.hg.org/lawyers/israel/real-estate",
+    "https://www.nbn.org.il/life-in-israel/employment/professions-index/accounting-finance/accounting/",
+    "https://www.semerenkogroup.com/neighborhoods-in-israel-for-english-speakers-your-easygoing-expat-guide/",
+    "https://www.easyaliyah.com/blog/the-complete-guide-to-anglo-communities-in-israel",
+    "https://www.gov.il/en/departments/topics/postal_bank/govil-landing-page",
+    "https://www.gov.il/en/departments/units/post",
+    "https://welcome-israel.com/misrad-hapnim",
+    "https://anglo-list.com/misrad-hapnim-israel-ministry-of-interior/"
+  ]
+}

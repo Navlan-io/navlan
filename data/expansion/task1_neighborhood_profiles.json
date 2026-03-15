@@ -1,0 +1,2138 @@
+{
+  "Jerusalem": {
+    "neighborhoods": [
+      {
+        "name": "Rehavia",
+        "price_range_3_4_room_nis": {
+          "min": 4400000,
+          "max": 6800000
+        },
+        "anglo_presence": "strong",
+        "religious_character": "mixed_religious",
+        "key_amenities": ["proximity to universities", "tree-lined streets", "shops and restaurants", "public transportation"],
+        "vibe": "Historic, upscale neighborhood with strong intellectual and Anglo communities. Known for grand stone villas and mature residential character.",
+        "best_for": ["families", "academics", "professionals", "retirees"],
+        "walkability": "high",
+        "commute_to_city_center": "10-15 minutes via light rail or car",
+        "commute_to_employment_hubs": "Light rail connects to central Jerusalem business district",
+        "new_construction": "Limited; mostly renovations of existing period properties",
+        "confidence": "HIGH"
+      },
+      {
+        "name": "Talbiya",
+        "price_range_3_4_room_nis": {
+          "min": 5200000,
+          "max": 7000000
+        },
+        "anglo_presence": "strong",
+        "religious_character": "secular",
+        "key_amenities": ["parks", "walking trails", "proximity to city center", "cultural institutions"],
+        "vibe": "Upscale, tree-filled neighborhood with Mediterranean charm. Popular with wealthy Anglos seeking traditional Jerusalem character and proximity to cultural institutions.",
+        "best_for": ["families", "professionals", "retirees", "young_professionals"],
+        "walkability": "high",
+        "commute_to_city_center": "15 minutes by car or light rail",
+        "commute_to_employment_hubs": "Good access to business district via light rail and main roads",
+        "new_construction": null,
+        "confidence": "HIGH"
+      },
+      {
+        "name": "German Colony (Katamon)",
+        "price_range_3_4_room_nis": {
+          "min": 2800000,
+          "max": 4000000
+        },
+        "anglo_presence": "strong",
+        "religious_character": "secular",
+        "key_amenities": ["Emek Refaim Street cafes", "restaurants", "antique shops", "cultural venues", "walking distance to Baka"],
+        "vibe": "Charming historic neighborhood with Templar-style architecture, vibrant cafe culture, and strong Anglo community. The heart of Jerusalem's expat scene.",
+        "best_for": ["young_professionals", "families", "students", "retirees"],
+        "walkability": "high",
+        "commute_to_city_center": "15 minutes by light rail or car",
+        "commute_to_employment_hubs": "Central Jerusalem employment hub connectivity",
+        "new_construction": "Boutique mixed-use developments along Emek Refaim",
+        "confidence": "HIGH"
+      },
+      {
+        "name": "Baka",
+        "price_range_3_4_room_nis": {
+          "min": 2800000,
+          "max": 4000000
+        },
+        "anglo_presence": "strong",
+        "religious_character": "secular",
+        "key_amenities": ["coffee shops", "boutique shops", "galleries", "restaurants", "parks"],
+        "vibe": "Bohemian, artistic neighborhood adjacent to German Colony with similar cultural appeal but slightly more residential character. Popular with creative professionals and families.",
+        "best_for": ["young_professionals", "families", "artists", "creatives"],
+        "walkability": "high",
+        "commute_to_city_center": "15 minutes via light rail",
+        "commute_to_employment_hubs": "Walking distance to German Colony employment and services",
+        "new_construction": "Boutique residential projects with underground parking",
+        "confidence": "HIGH"
+      },
+      {
+        "name": "Katamon (Old Katamon)",
+        "price_range_3_4_room_nis": {
+          "min": 2000000,
+          "max": 2800000
+        },
+        "anglo_presence": "strong",
+        "religious_character": "mixed_religious",
+        "key_amenities": ["Modern Orthodox synagogues", "schools", "shops", "parks"],
+        "vibe": "Established Modern Orthodox community with architectural charm. Family-oriented neighborhood with strong educational institutions and Anglo presence.",
+        "best_for": ["families", "young_professionals", "religiously observant"],
+        "walkability": "high",
+        "commute_to_city_center": "15 minutes by car or light rail",
+        "commute_to_employment_hubs": "Good central Jerusalem connectivity",
+        "new_construction": "Mixed-use developments in Katamonim corridor",
+        "confidence": "HIGH"
+      },
+      {
+        "name": "Arnona",
+        "price_range_3_4_room_nis": {
+          "min": 1900000,
+          "max": 2600000
+        },
+        "anglo_presence": "moderate",
+        "religious_character": "mixed_religious",
+        "key_amenities": ["schools", "parks", "shopping centers", "bus connections"],
+        "vibe": "Suburban-style neighborhood south of the city center with good schools and family amenities. More spacious than central neighborhoods with growing Anglo presence.",
+        "best_for": ["families", "young_professionals"],
+        "walkability": "medium",
+        "commute_to_city_center": "20 minutes by bus or car",
+        "commute_to_employment_hubs": "Bus and car commute to central Jerusalem",
+        "new_construction": "Active development with new apartment complexes",
+        "confidence": "HIGH"
+      },
+      {
+        "name": "Mekor Haim",
+        "price_range_3_4_room_nis": {
+          "min": 2200000,
+          "max": 3000000
+        },
+        "anglo_presence": "strong",
+        "religious_character": "dati_leumi",
+        "key_amenities": ["Modern Orthodox community", "schools", "synagogues", "shops"],
+        "vibe": "Modern Orthodox neighborhood with established religious institutions and strong Anglo immigrant community. Family-oriented and community-focused.",
+        "best_for": ["families", "religiously observant"],
+        "walkability": "medium",
+        "commute_to_city_center": "20 minutes by car",
+        "commute_to_employment_hubs": "Car commute to central Jerusalem",
+        "new_construction": "Limited residential development",
+        "confidence": "MEDIUM"
+      },
+      {
+        "name": "Talpiot",
+        "price_range_3_4_room_nis": {
+          "min": 1800000,
+          "max": 2400000
+        },
+        "anglo_presence": "moderate",
+        "religious_character": "mixed_religious",
+        "key_amenities": ["shopping centers", "restaurants", "parks", "bus stations"],
+        "vibe": "Suburban neighborhood south of city center with value pricing and good infrastructure. Mix of secular and religious residents.",
+        "best_for": ["families", "young_professionals", "budget-conscious buyers"],
+        "walkability": "medium",
+        "commute_to_city_center": "25 minutes by bus",
+        "commute_to_employment_hubs": "Bus commute to central business district",
+        "new_construction": "Urban renewal projects near light rail expansion",
+        "confidence": "MEDIUM"
+      },
+      {
+        "name": "Har Homa",
+        "price_range_3_4_room_nis": {
+          "min": 2400000,
+          "max": 3000000
+        },
+        "anglo_presence": "moderate",
+        "religious_character": "mixed_religious",
+        "key_amenities": ["new buildings", "modern amenities", "schools", "shopping"],
+        "vibe": "New development with modern elevator buildings offering good value. Mix of families and young professionals appreciating newer construction and protected rooms.",
+        "best_for": ["families", "young_professionals", "security-conscious"],
+        "walkability": "medium",
+        "commute_to_city_center": "25 minutes by car",
+        "commute_to_employment_hubs": "Car or bus commute",
+        "new_construction": "Active new residential developments with modern standards",
+        "confidence": "MEDIUM"
+      },
+      {
+        "name": "City Center",
+        "price_range_3_4_room_nis": {
+          "min": 3200000,
+          "max": 5000000
+        },
+        "anglo_presence": "moderate",
+        "religious_character": "secular",
+        "key_amenities": ["walkable to shops and restaurants", "cultural venues", "public transportation", "nightlife"],
+        "vibe": "Urban neighborhood combining modern commerce with historic character. Central location appeals to professionals seeking walkable downtown living.",
+        "best_for": ["young_professionals", "students", "professionals"],
+        "walkability": "high",
+        "commute_to_city_center": "Walking distance or 5 minutes by light rail",
+        "commute_to_employment_hubs": "Walking distance to commercial district",
+        "new_construction": "High-rise residential and mixed-use developments",
+        "confidence": "MEDIUM"
+      }
+    ]
+  },
+  "Tel Aviv": {
+    "neighborhoods": [
+      {
+        "name": "Neve Tzedek",
+        "price_range_3_4_room_nis": {
+          "min": 5500000,
+          "max": 12000000
+        },
+        "anglo_presence": "strong",
+        "religious_character": "secular",
+        "key_amenities": ["beach access", "galleries and museums", "boutique shops", "restaurants", "cobblestone streets"],
+        "vibe": "Polished, upscale historic neighborhood with European charm, restored buildings, and cultural attractions. Premium location combining beach access with urban sophistication.",
+        "best_for": ["professionals", "families", "retirees", "young_professionals"],
+        "walkability": "high",
+        "commute_to_city_center": "10 minutes by bus or car",
+        "commute_to_employment_hubs": "Short commute to central business district",
+        "new_construction": "Limited; preservation of historic character with selective renovations",
+        "confidence": "HIGH"
+      },
+      {
+        "name": "Old North",
+        "price_range_3_4_room_nis": {
+          "min": 5500000,
+          "max": 11000000
+        },
+        "anglo_presence": "strong",
+        "religious_character": "secular",
+        "key_amenities": ["beach proximity", "tree-lined streets", "parks", "schools", "quiet residential"],
+        "best_for": ["families", "professionals", "expats"],
+        "vibe": "Tree-filled residential village with tree-lined streets near Hilton Beach. Popular with expats for its quiet charm, good schools, and beach proximity.",
+        "walkability": "high",
+        "commute_to_city_center": "15 minutes by car or bus",
+        "commute_to_employment_hubs": "Short commute to downtown employment",
+        "new_construction": "Limited; mostly house renovations",
+        "confidence": "HIGH"
+      },
+      {
+        "name": "Florentin",
+        "price_range_3_4_room_nis": {
+          "min": 3000000,
+          "max": 7000000
+        },
+        "anglo_presence": "moderate",
+        "religious_character": "secular",
+        "key_amenities": ["street art and galleries", "bars and nightlife", "beach walkability", "Carmel Market access", "bohemian vibe"],
+        "vibe": "Gritty, artistic neighborhood with raw street art, young demographics, and vibrant nightlife. Hip and affordable compared to nearby Neve Tzedek.",
+        "best_for": ["young_professionals", "artists", "students"],
+        "walkability": "high",
+        "commute_to_city_center": "15 minutes by bus",
+        "commute_to_employment_hubs": "Walking distance to central business",
+        "new_construction": "Limited; preservation of artistic character",
+        "confidence": "HIGH"
+      },
+      {
+        "name": "Lev HaIr (City Center)",
+        "price_range_3_4_room_nis": {
+          "min": 5500000,
+          "max": 12000000
+        },
+        "anglo_presence": "strong",
+        "religious_character": "secular",
+        "key_amenities": ["shopping centers", "business offices", "restaurants", "public transportation", "cultural venues"],
+        "vibe": "Modern downtown with Rothschild Boulevard corridor featuring luxury towers and high-end amenities. Commercial and residential hub with strong international presence.",
+        "best_for": ["young_professionals", "professionals"],
+        "walkability": "high",
+        "commute_to_city_center": "Walking distance",
+        "commute_to_employment_hubs": "Central location, walking distance to employment",
+        "new_construction": "Luxury towers and mixed-use developments",
+        "confidence": "HIGH"
+      },
+      {
+        "name": "Ramat Aviv",
+        "price_range_3_4_room_nis": {
+          "min": 4000000,
+          "max": 8000000
+        },
+        "anglo_presence": "strong",
+        "religious_character": "secular",
+        "key_amenities": ["Ramat Aviv Mall (140+ shops)", "schools", "parks", "quiet residential", "shopping and dining"],
+        "vibe": "Upscale residential neighborhood in northwest Tel Aviv with shopping mall, excellent schools, and family-oriented atmosphere. Popular with expats seeking suburban comfort.",
+        "best_for": ["families", "professionals", "expats"],
+        "walkability": "medium",
+        "commute_to_city_center": "20 minutes by car",
+        "commute_to_employment_hubs": "15 minutes to business districts",
+        "new_construction": "Ongoing residential development and mall expansion",
+        "confidence": "HIGH"
+      },
+      {
+        "name": "King George Street",
+        "price_range_3_4_room_nis": {
+          "min": 4500000,
+          "max": 9000000
+        },
+        "anglo_presence": "moderate",
+        "religious_character": "secular",
+        "key_amenities": ["street food and bars", "hipster cafes", "Carmel Market", "shopping", "nightlife"],
+        "vibe": "Iconic bohemian street with international vibe, eclectic dining, and shopping. Central location combines peaceful tree-lined charm with vibrant street culture.",
+        "best_for": ["young_professionals", "students", "creatives"],
+        "walkability": "high",
+        "commute_to_city_center": "Walking distance",
+        "commute_to_employment_hubs": "Walking distance to downtown",
+        "new_construction": "Limited; preservation of character",
+        "confidence": "MEDIUM"
+      },
+      {
+        "name": "Bavli",
+        "price_range_3_4_room_nis": {
+          "min": 4000000,
+          "max": 7500000
+        },
+        "anglo_presence": "moderate",
+        "religious_character": "secular",
+        "key_amenities": ["schools", "parks", "shops", "quiet residential"],
+        "vibe": "Family-oriented residential neighborhood with green spaces and good schools. Quieter alternative to central Tel Aviv.",
+        "best_for": ["families", "professionals"],
+        "walkability": "medium",
+        "commute_to_city_center": "20 minutes by car",
+        "commute_to_employment_hubs": "15 minutes to central employment",
+        "new_construction": "Some residential development",
+        "confidence": "MEDIUM"
+      },
+      {
+        "name": "Shapira",
+        "price_range_3_4_room_nis": {
+          "min": 2500000,
+          "max": 4000000
+        },
+        "anglo_presence": "minimal",
+        "religious_character": "secular",
+        "key_amenities": ["affordable housing", "bus connections", "local shops"],
+        "vibe": "More affordable neighborhood in southern Tel Aviv. Up-and-coming area with lower prices and developing infrastructure.",
+        "best_for": ["budget-conscious buyers", "young_professionals"],
+        "walkability": "medium",
+        "commute_to_city_center": "25 minutes by bus",
+        "commute_to_employment_hubs": "Bus commute to downtown",
+        "new_construction": "Ongoing development projects",
+        "confidence": "MEDIUM"
+      },
+      {
+        "name": "Kiryat Shalom",
+        "price_range_3_4_room_nis": {
+          "min": 2200000,
+          "max": 3500000
+        },
+        "anglo_presence": "minimal",
+        "religious_character": "secular",
+        "key_amenities": ["affordable housing", "bus connections", "local services"],
+        "vibe": "Working-class neighborhood with affordable pricing. Developing area with improved transportation connectivity.",
+        "best_for": ["budget-conscious buyers", "families"],
+        "walkability": "medium",
+        "commute_to_city_center": "30 minutes by bus",
+        "commute_to_employment_hubs": "Bus commute",
+        "new_construction": "Urban renewal projects planned",
+        "confidence": "MEDIUM"
+      },
+      {
+        "name": "Neve Sha'anan",
+        "price_range_3_4_room_nis": {
+          "min": 2000000,
+          "max": 3500000
+        },
+        "anglo_presence": "minimal",
+        "religious_character": "secular",
+        "key_amenities": ["affordable housing", "bus connections"],
+        "vibe": "Affordable neighborhood in south Tel Aviv with value pricing. Improving infrastructure and connectivity.",
+        "best_for": ["budget-conscious buyers"],
+        "walkability": "low",
+        "commute_to_city_center": "30 minutes by bus",
+        "commute_to_employment_hubs": "Bus commute",
+        "new_construction": "Ongoing redevelopment",
+        "confidence": "LOW"
+      },
+      {
+        "name": "Kfar Shalem",
+        "price_range_3_4_room_nis": {
+          "min": 1900000,
+          "max": 3000000
+        },
+        "anglo_presence": "minimal",
+        "religious_character": "secular",
+        "key_amenities": ["most affordable area in city", "bus connections"],
+        "vibe": "Most affordable neighborhood in Tel Aviv with lowest per-square-meter pricing. Industrial and residential mix with improving development.",
+        "best_for": ["budget-conscious buyers"],
+        "walkability": "low",
+        "commute_to_city_center": "35 minutes by bus",
+        "commute_to_employment_hubs": "Bus commute",
+        "new_construction": "Limited",
+        "confidence": "LOW"
+      }
+    ]
+  },
+  "Haifa": {
+    "neighborhoods": [
+      {
+        "name": "Neve Sha'anan",
+        "price_range_3_4_room_nis": {
+          "min": 1200000,
+          "max": 1800000
+        },
+        "anglo_presence": "strong",
+        "religious_character": "mixed_religious",
+        "key_amenities": ["Technion proximity", "schools", "synagogues", "shops", "community services"],
+        "vibe": "Young immigrant neighborhood with vibrant Modern Orthodox and Anglo community. Popular with Technion students and observant families seeking neighborhood stability.",
+        "best_for": ["young_professionals", "students", "families", "religiously observant"],
+        "walkability": "high",
+        "commute_to_city_center": "20 minutes by bus",
+        "commute_to_employment_hubs": "Technion is primary employer in area",
+        "new_construction": "Limited; focused development",
+        "confidence": "HIGH"
+      },
+      {
+        "name": "Ahuzza",
+        "price_range_3_4_room_nis": {
+          "min": 1400000,
+          "max": 2000000
+        },
+        "anglo_presence": "moderate",
+        "religious_character": "mixed",
+        "key_amenities": ["Carmel location", "parks", "shops", "schools", "cultural venues"],
+        "vibe": "Affluent Carmel neighborhood with tree-filled streets and mix of religious and secular residents. Popular with expats and international students.",
+        "best_for": ["families", "professionals", "students"],
+        "walkability": "high",
+        "commute_to_city_center": "20 minutes by car or bus",
+        "commute_to_employment_hubs": "Short commute to downtown and university",
+        "new_construction": "Limited preservation of character",
+        "confidence": "MEDIUM"
+      },
+      {
+        "name": "Denia (Merkaz HaCarmel)",
+        "price_range_3_4_room_nis": {
+          "min": 1600000,
+          "max": 2200000
+        },
+        "anglo_presence": "moderate",
+        "religious_character": "mixed",
+        "key_amenities": ["Mount Carmel location", "views", "parks", "shops", "upscale dining"],
+        "vibe": "Most affluent Haifa neighborhood on Mount Carmel with stunning city views and low density. Attracts affluent expats and families.",
+        "best_for": ["families", "retirees", "professionals"],
+        "walkability": "medium",
+        "commute_to_city_center": "25 minutes by car",
+        "commute_to_employment_hubs": "Car commute to downtown",
+        "new_construction": "Limited; preservation of green spaces",
+        "confidence": "MEDIUM"
+      },
+      {
+        "name": "Upper Hadar",
+        "price_range_3_4_room_nis": {
+          "min": 1000000,
+          "max": 1500000
+        },
+        "anglo_presence": "minimal",
+        "religious_character": "secular",
+        "key_amenities": ["car-free amenities", "bus connections", "shops", "affordable housing"],
+        "vibe": "Accessible neighborhood with lower prices. Good transit access despite hilly terrain.",
+        "best_for": ["budget-conscious buyers", "families"],
+        "walkability": "medium",
+        "commute_to_city_center": "30 minutes by bus",
+        "commute_to_employment_hubs": "Bus commute",
+        "new_construction": "Limited",
+        "confidence": "MEDIUM"
+      },
+      {
+        "name": "Carmeliya",
+        "price_range_3_4_room_nis": {
+          "min": 1300000,
+          "max": 1900000
+        },
+        "anglo_presence": "moderate",
+        "religious_character": "mixed",
+        "key_amenities": ["Carmel location", "parks", "schools", "community center"],
+        "vibe": "Mixed religious-secular neighborhood on Carmel with community focus and family amenities.",
+        "best_for": ["families", "professionals"],
+        "walkability": "high",
+        "commute_to_city_center": "25 minutes",
+        "commute_to_employment_hubs": "Car or bus commute",
+        "new_construction": "Limited",
+        "confidence": "MEDIUM"
+      },
+      {
+        "name": "Western Carmel",
+        "price_range_3_4_room_nis": {
+          "min": 1200000,
+          "max": 1800000
+        },
+        "anglo_presence": "moderate",
+        "religious_character": "mixed",
+        "key_amenities": ["Carmel views", "parks", "shops", "schools"],
+        "vibe": "Residential Carmel area with nature access and family-oriented character.",
+        "best_for": ["families", "professionals"],
+        "walkability": "medium",
+        "commute_to_city_center": "25 minutes",
+        "commute_to_employment_hubs": "Car or bus access",
+        "new_construction": "Limited",
+        "confidence": "LOW"
+      }
+    ]
+  },
+  "Ra'anana": {
+    "neighborhoods": [
+      {
+        "name": "City Center",
+        "price_range_3_4_room_nis": {
+          "min": 2400000,
+          "max": 3200000
+        },
+        "anglo_presence": "strong",
+        "religious_character": "secular",
+        "key_amenities": ["shopping center", "restaurants", "cultural venues", "walkable streets"],
+        "vibe": "Modern town center with planned development, strong Anglo community, and comprehensive amenities. Popular with young professional families.",
+        "best_for": ["young_professionals", "families"],
+        "walkability": "high",
+        "commute_to_city_center": "40 minutes to Tel Aviv",
+        "commute_to_employment_hubs": "Train station connects to Tel Aviv employment hubs",
+        "new_construction": "Ongoing mixed-use developments",
+        "confidence": "MEDIUM"
+      },
+      {
+        "name": "North Neighborhoods",
+        "price_range_3_4_room_nis": {
+          "min": 2200000,
+          "max": 3000000
+        },
+        "anglo_presence": "strong",
+        "religious_character": "secular",
+        "key_amenities": ["parks", "schools", "shopping", "community centers"],
+        "vibe": "Planned suburban neighborhoods with family focus and strong Anglo presence, particularly British immigrants.",
+        "best_for": ["families", "young_professionals"],
+        "walkability": "medium",
+        "commute_to_city_center": "40 minutes to Tel Aviv by train",
+        "commute_to_employment_hubs": "Train or car commute",
+        "new_construction": "Ongoing residential development",
+        "confidence": "MEDIUM"
+      },
+      {
+        "name": "South Neighborhoods",
+        "price_range_3_4_room_nis": {
+          "min": 2100000,
+          "max": 2800000
+        },
+        "anglo_presence": "strong",
+        "religious_character": "mixed",
+        "key_amenities": ["schools", "parks", "shops"],
+        "vibe": "Residential areas with family amenities and Anglo community presence.",
+        "best_for": ["families"],
+        "walkability": "medium",
+        "commute_to_city_center": "40 minutes to Tel Aviv",
+        "commute_to_employment_hubs": "Train or car commute",
+        "new_construction": "Residential expansion",
+        "confidence": "LOW"
+      }
+    ]
+  },
+  "Modi'in": {
+    "neighborhoods": [
+      {
+        "name": "Modi'in Center",
+        "price_range_3_4_room_nis": {
+          "min": 2200000,
+          "max": 3200000
+        },
+        "anglo_presence": "strong",
+        "religious_character": "mixed_religious",
+        "key_amenities": ["shopping center", "schools", "parks", "community centers"],
+        "vibe": "Planned modern city with strong Anglo community between Jerusalem and Tel Aviv. Family-oriented with excellent schools and suburban infrastructure.",
+        "best_for": ["families", "young_professionals"],
+        "walkability": "medium",
+        "commute_to_city_center": "30 minutes to Tel Aviv, 30 minutes to Jerusalem by train",
+        "commute_to_employment_hubs": "Train connects to both Tel Aviv and Jerusalem employment centers",
+        "new_construction": "Record new development; prices rising",
+        "confidence": "MEDIUM"
+      },
+      {
+        "name": "Western Modi'in",
+        "price_range_3_4_room_nis": {
+          "min": 2000000,
+          "max": 2800000
+        },
+        "anglo_presence": "moderate",
+        "religious_character": "mixed",
+        "key_amenities": ["parks", "schools", "shopping"],
+        "vibe": "Residential neighborhoods with family focus and improved connectivity.",
+        "best_for": ["families"],
+        "walkability": "medium",
+        "commute_to_city_center": "35 minutes to Tel Aviv",
+        "commute_to_employment_hubs": "Train or car commute",
+        "new_construction": "Ongoing development",
+        "confidence": "LOW"
+      },
+      {
+        "name": "Eastern Modi'in",
+        "price_range_3_4_room_nis": {
+          "min": 1900000,
+          "max": 2600000
+        },
+        "anglo_presence": "minimal",
+        "religious_character": "secular",
+        "key_amenities": ["parks", "shops", "schools"],
+        "vibe": "Newer development areas with more affordable pricing.",
+        "best_for": ["budget-conscious families"],
+        "walkability": "low",
+        "commute_to_city_center": "40 minutes",
+        "commute_to_employment_hubs": "Car or train commute",
+        "new_construction": "Active development",
+        "confidence": "LOW"
+      }
+    ]
+  },
+  "Beit Shemesh": {
+    "neighborhoods": [
+      {
+        "name": "Ramat Beit Shemesh Aleph",
+        "price_range_3_4_room_nis": {
+          "min": 2200000,
+          "max": 2800000
+        },
+        "anglo_presence": "strong",
+        "religious_character": "dati_leumi",
+        "key_amenities": ["Modern Orthodox schools", "synagogues", "shops", "community centers", "parks"],
+        "vibe": "Vibrant Modern Orthodox Anglo hub with mature infrastructure and excellent schools. Strong community integration and religious institutions.",
+        "best_for": ["families", "religiously observant"],
+        "walkability": "high",
+        "commute_to_city_center": "40 minutes to central Jerusalem",
+        "commute_to_employment_hubs": "Car or bus commute to Jerusalem",
+        "new_construction": "Ongoing residential development",
+        "confidence": "HIGH"
+      },
+      {
+        "name": "Ramat Beit Shemesh Bet",
+        "price_range_3_4_room_nis": {
+          "min": 2000000,
+          "max": 2800000
+        },
+        "anglo_presence": "moderate",
+        "religious_character": "dati_leumi",
+        "key_amenities": ["schools", "synagogues", "shops", "parks"],
+        "vibe": "Newer Modern Orthodox neighborhood with family focus and developing community institutions.",
+        "best_for": ["families", "religiously observant"],
+        "walkability": "medium",
+        "commute_to_city_center": "45 minutes to Jerusalem",
+        "commute_to_employment_hubs": "Car or bus commute",
+        "new_construction": "Active new apartment projects",
+        "confidence": "MEDIUM"
+      },
+      {
+        "name": "Old City (Beit Shemesh)",
+        "price_range_3_4_room_nis": {
+          "min": 1200000,
+          "max": 1800000
+        },
+        "anglo_presence": "minimal",
+        "religious_character": "haredi",
+        "key_amenities": ["Haredi schools and institutions", "shops", "synagogues"],
+        "vibe": "Working-class Haredi neighborhood with lower prices. Less oriented to Anglo immigrants.",
+        "best_for": ["budget-conscious buyers"],
+        "walkability": "medium",
+        "commute_to_city_center": "45 minutes to Jerusalem",
+        "commute_to_employment_hubs": "Bus commute",
+        "new_construction": "Limited",
+        "confidence": "LOW"
+      }
+    ]
+  },
+  "Herzliya": {
+    "neighborhoods": [
+      {
+        "name": "Herzliya Pituach",
+        "price_range_3_4_room_nis": {
+          "min": 4500000,
+          "max": 8000000
+        },
+        "anglo_presence": "strong",
+        "religious_character": "secular",
+        "key_amenities": ["sea views", "villas and townhouses", "private beaches", "upscale dining", "marina"],
+        "vibe": "Ultra-luxury coastal villa belt attracting wealthy international buyers. Premium address with sea views and trophy properties.",
+        "best_for": ["retirees", "wealthy professionals", "investors"],
+        "walkability": "low",
+        "commute_to_city_center": "30 minutes to Tel Aviv by car",
+        "commute_to_employment_hubs": "Car commute to employment centers",
+        "new_construction": "Limited; preservation of low density",
+        "confidence": "HIGH"
+      },
+      {
+        "name": "Herzliya City Center",
+        "price_range_3_4_room_nis": {
+          "min": 2800000,
+          "max": 4200000
+        },
+        "anglo_presence": "moderate",
+        "religious_character": "secular",
+        "key_amenities": ["shopping center", "restaurants", "marina", "beach access"],
+        "vibe": "Developed town center with tourism and commercial focus. More accessible than Pituach with beach and entertainment amenities.",
+        "best_for": ["professionals", "families", "retirees"],
+        "walkability": "high",
+        "commute_to_city_center": "35 minutes to Tel Aviv",
+        "commute_to_employment_hubs": "Car commute",
+        "new_construction": "Mixed-use developments",
+        "confidence": "MEDIUM"
+      }
+    ]
+  },
+  "Netanya": {
+    "neighborhoods": [
+      {
+        "name": "Ir Yamim",
+        "price_range_3_4_room_nis": {
+          "min": 2100000,
+          "max": 2700000
+        },
+        "anglo_presence": "strong",
+        "religious_character": "secular",
+        "key_amenities": ["luxury planned community", "wide streets", "green parks", "Piano commercial center", "upscale shopping"],
+        "vibe": "Crown jewel of Netanya with planned community design, wide streets, and parks. Popular with upscale buyer demographic including international investors.",
+        "best_for": ["families", "professionals", "retirees"],
+        "walkability": "high",
+        "commute_to_city_center": "35 minutes to Tel Aviv by train",
+        "commute_to_employment_hubs": "Train or car commute to Tel Aviv employment",
+        "new_construction": "Ongoing expansion of planned community",
+        "confidence": "HIGH"
+      },
+      {
+        "name": "Agamim",
+        "price_range_3_4_room_nis": {
+          "min": 2100000,
+          "max": 2700000
+        },
+        "anglo_presence": "moderate",
+        "religious_character": "secular",
+        "key_amenities": ["parks", "shops", "schools", "community facilities"],
+        "vibe": "Established neighborhood with mature community and good schools. Family-oriented with mid-market pricing.",
+        "best_for": ["families", "young_professionals"],
+        "walkability": "medium",
+        "commute_to_city_center": "35 minutes to Tel Aviv",
+        "commute_to_employment_hubs": "Train or car commute",
+        "new_construction": "Limited",
+        "confidence": "MEDIUM"
+      },
+      {
+        "name": "Shirat HaYam",
+        "price_range_3_4_room_nis": {
+          "min": 2400000,
+          "max": 3200000
+        },
+        "anglo_presence": "moderate",
+        "religious_character": "secular",
+        "key_amenities": ["new development", "waterfront location", "luxury amenities"],
+        "vibe": "Newest luxury neighborhood under development, positioned as ultimate destination connecting to waterfront.",
+        "best_for": ["professionals", "families"],
+        "walkability": "medium",
+        "commute_to_city_center": "35 minutes to Tel Aviv",
+        "commute_to_employment_hubs": "Train or car commute",
+        "new_construction": "Active large-scale development",
+        "confidence": "MEDIUM"
+      }
+    ]
+  },
+  "Ashdod": {
+    "neighborhoods": [
+      {
+        "name": "City Center",
+        "price_range_3_4_room_nis": {
+          "min": 1400000,
+          "max": 2000000
+        },
+        "anglo_presence": "minimal",
+        "religious_character": "secular",
+        "key_amenities": ["shopping", "restaurants", "cultural venues", "public transportation"],
+        "vibe": "Developed port city center with commercial focus. Less Anglo presence than northern cities.",
+        "best_for": ["families", "budget-conscious buyers"],
+        "walkability": "medium",
+        "commute_to_city_center": "50 minutes to Tel Aviv by train",
+        "commute_to_employment_hubs": "Port employment and local business",
+        "new_construction": "Ongoing urban renewal",
+        "confidence": "LOW"
+      },
+      {
+        "name": "Residential Neighborhoods",
+        "price_range_3_4_room_nis": {
+          "min": 1200000,
+          "max": 1800000
+        },
+        "anglo_presence": "minimal",
+        "religious_character": "secular",
+        "key_amenities": ["schools", "parks", "shops"],
+        "vibe": "Working-class neighborhoods with affordable housing and family amenities.",
+        "best_for": ["families", "budget-conscious"],
+        "walkability": "low",
+        "commute_to_city_center": "60 minutes to Tel Aviv",
+        "commute_to_employment_hubs": "Local employment and port",
+        "new_construction": "Limited",
+        "confidence": "LOW"
+      }
+    ]
+  },
+  "Ashkelon": {
+    "neighborhoods": [
+      {
+        "name": "Beach Neighborhoods",
+        "price_range_3_4_room_nis": {
+          "min": 1600000,
+          "max": 2400000
+        },
+        "anglo_presence": "minimal",
+        "religious_character": "secular",
+        "key_amenities": ["beach access", "waterfront", "sea views", "coastal attractions"],
+        "vibe": "Coastal neighborhoods with beach appeal and tourism focus. Mediterranean character with lower prices than northern beaches.",
+        "best_for": ["retirees", "families", "budget-conscious"],
+        "walkability": "medium",
+        "commute_to_city_center": "60 minutes to Tel Aviv by bus",
+        "commute_to_employment_hubs": "Local employment",
+        "new_construction": "Ongoing waterfront development",
+        "confidence": "LOW"
+      },
+      {
+        "name": "City Center",
+        "price_range_3_4_room_nis": {
+          "min": 1200000,
+          "max": 1800000
+        },
+        "anglo_presence": "minimal",
+        "religious_character": "secular",
+        "key_amenities": ["shopping", "restaurants", "public transportation"],
+        "vibe": "Developed city center with commercial activity and affordable pricing.",
+        "best_for": ["families", "budget-conscious"],
+        "walkability": "medium",
+        "commute_to_city_center": "60 minutes to Tel Aviv",
+        "commute_to_employment_hubs": "Local employment",
+        "new_construction": "Limited",
+        "confidence": "LOW"
+      }
+    ]
+  },
+  "Beer Sheva": {
+    "neighborhoods": [
+      {
+        "name": "Yud Alef Neighborhood",
+        "price_range_3_4_room_nis": {
+          "min": 650000,
+          "max": 1200000
+        },
+        "anglo_presence": "minimal",
+        "religious_character": "secular",
+        "key_amenities": ["schools", "shops", "parks", "community centers"],
+        "vibe": "Most affordable major city in Israel with value pricing and improving infrastructure. Student housing due to Ben-Gurion University.",
+        "best_for": ["students", "budget-conscious buyers", "young_professionals"],
+        "walkability": "medium",
+        "commute_to_city_center": "Local",
+        "commute_to_employment_hubs": "Ben-Gurion University employment",
+        "new_construction": "Ongoing student housing development",
+        "confidence": "MEDIUM"
+      },
+      {
+        "name": "Park HaNahal",
+        "price_range_3_4_room_nis": {
+          "min": 1200000,
+          "max": 2860000
+        },
+        "anglo_presence": "minimal",
+        "religious_character": "secular",
+        "key_amenities": ["parks", "riverside location", "upscale housing options", "luxury villas"],
+        "vibe": "More affluent neighborhood with luxury villas and riverside amenities. Highest-priced area in Beer Sheva.",
+        "best_for": ["families", "professionals"],
+        "walkability": "low",
+        "commute_to_city_center": "15 minutes by car",
+        "commute_to_employment_hubs": "Car commute to city center",
+        "new_construction": "Ongoing luxury development",
+        "confidence": "MEDIUM"
+      },
+      {
+        "name": "Kalaniyot Neighborhood",
+        "price_range_3_4_room_nis": {
+          "min": 1000000,
+          "max": 1800000
+        },
+        "anglo_presence": "minimal",
+        "religious_character": "secular",
+        "key_amenities": ["luxury villas", "swimming pools", "parks"],
+        "vibe": "Upscale neighborhood with villa-style homes and amenities.",
+        "best_for": ["families", "professionals"],
+        "walkability": "low",
+        "commute_to_city_center": "20 minutes by car",
+        "commute_to_employment_hubs": "Car commute",
+        "new_construction": "Limited",
+        "confidence": "LOW"
+      }
+    ]
+  },
+  "Petah Tikva": {
+    "neighborhoods": [
+      {
+        "name": "City Center",
+        "price_range_3_4_room_nis": {
+          "min": 1800000,
+          "max": 2600000
+        },
+        "anglo_presence": "moderate",
+        "religious_character": "mixed",
+        "key_amenities": ["shopping center", "restaurants", "parks", "cultural venues"],
+        "vibe": "Developed city center with commercial and residential mix. Industrial city undergoing modernization with improved infrastructure.",
+        "best_for": ["families", "young_professionals"],
+        "walkability": "medium",
+        "commute_to_city_center": "20 minutes to Tel Aviv by train or car",
+        "commute_to_employment_hubs": "Good connectivity to Tel Aviv and surrounding employment",
+        "new_construction": "Ongoing urban renewal projects",
+        "confidence": "MEDIUM"
+      },
+      {
+        "name": "North Neighborhoods",
+        "price_range_3_4_room_nis": {
+          "min": 1600000,
+          "max": 2400000
+        },
+        "anglo_presence": "minimal",
+        "religious_character": "mixed",
+        "key_amenities": ["schools", "parks", "shopping"],
+        "vibe": "Residential areas with family focus and improving amenities.",
+        "best_for": ["families"],
+        "walkability": "low",
+        "commute_to_city_center": "25 minutes to Tel Aviv",
+        "commute_to_employment_hubs": "Car or train commute",
+        "new_construction": "Ongoing residential development",
+        "confidence": "LOW"
+      }
+    ]
+  },
+  "Kfar Saba": {
+    "neighborhoods": [
+      {
+        "name": "City Center",
+        "price_range_3_4_room_nis": {
+          "min": 2200000,
+          "max": 3200000
+        },
+        "anglo_presence": "moderate",
+        "religious_character": "mixed",
+        "key_amenities": ["shopping", "schools", "parks", "community centers"],
+        "vibe": "Affluent city center with quality of life emphasis. Family-oriented community with strong schools.",
+        "best_for": ["families", "professionals"],
+        "walkability": "high",
+        "commute_to_city_center": "25 minutes to Tel Aviv by train or car",
+        "commute_to_employment_hubs": "Good connectivity to Tel Aviv employment",
+        "new_construction": "Ongoing mixed-use development",
+        "confidence": "MEDIUM"
+      },
+      {
+        "name": "North and South Neighborhoods",
+        "price_range_3_4_room_nis": {
+          "min": 2000000,
+          "max": 2800000
+        },
+        "anglo_presence": "minimal",
+        "religious_character": "mixed",
+        "key_amenities": ["schools", "parks", "shops"],
+        "vibe": "Residential neighborhoods with family and community focus.",
+        "best_for": ["families"],
+        "walkability": "medium",
+        "commute_to_city_center": "30 minutes to Tel Aviv",
+        "commute_to_employment_hubs": "Train or car commute",
+        "new_construction": "Ongoing residential projects",
+        "confidence": "LOW"
+      }
+    ]
+  },
+  "Rehovot": {
+    "neighborhoods": [
+      {
+        "name": "City Center",
+        "price_range_3_4_room_nis": {
+          "min": 1600000,
+          "max": 2400000
+        },
+        "anglo_presence": "minimal",
+        "religious_character": "mixed",
+        "key_amenities": ["shopping", "Weizmann Institute proximity", "parks", "schools"],
+        "vibe": "Academic city built around Weizmann Institute of Science. Quality of life focused with family amenities.",
+        "best_for": ["families", "academics", "students"],
+        "walkability": "medium",
+        "commute_to_city_center": "30 minutes to Tel Aviv by train",
+        "commute_to_employment_hubs": "Weizmann Institute employment; train access to Tel Aviv",
+        "new_construction": "Limited development near institute",
+        "confidence": "MEDIUM"
+      },
+      {
+        "name": "Residential Neighborhoods",
+        "price_range_3_4_room_nis": {
+          "min": 1400000,
+          "max": 2200000
+        },
+        "anglo_presence": "minimal",
+        "religious_character": "mixed",
+        "key_amenities": ["schools", "parks", "local shops"],
+        "vibe": "Suburban neighborhoods with family focus and green space access.",
+        "best_for": ["families"],
+        "walkability": "low",
+        "commute_to_city_center": "35 minutes to Tel Aviv",
+        "commute_to_employment_hubs": "Train or car commute",
+        "new_construction": "Limited",
+        "confidence": "LOW"
+      }
+    ]
+  },
+  "Rishon LeZion": {
+    "neighborhoods": [
+      {
+        "name": "City Center",
+        "price_range_3_4_room_nis": {
+          "min": 1800000,
+          "max": 2600000
+        },
+        "anglo_presence": "moderate",
+        "religious_character": "mixed",
+        "key_amenities": ["shopping center", "restaurants", "parks", "cultural venues"],
+        "vibe": "High quality of life city ranked best in Israel by statistics bureau. Modern city center with excellent amenities and commute options.",
+        "best_for": ["families", "young_professionals"],
+        "walkability": "high",
+        "commute_to_city_center": "25 minutes to Tel Aviv by train",
+        "commute_to_employment_hubs": "Train and car access to Tel Aviv employment",
+        "new_construction": "Ongoing urban renewal and residential development",
+        "confidence": "MEDIUM"
+      },
+      {
+        "name": "Nevei Hadarim Neighborhood",
+        "price_range_3_4_room_nis": {
+          "min": 1600000,
+          "max": 2400000
+        },
+        "anglo_presence": "minimal",
+        "religious_character": "mixed",
+        "key_amenities": ["schools", "parks", "shops"],
+        "vibe": "Residential neighborhood with family amenities and good schools.",
+        "best_for": ["families"],
+        "walkability": "medium",
+        "commute_to_city_center": "30 minutes to Tel Aviv",
+        "commute_to_employment_hubs": "Train or car commute",
+        "new_construction": "Ongoing residential development",
+        "confidence": "LOW"
+      }
+    ]
+  },
+  "Efrat": {
+    "neighborhoods": [
+      {
+        "name": "Rimon",
+        "price_range_3_4_room_nis": {
+          "min": 1800000,
+          "max": 2600000
+        },
+        "anglo_presence": "strong",
+        "religious_character": "dati_leumi",
+        "key_amenities": ["religious schools", "synagogues", "shops", "community centers"],
+        "vibe": "Established Modern Orthodox West Bank settlement with strong Anglo community and religious infrastructure.",
+        "best_for": ["families", "religiously observant"],
+        "walkability": "medium",
+        "commute_to_city_center": "30 minutes to Jerusalem",
+        "commute_to_employment_hubs": "Car commute to Jerusalem employment",
+        "new_construction": "Ongoing planned neighborhoods",
+        "confidence": "MEDIUM"
+      },
+      {
+        "name": "Te'ena",
+        "price_range_3_4_room_nis": {
+          "min": 1700000,
+          "max": 2500000
+        },
+        "anglo_presence": "strong",
+        "religious_character": "dati_leumi",
+        "key_amenities": ["schools", "synagogues", "parks"],
+        "vibe": "Residential neighborhood in planned Seven Species development.",
+        "best_for": ["families", "religiously observant"],
+        "walkability": "medium",
+        "commute_to_city_center": "30 minutes to Jerusalem",
+        "commute_to_employment_hubs": "Car commute",
+        "new_construction": "Ongoing planned community development",
+        "confidence": "LOW"
+      }
+    ]
+  },
+  "Maale Adumim": {
+    "neighborhoods": [
+      {
+        "name": "City Center",
+        "price_range_3_4_room_nis": {
+          "min": 1600000,
+          "max": 2400000
+        },
+        "anglo_presence": "moderate",
+        "religious_character": "mixed_religious",
+        "key_amenities": ["shopping center", "restaurants", "parks", "community facilities"],
+        "vibe": "Urban West Bank settlement 7km from Jerusalem. Modern planned community with improving infrastructure and government investment.",
+        "best_for": ["families", "professionals"],
+        "walkability": "medium",
+        "commute_to_city_center": "20 minutes to Jerusalem",
+        "commute_to_employment_hubs": "Car commute to Jerusalem employment",
+        "new_construction": "Planned E1 expansion with major government investment",
+        "confidence": "MEDIUM"
+      },
+      {
+        "name": "Residential Neighborhoods",
+        "price_range_3_4_room_nis": {
+          "min": 1400000,
+          "max": 2200000
+        },
+        "anglo_presence": "minimal",
+        "religious_character": "mixed",
+        "key_amenities": ["schools", "parks", "shops"],
+        "vibe": "Family-oriented residential areas with suburban character.",
+        "best_for": ["families"],
+        "walkability": "low",
+        "commute_to_city_center": "25 minutes to Jerusalem",
+        "commute_to_employment_hubs": "Car commute",
+        "new_construction": "Ongoing residential development and E1 planning",
+        "confidence": "LOW"
+      }
+    ]
+  },
+  "Givat Shmuel": {
+    "neighborhoods": [
+      {
+        "name": "Ramat Hadar",
+        "price_range_3_4_room_nis": {
+          "min": 2600000,
+          "max": 3900000
+        },
+        "anglo_presence": "moderate",
+        "religious_character": "mixed",
+        "key_amenities": ["luxury buildings", "Ramon Park", "schools", "shops", "Bar Ilan University proximity"],
+        "vibe": "Luxury neighborhood with 55+ high-rise buildings and modern amenities. Adjacent to Bar Ilan University with strong infrastructure.",
+        "best_for": ["professionals", "families"],
+        "walkability": "high",
+        "commute_to_city_center": "15 minutes to Tel Aviv by car or future light rail",
+        "commute_to_employment_hubs": "Short commute to employment centers via light rail and roads",
+        "new_construction": "Future light rail and metro expansion planned",
+        "confidence": "MEDIUM"
+      },
+      {
+        "name": "Residential Neighborhoods",
+        "price_range_3_4_room_nis": {
+          "min": 2200000,
+          "max": 2800000
+        },
+        "anglo_presence": "minimal",
+        "religious_character": "mixed",
+        "key_amenities": ["schools", "parks", "shops"],
+        "vibe": "More affordable residential areas with developing amenities.",
+        "best_for": ["families"],
+        "walkability": "medium",
+        "commute_to_city_center": "20 minutes to Tel Aviv",
+        "commute_to_employment_hubs": "Car or light rail commute",
+        "new_construction": "Ongoing residential development",
+        "confidence": "LOW"
+      }
+    ]
+  },
+  "Ramat Gan": {
+    "neighborhoods": [
+      {
+        "name": "City Center",
+        "price_range_3_4_room_nis": {
+          "min": 2400000,
+          "max": 3400000
+        },
+        "anglo_presence": "moderate",
+        "religious_character": "secular",
+        "key_amenities": ["shopping", "restaurants", "parks", "cultural venues"],
+        "vibe": "Affluent city center with quality of life emphasis. Strong diamond center and business focus with good schools.",
+        "best_for": ["families", "professionals", "young_professionals"],
+        "walkability": "high",
+        "commute_to_city_center": "10 minutes to Tel Aviv by car or future Purple Line light rail",
+        "commute_to_employment_hubs": "Light rail and car connectivity to Tel Aviv",
+        "new_construction": "Purple Line light rail infrastructure development",
+        "confidence": "MEDIUM"
+      },
+      {
+        "name": "Residential Neighborhoods",
+        "price_range_3_4_room_nis": {
+          "min": 2200000,
+          "max": 3000000
+        },
+        "anglo_presence": "minimal",
+        "religious_character": "secular",
+        "key_amenities": ["schools", "parks", "shops"],
+        "vibe": "Family-oriented residential areas with good schools and suburban character.",
+        "best_for": ["families"],
+        "walkability": "medium",
+        "commute_to_city_center": "15 minutes to Tel Aviv",
+        "commute_to_employment_hubs": "Short light rail commute",
+        "new_construction": "Purple Line light rail development",
+        "confidence": "LOW"
+      }
+    ]
+  },
+  "Givatayim": {
+    "neighborhoods": [
+      {
+        "name": "City Center",
+        "price_range_3_4_room_nis": {
+          "min": 2200000,
+          "max": 3000000
+        },
+        "anglo_presence": "moderate",
+        "religious_character": "secular",
+        "key_amenities": ["shopping", "restaurants", "parks"],
+        "vibe": "Affluent neighborhood with quality of life focus. Emerging as investment hotspot along Purple Line light rail corridor.",
+        "best_for": ["families", "professionals", "young_professionals"],
+        "walkability": "high",
+        "commute_to_city_center": "10 minutes to Tel Aviv via Purple Line light rail",
+        "commute_to_employment_hubs": "Short light rail commute to employment centers",
+        "new_construction": "Purple Line light rail infrastructure; 10-15% appreciation expected",
+        "confidence": "MEDIUM"
+      },
+      {
+        "name": "Residential Neighborhoods",
+        "price_range_3_4_room_nis": {
+          "min": 2000000,
+          "max": 2700000
+        },
+        "anglo_presence": "minimal",
+        "religious_character": "secular",
+        "key_amenities": ["schools", "parks", "shops"],
+        "vibe": "Family-oriented residential areas with suburban character.",
+        "best_for": ["families"],
+        "walkability": "medium",
+        "commute_to_city_center": "15 minutes to Tel Aviv",
+        "commute_to_employment_hubs": "Light rail commute",
+        "new_construction": "Ongoing residential development",
+        "confidence": "LOW"
+      }
+    ]
+  },
+  "Holon": {
+    "neighborhoods": [
+      {
+        "name": "City Center",
+        "price_range_3_4_room_nis": {
+          "min": 1600000,
+          "max": 2400000
+        },
+        "anglo_presence": "minimal",
+        "religious_character": "mixed",
+        "key_amenities": ["shopping center", "parks", "restaurants"],
+        "vibe": "Developing city center with improving amenities and infrastructure. Working-class foundation with modernization efforts.",
+        "best_for": ["families", "young_professionals", "budget-conscious"],
+        "walkability": "medium",
+        "commute_to_city_center": "15 minutes to Tel Aviv by car or light rail",
+        "commute_to_employment_hubs": "Car or light rail connectivity",
+        "new_construction": "Ongoing urban renewal projects",
+        "confidence": "MEDIUM"
+      },
+      {
+        "name": "Residential Neighborhoods",
+        "price_range_3_4_room_nis": {
+          "min": 1400000,
+          "max": 2200000
+        },
+        "anglo_presence": "minimal",
+        "religious_character": "mixed",
+        "key_amenities": ["schools", "parks", "shops"],
+        "vibe": "Working-class neighborhoods with family amenities and affordable pricing.",
+        "best_for": ["families", "budget-conscious"],
+        "walkability": "low",
+        "commute_to_city_center": "20 minutes to Tel Aviv",
+        "commute_to_employment_hubs": "Light rail or car commute",
+        "new_construction": "Ongoing redevelopment",
+        "confidence": "LOW"
+      }
+    ]
+  },
+  "Bat Yam": {
+    "neighborhoods": [
+      {
+        "name": "Beach Neighborhoods",
+        "price_range_3_4_room_nis": {
+          "min": 1800000,
+          "max": 2600000
+        },
+        "anglo_presence": "minimal",
+        "religious_character": "secular",
+        "key_amenities": ["beach access", "promenade", "sea views", "water sports"],
+        "vibe": "Coastal neighborhoods with beach culture and Mediterranean vibe. Popular with retirees and families seeking beach living.",
+        "best_for": ["retirees", "families", "young_professionals"],
+        "walkability": "high",
+        "commute_to_city_center": "20 minutes to Tel Aviv by car",
+        "commute_to_employment_hubs": "Car or bus commute to Tel Aviv",
+        "new_construction": "Limited waterfront development",
+        "confidence": "MEDIUM"
+      },
+      {
+        "name": "City Center",
+        "price_range_3_4_room_nis": {
+          "min": 1600000,
+          "max": 2400000
+        },
+        "anglo_presence": "minimal",
+        "religious_character": "secular",
+        "key_amenities": ["shopping", "restaurants", "parks"],
+        "vibe": "Commercial district with tourist focus and urban development.",
+        "best_for": ["families", "retirees"],
+        "walkability": "medium",
+        "commute_to_city_center": "25 minutes to Tel Aviv",
+        "commute_to_employment_hubs": "Car or bus commute",
+        "new_construction": "Ongoing urban renewal",
+        "confidence": "LOW"
+      }
+    ]
+  },
+  "Bnei Brak": {
+    "neighborhoods": [
+      {
+        "name": "City Center",
+        "price_range_3_4_room_nis": {
+          "min": 2000000,
+          "max": 2800000
+        },
+        "anglo_presence": "minimal",
+        "religious_character": "haredi",
+        "key_amenities": ["yeshivas", "synagogues", "Haredi schools", "shops", "religious services"],
+        "vibe": "Historic Haredi city with strong religious infrastructure. Less oriented to Anglo immigrants.",
+        "best_for": ["religiously observant families"],
+        "walkability": "high",
+        "commute_to_city_center": "20 minutes to Tel Aviv by bus or car",
+        "commute_to_employment_hubs": "Mostly local religious employment",
+        "new_construction": "Limited; focused on religious institutions",
+        "confidence": "LOW"
+      }
+    ]
+  },
+  "Ramat HaSharon": {
+    "neighborhoods": [
+      {
+        "name": "Kiryat Yaarim",
+        "price_range_3_4_room_nis": {
+          "min": 3000000,
+          "max": 4500000
+        },
+        "anglo_presence": "moderate",
+        "religious_character": "secular",
+        "key_amenities": ["upscale homes", "parks", "shops", "tree-lined streets"],
+        "vibe": "Ultra-upscale neighborhood in northwest Ramat HaSharon with highest home prices in city. Competition for exclusive properties.",
+        "best_for": ["professionals", "affluent families"],
+        "walkability": "medium",
+        "commute_to_city_center": "25 minutes to Tel Aviv",
+        "commute_to_employment_hubs": "Car commute to employment centers",
+        "new_construction": "Limited; preservation of upscale character",
+        "confidence": "MEDIUM"
+      },
+      {
+        "name": "Neve Magen",
+        "price_range_3_4_room_nis": {
+          "min": 3200000,
+          "max": 5000000
+        },
+        "anglo_presence": "moderate",
+        "religious_character": "secular",
+        "key_amenities": ["large villa plots", "upscale homes", "parks", "exclusive community"],
+        "vibe": "Most prestigious neighborhood where IDF officers and parliament members reside. Limited development with premium pricing.",
+        "best_for": ["affluent professionals", "families"],
+        "walkability": "low",
+        "commute_to_city_center": "30 minutes to Tel Aviv",
+        "commute_to_employment_hubs": "Car commute",
+        "new_construction": "No planned expansion",
+        "confidence": "MEDIUM"
+      }
+    ]
+  },
+  "Hod HaSharon": {
+    "neighborhoods": [
+      {
+        "name": "City Center",
+        "price_range_3_4_room_nis": {
+          "min": 2400000,
+          "max": 3400000
+        },
+        "anglo_presence": "moderate",
+        "religious_character": "secular",
+        "key_amenities": ["shopping", "schools", "parks", "restaurants"],
+        "vibe": "Rapidly evolving town center transitioning from agricultural to suburban development. Quality schools attract families.",
+        "best_for": ["families", "young_professionals"],
+        "walkability": "medium",
+        "commute_to_city_center": "30 minutes to Tel Aviv",
+        "commute_to_employment_hubs": "Car commute to Tel Aviv",
+        "new_construction": "Active residential development",
+        "confidence": "MEDIUM"
+      },
+      {
+        "name": "Residential Neighborhoods",
+        "price_range_3_4_room_nis": {
+          "min": 2200000,
+          "max": 3000000
+        },
+        "anglo_presence": "minimal",
+        "religious_character": "secular",
+        "key_amenities": ["schools", "parks", "shops"],
+        "vibe": "Growing suburban neighborhoods with family focus and good schools.",
+        "best_for": ["families"],
+        "walkability": "low",
+        "commute_to_city_center": "35 minutes to Tel Aviv",
+        "commute_to_employment_hubs": "Car commute",
+        "new_construction": "Ongoing residential expansion",
+        "confidence": "LOW"
+      }
+    ]
+  },
+  "Lod": {
+    "neighborhoods": [
+      {
+        "name": "Old City",
+        "price_range_3_4_room_nis": {
+          "min": 800000,
+          "max": 1400000
+        },
+        "anglo_presence": "minimal",
+        "religious_character": "secular",
+        "key_amenities": ["historic sites", "mosques", "churches", "affordable housing"],
+        "vibe": "Historic mixed Arab-Jewish city with ancient heritage. Among most affordable Israeli markets with developing infrastructure.",
+        "best_for": ["budget-conscious buyers", "investors"],
+        "walkability": "medium",
+        "commute_to_city_center": "40 minutes to Tel Aviv by train",
+        "commute_to_employment_hubs": "Train access to Tel Aviv; local employment",
+        "new_construction": "Ongoing urban renewal",
+        "confidence": "LOW"
+      },
+      {
+        "name": "New Neighborhoods",
+        "price_range_3_4_room_nis": {
+          "min": 1000000,
+          "max": 1600000
+        },
+        "anglo_presence": "minimal",
+        "religious_character": "mixed",
+        "key_amenities": ["schools", "parks", "shops"],
+        "vibe": "Newer residential areas with improved amenities.",
+        "best_for": ["families", "budget-conscious"],
+        "walkability": "low",
+        "commute_to_city_center": "45 minutes to Tel Aviv",
+        "commute_to_employment_hubs": "Train or car commute",
+        "new_construction": "Ongoing residential development",
+        "confidence": "LOW"
+      }
+    ]
+  },
+  "Ramla": {
+    "neighborhoods": [
+      {
+        "name": "City Center",
+        "price_range_3_4_room_nis": {
+          "min": 800000,
+          "max": 1400000
+        },
+        "anglo_presence": "minimal",
+        "religious_character": "secular",
+        "key_amenities": ["historic mosques and churches", "affordable housing", "shops"],
+        "vibe": "Historic mixed Arab-Jewish city with ancient Islamic heritage. Among most affordable Israeli markets.",
+        "best_for": ["budget-conscious buyers", "investors"],
+        "walkability": "medium",
+        "commute_to_city_center": "45 minutes to Tel Aviv by train",
+        "commute_to_employment_hubs": "Train or car commute to Tel Aviv",
+        "new_construction": "Limited development",
+        "confidence": "LOW"
+      }
+    ]
+  },
+  "Nazareth": {
+    "neighborhoods": [
+      {
+        "name": "Christian Quarter",
+        "price_range_3_4_room_nis": {
+          "min": 1200000,
+          "max": 1800000
+        },
+        "anglo_presence": "minimal",
+        "religious_character": "secular",
+        "key_amenities": ["churches", "historic sites", "bazaars", "cultural attractions"],
+        "vibe": "Historic religious city with Christian Arab majority. Cultural heritage focus with tourism economy.",
+        "best_for": ["retirees", "budget-conscious buyers"],
+        "walkability": "high",
+        "commute_to_city_center": "90 minutes to Tel Aviv",
+        "commute_to_employment_hubs": "Local or Galilee employment",
+        "new_construction": "Limited",
+        "confidence": "LOW"
+      }
+    ]
+  },
+  "Acre": {
+    "neighborhoods": [
+      {
+        "name": "Old City",
+        "price_range_3_4_room_nis": {
+          "min": 1000000,
+          "max": 1600000
+        },
+        "anglo_presence": "minimal",
+        "religious_character": "secular",
+        "key_amenities": ["UNESCO World Heritage site", "historic Crusader fortifications", "atmospheric markets"],
+        "vibe": "Ancient port city with UNESCO heritage status. Unique historical charm combining Crusader-era architecture with atmospheric character.",
+        "best_for": ["retirees", "history enthusiasts", "budget-conscious"],
+        "walkability": "high",
+        "commute_to_city_center": "80 minutes to Tel Aviv",
+        "commute_to_employment_hubs": "Local or northern Galilee employment",
+        "new_construction": "Restoration and heritage preservation projects",
+        "confidence": "LOW"
+      },
+      {
+        "name": "Modern Neighborhoods",
+        "price_range_3_4_room_nis": {
+          "min": 1200000,
+          "max": 1800000
+        },
+        "anglo_presence": "minimal",
+        "religious_character": "secular",
+        "key_amenities": ["schools", "shops", "parks"],
+        "vibe": "Modern residential areas with reasonable pricing and development.",
+        "best_for": ["families", "budget-conscious"],
+        "walkability": "medium",
+        "commute_to_city_center": "90 minutes to Tel Aviv",
+        "commute_to_employment_hubs": "Local or northern employment",
+        "new_construction": "Ongoing development",
+        "confidence": "LOW"
+      }
+    ]
+  },
+  "Tiberias": {
+    "neighborhoods": [
+      {
+        "name": "Lakefront",
+        "price_range_3_4_room_nis": {
+          "min": 1400000,
+          "max": 2200000
+        },
+        "anglo_presence": "minimal",
+        "religious_character": "mixed_religious",
+        "key_amenities": ["Sea of Galilee views", "beaches", "water sports", "restaurants", "hot springs"],
+        "vibe": "Scenic resort-style city on Sea of Galilee with relaxed atmosphere and natural beauty. Religious significance with family attractions.",
+        "best_for": ["retirees", "families", "nature lovers"],
+        "walkability": "high",
+        "commute_to_city_center": "90 minutes to Tel Aviv",
+        "commute_to_employment_hubs": "Local tourism and service employment",
+        "new_construction": "Limited tourism development",
+        "confidence": "LOW"
+      }
+    ]
+  },
+  "Safed": {
+    "neighborhoods": [
+      {
+        "name": "Old City",
+        "price_range_3_4_room_nis": {
+          "min": 1200000,
+          "max": 2000000
+        },
+        "anglo_presence": "minimal",
+        "religious_character": "mixed_religious",
+        "key_amenities": ["spiritual significance", "synagogues", "artist studios", "galleries", "mountain views"],
+        "vibe": "Spiritual mountain city with artistic and bohemian character. Historical Kabbalah center with cultural attractions.",
+        "best_for": ["retirees", "artists", "spiritual seekers"],
+        "walkability": "high",
+        "commute_to_city_center": "100 minutes to Tel Aviv",
+        "commute_to_employment_hubs": "Local or northern employment",
+        "new_construction": "Limited",
+        "confidence": "LOW"
+      }
+    ]
+  },
+  "Karmiel": {
+    "neighborhoods": [
+      {
+        "name": "Dromit",
+        "price_range_3_4_room_nis": {
+          "min": 1200000,
+          "max": 1800000
+        },
+        "anglo_presence": "strong",
+        "religious_character": "mixed",
+        "key_amenities": ["community center", "shops", "schools", "parks", "community services"],
+        "vibe": "Primary Anglo neighborhood within walking distance. Middle-class picturesque city designed with wide boulevards and green spaces.",
+        "best_for": ["families", "young_professionals"],
+        "walkability": "high",
+        "commute_to_city_center": "Local",
+        "commute_to_employment_hubs": "Local tech and employment; growing sector",
+        "new_construction": "Ongoing residential development",
+        "confidence": "MEDIUM"
+      },
+      {
+        "name": "Rabin Area",
+        "price_range_3_4_room_nis": {
+          "min": 1100000,
+          "max": 1700000
+        },
+        "anglo_presence": "strong",
+        "religious_character": "mixed",
+        "key_amenities": ["schools", "parks", "shops", "community services"],
+        "vibe": "Residential area with Anglo community presence and integrated Yeshivish community.",
+        "best_for": ["families"],
+        "walkability": "high",
+        "commute_to_city_center": "Local",
+        "commute_to_employment_hubs": "Local employment and tech sector",
+        "new_construction": "Ongoing development",
+        "confidence": "MEDIUM"
+      },
+      {
+        "name": "Makosh Area",
+        "price_range_3_4_room_nis": {
+          "min": 1000000,
+          "max": 1600000
+        },
+        "anglo_presence": "strong",
+        "religious_character": "mixed",
+        "key_amenities": ["schools", "parks", "shops"],
+        "vibe": "Residential neighborhood with Anglo presence and community focus.",
+        "best_for": ["families"],
+        "walkability": "medium",
+        "commute_to_city_center": "Local",
+        "commute_to_employment_hubs": "Local employment",
+        "new_construction": "Ongoing residential projects",
+        "confidence": "MEDIUM"
+      }
+    ]
+  },
+  "Nahariya": {
+    "neighborhoods": [
+      {
+        "name": "City Center",
+        "price_range_3_4_room_nis": {
+          "min": 1200000,
+          "max": 1800000
+        },
+        "anglo_presence": "moderate",
+        "religious_character": "secular",
+        "key_amenities": ["beaches", "Mediterranean promenade", "shops", "restaurants", "parks"],
+        "vibe": "Northern coastal city with beautiful beaches and relaxed atmosphere. Growing medical sector with healthcare employment.",
+        "best_for": ["retirees", "families", "professionals"],
+        "walkability": "high",
+        "commute_to_city_center": "110 minutes to Tel Aviv",
+        "commute_to_employment_hubs": "Galilee medical center employment; local tourism",
+        "new_construction": "Ongoing waterfront development",
+        "confidence": "MEDIUM"
+      }
+    ]
+  },
+  "Kiryat Shmona": {
+    "neighborhoods": [
+      {
+        "name": "City Center",
+        "price_range_3_4_room_nis": {
+          "min": 1000000,
+          "max": 1500000
+        },
+        "anglo_presence": "minimal",
+        "religious_character": "secular",
+        "key_amenities": ["mountain views", "nature access", "shops", "schools"],
+        "vibe": "Northern border town offering affordable living near Upper Galilee landscapes. Small but growing Anglo community.",
+        "best_for": ["budget-conscious buyers", "nature lovers"],
+        "walkability": "medium",
+        "commute_to_city_center": "120 minutes to Tel Aviv",
+        "commute_to_employment_hubs": "Local or Galilee employment",
+        "new_construction": "Limited",
+        "confidence": "LOW"
+      }
+    ]
+  },
+  "Kiryat Ata": {
+    "neighborhoods": [
+      {
+        "name": "Krayot Cluster",
+        "price_range_3_4_room_nis": {
+          "min": 1000000,
+          "max": 1500000
+        },
+        "anglo_presence": "minimal",
+        "religious_character": "secular",
+        "key_amenities": ["highway access", "shops", "parks"],
+        "vibe": "Part of Krayot agglomeration along Haifa-Akko highway. Affordable housing with moderate amenities.",
+        "best_for": ["budget-conscious buyers", "families"],
+        "walkability": "low",
+        "commute_to_city_center": "60 minutes to Tel Aviv via Haifa",
+        "commute_to_employment_hubs": "Car commute to Haifa and northern employment",
+        "new_construction": "Limited",
+        "confidence": "LOW"
+      }
+    ]
+  },
+  "Kiryat Bialik": {
+    "neighborhoods": [
+      {
+        "name": "Tzur Shalom",
+        "price_range_3_4_room_nis": {
+          "min": 1000000,
+          "max": 1500000
+        },
+        "anglo_presence": "minimal",
+        "religious_character": "secular",
+        "key_amenities": ["shops", "schools", "parks"],
+        "vibe": "Northern neighborhood within Krayot cluster. Value pricing comparable to nearby Kiryat Yam.",
+        "best_for": ["budget-conscious buyers"],
+        "walkability": "low",
+        "commute_to_city_center": "60 minutes to Tel Aviv via Haifa",
+        "commute_to_employment_hubs": "Car commute to Haifa",
+        "new_construction": "Limited",
+        "confidence": "LOW"
+      },
+      {
+        "name": "Rakafot Hill",
+        "price_range_3_4_room_nis": {
+          "min": 1050000,
+          "max": 1550000
+        },
+        "anglo_presence": "minimal",
+        "religious_character": "secular",
+        "key_amenities": ["newer development", "parks", "shops"],
+        "vibe": "Developed neighborhood since 2005 with newer construction.",
+        "best_for": ["families", "budget-conscious"],
+        "walkability": "low",
+        "commute_to_city_center": "60 minutes to Tel Aviv",
+        "commute_to_employment_hubs": "Car commute",
+        "new_construction": "Limited",
+        "confidence": "LOW"
+      }
+    ]
+  },
+  "Kiryat Motzkin": {
+    "neighborhoods": [
+      {
+        "name": "Krayot Area",
+        "price_range_3_4_room_nis": {
+          "min": 950000,
+          "max": 1450000
+        },
+        "anglo_presence": "minimal",
+        "religious_character": "secular",
+        "key_amenities": ["shops", "parks", "schools"],
+        "vibe": "Part of Krayot cluster with affordable pricing and highway access.",
+        "best_for": ["budget-conscious buyers"],
+        "walkability": "low",
+        "commute_to_city_center": "60 minutes to Tel Aviv via Haifa",
+        "commute_to_employment_hubs": "Car commute to Haifa",
+        "new_construction": "Limited",
+        "confidence": "LOW"
+      }
+    ]
+  },
+  "Kiryat Yam": {
+    "neighborhoods": [
+      {
+        "name": "Krayot Coastal Area",
+        "price_range_3_4_room_nis": {
+          "min": 1000000,
+          "max": 1500000
+        },
+        "anglo_presence": "minimal",
+        "religious_character": "secular",
+        "key_amenities": ["beach access", "shops", "parks", "schools"],
+        "vibe": "Coastal Krayot neighborhood with beach access. Value pricing similar to nearby Kiryat Bialik.",
+        "best_for": ["budget-conscious buyers", "retirees"],
+        "walkability": "medium",
+        "commute_to_city_center": "60 minutes to Tel Aviv",
+        "commute_to_employment_hubs": "Car commute to Haifa",
+        "new_construction": "Limited",
+        "confidence": "LOW"
+      }
+    ]
+  },
+  "Yokneam": {
+    "neighborhoods": [
+      {
+        "name": "Yokneam Center",
+        "price_range_3_4_room_nis": {
+          "min": 1200000,
+          "max": 1800000
+        },
+        "anglo_presence": "minimal",
+        "religious_character": "secular",
+        "key_amenities": ["tech companies", "parks", "shops", "schools"],
+        "vibe": "Israel's 'Startup Village' with high-tech hub surrounded by forests and small communities. Lower Galilee location with nature access.",
+        "best_for": ["young_professionals", "tech workers", "families"],
+        "walkability": "medium",
+        "commute_to_city_center": "60 minutes to Tel Aviv",
+        "commute_to_employment_hubs": "Local tech sector primary employment",
+        "new_construction": "Ongoing residential development",
+        "confidence": "MEDIUM"
+      }
+    ]
+  },
+  "Afula": {
+    "neighborhoods": [
+      {
+        "name": "City Center",
+        "price_range_3_4_room_nis": {
+          "min": 800000,
+          "max": 1200000
+        },
+        "anglo_presence": "minimal",
+        "religious_character": "secular",
+        "key_amenities": ["affordable housing", "shops", "parks"],
+        "vibe": "Among most affordable markets in Israel. Jezreel Valley location with developing infrastructure and affordable living.",
+        "best_for": ["budget-conscious buyers", "students"],
+        "walkability": "low",
+        "commute_to_city_center": "80 minutes to Tel Aviv",
+        "commute_to_employment_hubs": "Local or northern employment",
+        "new_construction": "Ongoing development",
+        "confidence": "LOW"
+      }
+    ]
+  },
+  "Beit She'an": {
+    "neighborhoods": [
+      {
+        "name": "City Center",
+        "price_range_3_4_room_nis": {
+          "min": 700000,
+          "max": 1100000
+        },
+        "anglo_presence": "minimal",
+        "religious_character": "secular",
+        "key_amenities": ["affordable housing", "historic sites", "shops"],
+        "vibe": "Most affordable peripheral town with ancient Roman ruins and archaeological significance.",
+        "best_for": ["budget-conscious buyers"],
+        "walkability": "low",
+        "commute_to_city_center": "100 minutes to Tel Aviv",
+        "commute_to_employment_hubs": "Local employment",
+        "new_construction": "Limited",
+        "confidence": "LOW"
+      }
+    ]
+  },
+  "Dimona": {
+    "neighborhoods": [
+      {
+        "name": "Indian Jewish Quarter",
+        "price_range_3_4_room_nis": {
+          "min": 600000,
+          "max": 1000000
+        },
+        "anglo_presence": "minimal",
+        "religious_character": "secular",
+        "key_amenities": ["Indian community center", "kosher Indian restaurants", "shops"],
+        "vibe": "Known as 'mini-India' with 7,500-strong Indian Jewish community. Unique cultural enclave with affordable pricing.",
+        "best_for": ["budget-conscious buyers", "Indian Jewish community"],
+        "walkability": "low",
+        "commute_to_city_center": "100 minutes to Tel Aviv",
+        "commute_to_employment_hubs": "Local employment",
+        "new_construction": "Limited",
+        "confidence": "LOW"
+      }
+    ]
+  },
+  "Arad": {
+    "neighborhoods": [
+      {
+        "name": "Halamish",
+        "price_range_3_4_room_nis": {
+          "min": 700000,
+          "max": 1100000
+        },
+        "anglo_presence": "minimal",
+        "religious_character": "haredi",
+        "key_amenities": ["Haredi schools", "synagogues", "shops"],
+        "vibe": "Haredi neighborhood within Arad with focus on religious institutions.",
+        "best_for": ["religiously observant families", "budget-conscious"],
+        "walkability": "low",
+        "commute_to_city_center": "110 minutes to Tel Aviv",
+        "commute_to_employment_hubs": "Local or southern employment",
+        "new_construction": "Limited",
+        "confidence": "LOW"
+      },
+      {
+        "name": "Residential Areas",
+        "price_range_3_4_room_nis": {
+          "min": 650000,
+          "max": 1000000
+        },
+        "anglo_presence": "minimal",
+        "religious_character": "secular",
+        "key_amenities": ["shops", "parks", "schools"],
+        "vibe": "Affordable desert city with developing amenities.",
+        "best_for": ["budget-conscious buyers"],
+        "walkability": "low",
+        "commute_to_city_center": "120 minutes to Tel Aviv",
+        "commute_to_employment_hubs": "Local employment",
+        "new_construction": "Limited",
+        "confidence": "LOW"
+      }
+    ]
+  },
+  "Sderot": {
+    "neighborhoods": [
+      {
+        "name": "Music Neighbourhood",
+        "price_range_3_4_room_nis": {
+          "min": 1200000,
+          "max": 1800000
+        },
+        "anglo_presence": "minimal",
+        "religious_character": "mixed",
+        "key_amenities": ["326 apartments", "students dormitories", "shops", "schools"],
+        "vibe": "Border town with recent music-themed development project. Security-conscious community with affordable pricing.",
+        "best_for": ["students", "budget-conscious families"],
+        "walkability": "medium",
+        "commute_to_city_center": "90 minutes to Tel Aviv",
+        "commute_to_employment_hubs": "Local employment and military",
+        "new_construction": "Ongoing housing development",
+        "confidence": "LOW"
+      }
+    ]
+  },
+  "Ofakim": {
+    "neighborhoods": [
+      {
+        "name": "Afikei HaNahal",
+        "price_range_3_4_room_nis": {
+          "min": 1000000,
+          "max": 1500000
+        },
+        "anglo_presence": "minimal",
+        "religious_character": "mixed",
+        "key_amenities": ["950 apartments", "parks", "shops", "schools"],
+        "vibe": "Southern development town with affordable housing and growth projects.",
+        "best_for": ["budget-conscious buyers", "families"],
+        "walkability": "low",
+        "commute_to_city_center": "100 minutes to Tel Aviv",
+        "commute_to_employment_hubs": "Local employment",
+        "new_construction": "Ongoing residential development",
+        "confidence": "LOW"
+      },
+      {
+        "name": "HaPark Neighbourhood",
+        "price_range_3_4_room_nis": {
+          "min": 1100000,
+          "max": 1600000
+        },
+        "anglo_presence": "minimal",
+        "religious_character": "mixed",
+        "key_amenities": ["530 villa plots", "parks", "green space"],
+        "vibe": "Newer development area with villa-style housing.",
+        "best_for": ["families", "budget-conscious"],
+        "walkability": "low",
+        "commute_to_city_center": "105 minutes to Tel Aviv",
+        "commute_to_employment_hubs": "Local employment",
+        "new_construction": "Active villa development",
+        "confidence": "LOW"
+      }
+    ]
+  },
+  "Kiryat Gat": {
+    "neighborhoods": [
+      {
+        "name": "Carmei Gat",
+        "price_range_3_4_room_nis": {
+          "min": 1100000,
+          "max": 1700000
+        },
+        "anglo_presence": "minimal",
+        "religious_character": "mixed",
+        "key_amenities": ["632 apartments", "community center", "shops", "schools"],
+        "vibe": "New neighborhood to north of Kiryat Gat with modern development commenced 2018. Growing residential area.",
+        "best_for": ["families", "budget-conscious"],
+        "walkability": "medium",
+        "commute_to_city_center": "90 minutes to Tel Aviv",
+        "commute_to_employment_hubs": "Local employment",
+        "new_construction": "Active development continuing",
+        "confidence": "MEDIUM"
+      }
+    ]
+  },
+  "Kiryat Malachi": {
+    "neighborhoods": [
+      {
+        "name": "Nachalat Har Chabad",
+        "price_range_3_4_room_nis": {
+          "min": 1200000,
+          "max": 1800000
+        },
+        "anglo_presence": "minimal",
+        "religious_character": "haredi",
+        "key_amenities": ["Chabad institutions", "synagogues", "schools", "shops"],
+        "vibe": "Chabad neighborhood at south end of Kiryat Malachi with 2,800 residents and religious focus.",
+        "best_for": ["religiously observant families", "budget-conscious"],
+        "walkability": "low",
+        "commute_to_city_center": "85 minutes to Tel Aviv",
+        "commute_to_employment_hubs": "Local employment and religious institutions",
+        "new_construction": "Ongoing expansion called Karmei HaNadiv",
+        "confidence": "LOW"
+      }
+    ]
+  },
+  "Or Akiva": {
+    "neighborhoods": [
+      {
+        "name": "City Center",
+        "price_range_3_4_room_nis": {
+          "min": 1200000,
+          "max": 1800000
+        },
+        "anglo_presence": "minimal",
+        "religious_character": "secular",
+        "key_amenities": ["shops", "parks", "schools"],
+        "vibe": "Coastal industrial city with developing residential areas. Moderate pricing with improving amenities.",
+        "best_for": ["families", "budget-conscious"],
+        "walkability": "low",
+        "commute_to_city_center": "50 minutes to Tel Aviv by train",
+        "commute_to_employment_hubs": "Industrial and local employment",
+        "new_construction": "Ongoing residential development",
+        "confidence": "LOW"
+      }
+    ]
+  },
+  "Yavne": {
+    "neighborhoods": [
+      {
+        "name": "City Center",
+        "price_range_3_4_room_nis": {
+          "min": 1400000,
+          "max": 2000000
+        },
+        "anglo_presence": "minimal",
+        "religious_character": "mixed",
+        "key_amenities": ["shopping center", "parks", "schools", "religious institutions"],
+        "vibe": "Developing town with historical-religious significance and modern infrastructure. Family-oriented community.",
+        "best_for": ["families", "young_professionals"],
+        "walkability": "medium",
+        "commute_to_city_center": "35 minutes to Tel Aviv by train",
+        "commute_to_employment_hubs": "Train access to Tel Aviv employment",
+        "new_construction": "Ongoing residential development",
+        "confidence": "LOW"
+      }
+    ]
+  },
+  "Nes Ziona": {
+    "neighborhoods": [
+      {
+        "name": "City Center",
+        "price_range_3_4_room_nis": {
+          "min": 1600000,
+          "max": 2400000
+        },
+        "anglo_presence": "minimal",
+        "religious_character": "mixed",
+        "key_amenities": ["Biolabs research", "shopping", "parks", "schools"],
+        "vibe": "Science-focused community with research institutions. Suburban feel with improving infrastructure.",
+        "best_for": ["families", "professionals", "scientists"],
+        "walkability": "medium",
+        "commute_to_city_center": "30 minutes to Tel Aviv by car",
+        "commute_to_employment_hubs": "Research and local employment; car commute to Tel Aviv",
+        "new_construction": "Ongoing residential development",
+        "confidence": "LOW"
+      }
+    ]
+  },
+  "Rosh HaAyin": {
+    "neighborhoods": [
+      {
+        "name": "City Center",
+        "price_range_3_4_room_nis": {
+          "min": 1400000,
+          "max": 2000000
+        },
+        "anglo_presence": "minimal",
+        "religious_character": "mixed",
+        "key_amenities": ["shopping center", "parks", "schools", "new developments"],
+        "vibe": "Developing city with moderate pricing attracting budget-conscious buyers and tenants. Highway 444 location between Rosh Haayin and Shoham.",
+        "best_for": ["families", "budget-conscious", "young_professionals"],
+        "walkability": "medium",
+        "commute_to_city_center": "30 minutes to central employment by car",
+        "commute_to_employment_hubs": "Car commute to Tel Aviv and Jerusalem",
+        "new_construction": "Active new residential development from developers",
+        "confidence": "MEDIUM"
+      }
+    ]
+  },
+  "Shoham": {
+    "neighborhoods": [
+      {
+        "name": "City Center",
+        "price_range_3_4_room_nis": {
+          "min": 1600000,
+          "max": 2400000
+        },
+        "anglo_presence": "minimal",
+        "religious_character": "mixed",
+        "key_amenities": ["shopping", "parks", "schools", "community facilities"],
+        "vibe": "Developing suburban city with family amenities and improving infrastructure between major employment hubs.",
+        "best_for": ["families", "young_professionals"],
+        "walkability": "medium",
+        "commute_to_city_center": "35 minutes to Tel Aviv by car",
+        "commute_to_employment_hubs": "Car commute to Tel Aviv and Jerusalem",
+        "new_construction": "Ongoing residential development",
+        "confidence": "LOW"
+      }
+    ]
+  },
+  "Modiin Illit": {
+    "neighborhoods": [
+      {
+        "name": "City Center",
+        "price_range_3_4_room_nis": {
+          "min": 1600000,
+          "max": 2400000
+        },
+        "anglo_presence": "minimal",
+        "religious_character": "haredi",
+        "key_amenities": ["yeshivas", "Haredi schools", "synagogues", "shops"],
+        "vibe": "Haredi settlement on West Bank midway between Jerusalem and Tel Aviv. Strong religious community with affordable housing.",
+        "best_for": ["religiously observant families", "budget-conscious"],
+        "walkability": "low",
+        "commute_to_city_center": "30 minutes to Jerusalem by car",
+        "commute_to_employment_hubs": "Car commute to Jerusalem; local religious employment",
+        "new_construction": "Ongoing expansion",
+        "confidence": "LOW"
+      }
+    ]
+  },
+  "Elad": {
+    "neighborhoods": [
+      {
+        "name": "City Center",
+        "price_range_3_4_room_nis": {
+          "min": 1400000,
+          "max": 2000000
+        },
+        "anglo_presence": "minimal",
+        "religious_character": "dati_leumi",
+        "key_amenities": ["religious schools", "synagogues", "shops", "parks"],
+        "vibe": "Religious city on Highway 444 between Rosh Haayin and Shoham. Relatively low prices compared to neighboring towns.",
+        "best_for": ["families", "religiously observant", "budget-conscious"],
+        "walkability": "medium",
+        "commute_to_city_center": "40 minutes to central employment",
+        "commute_to_employment_hubs": "Car commute to Tel Aviv and Jerusalem",
+        "new_construction": "Ongoing residential development",
+        "confidence": "LOW"
+      }
+    ]
+  },
+  "sources": [
+    "https://www.timesofisrael.com/housing-snapshot-february-2026-prices-rise-for-second-straight-month-after-ceasefire/",
+    "https://ronkin-list.com/tel-aviv-real-estate-market-trends-forecast-2026/",
+    "https://sandsofwealth.com/blogs/news/israel-housing-prices",
+    "https://www.timesofisrael.com/after-wartime-slump-israels-housing-market-is-ready-for-a-reset-in-2026-agents-say/",
+    "https://semerenkogroup.com/the-ultimate-guide-to-luxury-real-estate-in-tel-aviv-neighborhoods-towers-and-trends/",
+    "https://www.easyaliyah.com/blog/jerusalem-anglo-communities",
+    "https://semerenkogroup.com/guide-anglo-communities-israel-best-neighborhoods-english-speaking-immigrants/",
+    "https://www.buyitinisrael.com/news/where-are-anglos-buying-in-israel/",
+    "https://semerenkogroup.com/neighborhoods-in-israel-for-english-speakers-your-easygoing-expat-guide/",
+    "https://ronkin-list.com/tel-aviv-real-estate-prices/",
+    "https://sandsofwealth.com/blogs/news/tel-aviv-real-estate-market",
+    "https://davidson-realestate.com/haifa-real-estate-trends/",
+    "https://semerenkogroup.com/beit-shemesh-real-estate-2/",
+    "https://www.buyitinisrael.com/news/beit-shemesh-apartment-prices/",
+    "https://www.easyaliyah.com/blog/ramat-beit-shemesh-property-market-report",
+    "https://sandsofwealth.com/blogs/news/israel-which-area",
+    "https://www.buyitinisrael.com/news/rising-prices-for-real-estate-in-netanya-exceed-the-national-average-rate/",
+    "https://www.buyitinisrael.com/news/israel-real-estate-roi-revealed-beer-sheva-is-the-most-affordable-tel-aviv-ranks-last/",
+    "https://www.timesofisrael.com/first-of-zion-rishon-is-israels-best-city-to-live-in-statistics-bureau-finds/",
+    "https://ronkin-list.com/neve-tzedek-tel-aviv-neighborhood-guide/",
+    "https://ronkin-list.com/tel-aviv-neighborhoods-guide-2025/",
+    "https://ronkin-list.com/florentin-neighborhood-tel-aviv-guide/",
+    "https://capitil.com/guides/jerusalem-real-estate-prices/rehavia-real-estate-prices.html",
+    "https://capitil.com/guides/jerusalem-real-estate-prices/talbiya-real-estate-prices.html",
+    "https://capitil.com/guides/jerusalem-real-estate-prices/german-colony-real-estate-prices.html",
+    "https://www.easyaliyah.com/blog/finding-home-choosing-the-right-israeli-community-for-your-aliyah",
+    "https://www.hyehudi.org/the-anglo-karmiel-community/",
+    "https://www.buyitinisrael.com/news/new-homes-in-efrat-and-maale-adumim/",
+    "https://geoln.com/israel/givat_shmuel-the-new-ramat-hadar/",
+    "https://israelbylocals.com/real-estate-in-netanya/",
+    "https://www.yokra-estate.co.il/en/articles/337-houses-and-apartments-in-givat-shmuel.html"
+  ]
+}
