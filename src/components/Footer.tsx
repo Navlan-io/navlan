@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Button } from "@/components/ui/button";
+import NewsletterSignup from "@/components/NewsletterSignup";
 
 const quickLinks = [
   { label: "About", to: "/about" },
@@ -44,14 +44,7 @@ const Footer = () => {
           {/* Right */}
           <div>
             <h4 className="font-heading font-semibold text-[15px] text-white mb-4">Stay Updated</h4>
-            <div className="flex gap-2">
-              <input
-                type="email"
-                placeholder="Your email"
-                className="flex-1 min-w-0 h-12 px-4 rounded-lg bg-white/10 border border-white/20 text-white font-body text-[14px] placeholder:text-white/40 focus:outline-none focus:border-sage transition-colors"
-              />
-              <Button size="default" className="min-h-[48px] shrink-0">Subscribe</Button>
-            </div>
+            <NewsletterSignup source="footer" variant="dark" />
             <p className="mt-2 text-white/50 font-body text-[12px]">
               Subscribe to The Navlan Report
             </p>

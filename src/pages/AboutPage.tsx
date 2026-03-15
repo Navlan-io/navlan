@@ -1,13 +1,11 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Instagram, Twitter, Facebook } from "lucide-react";
 import NavBar from "@/components/NavBar";
 import Footer from "@/components/Footer";
-import { Button } from "@/components/ui/button";
+import NewsletterSignup from "@/components/NewsletterSignup";
 
 const AboutPage = () => {
-  const [email, setEmail] = useState("");
-
   useEffect(() => {
     document.title = "About — Navlan.io";
     window.scrollTo(0, 0);
@@ -103,22 +101,15 @@ const AboutPage = () => {
               <p className="mb-6">
                 We publish The Navlan Report — a plain-English interpretation of the latest Israeli housing data. No broker spin, no speculation, just the numbers and what they mean.
               </p>
-              <div className="flex gap-2 max-w-md">
-                <input
-                  type="email"
-                  placeholder="Your email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  className="flex-1 h-11 px-4 rounded-lg bg-cream border border-grid-line font-body text-[14px] text-charcoal placeholder:text-warm-gray/60 focus:outline-none focus:border-sage transition-colors"
-                />
-                <Button className="bg-sage hover:bg-sage/90 text-white">Subscribe</Button>
+              <div className="max-w-md">
+                <NewsletterSignup source="about" />
               </div>
               <div className="mt-4 flex items-center gap-2">
-                <p className="font-body text-[14px] text-warm-gray">We also post updates on social media.</p>
+                <p className="font-body text-[14px] text-warm-gray">Social media coming soon.</p>
                 <div className="flex items-center gap-1.5">
-                  <a href="#" className="p-1.5 text-warm-gray hover:text-sage transition-colors"><Instagram className="h-5 w-5" /></a>
-                  <a href="#" className="p-1.5 text-warm-gray hover:text-sage transition-colors"><Twitter className="h-5 w-5" /></a>
-                  <a href="#" className="p-1.5 text-warm-gray hover:text-sage transition-colors"><Facebook className="h-5 w-5" /></a>
+                  <span className="p-1.5 text-warm-gray/40"><Instagram className="h-5 w-5" /></span>
+                  <span className="p-1.5 text-warm-gray/40"><Twitter className="h-5 w-5" /></span>
+                  <span className="p-1.5 text-warm-gray/40"><Facebook className="h-5 w-5" /></span>
                 </div>
               </div>
             </section>

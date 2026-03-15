@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { ChevronDown, ChevronRight } from "lucide-react";
 import NavBar from "@/components/NavBar";
 import Footer from "@/components/Footer";
+import NewsletterSignup from "@/components/NewsletterSignup";
 import { cn } from "@/lib/utils";
 
 export interface GuideSection {
@@ -217,6 +218,21 @@ const GuidePage = ({
           </div>
         </div>
       </main>
+
+      {/* Newsletter CTA */}
+      <div className="bg-cream py-12">
+        <div className="container max-w-[560px] text-center">
+          <p className="font-heading font-semibold text-[20px] text-charcoal mb-2">
+            Stay informed on the Israeli market
+          </p>
+          <p className="font-body text-[15px] text-warm-gray mb-6">
+            Get The Navlan Report — free, monthly, in English.
+          </p>
+          <div className="max-w-sm mx-auto">
+            <NewsletterSignup source="guide" />
+          </div>
+        </div>
+      </div>
       <Footer />
     </div>
   );
