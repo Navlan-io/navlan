@@ -101,7 +101,7 @@ const MarketSnapshot = () => {
         {loading ? (
           <div className="bg-warm-white rounded-xl h-[300px] animate-pulse" />
         ) : (
-          <div className="h-[300px]">
+          <div className="h-[300px]" aria-label="National dwelling price index trend chart">
             <ResponsiveContainer width="100%" height="100%">
               <AreaChart data={chartData}>
                 <defs>

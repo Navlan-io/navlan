@@ -115,7 +115,7 @@ const DistrictComparison = () => {
         Regional price index trends across Israel's six statistical districts
       </p>
 
-      <div style={{ minHeight: 250 }}>
+      <div style={{ minHeight: 250 }} aria-label="Price index comparison across Israel's six districts">
         <ResponsiveContainer width="100%" height={300}>
           <LineChart data={chartData}>
             <CartesianGrid horizontal vertical={false} stroke="#E8E4DE" />

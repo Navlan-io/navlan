@@ -56,6 +56,7 @@ const NewsletterSignup = ({ source, variant = "light" }: NewsletterSignupProps) 
         <input
           type="email"
           placeholder="Your email"
+          aria-label="Email address"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           onKeyDown={handleKeyDown}
@@ -79,6 +80,7 @@ const NewsletterSignup = ({ source, variant = "light" }: NewsletterSignupProps) 
       <input
         type="email"
         placeholder="Your email"
+        aria-label="Email address"
         value={email}
         onChange={(e) => setEmail(e.target.value)}
         onKeyDown={handleKeyDown}

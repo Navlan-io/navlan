@@ -94,7 +94,7 @@ const ConstructionCosts = () => {
         </div>
       </Card>
 
-      <div style={{ minHeight: 250 }}>
+      <div style={{ minHeight: 250 }} aria-label="Construction cost index trend chart">
         <ResponsiveContainer width="100%" height={280}>
           <AreaChart data={chartData}>
             <defs>

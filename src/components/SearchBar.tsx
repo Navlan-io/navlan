@@ -27,9 +27,11 @@ const SearchBar = ({ className, compact }: SearchBarProps) => {
   const [results, setResults] = useState<Locality[]>([]);
   const [open, setOpen] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [activeIndex, setActiveIndex] = useState(-1);
   const containerRef = useRef<HTMLDivElement>(null);
   const navigate = useNavigate();
   const location = useLocation();
+  const listboxId = "search-listbox";
 
   // Debounced search
   useEffect(() => {
@@ -62,6 +64,7 @@ const SearchBar = ({ className, compact }: SearchBarProps) => {
           setResults([]);
         }
         setOpen(true);
+        setActiveIndex(-1);
       } catch {
         setResults([]);
       } finally {
@@ -84,7 +87,27 @@ const SearchBar = ({ className, compact }: SearchBarProps) => {
   }, []);
 
   const handleKeyDown = (e: React.KeyboardEvent) => {
-    if (e.key === "Escape") setOpen(false);
+    if (e.key === "Escape") {
+      setOpen(false);
+      setActiveIndex(-1);
+    } else if (e.key === "ArrowDown") {
+      e.preventDefault();
+      if (!open && results.length > 0) {
+        setOpen(true);
+      }
+      setActiveIndex((prev) => (prev < results.length - 1 ? prev + 1 : 0));
+    } else if (e.key === "ArrowUp") {
+      e.preventDefault();
+      if (!open && results.length > 0) {
+        setOpen(true);
+      }
+      setActiveIndex((prev) => (prev > 0 ? prev - 1 : results.length - 1));
+    } else if (e.key === "Enter") {
+      if (activeIndex >= 0 && activeIndex < results.length) {
+        e.preventDefault();
+        handleSelect(results[activeIndex]);
+      }
+    }
   };
 
   const handleSelect = useCallback(
@@ -96,6 +119,7 @@ const SearchBar = ({ className, compact }: SearchBarProps) => {
       const slug = toSlug(targetName);
       setQuery("");
       setOpen(false);
+      setActiveIndex(-1);
       navigate(`/city/${slug}`);
     },
     [navigate]
@@ -113,9 +137,12 @@ const SearchBar = ({ className, compact }: SearchBarProps) => {
     }
   };
 
+  const showDropdown = open && query.length >= 2;
+  const activeOptionId = activeIndex >= 0 ? `search-option-${activeIndex}` : undefined;
+
   return (
     <div ref={containerRef} className={cn("relative w-full", compact ? "max-w-[240px]" : "max-w-xl mx-auto", className)}>
-      <Search className={cn("absolute left-4 top-1/2 -translate-y-1/2 text-warm-gray", compact ? "h-4 w-4 left-3" : "h-5 w-5")} />
+      <Search className={cn("absolute left-4 top-1/2 -translate-y-1/2 text-warm-gray", compact ? "h-4 w-4 left-3" : "h-5 w-5")} aria-hidden="true" />
       <input
         type="text"
         value={query}
@@ -123,6 +150,12 @@ const SearchBar = ({ className, compact }: SearchBarProps) => {
         onFocus={() => query.length >= 2 && results.length >= 0 && setOpen(true)}
         onKeyDown={handleKeyDown}
         placeholder={compact ? "Search cities..." : "Search any city or neighborhood"}
+        role="combobox"
+        aria-expanded={showDropdown && results.length > 0}
+        aria-controls={listboxId}
+        aria-activedescendant={activeOptionId}
+        aria-autocomplete="list"
+        aria-label="Search cities and neighborhoods"
         className={cn(
           "w-full pl-12 pr-4 border border-border-light bg-white text-charcoal font-body placeholder:text-warm-gray focus:outline-none focus:border-sage transition-colors",
           compact ? "h-9 pl-9 text-[13px] rounded-lg" : "h-12 md:h-[52px] text-[15px] md:text-[15px] rounded-xl",
@@ -130,8 +163,13 @@ const SearchBar = ({ className, compact }: SearchBarProps) => {
         )}
       />
 
-      {open && query.length >= 2 && (
-        <div className="absolute left-0 right-0 top-full bg-white border border-t-0 border-border-light rounded-b-xl shadow-[0_4px_12px_rgba(45,50,52,0.1)] z-50 overflow-hidden">
+      {showDropdown && (
+        <div
+          id={listboxId}
+          role="listbox"
+          aria-label="Search results"
+          className="absolute left-0 right-0 top-full bg-white border border-t-0 border-border-light rounded-b-xl shadow-[0_4px_12px_rgba(45,50,52,0.1)] z-50 overflow-hidden"
+        >
           {results.length === 0 ? (
             <div className="px-4 py-3 font-body text-[14px] text-warm-gray">
               No cities found. Try a different spelling or{" "}
@@ -144,10 +182,14 @@ const SearchBar = ({ className, compact }: SearchBarProps) => {
             results.map((loc, i) => (
               <button
                 key={`${loc.english_name}-${i}`}
+                id={`search-option-${i}`}
+                role="option"
+                aria-selected={i === activeIndex}
                 onClick={() => handleSelect(loc)}
                 className={cn(
                   "w-full flex items-center justify-between px-4 py-3 text-left hover:bg-cream cursor-pointer transition-colors",
-                  i < results.length - 1 && "border-b border-border-light"
+                  i < results.length - 1 && "border-b border-border-light",
+                  i === activeIndex && "bg-cream"
                 )}
               >
                 <span className="font-body font-semibold text-[15px] text-charcoal">

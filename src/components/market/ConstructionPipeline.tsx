@@ -164,7 +164,7 @@ const ConstructionPipeline = () => {
         <div>
           <h3 className="font-heading font-semibold text-[18px] text-charcoal mb-4">Unsold Inventory Trend</h3>
           {unsoldChart.length > 0 ? (
-            <div style={{ minHeight: 250 }}>
+            <div style={{ minHeight: 250 }} aria-label="Unsold new housing inventory trend chart">
               <ResponsiveContainer width="100%" height={260}>
                 <AreaChart data={unsoldChart}>
                   <defs>
@@ -207,7 +207,7 @@ const ConstructionPipeline = () => {
         <div>
           <h3 className="font-heading font-semibold text-[18px] text-charcoal mb-4">Construction Starts</h3>
           {startsChart.length > 0 ? (
-            <div style={{ minHeight: 250 }}>
+            <div style={{ minHeight: 250 }} aria-label="Monthly construction starts trend chart">
               <ResponsiveContainer width="100%" height={260}>
                 <AreaChart data={startsChart}>
                   <defs>

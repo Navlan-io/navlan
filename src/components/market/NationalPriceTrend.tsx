@@ -154,11 +154,12 @@ const NationalPriceTrend = () => {
 
       <div className="flex items-center justify-between mb-4">
         <div />
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-2" role="group" aria-label="Time range">
           {TIME_RANGES.map((r) => (
             <button
               key={r}
               onClick={() => setRange(r)}
+              aria-pressed={range === r}
               className={cn(
                 "px-3 py-1.5 rounded-full font-body text-[13px] font-medium transition-colors",
                 range === r ? "bg-sage text-white" : "bg-cream text-charcoal hover:bg-sage/10"
@@ -170,7 +171,7 @@ const NationalPriceTrend = () => {
         </div>
       </div>
 
-      <div style={{ minHeight: 250 }}>
+      <div style={{ minHeight: 250 }} aria-label="National dwelling price index trend from 2017 to 2025">
         <ResponsiveContainer width="100%" height={300}>
           <AreaChart data={chartData}>
             <defs>

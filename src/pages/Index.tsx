@@ -132,6 +132,7 @@ const Index = () => {
       />
       <NavBar />
 
+      <main id="main-content">
       {/* Hero */}
       <section className="relative overflow-hidden">
         <img
@@ -178,6 +179,7 @@ const Index = () => {
       <MarketSnapshot />
       <HomepageNewsletter />
       <NewToIsrael />
+      </main>
 
       <Footer />
     </div>
