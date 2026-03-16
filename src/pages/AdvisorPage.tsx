@@ -293,7 +293,7 @@ async function fetchCityContext(): Promise<string> {
       const banks = Array.isArray(a.banks_with_english_service) ? a.banks_with_english_service : [];
       if (banks.length) parts.push(`English banks: ${banks.slice(0, 3).join(", ")}`);
       const climate = a.climate as { summer_avg_high_c?: number; winter_avg_low_c?: number; description?: string } | null;
-      if (climate?.summer_avg_high_c) parts.push(`Climate: ${climate.summer_avg_high_c}°C summer / ${climate.winter_avg_low_c}°C winter`);
+      if (climate?.summer_avg_high_c && climate?.winter_avg_low_c) parts.push(`Climate: ${climate.summer_avg_high_c}°C summer / ${climate.winter_avg_low_c}°C winter`);
       if (a.quality_of_life_notes) parts.push(a.quality_of_life_notes.slice(0, 100));
       context += `${a.city_name}: ${parts.join(" | ")}\n`;
     }
@@ -345,7 +345,6 @@ const AdvisorPage = () => {
       setIsLoading(true);
 
       // Add placeholder assistant message for streaming
-      const assistantIndex = newMessages.length;
       setMessages((prev) => [...prev, { role: "assistant", content: "" }]);
 
       try {
@@ -391,10 +390,10 @@ const AdvisorPage = () => {
               ) {
                 setMessages((prev) => {
                   const updated = [...prev];
-                  updated[assistantIndex] = {
-                    ...updated[assistantIndex],
-                    content:
-                      updated[assistantIndex].content + data.delta.text,
+                  const lastIdx = updated.length - 1;
+                  updated[lastIdx] = {
+                    ...updated[lastIdx],
+                    content: updated[lastIdx].content + data.delta.text,
                   };
                   return updated;
                 });
@@ -408,7 +407,8 @@ const AdvisorPage = () => {
         console.error("Advisor error:", err);
         setMessages((prev) => {
           const updated = [...prev];
-          updated[assistantIndex] = {
+          const lastIdx = updated.length - 1;
+          updated[lastIdx] = {
             role: "assistant",
             content:
               "I'm sorry, I'm having trouble connecting right now. Please try again in a moment.",
