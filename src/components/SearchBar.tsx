@@ -149,7 +149,7 @@ const SearchBar = ({ className, compact }: SearchBarProps) => {
         onChange={(e) => setQuery(e.target.value)}
         onFocus={() => query.length >= 2 && results.length >= 0 && setOpen(true)}
         onKeyDown={handleKeyDown}
-        placeholder={compact ? "Search cities..." : "Search any city or neighborhood"}
+        placeholder={compact ? "Search cities..." : "Search any city in Israel"}
         role="combobox"
         aria-expanded={showDropdown && results.length > 0}
         aria-controls={listboxId}

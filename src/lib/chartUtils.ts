@@ -26,13 +26,19 @@ export function buildLabel(month: number, year: number): string {
  * Usage: pass the full data array and use the returned function as the XAxis tick formatter
  * combined with a custom interval.
  */
-export function getXAxisConfig(data: ChartPoint[], isMobile: boolean) {
+export function getXAxisConfig(data: ChartPoint[], isMobile: boolean, range?: string) {
   if (data.length === 0) return { ticks: [] as string[], tickFormatter: (v: string) => v };
 
   const selectedLabels = new Set<string>();
 
-  if (isMobile) {
-    // Show one tick per year (prefer January, or first available month)
+  // Determine if this is a long-range view (5+ years of data or explicit Max/5Y range)
+  const dataYearSpan = data.length > 0
+    ? data[data.length - 1].year - data[0].year
+    : 0;
+  const isLongRange = range === "Max" || range === "5Y" || dataYearSpan >= 5;
+
+  // On mobile or long-range desktop views, show only one tick per year
+  if (isMobile || isLongRange) {
     const seenYears = new Set<number>();
     for (const point of data) {
       if (!seenYears.has(point.year)) {
@@ -41,7 +47,7 @@ export function getXAxisConfig(data: ChartPoint[], isMobile: boolean) {
       }
     }
   } else {
-    // Desktop: show roughly every 3-6 months depending on data density
+    // Desktop short-range: show roughly every 3-6 months depending on data density
     const totalPoints = data.length;
     const interval = totalPoints > 60 ? 6 : totalPoints > 24 ? 3 : 2;
     for (let i = 0; i < data.length; i++) {
@@ -60,7 +66,7 @@ export function getXAxisConfig(data: ChartPoint[], isMobile: boolean) {
   const ticks = data.filter(d => selectedLabels.has(d.label)).map(d => d.label);
 
   const tickFormatter = (label: string) => {
-    if (isMobile) {
+    if (isMobile || isLongRange) {
       // Extract year from label like "Jan '22" → "2022"
       const match = label.match(/'(\d{2})$/);
       if (match) return `20${match[1]}`;

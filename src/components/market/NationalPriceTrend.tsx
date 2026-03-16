@@ -61,7 +61,7 @@ const NationalPriceTrend = () => {
     yoy: r.percent_yoy,
   }));
 
-  const xAxisConfig = getXAxisConfig(chartData, isMobile);
+  const xAxisConfig = getXAxisConfig(chartData, isMobile, range);
   const yDomain = getNiceYDomain(chartData.map(d => d.value as number));
 
   if (loading) {

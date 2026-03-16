@@ -101,6 +101,9 @@ const MarketSnapshot = () => {
   return (
     <section className="py-20 bg-cream">
       <div className="container max-w-[1200px]">
+        <h2 className="font-heading font-semibold text-[24px] text-charcoal mb-4">
+          Market Snapshot
+        </h2>
         {loading ? (
           <div className="bg-warm-white rounded-xl h-[300px] animate-pulse" />
         ) : (
@@ -147,9 +150,6 @@ const MarketSnapshot = () => {
         )}
 
         <div className="mt-8 max-w-[720px]">
-          <h2 className="font-heading font-semibold text-[24px] text-charcoal mb-1">
-            Market Snapshot
-          </h2>
           {latest.year > 0 && (
             <>
               <p className="font-body text-[13px] text-warm-gray mb-1">

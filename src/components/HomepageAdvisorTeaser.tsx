@@ -1,4 +1,6 @@
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { Send } from "lucide-react";
 
 const TEASER_PROMPTS = [
   "We're making aliyah with kids — where should we look?",
@@ -8,9 +10,17 @@ const TEASER_PROMPTS = [
 
 const HomepageAdvisorTeaser = () => {
   const navigate = useNavigate();
+  const [question, setQuestion] = useState("");
 
   const handleClick = (prompt: string) => {
     navigate(`/advisor?q=${encodeURIComponent(prompt)}`);
+  };
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    const trimmed = question.trim();
+    if (!trimmed) return;
+    navigate(`/advisor?q=${encodeURIComponent(trimmed)}`);
   };
 
   return (
@@ -34,6 +44,24 @@ const HomepageAdvisorTeaser = () => {
             </button>
           ))}
         </div>
+
+        <form onSubmit={handleSubmit} className="mt-5 flex items-center gap-2 max-w-xl mx-auto">
+          <input
+            type="text"
+            value={question}
+            onChange={(e) => setQuestion(e.target.value)}
+            placeholder="Ask your own question..."
+            className="flex-1 h-12 px-4 border border-border-light bg-white rounded-xl font-body text-[15px] text-charcoal placeholder:text-warm-gray focus:outline-none focus:border-sage transition-colors"
+          />
+          <button
+            type="submit"
+            disabled={!question.trim()}
+            className="h-12 w-12 flex items-center justify-center rounded-xl bg-sage text-white hover:bg-sage/90 disabled:opacity-40 disabled:cursor-not-allowed transition-colors shrink-0"
+            aria-label="Send question"
+          >
+            <Send className="h-5 w-5" />
+          </button>
+        </form>
       </div>
     </section>
   );
