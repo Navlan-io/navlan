@@ -86,7 +86,7 @@ const MarketSnapshot = () => {
     );
   };
 
-  const editorialText = `The national price index reached ${latest.value.toFixed(1)}. Year-over-year growth has moderated from nearly 7% to just +${latest.yoy.toFixed(1)}%, suggesting a cooling but still-appreciating market. For buyers, this means less urgency — but prices aren't falling.`;
+  const editorialText = `The national price index reached ${latest.value.toFixed(1)}. Year-over-year growth has moderated from nearly 7% to just +${latest.yoy.toFixed(1)}%, suggesting a cooling but still-appreciating market at the national level.`;
 
   return (
     <section className="py-13 md:py-16 bg-cream">

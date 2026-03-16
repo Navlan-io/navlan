@@ -40,7 +40,12 @@ export function getXAxisConfig(data: ChartPoint[], isMobile: boolean, range?: st
   // On mobile or long-range desktop views, show only one tick per year
   if (isMobile || isLongRange) {
     const seenYears = new Set<number>();
+    // Find the first full year (skip partial first year)
+    const firstYear = data[0]?.year;
+    const firstYearHasJan = data.some(p => p.year === firstYear && p.month === 1);
     for (const point of data) {
+      // Skip partial first year (no January data)
+      if (point.year === firstYear && !firstYearHasJan) continue;
       if (!seenYears.has(point.year)) {
         seenYears.add(point.year);
         selectedLabels.add(point.label);

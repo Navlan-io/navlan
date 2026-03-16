@@ -8,7 +8,7 @@ const HomepageNewsletter = () => {
         className="absolute inset-0 pointer-events-none"
         style={{
           backgroundImage:
-            "radial-gradient(circle, rgba(255,255,255,0.08) 1.2px, transparent 1.2px)",
+            "radial-gradient(circle, rgba(255,255,255,0.12) 1.2px, transparent 1.2px)",
           backgroundSize: "28px 28px",
         }}
       />
