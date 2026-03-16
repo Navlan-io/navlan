@@ -36,11 +36,11 @@ const NewToIsrael = () => {
           Essential guides for English-speaking property buyers
         </p>
 
-        <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="mt-8 flex flex-wrap justify-center gap-6">
           {guides.map((guide) => (
             <div
               key={guide.title}
-              className="bg-cream rounded-xl p-7 shadow-[0_2px_12px_rgba(45,50,52,0.10)] text-left hover:shadow-[0_8px_24px_rgba(45,50,52,0.15)] hover:-translate-y-0.5 transition-all duration-200"
+              className="w-full sm:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)] bg-cream rounded-xl p-7 shadow-[0_2px_12px_rgba(45,50,52,0.10)] text-left hover:shadow-[0_8px_24px_rgba(45,50,52,0.15)] hover:-translate-y-0.5 transition-all duration-200"
             >
               <guide.icon className="h-8 w-8 text-sand-gold" />
               <h3 className="mt-4 font-heading font-semibold text-[18px] text-charcoal">
