@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { BookOpen, Home, ArrowRight } from "lucide-react";
+import { BookOpen, Home, KeyRound, ArrowRight } from "lucide-react";
 
 const guides = [
   {
@@ -16,6 +16,13 @@ const guides = [
       "Israel's government housing program — eligibility, how to apply, and what to expect. The most complete English guide available.",
     link: "/guides/dira-behanacha",
   },
+  {
+    icon: KeyRound,
+    title: "Israeli Mortgages Explained",
+    description:
+      "Tracks, rates, olim benefits, and the approval process — in plain English.",
+    link: "/guides/mortgages",
+  },
 ];
 
 const NewToIsrael = () => {
@@ -29,7 +36,7 @@ const NewToIsrael = () => {
           Essential guides for English-speaking property buyers
         </p>
 
-        <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-6">
+        <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {guides.map((guide) => (
             <div
               key={guide.title}

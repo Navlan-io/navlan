@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { BookOpen, Home } from "lucide-react";
+import { BookOpen, Home, KeyRound } from "lucide-react";
 import NavBar from "@/components/NavBar";
 import Footer from "@/components/Footer";
 import { Card, CardContent } from "@/components/ui/card";
@@ -32,6 +32,14 @@ const guides: GuideCardData[] = [
     readTime: "~20 min read",
     to: "/guides/dira-behanacha",
   },
+  {
+    icon: KeyRound,
+    title: "Israeli Mortgages Explained",
+    description: "Tracks, rates, olim benefits, and the approval process — everything English speakers need to know about the mashkanta.",
+    updated: "Last updated: March 2026",
+    readTime: "~25 min read",
+    to: "/guides/mortgages",
+  },
 ];
 
 const GuidesIndexPage = () => {
@@ -60,7 +68,7 @@ const GuidesIndexPage = () => {
           </p>
           <div className="border-b border-grid-line mt-6 mb-8" />
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {guides.map((guide) => (
               <Card key={guide.to} className="bg-cream border-grid-line shadow-card rounded-xl">
                 <CardContent className="p-6 flex flex-col gap-3">
