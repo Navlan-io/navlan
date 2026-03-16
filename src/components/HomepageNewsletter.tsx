@@ -2,7 +2,7 @@ import NewsletterSignup from "@/components/NewsletterSignup";
 
 const HomepageNewsletter = () => {
   return (
-    <section className="relative bg-sage py-18 md:py-22 overflow-hidden">
+    <section className="relative bg-sage py-20 md:py-24 overflow-hidden">
       {/* Subtle dot pattern overlay */}
       <div
         className="absolute inset-0 pointer-events-none"

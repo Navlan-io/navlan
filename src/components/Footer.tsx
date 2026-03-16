@@ -12,8 +12,17 @@ const quickLinks = [
 
 const Footer = () => {
   return (
-    <footer className="bg-charcoal text-white">
-      <div className="container py-12 md:py-16">
+    <footer className="relative bg-charcoal text-white overflow-hidden">
+      {/* Subtle dot pattern overlay */}
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          backgroundImage:
+            "radial-gradient(circle, rgba(255,255,255,0.08) 1.2px, transparent 1.2px)",
+          backgroundSize: "28px 28px",
+        }}
+      />
+      <div className="relative z-10 container py-12 md:py-16">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
           {/* Left */}
           <div>
@@ -53,7 +62,7 @@ const Footer = () => {
       </div>
 
       {/* Bottom bar */}
-      <div className="border-t border-white/10">
+      <div className="relative z-10 border-t border-white/10">
         <div className="container py-4 flex flex-col md:flex-row justify-between items-center gap-2">
           <p className="text-warm-gray font-body text-[12px] text-center md:text-left">
             Data sourced from Israel Central Bureau of Statistics, Bank of Israel, and Israel Tax Authority
