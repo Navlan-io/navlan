@@ -25,27 +25,14 @@ const HomepageAdvisorTeaser = () => {
 
   return (
     <section
-      className="relative py-24 md:py-32 overflow-hidden"
+      className="py-20 md:py-24"
       style={{
         background:
           "linear-gradient(180deg, rgba(124,139,110,0.10) 0%, rgba(124,139,110,0.03) 60%, #FAF8F5 100%)",
       }}
     >
-      {/* Subtle dot pattern overlay */}
-      <div
-        className="absolute inset-0 pointer-events-none"
-        style={{
-          backgroundImage:
-            "radial-gradient(circle, rgba(124,139,110,0.18) 1.2px, transparent 1.2px)",
-          backgroundSize: "28px 28px",
-        }}
-      />
-
-      <div className="relative z-10 container max-w-[720px] text-center">
-        <span className="font-body text-[11px] font-semibold uppercase tracking-[0.15em] text-sand-gold">
-          AI-Powered
-        </span>
-        <h2 className="mt-1 font-heading font-bold text-[24px] md:text-[28px] text-charcoal">
+      <div className="container max-w-[720px] text-center">
+        <h2 className="font-heading font-bold text-[24px] md:text-[28px] text-charcoal">
           Ask our AI advisor about any city in Israel
         </h2>
         <p className="mt-4 font-body text-[16px] text-warm-gray leading-relaxed">
