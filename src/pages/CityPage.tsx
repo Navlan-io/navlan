@@ -191,8 +191,8 @@ const CityPage = () => {
             <h1 className="font-heading font-bold text-[28px] text-charcoal">City not found</h1>
             <p className="mt-2 font-body text-warm-gray">
               Browse all cities on the{" "}
-              <Link to="/" className="text-horizon-blue hover:underline">
-                homepage
+              <Link to="/cities" className="text-horizon-blue hover:underline">
+                cities page
               </Link>
               .
             </p>
@@ -215,7 +215,7 @@ const CityPage = () => {
               "@type": "BreadcrumbList",
               itemListElement: [
                 { "@type": "ListItem", position: 1, name: "Home", item: "https://navlan.io/" },
-                { "@type": "ListItem", position: 2, name: "Cities", item: "https://navlan.io/" },
+                { "@type": "ListItem", position: 2, name: "Cities", item: "https://navlan.io/cities" },
                 { "@type": "ListItem", position: 3, name: city.english_name, item: `https://navlan.io/city/${slug}` },
               ],
             },

@@ -19,6 +19,7 @@ const BASE_URL = "https://navlan.io";
 
 const STATIC_ROUTES = [
   { path: "/", priority: "1.0", changefreq: "weekly" },
+  { path: "/cities", priority: "0.9", changefreq: "weekly" },
   { path: "/market", priority: "0.9", changefreq: "weekly" },
   { path: "/guides", priority: "0.8", changefreq: "monthly" },
   { path: "/guides/start-here", priority: "0.9", changefreq: "monthly" },

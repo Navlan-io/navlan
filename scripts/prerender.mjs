@@ -21,6 +21,7 @@ const SUPABASE_KEY =
 
 const STATIC_ROUTES = [
   "/",
+  "/cities",
   "/market",
   "/guides",
   "/guides/start-here",
