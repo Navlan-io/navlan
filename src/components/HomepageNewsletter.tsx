@@ -3,13 +3,13 @@ import NewsletterSignup from "@/components/NewsletterSignup";
 const HomepageNewsletter = () => {
   return (
     <section className="relative bg-sage py-20 md:py-24 overflow-hidden">
-      {/* Subtle grid pattern overlay */}
+      {/* Subtle dot pattern overlay */}
       <div
         className="absolute inset-0 pointer-events-none"
         style={{
           backgroundImage:
-            "linear-gradient(rgba(255,255,255,0.042) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.042) 1px, transparent 1px)",
-          backgroundSize: "40px 40px",
+            "radial-gradient(circle, rgba(124,139,110,0.18) 1.2px, transparent 1.2px)",
+          backgroundSize: "28px 28px",
         }}
       />
       <div className="relative z-10 container max-w-[560px] text-center">
