@@ -149,7 +149,7 @@ const Index = () => {
               <Link
                 key={stat.label}
                 to={stat.href}
-                className="flex items-center justify-center gap-2 bg-white rounded-full px-5 py-3 min-h-[44px] shadow-card no-underline hover:shadow-[0_4px_16px_rgba(45,50,52,0.15)] transition-shadow duration-200 cursor-pointer"
+                className="flex items-center justify-center gap-2 bg-white/90 backdrop-blur-sm rounded-full px-5 py-3 min-h-[44px] shadow-card no-underline hover:shadow-[0_4px_16px_rgba(45,50,52,0.15)] transition-shadow duration-200 cursor-pointer"
               >
                 <span className="font-body text-[14px] text-warm-gray">
                   {stat.label}:
@@ -164,8 +164,14 @@ const Index = () => {
       </section>
 
       <HomepageAdvisorTeaser />
+      {/* Gold section divider */}
+      <div className="h-px bg-gradient-to-r from-transparent via-sand-gold/40 to-transparent" />
       <MarketSnapshot />
+      {/* Gold section divider */}
+      <div className="h-px bg-gradient-to-r from-transparent via-sand-gold/40 to-transparent" />
       <HomepageNewsletter />
+      {/* Gold section divider */}
+      <div className="h-px bg-gradient-to-r from-transparent via-sand-gold/40 to-transparent" />
       <NewToIsrael />
       </main>
 

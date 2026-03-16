@@ -11,7 +11,6 @@ import {
 } from "recharts";
 import { supabase } from "@/integrations/supabase/client";
 import TrendPill from "@/components/TrendPill";
-import { ArrowRight } from "lucide-react";
 import { useIsMobile } from "@/hooks/use-mobile";
 import { buildLabel, getXAxisConfig, getNiceYDomain, type ChartPoint } from "@/lib/chartUtils";
 import { chartColors, axisTick } from "@/lib/chartColors";
@@ -89,11 +88,16 @@ const MarketSnapshot = () => {
   const editorialText = `The national price index reached ${latest.value.toFixed(1)}, with year-over-year growth at ${latest.yoy >= 0 ? "+" : ""}${latest.yoy.toFixed(1)}%.`;
 
   return (
-    <section className="py-12 md:py-16 bg-cream">
+    <section className="py-16 md:py-20 bg-cream">
       <div className="container max-w-[1200px]">
-        <h2 className="font-heading font-semibold text-[24px] text-charcoal mb-4">
-          Market Snapshot
-        </h2>
+        <div className="text-center">
+          <span className="font-body text-[11px] font-semibold uppercase tracking-[0.15em] text-sand-gold">
+            Market Data
+          </span>
+          <h2 className="mt-1 font-heading font-semibold text-[24px] text-charcoal mb-4">
+            Market Snapshot
+          </h2>
+        </div>
         {loading ? (
           <div className="bg-warm-white rounded-xl h-[300px] animate-pulse" />
         ) : (
@@ -180,10 +184,9 @@ const MarketSnapshot = () => {
 
           <Link
             to="/market"
-            className="inline-flex items-center gap-1 font-body font-medium text-[15px] text-horizon-blue no-underline hover:underline"
+            className="inline-block font-body font-medium text-[15px] text-horizon-blue no-underline hover:underline"
           >
-            View Full Market Data
-            <ArrowRight className="h-4 w-4" />
+            View Full Market Data →
           </Link>
         </div>
       </div>
