@@ -5,7 +5,6 @@ import heroImage from "@/assets/hero-landscape.png";
 import NavBar from "@/components/NavBar";
 import Footer from "@/components/Footer";
 import SearchBar from "@/components/SearchBar";
-import ExploreCities from "@/components/ExploreCities";
 import MarketSnapshot from "@/components/MarketSnapshot";
 import HomepageNewsletter from "@/components/HomepageNewsletter";
 import NewToIsrael from "@/components/NewToIsrael";
@@ -23,6 +22,7 @@ const Index = () => {
   const [priceYoy, setPriceYoy] = useState<number | null>(null);
   const [priceMom, setPriceMom] = useState<number | null>(null);
   const [mortgageRate, setMortgageRate] = useState<number | null>(null);
+  const [mortgageTrend, setMortgageTrend] = useState<"up" | "down" | "flat">("flat");
 
   useEffect(() => {
     const fetch = async () => {
@@ -39,14 +39,23 @@ const Index = () => {
           .select("value")
           .eq("track_type", "non_indexed_fixed")
           .order("period", { ascending: false })
-          .limit(1),
+          .limit(2),
       ]);
 
       if (indexRes.data?.[0]) {
         setPriceYoy(indexRes.data[0].percent_yoy);
         setPriceMom(indexRes.data[0].percent_mom);
       }
-      if (mortgageRes.data?.[0]) setMortgageRate(mortgageRes.data[0].value);
+      if (mortgageRes.data?.[0]) {
+        setMortgageRate(mortgageRes.data[0].value);
+        if (mortgageRes.data.length >= 2) {
+          const current = mortgageRes.data[0].value;
+          const previous = mortgageRes.data[1].value;
+          if (current > previous) setMortgageTrend("up");
+          else if (current < previous) setMortgageTrend("down");
+          else setMortgageTrend("flat");
+        }
+      }
     };
     fetch().catch(console.error);
   }, []);
@@ -75,9 +84,10 @@ const Index = () => {
       colorClass: momColor,
     },
     {
-      label: "Fixed Mortgage Rate",
-      value: `${(mortgageRate ?? 5.5).toFixed(2)}%`,
+      label: "Fixed Rate",
+      value: `${(mortgageRate ?? 5.5).toFixed(2)}%${mortgageTrend === "up" ? " ↑" : mortgageTrend === "down" ? " ↓" : ""}`,
       href: "/market#mortgage-rates",
+      colorClass: mortgageTrend === "down" ? "text-growth-green" : mortgageTrend === "up" ? "text-terra-red" : "text-charcoal",
     },
   ];
 
@@ -133,15 +143,8 @@ const Index = () => {
             <SearchBar />
           </div>
 
-          <Link
-            to="/guides/start-here"
-            className="mt-3 inline-block font-body text-[14px] text-white/80 no-underline hover:text-white hover:underline transition-colors animate-fade-up [animation-delay:300ms]"
-          >
-            Or start with our Buyer's Guide →
-          </Link>
-
           {/* Live stat pills */}
-          <div className="mt-8 flex flex-col sm:flex-row flex-wrap justify-center gap-2 sm:gap-3 w-full max-w-xl animate-fade-up [animation-delay:400ms]">
+          <div className="mt-8 flex flex-col sm:flex-row flex-wrap justify-center gap-2 sm:gap-3 w-full max-w-xl animate-fade-up [animation-delay:300ms]">
             {stats.map((stat) => (
               <Link
                 key={stat.label}
@@ -160,13 +163,12 @@ const Index = () => {
         </div>
       </section>
 
-      <ExploreCities />
+      <HomepageAdvisorTeaser />
       {/* Gold section divider */}
       <div className="h-px bg-gradient-to-r from-transparent via-sand-gold/40 to-transparent" />
       <MarketSnapshot />
       {/* Gold section divider */}
       <div className="h-px bg-gradient-to-r from-transparent via-sand-gold/40 to-transparent" />
-      <HomepageAdvisorTeaser />
       <HomepageNewsletter />
       {/* Gold section divider */}
       <div className="h-px bg-gradient-to-r from-transparent via-sand-gold/40 to-transparent" />

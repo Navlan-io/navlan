@@ -36,8 +36,8 @@ const HomepageAdvisorTeaser = () => {
         className="absolute inset-0 pointer-events-none"
         style={{
           backgroundImage:
-            "radial-gradient(circle, rgba(124,139,110,0.06) 1px, transparent 1px)",
-          backgroundSize: "32px 32px",
+            "radial-gradient(circle, rgba(124,139,110,0.18) 1.2px, transparent 1.2px)",
+          backgroundSize: "28px 28px",
         }}
       />
 

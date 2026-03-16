@@ -26,27 +26,19 @@ interface IndexRow {
 const MarketSnapshot = () => {
   const [chartData, setChartData] = useState<ChartPoint[]>([]);
   const [latest, setLatest] = useState({ value: 601.4, yoy: 0.4, mom: 0.8, month: 0, year: 0 });
-  const [constructionYoy, setConstructionYoy] = useState(2.5);
   const [loading, setLoading] = useState(true);
   const isMobile = useIsMobile();
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const [priceRes, costRes] = await Promise.all([
+        const [priceRes] = await Promise.all([
           supabase
             .from("price_indices")
             .select("month, year, value, percent_mom, percent_yoy")
             .eq("index_code", 40010)
             .order("year", { ascending: true })
             .order("month", { ascending: true }),
-          supabase
-            .from("construction_costs")
-            .select("percent_yoy")
-            .eq("index_code", 200010)
-            .order("year", { ascending: false })
-            .order("month", { ascending: false })
-            .limit(1),
         ]);
 
         if (priceRes.data && priceRes.data.length > 0) {
@@ -70,9 +62,6 @@ const MarketSnapshot = () => {
           });
         }
 
-        if (costRes.data && costRes.data.length > 0) {
-          setConstructionYoy((costRes.data[0] as any).percent_yoy ?? 2.5);
-        }
       } catch {
         // keep defaults
       } finally {
@@ -96,17 +85,19 @@ const MarketSnapshot = () => {
     );
   };
 
-  const editorialText = `Israeli housing prices continued their gradual climb through late 2025, with the national price index reaching ${latest.value.toFixed(1)}. Year-over-year growth has moderated from nearly 7% at the start of the year to ${latest.yoy >= 0 ? "+" : ""}${latest.yoy.toFixed(1)}%, suggesting a cooling but still-appreciating market. Construction costs have stabilized, rising just ${constructionYoy.toFixed(1)}% annually.`;
+  const editorialText = `The national price index reached ${latest.value.toFixed(1)}, with year-over-year growth at ${latest.yoy >= 0 ? "+" : ""}${latest.yoy.toFixed(1)}%.`;
 
   return (
     <section className="py-16 md:py-20 bg-cream">
       <div className="container max-w-[1200px]">
-        <span className="font-body text-[11px] font-semibold uppercase tracking-[0.15em] text-sand-gold">
-          Market Data
-        </span>
-        <h2 className="mt-1 font-heading font-semibold text-[24px] text-charcoal mb-4">
-          Market Snapshot
-        </h2>
+        <div className="text-center">
+          <span className="font-body text-[11px] font-semibold uppercase tracking-[0.15em] text-sand-gold">
+            Market Data
+          </span>
+          <h2 className="mt-1 font-heading font-semibold text-[24px] text-charcoal mb-4">
+            Market Snapshot
+          </h2>
+        </div>
         {loading ? (
           <div className="bg-warm-white rounded-xl h-[300px] animate-pulse" />
         ) : (
