@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { BookOpen, Home } from "lucide-react";
+import { BookOpen, Home, ArrowRight } from "lucide-react";
 
 const guides = [
   {
@@ -46,7 +46,7 @@ const NewToIsrael = () => {
                 to={guide.link}
                 className="mt-3 inline-block font-body font-medium text-[14px] text-horizon-blue no-underline hover:underline"
               >
-                Read Guide →
+                Read Guide <ArrowRight className="inline h-3.5 w-3.5 ml-1 align-[-2px]" />
               </Link>
             </div>
           ))}

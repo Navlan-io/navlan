@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { ArrowRight } from "lucide-react";
 import {
   XAxis,
   YAxis,
@@ -88,7 +89,7 @@ const MarketSnapshot = () => {
   const editorialText = `The national price index reached ${latest.value.toFixed(1)}, with year-over-year growth at ${latest.yoy >= 0 ? "+" : ""}${latest.yoy.toFixed(1)}%.`;
 
   return (
-    <section className="py-16 md:py-20 bg-cream">
+    <section className="py-13 md:py-16 bg-cream">
       <div className="container max-w-[1200px]">
         <div className="text-center">
           <span className="font-body text-[11px] font-semibold uppercase tracking-[0.15em] text-sand-gold">
@@ -186,7 +187,7 @@ const MarketSnapshot = () => {
             to="/market"
             className="inline-block font-body font-medium text-[15px] text-horizon-blue no-underline hover:underline"
           >
-            View Full Market Data →
+            View Full Market Data <ArrowRight className="inline h-4 w-4 ml-1 align-[-2px]" />
           </Link>
         </div>
       </div>
