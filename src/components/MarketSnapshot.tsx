@@ -99,9 +99,12 @@ const MarketSnapshot = () => {
   const editorialText = `Israeli housing prices continued their gradual climb through late 2025, with the national price index reaching ${latest.value.toFixed(1)}. Year-over-year growth has moderated from nearly 7% at the start of the year to ${latest.yoy >= 0 ? "+" : ""}${latest.yoy.toFixed(1)}%, suggesting a cooling but still-appreciating market. Construction costs have stabilized, rising just ${constructionYoy.toFixed(1)}% annually.`;
 
   return (
-    <section className="py-20 bg-cream">
+    <section className="py-16 md:py-20 bg-cream">
       <div className="container max-w-[1200px]">
-        <h2 className="font-heading font-semibold text-[24px] text-charcoal mb-4">
+        <span className="font-body text-[11px] font-semibold uppercase tracking-[0.15em] text-sand-gold">
+          Market Data
+        </span>
+        <h2 className="mt-1 font-heading font-semibold text-[24px] text-charcoal mb-4">
           Market Snapshot
         </h2>
         {loading ? (
@@ -164,7 +167,7 @@ const MarketSnapshot = () => {
               <span className="font-body text-[13px] text-warm-gray block">
                 Price Index
               </span>
-              <span className="font-body font-bold text-[28px] text-charcoal">
+              <span className="font-body font-bold text-[28px] text-horizon-blue">
                 {latest.value.toFixed(1)}
               </span>
             </div>

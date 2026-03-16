@@ -65,7 +65,7 @@ const NewsletterSignup = ({ source, variant = "light" }: NewsletterSignupProps) 
         />
         <Button
           size="default"
-          className="min-h-[48px] shrink-0"
+          className="min-h-[48px] shrink-0 bg-sand-gold hover:bg-sand-gold/90 text-white"
           onClick={handleSubscribe}
           disabled={loading}
         >

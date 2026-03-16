@@ -161,9 +161,15 @@ const Index = () => {
       </section>
 
       <ExploreCities />
+      {/* Gold section divider */}
+      <div className="h-px bg-gradient-to-r from-transparent via-sand-gold/40 to-transparent" />
       <MarketSnapshot />
+      {/* Gold section divider */}
+      <div className="h-px bg-gradient-to-r from-transparent via-sand-gold/40 to-transparent" />
       <HomepageAdvisorTeaser />
       <HomepageNewsletter />
+      {/* Gold section divider */}
+      <div className="h-px bg-gradient-to-r from-transparent via-sand-gold/40 to-transparent" />
       <NewToIsrael />
       </main>
 
