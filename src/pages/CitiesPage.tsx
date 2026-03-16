@@ -1,0 +1,277 @@
+import { useEffect, useState, useMemo } from "react";
+import { Link } from "react-router-dom";
+import { Search } from "lucide-react";
+import { supabase } from "@/integrations/supabase/client";
+import NavBar from "@/components/NavBar";
+import Footer from "@/components/Footer";
+import SEO from "@/components/SEO";
+
+interface CityData {
+  name: string;
+  slug: string;
+  district: string;
+  hasPrice: boolean;
+  hasProfile: boolean;
+  isAnglo: boolean;
+  tagline: string | null;
+}
+
+const DISTRICT_FILTERS = [
+  "All",
+  "Jerusalem",
+  "Tel Aviv",
+  "Central",
+  "Haifa",
+  "South",
+  "North",
+];
+
+const ANGLO_PRIORITY = [
+  "Jerusalem",
+  "Tel Aviv",
+  "Ra'anana",
+  "Beit Shemesh",
+  "Modi'in",
+  "Herzliya",
+  "Haifa",
+  "Netanya",
+];
+
+const DISTRICT_BORDER_COLORS: Record<string, string> = {
+  Jerusalem: "border-sand-gold",
+  "Tel Aviv": "border-horizon-blue",
+  Haifa: "border-deep-olive",
+  Central: "border-sage",
+  South: "border-terra-red",
+  North: "border-growth-green",
+};
+
+const toSlug = (name: string) =>
+  name.toLowerCase().replace(/'/g, "").replace(/\s+/g, "-");
+
+const CitiesPage = () => {
+  const [cities, setCities] = useState<CityData[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [activeFilter, setActiveFilter] = useState("All");
+  const [searchQuery, setSearchQuery] = useState("");
+
+  useEffect(() => {
+    const fetchCities = async () => {
+      try {
+        const [{ data: localities }, { data: prices }, { data: profiles }] =
+          await Promise.all([
+            supabase
+              .from("localities")
+              .select("english_name, cbs_code, district, is_anglo_city")
+              .eq("entity_type", "city"),
+            supabase
+              .from("city_prices")
+              .select("cbs_code")
+              .not("avg_price_total", "is", null),
+            supabase.from("city_profiles").select("city_name, tagline"),
+          ]);
+
+        if (!localities) {
+          setLoading(false);
+          return;
+        }
+
+        const cbsWithPrices = new Set((prices ?? []).map((p) => p.cbs_code));
+        const profileMap = new Map(
+          (profiles ?? []).map((p) => [p.city_name, p.tagline])
+        );
+
+        const cityList: CityData[] = localities
+          .map((loc) => {
+            const hasPrice =
+              loc.cbs_code != null && cbsWithPrices.has(loc.cbs_code);
+            const hasProfile = profileMap.has(loc.english_name);
+            if (!hasPrice && !hasProfile) return null;
+            return {
+              name: loc.english_name,
+              slug: toSlug(loc.english_name),
+              district: loc.district,
+              hasPrice,
+              hasProfile,
+              isAnglo: loc.is_anglo_city === true,
+              tagline: profileMap.get(loc.english_name) ?? null,
+            };
+          })
+          .filter(Boolean) as CityData[];
+
+        cityList.sort((a, b) => {
+          const idxA = ANGLO_PRIORITY.indexOf(a.name);
+          const idxB = ANGLO_PRIORITY.indexOf(b.name);
+          if (idxA !== -1 && idxB !== -1) return idxA - idxB;
+          if (idxA !== -1) return -1;
+          if (idxB !== -1) return 1;
+          if (a.isAnglo && !b.isAnglo) return -1;
+          if (!a.isAnglo && b.isAnglo) return 1;
+          return a.name.localeCompare(b.name);
+        });
+
+        setCities(cityList);
+      } catch {
+        // fallback handled by empty state
+      } finally {
+        setLoading(false);
+      }
+    };
+    fetchCities();
+  }, []);
+
+  const filteredCities = useMemo(() => {
+    let result = cities;
+    if (activeFilter !== "All") {
+      result = result.filter((c) => c.district === activeFilter);
+    }
+    if (searchQuery.trim()) {
+      const q = searchQuery.trim().toLowerCase();
+      result = result.filter(
+        (c) =>
+          c.name.toLowerCase().includes(q) ||
+          c.district.toLowerCase().includes(q)
+      );
+    }
+    return result;
+  }, [cities, activeFilter, searchQuery]);
+
+  const structuredData = [
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        {
+          "@type": "ListItem",
+          position: 1,
+          name: "Home",
+          item: "https://navlan.io/",
+        },
+        {
+          "@type": "ListItem",
+          position: 2,
+          name: "Cities",
+          item: "https://navlan.io/cities",
+        },
+      ],
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "CollectionPage",
+      name: "Israeli Cities — Real Estate Data & Profiles",
+      description:
+        "Explore real estate data, price trends, and community profiles for cities across Israel. Filter by district and find the right city for you.",
+      url: "https://navlan.io/cities",
+    },
+  ];
+
+  return (
+    <>
+      <SEO
+        title="Explore Cities in Israel — Prices & Community Profiles | Navlan"
+        description="Browse real estate data, average prices, and community profiles for 60+ Israeli cities. Filter by district — Jerusalem, Tel Aviv, Central, Haifa, South, and North."
+        structuredData={structuredData}
+      />
+      <NavBar />
+      <main id="main-content" className="min-h-screen bg-warm-white">
+        <div className="container max-w-[1200px] py-12 md:py-16">
+          <h1 className="font-heading font-semibold text-[28px] md:text-[32px] text-charcoal">
+            Explore Cities
+          </h1>
+          <p className="mt-2 font-body text-[15px] text-warm-gray max-w-[600px]">
+            Data-driven profiles for Israel's most popular anglo communities.
+            Browse prices, neighbourhood character, and local insights.
+          </p>
+
+          {/* Search bar */}
+          <div className="relative mt-6 max-w-md">
+            <Search
+              size={18}
+              className="absolute left-3 top-1/2 -translate-y-1/2 text-warm-gray pointer-events-none"
+            />
+            <input
+              type="text"
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              placeholder="Search cities…"
+              className="w-full pl-10 pr-4 py-2.5 min-h-[44px] rounded-lg border border-grid-line bg-cream font-body text-[15px] text-charcoal placeholder:text-warm-gray/60 focus:outline-none focus:ring-2 focus:ring-sage/40 focus:border-sage transition-colors"
+            />
+          </div>
+
+          {/* District filter pills */}
+          <div className="mt-5 flex flex-wrap gap-2">
+            {DISTRICT_FILTERS.map((filter) => (
+              <button
+                key={filter}
+                onClick={() => setActiveFilter(filter)}
+                className={`whitespace-nowrap rounded-full px-4 py-1.5 min-h-[44px] font-body text-[14px] font-medium transition-colors ${
+                  activeFilter === filter
+                    ? "bg-sage text-white"
+                    : "bg-cream text-charcoal hover:bg-sage/20"
+                }`}
+              >
+                {filter}
+              </button>
+            ))}
+          </div>
+
+          {/* City count */}
+          <p className="mt-4 font-body text-[13px] text-warm-gray">
+            {loading
+              ? "Loading cities…"
+              : `${filteredCities.length} ${filteredCities.length === 1 ? "city" : "cities"} found`}
+          </p>
+
+          {/* City cards grid */}
+          <div className="mt-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            {loading
+              ? Array.from({ length: 9 }).map((_, i) => (
+                  <div
+                    key={i}
+                    className="bg-cream rounded-xl animate-pulse h-[180px]"
+                  />
+                ))
+              : filteredCities.length === 0
+                ? null
+                : filteredCities.map((city) => (
+                    <Link
+                      key={city.slug}
+                      to={`/city/${city.slug}`}
+                      className={`group relative flex flex-col rounded-xl bg-cream border-l-4 ${DISTRICT_BORDER_COLORS[city.district] || "border-sage"} p-6 no-underline shadow-[0_2px_12px_rgba(45,50,52,0.10)] hover:shadow-[0_8px_24px_rgba(45,50,52,0.15)] hover:-translate-y-0.5 transition-all duration-200 cursor-pointer overflow-hidden`}
+                      style={{
+                        backgroundImage:
+                          "linear-gradient(to right, rgba(124,139,110,0.07) 1px, transparent 1px), linear-gradient(to bottom, rgba(124,139,110,0.07) 1px, transparent 1px)",
+                        backgroundSize: "22px 22px",
+                      }}
+                    >
+                      <h2 className="relative font-heading font-semibold text-[18px] text-charcoal leading-tight">
+                        {city.name}
+                      </h2>
+                      <p className="relative mt-1 font-body text-[13px] text-warm-gray">
+                        {city.district} District
+                      </p>
+                      <p className="relative mt-2 font-body text-[14px] text-warm-gray leading-snug line-clamp-2">
+                        {city.tagline || `${city.district} District`}
+                      </p>
+                      <span className="relative mt-auto pt-4 font-body font-medium text-[14px] text-horizon-blue group-hover:underline">
+                        See Prices →
+                      </span>
+                    </Link>
+                  ))}
+          </div>
+
+          {!loading && filteredCities.length === 0 && (
+            <div className="text-center py-12">
+              <p className="font-body text-[15px] text-warm-gray">
+                No cities match your search. Try a different term or filter.
+              </p>
+            </div>
+          )}
+        </div>
+      </main>
+      <Footer />
+    </>
+  );
+};
+
+export default CitiesPage;

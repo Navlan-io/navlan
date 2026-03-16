@@ -1,11 +1,11 @@
 import { useState } from "react";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useCurrency } from "@/contexts/CurrencyContext";
 
 const navLinks = [
-  { label: "Cities", href: "/#explore-cities" },
+  { label: "Cities", href: "/cities" },
   { label: "Advisor", href: "/advisor" },
   { label: "Market Data", href: "/market" },
   { label: "Guides", href: "/guides" },
@@ -18,25 +18,6 @@ const NavBar = () => {
   const { currency, setCurrency } = useCurrency();
   const [mobileOpen, setMobileOpen] = useState(false);
   const location = useLocation();
-  const navigate = useNavigate();
-
-  const handleNavClick = (href: string, e: React.MouseEvent) => {
-    if (href.startsWith("/#")) {
-      e.preventDefault();
-      const id = href.slice(2);
-      if (location.pathname === "/") {
-        document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
-      } else {
-        navigate("/");
-        setTimeout(() => {
-          document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
-        }, 100);
-      }
-      setMobileOpen(false);
-    } else {
-      setMobileOpen(false);
-    }
-  };
 
   return (
     <nav className="sticky top-0 z-50 h-14 md:h-16 bg-warm-white border-b border-grid-line">
@@ -47,19 +28,8 @@ const NavBar = () => {
 
         <div className="hidden md:flex items-center gap-8">
           {navLinks.map((link) => {
-            const isActive = link.href === "/#explore-cities"
-              ? location.pathname === "/"
-              : location.pathname.startsWith(link.href);
-            return link.href.startsWith("/#") ? (
-              <a
-                key={link.label}
-                href={link.href}
-                onClick={(e) => handleNavClick(link.href, e)}
-                className={`font-body font-medium text-[15px] no-underline hover:text-sage hover:no-underline transition-colors ${isActive ? 'text-sage' : 'text-charcoal'}`}
-              >
-                {link.label}
-              </a>
-            ) : (
+            const isActive = location.pathname.startsWith(link.href);
+            return (
               <Link
                 key={link.label}
                 to={link.href}
@@ -100,27 +70,16 @@ const NavBar = () => {
 
       {mobileOpen && (
         <div className="md:hidden bg-warm-white border-b border-grid-line px-4 py-3 space-y-1">
-          {navLinks.map((link) =>
-            link.href.startsWith("/#") ? (
-              <a
-                key={link.label}
-                href={link.href}
-                onClick={(e) => handleNavClick(link.href, e)}
-                className="block min-h-[44px] flex items-center font-body font-medium text-[15px] text-charcoal no-underline hover:text-sage"
-              >
-                {link.label}
-              </a>
-            ) : (
-              <Link
-                key={link.label}
-                to={link.href}
-                onClick={() => setMobileOpen(false)}
-                className="block min-h-[44px] flex items-center font-body font-medium text-[15px] text-charcoal no-underline hover:text-sage"
-              >
-                {link.label}
-              </Link>
-            )
-          )}
+          {navLinks.map((link) => (
+            <Link
+              key={link.label}
+              to={link.href}
+              onClick={() => setMobileOpen(false)}
+              className="block min-h-[44px] flex items-center font-body font-medium text-[15px] text-charcoal no-underline hover:text-sage"
+            >
+              {link.label}
+            </Link>
+          ))}
         </div>
       )}
     </nav>
