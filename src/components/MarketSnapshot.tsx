@@ -89,8 +89,17 @@ const MarketSnapshot = () => {
   const editorialText = `The national price index reached ${latest.value.toFixed(1)}. Year-over-year growth has moderated from nearly 7% to just +${latest.yoy.toFixed(1)}%, suggesting a cooling but still-appreciating market at the national level.`;
 
   return (
-    <section className="py-13 md:py-16 bg-cream">
-      <div className="container max-w-[1200px]">
+    <section className="relative py-16 md:py-18 bg-cream overflow-hidden">
+      {/* Subtle dot pattern overlay */}
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          backgroundImage:
+            "radial-gradient(circle, rgba(124,139,110,0.18) 1.2px, transparent 1.2px)",
+          backgroundSize: "28px 28px",
+        }}
+      />
+      <div className="relative z-10 container max-w-[1200px]">
         <div className="text-center">
           <span className="font-body text-[11px] font-semibold uppercase tracking-[0.15em] text-sand-gold">
             Market Data

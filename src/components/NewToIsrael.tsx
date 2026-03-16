@@ -27,7 +27,7 @@ const guides = [
 
 const NewToIsrael = () => {
   return (
-    <section className="py-20 md:py-28 bg-warm-white">
+    <section className="py-18 md:py-25 bg-warm-white">
       <div className="container max-w-[800px] text-center">
         <h2 className="font-heading font-semibold text-[24px] text-charcoal">
           New to Israel?
