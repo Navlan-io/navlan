@@ -9,10 +9,10 @@ import { Skeleton } from "@/components/ui/skeleton";
 import { cn } from "@/lib/utils";
 import InsightCard from "./InsightCard";
 import { useIsMobile } from "@/hooks/use-mobile";
-import { buildLabel, getXAxisConfig, getNiceYDomain, type ChartPoint } from "@/lib/chartUtils";
+import { buildLabel, getXAxisConfig, getNiceYDomain, filterByRange, TIME_RANGES, type TimeRange, type ChartPoint } from "@/lib/chartUtils";
 import { chartColors, axisTick } from "@/lib/chartColors";
 
-const TIME_RANGES = ["1Y", "3Y", "5Y", "Max"] as const;
+// TIME_RANGES imported from chartUtils
 
 interface IndexRow {
   month: number;
@@ -25,7 +25,7 @@ interface IndexRow {
 const NationalPriceTrend = () => {
   const [data, setData] = useState<IndexRow[]>([]);
   const [loading, setLoading] = useState(true);
-  const [range, setRange] = useState<(typeof TIME_RANGES)[number]>("Max");
+  const [range, setRange] = useState<TimeRange>("Max");
   const isMobile = useIsMobile();
 
   useEffect(() => {
@@ -44,13 +44,7 @@ const NationalPriceTrend = () => {
 
   const latest = data.length > 0 ? data[data.length - 1] : null;
 
-  const now = new Date();
-  const filtered = data.filter((d) => {
-    if (range === "Max") return true;
-    const years = range === "1Y" ? 1 : range === "3Y" ? 3 : 5;
-    const cutoff = new Date(now.getFullYear() - years, now.getMonth(), 1);
-    return new Date(d.year, d.month - 1, 1) >= cutoff;
-  });
+  const filtered = filterByRange(data, range);
 
   const chartData: ChartPoint[] = filtered.map((r) => ({
     label: buildLabel(r.month, r.year),

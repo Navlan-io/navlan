@@ -6,9 +6,10 @@ import { supabase } from "@/integrations/supabase/client";
 import { Card } from "@/components/ui/card";
 import TrendPill from "@/components/TrendPill";
 import { Skeleton } from "@/components/ui/skeleton";
+import { cn } from "@/lib/utils";
 import InsightCard from "./InsightCard";
 import { useIsMobile } from "@/hooks/use-mobile";
-import { buildLabel, getXAxisConfig, getNiceYDomain, type ChartPoint } from "@/lib/chartUtils";
+import { buildLabel, getXAxisConfig, getNiceYDomain, filterByRange, TIME_RANGES, type TimeRange, type ChartPoint } from "@/lib/chartUtils";
 import { chartColors, axisTick } from "@/lib/chartColors";
 
 interface CostRow {
@@ -22,6 +23,7 @@ interface CostRow {
 const ConstructionCosts = () => {
   const [data, setData] = useState<CostRow[]>([]);
   const [loading, setLoading] = useState(true);
+  const [range, setRange] = useState<TimeRange>("Max");
   const isMobile = useIsMobile();
 
   useEffect(() => {
@@ -50,14 +52,15 @@ const ConstructionCosts = () => {
 
   const latest = data.length > 0 ? data[data.length - 1] : null;
 
-  const chartData: ChartPoint[] = data.map((r) => ({
+  const allChartData: ChartPoint[] = data.map((r) => ({
     label: buildLabel(r.month, r.year),
     year: r.year,
     month: r.month,
     value: r.value ?? 0,
   }));
 
-  const xAxisConfig = getXAxisConfig(chartData, isMobile);
+  const chartData = filterByRange(allChartData, range);
+  const xAxisConfig = getXAxisConfig(chartData, isMobile, range);
   const yDomain = getNiceYDomain(chartData.map(d => d.value as number));
 
   const CustomTooltip = ({ active, payload, label }: any) => {
@@ -83,7 +86,24 @@ const ConstructionCosts = () => {
 
   return (
     <section>
-      <h2 className="font-heading font-semibold text-[22px] text-charcoal mb-6">Construction Cost Trends</h2>
+      <div className="flex items-center justify-between mb-6">
+        <h2 className="font-heading font-semibold text-[22px] text-charcoal">Construction Cost Trends</h2>
+        <div className="flex items-center gap-2" role="group" aria-label="Time range">
+          {TIME_RANGES.map((r) => (
+            <button
+              key={r}
+              onClick={() => setRange(r)}
+              aria-pressed={range === r}
+              className={cn(
+                "px-3 py-1.5 rounded-full font-body text-[13px] font-medium transition-colors",
+                range === r ? "bg-sage text-white" : "bg-cream text-charcoal hover:bg-sage/10"
+              )}
+            >
+              {r}
+            </button>
+          ))}
+        </div>
+      </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mb-4">
         <Card className="p-5 bg-cream border-0 shadow-card">
