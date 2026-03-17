@@ -2,7 +2,7 @@ import { useState, useEffect, useRef, useCallback } from "react";
 import { useSearchParams, useNavigate } from "react-router-dom";
 import ReactMarkdown from "react-markdown";
 import rehypeSanitize from "rehype-sanitize";
-import { Send } from "lucide-react";
+import { Send, Compass, Plus, Users, Briefcase, Building, Sun } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import NavBar from "@/components/NavBar";
 import SEO from "@/components/SEO";
@@ -13,10 +13,10 @@ interface Message {
 }
 
 const STARTER_PROMPTS = [
-  "We're making aliyah with kids — where should we look?",
-  "Best areas for a young tech professional?",
-  "Religious Anglo community on a budget?",
-  "Retiring to Israel — what are our options?",
+  { text: "We're making aliyah with kids — where should we look?", icon: Users },
+  { text: "Best areas for a young tech professional?", icon: Briefcase },
+  { text: "Religious Anglo community on a budget?", icon: Building },
+  { text: "Retiring to Israel — what are our options?", icon: Sun },
 ];
 
 function toSlug(name: string) {
@@ -449,6 +449,12 @@ const AdvisorPage = () => {
     sendMessage(prompt);
   };
 
+  const handleNewConversation = () => {
+    setMessages([]);
+    setInput("");
+    initialSent.current = false;
+  };
+
   // Intercept internal link clicks in markdown
   const handleMarkdownClick = (e: React.MouseEvent<HTMLDivElement>) => {
     const target = e.target as HTMLElement;
@@ -465,7 +471,7 @@ const AdvisorPage = () => {
   const showWelcome = messages.length === 0;
 
   return (
-    <div className="min-h-screen flex flex-col bg-gradient-to-br from-warm-white via-cream/30 to-sage/5">
+    <div className="min-h-screen flex flex-col bg-warm-white">
       <SEO
         title="AI Real Estate Advisor for English Speakers in Israel | Navlan.io"
         description="Get personalized city and neighborhood recommendations from our AI advisor. Tell us about your situation and we'll suggest the best areas in Israel for English speakers."
@@ -476,124 +482,205 @@ const AdvisorPage = () => {
         id="main-content"
         className="flex-1 flex flex-col min-h-0"
       >
-        {/* Chat area */}
-        <div className="flex-1 overflow-y-auto">
-          <div className="container max-w-2xl py-6 md:py-10 space-y-4">
-            {showWelcome && (
-              <div className="flex flex-col items-center text-center pt-8 md:pt-16 pb-4">
-                <div className="w-16 h-16 rounded-full bg-gradient-to-br from-sage/20 to-sand-gold/20 flex items-center justify-center mb-6">
-                  <div className="w-8 h-8 rounded-full bg-gradient-to-br from-sage/40 to-sand-gold/30" />
-                </div>
-                <h1 className="font-heading font-bold text-[28px] md:text-[36px] text-charcoal leading-tight">
-                  Ask our AI advisor about any city in Israel
-                </h1>
-                <p className="mt-3 font-body text-[16px] md:text-[18px] text-warm-gray max-w-md leading-relaxed">
-                  Describe your situation — budget, family size, lifestyle,
-                  priorities — and get personalized city recommendations based
-                  on real CBS data.
-                </p>
-
-                {/* Starter pills */}
-                <div className="mt-8 flex flex-wrap justify-center gap-3 max-w-lg">
-                  {STARTER_PROMPTS.map((prompt) => (
-                    <button
-                      key={prompt}
-                      onClick={() => handleStarterClick(prompt)}
-                      disabled={isLoading || !contextLoaded}
-                      className="px-5 py-3 bg-white/80 backdrop-blur-sm border border-grid-line rounded-xl shadow-card font-body text-[15px] text-charcoal hover:border-sage hover:text-sage transition-colors disabled:opacity-50 disabled:cursor-not-allowed text-left"
-                    >
-                      {prompt}
-                    </button>
-                  ))}
-                </div>
-
-                {/* Disclaimer */}
-                <p className="mt-6 font-body text-[12px] text-warm-gray/50 max-w-md leading-relaxed">
-                  The Advisor provides general information based on public data
-                  and community insights. It is not financial, legal, or
-                  immigration advice. Always consult qualified Israeli
-                  professionals for important decisions.
-                </p>
-              </div>
-            )}
-
-            {/* Messages */}
-            {messages.map((msg, i) => (
-              <div
-                key={i}
-                className={`flex ${msg.role === "user" ? "justify-end" : "justify-start"}`}
-              >
-                <div
-                  className={`max-w-[85%] md:max-w-[640px] rounded-2xl px-4 py-3 ${
-                    msg.role === "user"
-                      ? "bg-white shadow-card text-charcoal"
-                      : "bg-sage/15 backdrop-blur-sm text-charcoal border border-sage/10"
-                  }`}
-                  onClick={msg.role === "assistant" ? handleMarkdownClick : undefined}
-                >
-                  {msg.role === "assistant" ? (
-                    <div className="prose prose-sm max-w-none font-body text-[15px] leading-relaxed [&_p]:mb-3 [&_p:last-child]:mb-0 [&_a]:text-sage [&_a]:font-medium [&_a]:no-underline hover:[&_a]:underline [&_ul]:mb-3 [&_ol]:mb-3 [&_li]:mb-1">
-                      <ReactMarkdown rehypePlugins={[rehypeSanitize]}>
-                        {msg.content || "…"}
-                      </ReactMarkdown>
-                    </div>
-                  ) : (
-                    <p className="font-body text-[15px] leading-relaxed whitespace-pre-wrap">
-                      {msg.content}
-                    </p>
-                  )}
-                </div>
-              </div>
-            ))}
-
-            {/* Typing indicator */}
-            {isLoading && messages[messages.length - 1]?.role === "user" && (
-              <div className="flex justify-start">
-                <div className="bg-sage/8 backdrop-blur-sm border border-sage/10 rounded-2xl px-4 py-3">
-                  <div className="flex gap-1.5 items-center h-5">
-                    <span className="w-2 h-2 bg-warm-gray/40 rounded-full animate-bounce [animation-delay:0ms]" />
-                    <span className="w-2 h-2 bg-warm-gray/40 rounded-full animate-bounce [animation-delay:150ms]" />
-                    <span className="w-2 h-2 bg-warm-gray/40 rounded-full animate-bounce [animation-delay:300ms]" />
-                  </div>
-                </div>
-              </div>
-            )}
-
-            <div ref={chatEndRef} />
-          </div>
-        </div>
-
-        {/* Input bar */}
-        <div className="sticky bottom-0 border-t border-grid-line bg-white/80 backdrop-blur-md">
-          <form
-            onSubmit={handleSubmit}
-            className="container max-w-2xl py-3 flex gap-2 items-end"
+        {showWelcome ? (
+          /* ── Empty state ── */
+          <div
+            className="flex-1 relative overflow-hidden"
+            style={{
+              background:
+                "linear-gradient(180deg, rgba(124,139,110,0.10) 0%, rgba(124,139,110,0.03) 60%, #FAF8F5 100%), linear-gradient(180deg, rgba(196,169,106,0.06) 0%, rgba(242,237,228,0.03) 40%, #FAF8F5 100%)",
+            }}
           >
-            <textarea
-              ref={inputRef}
-              value={input}
-              onChange={(e) => setInput(e.target.value)}
-              onKeyDown={handleKeyDown}
-              placeholder={
-                contextLoaded
-                  ? "Ask about cities, neighborhoods, costs..."
-                  : "Loading city data..."
-              }
-              disabled={!contextLoaded}
-              rows={1}
-              className="flex-1 resize-none rounded-xl border border-grid-line bg-white/90 px-4 py-3 font-body text-[15px] text-charcoal placeholder:text-warm-gray/60 focus:outline-none focus:border-sage focus:ring-1 focus:ring-sage/30 disabled:opacity-50 min-h-[48px] max-h-32"
-              style={{ fieldSizing: "content" } as React.CSSProperties}
+            {/* Dot pattern overlay */}
+            <div
+              className="absolute inset-0 pointer-events-none"
+              style={{
+                backgroundImage:
+                  "radial-gradient(circle, rgba(124,139,110,0.18) 1.2px, transparent 1.2px)",
+                backgroundSize: "28px 28px",
+              }}
             />
-            <button
-              type="submit"
-              disabled={!input.trim() || isLoading || !contextLoaded}
-              className="flex-shrink-0 w-12 h-12 flex items-center justify-center rounded-xl bg-sage text-white hover:bg-sage/90 transition-colors disabled:opacity-40 disabled:cursor-not-allowed"
-              aria-label="Send message"
-            >
-              <Send className="w-5 h-5" />
-            </button>
-          </form>
-        </div>
+
+            <div className="relative z-10 container max-w-xl pt-20 md:pt-20 pb-12 flex flex-col items-center text-center">
+              {/* Compass icon */}
+              <div className="w-[68px] h-[68px] rounded-full bg-sage/15 flex items-center justify-center mb-5">
+                <Compass className="w-12 h-12 text-sage" />
+              </div>
+
+              {/* AI-Powered badge */}
+              <span className="font-body text-[11px] font-semibold uppercase tracking-[0.15em] text-sand-gold mb-1">
+                AI-Powered
+              </span>
+
+              {/* Heading */}
+              <h1 className="font-heading font-bold text-[26px] md:text-[32px] text-charcoal leading-tight">
+                Ask our AI advisor about any city in Israel
+              </h1>
+              <p className="mt-3 font-body text-[15px] md:text-[16px] text-warm-gray max-w-md leading-relaxed">
+                Describe your situation — budget, family size, lifestyle,
+                priorities — and get personalized city recommendations based
+                on real CBS data.
+              </p>
+
+              {/* Starter pills — 2×2 grid */}
+              <div className="mt-8 w-full grid grid-cols-1 sm:grid-cols-2 gap-3">
+                {STARTER_PROMPTS.map(({ text, icon: Icon }) => (
+                  <button
+                    key={text}
+                    onClick={() => handleStarterClick(text)}
+                    disabled={isLoading || !contextLoaded}
+                    className="group flex items-start gap-2 px-5 py-4 bg-cream rounded-xl shadow-card font-body text-[15px] text-charcoal text-left transition-all duration-200 hover:shadow-[0_4px_16px_rgba(45,50,52,0.10)] hover:border-l-4 hover:border-l-sage hover:-translate-y-0.5 border-l-4 border-l-transparent disabled:opacity-50 disabled:cursor-not-allowed"
+                  >
+                    <Icon className="w-[18px] h-[18px] text-sage flex-shrink-0 mt-0.5" />
+                    {text}
+                  </button>
+                ))}
+              </div>
+
+              {/* Input bar — part of the flow, not pinned */}
+              <form onSubmit={handleSubmit} className="mt-6 w-full flex items-center gap-2">
+                <textarea
+                  ref={inputRef}
+                  value={input}
+                  onChange={(e) => setInput(e.target.value)}
+                  onKeyDown={handleKeyDown}
+                  placeholder={
+                    contextLoaded
+                      ? "Ask about cities, neighborhoods, costs..."
+                      : "Loading city data..."
+                  }
+                  disabled={!contextLoaded}
+                  rows={1}
+                  className="flex-1 resize-none rounded-xl border border-grid-line bg-white px-4 py-3 font-body text-[15px] text-charcoal placeholder:text-warm-gray/60 focus:outline-none focus:border-sage focus:ring-1 focus:ring-sage/30 disabled:opacity-50 min-h-[48px] max-h-32 shadow-sm"
+                  style={{ fieldSizing: "content" } as React.CSSProperties}
+                />
+                <button
+                  type="submit"
+                  disabled={!input.trim() || isLoading || !contextLoaded}
+                  className="flex-shrink-0 w-12 h-12 flex items-center justify-center rounded-xl bg-sage text-white hover:bg-[#6A7A5E] transition-colors disabled:opacity-40 disabled:cursor-not-allowed shadow-sm"
+                  aria-label="Send message"
+                >
+                  <Send className="w-5 h-5" />
+                </button>
+              </form>
+
+              {/* Disclaimer */}
+              <p className="mt-5 font-body text-[12px] text-warm-gray/50 max-w-md leading-relaxed">
+                The Advisor provides general information based on public data
+                and community insights. It is not financial, legal, or
+                immigration advice. Always consult qualified Israeli
+                professionals for important decisions.
+              </p>
+            </div>
+          </div>
+        ) : (
+          /* ── Active chat state ── */
+          <>
+            {/* Chat header */}
+            <div className="border-b border-grid-line bg-white/80 backdrop-blur-md">
+              <div className="container max-w-2xl py-3 flex items-center justify-between">
+                <div className="flex items-center gap-2.5">
+                  <div className="w-7 h-7 rounded-full bg-sage/15 flex items-center justify-center">
+                    <Compass className="w-4 h-4 text-sage" />
+                  </div>
+                  <span className="font-heading font-semibold text-[16px] text-charcoal">
+                    Navlan Advisor
+                  </span>
+                </div>
+                <button
+                  onClick={handleNewConversation}
+                  className="flex items-center gap-1.5 font-body text-[14px] text-warm-gray hover:text-sage transition-colors"
+                >
+                  <Plus className="w-4 h-4" />
+                  New conversation
+                </button>
+              </div>
+            </div>
+
+            {/* Messages area */}
+            <div className="flex-1 overflow-y-auto">
+              <div className="container max-w-2xl py-6 space-y-4">
+                {messages.map((msg, i) => (
+                  <div
+                    key={i}
+                    className={`flex ${msg.role === "user" ? "justify-end" : "justify-start"}`}
+                  >
+                    {msg.role === "assistant" && (
+                      <div className="flex-shrink-0 w-6 h-6 rounded-full bg-sage/15 flex items-center justify-center mt-1 mr-2">
+                        <Compass className="w-3.5 h-3.5 text-sage" />
+                      </div>
+                    )}
+                    <div
+                      className={`${
+                        msg.role === "user"
+                          ? "max-w-[75%] bg-sage text-white rounded-[12px] rounded-br-[4px] px-4 py-3"
+                          : "max-w-[80%] bg-cream text-charcoal rounded-[12px] rounded-bl-[4px] px-4 py-3"
+                      }`}
+                      onClick={msg.role === "assistant" ? handleMarkdownClick : undefined}
+                    >
+                      {msg.role === "assistant" ? (
+                        <div className="prose prose-sm max-w-none font-body text-[15px] leading-relaxed [&_p]:mb-3 [&_p:last-child]:mb-0 [&_a]:text-horizon-blue [&_a]:font-medium [&_a]:no-underline hover:[&_a]:underline [&_ul]:mb-3 [&_ol]:mb-3 [&_li]:mb-1">
+                          <ReactMarkdown rehypePlugins={[rehypeSanitize]}>
+                            {msg.content || "\u2026"}
+                          </ReactMarkdown>
+                        </div>
+                      ) : (
+                        <p className="font-body text-[15px] leading-relaxed whitespace-pre-wrap">
+                          {msg.content}
+                        </p>
+                      )}
+                    </div>
+                  </div>
+                ))}
+
+                {/* Typing indicator */}
+                {isLoading && messages[messages.length - 1]?.role === "user" && (
+                  <div className="flex justify-start">
+                    <div className="flex-shrink-0 w-6 h-6 rounded-full bg-sage/15 flex items-center justify-center mt-1 mr-2">
+                      <Compass className="w-3.5 h-3.5 text-sage" />
+                    </div>
+                    <div className="bg-cream rounded-[12px] rounded-bl-[4px] px-4 py-3">
+                      <div className="flex gap-1.5 items-center h-5">
+                        <span className="w-2 h-2 bg-warm-gray/40 rounded-full animate-bounce [animation-delay:0ms]" />
+                        <span className="w-2 h-2 bg-warm-gray/40 rounded-full animate-bounce [animation-delay:150ms]" />
+                        <span className="w-2 h-2 bg-warm-gray/40 rounded-full animate-bounce [animation-delay:300ms]" />
+                      </div>
+                    </div>
+                  </div>
+                )}
+
+                <div ref={chatEndRef} />
+              </div>
+            </div>
+
+            {/* Sticky input bar */}
+            <div className="sticky bottom-0 bg-white border-t border-grid-line/60 shadow-[0_-2px_8px_rgba(45,50,52,0.04)]">
+              <form
+                onSubmit={handleSubmit}
+                className="container max-w-2xl py-4 flex gap-2 items-end"
+              >
+                <textarea
+                  ref={inputRef}
+                  value={input}
+                  onChange={(e) => setInput(e.target.value)}
+                  onKeyDown={handleKeyDown}
+                  placeholder="Ask about cities, neighborhoods, costs..."
+                  rows={1}
+                  className="flex-1 resize-none rounded-xl border border-grid-line bg-white px-4 py-3 font-body text-[15px] text-charcoal placeholder:text-warm-gray/60 focus:outline-none focus:border-sage focus:ring-1 focus:ring-sage/30 min-h-[48px] max-h-32"
+                  style={{ fieldSizing: "content" } as React.CSSProperties}
+                />
+                <button
+                  type="submit"
+                  disabled={!input.trim() || isLoading}
+                  className="flex-shrink-0 w-12 h-12 flex items-center justify-center rounded-xl bg-sage text-white hover:bg-sage/90 transition-colors disabled:opacity-40 disabled:cursor-not-allowed"
+                  aria-label="Send message"
+                >
+                  <Send className="w-5 h-5" />
+                </button>
+              </form>
+            </div>
+          </>
+        )}
       </main>
     </div>
   );
