@@ -6,12 +6,11 @@ import { supabase } from "@/integrations/supabase/client";
 import { Card } from "@/components/ui/card";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Badge } from "@/components/ui/badge";
+import { cn } from "@/lib/utils";
 import InsightCard from "./InsightCard";
 import { useIsMobile } from "@/hooks/use-mobile";
-import { buildLabel, getXAxisConfig, getNiceYDomain, type ChartPoint } from "@/lib/chartUtils";
+import { buildLabel, getXAxisConfig, getNiceYDomain, filterByRange, TIME_RANGES, type TimeRange, type ChartPoint } from "@/lib/chartUtils";
 import { chartColors, axisTick } from "@/lib/chartColors";
-
-const MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
 
 interface StatRow {
   year: number;
@@ -28,6 +27,7 @@ const ConstructionPipeline = () => {
   const [unsoldChart, setUnsoldChart] = useState<ChartPoint[]>([]);
   const [startsChart, setStartsChart] = useState<ChartPoint[]>([]);
   const [loading, setLoading] = useState(true);
+  const [range, setRange] = useState<TimeRange>("Max");
   const isMobile = useIsMobile();
 
   useEffect(() => {
@@ -92,10 +92,13 @@ const ConstructionPipeline = () => {
     fetch();
   }, []);
 
-  const unsoldXAxis = getXAxisConfig(unsoldChart, isMobile);
-  const unsoldYDomain = getNiceYDomain(unsoldChart.map(d => d.value as number));
-  const startsXAxis = getXAxisConfig(startsChart, isMobile);
-  const startsYDomain = getNiceYDomain(startsChart.map(d => d.value as number));
+  const filteredUnsold = filterByRange(unsoldChart, range);
+  const filteredStarts = filterByRange(startsChart, range);
+
+  const unsoldXAxis = getXAxisConfig(filteredUnsold, isMobile, range);
+  const unsoldYDomain = getNiceYDomain(filteredUnsold.map(d => d.value as number));
+  const startsXAxis = getXAxisConfig(filteredStarts, isMobile, range);
+  const startsYDomain = getNiceYDomain(filteredStarts.map(d => d.value as number));
 
   if (loading) {
     return (
@@ -132,7 +135,24 @@ const ConstructionPipeline = () => {
         paddingRight: "calc(50vw - 50%)",
       }}
     >
-      <h2 className="font-heading font-semibold text-[22px] text-charcoal mb-6">Construction Activity</h2>
+      <div className="flex items-center justify-between mb-6">
+        <h2 className="font-heading font-semibold text-[22px] text-charcoal">Construction Activity</h2>
+        <div className="flex items-center gap-2" role="group" aria-label="Time range">
+          {TIME_RANGES.map((r) => (
+            <button
+              key={r}
+              onClick={() => setRange(r)}
+              aria-pressed={range === r}
+              className={cn(
+                "px-3 py-1.5 rounded-full font-body text-[13px] font-medium transition-colors",
+                range === r ? "bg-sage text-white" : "bg-warm-white text-charcoal hover:bg-sage/10"
+              )}
+            >
+              {r}
+            </button>
+          ))}
+        </div>
+      </div>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mb-8">
         <Card className="p-5 bg-warm-white border-0 shadow-card">
@@ -160,101 +180,106 @@ const ConstructionPipeline = () => {
         </Card>
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-6">
-        {/* Unsold Inventory Chart */}
-        <div>
-          <h3 className="font-heading font-semibold text-[18px] text-charcoal mb-4">Unsold Inventory Trend</h3>
-          {unsoldChart.length > 0 ? (
-            <div style={{ minHeight: 250 }} aria-label="Unsold new housing inventory trend chart">
-              <ResponsiveContainer width="100%" height={260}>
-                <AreaChart data={unsoldChart}>
-                  <defs>
-                    <linearGradient id="unsoldGrad" x1="0" y1="0" x2="0" y2="1">
-                      <stop offset="0%" stopColor={chartColors.terraRed} stopOpacity={0.1} />
-                      <stop offset="100%" stopColor={chartColors.terraRed} stopOpacity={0} />
-                    </linearGradient>
-                  </defs>
-                  <CartesianGrid horizontal vertical={false} stroke={chartColors.gridLine} />
-                  <XAxis
-                    dataKey="label"
-                    ticks={unsoldXAxis.ticks}
-                    tickFormatter={unsoldXAxis.tickFormatter}
-                    tick={axisTick}
-                    axisLine={false}
-                    tickLine={false}
-                  />
-                  <YAxis
-                    domain={unsoldYDomain.domain}
-                    ticks={unsoldYDomain.ticks}
-                    tick={axisTick}
-                    axisLine={false}
-                    tickLine={false}
-                    width={50}
-                    tickFormatter={(v) => `${Math.round(v / 1000)}K`}
-                  />
-                  <Tooltip content={<ChartTooltip />} />
-                  <Area type="monotone" dataKey="value" stroke={chartColors.terraRed} strokeWidth={2} fill="url(#unsoldGrad)" dot={false} />
-                </AreaChart>
-              </ResponsiveContainer>
+      <div className="lg:flex lg:gap-8 lg:items-start">
+        <div className="lg:w-[60%]">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-6">
+            {/* Unsold Inventory Chart */}
+            <div>
+              <h3 className="font-heading font-semibold text-[18px] text-charcoal mb-4">Unsold Inventory Trend</h3>
+              {filteredUnsold.length > 0 ? (
+                <div style={{ minHeight: 250 }} aria-label="Unsold new housing inventory trend chart">
+                  <ResponsiveContainer width="100%" height={260}>
+                    <AreaChart data={filteredUnsold}>
+                      <defs>
+                        <linearGradient id="unsoldGrad" x1="0" y1="0" x2="0" y2="1">
+                          <stop offset="0%" stopColor={chartColors.terraRed} stopOpacity={0.1} />
+                          <stop offset="100%" stopColor={chartColors.terraRed} stopOpacity={0} />
+                        </linearGradient>
+                      </defs>
+                      <CartesianGrid horizontal vertical={false} stroke={chartColors.gridLine} />
+                      <XAxis
+                        dataKey="label"
+                        ticks={unsoldXAxis.ticks}
+                        tickFormatter={unsoldXAxis.tickFormatter}
+                        tick={axisTick}
+                        axisLine={false}
+                        tickLine={false}
+                      />
+                      <YAxis
+                        domain={unsoldYDomain.domain}
+                        ticks={unsoldYDomain.ticks}
+                        tick={axisTick}
+                        axisLine={false}
+                        tickLine={false}
+                        width={50}
+                        tickFormatter={(v) => `${Math.round(v / 1000)}K`}
+                      />
+                      <Tooltip content={<ChartTooltip />} />
+                      <Area type="monotone" dataKey="value" stroke={chartColors.terraRed} strokeWidth={2} fill="url(#unsoldGrad)" dot={false} />
+                    </AreaChart>
+                  </ResponsiveContainer>
+                </div>
+              ) : (
+                <Card className="p-8 bg-warm-white border-0 text-center">
+                  <p className="font-body text-warm-gray">Data coming soon</p>
+                </Card>
+              )}
             </div>
-          ) : (
-            <Card className="p-8 bg-warm-white border-0 text-center">
-              <p className="font-body text-warm-gray">Data coming soon</p>
-            </Card>
-          )}
-        </div>
 
-        {/* Construction Starts Chart */}
-        <div>
-          <h3 className="font-heading font-semibold text-[18px] text-charcoal mb-4">Construction Starts</h3>
-          {startsChart.length > 0 ? (
-            <div style={{ minHeight: 250 }} aria-label="Monthly construction starts trend chart">
-              <ResponsiveContainer width="100%" height={260}>
-                <BarChart data={startsChart}>
-                  <CartesianGrid horizontal vertical={false} stroke={chartColors.gridLine} />
-                  <XAxis
-                    dataKey="label"
-                    ticks={startsXAxis.ticks}
-                    tickFormatter={startsXAxis.tickFormatter}
-                    tick={axisTick}
-                    axisLine={false}
-                    tickLine={false}
-                  />
-                  <YAxis
-                    domain={startsYDomain.domain}
-                    ticks={startsYDomain.ticks}
-                    tick={axisTick}
-                    axisLine={false}
-                    tickLine={false}
-                    width={50}
-                    tickFormatter={(v) => `${Math.round(v / 1000)}K`}
-                  />
-                  <Tooltip content={<ChartTooltip />} />
-                  <Bar dataKey="value" fill={chartColors.horizonBlue} radius={[2, 2, 0, 0]} />
-                </BarChart>
-              </ResponsiveContainer>
+            {/* Construction Starts Chart */}
+            <div>
+              <h3 className="font-heading font-semibold text-[18px] text-charcoal mb-4">Construction Starts</h3>
+              {filteredStarts.length > 0 ? (
+                <div style={{ minHeight: 250 }} aria-label="Monthly construction starts trend chart">
+                  <ResponsiveContainer width="100%" height={260}>
+                    <BarChart data={filteredStarts}>
+                      <CartesianGrid horizontal vertical={false} stroke={chartColors.gridLine} />
+                      <XAxis
+                        dataKey="label"
+                        ticks={startsXAxis.ticks}
+                        tickFormatter={startsXAxis.tickFormatter}
+                        tick={axisTick}
+                        axisLine={false}
+                        tickLine={false}
+                      />
+                      <YAxis
+                        domain={startsYDomain.domain}
+                        ticks={startsYDomain.ticks}
+                        tick={axisTick}
+                        axisLine={false}
+                        tickLine={false}
+                        width={50}
+                        tickFormatter={(v) => `${Math.round(v / 1000)}K`}
+                      />
+                      <Tooltip content={<ChartTooltip />} />
+                      <Bar dataKey="value" fill={chartColors.horizonBlue} radius={[2, 2, 0, 0]} />
+                    </BarChart>
+                  </ResponsiveContainer>
+                </div>
+              ) : (
+                <Card className="p-8 bg-warm-white border-0 text-center">
+                  <p className="font-body text-warm-gray">Data coming soon</p>
+                </Card>
+              )}
             </div>
-          ) : (
-            <Card className="p-8 bg-warm-white border-0 text-center">
-              <p className="font-body text-warm-gray">Data coming soon</p>
-            </Card>
+          </div>
+
+          <p className="font-body text-[12px] text-warm-gray mt-4">
+            Source: CBS Construction Statistics
+          </p>
+        </div>
+        <div className="lg:w-[40%]">
+          {monthsSupply != null && (
+            <InsightCard layout="inline">
+              {monthsSupply > 24
+                ? `With ${monthsSupply.toFixed(1)} months of unsold inventory, the new construction market favors buyers. Historically, 12–18 months is considered balanced.`
+                : monthsSupply >= 18
+                  ? `At ${monthsSupply.toFixed(1)} months of supply, inventory is elevated but not extreme.`
+                  : `At ${monthsSupply.toFixed(1)} months of supply, the new construction market is relatively balanced.`}
+            </InsightCard>
           )}
         </div>
       </div>
-
-      <p className="font-body text-[12px] text-warm-gray mt-4">
-        Source: CBS Construction Statistics
-      </p>
-
-      {monthsSupply != null && (
-        <InsightCard layout="full-width">
-          {monthsSupply > 24
-            ? `With ${monthsSupply.toFixed(1)} months of unsold inventory, the new construction market favors buyers. Historically, 12–18 months is considered balanced.`
-            : monthsSupply >= 18
-              ? `At ${monthsSupply.toFixed(1)} months of supply, inventory is elevated but not extreme.`
-              : `At ${monthsSupply.toFixed(1)} months of supply, the new construction market is relatively balanced.`}
-        </InsightCard>
-      )}
     </section>
   );
 };
