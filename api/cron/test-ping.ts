@@ -1,37 +1,23 @@
-// Test: dynamic imports to find which module crashes at load time
-export async function GET(req: Request) {
-  const results: Record<string, string> = {};
+// Test: static imports to verify includeFiles config works
+import { verifyCronAuth } from '../lib/cron-auth';
+import { getSupabaseAdmin } from '../lib/supabase-admin';
 
+export function GET(req: Request) {
   try {
-    await import('../lib/cron-auth');
-    results['cron-auth'] = 'OK';
+    const authResult = verifyCronAuth(req.headers);
+    const sb = getSupabaseAdmin();
+    return new Response(JSON.stringify({
+      ok: true,
+      authBlocked: !!authResult,
+      hasClient: !!sb,
+    }), {
+      status: 200,
+      headers: { 'Content-Type': 'application/json' },
+    });
   } catch (err: any) {
-    results['cron-auth'] = `FAIL: ${err.message}`;
+    return new Response(JSON.stringify({ ok: false, error: err.message }), {
+      status: 500,
+      headers: { 'Content-Type': 'application/json' },
+    });
   }
-
-  try {
-    await import('../lib/supabase-admin');
-    results['supabase-admin'] = 'OK';
-  } catch (err: any) {
-    results['supabase-admin'] = `FAIL: ${err.message}`;
-  }
-
-  try {
-    await import('../lib/cbs-api');
-    results['cbs-api'] = 'OK';
-  } catch (err: any) {
-    results['cbs-api'] = `FAIL: ${err.message}`;
-  }
-
-  try {
-    await import('../lib/boi-api');
-    results['boi-api'] = 'OK';
-  } catch (err: any) {
-    results['boi-api'] = `FAIL: ${err.message}`;
-  }
-
-  return new Response(JSON.stringify(results, null, 2), {
-    status: 200,
-    headers: { 'Content-Type': 'application/json' },
-  });
 }

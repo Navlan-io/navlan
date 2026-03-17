@@ -1,4 +1,9 @@
 {
+  "functions": {
+    "api/cron/*.ts": {
+      "includeFiles": "api/lib/**"
+    }
+  },
   "crons": [
     { "path": "/api/cron/exchange-rates", "schedule": "0 18 * * 1-5" },
     { "path": "/api/cron/price-indices", "schedule": "0 10 * * 1" },
