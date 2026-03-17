@@ -102,7 +102,7 @@ const ConstructionPipeline = () => {
 
   if (loading) {
     return (
-      <section className="bg-cream -mx-8 px-8 py-12 rounded-none" style={{ marginLeft: "calc(-50vw + 50%)", marginRight: "calc(-50vw + 50%)", paddingLeft: "calc(50vw - 50%)", paddingRight: "calc(50vw - 50%)" }}>
+      <section>
         <Skeleton className="h-8 w-56 mb-6" />
         <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mb-6">
           <Skeleton className="h-24" />
@@ -125,16 +125,7 @@ const ConstructionPipeline = () => {
   };
 
   return (
-    <section
-      className="py-12"
-      style={{
-        backgroundColor: "hsl(var(--cream))",
-        marginLeft: "calc(-50vw + 50%)",
-        marginRight: "calc(-50vw + 50%)",
-        paddingLeft: "calc(50vw - 50%)",
-        paddingRight: "calc(50vw - 50%)",
-      }}
-    >
+    <section>
       <div className="flex items-center justify-between mb-6">
         <h2 className="font-heading font-semibold text-[22px] text-charcoal">Construction Activity</h2>
         <div className="flex items-center gap-2" role="group" aria-label="Time range">
@@ -145,7 +136,7 @@ const ConstructionPipeline = () => {
               aria-pressed={range === r}
               className={cn(
                 "px-3 py-1.5 rounded-full font-body text-[13px] font-medium transition-colors",
-                range === r ? "bg-sage text-white" : "bg-warm-white text-charcoal hover:bg-sage/10"
+                range === r ? "bg-sage text-white" : "bg-cream text-charcoal hover:bg-sage/10"
               )}
             >
               {r}
@@ -155,13 +146,13 @@ const ConstructionPipeline = () => {
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mb-8">
-        <Card className="p-5 bg-warm-white border-0 shadow-card">
+        <Card className="p-5 bg-cream border-0 shadow-card">
           <span className="font-body text-[13px] text-warm-gray block">Unsold New Units</span>
           <span className="font-body font-bold text-[28px] text-charcoal">
             {unsoldLatest != null ? formatNumber(unsoldLatest) : "—"}
           </span>
         </Card>
-        <Card className="p-5 bg-warm-white border-0 shadow-card">
+        <Card className="p-5 bg-cream border-0 shadow-card">
           <span className="font-body text-[13px] text-warm-gray block">Months of Supply</span>
           <div className="flex items-center gap-2">
             <span className="font-body font-bold text-[28px] text-charcoal">
@@ -172,7 +163,7 @@ const ConstructionPipeline = () => {
             )}
           </div>
         </Card>
-        <Card className="p-5 bg-warm-white border-0 shadow-card">
+        <Card className="p-5 bg-cream border-0 shadow-card">
           <span className="font-body text-[13px] text-warm-gray block">Monthly Starts</span>
           <span className="font-body font-bold text-[28px] text-charcoal">
             {startsLatest != null ? formatNumber(startsLatest) : "—"}
@@ -220,7 +211,7 @@ const ConstructionPipeline = () => {
                   </ResponsiveContainer>
                 </div>
               ) : (
-                <Card className="p-8 bg-warm-white border-0 text-center">
+                <Card className="p-8 bg-cream border-0 text-center">
                   <p className="font-body text-warm-gray">Data coming soon</p>
                 </Card>
               )}
@@ -257,7 +248,7 @@ const ConstructionPipeline = () => {
                   </ResponsiveContainer>
                 </div>
               ) : (
-                <Card className="p-8 bg-warm-white border-0 text-center">
+                <Card className="p-8 bg-cream border-0 text-center">
                   <p className="font-body text-warm-gray">Data coming soon</p>
                 </Card>
               )}

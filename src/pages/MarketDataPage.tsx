@@ -107,9 +107,11 @@ const MarketDataPage = () => {
 
         <div className="h-px bg-gradient-to-r from-transparent via-sand-gold/20 to-transparent" />
 
-        {/* Section 3: ConstructionPipeline — needs container wrapper so its calc(-50vw + 50%) breakout math works */}
-        <div className="container max-w-[1200px]">
-          <div id="construction-pipeline" className="scroll-mt-24"><ConstructionPipeline /></div>
+        {/* Section 3: ConstructionPipeline — odd (warm-white) */}
+        <div className="bg-warm-white" style={{ marginLeft: "calc(-50vw + 50%)", marginRight: "calc(-50vw + 50%)", paddingLeft: "calc(50vw - 50%)", paddingRight: "calc(50vw - 50%)" }}>
+          <div className="max-w-[1200px] mx-auto py-12">
+            <div id="construction-pipeline" className="scroll-mt-24"><ConstructionPipeline /></div>
+          </div>
         </div>
 
         <div className="h-px bg-gradient-to-r from-transparent via-sand-gold/20 to-transparent" />
