@@ -152,7 +152,7 @@ const DistrictComparison = () => {
         </ResponsiveContainer>
       </div>
 
-      <div className="flex flex-wrap items-center gap-3 mt-4">
+      <div className="flex flex-wrap items-center gap-x-6 gap-y-2 mt-4">
         {DISTRICTS.map((d) => (
           <a
             key={d.code}
@@ -184,7 +184,7 @@ const DistrictComparison = () => {
         const prevSpread = prevHigh - prevLow;
         const spreadDir = spread > prevSpread ? "widened" : "narrowed";
         return (
-          <InsightCard>
+          <InsightCard layout="full-width">
             The {highest.name} district leads with an index of {highest.value?.toFixed(1)}, while {lowest.name} is lowest at {lowest.value?.toFixed(1)}. The gap between the most and least expensive regions has {spreadDir} over the past year.
           </InsightCard>
         );
