@@ -98,8 +98,8 @@ const MarketDataPage = () => {
 
         <div className="h-px bg-gradient-to-r from-transparent via-sand-gold/20 to-transparent" />
 
-        {/* Section 2: DistrictComparison — even (cream) */}
-        <div className="bg-cream" style={{ marginLeft: "calc(-50vw + 50%)", marginRight: "calc(-50vw + 50%)", paddingLeft: "calc(50vw - 50%)", paddingRight: "calc(50vw - 50%)" }}>
+        {/* Section 2: DistrictComparison — even (cream-dark) */}
+        <div className="bg-cream-dark" style={{ marginLeft: "calc(-50vw + 50%)", marginRight: "calc(-50vw + 50%)", paddingLeft: "calc(50vw - 50%)", paddingRight: "calc(50vw - 50%)" }}>
           <div className="max-w-[1200px] mx-auto py-12">
             <div id="district-comparison" className="scroll-mt-24"><DistrictComparison /></div>
           </div>
@@ -114,8 +114,8 @@ const MarketDataPage = () => {
 
         <div className="h-px bg-gradient-to-r from-transparent via-sand-gold/20 to-transparent" />
 
-        {/* Section 4: MortgageRates — even (cream) */}
-        <div className="bg-cream" style={{ marginLeft: "calc(-50vw + 50%)", marginRight: "calc(-50vw + 50%)", paddingLeft: "calc(50vw - 50%)", paddingRight: "calc(50vw - 50%)" }}>
+        {/* Section 4: MortgageRates — even (cream-dark) */}
+        <div className="bg-cream-dark" style={{ marginLeft: "calc(-50vw + 50%)", marginRight: "calc(-50vw + 50%)", paddingLeft: "calc(50vw - 50%)", paddingRight: "calc(50vw - 50%)" }}>
           <div className="max-w-[1200px] mx-auto py-12">
             <div id="mortgage-rates" className="scroll-mt-24"><MortgageRates /></div>
           </div>
@@ -132,8 +132,8 @@ const MarketDataPage = () => {
 
         <div className="h-px bg-gradient-to-r from-transparent via-sand-gold/20 to-transparent" />
 
-        {/* Section 6: ConstructionCosts — even (cream) */}
-        <div className="bg-cream" style={{ marginLeft: "calc(-50vw + 50%)", marginRight: "calc(-50vw + 50%)", paddingLeft: "calc(50vw - 50%)", paddingRight: "calc(50vw - 50%)" }}>
+        {/* Section 6: ConstructionCosts — even (cream-dark) */}
+        <div className="bg-cream-dark" style={{ marginLeft: "calc(-50vw + 50%)", marginRight: "calc(-50vw + 50%)", paddingLeft: "calc(50vw - 50%)", paddingRight: "calc(50vw - 50%)" }}>
           <div className="max-w-[1200px] mx-auto py-12">
             <div id="construction-costs" className="scroll-mt-24"><ConstructionCosts /></div>
           </div>

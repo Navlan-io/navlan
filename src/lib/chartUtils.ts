@@ -4,6 +4,21 @@
 
 const MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
 
+export const TIME_RANGES = ["1Y", "3Y", "5Y", "Max"] as const;
+export type TimeRange = (typeof TIME_RANGES)[number];
+
+/** Filter data points by time range relative to today. */
+export function filterByRange<T extends { year: number; month: number }>(
+  data: T[],
+  range: TimeRange,
+): T[] {
+  if (range === "Max") return data;
+  const years = range === "1Y" ? 1 : range === "3Y" ? 3 : 5;
+  const now = new Date();
+  const cutoff = new Date(now.getFullYear() - years, now.getMonth(), 1);
+  return data.filter((d) => new Date(d.year, d.month - 1, 1) >= cutoff);
+}
+
 /**
  * Build chart data items that embed year/month for smart tick filtering.
  */
@@ -20,59 +35,56 @@ export function buildLabel(month: number, year: number): string {
 
 /**
  * Returns a tick filter function for XAxis.
- * - Mobile (< 768px): show only January of each year → "2018", "2019", etc.
- * - Desktop: show every ~3-6 months → "Jan '22", "Jul '22", etc.
- *
- * Usage: pass the full data array and use the returned function as the XAxis tick formatter
- * combined with a custom interval.
+ * Range-aware formatting:
+ *   1Y  → every 2-3 months, "Jan '25" format
+ *   3Y  → every ~6 months (Jan & Jul), "Jan '23" format
+ *   5Y  → yearly, "2021" format
+ *   Max → yearly, "2018" format
+ *   Mobile always shows yearly regardless of range.
  */
 export function getXAxisConfig(data: ChartPoint[], isMobile: boolean, range?: string) {
   if (data.length === 0) return { ticks: [] as string[], tickFormatter: (v: string) => v };
 
   const selectedLabels = new Set<string>();
-
-  // Determine if this is a long-range view (5+ years of data or explicit Max/5Y range)
   const dataYearSpan = data.length > 0
     ? data[data.length - 1].year - data[0].year
     : 0;
-  const isLongRange = range === "Max" || range === "5Y" || dataYearSpan >= 5;
 
-  // On mobile or long-range desktop views, show only one tick per year
-  if (isMobile || isLongRange) {
-    const seenYears = new Set<number>();
-    // Find the first full year (skip partial first year)
-    const firstYear = data[0]?.year;
-    const firstYearHasJan = data.some(p => p.year === firstYear && p.month === 1);
+  // Mobile always gets yearly ticks
+  if (isMobile) {
+    addYearlyTicks(data, selectedLabels);
+  } else if (range === "1Y") {
+    // 1Y desktop: every 3 months (Jan, Apr, Jul, Oct)
     for (const point of data) {
-      // Skip partial first year (no January data)
-      if (point.year === firstYear && !firstYearHasJan) continue;
-      if (!seenYears.has(point.year)) {
-        seenYears.add(point.year);
-        selectedLabels.add(point.label);
-      }
+      if (point.month % 3 === 1) selectedLabels.add(point.label);
     }
+    addFirstLast(data, selectedLabels);
+  } else if (range === "3Y") {
+    // 3Y desktop: every 6 months (Jan and Jul)
+    for (const point of data) {
+      if (point.month === 1 || point.month === 7) selectedLabels.add(point.label);
+    }
+    addFirstLast(data, selectedLabels);
+  } else if (range === "5Y" || range === "Max" || dataYearSpan >= 5) {
+    // Long-range: yearly ticks
+    addYearlyTicks(data, selectedLabels);
   } else {
-    // Desktop short-range: show roughly every 3-6 months depending on data density
+    // Desktop, no explicit range, short data: every 3-6 months
     const totalPoints = data.length;
     const interval = totalPoints > 60 ? 6 : totalPoints > 24 ? 3 : 2;
-    for (let i = 0; i < data.length; i++) {
-      const point = data[i];
+    for (const point of data) {
       if (point.month % interval === 1 || (interval <= 2 && point.month % interval === 0)) {
         selectedLabels.add(point.label);
       }
     }
-    // Always include first and last
-    if (data.length > 0) {
-      selectedLabels.add(data[0].label);
-      selectedLabels.add(data[data.length - 1].label);
-    }
+    addFirstLast(data, selectedLabels);
   }
 
   const ticks = data.filter(d => selectedLabels.has(d.label)).map(d => d.label);
+  const showYearOnly = isMobile || range === "5Y" || range === "Max" || (!range && dataYearSpan >= 5);
 
   const tickFormatter = (label: string) => {
-    if (isMobile || isLongRange) {
-      // Extract year from label like "Jan '22" → "2022"
+    if (showYearOnly) {
       const match = label.match(/'(\d{2})$/);
       if (match) return `20${match[1]}`;
     }
@@ -80,6 +92,26 @@ export function getXAxisConfig(data: ChartPoint[], isMobile: boolean, range?: st
   };
 
   return { ticks, tickFormatter };
+}
+
+function addYearlyTicks(data: ChartPoint[], labels: Set<string>) {
+  const seenYears = new Set<number>();
+  const firstYear = data[0]?.year;
+  const firstYearHasJan = data.some(p => p.year === firstYear && p.month === 1);
+  for (const point of data) {
+    if (point.year === firstYear && !firstYearHasJan) continue;
+    if (!seenYears.has(point.year)) {
+      seenYears.add(point.year);
+      labels.add(point.label);
+    }
+  }
+}
+
+function addFirstLast(data: ChartPoint[], labels: Set<string>) {
+  if (data.length > 0) {
+    labels.add(data[0].label);
+    labels.add(data[data.length - 1].label);
+  }
 }
 
 /**

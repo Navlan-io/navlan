@@ -60,6 +60,7 @@ export default {
         "sand-gold": "#C4A96A",
         "warm-white": "#FAF8F5",
         cream: "#F2EDE4",
+        "cream-dark": "#EAE4D9",
         charcoal: "#2D3234",
         "warm-gray": "#6B7178",
         "horizon-blue": "#4A7F8B",

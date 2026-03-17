@@ -5,9 +5,10 @@ import {
 import { supabase } from "@/integrations/supabase/client";
 import { Card } from "@/components/ui/card";
 import { Skeleton } from "@/components/ui/skeleton";
+import { cn } from "@/lib/utils";
 import InsightCard from "./InsightCard";
 import { useIsMobile } from "@/hooks/use-mobile";
-import { buildLabel, getXAxisConfig, getNiceYDomain, type ChartPoint } from "@/lib/chartUtils";
+import { buildLabel, getXAxisConfig, getNiceYDomain, filterByRange, TIME_RANGES, type TimeRange, type ChartPoint } from "@/lib/chartUtils";
 import { chartColors, axisTick, districtColors } from "@/lib/chartColors";
 
 const DISTRICTS = [
@@ -22,6 +23,7 @@ const DISTRICTS = [
 const DistrictComparison = () => {
   const [chartData, setChartData] = useState<ChartPoint[]>([]);
   const [loading, setLoading] = useState(true);
+  const [range, setRange] = useState<TimeRange>("Max");
   const isMobile = useIsMobile();
 
   useEffect(() => {
@@ -83,14 +85,16 @@ const DistrictComparison = () => {
     );
   }
 
-  // Collect all district values for Y domain
+  const filtered = filterByRange(chartData, range);
+
+  // Collect all district values for Y domain from filtered data
   const allValues: number[] = [];
-  for (const point of chartData) {
+  for (const point of filtered) {
     for (const d of DISTRICTS) {
       if (point[d.name] != null) allValues.push(point[d.name] as number);
     }
   }
-  const xAxisConfig = getXAxisConfig(chartData, isMobile);
+  const xAxisConfig = getXAxisConfig(filtered, isMobile, range);
   const yDomain = getNiceYDomain(allValues);
 
   const CustomTooltip = ({ active, payload, label }: any) => {
@@ -111,84 +115,106 @@ const DistrictComparison = () => {
 
   return (
     <section>
-      <h2 className="font-heading font-semibold text-[22px] text-charcoal mb-1">Prices by District</h2>
+      <div className="flex items-center justify-between mb-1">
+        <h2 className="font-heading font-semibold text-[22px] text-charcoal">Prices by District</h2>
+        <div className="flex items-center gap-2" role="group" aria-label="Time range">
+          {TIME_RANGES.map((r) => (
+            <button
+              key={r}
+              onClick={() => setRange(r)}
+              aria-pressed={range === r}
+              className={cn(
+                "px-3 py-1.5 rounded-full font-body text-[13px] font-medium transition-colors",
+                range === r ? "bg-sage text-white" : "bg-cream text-charcoal hover:bg-sage/10"
+              )}
+            >
+              {r}
+            </button>
+          ))}
+        </div>
+      </div>
       <p className="font-body text-[15px] text-warm-gray mb-6">
         Regional price index trends across Israel's six statistical districts
       </p>
 
-      <div style={{ minHeight: 250 }} aria-label="Price index comparison across Israel's six districts">
-        <ResponsiveContainer width="100%" height={300}>
-          <LineChart data={chartData}>
-            <CartesianGrid horizontal vertical={false} stroke={chartColors.gridLine} />
-            <XAxis
-              dataKey="label"
-              ticks={xAxisConfig.ticks}
-              tickFormatter={xAxisConfig.tickFormatter}
-              tick={axisTick}
-              axisLine={false}
-              tickLine={false}
-            />
-            <YAxis
-              domain={yDomain.domain}
-              ticks={yDomain.ticks}
-              tick={axisTick}
-              axisLine={false}
-              tickLine={false}
-              width={40}
-            />
-            <Tooltip content={<CustomTooltip />} />
+      <div className="lg:flex lg:gap-8 lg:items-start">
+        <div className="lg:w-[60%]">
+          <div style={{ minHeight: 250 }} aria-label="Price index comparison across Israel's six districts">
+            <ResponsiveContainer width="100%" height={300}>
+              <LineChart data={filtered}>
+                <CartesianGrid horizontal vertical={false} stroke={chartColors.gridLine} />
+                <XAxis
+                  dataKey="label"
+                  ticks={xAxisConfig.ticks}
+                  tickFormatter={xAxisConfig.tickFormatter}
+                  tick={axisTick}
+                  axisLine={false}
+                  tickLine={false}
+                />
+                <YAxis
+                  domain={yDomain.domain}
+                  ticks={yDomain.ticks}
+                  tick={axisTick}
+                  axisLine={false}
+                  tickLine={false}
+                  width={40}
+                />
+                <Tooltip content={<CustomTooltip />} />
+                {DISTRICTS.map((d) => (
+                  <Line
+                    key={d.code}
+                    type="monotone"
+                    dataKey={d.name}
+                    stroke={d.color}
+                    strokeWidth={2}
+                    dot={false}
+                    connectNulls
+                  />
+                ))}
+              </LineChart>
+            </ResponsiveContainer>
+          </div>
+
+          <div className="flex flex-wrap items-center gap-x-6 gap-y-2 mt-4">
             {DISTRICTS.map((d) => (
-              <Line
+              <a
                 key={d.code}
-                type="monotone"
-                dataKey={d.name}
-                stroke={d.color}
-                strokeWidth={2}
-                dot={false}
-                connectNulls
-              />
+                href="/#explore-cities"
+                className="flex items-center gap-1.5 font-body text-[13px] text-charcoal no-underline hover:underline"
+              >
+                <div className="w-3 h-3 rounded-full" style={{ backgroundColor: d.color }} />
+                {d.name}
+              </a>
             ))}
-          </LineChart>
-        </ResponsiveContainer>
+          </div>
+
+          <p className="font-body text-[12px] text-warm-gray mt-3">
+            Source: CBS Dwelling Price Index by District
+          </p>
+        </div>
+        <div className="lg:w-[40%]">
+          {chartData.length > 0 && (() => {
+            const lastPoint = chartData[chartData.length - 1];
+            const districtValues = DISTRICTS.map(d => ({ name: d.name, value: lastPoint[d.name] as number | undefined })).filter(d => d.value != null);
+            if (districtValues.length < 2) return null;
+            districtValues.sort((a, b) => (b.value ?? 0) - (a.value ?? 0));
+            const highest = districtValues[0];
+            const lowest = districtValues[districtValues.length - 1];
+            const spread = (highest.value ?? 0) - (lowest.value ?? 0);
+            const prevIdx = Math.max(0, chartData.length - 13);
+            const prevPoint = chartData[prevIdx];
+            const prevHigh = Math.max(...DISTRICTS.map(d => (prevPoint[d.name] as number) ?? 0));
+            const prevLow = Math.min(...DISTRICTS.map(d => (prevPoint[d.name] as number) ?? Infinity).filter(v => v !== Infinity && v > 0));
+            const prevSpread = prevHigh - prevLow;
+            const spreadDir = spread > prevSpread ? "widened" : "narrowed";
+            return (
+              <InsightCard layout="inline">
+                The {highest.name} district leads with an index of {highest.value?.toFixed(1)}, while {lowest.name} is lowest at {lowest.value?.toFixed(1)}. The gap between the most and least expensive regions has {spreadDir} over the past year.
+              </InsightCard>
+            );
+          })()}
+        </div>
       </div>
-
-      <div className="flex flex-wrap items-center gap-x-6 gap-y-2 mt-4">
-        {DISTRICTS.map((d) => (
-          <a
-            key={d.code}
-            href="/#explore-cities"
-            className="flex items-center gap-1.5 font-body text-[13px] text-charcoal no-underline hover:underline"
-          >
-            <div className="w-3 h-3 rounded-full" style={{ backgroundColor: d.color }} />
-            {d.name}
-          </a>
-        ))}
-      </div>
-
-      <p className="font-body text-[12px] text-warm-gray mt-3">
-        Source: CBS Dwelling Price Index by District
-      </p>
-
-      {chartData.length > 0 && (() => {
-        const lastPoint = chartData[chartData.length - 1];
-        const districtValues = DISTRICTS.map(d => ({ name: d.name, value: lastPoint[d.name] as number | undefined })).filter(d => d.value != null);
-        if (districtValues.length < 2) return null;
-        districtValues.sort((a, b) => (b.value ?? 0) - (a.value ?? 0));
-        const highest = districtValues[0];
-        const lowest = districtValues[districtValues.length - 1];
-        const spread = (highest.value ?? 0) - (lowest.value ?? 0);
-        const prevIdx = Math.max(0, chartData.length - 13);
-        const prevPoint = chartData[prevIdx];
-        const prevHigh = Math.max(...DISTRICTS.map(d => (prevPoint[d.name] as number) ?? 0));
-        const prevLow = Math.min(...DISTRICTS.map(d => (prevPoint[d.name] as number) ?? Infinity).filter(v => v !== Infinity && v > 0));
-        const prevSpread = prevHigh - prevLow;
-        const spreadDir = spread > prevSpread ? "widened" : "narrowed";
-        return (
-          <InsightCard layout="full-width">
-            The {highest.name} district leads with an index of {highest.value?.toFixed(1)}, while {lowest.name} is lowest at {lowest.value?.toFixed(1)}. The gap between the most and least expensive regions has {spreadDir} over the past year.
-          </InsightCard>
-        );
-      })()}
     </section>
   );
 };
