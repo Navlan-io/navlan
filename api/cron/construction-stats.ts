@@ -20,7 +20,7 @@ const CONSTRUCTION_SERIES: ConstructionSeries[] = [
   { seriesId: 574320, metric: 'under_construction', dataType: 'quarterly' },
 ];
 
-export default async function handler(req: Request) {
+export async function GET(req: Request) {
   const authError = verifyCronAuth(req.headers);
   if (authError) return authError;
 

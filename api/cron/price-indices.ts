@@ -17,7 +17,7 @@ const INDEX_CODES: { cbsCode: number; dbCode: number }[] = [
   { cbsCode: 120460, dbCode: 50010 },
 ];
 
-export default async function handler(req: Request) {
+export async function GET(req: Request) {
   const authError = verifyCronAuth(req.headers);
   if (authError) return authError;
 

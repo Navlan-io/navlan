@@ -5,7 +5,7 @@ import { fetchBoiExchangeRate, parseBoiCsv } from '../lib/boi-api';
 const CURRENCIES = ['USD', 'EUR', 'GBP'];
 const MIN_DAYS_BETWEEN_SNAPSHOTS = 7;
 
-export default async function handler(req: Request) {
+export async function GET(req: Request) {
   const authError = verifyCronAuth(req.headers);
   if (authError) return authError;
 

@@ -4,7 +4,7 @@ import { fetchCbsPriceIndex, parsePriceIndexResponse, normalizeConstructionCost 
 
 const CONSTRUCTION_COST_CODE = 200010;
 
-export default async function handler(req: Request) {
+export async function GET(req: Request) {
   const authError = verifyCronAuth(req.headers);
   if (authError) return authError;
 

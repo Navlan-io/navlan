@@ -31,7 +31,7 @@ function normalizePeriod(period: string): string {
   return period;
 }
 
-export default async function handler(req: Request) {
+export async function GET(req: Request) {
   const authError = verifyCronAuth(req.headers);
   if (authError) return authError;
 
