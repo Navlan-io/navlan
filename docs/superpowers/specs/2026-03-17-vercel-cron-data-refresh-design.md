@@ -29,7 +29,7 @@ Vercel allows 100 cron jobs per project on all plans (including Hobby). Hobby re
 
 ### Shared Libraries (in `api/lib/`)
 
-- **`supabase-admin.ts`** — Supabase client using `SUPABASE_SERVICE_ROLE_KEY` for write access (RLS bypass)
+- **`supabase-admin.ts`** — Supabase client using `VITE_SUPABASE_PUBLISHABLE_KEY` (anon key) with RLS INSERT/UPDATE policies
 - **`cbs-api.ts`** — CBS API helpers with mandatory `User-Agent: Navlan/1.0` header
 - **`boi-api.ts`** — BOI SDMX API helpers with CSV parsing and fallback URL patterns
 
@@ -40,7 +40,7 @@ All cron endpoints verify `Authorization: Bearer ${CRON_SECRET}` header from Ver
 ### Environment Variables (Vercel)
 
 - `CRON_SECRET` — Random string for cron auth
-- `SUPABASE_SERVICE_ROLE_KEY` — For write access (existing anon key is read-only via RLS)
+- `VITE_SUPABASE_PUBLISHABLE_KEY` — Anon key for Supabase access (RLS INSERT/UPDATE policies configured on target tables)
 
 ## Database Migration Required
 

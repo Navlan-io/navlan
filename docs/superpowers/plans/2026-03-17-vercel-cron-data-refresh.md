@@ -45,7 +45,7 @@ vercel.json              — Add crons array (MODIFY)
 - The existing `api/advisor.ts` uses `export const config = { runtime: 'edge' }` — cron jobs must NOT export this config. Omitting it defaults to Node.js runtime.
 - `@supabase/supabase-js` is already in `package.json`. No new dependencies needed.
 - Vercel compiles `api/` functions independently from Vite. They can import from `api/lib/` using relative paths.
-- Environment variables: `process.env.SUPABASE_SERVICE_ROLE_KEY`, `process.env.CRON_SECRET`, `process.env.VITE_SUPABASE_URL`.
+- Environment variables: `process.env.VITE_SUPABASE_PUBLISHABLE_KEY` (anon key), `process.env.CRON_SECRET`, `process.env.VITE_SUPABASE_URL`.
 
 ---
 
@@ -212,12 +212,12 @@ let cachedClient: SupabaseClient | null = null;
 export function getSupabaseAdmin(): SupabaseClient {
   if (cachedClient) return cachedClient;
 
-  const serviceRoleKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
-  if (!serviceRoleKey) {
-    throw new Error('SUPABASE_SERVICE_ROLE_KEY is not set');
+  const anonKey = process.env.VITE_SUPABASE_PUBLISHABLE_KEY;
+  if (!anonKey) {
+    throw new Error('VITE_SUPABASE_PUBLISHABLE_KEY is not set');
   }
 
-  cachedClient = createClient(SUPABASE_URL, serviceRoleKey, {
+  cachedClient = createClient(SUPABASE_URL, anonKey, {
     auth: { persistSession: false },
   });
   return cachedClient;
@@ -1417,7 +1417,7 @@ These must be done by the user after the code is deployed:
 1. **Run the migration** in Supabase SQL editor: paste contents of `supabase/migrations/20260317_add_upsert_constraints.sql`. If construction_stats has NULL month/quarter values, run the UPDATE statements first.
 2. **Add Vercel env vars:**
    - `CRON_SECRET` = any random string (e.g., `openssl rand -hex 32`)
-   - `SUPABASE_SERVICE_ROLE_KEY` = from Supabase dashboard → Settings → API → service_role key
+   - `VITE_SUPABASE_PUBLISHABLE_KEY` = from Supabase dashboard → Settings → API → anon/public key (already set if frontend works)
 3. **Deploy** to Vercel (push the branch, merge PR, or `vercel deploy`)
 4. **Test each cron manually:**
    ```bash
