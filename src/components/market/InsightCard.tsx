@@ -1,6 +1,14 @@
-const InsightCard = ({ children }: { children: React.ReactNode }) => (
-  <div className="mt-6 rounded-lg bg-cream border-0 border-l-4 border-l-sage p-4 shadow-card">
-    <p className="font-body text-[15px] text-charcoal leading-[1.6] m-0">{children}</p>
+interface InsightCardProps {
+  children: React.ReactNode;
+  layout?: "inline" | "full-width";
+}
+
+const InsightCard = ({ children, layout = "inline" }: InsightCardProps) => (
+  <div className="mt-6 rounded-xl bg-cream border-l-4 border-l-sand-gold p-6 shadow-card">
+    <span className="font-body text-[12px] font-semibold uppercase tracking-[0.1em] text-sand-gold mb-3 block">
+      What this means
+    </span>
+    <p className="font-body text-[17px] text-charcoal leading-[1.7] m-0">{children}</p>
   </div>
 );
 
