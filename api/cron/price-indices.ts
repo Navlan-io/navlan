@@ -2,6 +2,9 @@ import { verifyCronAuth } from '../lib/cron-auth';
 import { getSupabaseAdmin } from '../lib/supabase-admin';
 import { fetchCbsPriceIndex, parsePriceIndexResponse } from '../lib/cbs-api';
 
+// 9 sequential CBS API calls can exceed Vercel's 10s default; allow up to 60s
+export const config = { maxDuration: 60 };
+
 const INDEX_CODES: { cbsCode: number; dbCode: number }[] = [
   { cbsCode: 40010, dbCode: 40010 },
   { cbsCode: 60000, dbCode: 60000 },

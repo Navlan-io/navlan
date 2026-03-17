@@ -2,6 +2,9 @@ import { verifyCronAuth } from '../lib/cron-auth';
 import { getSupabaseAdmin } from '../lib/supabase-admin';
 import { fetchBoiMortgageRate, parseBoiMortgageCsv } from '../lib/boi-api';
 
+// 10 sequential BOI API calls can exceed Vercel's 10s default; allow up to 60s
+export const config = { maxDuration: 60 };
+
 interface MortgageSeries {
   seriesKey: string;
   trackType: string;

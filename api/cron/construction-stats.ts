@@ -2,6 +2,9 @@ import { verifyCronAuth } from '../lib/cron-auth';
 import { getSupabaseAdmin } from '../lib/supabase-admin';
 import { fetchCbsTimeSeries, parseTimeSeriesPeriod, extractTimeSeriesObservations } from '../lib/cbs-api';
 
+// 6 sequential CBS API calls can exceed Vercel's 10s default; allow up to 60s
+export const config = { maxDuration: 60 };
+
 interface ConstructionSeries {
   seriesId: number;
   metric: string;
