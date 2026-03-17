@@ -104,10 +104,27 @@ const NationalPriceTrend = () => {
 
   return (
     <section>
-      <h2 className="font-heading font-semibold text-[22px] text-charcoal mb-6">National Price Index</h2>
+      <div className="flex items-center justify-between mb-6">
+        <h2 className="font-heading font-semibold text-[22px] text-charcoal">National Price Index</h2>
+        <div className="flex items-center gap-2" role="group" aria-label="Time range">
+          {TIME_RANGES.map((r) => (
+            <button
+              key={r}
+              onClick={() => setRange(r)}
+              aria-pressed={range === r}
+              className={cn(
+                "px-3 py-1.5 rounded-full font-body text-[13px] font-medium transition-colors",
+                range === r ? "bg-sage text-white" : "bg-cream text-charcoal hover:bg-sage/10"
+              )}
+            >
+              {r}
+            </button>
+          ))}
+        </div>
+      </div>
 
       {/* Compact metric row on mobile, 3-col grid on desktop */}
-      <Card className="p-5 bg-cream border-0 shadow-card mb-8 md:hidden">
+      <Card className="p-5 bg-cream border-0 shadow-card mb-4 md:hidden">
         <div className="flex items-center justify-between">
           <div>
             <span className="font-body text-[13px] text-warm-gray block">Price Index</span>
@@ -132,7 +149,7 @@ const NationalPriceTrend = () => {
         </div>
       </Card>
 
-      <div className="hidden md:grid grid-cols-3 gap-5 mb-8">
+      <div className="hidden md:grid grid-cols-3 gap-5 mb-4">
         <Card className="p-5 bg-cream border-0 shadow-card">
           <span className="font-body text-[13px] text-warm-gray block">Price Index</span>
           <span className="font-body font-bold text-[28px] text-charcoal">{latest.value?.toFixed(1)}</span>
@@ -153,76 +170,62 @@ const NationalPriceTrend = () => {
         </Card>
       </div>
 
-      <div className="flex items-center justify-between mb-4">
-        <div />
-        <div className="flex items-center gap-2" role="group" aria-label="Time range">
-          {TIME_RANGES.map((r) => (
-            <button
-              key={r}
-              onClick={() => setRange(r)}
-              aria-pressed={range === r}
-              className={cn(
-                "px-3 py-1.5 rounded-full font-body text-[13px] font-medium transition-colors",
-                range === r ? "bg-sage text-white" : "bg-cream text-charcoal hover:bg-sage/10"
-              )}
-            >
-              {r}
-            </button>
-          ))}
+      <div className="lg:flex lg:gap-8 lg:items-start">
+        <div className="lg:w-[60%]">
+          <div style={{ minHeight: 250 }} aria-label="National dwelling price index trend from 2017 to 2025">
+            <ResponsiveContainer width="100%" height={300}>
+              <AreaChart data={chartData}>
+                <defs>
+                  <linearGradient id="natPriceGrad" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0%" stopColor={chartColors.horizonBlue} stopOpacity={0.12} />
+                    <stop offset="100%" stopColor={chartColors.horizonBlue} stopOpacity={0} />
+                  </linearGradient>
+                </defs>
+                <CartesianGrid horizontal vertical={false} stroke={chartColors.gridLine} />
+                <XAxis
+                  dataKey="label"
+                  ticks={xAxisConfig.ticks}
+                  tickFormatter={xAxisConfig.tickFormatter}
+                  tick={axisTick}
+                  axisLine={false}
+                  tickLine={false}
+                />
+                <YAxis
+                  domain={yDomain.domain}
+                  ticks={yDomain.ticks}
+                  tick={axisTick}
+                  axisLine={false}
+                  tickLine={false}
+                  width={40}
+                />
+                <Tooltip content={<CustomTooltip />} />
+                <Area type="monotone" dataKey="value" stroke={chartColors.horizonBlue} strokeWidth={2} fill="url(#natPriceGrad)" dot={false} />
+              </AreaChart>
+            </ResponsiveContainer>
+          </div>
+
+          <p className="font-body text-[12px] text-warm-gray mt-3">
+            Source: Central Bureau of Statistics Dwelling Price Index (Base: 2015-2016 = 100)
+          </p>
+        </div>
+        <div className="lg:w-[40%]">
+          {latest && (
+            <InsightCard layout="inline">
+              {(() => {
+                const yoy = latest.percent_yoy ?? 0;
+                const val = latest.value ?? 0;
+                const multiplier = Math.round(val / 100);
+                let narrative = "";
+                if (yoy > 5) narrative = `Prices are rising rapidly at +${yoy.toFixed(1)}% year-over-year — one of the hotter growth periods in recent history.`;
+                else if (yoy >= 2) narrative = `Prices are growing moderately at +${yoy.toFixed(1)}% year-over-year — a steady but not overheated market.`;
+                else if (yoy >= 0) narrative = `Price growth has slowed to +${yoy.toFixed(1)}% year-over-year — one of the coolest periods in the past decade.`;
+                else narrative = `Prices have declined ${yoy.toFixed(1)}% year-over-year — a rare correction in the Israeli market.`;
+                return `${narrative} The index value of ${val.toFixed(1)} means prices are roughly ${multiplier}× higher than the 1993 base period.`;
+              })()}
+            </InsightCard>
+          )}
         </div>
       </div>
-
-      <div style={{ minHeight: 250 }} aria-label="National dwelling price index trend from 2017 to 2025">
-        <ResponsiveContainer width="100%" height={300}>
-          <AreaChart data={chartData}>
-            <defs>
-              <linearGradient id="natPriceGrad" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="0%" stopColor={chartColors.horizonBlue} stopOpacity={0.12} />
-                <stop offset="100%" stopColor={chartColors.horizonBlue} stopOpacity={0} />
-              </linearGradient>
-            </defs>
-            <CartesianGrid horizontal vertical={false} stroke={chartColors.gridLine} />
-            <XAxis
-              dataKey="label"
-              ticks={xAxisConfig.ticks}
-              tickFormatter={xAxisConfig.tickFormatter}
-              tick={axisTick}
-              axisLine={false}
-              tickLine={false}
-            />
-            <YAxis
-              domain={yDomain.domain}
-              ticks={yDomain.ticks}
-              tick={axisTick}
-              axisLine={false}
-              tickLine={false}
-              width={40}
-            />
-            <Tooltip content={<CustomTooltip />} />
-            <Area type="monotone" dataKey="value" stroke={chartColors.horizonBlue} strokeWidth={2} fill="url(#natPriceGrad)" dot={false} />
-          </AreaChart>
-        </ResponsiveContainer>
-      </div>
-
-      <p className="font-body text-[12px] text-warm-gray mt-3">
-        Source: Central Bureau of Statistics Dwelling Price Index (Base: 2015-2016 = 100)
-      </p>
-
-      {latest && (
-        <InsightCard>
-          {(() => {
-            const yoy = latest.percent_yoy ?? 0;
-            const val = latest.value ?? 0;
-            const multiplier = Math.round(val / 100);
-            let narrative = "";
-            if (yoy > 5) narrative = `Prices are rising rapidly at +${yoy.toFixed(1)}% year-over-year — one of the hotter growth periods in recent history.`;
-            else if (yoy >= 2) narrative = `Prices are growing moderately at +${yoy.toFixed(1)}% year-over-year — a steady but not overheated market.`;
-            else if (yoy >= 0) narrative = `Price growth has slowed to +${yoy.toFixed(1)}% year-over-year — one of the coolest periods in the past decade.`;
-            else narrative = `Prices have declined ${yoy.toFixed(1)}% year-over-year — a rare correction in the Israeli market.`;
-            return `${narrative} The index value of ${val.toFixed(1)} means prices are roughly ${multiplier}× higher than the 1993 base period.`;
-          })()}
-        </InsightCard>
-      )}
     </section>
   );
 };
