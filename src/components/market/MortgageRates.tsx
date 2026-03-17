@@ -5,6 +5,8 @@ import { Skeleton } from "@/components/ui/skeleton";
 import {
   Table, TableHeader, TableBody, TableRow, TableHead, TableCell,
 } from "@/components/ui/table";
+import InsightCard from "./InsightCard";
+import { cn } from "@/lib/utils";
 
 interface MortgageRow {
   track_label: string;
@@ -86,21 +88,30 @@ const MortgageRates = () => {
               </TableRow>
             </TableHeader>
             <TableBody>
-              {rates.map((r) => (
-                <TableRow key={r.track_type} className={r.track_type === "non_indexed_fixed" || r.track_type === "prime_variable" ? "bg-sand-gold/10 font-semibold" : ""}>
-                  <TableCell className="font-body text-[15px] text-charcoal">{r.track_label}</TableCell>
-                  <TableCell className="font-body text-[15px] text-charcoal font-semibold">
-                    {r.value != null
-                      ? r.rate_type === "margin"
-                        ? `+${r.value.toFixed(2)}% margin`
-                        : `${r.value.toFixed(2)}%`
-                      : "—"}
-                  </TableCell>
-                  <TableCell className="font-body text-[13px] text-warm-gray">
-                    {TRACK_NOTES[r.track_type] ?? ""}
-                  </TableCell>
-                </TableRow>
-              ))}
+              {rates.map((r, i) => {
+                const isKeyRow = r.track_type === "non_indexed_fixed" || r.track_type === "prime_variable";
+                return (
+                  <TableRow
+                    key={r.track_type}
+                    className={cn(
+                      isKeyRow ? "border-l-4 border-l-sage font-semibold" : "",
+                      i % 2 === 0 ? "bg-white" : "bg-cream/50"
+                    )}
+                  >
+                    <TableCell className="font-body text-[15px] text-charcoal">{r.track_label}</TableCell>
+                    <TableCell className="font-body text-[15px] text-charcoal font-semibold">
+                      {r.value == null || r.value === 0
+                        ? "N/A"
+                        : r.rate_type === "margin"
+                          ? `+${r.value.toFixed(2)}% margin`
+                          : `${r.value.toFixed(2)}%`}
+                    </TableCell>
+                    <TableCell className="font-body text-[13px] text-warm-gray">
+                      {TRACK_NOTES[r.track_type] ?? ""}
+                    </TableCell>
+                  </TableRow>
+                );
+              })}
             </TableBody>
           </Table>
         </div>
@@ -114,12 +125,10 @@ const MortgageRates = () => {
         Source: Bank of Israel — Aggregate Mortgage Rate Statistics
       </p>
 
-      <Card className="mt-6 p-5 bg-cream border-0 border-l-4 border-l-sage shadow-card">
-        <p className="font-body text-[14px] text-charcoal">
-          Israeli mortgages are structured differently than in the US/UK. Most borrowers use a mix of 3–4 tracks.
-          Consult a licensed mortgage advisor for personalized planning.
-        </p>
-      </Card>
+      <InsightCard layout="full-width">
+        Israeli mortgages are structured differently than in the US/UK. Most borrowers use a mix of 3–4 tracks.
+        Consult a licensed mortgage advisor for personalized planning.
+      </InsightCard>
     </section>
   );
 };
