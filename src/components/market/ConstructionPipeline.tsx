@@ -247,7 +247,7 @@ const ConstructionPipeline = () => {
       </p>
 
       {monthsSupply != null && (
-        <InsightCard>
+        <InsightCard layout="full-width">
           {monthsSupply > 24
             ? `With ${monthsSupply.toFixed(1)} months of unsold inventory, the new construction market favors buyers. Historically, 12–18 months is considered balanced.`
             : monthsSupply >= 18
