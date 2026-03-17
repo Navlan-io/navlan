@@ -6,7 +6,7 @@
 
 ## Summary
 
-Elevate the Market Data page (`/market`) from a functional data dump to a polished editorial market report. Pure visual/layout changes — no data queries, Supabase logic, calculations, or financial advice language modified.
+Elevate the Market Data page (`/market`) from a functional data dump to a polished editorial market report. Primarily visual/layout changes. One minor query change: adding `percent_mom` to the ConstructionCosts select. No other data queries, Supabase logic, calculations, or financial advice language modified.
 
 ## Decisions
 
@@ -26,10 +26,10 @@ Elevate the Market Data page (`/market`) from a functional data dump to a polish
 | `src/components/market/InsightCard.tsx` | New `layout` prop ("inline" / "full-width"), badge, gold border, larger text |
 | `src/components/market/NationalPriceTrend.tsx` | Side-by-side layout, time toggles inline with heading, tighter card-to-chart gap |
 | `src/components/market/RentalMarket.tsx` | Side-by-side layout |
-| `src/components/market/ConstructionCosts.tsx` | Side-by-side layout, add MoM metric card |
+| `src/components/market/ConstructionCosts.tsx` | Side-by-side layout, add MoM metric card (requires adding `percent_mom` to select query and `CostRow` interface) |
 | `src/components/market/DistrictComparison.tsx` | Legend spacing, full-width InsightCard upgrade |
 | `src/components/market/ConstructionPipeline.tsx` | Full-width InsightCard upgrade |
-| `src/components/market/MortgageRates.tsx` | Alternating row bg, sage border on key rows, 0/null → "N/A", full-width InsightCard upgrade |
+| `src/components/market/MortgageRates.tsx` | Alternating row bg, sage border on key rows, 0/null → "N/A", replace raw `<Card>` advisory with `InsightCard layout="full-width"` |
 
 ## Design Specification
 
@@ -45,9 +45,15 @@ Elevate the Market Data page (`/market`) from a functional data dump to a polish
   - Pill style: `bg-cream rounded-full px-3 py-1 text-[12px] text-warm-gray font-body`
 
 #### Alternating Section Backgrounds
-- Odd sections (1st, 3rd, 5th): `bg-warm-white`
-- Even sections (2nd, 4th, 6th): `bg-cream`
-- Each section wrapped in a full-width div that breaks out of the container, content still constrained to `max-w-[1200px] mx-auto`
+Section order (unchanged from current):
+1. NationalPriceTrend — `bg-warm-white` (odd)
+2. DistrictComparison — `bg-cream` (even)
+3. ConstructionPipeline — own cream full-bleed background takes precedence (odd slot)
+4. MortgageRates — `bg-cream` (even)
+5. RentalMarket — `bg-warm-white` (odd)
+6. ConstructionCosts — `bg-cream` (even)
+
+Each section wrapped in a full-width div that breaks out of the container, content still constrained to `max-w-[1200px] mx-auto`
 
 #### Gold Gradient Dividers
 Between every major section:
@@ -56,7 +62,7 @@ Between every major section:
 ```
 
 #### Newsletter CTA Relocation
-Move `InlineNewsletterCTA` from between ConstructionPipeline/MortgageRates to after ConstructionCosts (last data section, before footer).
+Move `InlineNewsletterCTA` from its current position (between ConstructionPipeline and MortgageRates) to after ConstructionCosts (the last section in the list above), before the footer. Section order itself does not change.
 
 ### 2. InsightCard Component Upgrade
 
@@ -87,6 +93,9 @@ interface InsightCardProps {
 - Used in multi-element sections
 - Full container width, same card styling
 
+#### Global Style Impact
+The styling changes (border color sage→sand-gold, padding p-4→p-6, radius rounded-lg→rounded-xl, text 15px→17px) apply to ALL InsightCard instances across the page. This is intentional — every interpretation card gets the editorial upgrade.
+
 ### 3. Single-Chart Sections (Side-by-Side Layout)
 
 Applies to: NationalPriceTrend, RentalMarket, ConstructionCosts
@@ -116,7 +125,8 @@ Below `lg` breakpoint: stacks vertically, chart full-width, then InsightCard.
 - No data disclaimer added
 
 #### ConstructionCosts Specific
-- Add second metric card: MoM change (data already available, just not displayed)
+- Add second metric card: MoM change
+  - Requires adding `percent_mom` to the Supabase `select()` call and `CostRow` interface (column exists in `construction_costs` table)
 - Both cards sit above flex container
 - Chart left, interpretation right
 
@@ -126,7 +136,7 @@ Applies to: DistrictComparison, ConstructionPipeline, MortgageRates
 
 #### DistrictComparison
 - Multi-line chart stays full-width
-- Legend spacing: increase to `gap-x-6 gap-y-2`
+- Legend spacing: increase to `gap-x-6 gap-y-2` (preserve existing anchor links on legend items)
 - InsightCard: `layout="full-width"`
 
 #### ConstructionPipeline
@@ -136,11 +146,11 @@ Applies to: DistrictComparison, ConstructionPipeline, MortgageRates
 
 #### MortgageRates
 - Table alternating rows: odd `bg-white`, even `bg-cream/50`
-- Key rows ("Non-Indexed Fixed", "Prime Benchmark"):
+- Key rows (matched by `track_type === "non_indexed_fixed"` and `track_type === "prime_variable"`):
   - Add `border-l-4 border-l-sage`
   - Remove existing `bg-sand-gold/10` highlight
-- Rate display: if value is `null`, `undefined`, or `0` → show "N/A" instead of "0.00%"
-- InsightCard below table: `layout="full-width"`
+- Rate display: if value is `null`, `undefined`, or `0` → show "N/A" instead of "0.00%" or "---" (replaces current dash-based null handling)
+- Replace existing raw `<Card>` advisory section with `<InsightCard layout="full-width">` (MortgageRates currently does NOT use InsightCard — must add import and replace)
 
 ## Design Tokens Reference
 
@@ -157,7 +167,7 @@ Applies to: DistrictComparison, ConstructionPipeline, MortgageRates
 
 ## DO NOT
 
-- Change any data queries or Supabase logic
+- Change any data queries or Supabase logic (exception: adding `percent_mom` to ConstructionCosts select)
 - Modify chart data or calculations
 - Add financial advice language
 - Remove source citations
