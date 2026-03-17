@@ -10,17 +10,20 @@ Navlan.io displays Israeli real estate market data (exchange rates, price indice
 
 ## Solution
 
-Vercel Cron Jobs that fetch fresh data from government APIs, compare against what's in Supabase, and upsert new rows. Consolidated into 2 endpoints due to Vercel Hobby plan's 2-cron limit.
+Five Vercel Cron Jobs that fetch fresh data from government APIs, compare against what's in Supabase, and upsert new rows.
 
 ## Architecture
 
 ```
 vercel.json (cron schedule)
-  → /api/cron/exchange-rates      (daily at 18:00 UTC)
-  → /api/cron/refresh-weekly      (weekly Mon 10:00 UTC — runs price-indices,
-                                    mortgage-rates, construction-stats,
-                                    construction-costs sequentially)
+  → /api/cron/exchange-rates      (daily weekdays 18:00 UTC)
+  → /api/cron/price-indices       (weekly Mon 10:00 UTC)
+  → /api/cron/mortgage-rates      (weekly Mon 11:00 UTC)
+  → /api/cron/construction-stats  (weekly Mon 12:00 UTC)
+  → /api/cron/construction-costs  (weekly Mon 13:00 UTC)
 ```
+
+Vercel allows 100 cron jobs per project on all plans (including Hobby). Hobby restriction: minimum once-per-day frequency.
 
 **Runtime:** Node.js (not edge). Cron handlers need `@supabase/supabase-js` with service role key, which requires Node.js APIs unavailable in edge runtime.
 
@@ -167,12 +170,13 @@ function normalizeConstructionCost(year: number, month: number, rawValue: number
 {
   "crons": [
     { "path": "/api/cron/exchange-rates", "schedule": "0 18 * * 1-5" },
-    { "path": "/api/cron/refresh-weekly", "schedule": "0 10 * * 1" }
+    { "path": "/api/cron/price-indices", "schedule": "0 10 * * 1" },
+    { "path": "/api/cron/mortgage-rates", "schedule": "0 11 * * 1" },
+    { "path": "/api/cron/construction-stats", "schedule": "0 12 * * 1" },
+    { "path": "/api/cron/construction-costs", "schedule": "0 13 * * 1" }
   ]
 }
 ```
-
-Note: Vercel Hobby plan supports max 2 cron jobs, minimum daily frequency. The 4 weekly jobs are consolidated into a single `/api/cron/refresh-weekly` endpoint.
 
 ## Files to Create
 
@@ -181,7 +185,10 @@ api/lib/supabase-admin.ts
 api/lib/cbs-api.ts
 api/lib/boi-api.ts
 api/cron/exchange-rates.ts
-api/cron/refresh-weekly.ts
+api/cron/price-indices.ts
+api/cron/mortgage-rates.ts
+api/cron/construction-stats.ts
+api/cron/construction-costs.ts
 supabase/migrations/20260317_add_upsert_constraints.sql
 ```
 
