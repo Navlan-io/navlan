@@ -103,7 +103,24 @@ const RentalMarket = () => {
 
   return (
     <section>
-      <h2 className="font-heading font-semibold text-[22px] text-charcoal mb-2">Rental Market Trends</h2>
+      <div className="flex items-center justify-between mb-2">
+        <h2 className="font-heading font-semibold text-[22px] text-charcoal">Rental Market Trends</h2>
+        <div className="flex items-center gap-2" role="group" aria-label="Time range">
+          {TIME_RANGES.map((r) => (
+            <button
+              key={r}
+              onClick={() => setRange(r)}
+              aria-pressed={range === r}
+              className={cn(
+                "px-3 py-1.5 rounded-full font-body text-[13px] font-medium transition-colors",
+                range === r ? "bg-sage text-white" : "bg-cream text-charcoal hover:bg-sage/10"
+              )}
+            >
+              {r}
+            </button>
+          ))}
+        </div>
+      </div>
       <p className="font-body text-[15px] text-warm-gray mb-6">
         National rent price index based on actual lease contracts (CBS)
       </p>
@@ -122,69 +139,55 @@ const RentalMarket = () => {
         </Card>
       </div>
 
-      <div className="flex items-center justify-between mb-4">
-        <div />
-        <div className="flex items-center gap-2" role="group" aria-label="Time range">
-          {TIME_RANGES.map((r) => (
-            <button
-              key={r}
-              onClick={() => setRange(r)}
-              aria-pressed={range === r}
-              className={cn(
-                "px-3 py-1.5 rounded-full font-body text-[13px] font-medium transition-colors",
-                range === r ? "bg-sage text-white" : "bg-cream text-charcoal hover:bg-sage/10"
-              )}
-            >
-              {r}
-            </button>
-          ))}
+      <div className="lg:flex lg:gap-8 lg:items-start">
+        <div className="lg:w-[60%]">
+          <div style={{ minHeight: 250 }} aria-label="Rental price index trend chart">
+            <ResponsiveContainer width="100%" height={300}>
+              <AreaChart data={chartData}>
+                <defs>
+                  <linearGradient id="rentGrad" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0%" stopColor={chartColors.sandGold} stopOpacity={0.12} />
+                    <stop offset="100%" stopColor={chartColors.sandGold} stopOpacity={0} />
+                  </linearGradient>
+                </defs>
+                <CartesianGrid horizontal vertical={false} stroke={chartColors.gridLine} />
+                <XAxis
+                  dataKey="label"
+                  ticks={xAxisConfig.ticks}
+                  tickFormatter={xAxisConfig.tickFormatter}
+                  tick={axisTick}
+                  axisLine={false}
+                  tickLine={false}
+                />
+                <YAxis
+                  domain={yDomain.domain}
+                  ticks={yDomain.ticks}
+                  tick={axisTick}
+                  axisLine={false}
+                  tickLine={false}
+                  width={40}
+                />
+                <Tooltip content={<CustomTooltip />} />
+                <Area type="monotone" dataKey="value" stroke={chartColors.sandGold} strokeWidth={2} fill="url(#rentGrad)" dot={false} />
+              </AreaChart>
+            </ResponsiveContainer>
+          </div>
+
+          <p className="font-body text-[12px] text-warm-gray mt-3">
+            Source: CBS Consumer Price Index — Rent Sub-Component (Code 120460)
+          </p>
+        </div>
+        <div className="lg:w-[40%]">
+          {latest && (() => {
+            const yoy = latest.percent_yoy ?? 0;
+            let narrative = "";
+            if (yoy > 3) narrative = `Rents are climbing at +${yoy.toFixed(1)}% annually based on lease renewals. New tenants likely face increases roughly double this rate — closer to ${Math.round(yoy * 2)}% — since the index weights existing contracts heavily (Bank of Israel research).`;
+            else if (yoy >= 0) narrative = `Rent growth is moderate at +${yoy.toFixed(1)}% year-over-year.`;
+            else narrative = `Rents have dipped ${yoy.toFixed(1)}% — unusual in the Israeli market.`;
+            return <InsightCard layout="inline">{narrative}</InsightCard>;
+          })()}
         </div>
       </div>
-
-      <div style={{ minHeight: 250 }} aria-label="Rental price index trend chart">
-        <ResponsiveContainer width="100%" height={300}>
-          <AreaChart data={chartData}>
-            <defs>
-              <linearGradient id="rentGrad" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="0%" stopColor={chartColors.sandGold} stopOpacity={0.12} />
-                <stop offset="100%" stopColor={chartColors.sandGold} stopOpacity={0} />
-              </linearGradient>
-            </defs>
-            <CartesianGrid horizontal vertical={false} stroke={chartColors.gridLine} />
-            <XAxis
-              dataKey="label"
-              ticks={xAxisConfig.ticks}
-              tickFormatter={xAxisConfig.tickFormatter}
-              tick={axisTick}
-              axisLine={false}
-              tickLine={false}
-            />
-            <YAxis
-              domain={yDomain.domain}
-              ticks={yDomain.ticks}
-              tick={axisTick}
-              axisLine={false}
-              tickLine={false}
-              width={40}
-            />
-            <Tooltip content={<CustomTooltip />} />
-            <Area type="monotone" dataKey="value" stroke={chartColors.sandGold} strokeWidth={2} fill="url(#rentGrad)" dot={false} />
-          </AreaChart>
-        </ResponsiveContainer>
-      </div>
-
-      <p className="font-body text-[12px] text-warm-gray mt-3">
-        Source: CBS Consumer Price Index — Rent Sub-Component (Code 120460)
-      </p>
-
-      {latest && (() => {
-        const yoy = latest.percent_yoy ?? 0;
-        let narrative = "";
-        if (yoy > 3) narrative = `Rents are climbing at +${yoy.toFixed(1)}% annually based on lease renewals. New tenants likely face increases roughly double this rate — closer to ${Math.round(yoy * 2)}% — since the index weights existing contracts heavily (Bank of Israel research).`;
-        else if (yoy >= 0) narrative = `Rent growth is moderate at +${yoy.toFixed(1)}% year-over-year.`;
-        else narrative = `Rents have dipped ${yoy.toFixed(1)}% — unusual in the Israeli market.`;
-        return <InsightCard>{narrative}</InsightCard>;
-      })()}
     </section>
   );
 };
