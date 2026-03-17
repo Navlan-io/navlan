@@ -28,7 +28,7 @@ const HomepageAdvisorTeaser = () => {
       className="relative py-20 md:py-26 overflow-hidden"
       style={{
         background:
-          "linear-gradient(180deg, rgba(124,139,110,0.10) 0%, rgba(124,139,110,0.03) 60%, #FAF8F5 100%)",
+          "linear-gradient(180deg, rgba(124,139,110,0.10) 0%, rgba(124,139,110,0.03) 60%, #FAF8F5 100%), linear-gradient(180deg, rgba(196,169,106,0.06) 0%, rgba(242,237,228,0.03) 40%, #FAF8F5 100%)",
       }}
     >
       {/* Subtle dot pattern overlay */}
