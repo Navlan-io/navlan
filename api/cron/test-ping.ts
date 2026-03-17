@@ -1,23 +1,26 @@
-// Test: static imports to verify includeFiles config works
-import { verifyCronAuth } from '../lib/cron-auth';
-import { getSupabaseAdmin } from '../lib/supabase-admin';
-
-export function GET(req: Request) {
-  try {
-    const authResult = verifyCronAuth(req.headers);
-    const sb = getSupabaseAdmin();
-    return new Response(JSON.stringify({
-      ok: true,
-      authBlocked: !!authResult,
-      hasClient: !!sb,
-    }), {
-      status: 200,
-      headers: { 'Content-Type': 'application/json' },
-    });
-  } catch (err: any) {
-    return new Response(JSON.stringify({ ok: false, error: err.message }), {
-      status: 500,
-      headers: { 'Content-Type': 'application/json' },
+// Test: inline the auth check (no external imports) to verify the function pattern works
+function verifyCronAuth(headers: Headers): Response | null {
+  const authHeader = headers.get('authorization');
+  if (authHeader !== `Bearer ${process.env.CRON_SECRET}`) {
+    return new Response(JSON.stringify({ error: 'Unauthorized' }), {
+      status: 401, headers: { 'Content-Type': 'application/json' },
     });
   }
+  return null;
+}
+
+export function GET(req: Request) {
+  const authError = verifyCronAuth(req.headers);
+  if (authError) return authError;
+
+  return new Response(JSON.stringify({
+    ok: true,
+    env: {
+      hasCronSecret: !!process.env.CRON_SECRET,
+      hasSupabaseKey: !!process.env.VITE_SUPABASE_PUBLISHABLE_KEY,
+    },
+  }), {
+    status: 200,
+    headers: { 'Content-Type': 'application/json' },
+  });
 }
