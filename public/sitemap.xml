@@ -31,6 +31,12 @@
     <priority>0.9</priority>
   </url>
   <url>
+    <loc>https://navlan.io/guides/purchase-tax</loc>
+    <lastmod>2026-03-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
     <loc>https://navlan.io/resources</loc>
     <lastmod>2026-03-15</lastmod>
     <changefreq>monthly</changefreq>

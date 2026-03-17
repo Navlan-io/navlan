@@ -12,6 +12,7 @@ import GuidesIndexPage from "./pages/GuidesIndexPage";
 import StartHereGuidePage from "./pages/StartHereGuidePage";
 import DiraGuidePage from "./pages/DiraGuidePage";
 import MortgageGuidePage from "./pages/MortgageGuidePage";
+import PurchaseTaxGuidePage from "./pages/PurchaseTaxGuidePage";
 import ResourcesPage from "./pages/ResourcesPage";
 import AboutPage from "./pages/AboutPage";
 import { DisclaimerPage, PrivacyPage, TermsPage } from "./pages/LegalPage";
@@ -45,6 +46,7 @@ const App = () => (
             <Route path="/guides/start-here" element={<StartHereGuidePage />} />
             <Route path="/guides/dira-behanacha" element={<DiraGuidePage />} />
             <Route path="/guides/mortgages" element={<MortgageGuidePage />} />
+            <Route path="/guides/purchase-tax" element={<PurchaseTaxGuidePage />} />
             <Route path="/resources" element={<ResourcesPage />} />
             <Route path="/about" element={<AboutPage />} />
             <Route path="/disclaimer" element={<DisclaimerPage />} />
