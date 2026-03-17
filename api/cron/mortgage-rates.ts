@@ -1,6 +1,62 @@
-import { verifyCronAuth } from '../lib/cron-auth';
-import { getSupabaseAdmin } from '../lib/supabase-admin';
-import { fetchBoiMortgageRate, parseBoiMortgageCsv } from '../lib/boi-api';
+import { createClient, SupabaseClient } from '@supabase/supabase-js';
+
+// ── Inlined: cron-auth ──
+function verifyCronAuth(headers: Headers): Response | null {
+  const authHeader = headers.get('authorization');
+  if (authHeader !== `Bearer ${process.env.CRON_SECRET}`) {
+    return new Response(JSON.stringify({ error: 'Unauthorized' }), {
+      status: 401, headers: { 'Content-Type': 'application/json' },
+    });
+  }
+  return null;
+}
+
+// ── Inlined: supabase-admin ──
+const SUPABASE_URL = 'https://xkgsgswxauguhyucauxg.supabase.co';
+let cachedClient: SupabaseClient | null = null;
+function getSupabaseAdmin(): SupabaseClient {
+  if (cachedClient) return cachedClient;
+  const anonKey = process.env.VITE_SUPABASE_PUBLISHABLE_KEY;
+  if (!anonKey) throw new Error('VITE_SUPABASE_PUBLISHABLE_KEY is not set');
+  cachedClient = createClient(SUPABASE_URL, anonKey, { auth: { persistSession: false } });
+  return cachedClient;
+}
+
+// ── Inlined: boi-api ──
+interface BoiObservation { timePeriod: string; obsValue: number | null; }
+
+async function fetchBoiMortgageRate(seriesKey: string): Promise<string> {
+  const url = `https://edge.boi.gov.il/FusionEdgeServer/sdmx/v2/data/dataflow/BOI.STATISTICS/BIR_MRTG_99/1.0/${seriesKey}.M.99034?format=csv&lastNObservations=3`;
+  const response = await fetch(url);
+  if (!response.ok) throw new Error(`BOI mortgage API returned ${response.status} for series ${seriesKey}`);
+  return response.text();
+}
+
+function parseBoiCsv(csv: string): BoiObservation[] {
+  const lines = csv.trim().split('\n');
+  if (lines.length < 2) return [];
+  const header = lines[0].split(',');
+  const timeIdx = header.indexOf('TIME_PERIOD');
+  const valueIdx = header.indexOf('OBS_VALUE');
+  if (timeIdx === -1 || valueIdx === -1) return [];
+  const results: BoiObservation[] = [];
+  for (let i = 1; i < lines.length; i++) {
+    const cols = lines[i].split(',');
+    if (cols.length <= Math.max(timeIdx, valueIdx)) continue;
+    const obsValue = parseFloat(cols[valueIdx]);
+    if (isNaN(obsValue)) continue;
+    results.push({ timePeriod: cols[timeIdx], obsValue });
+  }
+  return results;
+}
+
+function parseBoiMortgageCsv(csv: string, nullifyZero = false): BoiObservation[] {
+  const observations = parseBoiCsv(csv);
+  if (!nullifyZero) return observations;
+  return observations.map(obs => ({ ...obs, obsValue: obs.obsValue === 0 ? null : obs.obsValue }));
+}
+
+// ── Handler ──
 
 // 10 sequential BOI API calls can exceed Vercel's 10s default; allow up to 60s
 export const config = { maxDuration: 60 };

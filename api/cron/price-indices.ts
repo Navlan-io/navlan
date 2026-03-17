@@ -1,6 +1,59 @@
-import { verifyCronAuth } from '../lib/cron-auth';
-import { getSupabaseAdmin } from '../lib/supabase-admin';
-import { fetchCbsPriceIndex, parsePriceIndexResponse } from '../lib/cbs-api';
+import { createClient, SupabaseClient } from '@supabase/supabase-js';
+
+// ── Inlined: cron-auth ──
+function verifyCronAuth(headers: Headers): Response | null {
+  const authHeader = headers.get('authorization');
+  if (authHeader !== `Bearer ${process.env.CRON_SECRET}`) {
+    return new Response(JSON.stringify({ error: 'Unauthorized' }), {
+      status: 401, headers: { 'Content-Type': 'application/json' },
+    });
+  }
+  return null;
+}
+
+// ── Inlined: supabase-admin ──
+const SUPABASE_URL = 'https://xkgsgswxauguhyucauxg.supabase.co';
+let cachedClient: SupabaseClient | null = null;
+function getSupabaseAdmin(): SupabaseClient {
+  if (cachedClient) return cachedClient;
+  const anonKey = process.env.VITE_SUPABASE_PUBLISHABLE_KEY;
+  if (!anonKey) throw new Error('VITE_SUPABASE_PUBLISHABLE_KEY is not set');
+  cachedClient = createClient(SUPABASE_URL, anonKey, { auth: { persistSession: false } });
+  return cachedClient;
+}
+
+// ── Inlined: cbs-api ──
+const CBS_USER_AGENT = 'Navlan/1.0';
+
+interface CbsPriceIndexEntry {
+  code: number; name: string; year: number; month: number;
+  value: number; percentMom: number | null; percentYoy: number | null; baseDesc: string;
+}
+
+async function fetchCbsPriceIndex(code: number, last = 3): Promise<any> {
+  const url = `https://api.cbs.gov.il/index/data/price?id=${code}&format=json&lang=en&last=${last}`;
+  const response = await fetch(url, { headers: { 'User-Agent': CBS_USER_AGENT } });
+  if (!response.ok) throw new Error(`CBS price index API returned ${response.status} for code ${code}`);
+  return response.json();
+}
+
+function parsePriceIndexResponse(data: any): CbsPriceIndexEntry[] {
+  if (!data?.month?.length) return [];
+  const entries: CbsPriceIndexEntry[] = [];
+  for (const series of data.month) {
+    if (!series.date?.length) continue;
+    for (const d of series.date) {
+      entries.push({
+        code: series.code, name: series.name, year: d.year, month: d.month,
+        value: d.currBase?.value ?? 0, percentMom: d.percent ?? null,
+        percentYoy: d.percentYear ?? null, baseDesc: d.currBase?.baseDesc ?? '',
+      });
+    }
+  }
+  return entries;
+}
+
+// ── Handler ──
 
 // 9 sequential CBS API calls can exceed Vercel's 10s default; allow up to 60s
 export const config = { maxDuration: 60 };

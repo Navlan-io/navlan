@@ -1,6 +1,74 @@
-import { verifyCronAuth } from '../lib/cron-auth';
-import { getSupabaseAdmin } from '../lib/supabase-admin';
-import { fetchCbsTimeSeries, parseTimeSeriesPeriod, extractTimeSeriesObservations } from '../lib/cbs-api';
+import { createClient, SupabaseClient } from '@supabase/supabase-js';
+
+// ── Inlined: cron-auth ──
+function verifyCronAuth(headers: Headers): Response | null {
+  const authHeader = headers.get('authorization');
+  if (authHeader !== `Bearer ${process.env.CRON_SECRET}`) {
+    return new Response(JSON.stringify({ error: 'Unauthorized' }), {
+      status: 401, headers: { 'Content-Type': 'application/json' },
+    });
+  }
+  return null;
+}
+
+// ── Inlined: supabase-admin ──
+const SUPABASE_URL = 'https://xkgsgswxauguhyucauxg.supabase.co';
+let cachedClient: SupabaseClient | null = null;
+function getSupabaseAdmin(): SupabaseClient {
+  if (cachedClient) return cachedClient;
+  const anonKey = process.env.VITE_SUPABASE_PUBLISHABLE_KEY;
+  if (!anonKey) throw new Error('VITE_SUPABASE_PUBLISHABLE_KEY is not set');
+  cachedClient = createClient(SUPABASE_URL, anonKey, { auth: { persistSession: false } });
+  return cachedClient;
+}
+
+// ── Inlined: cbs-api ──
+const CBS_USER_AGENT = 'Navlan/1.0';
+
+interface CbsTimePeriod { year: number; month: number; quarter: number; }
+
+async function fetchCbsTimeSeries(seriesId: number, last = 6): Promise<any> {
+  const url = `https://apis.cbs.gov.il/series/data/list?id=${seriesId}&format=json&lang=en&last=${last}`;
+  const response = await fetch(url, { headers: { 'User-Agent': CBS_USER_AGENT } });
+  if (!response.ok) throw new Error(`CBS time series API returned ${response.status} for series ${seriesId}`);
+  return response.json();
+}
+
+function parseTimeSeriesPeriod(period: string): CbsTimePeriod | null {
+  if (!period) return null;
+  const qMatch = period.match(/^(\d{4})-Q(\d)$/);
+  if (qMatch) return { year: parseInt(qMatch[1]), month: 0, quarter: parseInt(qMatch[2]) };
+  const mMatch = period.match(/^(\d{4})-(\d{2})$/);
+  if (mMatch) return { year: parseInt(mMatch[1]), month: parseInt(mMatch[2]), quarter: 0 };
+  return null;
+}
+
+function extractTimeSeriesObservations(data: any): { period: string; value: number }[] {
+  if (!data) return [];
+  try {
+    const series = data?.DataSet?.[0]?.Series;
+    if (Array.isArray(series)) {
+      const obs: { period: string; value: number }[] = [];
+      for (const s of series) {
+        if (Array.isArray(s.obs)) {
+          for (const o of s.obs) {
+            const period = o.TimePeriod ?? o.TIME_PERIOD;
+            const value = parseFloat(o.ObsValue ?? o.OBS_VALUE);
+            if (period && !isNaN(value)) obs.push({ period, value });
+          }
+        }
+      }
+      if (obs.length > 0) return obs;
+    }
+  } catch { /* try next format */ }
+  if (Array.isArray(data)) {
+    return data.filter((d: any) => d.period && typeof d.value === 'number')
+      .map((d: any) => ({ period: d.period, value: d.value }));
+  }
+  return [];
+}
+
+// ── Handler ──
 
 // 6 sequential CBS API calls can exceed Vercel's 10s default; allow up to 60s
 export const config = { maxDuration: 60 };

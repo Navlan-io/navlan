@@ -1,7 +1,59 @@
-import { verifyCronAuth } from '../lib/cron-auth';
-import { getSupabaseAdmin } from '../lib/supabase-admin';
-import { fetchBoiExchangeRate, parseBoiCsv } from '../lib/boi-api';
+import { createClient, SupabaseClient } from '@supabase/supabase-js';
 
+// ── Inlined: cron-auth ──
+function verifyCronAuth(headers: Headers): Response | null {
+  const authHeader = headers.get('authorization');
+  if (authHeader !== `Bearer ${process.env.CRON_SECRET}`) {
+    return new Response(JSON.stringify({ error: 'Unauthorized' }), {
+      status: 401, headers: { 'Content-Type': 'application/json' },
+    });
+  }
+  return null;
+}
+
+// ── Inlined: supabase-admin ──
+const SUPABASE_URL = 'https://xkgsgswxauguhyucauxg.supabase.co';
+let cachedClient: SupabaseClient | null = null;
+function getSupabaseAdmin(): SupabaseClient {
+  if (cachedClient) return cachedClient;
+  const anonKey = process.env.VITE_SUPABASE_PUBLISHABLE_KEY;
+  if (!anonKey) throw new Error('VITE_SUPABASE_PUBLISHABLE_KEY is not set');
+  cachedClient = createClient(SUPABASE_URL, anonKey, { auth: { persistSession: false } });
+  return cachedClient;
+}
+
+// ── Inlined: boi-api ──
+interface BoiObservation { timePeriod: string; obsValue: number | null; }
+
+async function fetchBoiExchangeRate(currency: string, date: string): Promise<string> {
+  const primaryUrl = `https://edge.boi.gov.il/FusionEdgeServer/sdmx/v2/data/dataflow/BOI/ER_FROM_GOV/1.0/RER_${currency}_ILS.D?startperiod=${date}&endperiod=${date}&format=csv`;
+  let response = await fetch(primaryUrl);
+  if (response.ok) return response.text();
+  const fallbackUrl = `https://edge.boi.gov.il/FusionEdgeServer/sdmx/v2/data/dataflow/BOI.STATISTICS/EXR/1.0/RER_${currency}_ILS?format=csv&lastNObservations=5`;
+  response = await fetch(fallbackUrl);
+  if (response.ok) return response.text();
+  throw new Error(`BOI API returned ${response.status} for ${currency} (tried primary and fallback URLs)`);
+}
+
+function parseBoiCsv(csv: string): BoiObservation[] {
+  const lines = csv.trim().split('\n');
+  if (lines.length < 2) return [];
+  const header = lines[0].split(',');
+  const timeIdx = header.indexOf('TIME_PERIOD');
+  const valueIdx = header.indexOf('OBS_VALUE');
+  if (timeIdx === -1 || valueIdx === -1) return [];
+  const results: BoiObservation[] = [];
+  for (let i = 1; i < lines.length; i++) {
+    const cols = lines[i].split(',');
+    if (cols.length <= Math.max(timeIdx, valueIdx)) continue;
+    const obsValue = parseFloat(cols[valueIdx]);
+    if (isNaN(obsValue)) continue;
+    results.push({ timePeriod: cols[timeIdx], obsValue });
+  }
+  return results;
+}
+
+// ── Handler ──
 const CURRENCIES = ['USD', 'EUR', 'GBP'];
 const MIN_DAYS_BETWEEN_SNAPSHOTS = 7;
 
