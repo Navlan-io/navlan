@@ -1,4 +1,11 @@
 {
+  "crons": [
+    { "path": "/api/cron/exchange-rates", "schedule": "0 18 * * 1-5" },
+    { "path": "/api/cron/price-indices", "schedule": "0 10 * * 1" },
+    { "path": "/api/cron/mortgage-rates", "schedule": "0 11 * * 1" },
+    { "path": "/api/cron/construction-stats", "schedule": "0 12 * * 1" },
+    { "path": "/api/cron/construction-costs", "schedule": "0 13 * * 1" }
+  ],
   "rewrites": [
     { "source": "/((?!api/).*)", "destination": "/index.html" }
   ],
