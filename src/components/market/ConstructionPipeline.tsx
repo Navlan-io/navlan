@@ -171,106 +171,101 @@ const ConstructionPipeline = () => {
         </Card>
       </div>
 
-      <div className="lg:flex lg:gap-8 lg:items-start">
-        <div className="lg:w-[60%]">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-6">
-            {/* Unsold Inventory Chart */}
-            <div>
-              <h3 className="font-heading font-semibold text-[18px] text-charcoal mb-4">Unsold Inventory Trend</h3>
-              {filteredUnsold.length > 0 ? (
-                <div style={{ minHeight: 250 }} aria-label="Unsold new housing inventory trend chart">
-                  <ResponsiveContainer width="100%" height={260}>
-                    <AreaChart data={filteredUnsold}>
-                      <defs>
-                        <linearGradient id="unsoldGrad" x1="0" y1="0" x2="0" y2="1">
-                          <stop offset="0%" stopColor={chartColors.terraRed} stopOpacity={0.1} />
-                          <stop offset="100%" stopColor={chartColors.terraRed} stopOpacity={0} />
-                        </linearGradient>
-                      </defs>
-                      <CartesianGrid horizontal vertical={false} stroke={chartColors.gridLine} />
-                      <XAxis
-                        dataKey="label"
-                        ticks={unsoldXAxis.ticks}
-                        tickFormatter={unsoldXAxis.tickFormatter}
-                        tick={axisTick}
-                        axisLine={false}
-                        tickLine={false}
-                      />
-                      <YAxis
-                        domain={unsoldYDomain.domain}
-                        ticks={unsoldYDomain.ticks}
-                        tick={axisTick}
-                        axisLine={false}
-                        tickLine={false}
-                        width={50}
-                        tickFormatter={(v) => `${Math.round(v / 1000)}K`}
-                      />
-                      <Tooltip content={<ChartTooltip />} />
-                      <Area type="monotone" dataKey="value" stroke={chartColors.terraRed} strokeWidth={2} fill="url(#unsoldGrad)" dot={false} />
-                    </AreaChart>
-                  </ResponsiveContainer>
-                </div>
-              ) : (
-                <Card className="p-8 bg-cream border-0 text-center">
-                  <p className="font-body text-warm-gray">Data coming soon</p>
-                </Card>
-              )}
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-6">
+        {/* Unsold Inventory Chart */}
+        <div>
+          <h3 className="font-heading font-semibold text-[18px] text-charcoal mb-4">Unsold Inventory Trend</h3>
+          {filteredUnsold.length > 0 ? (
+            <div style={{ minHeight: 250 }} aria-label="Unsold new housing inventory trend chart">
+              <ResponsiveContainer width="100%" height={260}>
+                <AreaChart data={filteredUnsold}>
+                  <defs>
+                    <linearGradient id="unsoldGrad" x1="0" y1="0" x2="0" y2="1">
+                      <stop offset="0%" stopColor={chartColors.terraRed} stopOpacity={0.1} />
+                      <stop offset="100%" stopColor={chartColors.terraRed} stopOpacity={0} />
+                    </linearGradient>
+                  </defs>
+                  <CartesianGrid horizontal vertical={false} stroke={chartColors.gridLine} />
+                  <XAxis
+                    dataKey="label"
+                    ticks={unsoldXAxis.ticks}
+                    tickFormatter={unsoldXAxis.tickFormatter}
+                    tick={axisTick}
+                    axisLine={false}
+                    tickLine={false}
+                  />
+                  <YAxis
+                    domain={unsoldYDomain.domain}
+                    ticks={unsoldYDomain.ticks}
+                    tick={axisTick}
+                    axisLine={false}
+                    tickLine={false}
+                    width={50}
+                    tickFormatter={(v) => `${Math.round(v / 1000)}K`}
+                  />
+                  <Tooltip content={<ChartTooltip />} />
+                  <Area type="monotone" dataKey="value" stroke={chartColors.terraRed} strokeWidth={2} fill="url(#unsoldGrad)" dot={false} />
+                </AreaChart>
+              </ResponsiveContainer>
             </div>
-
-            {/* Construction Starts Chart */}
-            <div>
-              <h3 className="font-heading font-semibold text-[18px] text-charcoal mb-4">Construction Starts</h3>
-              {filteredStarts.length > 0 ? (
-                <div style={{ minHeight: 250 }} aria-label="Monthly construction starts trend chart">
-                  <ResponsiveContainer width="100%" height={260}>
-                    <BarChart data={filteredStarts}>
-                      <CartesianGrid horizontal vertical={false} stroke={chartColors.gridLine} />
-                      <XAxis
-                        dataKey="label"
-                        ticks={startsXAxis.ticks}
-                        tickFormatter={startsXAxis.tickFormatter}
-                        tick={axisTick}
-                        axisLine={false}
-                        tickLine={false}
-                      />
-                      <YAxis
-                        domain={startsYDomain.domain}
-                        ticks={startsYDomain.ticks}
-                        tick={axisTick}
-                        axisLine={false}
-                        tickLine={false}
-                        width={50}
-                        tickFormatter={(v) => `${Math.round(v / 1000)}K`}
-                      />
-                      <Tooltip content={<ChartTooltip />} />
-                      <Bar dataKey="value" fill={chartColors.horizonBlue} radius={[2, 2, 0, 0]} />
-                    </BarChart>
-                  </ResponsiveContainer>
-                </div>
-              ) : (
-                <Card className="p-8 bg-cream border-0 text-center">
-                  <p className="font-body text-warm-gray">Data coming soon</p>
-                </Card>
-              )}
-            </div>
-          </div>
-
-          <p className="font-body text-[12px] text-warm-gray mt-4">
-            Source: CBS Construction Statistics
-          </p>
+          ) : (
+            <Card className="p-8 bg-cream border-0 text-center">
+              <p className="font-body text-warm-gray">Data coming soon</p>
+            </Card>
+          )}
         </div>
-        <div className="lg:w-[40%]">
-          {monthsSupply != null && (
-            <InsightCard layout="inline">
-              {monthsSupply > 24
-                ? `With ${monthsSupply.toFixed(1)} months of unsold inventory, the new construction market favors buyers. Historically, 12–18 months is considered balanced.`
-                : monthsSupply >= 18
-                  ? `At ${monthsSupply.toFixed(1)} months of supply, inventory is elevated but not extreme.`
-                  : `At ${monthsSupply.toFixed(1)} months of supply, the new construction market is relatively balanced.`}
-            </InsightCard>
+
+        {/* Construction Starts Chart */}
+        <div>
+          <h3 className="font-heading font-semibold text-[18px] text-charcoal mb-4">Construction Starts</h3>
+          {filteredStarts.length > 0 ? (
+            <div style={{ minHeight: 250 }} aria-label="Monthly construction starts trend chart">
+              <ResponsiveContainer width="100%" height={260}>
+                <BarChart data={filteredStarts}>
+                  <CartesianGrid horizontal vertical={false} stroke={chartColors.gridLine} />
+                  <XAxis
+                    dataKey="label"
+                    ticks={startsXAxis.ticks}
+                    tickFormatter={startsXAxis.tickFormatter}
+                    tick={axisTick}
+                    axisLine={false}
+                    tickLine={false}
+                  />
+                  <YAxis
+                    domain={startsYDomain.domain}
+                    ticks={startsYDomain.ticks}
+                    tick={axisTick}
+                    axisLine={false}
+                    tickLine={false}
+                    width={50}
+                    tickFormatter={(v) => `${Math.round(v / 1000)}K`}
+                  />
+                  <Tooltip content={<ChartTooltip />} />
+                  <Bar dataKey="value" fill={chartColors.horizonBlue} radius={[2, 2, 0, 0]} />
+                </BarChart>
+              </ResponsiveContainer>
+            </div>
+          ) : (
+            <Card className="p-8 bg-cream border-0 text-center">
+              <p className="font-body text-warm-gray">Data coming soon</p>
+            </Card>
           )}
         </div>
       </div>
+
+      <p className="font-body text-[12px] text-warm-gray mb-6">
+        Source: CBS Construction Statistics
+      </p>
+
+      {monthsSupply != null && (
+        <InsightCard layout="full-width">
+          {monthsSupply > 24
+            ? `With ${monthsSupply.toFixed(1)} months of unsold inventory, the new construction market favors buyers. Historically, 12–18 months is considered balanced.`
+            : monthsSupply >= 18
+              ? `At ${monthsSupply.toFixed(1)} months of supply, inventory is elevated but not extreme.`
+              : `At ${monthsSupply.toFixed(1)} months of supply, the new construction market is relatively balanced.`}
+        </InsightCard>
+      )}
     </section>
   );
 };
