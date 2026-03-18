@@ -6,7 +6,8 @@
     { "path": "/api/cron/construction-stats", "schedule": "0 12 * * 1" },
     { "path": "/api/cron/construction-costs", "schedule": "0 13 * * 1" },
     { "path": "/api/cron/city-prices-pdf", "schedule": "0 14 * * *" },
-    { "path": "/api/cron/city-rentals-pdf", "schedule": "0 15 * * *" }
+    { "path": "/api/cron/city-rentals-pdf", "schedule": "0 15 * * *" },
+    { "path": "/api/cron/population-data", "schedule": "0 6 1 * *" }
   ],
   "rewrites": [
     { "source": "/((?!api/).*)", "destination": "/index.html" }

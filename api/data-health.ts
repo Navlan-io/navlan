@@ -19,6 +19,7 @@ interface TableCheck {
   name: string;
   query: string;
   maxAgeDays: number;
+  minRows?: number;
   parseLatest: (value: any) => { label: string; date: Date } | null;
 }
 
@@ -106,6 +107,17 @@ const TABLE_CHECKS: TableCheck[] = [
       return { label: p, date: new Date(y, (q - 1) * 3 + 2, 15) };
     },
   },
+  {
+    name: 'population_data',
+    query: 'year',
+    maxAgeDays: 400,
+    minRows: 20,
+    parseLatest: (rows: any[]) => {
+      if (!rows?.[0]) return null;
+      const year = rows[0].year;
+      return { label: String(year), date: new Date(year, 6, 1) };
+    },
+  },
 ];
 
 function getStatus(ageDays: number, maxAgeDays: number): 'fresh' | 'aging' | 'stale' {
@@ -138,6 +150,8 @@ export async function GET() {
           query = query.order('rate_date', { ascending: false });
         } else if (check.name === 'mortgage_rates') {
           query = query.order('period', { ascending: false });
+        } else if (check.name === 'population_data') {
+          query = query.order('year', { ascending: false });
         } else if (check.name === 'city_prices' || check.name === 'city_rentals') {
           query = query.like('period', 'Q%').order('period', { ascending: false });
         }
@@ -159,12 +173,29 @@ export async function GET() {
         const status = getStatus(ageDays, check.maxAgeDays);
         if (status === 'stale') hasStale = true;
 
-        tables[check.name] = {
+        const entry: Record<string, any> = {
           latest: latest.label,
           age_days: ageDays,
           max_age_days: check.maxAgeDays,
           status,
         };
+
+        // Check minimum row count if specified
+        if (check.minRows) {
+          const { count, error: countError } = await supabase
+            .from(check.name)
+            .select('*', { count: 'exact', head: true });
+
+          const rowCount = countError ? 0 : (count ?? 0);
+          entry.row_count = rowCount;
+          entry.min_rows = check.minRows;
+          if (rowCount < check.minRows) {
+            entry.status = 'stale';
+            hasStale = true;
+          }
+        }
+
+        tables[check.name] = entry;
       } catch (err: any) {
         tables[check.name] = { status: 'error', error: err.message };
       }
