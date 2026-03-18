@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { BookOpen, Home, KeyRound, Scale, Building2 } from "lucide-react";
+import { BookOpen, Home, KeyRound, Scale, Building2, Building } from "lucide-react";
 import NavBar from "@/components/NavBar";
 import Footer from "@/components/Footer";
 import { Card, CardContent } from "@/components/ui/card";
@@ -55,6 +55,14 @@ const guides: GuideCardData[] = [
     updated: "Last updated: March 2026",
     readTime: "~22 min read",
     to: "/guides/pinui-binui",
+  },
+  {
+    icon: Building,
+    title: "Renting in Israel: The Complete English Guide",
+    description: "Finding apartments, lease agreements, tenant rights, security deposits, olim rental benefits, and tips from Anglo veterans.",
+    updated: "Last updated: March 2026",
+    readTime: "~20 min read",
+    to: "/guides/renting",
   },
 ];
 

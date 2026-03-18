@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { BookOpen, Home, KeyRound, Scale, Building2, ArrowRight } from "lucide-react";
+import { BookOpen, Home, KeyRound, Scale, Building2, Building, ArrowRight } from "lucide-react";
 
 const guides = [
   {
@@ -37,6 +37,13 @@ const guides = [
       "Urban renewal explained — how it works, what residents get, and what buyers need to know.",
     link: "/guides/pinui-binui",
   },
+  {
+    icon: Building,
+    title: "Renting in Israel",
+    description:
+      "Finding apartments, lease agreements, tenant rights, deposits, and what every foreign renter needs to know.",
+    link: "/guides/renting",
+  },
 ];
 
 const NewToIsrael = () => {
@@ -50,7 +57,7 @@ const NewToIsrael = () => {
           Essential guides for English-speaking property buyers
         </p>
 
-        <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-[1040px] mx-auto">
+        <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-[1080px] mx-auto">
           {guides.map((guide) => (
             <div
               key={guide.title}
