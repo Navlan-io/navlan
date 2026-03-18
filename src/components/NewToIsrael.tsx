@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { BookOpen, Home, KeyRound, Scale, ArrowRight } from "lucide-react";
+import { BookOpen, Home, KeyRound, Scale, Building, ArrowRight } from "lucide-react";
 
 const guides = [
   {
@@ -30,6 +30,13 @@ const guides = [
       "Tax brackets, olim benefits, worked examples, and the scenarios every Anglo buyer faces.",
     link: "/guides/purchase-tax",
   },
+  {
+    icon: Building,
+    title: "Renting in Israel",
+    description:
+      "Finding apartments, lease agreements, tenant rights, deposits, and what every foreign renter needs to know.",
+    link: "/guides/renting",
+  },
 ];
 
 const NewToIsrael = () => {
@@ -43,7 +50,7 @@ const NewToIsrael = () => {
           Essential guides for English-speaking property buyers
         </p>
 
-        <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-[700px] mx-auto">
+        <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-[1000px] mx-auto">
           {guides.map((guide) => (
             <div
               key={guide.title}
