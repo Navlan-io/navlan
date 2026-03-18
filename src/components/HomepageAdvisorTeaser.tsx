@@ -25,7 +25,7 @@ const HomepageAdvisorTeaser = () => {
 
   return (
     <section
-      className="relative py-20 md:py-26 overflow-hidden"
+      className="relative py-[78px] md:py-[101px] overflow-hidden"
       style={{
         background:
           "linear-gradient(180deg, rgba(124,139,110,0.10) 0%, rgba(124,139,110,0.03) 60%, #FAF8F5 100%), linear-gradient(180deg, rgba(196,169,106,0.06) 0%, rgba(242,237,228,0.03) 40%, #FAF8F5 100%)",
@@ -57,7 +57,7 @@ const HomepageAdvisorTeaser = () => {
           {/* User message */}
           <div className="flex items-start gap-2 justify-end">
             <div className="bg-sage text-white px-4 py-3 rounded-2xl rounded-br-sm font-body text-[14px] text-left max-w-[240px] shadow-card">
-              Making aliyah with 2 kids, budget ~2.5M?
+              Making aliyah with 2 kids, budget ~3.5M?
             </div>
           </div>
           {/* AI response */}

@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { supabase } from "@/integrations/supabase/client";
+import { useCurrency } from "@/contexts/CurrencyContext";
 import heroImage from "@/assets/hero-landscape.png";
 import NavBar from "@/components/NavBar";
 import Footer from "@/components/Footer";
@@ -11,25 +12,18 @@ import NewToIsrael from "@/components/NewToIsrael";
 import HomepageAdvisorTeaser from "@/components/HomepageAdvisorTeaser";
 import SEO from "@/components/SEO";
 
-interface HeroStat {
-  label: string;
-  value: string;
-  href: string;
-  colorClass?: string;
-}
-
 const Index = () => {
   const [priceYoy, setPriceYoy] = useState<number | null>(null);
-  const [priceMom, setPriceMom] = useState<number | null>(null);
   const [mortgageRate, setMortgageRate] = useState<number | null>(null);
-  const [mortgageTrend, setMortgageTrend] = useState<"up" | "down" | "flat">("flat");
+  const [avgPrice, setAvgPrice] = useState<number | null>(null);
+  const { currency, rates } = useCurrency();
 
   useEffect(() => {
     const fetch = async () => {
-      const [indexRes, mortgageRes] = await Promise.all([
+      const [indexRes, mortgageRes, avgPriceRes] = await Promise.all([
         supabase
           .from("price_indices")
-          .select("percent_yoy, percent_mom")
+          .select("percent_yoy")
           .eq("index_code", 40010)
           .order("year", { ascending: false })
           .order("month", { ascending: false })
@@ -39,57 +33,40 @@ const Index = () => {
           .select("value")
           .eq("track_type", "non_indexed_fixed")
           .order("period", { ascending: false })
-          .limit(2),
+          .limit(1),
+        supabase
+          .from("city_prices")
+          .select("avg_price_total")
+          .eq("city_name", "Total")
+          .order("period", { ascending: false })
+          .limit(1),
       ]);
 
       if (indexRes.data?.[0]) {
         setPriceYoy(indexRes.data[0].percent_yoy);
-        setPriceMom(indexRes.data[0].percent_mom);
       }
       if (mortgageRes.data?.[0]) {
         setMortgageRate(mortgageRes.data[0].value);
-        if (mortgageRes.data.length >= 2) {
-          const current = mortgageRes.data[0].value;
-          const previous = mortgageRes.data[1].value;
-          if (current > previous) setMortgageTrend("up");
-          else if (current < previous) setMortgageTrend("down");
-          else setMortgageTrend("flat");
-        }
+      }
+      if (avgPriceRes.data?.[0]) {
+        setAvgPrice(avgPriceRes.data[0].avg_price_total);
       }
     };
     fetch().catch(console.error);
   }, []);
 
-  const yoy = priceYoy ?? 0.4;
-  const yoyPositive = yoy >= 0;
-  const yoyColor = yoyPositive ? "text-growth-green" : "text-terra-red";
-  const yoyArrow = yoyPositive ? "↑" : "↓";
+  const yoy = priceYoy ?? 0;
+  const yoyColor = yoy >= 0 ? "text-growth-green" : "text-terra-red";
 
-  const mom = priceMom ?? 0.8;
-  const momPositive = mom >= 0;
-  const momColor = momPositive ? "text-growth-green" : "text-terra-red";
-  const momArrow = momPositive ? "↑" : "↓";
-
-  const stats: HeroStat[] = [
-    {
-      label: "Prices YoY",
-      value: `${yoyArrow} ${yoy >= 0 ? "+" : ""}${yoy.toFixed(1)}%`,
-      href: "/market#national-trend",
-      colorClass: yoyColor,
-    },
-    {
-      label: "Prices MoM",
-      value: `${momArrow} ${mom >= 0 ? "+" : ""}${mom.toFixed(1)}%`,
-      href: "/market#national-trend",
-      colorClass: momColor,
-    },
-    {
-      label: "Fixed Rate",
-      value: `${(mortgageRate ?? 5.5).toFixed(2)}%${mortgageTrend === "up" ? " ↑" : mortgageTrend === "down" ? " ↓" : ""}`,
-      href: "/market#mortgage-rates",
-      colorClass: mortgageTrend === "down" ? "text-growth-green" : mortgageTrend === "up" ? "text-terra-red" : "text-charcoal",
-    },
-  ];
+  // avg_price_total is in thousands of NIS (e.g. 2362.9 = ₪2,362,900)
+  const formatAvgPrice = (nisThousands: number): string => {
+    if (currency === "₪") {
+      return `₪${(nisThousands / 1_000).toFixed(2)}M`;
+    }
+    const rate = currency === "$" ? rates.USD : rates.EUR;
+    const converted = nisThousands / rate / 1_000;
+    return `${currency}${converted.toFixed(2)}M`;
+  };
 
   return (
     <div className="min-h-screen flex flex-col bg-warm-white">
@@ -143,22 +120,28 @@ const Index = () => {
             <SearchBar />
           </div>
 
-          {/* Live stat pills */}
-          <div className="mt-8 flex flex-col sm:flex-row flex-wrap justify-center gap-2 sm:gap-3 w-full max-w-xl animate-fade-up [animation-delay:300ms]">
-            {stats.map((stat) => (
-              <Link
-                key={stat.label}
-                to={stat.href}
-                className="flex items-center justify-center gap-2 bg-white/90 backdrop-blur-sm rounded-full px-5 py-3 min-h-[44px] shadow-card no-underline hover:shadow-[0_4px_16px_rgba(45,50,52,0.15)] transition-shadow duration-200 cursor-pointer"
-              >
-                <span className="font-body text-[14px] text-warm-gray">
-                  {stat.label}:
-                </span>
-                <span className={`font-body text-[15px] font-semibold ${stat.colorClass ?? "text-charcoal"}`}>
-                  {stat.value}
-                </span>
-              </Link>
-            ))}
+          {/* Data ribbon */}
+          <div className="mt-8 inline-flex flex-nowrap whitespace-nowrap md:flex-wrap md:whitespace-normal justify-center items-center gap-x-1.5 md:gap-x-3 max-w-xl px-4 md:px-5 py-1.5 rounded-full bg-white/[0.06] backdrop-blur-[8px] animate-fade-up [animation-delay:300ms] leading-[1.6]">
+            <Link to="/market" className="inline-flex items-center gap-1 md:gap-1.5 no-underline">
+              <span className="font-body text-[10px] md:text-[12px] text-white/55"><span className="md:hidden">Avg</span><span className="hidden md:inline">Avg Price</span></span>
+              <span className="font-body text-[11px] md:text-[13px] font-medium text-white">
+                {avgPrice ? formatAvgPrice(avgPrice) : "—"}
+              </span>
+            </Link>
+            <span className="text-white/30 text-[11px] md:text-[12px] select-none">·</span>
+            <Link to="/market#national-trend" className="inline-flex items-center gap-1 md:gap-1.5 no-underline">
+              <span className="font-body text-[10px] md:text-[12px] text-white/55">Prices</span>
+              <span className={`font-body text-[11px] md:text-[13px] font-medium ${yoyColor}`}>
+                {yoy >= 0 ? "↑" : "↓"} {Math.abs(yoy).toFixed(1)}%<span className="hidden md:inline"> YoY</span>
+              </span>
+            </Link>
+            <span className="text-white/30 text-[11px] md:text-[12px] select-none">·</span>
+            <Link to="/market#mortgage-rates" className="inline-flex items-center gap-1 md:gap-1.5 no-underline">
+              <span className="font-body text-[10px] md:text-[12px] text-white/55"><span className="md:hidden">Mortgage</span><span className="hidden md:inline">Mortgage Rate</span></span>
+              <span className="font-body text-[11px] md:text-[13px] font-medium text-white">
+                {(mortgageRate ?? 5.5).toFixed(2)}%
+              </span>
+            </Link>
           </div>
         </div>
       </section>

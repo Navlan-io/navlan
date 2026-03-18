@@ -48,10 +48,10 @@ const guides = [
 
 const NewToIsrael = () => {
   return (
-    <section className="py-20 md:py-28 bg-warm-white">
+    <section className="py-[78px] md:py-[110px] bg-warm-white">
       <div className="container max-w-[1080px] text-center">
         <h2 className="font-heading font-semibold text-[24px] text-charcoal">
-          New to Israel?
+          Understand the Market
         </h2>
         <p className="mt-1 font-body text-[15px] text-warm-gray">
           Essential guides for English-speaking property buyers
