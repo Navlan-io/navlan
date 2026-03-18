@@ -9,7 +9,6 @@ const navLinks = [
   { label: "Advisor", href: "/advisor" },
   { label: "Market Data", href: "/market" },
   { label: "Guides", href: "/guides" },
-  { label: "Resources", href: "/resources" },
 ];
 
 const currencies = ["₪", "$", "€"] as const;

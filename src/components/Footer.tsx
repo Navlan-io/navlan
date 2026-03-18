@@ -4,7 +4,6 @@ import NewsletterSignup from "@/components/NewsletterSignup";
 const quickLinks = [
   { label: "About", to: "/about" },
   { label: "Start Here", to: "/guides/start-here" },
-  { label: "Resources", to: "/resources" },
   { label: "Disclaimer", to: "/disclaimer" },
   { label: "Privacy", to: "/privacy" },
   { label: "Terms", to: "/terms" },

@@ -26,7 +26,6 @@ const STATIC_ROUTES = [
   { path: "/guides/dira-behanacha", priority: "0.9", changefreq: "monthly" },
   { path: "/guides/mortgages", priority: "0.9", changefreq: "monthly" },
   { path: "/guides/purchase-tax", priority: "0.9", changefreq: "monthly" },
-  { path: "/resources", priority: "0.7", changefreq: "monthly" },
   { path: "/advisor", priority: "0.8", changefreq: "monthly" },
   { path: "/about", priority: "0.5", changefreq: "monthly" },
   { path: "/disclaimer", priority: "0.3", changefreq: "yearly" },
