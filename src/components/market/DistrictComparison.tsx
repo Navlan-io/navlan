@@ -77,7 +77,7 @@ const DistrictComparison = () => {
   if (chartData.length === 0) {
     return (
       <section>
-        <h2 className="font-heading font-semibold text-[22px] text-charcoal mb-4">Prices by District</h2>
+        <h2 className="font-heading font-semibold text-[22px] text-charcoal mb-4">Price Growth by District</h2>
         <Card className="p-8 bg-cream border-0 text-center">
           <p className="font-body text-warm-gray">Data coming soon</p>
         </Card>
@@ -116,7 +116,7 @@ const DistrictComparison = () => {
   return (
     <section>
       <div className="flex items-center justify-between mb-1">
-        <h2 className="font-heading font-semibold text-[22px] text-charcoal">Prices by District</h2>
+        <h2 className="font-heading font-semibold text-[22px] text-charcoal">Price Growth by District</h2>
         <div className="flex items-center gap-2" role="group" aria-label="Time range">
           {TIME_RANGES.map((r) => (
             <button
@@ -133,8 +133,11 @@ const DistrictComparison = () => {
           ))}
         </div>
       </div>
-      <p className="font-body text-[15px] text-warm-gray mb-6">
-        Regional price index trends across Israel's six statistical districts
+      <p className="font-body text-[15px] text-warm-gray mb-2">
+        How prices have changed in each district since the 2015–2016 base period
+      </p>
+      <p className="font-body text-[12px] text-warm-gray/80 mb-6 italic">
+        This chart shows relative price changes, not current price levels. All districts start at index value 100.
       </p>
 
       <div className="lg:flex lg:gap-8 lg:items-start">
@@ -200,16 +203,11 @@ const DistrictComparison = () => {
             districtValues.sort((a, b) => (b.value ?? 0) - (a.value ?? 0));
             const highest = districtValues[0];
             const lowest = districtValues[districtValues.length - 1];
-            const spread = (highest.value ?? 0) - (lowest.value ?? 0);
-            const prevIdx = Math.max(0, chartData.length - 13);
-            const prevPoint = chartData[prevIdx];
-            const prevHigh = Math.max(...DISTRICTS.map(d => (prevPoint[d.name] as number) ?? 0));
-            const prevLow = Math.min(...DISTRICTS.map(d => (prevPoint[d.name] as number) ?? Infinity).filter(v => v !== Infinity && v > 0));
-            const prevSpread = prevHigh - prevLow;
-            const spreadDir = spread > prevSpread ? "widened" : "narrowed";
+            const highMultiple = ((highest.value ?? 0) / 100).toFixed(1);
+            const lowMultiple = ((lowest.value ?? 0) / 100).toFixed(1);
             return (
               <InsightCard layout="inline">
-                The {highest.name} district leads with an index of {highest.value?.toFixed(1)}, while {lowest.name} is lowest at {lowest.value?.toFixed(1)}. The gap between the most and least expensive regions has {spreadDir} over the past year.
+                The {highest.name} has seen the strongest price growth since 2015 — up {highMultiple}× from the base period — driven by relative affordability attracting buyers priced out of the Center. {lowest.name}, despite different market dynamics, has grown at a slower rate of {lowMultiple}× from the base.
               </InsightCard>
             );
           })()}

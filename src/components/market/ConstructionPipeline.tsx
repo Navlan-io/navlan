@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import {
   AreaChart, Area, BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer,
 } from "recharts";
@@ -18,9 +18,18 @@ interface StatRow {
   value: number | null;
 }
 
+export interface ConstructionPipelineData {
+  unsoldInventory: number | null;
+  monthsSupply: number | null;
+}
+
 const formatNumber = (n: number) => n.toLocaleString("en-US");
 
-const ConstructionPipeline = () => {
+interface ConstructionPipelineProps {
+  onDataLoaded?: (data: ConstructionPipelineData) => void;
+}
+
+const ConstructionPipeline = ({ onDataLoaded }: ConstructionPipelineProps) => {
   const [unsoldLatest, setUnsoldLatest] = useState<number | null>(null);
   const [monthsSupply, setMonthsSupply] = useState<number | null>(null);
   const [startsLatest, setStartsLatest] = useState<number | null>(null);
@@ -29,6 +38,7 @@ const ConstructionPipeline = () => {
   const [loading, setLoading] = useState(true);
   const [range, setRange] = useState<TimeRange>("Max");
   const isMobile = useIsMobile();
+  const calledBack = useRef(false);
 
   useEffect(() => {
     const fetch = async () => {
@@ -91,6 +101,13 @@ const ConstructionPipeline = () => {
     };
     fetch();
   }, []);
+
+  useEffect(() => {
+    if (!calledBack.current && !loading && onDataLoaded) {
+      onDataLoaded({ unsoldInventory: unsoldLatest, monthsSupply });
+      calledBack.current = true;
+    }
+  }, [loading, unsoldLatest, monthsSupply, onDataLoaded]);
 
   const filteredUnsold = filterByRange(unsoldChart, range);
   const filteredStarts = filterByRange(startsChart, range);
