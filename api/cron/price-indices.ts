@@ -92,9 +92,10 @@ export async function GET(req: Request) {
           continue;
         }
 
+        // Fetch latest existing row (with base_desc) to detect base period changes
         const { data: latestRows } = await supabase
           .from('price_indices')
-          .select('year, month')
+          .select('year, month, base_desc')
           .eq('index_code', dbCode)
           .order('year', { ascending: false })
           .order('month', { ascending: false })
@@ -103,12 +104,63 @@ export async function GET(req: Request) {
         const latestYM = latestRows?.[0]
           ? latestRows[0].year * 100 + latestRows[0].month
           : 0;
+        const existingBase = latestRows?.[0]?.base_desc ?? '';
+
+        // Detect base period change and chain-link old data onto new base
+        const newEntries = entries.filter(
+          (e) => e.year * 100 + e.month > latestYM,
+        );
+        const incomingBase = newEntries[0]?.baseDesc ?? entries[entries.length - 1].baseDesc;
+        let rebased = false;
+
+        if (existingBase && incomingBase && existingBase !== incomingBase) {
+          console.warn(
+            `[price-indices] BASE PERIOD CHANGE detected for index ${dbCode}: ` +
+            `"${existingBase}" → "${incomingBase}". Chain-linking old data.`,
+          );
+
+          // Fetch the last 12 months of old-base values to compute the mean
+          const { data: oldRows, error: oldErr } = await supabase
+            .from('price_indices')
+            .select('id, value')
+            .eq('index_code', dbCode)
+            .eq('base_desc', existingBase)
+            .order('year', { ascending: false })
+            .order('month', { ascending: false })
+            .limit(12);
+
+          if (!oldErr && oldRows && oldRows.length > 0) {
+            const mean = oldRows.reduce((s, r) => s + r.value, 0) / oldRows.length;
+            const factor = 100 / mean;
+            console.warn(
+              `[price-indices]   Rebasing ${dbCode}: mean(last ${oldRows.length} months)=${mean.toFixed(2)}, factor=${factor.toFixed(6)}`,
+            );
+
+            // Rebase ALL existing rows for this index onto the new base
+            const { data: allOldRows, error: fetchAllErr } = await supabase
+              .from('price_indices')
+              .select('id, value')
+              .eq('index_code', dbCode)
+              .eq('base_desc', existingBase);
+
+            if (!fetchAllErr && allOldRows) {
+              for (const row of allOldRows) {
+                const newValue = Math.round(row.value * factor * 10) / 10;
+                await supabase
+                  .from('price_indices')
+                  .update({ value: newValue, base_desc: incomingBase, fetched_at: timestamp })
+                  .eq('id', row.id);
+              }
+              console.warn(
+                `[price-indices]   Rebased ${allOldRows.length} existing rows for index ${dbCode}.`,
+              );
+              rebased = true;
+            }
+          }
+        }
 
         let inserted = 0;
-        for (const entry of entries) {
-          const entryYM = entry.year * 100 + entry.month;
-          if (entryYM <= latestYM) continue;
-
+        for (const entry of newEntries) {
           const { error: upsertError } = await supabase
             .from('price_indices')
             .upsert({
@@ -136,6 +188,7 @@ export async function GET(req: Request) {
           latestInDB: latestYM ? `${Math.floor(latestYM / 100)}-${String(latestYM % 100).padStart(2, '0')}` : null,
           latestFromCBS: `${latestEntry.year}-${String(latestEntry.month).padStart(2, '0')}`,
           inserted,
+          ...(rebased ? { rebased: true, newBase: incomingBase } : {}),
         };
       } catch (err: any) {
         errors.push(`${dbCode}: ${err.message}`);
