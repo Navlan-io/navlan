@@ -377,7 +377,7 @@ async function getCityContext(supabase: SupabaseClient, cityName: string): Promi
 
 // ── Handler ──
 
-export const config = { maxDuration: 30 };
+export const config = { runtime: 'edge', maxDuration: 30 };
 
 export default async function handler(req: Request) {
   if (req.method !== 'POST') {
