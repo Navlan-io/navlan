@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { BookOpen, Home, KeyRound, Scale } from "lucide-react";
+import { BookOpen, Home, KeyRound, Scale, Building2 } from "lucide-react";
 import NavBar from "@/components/NavBar";
 import Footer from "@/components/Footer";
 import { Card, CardContent } from "@/components/ui/card";
@@ -48,6 +48,14 @@ const guides: GuideCardData[] = [
     readTime: "~22 min read",
     to: "/guides/purchase-tax",
   },
+  {
+    icon: Building2,
+    title: "Tama 38 & Pinui Binui: Urban Renewal",
+    description: "Israel's massive building transformation — how it works, what residents get, tax treatment, timelines, and what buyers need to know.",
+    updated: "Last updated: March 2026",
+    readTime: "~22 min read",
+    to: "/guides/pinui-binui",
+  },
 ];
 
 const GuidesIndexPage = () => {
@@ -69,14 +77,14 @@ const GuidesIndexPage = () => {
       />
       <NavBar />
       <main className="flex-1">
-        <div className="container max-w-[860px] pt-12 pb-16">
+        <div className="container max-w-[1080px] pt-12 pb-16">
           <h1 className="font-heading font-bold text-[32px] text-charcoal">Guides</h1>
           <p className="mt-3 font-body text-[16px] text-warm-gray max-w-[600px]">
             In-depth resources for navigating Israeli real estate as an English speaker.
           </p>
           <div className="border-b border-grid-line mt-6 mb-8" />
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {guides.map((guide) => (
               <Card key={guide.to} className="bg-cream border-grid-line shadow-card rounded-xl">
                 <CardContent className="p-6 flex flex-col gap-3">
