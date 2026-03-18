@@ -56,6 +56,17 @@ function parseBoiMortgageCsv(csv: string, nullifyZero = false): BoiObservation[]
   return observations.map(obs => ({ ...obs, obsValue: obs.obsValue === 0 ? null : obs.obsValue }));
 }
 
+// ── Anomaly bounds ──
+async function logAnomaly(
+  supabase: SupabaseClient,
+  source: string,
+  description: string,
+  severity: 'warning' | 'critical',
+  data: any,
+) {
+  await supabase.from('anomaly_log').insert({ source, description, severity, data });
+}
+
 // ── Handler ──
 
 // 10 sequential BOI API calls can exceed Vercel's 10s default; allow up to 60s
@@ -94,6 +105,7 @@ export async function GET(req: Request) {
   const timestamp = new Date().toISOString();
   const results: Record<string, any> = {};
   const errors: string[] = [];
+  const anomalies: string[] = [];
   let totalInserted = 0;
 
   try {
@@ -142,6 +154,36 @@ export async function GET(req: Request) {
             errors.push(`${series.seriesKey}: upsert failed for ${obsPeriod} — ${upsertError.message}`);
           } else {
             inserted++;
+
+            // Anomaly bounds: rate between 0% and 12%
+            if (obs.obsValue !== null) {
+              if (obs.obsValue < 0 || obs.obsValue > 12) {
+                const desc = `${series.trackLabel} rate ${obs.obsValue}% outside bounds [0–12%]`;
+                anomalies.push(desc);
+                await logAnomaly(supabase, 'mortgage_rates', desc, 'critical',
+                  { series_key: series.seriesKey, track: series.trackLabel, period: obsPeriod, value: obs.obsValue });
+              }
+
+              // MoM change < 1.5 percentage points — check against previous value in DB
+              if (latestPeriod) {
+                const { data: prevRow } = await supabase
+                  .from('mortgage_rates')
+                  .select('value')
+                  .eq('series_key', series.seriesKey)
+                  .eq('period', `${latestPeriod}-01`)
+                  .maybeSingle();
+
+                if (prevRow?.value !== null && prevRow?.value !== undefined) {
+                  const momChange = Math.abs(obs.obsValue - prevRow.value);
+                  if (momChange > 1.5) {
+                    const desc = `${series.trackLabel} MoM change: ${momChange.toFixed(2)}pp (threshold: 1.5pp)`;
+                    anomalies.push(desc);
+                    await logAnomaly(supabase, 'mortgage_rates', desc, 'warning',
+                      { series_key: series.seriesKey, track: series.trackLabel, period: obsPeriod, current: obs.obsValue, previous: prevRow.value });
+                  }
+                }
+              }
+            }
           }
         }
 
@@ -162,7 +204,7 @@ export async function GET(req: Request) {
     });
   }
 
-  return new Response(JSON.stringify({ job: 'mortgage-rates', timestamp, results, totalInserted, errors }), {
+  return new Response(JSON.stringify({ job: 'mortgage-rates', timestamp, results, totalInserted, errors, anomalies }), {
     status: 200, headers: { 'Content-Type': 'application/json' },
   });
 }

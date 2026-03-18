@@ -68,6 +68,17 @@ function extractTimeSeriesObservations(data: any): { period: string; value: numb
   return [];
 }
 
+// ── Anomaly bounds ──
+async function logAnomaly(
+  supabase: SupabaseClient,
+  source: string,
+  description: string,
+  severity: 'warning' | 'critical',
+  data: any,
+) {
+  await supabase.from('anomaly_log').insert({ source, description, severity, data });
+}
+
 // ── Handler ──
 
 // 6 sequential CBS API calls can exceed Vercel's 10s default; allow up to 60s
@@ -95,6 +106,7 @@ export async function GET(req: Request) {
   const timestamp = new Date().toISOString();
   const results: Record<string, any> = {};
   const errors: string[] = [];
+  const anomalies: string[] = [];
   let totalInserted = 0;
 
   try {
@@ -150,6 +162,36 @@ export async function GET(req: Request) {
             errors.push(`${series.seriesId}: upsert failed for ${obs.period} — ${upsertError.message}`);
           } else {
             inserted++;
+
+            // Anomaly bounds: no negative values
+            if (obs.value < 0) {
+              const desc = `${series.metric} has negative value: ${obs.value} for ${obs.period}`;
+              anomalies.push(desc);
+              await logAnomaly(supabase, 'construction_stats', desc, 'critical',
+                { series_id: series.seriesId, metric: series.metric, period: obs.period, value: obs.value });
+            }
+
+            // MoM change < 50% — check against latest value in DB
+            if (latestRow) {
+              const { data: prevValueRow } = await supabase
+                .from('construction_stats')
+                .select('value')
+                .eq('series_id', series.seriesId)
+                .eq('year', latestRow.year)
+                .eq('month', latestRow.month ?? 0)
+                .eq('quarter', latestRow.quarter ?? 0)
+                .maybeSingle();
+
+              if (prevValueRow?.value && prevValueRow.value > 0) {
+                const change = Math.abs(obs.value - prevValueRow.value) / prevValueRow.value;
+                if (change > 0.50) {
+                  const desc = `${series.metric} change: ${(change * 100).toFixed(1)}% (threshold: 50%)`;
+                  anomalies.push(desc);
+                  await logAnomaly(supabase, 'construction_stats', desc, 'warning',
+                    { series_id: series.seriesId, metric: series.metric, period: obs.period, current: obs.value, previous: prevValueRow.value });
+                }
+              }
+            }
           }
         }
 
@@ -170,7 +212,7 @@ export async function GET(req: Request) {
     });
   }
 
-  return new Response(JSON.stringify({ job: 'construction-stats', timestamp, results, totalInserted, errors }), {
+  return new Response(JSON.stringify({ job: 'construction-stats', timestamp, results, totalInserted, errors, anomalies }), {
     status: 200, headers: { 'Content-Type': 'application/json' },
   });
 }

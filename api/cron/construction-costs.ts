@@ -59,6 +59,17 @@ function normalizeConstructionCost(year: number, month: number, rawValue: number
   return rawValue;
 }
 
+// ── Anomaly bounds ──
+async function logAnomaly(
+  supabase: SupabaseClient,
+  source: string,
+  description: string,
+  severity: 'warning' | 'critical',
+  data: any,
+) {
+  await supabase.from('anomaly_log').insert({ source, description, severity, data });
+}
+
 // ── Handler ──
 const CONSTRUCTION_COST_CODE = 200010;
 
@@ -68,6 +79,7 @@ export async function GET(req: Request) {
 
   const timestamp = new Date().toISOString();
   const errors: string[] = [];
+  const anomalies: string[] = [];
   let totalInserted = 0;
 
   try {
@@ -120,6 +132,17 @@ export async function GET(req: Request) {
         errors.push(`Upsert failed for ${entry.year}-${entry.month}: ${upsertError.message}`);
       } else {
         inserted++;
+
+        // Anomaly bounds: MoM between -2% and +3%
+        if (entry.percentMom !== null) {
+          if (entry.percentMom < -2 || entry.percentMom > 3) {
+            const desc = `Construction cost MoM change: ${entry.percentMom}% (threshold: -2% to +3%)`;
+            anomalies.push(desc);
+            await logAnomaly(supabase, 'construction_costs', desc,
+              Math.abs(entry.percentMom) > 5 ? 'critical' : 'warning',
+              { index_code: CONSTRUCTION_COST_CODE, year: entry.year, month: entry.month, percent_mom: entry.percentMom });
+          }
+        }
       }
     }
 
@@ -133,7 +156,7 @@ export async function GET(req: Request) {
         latestFromCBS: `${latestEntry.year}-${String(latestEntry.month).padStart(2, '0')}`,
         inserted: totalInserted,
       },
-      totalInserted, errors,
+      totalInserted, errors, anomalies,
     }), { status: 200, headers: { 'Content-Type': 'application/json' } });
   } catch (err: any) {
     return new Response(JSON.stringify({ job: 'construction-costs', timestamp, error: err.message }), {

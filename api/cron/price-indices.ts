@@ -53,6 +53,17 @@ function parsePriceIndexResponse(data: any): CbsPriceIndexEntry[] {
   return entries;
 }
 
+// ── Anomaly bounds ──
+async function logAnomaly(
+  supabase: SupabaseClient,
+  source: string,
+  description: string,
+  severity: 'warning' | 'critical',
+  data: any,
+) {
+  await supabase.from('anomaly_log').insert({ source, description, severity, data });
+}
+
 // ── Handler ──
 
 // 9 sequential CBS API calls can exceed Vercel's 10s default; allow up to 60s
@@ -77,6 +88,7 @@ export async function GET(req: Request) {
   const timestamp = new Date().toISOString();
   const results: Record<string, any> = {};
   const errors: string[] = [];
+  const anomalies: string[] = [];
   let totalInserted = 0;
 
   // 200010 (Construction Cost Index) has its own normalization in the
@@ -174,6 +186,25 @@ export async function GET(req: Request) {
             errors.push(`${dbCode}: upsert failed for ${entry.year}-${entry.month} — ${upsertError.message}`);
           } else {
             inserted++;
+
+            // Anomaly bounds: MoM between -3% and +3%, YoY between -10% and +15%
+            if (entry.percentMom !== null) {
+              if (entry.percentMom < -3 || entry.percentMom > 3) {
+                const desc = `Index ${dbCode} MoM change: ${entry.percentMom}% (threshold: -3% to +3%)`;
+                anomalies.push(desc);
+                await logAnomaly(supabase, 'price_indices', desc,
+                  Math.abs(entry.percentMom) > 5 ? 'critical' : 'warning',
+                  { index_code: dbCode, year: entry.year, month: entry.month, percent_mom: entry.percentMom });
+              }
+            }
+            if (entry.percentYoy !== null) {
+              if (entry.percentYoy < -10 || entry.percentYoy > 15) {
+                const desc = `Index ${dbCode} YoY change: ${entry.percentYoy}% (threshold: -10% to +15%)`;
+                anomalies.push(desc);
+                await logAnomaly(supabase, 'price_indices', desc, 'critical',
+                  { index_code: dbCode, year: entry.year, month: entry.month, percent_yoy: entry.percentYoy });
+              }
+            }
           }
         }
 
@@ -204,7 +235,7 @@ export async function GET(req: Request) {
     });
   }
 
-  return new Response(JSON.stringify({ job: 'price-indices', timestamp, results, totalInserted, errors }), {
+  return new Response(JSON.stringify({ job: 'price-indices', timestamp, results, totalInserted, errors, anomalies }), {
     status: 200, headers: { 'Content-Type': 'application/json' },
   });
 }

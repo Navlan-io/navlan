@@ -53,6 +53,23 @@ function parseBoiCsv(csv: string): BoiObservation[] {
   return results;
 }
 
+// ── Anomaly bounds ──
+const RATE_BOUNDS: Record<string, { min: number; max: number }> = {
+  USD: { min: 2.5, max: 5.0 },
+  EUR: { min: 3.0, max: 6.0 },
+  GBP: { min: 3.5, max: 7.0 },
+};
+
+async function logAnomaly(
+  supabase: SupabaseClient,
+  source: string,
+  description: string,
+  severity: 'warning' | 'critical',
+  data: any,
+) {
+  await supabase.from('anomaly_log').insert({ source, description, severity, data });
+}
+
 // ── Handler ──
 const CURRENCIES = ['USD', 'EUR', 'GBP'];
 const MIN_DAYS_BETWEEN_SNAPSHOTS = 7;
@@ -64,6 +81,7 @@ export async function GET(req: Request) {
   const timestamp = new Date().toISOString();
   const results: Record<string, any> = {};
   const errors: string[] = [];
+  const anomalies: string[] = [];
   let totalInserted = 0;
 
   try {
@@ -117,6 +135,17 @@ export async function GET(req: Request) {
         } else {
           totalInserted++;
           results[currency] = { latestInDB: latestDate, inserted: obs.timePeriod, rate: obs.obsValue };
+
+          // Anomaly bounds check
+          const bounds = RATE_BOUNDS[currency];
+          if (bounds && obs.obsValue !== null) {
+            if (obs.obsValue < bounds.min || obs.obsValue > bounds.max) {
+              const desc = `${currency}/ILS rate ${obs.obsValue} outside bounds [${bounds.min}–${bounds.max}]`;
+              anomalies.push(desc);
+              await logAnomaly(supabase, 'exchange_rates', desc, 'critical',
+                { currency, rate: obs.obsValue, date: obs.timePeriod, bounds });
+            }
+          }
         }
       } catch (err: any) {
         errors.push(`${currency}: ${err.message}`);
@@ -129,7 +158,7 @@ export async function GET(req: Request) {
     });
   }
 
-  return new Response(JSON.stringify({ job: 'exchange-rates', timestamp, results, totalInserted, errors }), {
+  return new Response(JSON.stringify({ job: 'exchange-rates', timestamp, results, totalInserted, errors, anomalies }), {
     status: 200, headers: { 'Content-Type': 'application/json' },
   });
 }
