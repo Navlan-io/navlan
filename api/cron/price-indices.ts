@@ -190,6 +190,14 @@ export async function GET(req: Request) {
         results[dbCode] = { error: err.message };
       }
     }
+    // Update market narrative after new data is inserted
+    if (totalInserted > 0) {
+      try {
+        await updateMarketNarrative(supabase);
+      } catch (err: any) {
+        errors.push(`market_narrative: ${err.message}`);
+      }
+    }
   } catch (err: any) {
     return new Response(JSON.stringify({ job: 'price-indices', timestamp, error: err.message }), {
       status: 500, headers: { 'Content-Type': 'application/json' },
@@ -199,4 +207,57 @@ export async function GET(req: Request) {
   return new Response(JSON.stringify({ job: 'price-indices', timestamp, results, totalInserted, errors }), {
     status: 200, headers: { 'Content-Type': 'application/json' },
   });
+}
+
+// ── Auto-generate market narrative for the AI Advisor ──
+
+async function updateMarketNarrative(supabase: SupabaseClient) {
+  const [indexRes, rateRes, inventoryRes] = await Promise.all([
+    supabase.from('price_indices')
+      .select('value, percent_yoy, year, month')
+      .eq('index_code', 40010)
+      .order('year', { ascending: false }).order('month', { ascending: false })
+      .limit(1).single(),
+    supabase.from('mortgage_rates')
+      .select('value, period')
+      .eq('track_type', 'non_indexed_fixed')
+      .order('period', { ascending: false })
+      .limit(1).single(),
+    supabase.from('construction_stats')
+      .select('value, year, month')
+      .eq('series_id', 574362)
+      .eq('metric', 'unsold_inventory')
+      .order('year', { ascending: false }).order('month', { ascending: false })
+      .limit(1).single(),
+  ]);
+
+  const latestIndex = indexRes.data as any;
+  const latestRate = rateRes.data as any;
+  const latestInventory = inventoryRes.data as any;
+
+  if (!latestIndex || !latestRate || !latestInventory) return;
+
+  const yoy = latestIndex.percent_yoy;
+  const rate = latestRate.value;
+  const inventory = latestInventory.value;
+
+  let priceDirection = '';
+  if (yoy > 3) priceDirection = 'Prices have been rising meaningfully';
+  else if (yoy > 0.5) priceDirection = 'Prices have been climbing modestly';
+  else if (yoy > -0.5) priceDirection = 'Prices have been essentially flat';
+  else if (yoy > -3) priceDirection = 'Prices have softened slightly';
+  else priceDirection = 'Prices have been declining';
+
+  const narrative = `${priceDirection}, with the national index showing ${yoy > 0 ? '+' : ''}${yoy}% year-over-year. Non-indexed fixed mortgage rates are around ${rate}%. Unsold new construction inventory stands at approximately ${Math.round(inventory / 1000)}K units.`;
+
+  let sentiment = 'stable';
+  if (yoy > 3) sentiment = 'heating';
+  else if (yoy < -1) sentiment = 'cooling';
+
+  const now = new Date().toISOString();
+
+  await supabase.from('market_context')
+    .upsert({ field: 'narrative', value: narrative, updated_at: now }, { onConflict: 'field' });
+  await supabase.from('market_context')
+    .upsert({ field: 'buyer_sentiment', value: sentiment, updated_at: now }, { onConflict: 'field' });
 }
