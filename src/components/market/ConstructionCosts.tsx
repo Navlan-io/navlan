@@ -49,6 +49,15 @@ const ConstructionCosts = ({ onDataLoaded }: ConstructionCostsProps) => {
     fetch();
   }, []);
 
+  const latest = data.length > 0 ? data[data.length - 1] : null;
+
+  useEffect(() => {
+    if (!calledBack.current && latest && onDataLoaded) {
+      onDataLoaded({ costYoy: latest.percent_yoy });
+      calledBack.current = true;
+    }
+  }, [latest, onDataLoaded]);
+
   if (loading) {
     return (
       <section>
@@ -58,15 +67,6 @@ const ConstructionCosts = ({ onDataLoaded }: ConstructionCostsProps) => {
       </section>
     );
   }
-
-  const latest = data.length > 0 ? data[data.length - 1] : null;
-
-  useEffect(() => {
-    if (!calledBack.current && latest && onDataLoaded) {
-      onDataLoaded({ costYoy: latest.percent_yoy });
-      calledBack.current = true;
-    }
-  }, [latest, onDataLoaded]);
 
   const allChartData: ChartPoint[] = data.map((r) => ({
     label: buildLabel(r.month, r.year),
