@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { supabase } from "@/integrations/supabase/client";
 import { Card } from "@/components/ui/card";
 import { Skeleton } from "@/components/ui/skeleton";
@@ -15,6 +15,10 @@ interface MortgageRow {
   value: number | null;
 }
 
+export interface MortgageRatesData {
+  fixedRate: number | null;
+}
+
 // Prime rate is hardcoded for now — TODO V1.5: fetch from BOI
 const PRIME_RATE = 6.0;
 
@@ -26,9 +30,14 @@ const TRACK_NOTES: Record<string, string> = {
   "non_indexed_combined": "Blended fixed/variable",
 };
 
-const MortgageRates = () => {
+interface MortgageRatesProps {
+  onDataLoaded?: (data: MortgageRatesData) => void;
+}
+
+const MortgageRates = ({ onDataLoaded }: MortgageRatesProps) => {
   const [rates, setRates] = useState<MortgageRow[]>([]);
   const [loading, setLoading] = useState(true);
+  const calledBack = useRef(false);
 
   useEffect(() => {
     const fetch = async () => {
@@ -56,6 +65,14 @@ const MortgageRates = () => {
     };
     fetch();
   }, []);
+
+  useEffect(() => {
+    if (!calledBack.current && !loading && rates.length > 0 && onDataLoaded) {
+      const fixed = rates.find((r) => r.track_type === "non_indexed_fixed" && r.rate_type === "rate");
+      onDataLoaded({ fixedRate: fixed?.value ?? null });
+      calledBack.current = true;
+    }
+  }, [loading, rates, onDataLoaded]);
 
   if (loading) {
     return (

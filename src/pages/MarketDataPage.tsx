@@ -1,20 +1,44 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { supabase } from "@/integrations/supabase/client";
 import NavBar from "@/components/NavBar";
 import Footer from "@/components/Footer";
 import SEO from "@/components/SEO";
-import { Skeleton } from "@/components/ui/skeleton";
+import PopulationDemand from "@/components/market/PopulationDemand";
 import NationalPriceTrend from "@/components/market/NationalPriceTrend";
+import DistrictPrices from "@/components/market/DistrictPrices";
+import type { DistrictPricesData } from "@/components/market/DistrictPrices";
 import DistrictComparison from "@/components/market/DistrictComparison";
 import ConstructionPipeline from "@/components/market/ConstructionPipeline";
+import type { ConstructionPipelineData } from "@/components/market/ConstructionPipeline";
 import MortgageRates from "@/components/market/MortgageRates";
+import type { MortgageRatesData } from "@/components/market/MortgageRates";
 import ConstructionCosts from "@/components/market/ConstructionCosts";
+import type { ConstructionCostsData } from "@/components/market/ConstructionCosts";
 import RentalMarket from "@/components/market/RentalMarket";
+import type { RentalMarketData } from "@/components/market/RentalMarket";
+import SectionTransition from "@/components/market/SectionTransition";
 import InlineNewsletterCTA from "@/components/ui/InlineNewsletterCTA";
+import { useCurrency } from "@/contexts/CurrencyContext";
 import { Share2 } from "lucide-react";
+
+const fullBleed = {
+  marginLeft: "calc(-50vw + 50%)",
+  marginRight: "calc(-50vw + 50%)",
+  paddingLeft: "calc(50vw - 50%)",
+  paddingRight: "calc(50vw - 50%)",
+};
 
 const MarketDataPage = () => {
   const [dataAsOf, setDataAsOf] = useState<string | null>(null);
+  const { formatPrice } = useCurrency();
+
+  // Transition data state
+  const [popGrowthRate, setPopGrowthRate] = useState<number | null>(null);
+  const [districtData, setDistrictData] = useState<DistrictPricesData | null>(null);
+  const [constructionData, setConstructionData] = useState<ConstructionPipelineData | null>(null);
+  const [mortgageData, setMortgageData] = useState<MortgageRatesData | null>(null);
+  const [rentalData, setRentalData] = useState<RentalMarketData | null>(null);
+  const [costData, setCostData] = useState<ConstructionCostsData | null>(null);
 
   useEffect(() => {
     supabase
@@ -32,6 +56,26 @@ const MarketDataPage = () => {
           );
         }
       });
+  }, []);
+
+  // Stable callbacks for child components
+  const onPopDataLoaded = useCallback((data: { growthRate: number | null }) => {
+    setPopGrowthRate(data.growthRate);
+  }, []);
+  const onDistrictDataLoaded = useCallback((data: DistrictPricesData) => {
+    setDistrictData(data);
+  }, []);
+  const onConstructionDataLoaded = useCallback((data: ConstructionPipelineData) => {
+    setConstructionData(data);
+  }, []);
+  const onMortgageDataLoaded = useCallback((data: MortgageRatesData) => {
+    setMortgageData(data);
+  }, []);
+  const onRentalDataLoaded = useCallback((data: RentalMarketData) => {
+    setRentalData(data);
+  }, []);
+  const onCostDataLoaded = useCallback((data: ConstructionCostsData) => {
+    setCostData(data);
   }, []);
 
   return (
@@ -89,55 +133,124 @@ const MarketDataPage = () => {
         {/* Gold divider after header */}
         <div className="h-px bg-gradient-to-r from-transparent via-sand-gold/20 to-transparent mt-8" />
 
-        {/* Section 1: NationalPriceTrend — odd (warm-white) */}
-        <div className="bg-warm-white" style={{ marginLeft: "calc(-50vw + 50%)", marginRight: "calc(-50vw + 50%)", paddingLeft: "calc(50vw - 50%)", paddingRight: "calc(50vw - 50%)" }}>
-          <div className="max-w-[1200px] mx-auto py-12">
+        {/* Section 0: Population & Housing Demand — odd (warm-white) */}
+        <div className="bg-warm-white" style={fullBleed}>
+          <div className="max-w-[1200px] mx-auto py-[46px]">
+            <div id="population-demand" className="scroll-mt-24">
+              <PopulationDemand onDataLoaded={onPopDataLoaded} />
+            </div>
+          </div>
+        </div>
+
+        {/* Transition: Population → National Price Index */}
+        <SectionTransition>
+          {popGrowthRate != null
+            ? `Israel added ${popGrowthRate.toFixed(1)}% to its population last year. Housing supply didn't keep pace — and that shows in the numbers.`
+            : "Israel's population growth consistently outpaces housing supply — and that shows in the numbers."}
+        </SectionTransition>
+
+        <div className="h-px bg-gradient-to-r from-transparent via-sand-gold/20 to-transparent" />
+
+        {/* Section 1: National Price Index — even (cream-dark) */}
+        <div className="bg-cream-dark" style={fullBleed}>
+          <div className="max-w-[1200px] mx-auto py-[46px]">
             <div id="national-trend" className="scroll-mt-24"><NationalPriceTrend /></div>
           </div>
         </div>
 
+        {/* Transition: National Price → District Prices */}
+        <SectionTransition>
+          {districtData?.nationalAvg != null && districtData.cheapestDistrict && districtData.mostExpensiveDistrict && districtData.ratio
+            ? `The national average is ${formatPrice(districtData.nationalAvg)}. But Israel's districts range from ${districtData.cheapestDistrict} at ${formatPrice(districtData.cheapestPrice!)} to ${districtData.mostExpensiveDistrict} at ${formatPrice(districtData.mostExpensivePrice!)} — a ${districtData.ratio}× gap.`
+            : "National averages mask dramatic regional variation. Prices differ wildly across Israel's six districts."}
+        </SectionTransition>
+
         <div className="h-px bg-gradient-to-r from-transparent via-sand-gold/20 to-transparent" />
 
-        {/* Section 2: DistrictComparison — even (cream-dark) */}
-        <div className="bg-cream-dark" style={{ marginLeft: "calc(-50vw + 50%)", marginRight: "calc(-50vw + 50%)", paddingLeft: "calc(50vw - 50%)", paddingRight: "calc(50vw - 50%)" }}>
-          <div className="max-w-[1200px] mx-auto py-12">
-            <div id="district-comparison" className="scroll-mt-24"><DistrictComparison /></div>
+        {/* Section 2: Prices by District (Part A: actual prices + Part B: growth) — odd (warm-white) */}
+        <div className="bg-warm-white" style={fullBleed}>
+          <div className="max-w-[1200px] mx-auto py-[46px]">
+            <div id="district-prices" className="scroll-mt-24">
+              <section>
+                <h2 className="font-heading font-semibold text-[22px] text-charcoal mb-6">Prices by District</h2>
+                <DistrictPrices onDataLoaded={onDistrictDataLoaded} />
+                <div className="mt-10">
+                  <DistrictComparison />
+                </div>
+              </section>
+            </div>
           </div>
         </div>
 
+        {/* Transition: District → Construction Activity */}
+        <SectionTransition>
+          {constructionData?.unsoldInventory != null && constructionData.monthsSupply != null
+            ? `There are currently ${constructionData.unsoldInventory.toLocaleString("en-US")} unsold new units across Israel — roughly ${constructionData.monthsSupply.toFixed(1)} months of supply at current sales rates.`
+            : "The supply side of the market — what's being built and what's sitting unsold — tells the next part of the story."}
+        </SectionTransition>
+
         <div className="h-px bg-gradient-to-r from-transparent via-sand-gold/20 to-transparent" />
 
-        {/* Section 3: ConstructionPipeline — odd (warm-white) */}
-        <div className="bg-warm-white" style={{ marginLeft: "calc(-50vw + 50%)", marginRight: "calc(-50vw + 50%)", paddingLeft: "calc(50vw - 50%)", paddingRight: "calc(50vw - 50%)" }}>
-          <div className="max-w-[1200px] mx-auto py-12">
-            <div id="construction-pipeline" className="scroll-mt-24"><ConstructionPipeline /></div>
+        {/* Section 3: Construction Activity — even (cream-dark) */}
+        <div className="bg-cream-dark" style={fullBleed}>
+          <div className="max-w-[1200px] mx-auto py-[46px]">
+            <div id="construction-pipeline" className="scroll-mt-24">
+              <ConstructionPipeline onDataLoaded={onConstructionDataLoaded} />
+            </div>
           </div>
         </div>
 
+        {/* Transition: Construction → Mortgage Rates */}
+        <SectionTransition>
+          {mortgageData?.fixedRate != null
+            ? `For most buyers, the monthly mortgage payment matters more than the listing price. The benchmark fixed rate is currently ${mortgageData.fixedRate.toFixed(2)}%.`
+            : "For most buyers, the monthly mortgage payment matters more than the listing price."}
+        </SectionTransition>
+
         <div className="h-px bg-gradient-to-r from-transparent via-sand-gold/20 to-transparent" />
 
-        {/* Section 4: MortgageRates — even (cream-dark) */}
-        <div className="bg-cream-dark" style={{ marginLeft: "calc(-50vw + 50%)", marginRight: "calc(-50vw + 50%)", paddingLeft: "calc(50vw - 50%)", paddingRight: "calc(50vw - 50%)" }}>
-          <div className="max-w-[1200px] mx-auto py-12">
-            <div id="mortgage-rates" className="scroll-mt-24"><MortgageRates /></div>
+        {/* Section 4: Mortgage Rates — odd (warm-white) */}
+        <div className="bg-warm-white" style={fullBleed}>
+          <div className="max-w-[1200px] mx-auto py-[46px]">
+            <div id="mortgage-rates" className="scroll-mt-24">
+              <MortgageRates onDataLoaded={onMortgageDataLoaded} />
+            </div>
           </div>
         </div>
 
+        {/* Transition: Mortgage → Rental Market */}
+        <SectionTransition>
+          {rentalData?.rentYoy != null
+            ? `Rents have risen ${Math.abs(rentalData.rentYoy).toFixed(1)}% over the past year based on lease renewals. For new leases, the actual increase is likely higher.`
+            : "Rents are part of the affordability picture — and they've been climbing steadily."}
+        </SectionTransition>
+
         <div className="h-px bg-gradient-to-r from-transparent via-sand-gold/20 to-transparent" />
 
-        {/* Section 5: RentalMarket — odd (warm-white) */}
-        <div className="bg-warm-white" style={{ marginLeft: "calc(-50vw + 50%)", marginRight: "calc(-50vw + 50%)", paddingLeft: "calc(50vw - 50%)", paddingRight: "calc(50vw - 50%)" }}>
-          <div className="max-w-[1200px] mx-auto py-12">
-            <div id="rental-market" className="scroll-mt-24"><RentalMarket /></div>
+        {/* Section 5: Rental Market — even (cream-dark) */}
+        <div className="bg-cream-dark" style={fullBleed}>
+          <div className="max-w-[1200px] mx-auto py-[46px]">
+            <div id="rental-market" className="scroll-mt-24">
+              <RentalMarket onDataLoaded={onRentalDataLoaded} />
+            </div>
           </div>
         </div>
 
+        {/* Transition: Rental → Construction Costs */}
+        <SectionTransition>
+          {costData?.costYoy != null
+            ? `Construction input costs — materials, labor, equipment — have ${costData.costYoy >= 0 ? "risen" : "fallen"} ${Math.abs(costData.costYoy).toFixed(1)}% over the past year. This affects new build pricing, renovation budgets, and urban renewal economics.`
+            : "Construction input costs — materials, labor, equipment — affect new build pricing, renovation budgets, and urban renewal economics."}
+        </SectionTransition>
+
         <div className="h-px bg-gradient-to-r from-transparent via-sand-gold/20 to-transparent" />
 
-        {/* Section 6: ConstructionCosts — even (cream-dark) */}
-        <div className="bg-cream-dark" style={{ marginLeft: "calc(-50vw + 50%)", marginRight: "calc(-50vw + 50%)", paddingLeft: "calc(50vw - 50%)", paddingRight: "calc(50vw - 50%)" }}>
-          <div className="max-w-[1200px] mx-auto py-12">
-            <div id="construction-costs" className="scroll-mt-24"><ConstructionCosts /></div>
+        {/* Section 6: Construction Costs — odd (warm-white) */}
+        <div className="bg-warm-white" style={fullBleed}>
+          <div className="max-w-[1200px] mx-auto py-[46px]">
+            <div id="construction-costs" className="scroll-mt-24">
+              <ConstructionCosts onDataLoaded={onCostDataLoaded} />
+            </div>
           </div>
         </div>
 

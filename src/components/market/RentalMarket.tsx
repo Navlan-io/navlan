@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import {
   AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer,
 } from "recharts";
@@ -12,8 +12,6 @@ import { useIsMobile } from "@/hooks/use-mobile";
 import { buildLabel, getXAxisConfig, getNiceYDomain, filterByRange, TIME_RANGES, type TimeRange, type ChartPoint } from "@/lib/chartUtils";
 import { chartColors, axisTick } from "@/lib/chartColors";
 
-// TIME_RANGES imported from chartUtils
-
 interface IndexRow {
   month: number;
   year: number;
@@ -22,11 +20,20 @@ interface IndexRow {
   percent_yoy: number | null;
 }
 
-const RentalMarket = () => {
+export interface RentalMarketData {
+  rentYoy: number | null;
+}
+
+interface RentalMarketProps {
+  onDataLoaded?: (data: RentalMarketData) => void;
+}
+
+const RentalMarket = ({ onDataLoaded }: RentalMarketProps) => {
   const [data, setData] = useState<IndexRow[]>([]);
   const [loading, setLoading] = useState(true);
   const [range, setRange] = useState<TimeRange>("Max");
   const isMobile = useIsMobile();
+  const calledBack = useRef(false);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -43,6 +50,13 @@ const RentalMarket = () => {
   }, []);
 
   const latest = data.length > 0 ? data[data.length - 1] : null;
+
+  useEffect(() => {
+    if (!calledBack.current && latest && onDataLoaded) {
+      onDataLoaded({ rentYoy: latest.percent_yoy });
+      calledBack.current = true;
+    }
+  }, [latest, onDataLoaded]);
 
   const filtered = filterByRange(data, range);
 

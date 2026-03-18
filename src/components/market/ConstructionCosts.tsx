@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import {
   AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer,
 } from "recharts";
@@ -20,11 +20,20 @@ interface CostRow {
   percent_mom: number | null;
 }
 
-const ConstructionCosts = () => {
+export interface ConstructionCostsData {
+  costYoy: number | null;
+}
+
+interface ConstructionCostsProps {
+  onDataLoaded?: (data: ConstructionCostsData) => void;
+}
+
+const ConstructionCosts = ({ onDataLoaded }: ConstructionCostsProps) => {
   const [data, setData] = useState<CostRow[]>([]);
   const [loading, setLoading] = useState(true);
   const [range, setRange] = useState<TimeRange>("Max");
   const isMobile = useIsMobile();
+  const calledBack = useRef(false);
 
   useEffect(() => {
     const fetch = async () => {
@@ -51,6 +60,13 @@ const ConstructionCosts = () => {
   }
 
   const latest = data.length > 0 ? data[data.length - 1] : null;
+
+  useEffect(() => {
+    if (!calledBack.current && latest && onDataLoaded) {
+      onDataLoaded({ costYoy: latest.percent_yoy });
+      calledBack.current = true;
+    }
+  }, [latest, onDataLoaded]);
 
   const allChartData: ChartPoint[] = data.map((r) => ({
     label: buildLabel(r.month, r.year),
