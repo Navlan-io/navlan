@@ -1,3 +1,7 @@
+// PURCHASE TAX BRACKETS: Frozen 2025-2027 per government decision.
+// Values must be updated when new brackets are published (expected 2028).
+// Source: Israel Tax Authority mas rechisha brackets.
+
 import { useEffect, useState } from "react";
 import GuidePage, { GuideSection } from "@/components/guides/GuidePage";
 import { Card } from "@/components/ui/card";
