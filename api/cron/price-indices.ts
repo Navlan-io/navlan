@@ -79,6 +79,10 @@ export async function GET(req: Request) {
   const errors: string[] = [];
   let totalInserted = 0;
 
+  // 200010 (Construction Cost Index) has its own normalization in the
+  // construction-costs cron — skip chain-linking for it entirely.
+  const CHAIN_LINK_EXCLUDED = new Set([200010]);
+
   try {
     const supabase = getSupabaseAdmin();
 
@@ -106,56 +110,47 @@ export async function GET(req: Request) {
           : 0;
         const existingBase = latestRows?.[0]?.base_desc ?? '';
 
-        // Detect base period change and chain-link old data onto new base
         const newEntries = entries.filter(
           (e) => e.year * 100 + e.month > latestYM,
         );
         const incomingBase = newEntries[0]?.baseDesc ?? entries[entries.length - 1].baseDesc;
-        let rebased = false;
+        let chainLinked = false;
 
-        if (existingBase && incomingBase && existingBase !== incomingBase) {
+        // Chain-link incoming values to match the existing DB base when CBS
+        // changes base periods. Adjusts new values — never mutates historical rows.
+        if (
+          existingBase && incomingBase &&
+          existingBase !== incomingBase &&
+          !CHAIN_LINK_EXCLUDED.has(dbCode)
+        ) {
           console.warn(
             `[price-indices] BASE PERIOD CHANGE detected for index ${dbCode}: ` +
-            `"${existingBase}" → "${incomingBase}". Chain-linking old data.`,
+            `"${existingBase}" → "${incomingBase}". Chain-linking incoming values to match existing base.`,
           );
 
-          // Fetch the last 12 months of old-base values to compute the mean
-          const { data: oldRows, error: oldErr } = await supabase
+          // Compute the conversion factor from the last 12 months of existing data.
+          // mean(old base) / 100 converts new-base values → old-base scale.
+          const { data: recentRows, error: recentErr } = await supabase
             .from('price_indices')
-            .select('id, value')
+            .select('value')
             .eq('index_code', dbCode)
             .eq('base_desc', existingBase)
             .order('year', { ascending: false })
             .order('month', { ascending: false })
             .limit(12);
 
-          if (!oldErr && oldRows && oldRows.length > 0) {
-            const mean = oldRows.reduce((s, r) => s + r.value, 0) / oldRows.length;
-            const factor = 100 / mean;
+          if (!recentErr && recentRows && recentRows.length > 0) {
+            const mean = recentRows.reduce((s, r) => s + r.value, 0) / recentRows.length;
+            const factor = mean / 100;
             console.warn(
-              `[price-indices]   Rebasing ${dbCode}: mean(last ${oldRows.length} months)=${mean.toFixed(2)}, factor=${factor.toFixed(6)}`,
+              `[price-indices]   Chain-linking ${dbCode}: mean(last ${recentRows.length} months)=${mean.toFixed(2)}, factor=${factor.toFixed(6)}`,
             );
 
-            // Rebase ALL existing rows for this index onto the new base
-            const { data: allOldRows, error: fetchAllErr } = await supabase
-              .from('price_indices')
-              .select('id, value')
-              .eq('index_code', dbCode)
-              .eq('base_desc', existingBase);
-
-            if (!fetchAllErr && allOldRows) {
-              for (const row of allOldRows) {
-                const newValue = Math.round(row.value * factor * 10) / 10;
-                await supabase
-                  .from('price_indices')
-                  .update({ value: newValue, base_desc: incomingBase, fetched_at: timestamp })
-                  .eq('id', row.id);
-              }
-              console.warn(
-                `[price-indices]   Rebased ${allOldRows.length} existing rows for index ${dbCode}.`,
-              );
-              rebased = true;
+            for (const entry of newEntries) {
+              entry.value = Math.round(entry.value * factor * 10) / 10;
+              entry.baseDesc = existingBase; // store under the existing base label
             }
+            chainLinked = true;
           }
         }
 
@@ -188,7 +183,7 @@ export async function GET(req: Request) {
           latestInDB: latestYM ? `${Math.floor(latestYM / 100)}-${String(latestYM % 100).padStart(2, '0')}` : null,
           latestFromCBS: `${latestEntry.year}-${String(latestEntry.month).padStart(2, '0')}`,
           inserted,
-          ...(rebased ? { rebased: true, newBase: incomingBase } : {}),
+          ...(chainLinked ? { chainLinked: true, keptBase: existingBase } : {}),
         };
       } catch (err: any) {
         errors.push(`${dbCode}: ${err.message}`);
