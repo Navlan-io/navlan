@@ -192,7 +192,7 @@ const NationalPriceTrend = () => {
                   tickLine={false}
                   width={40}
                 />
-                <Tooltip content={<CustomTooltip />} />
+                <Tooltip content={<CustomTooltip />} trigger="hover" />
                 <Area type="monotone" dataKey="value" stroke={chartColors.horizonBlue} strokeWidth={2} fill="url(#natPriceGrad)" dot={false} />
               </AreaChart>
             </ResponsiveContainer>

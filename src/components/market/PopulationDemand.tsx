@@ -24,6 +24,7 @@ interface StartsRow {
 
 interface PopulationData {
   growthRate: number | null;
+  peopleAdded: number | null;
 }
 
 interface PopulationDemandProps {
@@ -76,11 +77,13 @@ const PopulationDemand = ({ onDataLoaded }: PopulationDemandProps) => {
     fetchAll();
   }, []);
 
-  // Callback to parent with growth rate
+  // Callback to parent with growth rate and people added
   useEffect(() => {
     if (!calledBack.current && popData.length > 0 && onDataLoaded) {
       const latest = popData[popData.length - 1];
-      onDataLoaded({ growthRate: latest.growth_rate });
+      const previous = popData.length >= 2 ? popData[popData.length - 2] : null;
+      const added = previous ? latest.population - previous.population : null;
+      onDataLoaded({ growthRate: latest.growth_rate, peopleAdded: added });
       calledBack.current = true;
     }
   }, [popData, onDataLoaded]);
@@ -191,7 +194,7 @@ const PopulationDemand = ({ onDataLoaded }: PopulationDemandProps) => {
           </span>
         </Card>
         <Card className="p-5 bg-cream border-0 shadow-card">
-          <span className="font-body text-[13px] text-warm-gray block">OECD Average</span>
+          <span className="font-body text-[13px] text-warm-gray block">Developed World Avg</span>
           <span className="font-body font-bold text-[28px] text-charcoal">~0.6%</span>
         </Card>
       </div>
@@ -258,6 +261,7 @@ const PopulationDemand = ({ onDataLoaded }: PopulationDemandProps) => {
                     interval={isMobile ? Math.floor(lineData.length / 5) : Math.floor(lineData.length / 8)}
                   />
                   <YAxis
+                    domain={[0.4, "auto"]}
                     tick={axisTick}
                     axisLine={false}
                     tickLine={false}
@@ -270,7 +274,7 @@ const PopulationDemand = ({ onDataLoaded }: PopulationDemandProps) => {
                     stroke={chartColors.warmGray}
                     strokeDasharray="6 4"
                     label={{
-                      value: "OECD Avg (0.6%)",
+                      value: "Developed world avg (0.6%)",
                       position: "right",
                       style: { fontSize: 10, fill: chartColors.warmGray, fontFamily: "DM Sans" },
                     }}
@@ -286,15 +290,26 @@ const PopulationDemand = ({ onDataLoaded }: PopulationDemandProps) => {
               </ResponsiveContainer>
             </div>
 
+            <div className="flex flex-wrap items-center gap-x-5 gap-y-2 mt-4">
+              <div className="flex items-center gap-1.5">
+                <div className="w-5 h-[2px]" style={{ backgroundColor: chartColors.sandGold }} />
+                <span className="font-body text-[12px] text-charcoal">Israel population growth</span>
+              </div>
+              <div className="flex items-center gap-1.5">
+                <div className="w-5 h-0 border-t border-dashed" style={{ borderColor: chartColors.warmGray }} />
+                <span className="font-body text-[12px] text-charcoal">Developed world avg</span>
+              </div>
+            </div>
+
             <p className="font-body text-[12px] text-warm-gray mt-3">
-              Source: World Bank Population Data
+              Source: World Bank Population Data · Latest: 2024 · Updates annually
             </p>
           </div>
           <div className="lg:w-[40%]">
             <InsightCard layout="inline">
               {peopleAdded != null && startsTotal != null
-                ? `Israel added roughly ${peopleAdded.toLocaleString("en-US")} people last year while approximately ${startsTotal.toLocaleString("en-US")} housing units entered construction. This imbalance has persisted for decades — Israel's growth rate has consistently run at ${growthMultiple ?? "2"}×+ the developed-world average.`
-                : `Israel's population growth rate has consistently run well above the OECD average of ~0.6%. Understanding this dynamic helps explain why Israeli real estate has historically behaved differently from markets with slower population growth.`}
+                ? `Israel added roughly ${peopleAdded.toLocaleString("en-US")} people last year while approximately ${startsTotal.toLocaleString("en-US")} housing units entered construction. This imbalance has persisted for decades — Israel's growth rate has consistently run at ${growthMultiple ?? "2"}×+ the developed-world average. The 2023 spike reflects a surge in immigration. The long-term average remains around 1.8–2.0%.`
+                : `Israel's population growth rate has consistently run well above the developed-world average of ~0.6%. Understanding this dynamic helps explain why Israeli real estate has historically behaved differently from markets with slower population growth.`}
             </InsightCard>
           </div>
         </div>

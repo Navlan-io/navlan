@@ -14,8 +14,8 @@ const SectionTransition = ({ children }: SectionTransitionProps) => {
         paddingRight: "calc(50vw - 50%)",
       }}
     >
-      <div className="max-w-[700px] mx-auto mt-6 mb-4">
-        <p className="font-body text-[15px] text-warm-gray leading-relaxed m-0">
+      <div className="max-w-[700px] mt-6 mb-4">
+        <p className="font-body text-[17px] text-warm-gray leading-relaxed m-0">
           {children}
         </p>
       </div>

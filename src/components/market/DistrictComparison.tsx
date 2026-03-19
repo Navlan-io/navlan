@@ -207,7 +207,7 @@ const DistrictComparison = () => {
             const lowMultiple = ((lowest.value ?? 0) / 100).toFixed(1);
             return (
               <InsightCard layout="inline">
-                The {highest.name} has seen the strongest price growth since 2015 — up {highMultiple}× from the base period — driven by relative affordability attracting buyers priced out of the Center. {lowest.name}, despite different market dynamics, has grown at a slower rate of {lowMultiple}× from the base.
+                The {highest.name} has seen the strongest price growth since 2015 — up {highMultiple}× from the base period — driven by relative affordability attracting buyers priced out of the Center. {lowest.name}, already the most expensive market, has grown at a slower rate of {lowMultiple}× from the base.
               </InsightCard>
             );
           })()}

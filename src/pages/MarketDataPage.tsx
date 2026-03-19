@@ -34,6 +34,7 @@ const MarketDataPage = () => {
 
   // Transition data state
   const [popGrowthRate, setPopGrowthRate] = useState<number | null>(null);
+  const [popPeopleAdded, setPopPeopleAdded] = useState<number | null>(null);
   const [districtData, setDistrictData] = useState<DistrictPricesData | null>(null);
   const [constructionData, setConstructionData] = useState<ConstructionPipelineData | null>(null);
   const [mortgageData, setMortgageData] = useState<MortgageRatesData | null>(null);
@@ -59,8 +60,9 @@ const MarketDataPage = () => {
   }, []);
 
   // Stable callbacks for child components
-  const onPopDataLoaded = useCallback((data: { growthRate: number | null }) => {
+  const onPopDataLoaded = useCallback((data: { growthRate: number | null; peopleAdded: number | null }) => {
     setPopGrowthRate(data.growthRate);
+    setPopPeopleAdded(data.peopleAdded);
   }, []);
   const onDistrictDataLoaded = useCallback((data: DistrictPricesData) => {
     setDistrictData(data);
@@ -114,7 +116,7 @@ const MarketDataPage = () => {
               </span>
             )}
             <span className="bg-cream rounded-full px-3 py-1 font-body text-[12px] text-warm-gray">
-              Updates monthly from CBS
+              CBS data runs 2–3 months behind publication
             </span>
             <button
               onClick={() => {
@@ -145,7 +147,7 @@ const MarketDataPage = () => {
         {/* Transition: Population → National Price Index */}
         <SectionTransition>
           {popGrowthRate != null
-            ? `Israel added ${popGrowthRate.toFixed(1)}% to its population last year. Housing supply didn't keep pace — and that shows in the numbers.`
+            ? `Israel added ${popGrowthRate.toFixed(1)}% to its population last year — roughly ${popPeopleAdded != null ? popPeopleAdded.toLocaleString("en-US") : "tens of thousands of"} people. Housing starts didn't keep pace.`
             : "Israel's population growth consistently outpaces housing supply — and that shows in the numbers."}
         </SectionTransition>
 
@@ -174,7 +176,8 @@ const MarketDataPage = () => {
               <section>
                 <h2 className="font-heading font-semibold text-[22px] text-charcoal mb-6">Prices by District</h2>
                 <DistrictPrices onDataLoaded={onDistrictDataLoaded} />
-                <div className="mt-10">
+                <div className="border-t border-[#E8E4DE] my-10" />
+                <div>
                   <DistrictComparison />
                 </div>
               </section>
