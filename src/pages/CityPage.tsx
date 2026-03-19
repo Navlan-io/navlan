@@ -271,27 +271,6 @@ const CityPage = () => {
               </>
             )}
 
-            {/* ─── Market Data Section ─── */}
-            <div className="bg-warm-white">
-              <div className="container max-w-[1200px] py-10 md:py-12">
-                <TrendsTab
-                  city={city}
-                  prices={prices}
-                  districtIndices={districtIndices}
-                  rentalData={rentalData !== undefined ? rentalData : undefined}
-                />
-              </div>
-            </div>
-
-            {/* ─── Disclaimer ─── */}
-            <div className="bg-warm-white">
-              <div className="container max-w-[1200px] py-6">
-                <p className="font-body text-[12px] text-warm-gray leading-relaxed">
-                  Data sourced from the Israel Central Bureau of Statistics and Bank of Israel. CBS dwelling price data runs 2–3 months behind publication. All figures are averages and may not reflect specific property types or neighbourhoods. Community profiles are editorial. This information is for reference only and does not constitute financial advice.
-                </p>
-              </div>
-            </div>
-
             {/* ─── Newsletter CTA ─── */}
             <div className="bg-sage relative overflow-hidden">
               <div
@@ -311,6 +290,33 @@ const CityPage = () => {
                 <div className="max-w-sm mx-auto">
                   <NewsletterSignup source="city" variant="dark" />
                 </div>
+              </div>
+            </div>
+
+            {/* ─── Market Data Section ─── */}
+            <div className="bg-warm-white">
+              <div className="container max-w-[1200px] py-10 md:py-12">
+                <span className="font-body text-[11px] font-semibold uppercase tracking-[0.15em] text-sand-gold">
+                  Market Data
+                </span>
+                <h2 className="font-heading font-semibold text-[22px] md:text-[24px] text-charcoal mt-2 mb-6">
+                  Price Trends & Data
+                </h2>
+                <TrendsTab
+                  city={city}
+                  prices={prices}
+                  districtIndices={districtIndices}
+                  rentalData={rentalData !== undefined ? rentalData : undefined}
+                />
+              </div>
+            </div>
+
+            {/* ─── Disclaimer ─── */}
+            <div className="bg-warm-white">
+              <div className="container max-w-[1200px] py-6">
+                <p className="font-body text-[12px] text-warm-gray leading-relaxed">
+                  Data sourced from the Israel Central Bureau of Statistics and Bank of Israel. CBS dwelling price data runs 2–3 months behind publication. All figures are averages and may not reflect specific property types or neighbourhoods. Community profiles are editorial. This information is for reference only and does not constitute financial advice.
+                </p>
               </div>
             </div>
 
