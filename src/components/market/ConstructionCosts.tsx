@@ -26,9 +26,10 @@ export interface ConstructionCostsData {
 
 interface ConstructionCostsProps {
   onDataLoaded?: (data: ConstructionCostsData) => void;
+  introText?: React.ReactNode;
 }
 
-const ConstructionCosts = ({ onDataLoaded }: ConstructionCostsProps) => {
+const ConstructionCosts = ({ onDataLoaded, introText }: ConstructionCostsProps) => {
   const [data, setData] = useState<CostRow[]>([]);
   const [loading, setLoading] = useState(true);
   const [range, setRange] = useState<TimeRange>("Max");
@@ -102,7 +103,7 @@ const ConstructionCosts = ({ onDataLoaded }: ConstructionCostsProps) => {
 
   return (
     <section>
-      <div className="flex items-center justify-between mb-6">
+      <div className="flex items-center justify-between mb-2">
         <h2 className="font-heading font-semibold text-[22px] text-charcoal">Construction Cost Trends</h2>
         <div className="flex items-center gap-2" role="group" aria-label="Time range">
           {TIME_RANGES.map((r) => (
@@ -120,6 +121,10 @@ const ConstructionCosts = ({ onDataLoaded }: ConstructionCostsProps) => {
           ))}
         </div>
       </div>
+
+      {introText && (
+        <p className="font-body text-[16px] font-normal text-[#6B7178] mt-2 mb-6">{introText}</p>
+      )}
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mb-4">
         <Card className="p-5 bg-cream border-0 shadow-card">

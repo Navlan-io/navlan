@@ -22,7 +22,11 @@ interface IndexRow {
   percent_yoy: number | null;
 }
 
-const NationalPriceTrend = () => {
+interface NationalPriceTrendProps {
+  introText?: React.ReactNode;
+}
+
+const NationalPriceTrend = ({ introText }: NationalPriceTrendProps) => {
   const [data, setData] = useState<IndexRow[]>([]);
   const [loading, setLoading] = useState(true);
   const [range, setRange] = useState<TimeRange>("Max");
@@ -98,7 +102,7 @@ const NationalPriceTrend = () => {
 
   return (
     <section>
-      <div className="flex items-center justify-between mb-6">
+      <div className="flex items-center justify-between mb-2">
         <h2 className="font-heading font-semibold text-[22px] text-charcoal">National Price Index</h2>
         <div className="flex items-center gap-2" role="group" aria-label="Time range">
           {TIME_RANGES.map((r) => (
@@ -116,6 +120,10 @@ const NationalPriceTrend = () => {
           ))}
         </div>
       </div>
+
+      {introText && (
+        <p className="font-body text-[16px] font-normal text-[#6B7178] mt-2 mb-6">{introText}</p>
+      )}
 
       {/* Compact metric row on mobile, 3-col grid on desktop */}
       <Card className="p-5 bg-cream border-0 shadow-card mb-4 md:hidden">

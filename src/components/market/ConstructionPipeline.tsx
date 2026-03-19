@@ -27,9 +27,10 @@ const formatNumber = (n: number) => n.toLocaleString("en-US");
 
 interface ConstructionPipelineProps {
   onDataLoaded?: (data: ConstructionPipelineData) => void;
+  introText?: React.ReactNode;
 }
 
-const ConstructionPipeline = ({ onDataLoaded }: ConstructionPipelineProps) => {
+const ConstructionPipeline = ({ onDataLoaded, introText }: ConstructionPipelineProps) => {
   const [unsoldLatest, setUnsoldLatest] = useState<number | null>(null);
   const [monthsSupply, setMonthsSupply] = useState<number | null>(null);
   const [startsLatest, setStartsLatest] = useState<number | null>(null);
@@ -143,7 +144,7 @@ const ConstructionPipeline = ({ onDataLoaded }: ConstructionPipelineProps) => {
 
   return (
     <section>
-      <div className="flex items-center justify-between mb-6">
+      <div className="flex items-center justify-between mb-2">
         <h2 className="font-heading font-semibold text-[22px] text-charcoal">Construction Activity</h2>
         <div className="flex items-center gap-2" role="group" aria-label="Time range">
           {TIME_RANGES.map((r) => (
@@ -161,6 +162,10 @@ const ConstructionPipeline = ({ onDataLoaded }: ConstructionPipelineProps) => {
           ))}
         </div>
       </div>
+
+      {introText && (
+        <p className="font-body text-[16px] font-normal text-[#6B7178] mt-2 mb-6">{introText}</p>
+      )}
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mb-8">
         <Card className="p-5 bg-cream border-0 shadow-card">

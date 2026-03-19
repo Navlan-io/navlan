@@ -32,9 +32,10 @@ const TRACK_NOTES: Record<string, string> = {
 
 interface MortgageRatesProps {
   onDataLoaded?: (data: MortgageRatesData) => void;
+  introText?: React.ReactNode;
 }
 
-const MortgageRates = ({ onDataLoaded }: MortgageRatesProps) => {
+const MortgageRates = ({ onDataLoaded, introText }: MortgageRatesProps) => {
   const [rates, setRates] = useState<MortgageRow[]>([]);
   const [loading, setLoading] = useState(true);
   const calledBack = useRef(false);
@@ -86,6 +87,9 @@ const MortgageRates = ({ onDataLoaded }: MortgageRatesProps) => {
   return (
     <section>
       <h2 className="font-heading font-semibold text-[22px] text-charcoal mb-1">Current Mortgage Rates</h2>
+      {introText && (
+        <p className="font-body text-[16px] font-normal text-[#6B7178] mt-2 mb-6">{introText}</p>
+      )}
       <p className="font-body text-[15px] text-warm-gray mb-6">
         Average aggregate rates across all banks, published by Bank of Israel
       </p>

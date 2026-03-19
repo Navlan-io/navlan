@@ -16,7 +16,6 @@ import ConstructionCosts from "@/components/market/ConstructionCosts";
 import type { ConstructionCostsData } from "@/components/market/ConstructionCosts";
 import RentalMarket from "@/components/market/RentalMarket";
 import type { RentalMarketData } from "@/components/market/RentalMarket";
-import SectionTransition from "@/components/market/SectionTransition";
 import InlineNewsletterCTA from "@/components/ui/InlineNewsletterCTA";
 import { useCurrency } from "@/contexts/CurrencyContext";
 import { Share2 } from "lucide-react";
@@ -80,6 +79,31 @@ const MarketDataPage = () => {
     setCostData(data);
   }, []);
 
+  // Build intro text strings from callback data
+  const nationalPriceIntro = popGrowthRate != null
+    ? `Israel added ${popGrowthRate.toFixed(1)}% to its population last year — roughly ${popPeopleAdded != null ? popPeopleAdded.toLocaleString("en-US") : "tens of thousands of"} people. Housing starts didn't keep pace.`
+    : "Israel's population growth consistently outpaces housing supply — and that shows in the numbers.";
+
+  const districtIntro = districtData?.nationalAvg != null && districtData.cheapestDistrict && districtData.mostExpensiveDistrict && districtData.ratio
+    ? `The national average is ${formatPrice(districtData.nationalAvg)}. But Israel's districts range from ${districtData.cheapestDistrict} at ${formatPrice(districtData.cheapestPrice!)} to ${districtData.mostExpensiveDistrict} at ${formatPrice(districtData.mostExpensivePrice!)} — a ${districtData.ratio}× gap.`
+    : "National averages mask dramatic regional variation. Prices differ wildly across Israel's six districts.";
+
+  const constructionIntro = constructionData?.unsoldInventory != null && constructionData.monthsSupply != null
+    ? `There are currently ${constructionData.unsoldInventory.toLocaleString("en-US")} unsold new units across Israel — roughly ${constructionData.monthsSupply.toFixed(1)} months of supply at current sales rates.`
+    : "The supply side of the market — what's being built and what's sitting unsold — tells the next part of the story.";
+
+  const mortgageIntro = mortgageData?.fixedRate != null
+    ? `For most buyers, the monthly mortgage payment matters more than the listing price. The benchmark fixed rate is currently ${mortgageData.fixedRate.toFixed(2)}%.`
+    : "For most buyers, the monthly mortgage payment matters more than the listing price.";
+
+  const rentalIntro = rentalData?.rentYoy != null
+    ? `Rents have risen ${Math.abs(rentalData.rentYoy).toFixed(1)}% over the past year based on lease renewals. For new leases, the actual increase is likely higher.`
+    : "Rents are part of the affordability picture — and they've been climbing steadily.";
+
+  const costIntro = costData?.costYoy != null
+    ? `Construction input costs — materials, labor, equipment — have ${costData.costYoy >= 0 ? "risen" : "fallen"} ${Math.abs(costData.costYoy).toFixed(1)}% over the past year. This affects new build pricing, renovation budgets, and urban renewal economics.`
+    : "Construction input costs — materials, labor, equipment — affect new build pricing, renovation budgets, and urban renewal economics.";
+
   return (
     <div className="min-h-screen flex flex-col bg-warm-white">
       <SEO
@@ -135,7 +159,7 @@ const MarketDataPage = () => {
         {/* Gold divider after header */}
         <div className="h-px bg-gradient-to-r from-transparent via-sand-gold/20 to-transparent mt-8" />
 
-        {/* Section 0: Population & Housing Demand — odd (warm-white) */}
+        {/* Section 0: Population & Housing Demand — no intro (first section) */}
         <div className="bg-warm-white" style={fullBleed}>
           <div className="max-w-[1200px] mx-auto py-[46px]">
             <div id="population-demand" className="scroll-mt-24">
@@ -144,37 +168,26 @@ const MarketDataPage = () => {
           </div>
         </div>
 
-        {/* Transition: Population → National Price Index */}
-        <SectionTransition>
-          {popGrowthRate != null
-            ? `Israel added ${popGrowthRate.toFixed(1)}% to its population last year — roughly ${popPeopleAdded != null ? popPeopleAdded.toLocaleString("en-US") : "tens of thousands of"} people. Housing starts didn't keep pace.`
-            : "Israel's population growth consistently outpaces housing supply — and that shows in the numbers."}
-        </SectionTransition>
-
         <div className="h-px bg-gradient-to-r from-transparent via-sand-gold/20 to-transparent" />
 
-        {/* Section 1: National Price Index — even (cream-dark) */}
+        {/* Section 1: National Price Index */}
         <div className="bg-cream-dark" style={fullBleed}>
           <div className="max-w-[1200px] mx-auto py-[46px]">
-            <div id="national-trend" className="scroll-mt-24"><NationalPriceTrend /></div>
+            <div id="national-trend" className="scroll-mt-24">
+              <NationalPriceTrend introText={nationalPriceIntro} />
+            </div>
           </div>
         </div>
 
-        {/* Transition: National Price → District Prices */}
-        <SectionTransition>
-          {districtData?.nationalAvg != null && districtData.cheapestDistrict && districtData.mostExpensiveDistrict && districtData.ratio
-            ? `The national average is ${formatPrice(districtData.nationalAvg)}. But Israel's districts range from ${districtData.cheapestDistrict} at ${formatPrice(districtData.cheapestPrice!)} to ${districtData.mostExpensiveDistrict} at ${formatPrice(districtData.mostExpensivePrice!)} — a ${districtData.ratio}× gap.`
-            : "National averages mask dramatic regional variation. Prices differ wildly across Israel's six districts."}
-        </SectionTransition>
-
         <div className="h-px bg-gradient-to-r from-transparent via-sand-gold/20 to-transparent" />
 
-        {/* Section 2: Prices by District (Part A: actual prices + Part B: growth) — odd (warm-white) */}
+        {/* Section 2: Prices by District (Part A: actual prices + Part B: growth) */}
         <div className="bg-warm-white" style={fullBleed}>
           <div className="max-w-[1200px] mx-auto py-[46px]">
             <div id="district-prices" className="scroll-mt-24">
               <section>
-                <h2 className="font-heading font-semibold text-[22px] text-charcoal mb-6">Prices by District</h2>
+                <h2 className="font-heading font-semibold text-[22px] text-charcoal mb-2">Prices by District</h2>
+                <p className="font-body text-[16px] font-normal text-[#6B7178] mt-2 mb-6">{districtIntro}</p>
                 <DistrictPrices onDataLoaded={onDistrictDataLoaded} />
                 <div className="border-t border-[#E8E4DE] my-10" />
                 <div>
@@ -185,74 +198,46 @@ const MarketDataPage = () => {
           </div>
         </div>
 
-        {/* Transition: District → Construction Activity */}
-        <SectionTransition>
-          {constructionData?.unsoldInventory != null && constructionData.monthsSupply != null
-            ? `There are currently ${constructionData.unsoldInventory.toLocaleString("en-US")} unsold new units across Israel — roughly ${constructionData.monthsSupply.toFixed(1)} months of supply at current sales rates.`
-            : "The supply side of the market — what's being built and what's sitting unsold — tells the next part of the story."}
-        </SectionTransition>
-
         <div className="h-px bg-gradient-to-r from-transparent via-sand-gold/20 to-transparent" />
 
-        {/* Section 3: Construction Activity — even (cream-dark) */}
+        {/* Section 3: Construction Activity */}
         <div className="bg-cream-dark" style={fullBleed}>
           <div className="max-w-[1200px] mx-auto py-[46px]">
             <div id="construction-pipeline" className="scroll-mt-24">
-              <ConstructionPipeline onDataLoaded={onConstructionDataLoaded} />
+              <ConstructionPipeline onDataLoaded={onConstructionDataLoaded} introText={constructionIntro} />
             </div>
           </div>
         </div>
 
-        {/* Transition: Construction → Mortgage Rates */}
-        <SectionTransition>
-          {mortgageData?.fixedRate != null
-            ? `For most buyers, the monthly mortgage payment matters more than the listing price. The benchmark fixed rate is currently ${mortgageData.fixedRate.toFixed(2)}%.`
-            : "For most buyers, the monthly mortgage payment matters more than the listing price."}
-        </SectionTransition>
-
         <div className="h-px bg-gradient-to-r from-transparent via-sand-gold/20 to-transparent" />
 
-        {/* Section 4: Mortgage Rates — odd (warm-white) */}
+        {/* Section 4: Mortgage Rates */}
         <div className="bg-warm-white" style={fullBleed}>
           <div className="max-w-[1200px] mx-auto py-[46px]">
             <div id="mortgage-rates" className="scroll-mt-24">
-              <MortgageRates onDataLoaded={onMortgageDataLoaded} />
+              <MortgageRates onDataLoaded={onMortgageDataLoaded} introText={mortgageIntro} />
             </div>
           </div>
         </div>
 
-        {/* Transition: Mortgage → Rental Market */}
-        <SectionTransition>
-          {rentalData?.rentYoy != null
-            ? `Rents have risen ${Math.abs(rentalData.rentYoy).toFixed(1)}% over the past year based on lease renewals. For new leases, the actual increase is likely higher.`
-            : "Rents are part of the affordability picture — and they've been climbing steadily."}
-        </SectionTransition>
-
         <div className="h-px bg-gradient-to-r from-transparent via-sand-gold/20 to-transparent" />
 
-        {/* Section 5: Rental Market — even (cream-dark) */}
+        {/* Section 5: Rental Market */}
         <div className="bg-cream-dark" style={fullBleed}>
           <div className="max-w-[1200px] mx-auto py-[46px]">
             <div id="rental-market" className="scroll-mt-24">
-              <RentalMarket onDataLoaded={onRentalDataLoaded} />
+              <RentalMarket onDataLoaded={onRentalDataLoaded} introText={rentalIntro} />
             </div>
           </div>
         </div>
 
-        {/* Transition: Rental → Construction Costs */}
-        <SectionTransition>
-          {costData?.costYoy != null
-            ? `Construction input costs — materials, labor, equipment — have ${costData.costYoy >= 0 ? "risen" : "fallen"} ${Math.abs(costData.costYoy).toFixed(1)}% over the past year. This affects new build pricing, renovation budgets, and urban renewal economics.`
-            : "Construction input costs — materials, labor, equipment — affect new build pricing, renovation budgets, and urban renewal economics."}
-        </SectionTransition>
-
         <div className="h-px bg-gradient-to-r from-transparent via-sand-gold/20 to-transparent" />
 
-        {/* Section 6: Construction Costs — odd (warm-white) */}
+        {/* Section 6: Construction Costs */}
         <div className="bg-warm-white" style={fullBleed}>
           <div className="max-w-[1200px] mx-auto py-[46px]">
             <div id="construction-costs" className="scroll-mt-24">
-              <ConstructionCosts onDataLoaded={onCostDataLoaded} />
+              <ConstructionCosts onDataLoaded={onCostDataLoaded} introText={costIntro} />
             </div>
           </div>
         </div>

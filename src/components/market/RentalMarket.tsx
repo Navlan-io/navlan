@@ -26,9 +26,10 @@ export interface RentalMarketData {
 
 interface RentalMarketProps {
   onDataLoaded?: (data: RentalMarketData) => void;
+  introText?: React.ReactNode;
 }
 
-const RentalMarket = ({ onDataLoaded }: RentalMarketProps) => {
+const RentalMarket = ({ onDataLoaded, introText }: RentalMarketProps) => {
   const [data, setData] = useState<IndexRow[]>([]);
   const [loading, setLoading] = useState(true);
   const [range, setRange] = useState<TimeRange>("Max");
@@ -129,6 +130,9 @@ const RentalMarket = ({ onDataLoaded }: RentalMarketProps) => {
           ))}
         </div>
       </div>
+      {introText && (
+        <p className="font-body text-[16px] font-normal text-[#6B7178] mt-2 mb-6">{introText}</p>
+      )}
       <p className="font-body text-[15px] text-warm-gray mb-6">
         National rent price index based on actual lease contracts (CBS)
       </p>
