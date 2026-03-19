@@ -51,7 +51,7 @@ function formatPeriodShort(period: string) {
 }
 
 const GoldDivider = () => (
-  <div className="h-px bg-gradient-to-r from-transparent via-sand-gold/20 to-transparent my-10" />
+  <div className="h-px bg-gradient-to-r from-transparent via-sand-gold/20 to-transparent my-14" />
 );
 
 const TrendsTab = ({ city, prices, districtIndices, rentalData }: TrendsTabProps) => {
@@ -351,7 +351,7 @@ const TrendsTab = ({ city, prices, districtIndices, rentalData }: TrendsTabProps
                 </div>
               )}
 
-              <p className="font-body text-[12px] text-warm-gray mt-3">
+              <p className="font-body text-[12px] text-warm-gray mt-3 mb-2">
                 Source: Central Bureau of Statistics — Average Dwelling Prices
               </p>
             </div>
@@ -395,7 +395,7 @@ const TrendsTab = ({ city, prices, districtIndices, rentalData }: TrendsTabProps
                 </tbody>
               </table>
             </div>
-            <p className="font-body text-[12px] text-warm-gray mt-3">
+            <p className="font-body text-[12px] text-warm-gray mt-3 mb-2">
               Source: Central Bureau of Statistics — Table 2.2
             </p>
           </section>
@@ -452,7 +452,7 @@ const TrendsTab = ({ city, prices, districtIndices, rentalData }: TrendsTabProps
                     </tbody>
                   </table>
                 </div>
-                <p className="font-body text-[12px] text-warm-gray mt-3">
+                <p className="font-body text-[12px] text-warm-gray mt-3 mb-2">
                   Source: Central Bureau of Statistics — Average Monthly Rent Prices
                 </p>
               </div>
@@ -565,7 +565,7 @@ const TrendsTab = ({ city, prices, districtIndices, rentalData }: TrendsTabProps
                   </AreaChart>
                 </ResponsiveContainer>
               </div>
-              <p className="font-body text-[12px] text-warm-gray mt-3">
+              <p className="font-body text-[12px] text-warm-gray mt-3 mb-2">
                 Source: Central Bureau of Statistics — Dwelling Price Index
               </p>
             </div>

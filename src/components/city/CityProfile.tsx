@@ -46,7 +46,7 @@ const CityProfile = ({ city, profile }: CityProfileProps) => {
   }
 
   return (
-    <div className="max-w-[880px] space-y-8">
+    <div className="space-y-8">
       {/* Editorial disclaimer */}
       <div className="bg-cream rounded-lg px-5 py-4 border border-grid-line/40">
         <p className="font-body text-[13px] text-warm-gray leading-relaxed">

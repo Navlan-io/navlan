@@ -16,6 +16,7 @@ interface CityData {
   hebrew_name: string | null;
   cbs_code: number | null;
   district: string;
+  population: number | null;
 }
 
 interface CityProfileData {
@@ -88,7 +89,7 @@ const CityPage = () => {
 
       const { data: localities } = await supabase
         .from("localities")
-        .select("english_name, hebrew_name, cbs_code, district, english_alt_spellings")
+        .select("english_name, hebrew_name, cbs_code, district, population, english_alt_spellings")
         .eq("entity_type", "city");
 
       let matched: CityData | null = null;
@@ -131,7 +132,7 @@ const CityPage = () => {
           );
           matched = loc
             ? loc
-            : { english_name: profileName, hebrew_name: null, cbs_code: null, district: "Unknown" };
+            : { english_name: profileName, hebrew_name: null, cbs_code: null, district: "Unknown", population: null };
         }
       }
 
@@ -245,7 +246,7 @@ const CityPage = () => {
               profile={profile}
               prices={prices}
               districtIndices={districtIndices}
-              rentalData={rentalData !== undefined ? rentalData : null}
+              population={city.population}
               latestPeriod={latestPeriod}
             />
 

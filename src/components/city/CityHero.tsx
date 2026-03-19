@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import TrendPill from "@/components/TrendPill";
 import { useCurrency } from "@/contexts/CurrencyContext";
-import { Share2, MapPin } from "lucide-react";
+import { Share2, MapPin, ArrowRight } from "lucide-react";
 
 const DISTRICT_GRADIENT: Record<string, string> = {
   Jerusalem: "from-[#C4A96A]/12 via-[#C4A96A]/5 to-warm-white",
@@ -30,7 +30,7 @@ interface CityHeroProps {
     percent_mom: number | null;
     percent_yoy: number | null;
   }[];
-  rentalData?: { avg_rent_total: number | null } | null;
+  population?: number | null;
   latestPeriod?: string | null;
 }
 
@@ -44,23 +44,15 @@ function getTrend(latest: number | null, previous: number | null) {
   };
 }
 
-const CityHero = ({ city, profile, prices, districtIndices, rentalData, latestPeriod }: CityHeroProps) => {
-  const { formatPrice, currency, rates } = useCurrency();
+const CityHero = ({ city, profile, prices, districtIndices, population, latestPeriod }: CityHeroProps) => {
+  const { formatPrice } = useCurrency();
 
   const latestPrice = prices.length > 0 ? prices[prices.length - 1] : null;
   const prevPrice = prices.length > 1 ? prices[prices.length - 2] : null;
   const priceTrend = getTrend(latestPrice?.avg_price_total ?? null, prevPrice?.avg_price_total ?? null);
 
-  const latestIndex = districtIndices.length > 0 ? districtIndices[districtIndices.length - 1] : null;
-
   const tagline = profile?.tagline || null;
   const gradient = DISTRICT_GRADIENT[city.district] || DISTRICT_GRADIENT.Central;
-
-  const formatRent = (v: number) => {
-    if (currency === "₪") return `₪${Math.round(v).toLocaleString()}`;
-    if (currency === "$") return `$${Math.round(v / rates.USD).toLocaleString()}`;
-    return `€${Math.round(v / rates.EUR).toLocaleString()}`;
-  };
 
   return (
     <section className={`bg-gradient-to-b ${gradient}`}>
@@ -138,32 +130,24 @@ const CityHero = ({ city, profile, prices, districtIndices, rentalData, latestPe
             )}
           </div>
 
-          {/* Average Rent */}
+          {/* Population */}
           <div className="bg-white/70 backdrop-blur-sm rounded-xl p-5 border border-grid-line/60">
-            <p className="font-body text-[12px] font-medium uppercase tracking-[0.08em] text-warm-gray">Avg Rent</p>
+            <p className="font-body text-[12px] font-medium uppercase tracking-[0.08em] text-warm-gray">Population</p>
             <p className="font-body font-bold text-[26px] md:text-[28px] text-charcoal mt-1.5 leading-none">
-              {rentalData?.avg_rent_total != null
-                ? `${formatRent(rentalData.avg_rent_total)}/mo`
-                : "—"}
+              {population != null ? population.toLocaleString() : "—"}
             </p>
-            {!rentalData?.avg_rent_total && (
-              <p className="mt-2 font-body text-[12px] text-warm-gray">Rental data not available</p>
-            )}
           </div>
 
-          {/* District Index */}
+          {/* District */}
           <div className="bg-white/70 backdrop-blur-sm rounded-xl p-5 border border-grid-line/60">
-            <p className="font-body text-[12px] font-medium uppercase tracking-[0.08em] text-warm-gray">{city.district} Index</p>
-            <p className="font-body font-bold text-[26px] md:text-[28px] text-charcoal mt-1.5 leading-none">
-              {latestIndex?.value != null ? latestIndex.value.toFixed(1) : "—"}
-            </p>
-            {latestIndex?.percent_yoy != null && (
-              <TrendPill
-                direction={latestIndex.percent_yoy > 0 ? "up" : latestIndex.percent_yoy < 0 ? "down" : "flat"}
-                value={`${Math.abs(latestIndex.percent_yoy).toFixed(1)}% YoY`}
-                className="mt-2.5"
-              />
-            )}
+            <p className="font-body text-[12px] font-medium uppercase tracking-[0.08em] text-warm-gray">District</p>
+            <Link
+              to="/market#district-prices"
+              className="inline-flex items-center gap-1.5 font-body font-bold text-[26px] md:text-[28px] text-horizon-blue mt-1.5 leading-none hover:underline transition-colors no-underline"
+            >
+              {city.district}
+              <ArrowRight className="h-5 w-5" />
+            </Link>
           </div>
         </div>
       </div>
