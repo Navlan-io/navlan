@@ -51,7 +51,7 @@ function formatPeriodShort(period: string) {
 }
 
 const GoldDivider = () => (
-  <div className="h-px bg-gradient-to-r from-transparent via-sand-gold/20 to-transparent my-14" />
+  <div className="h-px bg-gradient-to-r from-transparent via-sand-gold/20 to-transparent my-16" />
 );
 
 const TrendsTab = ({ city, prices, districtIndices, rentalData }: TrendsTabProps) => {
@@ -351,7 +351,7 @@ const TrendsTab = ({ city, prices, districtIndices, rentalData }: TrendsTabProps
                 </div>
               )}
 
-              <p className="font-body text-[12px] text-warm-gray mt-3 mb-2">
+              <p className="font-body text-[12px] text-warm-gray mt-3 mb-4">
                 Source: Central Bureau of Statistics — Average Dwelling Prices
               </p>
             </div>
@@ -372,7 +372,7 @@ const TrendsTab = ({ city, prices, districtIndices, rentalData }: TrendsTabProps
       {latestPrice && roomData.some(r => r.value != null) && (
         <>
           <section>
-            <h3 className="font-heading font-semibold text-[20px] md:text-[22px] text-charcoal mb-4">
+            <h3 className="font-heading font-semibold text-[20px] md:text-[22px] text-charcoal mt-8 mb-4">
               Price by Room Count
             </h3>
             <div className="overflow-x-auto no-scrollbar">
@@ -395,7 +395,7 @@ const TrendsTab = ({ city, prices, districtIndices, rentalData }: TrendsTabProps
                 </tbody>
               </table>
             </div>
-            <p className="font-body text-[12px] text-warm-gray mt-3 mb-2">
+            <p className="font-body text-[12px] text-warm-gray mt-3 mb-4">
               Source: Central Bureau of Statistics — Table 2.2
             </p>
           </section>
@@ -408,7 +408,7 @@ const TrendsTab = ({ city, prices, districtIndices, rentalData }: TrendsTabProps
       {rentalData ? (
         <>
           <section>
-            <h3 className="font-heading font-semibold text-[20px] md:text-[22px] text-charcoal mb-2">
+            <h3 className="font-heading font-semibold text-[20px] md:text-[22px] text-charcoal mt-8 mb-2">
               Average Monthly Rent
             </h3>
             <p className="font-body text-[16px] font-normal text-warm-gray mt-2 mb-6">
@@ -452,7 +452,7 @@ const TrendsTab = ({ city, prices, districtIndices, rentalData }: TrendsTabProps
                     </tbody>
                   </table>
                 </div>
-                <p className="font-body text-[12px] text-warm-gray mt-3 mb-2">
+                <p className="font-body text-[12px] text-warm-gray mt-3 mb-4">
                   Source: Central Bureau of Statistics — Average Monthly Rent Prices
                 </p>
               </div>
@@ -478,7 +478,7 @@ const TrendsTab = ({ city, prices, districtIndices, rentalData }: TrendsTabProps
       ) : rentalData === null ? (
         <>
           <section>
-            <h3 className="font-heading font-semibold text-[20px] md:text-[22px] text-charcoal mb-4">
+            <h3 className="font-heading font-semibold text-[20px] md:text-[22px] text-charcoal mt-8 mb-4">
               Average Monthly Rent
             </h3>
             <Card className="p-6 bg-cream border-0 text-center">
@@ -491,7 +491,7 @@ const TrendsTab = ({ city, prices, districtIndices, rentalData }: TrendsTabProps
 
       {/* ── Section 4: District Price Index Trend ── */}
       <section>
-        <h3 className="font-heading font-semibold text-[20px] md:text-[22px] text-charcoal">
+        <h3 className="font-heading font-semibold text-[20px] md:text-[22px] text-charcoal mt-8">
           {city.district} District — Price Index Trend
         </h3>
         {districtInsight && !noPriceData && (
@@ -565,7 +565,7 @@ const TrendsTab = ({ city, prices, districtIndices, rentalData }: TrendsTabProps
                   </AreaChart>
                 </ResponsiveContainer>
               </div>
-              <p className="font-body text-[12px] text-warm-gray mt-3 mb-2">
+              <p className="font-body text-[12px] text-warm-gray mt-3 mb-4">
                 Source: Central Bureau of Statistics — Dwelling Price Index
               </p>
             </div>

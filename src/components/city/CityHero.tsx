@@ -92,6 +92,16 @@ const CityHero = ({ city, profile, prices, districtIndices, population, latestPe
           <p className="mt-2 font-body text-[17px] leading-[1.6] text-warm-gray max-w-xl">{tagline}</p>
         )}
 
+        {/* Overview intro — first 2 sentences */}
+        {profile?.overview && (() => {
+          const sentences = profile.overview.match(/[^.!?]+[.!?]+/g);
+          if (!sentences || sentences.length === 0) return null;
+          const intro = sentences.slice(0, 2).join("").trim();
+          return (
+            <p className="font-body text-[15px] leading-[1.7] text-warm-gray max-w-2xl mt-3">{intro}</p>
+          );
+        })()}
+
         {/* Data freshness + Share */}
         <div className="flex flex-wrap items-center gap-3 mt-5">
           {latestPeriod && (

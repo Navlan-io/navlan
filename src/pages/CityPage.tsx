@@ -252,20 +252,6 @@ const CityPage = () => {
 
             <GoldDivider />
 
-            {/* ─── Market Data Section ─── */}
-            <div className="bg-warm-white">
-              <div className="container max-w-[1200px] py-10 md:py-12">
-                <TrendsTab
-                  city={city}
-                  prices={prices}
-                  districtIndices={districtIndices}
-                  rentalData={rentalData !== undefined ? rentalData : undefined}
-                />
-              </div>
-            </div>
-
-            <GoldDivider />
-
             {/* ─── Community Profile Section ─── */}
             {hasProfile && (
               <>
@@ -284,6 +270,18 @@ const CityPage = () => {
                 <GoldDivider />
               </>
             )}
+
+            {/* ─── Market Data Section ─── */}
+            <div className="bg-warm-white">
+              <div className="container max-w-[1200px] py-10 md:py-12">
+                <TrendsTab
+                  city={city}
+                  prices={prices}
+                  districtIndices={districtIndices}
+                  rentalData={rentalData !== undefined ? rentalData : undefined}
+                />
+              </div>
+            </div>
 
             {/* ─── Disclaimer ─── */}
             <div className="bg-warm-white">
