@@ -1,7 +1,6 @@
 import { useEffect, useState, useRef } from "react";
 import {
   BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer,
-  LineChart, Line, ReferenceLine,
 } from "recharts";
 import { supabase } from "@/integrations/supabase/client";
 import { Card } from "@/components/ui/card";
@@ -138,30 +137,12 @@ const PopulationDemand = ({ onDataLoaded }: PopulationDemandProps) => {
     barData.push({ name: "Housing units started", value: startsTotal, fill: chartColors.horizonBlue });
   }
 
-  // Population growth line chart data
-  const lineData = popData
-    .filter((r) => r.growth_rate != null)
-    .map((r) => ({
-      year: r.year.toString(),
-      growthRate: r.growth_rate,
-    }));
-
   const BarTooltip = ({ active, payload }: any) => {
     if (!active || !payload?.length) return null;
     return (
       <div className="bg-cream border border-sage/20 rounded-lg px-3 py-2 shadow-[0_2px_8px_rgba(0,0,0,0.1)] font-body text-[13px]">
         <p className="text-charcoal font-semibold">{payload[0].payload.name}</p>
         <p className="text-charcoal">{Number(payload[0].value).toLocaleString("en-US")}</p>
-      </div>
-    );
-  };
-
-  const LineTooltip = ({ active, payload, label }: any) => {
-    if (!active || !payload?.length) return null;
-    return (
-      <div className="bg-cream border border-sage/20 rounded-lg px-3 py-2 shadow-[0_2px_8px_rgba(0,0,0,0.1)] font-body text-[13px]">
-        <p className="text-charcoal font-semibold">{label}</p>
-        <p className="text-charcoal">{payload[0].value?.toFixed(2)}%</p>
       </div>
     );
   };
@@ -194,125 +175,66 @@ const PopulationDemand = ({ onDataLoaded }: PopulationDemandProps) => {
           </span>
         </Card>
         <Card className="p-5 bg-cream border-0 shadow-card">
-          <span className="font-body text-[13px] text-warm-gray block">Developed World Avg</span>
+          <span className="font-body text-[13px] text-warm-gray block">Developed World Avg (OECD)</span>
           <span className="font-body font-bold text-[28px] text-charcoal">~0.6%</span>
         </Card>
       </div>
 
-      {/* Part A: Side-by-side horizontal bar comparison */}
+      {/* Bar chart + InsightCard side-by-side on desktop */}
       {barData.length === 2 && (
-        <div className="mb-10">
-          <h3 className="font-heading font-semibold text-[18px] text-charcoal mb-4">
-            Annual Demand vs. Supply
-          </h3>
-          <div style={{ minHeight: 140 }} aria-label="People added versus housing units started comparison">
-            <ResponsiveContainer width="100%" height={160}>
-              <BarChart data={barData} layout="vertical" margin={{ left: isMobile ? 10 : 20, right: 40 }}>
-                <CartesianGrid horizontal={false} vertical stroke={chartColors.gridLine} />
-                <XAxis
-                  type="number"
-                  domain={[0, barDomainMax]}
-                  tick={axisTick}
-                  axisLine={false}
-                  tickLine={false}
-                  tickFormatter={(v) => formatLargeNumber(v)}
-                />
-                <YAxis
-                  type="category"
-                  dataKey="name"
-                  tick={{ ...axisTick, fontSize: isMobile ? 9 : 11 }}
-                  axisLine={false}
-                  tickLine={false}
-                  width={isMobile ? 100 : 170}
-                />
-                <Tooltip content={<BarTooltip />} />
-                <Bar
-                  dataKey="value"
-                  radius={[0, 4, 4, 0]}
-                  barSize={32}
-                  label={{
-                    position: "right",
-                    formatter: (v: number) => v.toLocaleString("en-US"),
-                    style: { ...axisTick, fontSize: 12, fontWeight: 600 },
-                  }}
-                />
-              </BarChart>
-            </ResponsiveContainer>
-          </div>
-        </div>
-      )}
-
-      {/* Part B: Population growth rate line chart */}
-      {lineData.length > 0 && (
-        <div className="lg:flex lg:gap-8 lg:items-start">
-          <div className="lg:w-[60%]">
-            <h3 className="font-heading font-semibold text-[18px] text-charcoal mb-4">
-              Population Growth Rate Over Time
-            </h3>
-            <div style={{ minHeight: 250 }} aria-label="Israel population growth rate trend">
-              <ResponsiveContainer width="100%" height={280}>
-                <LineChart data={lineData}>
-                  <CartesianGrid horizontal vertical={false} stroke={chartColors.gridLine} />
-                  <XAxis
-                    dataKey="year"
-                    tick={axisTick}
-                    axisLine={false}
-                    tickLine={false}
-                    interval={isMobile ? Math.floor(lineData.length / 5) : Math.floor(lineData.length / 8)}
-                  />
-                  <YAxis
-                    domain={[0.4, "auto"]}
-                    tick={axisTick}
-                    axisLine={false}
-                    tickLine={false}
-                    width={35}
-                    tickFormatter={(v) => `${v}%`}
-                  />
-                  <Tooltip content={<LineTooltip />} />
-                  <ReferenceLine
-                    y={0.6}
-                    stroke={chartColors.warmGray}
-                    strokeDasharray="6 4"
-                    label={{
-                      value: "Developed world avg (0.6%)",
-                      position: "right",
-                      style: { fontSize: 10, fill: chartColors.warmGray, fontFamily: "DM Sans" },
-                    }}
-                  />
-                  <Line
-                    type="monotone"
-                    dataKey="growthRate"
-                    stroke={chartColors.sandGold}
-                    strokeWidth={2}
-                    dot={false}
-                  />
-                </LineChart>
-              </ResponsiveContainer>
-            </div>
-
-            <div className="flex flex-wrap items-center gap-x-5 gap-y-2 mt-4">
-              <div className="flex items-center gap-1.5">
-                <div className="w-5 h-[2px]" style={{ backgroundColor: chartColors.sandGold }} />
-                <span className="font-body text-[12px] text-charcoal">Israel population growth</span>
-              </div>
-              <div className="flex items-center gap-1.5">
-                <div className="w-5 h-0 border-t border-dashed" style={{ borderColor: chartColors.warmGray }} />
-                <span className="font-body text-[12px] text-charcoal">Developed world avg</span>
+        <>
+          <div className="lg:flex lg:gap-8 lg:items-start">
+            <div className="lg:w-[60%]">
+              <h3 className="font-heading font-semibold text-[18px] text-charcoal mb-4">
+                Annual Demand vs. Supply
+              </h3>
+              <div style={{ minHeight: 140 }} aria-label="People added versus housing units started comparison">
+                <ResponsiveContainer width="100%" height={160}>
+                  <BarChart data={barData} layout="vertical" margin={{ left: isMobile ? 10 : 20, right: 40 }}>
+                    <CartesianGrid horizontal={false} vertical stroke={chartColors.gridLine} />
+                    <XAxis
+                      type="number"
+                      domain={[0, barDomainMax]}
+                      tick={axisTick}
+                      axisLine={false}
+                      tickLine={false}
+                      tickFormatter={(v) => formatLargeNumber(v)}
+                    />
+                    <YAxis
+                      type="category"
+                      dataKey="name"
+                      tick={{ ...axisTick, fontSize: isMobile ? 9 : 11 }}
+                      axisLine={false}
+                      tickLine={false}
+                      width={isMobile ? 100 : 170}
+                    />
+                    <Tooltip content={<BarTooltip />} />
+                    <Bar
+                      dataKey="value"
+                      radius={[0, 4, 4, 0]}
+                      barSize={32}
+                      label={{
+                        position: "right",
+                        formatter: (v: number) => v.toLocaleString("en-US"),
+                        style: { ...axisTick, fontSize: 12, fontWeight: 600 },
+                      }}
+                    />
+                  </BarChart>
+                </ResponsiveContainer>
               </div>
             </div>
-
-            <p className="font-body text-[12px] text-warm-gray mt-3">
-              Source: World Bank Population Data · Latest: 2024 · Updates annually
-            </p>
+            <div className="lg:w-[40%] mt-6 lg:mt-0">
+              <InsightCard layout="inline">
+                {peopleAdded != null && startsTotal != null
+                  ? `Israel added roughly ${peopleAdded.toLocaleString("en-US")} people last year while approximately ${startsTotal.toLocaleString("en-US")} housing units entered construction. This imbalance has persisted for decades — Israel's growth rate has consistently run at ${growthMultiple ?? "2"}×+ the developed-world average.`
+                  : `Israel's population growth rate has consistently run well above the developed-world average of ~0.6%. Understanding this dynamic helps explain why Israeli real estate has historically behaved differently from markets with slower population growth.`}
+              </InsightCard>
+            </div>
           </div>
-          <div className="lg:w-[40%]">
-            <InsightCard layout="inline">
-              {peopleAdded != null && startsTotal != null
-                ? `Israel added roughly ${peopleAdded.toLocaleString("en-US")} people last year while approximately ${startsTotal.toLocaleString("en-US")} housing units entered construction. This imbalance has persisted for decades — Israel's growth rate has consistently run at ${growthMultiple ?? "2"}×+ the developed-world average. The 2023 spike reflects a surge in immigration. The long-term average remains around 1.8–2.0%.`
-                : `Israel's population growth rate has consistently run well above the developed-world average of ~0.6%. Understanding this dynamic helps explain why Israeli real estate has historically behaved differently from markets with slower population growth.`}
-            </InsightCard>
-          </div>
-        </div>
+          <p className="font-body text-[12px] text-warm-gray mt-4">
+            Source: World Bank Population Data · Latest: 2024 · Updates annually
+          </p>
+        </>
       )}
     </section>
   );
