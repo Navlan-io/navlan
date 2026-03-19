@@ -278,7 +278,7 @@ const TrendsTab = ({ city, prices, districtIndices, rentalData }: TrendsTabProps
             </p>
           </Card>
         ) : (
-          <div className="flex flex-col lg:flex-row gap-6">
+          <div className="flex flex-col lg:flex-row gap-8">
             {/* Chart — left side */}
             <div className="lg:w-[60%]">
               <div className="w-full" style={{ minHeight: 250 }}>
@@ -304,10 +304,12 @@ const TrendsTab = ({ city, prices, districtIndices, rentalData }: TrendsTabProps
                       tick={{ fontSize: 10, fill: "#6B7178", fontFamily: "DM Sans" }}
                       axisLine={false}
                       tickLine={false}
-                      width={50}
+                      width={55}
                       tickFormatter={(v) => {
                         const divisor = currency === "₪" ? 1 : currency === "$" ? usdRate : eurRate;
-                        return `${Math.round(v / divisor / 1000)}K`;
+                        const converted = v / divisor;
+                        if (converted >= 1000) return `${(converted / 1000).toFixed(1).replace(/\.0$/, "")}M`;
+                        return `${Math.round(converted)}K`;
                       }}
                     />
                     <Tooltip content={<CustomTooltip />} />
@@ -413,7 +415,7 @@ const TrendsTab = ({ city, prices, districtIndices, rentalData }: TrendsTabProps
               Based on lease renewal data from the Central Bureau of Statistics. New-lease rents are typically higher.
             </p>
 
-            <div className="flex flex-col lg:flex-row gap-6">
+            <div className="flex flex-col lg:flex-row gap-8">
               <div className="lg:w-[60%]">
                 {/* Headline rent card */}
                 <div className="bg-cream rounded-xl p-5 border border-grid-line/60 inline-block mb-6">
@@ -523,7 +525,7 @@ const TrendsTab = ({ city, prices, districtIndices, rentalData }: TrendsTabProps
             <p className="font-body text-warm-gray">District index data not yet available</p>
           </Card>
         ) : (
-          <div className="flex flex-col lg:flex-row gap-6">
+          <div className="flex flex-col lg:flex-row gap-8">
             <div className={cn(districtInsight ? "lg:w-[60%]" : "w-full")}>
               <div className="w-full" style={{ minHeight: 250 }}>
                 <ResponsiveContainer width="100%" height={isMobile ? 280 : 350}>

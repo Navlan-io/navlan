@@ -58,13 +58,12 @@ export const CurrencyProvider = ({ children }: { children: ReactNode }) => {
 
   const formatPrice = (nisThousands: number) => {
     const code = currencyToCode[currency];
-    if (code === "ILS") {
-      return `₪${Math.round(nisThousands).toLocaleString()}K`;
-    }
-    const rate = code === "USD" ? rates.USD : rates.EUR;
-    const converted = nisThousands / rate;
+    const value = code === "ILS" ? nisThousands : nisThousands / (code === "USD" ? rates.USD : rates.EUR);
     const symbol = currency;
-    return `${symbol}${Math.round(converted).toLocaleString()}K`;
+    if (value >= 1000) {
+      return `${symbol}${(value / 1000).toFixed(2).replace(/\.?0+$/, "")}M`;
+    }
+    return `${symbol}${Math.round(value).toLocaleString()}K`;
   };
 
   return (
