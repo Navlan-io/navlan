@@ -2,6 +2,7 @@ import { useEffect, useState, useMemo } from "react";
 import { Link } from "react-router-dom";
 import { Search } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
+import { useCurrency } from "@/contexts/CurrencyContext";
 import NavBar from "@/components/NavBar";
 import Footer from "@/components/Footer";
 import SEO from "@/components/SEO";
@@ -14,6 +15,7 @@ interface CityData {
   hasProfile: boolean;
   isAnglo: boolean;
   tagline: string | null;
+  avgPrice: number | null;
 }
 
 const DISTRICT_FILTERS = [
@@ -38,12 +40,12 @@ const ANGLO_PRIORITY = [
 ];
 
 const DISTRICT_BORDER_COLORS: Record<string, string> = {
-  Jerusalem: "border-sand-gold",
-  "Tel Aviv": "border-horizon-blue",
-  Haifa: "border-deep-olive",
-  Central: "border-sage",
-  South: "border-terra-red",
-  North: "border-growth-green",
+  Jerusalem: "border-l-sand-gold",
+  "Tel Aviv": "border-l-horizon-blue",
+  Haifa: "border-l-deep-olive",
+  Central: "border-l-sage",
+  South: "border-l-terra-red",
+  North: "border-l-growth-green",
 };
 
 const toSlug = (name: string) =>
@@ -54,11 +56,12 @@ const CitiesPage = () => {
   const [loading, setLoading] = useState(true);
   const [activeFilter, setActiveFilter] = useState("All");
   const [searchQuery, setSearchQuery] = useState("");
+  const { formatPrice } = useCurrency();
 
   useEffect(() => {
     const fetchCities = async () => {
       try {
-        const [{ data: localities }, { data: prices }, { data: profiles }] =
+        const [{ data: localities }, { data: pricesRaw }, { data: profiles }] =
           await Promise.all([
             supabase
               .from("localities")
@@ -66,8 +69,9 @@ const CitiesPage = () => {
               .eq("entity_type", "city"),
             supabase
               .from("city_prices")
-              .select("cbs_code")
-              .not("avg_price_total", "is", null),
+              .select("cbs_code, avg_price_total, period")
+              .not("avg_price_total", "is", null)
+              .order("period", { ascending: false }),
             supabase.from("city_profiles").select("city_name, tagline"),
           ]);
 
@@ -76,7 +80,15 @@ const CitiesPage = () => {
           return;
         }
 
-        const cbsWithPrices = new Set((prices ?? []).map((p) => p.cbs_code));
+        // Build a map of cbs_code → latest avg_price
+        const latestPriceMap = new Map<number, number>();
+        for (const row of pricesRaw ?? []) {
+          if (row.cbs_code && row.avg_price_total && !latestPriceMap.has(row.cbs_code)) {
+            latestPriceMap.set(row.cbs_code, row.avg_price_total);
+          }
+        }
+
+        const cbsWithPrices = new Set((pricesRaw ?? []).map((p) => p.cbs_code));
         const profileMap = new Map(
           (profiles ?? []).map((p) => [p.city_name, p.tagline])
         );
@@ -95,6 +107,7 @@ const CitiesPage = () => {
               hasProfile,
               isAnglo: loc.is_anglo_city === true,
               tagline: profileMap.get(loc.english_name) ?? null,
+              avgPrice: loc.cbs_code ? latestPriceMap.get(loc.cbs_code) ?? null : null,
             };
           })
           .filter(Boolean) as CityData[];
@@ -174,13 +187,16 @@ const CitiesPage = () => {
       />
       <NavBar />
       <main id="main-content" className="min-h-screen bg-warm-white">
-        <div className="container max-w-[1200px] py-12 md:py-16">
-          <h1 className="font-heading font-semibold text-[28px] md:text-[32px] text-charcoal">
+        {/* Header */}
+        <div className="container max-w-[1200px] pt-12 md:pt-16 pb-8">
+          <span className="font-body text-[11px] font-semibold uppercase tracking-[0.15em] text-sand-gold">
+            Cities
+          </span>
+          <h1 className="font-heading font-bold text-[32px] md:text-[40px] text-charcoal mt-2">
             Explore Cities
           </h1>
-          <p className="mt-2 font-body text-[15px] text-warm-gray max-w-[600px]">
-            Data-driven profiles for Israel's most popular anglo communities.
-            Browse prices, neighbourhood character, and local insights.
+          <p className="mt-2 font-body text-[16px] text-warm-gray max-w-[640px]">
+            Data-driven profiles for Israel's most popular Anglo communities. Browse prices, community character, and local insights across six districts.
           </p>
 
           {/* Search bar */}
@@ -204,10 +220,10 @@ const CitiesPage = () => {
               <button
                 key={filter}
                 onClick={() => setActiveFilter(filter)}
-                className={`whitespace-nowrap rounded-full px-4 py-1.5 min-h-[44px] font-body text-[14px] font-medium transition-colors ${
+                className={`whitespace-nowrap rounded-full px-4 py-1.5 min-h-[36px] font-body text-[14px] font-medium transition-colors ${
                   activeFilter === filter
                     ? "bg-sage text-white"
-                    : "bg-cream text-charcoal hover:bg-sage/20"
+                    : "bg-cream text-charcoal hover:bg-sage/15"
                 }`}
               >
                 {filter}
@@ -219,45 +235,57 @@ const CitiesPage = () => {
           <p className="mt-4 font-body text-[13px] text-warm-gray">
             {loading
               ? "Loading cities…"
-              : `${filteredCities.length} ${filteredCities.length === 1 ? "city" : "cities"} found`}
+              : `${filteredCities.length} ${filteredCities.length === 1 ? "city" : "cities"}`}
           </p>
+        </div>
 
-          {/* City cards grid */}
-          <div className="mt-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        {/* Gold divider */}
+        <div className="h-px bg-gradient-to-r from-transparent via-sand-gold/20 to-transparent" />
+
+        {/* City cards grid */}
+        <div className="container max-w-[1200px] py-8 md:py-10">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {loading
               ? Array.from({ length: 9 }).map((_, i) => (
                   <div
                     key={i}
-                    className="bg-cream rounded-xl animate-pulse h-[180px]"
+                    className="bg-cream rounded-xl animate-pulse h-[160px]"
                   />
                 ))
-              : filteredCities.length === 0
-                ? null
-                : filteredCities.map((city) => (
-                    <Link
-                      key={city.slug}
-                      to={`/city/${city.slug}`}
-                      className={`group relative flex flex-col rounded-xl bg-cream border-l-4 ${DISTRICT_BORDER_COLORS[city.district] || "border-sage"} p-6 no-underline shadow-[0_2px_12px_rgba(45,50,52,0.10)] hover:shadow-[0_8px_24px_rgba(45,50,52,0.15)] hover:-translate-y-0.5 transition-all duration-200 cursor-pointer overflow-hidden`}
-                      style={{
-                        backgroundImage:
-                          "linear-gradient(to right, rgba(124,139,110,0.07) 1px, transparent 1px), linear-gradient(to bottom, rgba(124,139,110,0.07) 1px, transparent 1px)",
-                        backgroundSize: "22px 22px",
-                      }}
-                    >
-                      <h2 className="relative font-heading font-semibold text-[18px] text-charcoal leading-tight">
-                        {city.name}
-                      </h2>
-                      <p className="relative mt-1 font-body text-[13px] text-warm-gray">
-                        {city.district} District
-                      </p>
-                      <p className="relative mt-2 font-body text-[14px] text-warm-gray leading-snug line-clamp-2">
-                        {city.tagline || `${city.district} District`}
-                      </p>
-                      <span className="relative mt-auto pt-4 font-body font-medium text-[14px] text-horizon-blue group-hover:underline">
-                        See Prices →
-                      </span>
-                    </Link>
-                  ))}
+              : filteredCities.map((city) => (
+                  <Link
+                    key={city.slug}
+                    to={`/city/${city.slug}`}
+                    className={`group relative flex flex-col rounded-xl bg-cream border-l-4 ${DISTRICT_BORDER_COLORS[city.district] || "border-l-sage"} p-5 no-underline shadow-[0_1px_6px_rgba(45,50,52,0.08)] hover:shadow-[0_6px_20px_rgba(45,50,52,0.13)] hover:-translate-y-0.5 transition-all duration-200 cursor-pointer overflow-hidden`}
+                    style={{
+                      backgroundImage:
+                        "linear-gradient(to right, rgba(124,139,110,0.05) 1px, transparent 1px), linear-gradient(to bottom, rgba(124,139,110,0.05) 1px, transparent 1px)",
+                      backgroundSize: "22px 22px",
+                    }}
+                  >
+                    <div className="flex items-start justify-between gap-3">
+                      <div>
+                        <h2 className="font-heading font-semibold text-[18px] text-charcoal leading-tight">
+                          {city.name}
+                        </h2>
+                        <p className="mt-1 font-body text-[12px] text-warm-gray">
+                          {city.district} District
+                        </p>
+                      </div>
+                      {city.avgPrice && (
+                        <span className="shrink-0 font-body text-[14px] font-semibold text-charcoal whitespace-nowrap">
+                          {formatPrice(city.avgPrice)}
+                        </span>
+                      )}
+                    </div>
+                    <p className="mt-2 font-body text-[14px] text-warm-gray leading-snug line-clamp-2">
+                      {city.tagline || `Explore real estate data for ${city.name}`}
+                    </p>
+                    <span className="mt-auto pt-3 font-body font-medium text-[14px] text-sage group-hover:text-sage-dark transition-colors">
+                      Explore →
+                    </span>
+                  </Link>
+                ))}
           </div>
 
           {!loading && filteredCities.length === 0 && (
@@ -267,6 +295,23 @@ const CitiesPage = () => {
               </p>
             </div>
           )}
+        </div>
+
+        {/* Advisor CTA */}
+        <div className="h-px bg-gradient-to-r from-transparent via-sand-gold/20 to-transparent" />
+        <div className="container max-w-[1200px] py-12 text-center">
+          <p className="font-heading font-semibold text-[20px] text-charcoal mb-2">
+            Not sure which city is right for you?
+          </p>
+          <p className="font-body text-[15px] text-warm-gray mb-5 max-w-md mx-auto">
+            Tell us your priorities — budget, community, commute — and get personalized guidance.
+          </p>
+          <Link
+            to="/advisor"
+            className="inline-flex items-center gap-2 px-6 py-3 bg-sage text-white font-body font-medium text-[15px] rounded-lg hover:bg-sage-dark transition-colors no-underline"
+          >
+            Ask the AI Advisor →
+          </Link>
         </div>
       </main>
       <Footer />

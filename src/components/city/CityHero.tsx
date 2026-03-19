@@ -1,16 +1,15 @@
 import { Link } from "react-router-dom";
-import { Card } from "@/components/ui/card";
 import TrendPill from "@/components/TrendPill";
 import { useCurrency } from "@/contexts/CurrencyContext";
-import { Share2 } from "lucide-react";
+import { Share2, MapPin } from "lucide-react";
 
-const DISTRICT_INDEX_MAP: Record<string, number> = {
-  Jerusalem: 60000,
-  North: 60100,
-  Haifa: 60200,
-  Central: 60300,
-  "Tel Aviv": 60400,
-  South: 60500,
+const DISTRICT_GRADIENT: Record<string, string> = {
+  Jerusalem: "from-[#C4A96A]/12 via-[#C4A96A]/5 to-warm-white",
+  North: "from-[#5B8C5A]/10 via-[#5B8C5A]/4 to-warm-white",
+  Haifa: "from-[#4A5540]/10 via-[#4A5540]/4 to-warm-white",
+  Central: "from-[#7C8B6E]/10 via-[#7C8B6E]/4 to-warm-white",
+  "Tel Aviv": "from-[#4A7F8B]/10 via-[#4A7F8B]/4 to-warm-white",
+  South: "from-[#C25B4A]/8 via-[#C25B4A]/3 to-warm-white",
 };
 
 interface CityHeroProps {
@@ -20,7 +19,7 @@ interface CityHeroProps {
     cbs_code: number | null;
     district: string;
   };
-  profile: { overview: string | null } | null;
+  profile: { overview: string | null; tagline: string | null } | null;
   prices: {
     period: string;
     avg_price_total: number | null;
@@ -31,6 +30,8 @@ interface CityHeroProps {
     percent_mom: number | null;
     percent_yoy: number | null;
   }[];
+  rentalData?: { avg_rent_total: number | null } | null;
+  latestPeriod?: string | null;
 }
 
 function getTrend(latest: number | null, previous: number | null) {
@@ -43,100 +44,127 @@ function getTrend(latest: number | null, previous: number | null) {
   };
 }
 
-const CityHero = ({ city, profile, prices, districtIndices }: CityHeroProps) => {
-  const { formatPrice } = useCurrency();
+const CityHero = ({ city, profile, prices, districtIndices, rentalData, latestPeriod }: CityHeroProps) => {
+  const { formatPrice, currency, rates } = useCurrency();
 
   const latestPrice = prices.length > 0 ? prices[prices.length - 1] : null;
   const prevPrice = prices.length > 1 ? prices[prices.length - 2] : null;
-
   const priceTrend = getTrend(latestPrice?.avg_price_total ?? null, prevPrice?.avg_price_total ?? null);
-  const txTrend = getTrend(
-    latestPrice?.transactions_total ?? null,
-    prevPrice?.transactions_total ?? null
-  );
 
   const latestIndex = districtIndices.length > 0 ? districtIndices[districtIndices.length - 1] : null;
 
-  const overviewLine = profile?.overview
-    ? profile.overview.split(".")[0] + "."
-    : `Located in the ${city.district} District`;
+  const tagline = profile?.tagline || null;
+  const gradient = DISTRICT_GRADIENT[city.district] || DISTRICT_GRADIENT.Central;
+
+  const formatRent = (v: number) => {
+    if (currency === "₪") return `₪${Math.round(v).toLocaleString()}`;
+    if (currency === "$") return `$${Math.round(v / rates.USD).toLocaleString()}`;
+    return `€${Math.round(v / rates.EUR).toLocaleString()}`;
+  };
 
   return (
-    <section className="bg-warm-white">
-      <div className="container max-w-[1200px] py-8 md:py-10">
-        <Link
-          to="/#explore-cities"
-          className="inline-flex items-center gap-1 font-body font-medium text-sm text-horizon-blue hover:underline mb-4"
-        >
-          ← All Cities
-        </Link>
+    <section className={`bg-gradient-to-b ${gradient}`}>
+      <div className="container max-w-[1200px] pt-8 pb-10 md:pt-10 md:pb-12">
+        {/* Breadcrumb */}
+        <div className="flex items-center gap-2 mb-5">
+          <Link
+            to="/cities"
+            className="font-body text-[13px] text-warm-gray hover:text-charcoal transition-colors no-underline"
+          >
+            Cities
+          </Link>
+          <span className="text-warm-gray/40 text-[13px]">/</span>
+          <span className="font-body text-[13px] text-charcoal">{city.english_name}</span>
+        </div>
 
-        <div>
-          <h1 className="font-heading font-bold text-[32px] md:text-[38px] text-charcoal">
+        {/* District label */}
+        <div className="flex items-center gap-2 mb-3">
+          <MapPin className="h-3.5 w-3.5 text-sand-gold" />
+          <span className="font-body text-[11px] font-semibold uppercase tracking-[0.15em] text-sand-gold">
+            {city.district} District
+          </span>
+        </div>
+
+        {/* City name + Hebrew */}
+        <div className="flex items-baseline gap-3 flex-wrap">
+          <h1 className="font-heading font-bold text-[32px] md:text-[40px] text-charcoal leading-tight">
             {city.english_name}
           </h1>
           {city.hebrew_name && (
-            <p className="font-body text-[18px] text-warm-gray mt-1">{city.hebrew_name}</p>
+            <span className="font-body text-[20px] md:text-[22px] text-warm-gray/60">{city.hebrew_name}</span>
           )}
         </div>
 
-        <p className="mt-2 font-body text-[17px] leading-[1.75] text-warm-gray max-w-2xl">{overviewLine}</p>
+        {/* Tagline */}
+        {tagline && (
+          <p className="mt-2 font-body text-[17px] leading-[1.6] text-warm-gray max-w-xl">{tagline}</p>
+        )}
 
-        <div className="flex items-center gap-3 mt-3">
+        {/* Data freshness + Share */}
+        <div className="flex flex-wrap items-center gap-3 mt-5">
+          {latestPeriod && (
+            <span className="bg-white/60 rounded-full px-3 py-1 font-body text-[12px] text-warm-gray">
+              Latest data: {latestPeriod}
+            </span>
+          )}
           <button
             onClick={() => {
               const url = window.location.href;
               const text = `Check out ${city.english_name} real estate data on Navlan — ${url}`;
               window.open(`https://wa.me/?text=${encodeURIComponent(text)}`, '_blank');
             }}
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-lg border border-sage/30 text-sage font-body text-[14px] font-medium hover:bg-sage/5 transition-colors"
+            className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-sage/25 text-sage font-body text-[13px] font-medium hover:bg-sage/5 transition-colors"
           >
-            <Share2 className="h-4 w-4" />
+            <Share2 className="h-3.5 w-3.5" />
             Share
           </button>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mt-8">
+        {/* Metric cards */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mt-7">
           {/* Average Price */}
-          <Card className="p-5 bg-cream border-0 shadow-card">
-            <p className="font-body text-[13px] text-warm-gray">Average Price</p>
-            <p className="font-body font-bold text-[28px] text-charcoal mt-1">
+          <div className="bg-white/70 backdrop-blur-sm rounded-xl p-5 border border-grid-line/60">
+            <p className="font-body text-[12px] font-medium uppercase tracking-[0.08em] text-warm-gray">Avg Price</p>
+            <p className="font-body font-bold text-[26px] md:text-[28px] text-charcoal mt-1.5 leading-none">
               {latestPrice?.avg_price_total != null
                 ? formatPrice(latestPrice.avg_price_total)
                 : "—"}
             </p>
             {latestPrice && prevPrice && (
-              <TrendPill direction={priceTrend.direction} value={priceTrend.value} className="mt-2" />
+              <TrendPill direction={priceTrend.direction} value={priceTrend.value} className="mt-2.5" />
             )}
-          </Card>
+            {!latestPrice && (
+              <p className="mt-2 font-body text-[12px] text-warm-gray">City-level data not available</p>
+            )}
+          </div>
 
-          {/* Transactions */}
-          <Card className="p-5 bg-cream border-0 shadow-card">
-            <p className="font-body text-[13px] text-warm-gray">Quarterly Transactions</p>
-            <p className="font-body font-bold text-[28px] text-charcoal mt-1">
-              {latestPrice?.transactions_total != null
-                ? latestPrice.transactions_total.toLocaleString()
+          {/* Average Rent */}
+          <div className="bg-white/70 backdrop-blur-sm rounded-xl p-5 border border-grid-line/60">
+            <p className="font-body text-[12px] font-medium uppercase tracking-[0.08em] text-warm-gray">Avg Rent</p>
+            <p className="font-body font-bold text-[26px] md:text-[28px] text-charcoal mt-1.5 leading-none">
+              {rentalData?.avg_rent_total != null
+                ? `${formatRent(rentalData.avg_rent_total)}/mo`
                 : "—"}
             </p>
-            {latestPrice && prevPrice && (
-              <TrendPill direction={txTrend.direction} value={txTrend.value} className="mt-2" />
+            {!rentalData?.avg_rent_total && (
+              <p className="mt-2 font-body text-[12px] text-warm-gray">Rental data not available</p>
             )}
-          </Card>
+          </div>
 
           {/* District Index */}
-          <Card className="p-5 bg-cream border-0 shadow-card">
-            <p className="font-body text-[13px] text-warm-gray">{city.district} District Index</p>
-            <p className="font-body font-bold text-[28px] text-charcoal mt-1">
+          <div className="bg-white/70 backdrop-blur-sm rounded-xl p-5 border border-grid-line/60">
+            <p className="font-body text-[12px] font-medium uppercase tracking-[0.08em] text-warm-gray">{city.district} Index</p>
+            <p className="font-body font-bold text-[26px] md:text-[28px] text-charcoal mt-1.5 leading-none">
               {latestIndex?.value != null ? latestIndex.value.toFixed(1) : "—"}
             </p>
-            {latestIndex?.percent_mom != null && (
+            {latestIndex?.percent_yoy != null && (
               <TrendPill
-                direction={latestIndex.percent_mom > 0 ? "up" : latestIndex.percent_mom < 0 ? "down" : "flat"}
-                value={`${Math.abs(latestIndex.percent_mom).toFixed(1)}% MoM`}
-                className="mt-2"
+                direction={latestIndex.percent_yoy > 0 ? "up" : latestIndex.percent_yoy < 0 ? "down" : "flat"}
+                value={`${Math.abs(latestIndex.percent_yoy).toFixed(1)}% YoY`}
+                className="mt-2.5"
               />
             )}
-          </Card>
+          </div>
         </div>
       </div>
     </section>

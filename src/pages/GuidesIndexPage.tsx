@@ -86,11 +86,16 @@ const GuidesIndexPage = () => {
       <NavBar />
       <main className="flex-1">
         <div className="container max-w-[1080px] pt-12 pb-16">
-          <h1 className="font-heading font-bold text-[32px] text-charcoal">Guides</h1>
-          <p className="mt-3 font-body text-[16px] text-warm-gray max-w-[600px]">
+          <span className="font-body text-[11px] font-semibold uppercase tracking-[0.15em] text-sand-gold">
+            Guides
+          </span>
+          <h1 className="font-heading font-bold text-[32px] md:text-[40px] text-charcoal mt-2">
+            Understand the Market
+          </h1>
+          <p className="mt-2 font-body text-[16px] text-warm-gray max-w-[600px]">
             In-depth resources for navigating Israeli real estate as an English speaker.
           </p>
-          <div className="border-b border-grid-line mt-6 mb-8" />
+          <div className="h-px bg-gradient-to-r from-transparent via-sand-gold/20 to-transparent mt-8 mb-8" />
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {guides.map((guide) => (

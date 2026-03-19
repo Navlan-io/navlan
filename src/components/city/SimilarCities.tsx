@@ -39,30 +39,36 @@ const SimilarCities = ({ currentCity, district }: SimilarCitiesProps) => {
   if (cities.length === 0) return null;
 
   return (
-    <section className="bg-warm-white py-16">
-      <div className="container max-w-[1200px]">
-        <h2 className="font-heading font-semibold text-[22px] text-charcoal mb-6">
-          Similar cities in {district} District
-        </h2>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-          {cities.map((c) => (
-            <Link
-              key={c.name}
-              to={`/city/${toSlug(c.name)}`}
-              className="block bg-cream rounded-xl p-5 border border-grid-line no-underline hover:shadow-card transition-shadow"
-            >
-              <h3 className="font-heading font-semibold text-[17px] text-charcoal">{c.name}</h3>
-              {c.tagline && (
-                <p className="mt-1 font-body text-[14px] text-warm-gray line-clamp-2">{c.tagline}</p>
-              )}
-              <span className="mt-3 inline-block font-body font-medium text-[14px] text-sage">
-                See Prices &rarr;
-              </span>
-            </Link>
-          ))}
+    <>
+      <div className="h-px bg-gradient-to-r from-transparent via-sand-gold/20 to-transparent" />
+      <section className="bg-warm-white py-14">
+        <div className="container max-w-[1200px]">
+          <span className="font-body text-[11px] font-semibold uppercase tracking-[0.15em] text-sand-gold">
+            Also in {district} District
+          </span>
+          <h2 className="font-heading font-semibold text-[22px] text-charcoal mt-2 mb-6">
+            Explore Nearby Cities
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            {cities.map((c) => (
+              <Link
+                key={c.name}
+                to={`/city/${toSlug(c.name)}`}
+                className="group block bg-cream rounded-xl p-5 border border-grid-line/60 no-underline hover:shadow-card hover:-translate-y-0.5 transition-all duration-200"
+              >
+                <h3 className="font-heading font-semibold text-[17px] text-charcoal">{c.name}</h3>
+                {c.tagline && (
+                  <p className="mt-1 font-body text-[14px] text-warm-gray line-clamp-2">{c.tagline}</p>
+                )}
+                <span className="mt-3 inline-block font-body font-medium text-[14px] text-sage group-hover:text-sage-dark transition-colors">
+                  Explore →
+                </span>
+              </Link>
+            ))}
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </>
   );
 };
 

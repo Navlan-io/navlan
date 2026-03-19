@@ -15,8 +15,11 @@ const AboutPage = () => {
       <NavBar />
       <main className="flex-1">
         <div className="container max-w-[720px] pt-12 pb-16">
-          <h1 className="font-heading font-bold text-[32px] text-charcoal">About Navlan</h1>
-          <div className="border-b border-grid-line mt-6 mb-10" />
+          <span className="font-body text-[11px] font-semibold uppercase tracking-[0.15em] text-sand-gold">
+            About
+          </span>
+          <h1 className="font-heading font-bold text-[32px] md:text-[40px] text-charcoal mt-2">About Navlan</h1>
+          <div className="h-px bg-gradient-to-r from-transparent via-sand-gold/20 to-transparent mt-6 mb-10" />
 
           <div className="space-y-14 font-body text-[16px] text-charcoal leading-[1.75]">
             {/* Why Navlan Exists */}

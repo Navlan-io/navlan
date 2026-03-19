@@ -132,22 +132,27 @@ const GuidePage = ({
         <div className="container max-w-[1040px] pt-12 pb-16">
           {/* Header */}
           <Link
-            to="/guides/start-here"
-            className="inline-flex items-center font-body font-medium text-[14px] text-horizon-blue no-underline hover:underline mb-6"
+            to="/guides"
+            className="inline-flex items-center font-body text-[13px] text-warm-gray no-underline hover:text-charcoal transition-colors mb-6"
           >
-            ← Guides
+            ← All Guides
           </Link>
+          <span className="block font-body text-[11px] font-semibold uppercase tracking-[0.15em] text-sand-gold mb-2">
+            Guide
+          </span>
           <h1 className="font-heading font-bold text-[26px] md:text-[32px] text-charcoal leading-tight">
             {title}
           </h1>
           <p className="mt-3 font-body text-[16px] text-warm-gray max-w-[600px] leading-relaxed">
             {subtitle}
           </p>
-          <p className="mt-2 font-body text-[13px] text-warm-gray">{date}</p>
-          {readTime && (
-            <p className="font-body text-[13px] text-warm-gray mt-2">{readTime}</p>
-          )}
-          <div className="border-b border-grid-line mt-6 mb-8" />
+          <div className="flex items-center gap-3 mt-3">
+            <p className="font-body text-[13px] text-warm-gray">{date}</p>
+            {readTime && (
+              <span className="font-body text-[13px] text-warm-gray">· {readTime}</span>
+            )}
+          </div>
+          <div className="h-px bg-gradient-to-r from-transparent via-sand-gold/20 to-transparent mt-6 mb-8" />
 
           {headerContent}
 
@@ -244,16 +249,23 @@ const GuidePage = ({
       </main>
 
       {/* Newsletter CTA */}
-      <div className="bg-cream py-12">
-        <div className="container max-w-[560px] text-center">
-          <p className="font-heading font-semibold text-[20px] text-charcoal mb-2">
+      <div className="bg-sage relative overflow-hidden">
+        <div
+          className="absolute inset-0 opacity-[0.08]"
+          style={{
+            backgroundImage: "radial-gradient(circle, #FAF8F5 1px, transparent 1px)",
+            backgroundSize: "20px 20px",
+          }}
+        />
+        <div className="relative container max-w-[560px] text-center py-14">
+          <p className="font-heading font-semibold text-[20px] text-white mb-2">
             Stay informed on the Israeli market
           </p>
-          <p className="font-body text-[15px] text-warm-gray mb-6">
+          <p className="font-body text-[15px] text-white/75 mb-6">
             Get The Navlan Report — free, monthly, in English.
           </p>
           <div className="max-w-sm mx-auto">
-            <NewsletterSignup source="guide" />
+            <NewsletterSignup source="guide" variant="dark" />
           </div>
         </div>
       </div>

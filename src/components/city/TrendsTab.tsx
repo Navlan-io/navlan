@@ -1,7 +1,5 @@
 import { useState, useEffect } from "react";
 import {
-  LineChart,
-  Line,
   XAxis,
   YAxis,
   CartesianGrid,
@@ -16,6 +14,7 @@ import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { useIsMobile } from "@/hooks/use-mobile";
+import InsightCard from "@/components/market/InsightCard";
 import { buildLabel, getXAxisConfig, getNiceYDomain, type ChartPoint } from "@/lib/chartUtils";
 
 interface TrendsTabProps {
@@ -40,18 +39,8 @@ interface TrendsTabProps {
     percent_mom: number | null;
     percent_yoy: number | null;
   }[];
+  rentalData?: any;
 }
-
-const DISTRICT_INDEX_MAP: Record<string, number> = {
-  Jerusalem: 60000,
-  North: 60100,
-  Haifa: 60200,
-  Central: 60300,
-  "Tel Aviv": 60400,
-  South: 60500,
-};
-
-const MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
 
 const TIME_RANGES = ["1Y", "3Y", "5Y", "Max"] as const;
 
@@ -61,7 +50,11 @@ function formatPeriodShort(period: string) {
   return period;
 }
 
-const TrendsTab = ({ city, prices, districtIndices }: TrendsTabProps) => {
+const GoldDivider = () => (
+  <div className="h-px bg-gradient-to-r from-transparent via-sand-gold/20 to-transparent my-10" />
+);
+
+const TrendsTab = ({ city, prices, districtIndices, rentalData }: TrendsTabProps) => {
   const { formatPrice, currency, rates } = useCurrency();
   const usdRate = rates.USD;
   const eurRate = rates.EUR;
@@ -71,26 +64,6 @@ const TrendsTab = ({ city, prices, districtIndices }: TrendsTabProps) => {
   const [compareCities, setCompareCities] = useState<{ english_name: string; cbs_code: number | null }[]>([]);
   const [showCompareDropdown, setShowCompareDropdown] = useState(false);
   const [districtRange, setDistrictRange] = useState<(typeof TIME_RANGES)[number]>("Max");
-  const [rentalData, setRentalData] = useState<any>(null);
-  const [rentalLoading, setRentalLoading] = useState(true);
-
-  useEffect(() => {
-    if (!city.cbs_code) {
-      setRentalLoading(false);
-      return;
-    }
-    const fetchRental = async () => {
-      const { data } = await supabase
-        .from("city_rentals")
-        .select("*")
-        .eq("cbs_code", city.cbs_code!)
-        .order("period", { ascending: false })
-        .limit(1);
-      setRentalData(data?.[0] ?? null);
-      setRentalLoading(false);
-    };
-    fetchRental();
-  }, [city.cbs_code]);
 
   useEffect(() => {
     const fetchCities = async () => {
@@ -149,7 +122,8 @@ const TrendsTab = ({ city, prices, districtIndices }: TrendsTabProps) => {
   const priceValues = priceChartData.map(d => d.price).filter((v): v is number => v != null);
   const priceYDomain = getNiceYDomain(priceValues);
 
-  const latestPrice = prices.length > 0 ? prices[prices.length - 1] : null;
+  const latestPrice = sortedPrices.length > 0 ? sortedPrices[sortedPrices.length - 1] : null;
+  const firstPrice = sortedPrices.length > 1 ? sortedPrices[0] : null;
 
   const roomData = latestPrice
     ? [
@@ -161,7 +135,7 @@ const TrendsTab = ({ city, prices, districtIndices }: TrendsTabProps) => {
       ]
     : [];
 
-  // District index chart data with ChartPoint structure
+  // District index chart data
   const districtChartData: ChartPoint[] = districtIndices.map((d) => ({
     label: buildLabel(d.month, d.year),
     year: d.year,
@@ -183,12 +157,81 @@ const TrendsTab = ({ city, prices, districtIndices }: TrendsTabProps) => {
 
   const noPriceData = prices.length === 0;
 
+  // Build dynamic intro text for price section
+  const priceIntro = (() => {
+    if (noPriceData) return null;
+    if (!latestPrice?.avg_price_total || !firstPrice?.avg_price_total) return null;
+    const change = ((latestPrice.avg_price_total - firstPrice.avg_price_total) / firstPrice.avg_price_total) * 100;
+    const direction = change >= 0 ? "risen" : "fallen";
+    return `Over the past ${sortedPrices.length} quarters, average dwelling prices in ${city.english_name} have ${direction} from ${formatPrice(firstPrice.avg_price_total)} to ${formatPrice(latestPrice.avg_price_total)}.`;
+  })();
+
+  // Build insight text for price chart
+  const priceInsight = (() => {
+    if (noPriceData || !latestPrice?.avg_price_total || sortedPrices.length < 2) return null;
+    const prev = sortedPrices[sortedPrices.length - 2];
+    if (!prev?.avg_price_total) return null;
+    const qoq = ((latestPrice.avg_price_total - prev.avg_price_total) / prev.avg_price_total) * 100;
+    const direction = qoq >= 0 ? "up" : "down";
+    const verb = qoq >= 0 ? "rose" : "fell";
+    return `Quarter-over-quarter, prices ${verb} ${Math.abs(qoq).toFixed(1)}%. The ${city.district} District index provides broader trend context below.`;
+  })();
+
+  // District insight
+  const districtInsight = (() => {
+    if (districtIndices.length < 2) return null;
+    const latest = districtIndices[districtIndices.length - 1];
+    if (latest?.percent_yoy == null) return null;
+    const direction = latest.percent_yoy >= 0 ? "risen" : "fallen";
+    return `The ${city.district} District price index has ${direction} ${Math.abs(latest.percent_yoy).toFixed(1)}% year-over-year. This reflects the broader regional trend that affects all cities in the district.`;
+  })();
+
+  // Rent formatting helper
+  const fmtRent = (v: number) => {
+    if (currency === "₪") return `₪${Math.round(v).toLocaleString()}`;
+    if (currency === "$") return `$${Math.round(v / usdRate).toLocaleString()}`;
+    return `€${Math.round(v / eurRate).toLocaleString()}`;
+  };
+
+  const CustomTooltip = ({ active, payload, label }: any) => {
+    if (!active || !payload?.length) return null;
+    return (
+      <div className="bg-cream border border-sage/20 rounded-lg px-3 py-2 shadow-[0_2px_8px_rgba(0,0,0,0.1)] font-body text-[13px]">
+        <p className="text-charcoal font-semibold">{label}</p>
+        {payload.map((entry: any, i: number) => (
+          <p key={i} className="text-charcoal">
+            {entry.name}: {formatPrice(entry.value)}
+          </p>
+        ))}
+      </div>
+    );
+  };
+
+  const DistrictTooltip = ({ active, payload, label }: any) => {
+    if (!active || !payload?.length) return null;
+    const d = payload[0].payload;
+    return (
+      <div className="bg-cream border border-sage/20 rounded-lg px-3 py-2 shadow-[0_2px_8px_rgba(0,0,0,0.1)] font-body text-[13px]">
+        <p className="text-charcoal font-semibold">{label}</p>
+        <p className="text-charcoal">Index: {d.value.toFixed(1)}</p>
+      </div>
+    );
+  };
+
   return (
-    <div className="space-y-10">
-      {/* Price History Chart */}
+    <div className="space-y-0">
+
+      {/* ── Section 1: Average Dwelling Price ── */}
       <section>
-        <div className="flex flex-wrap items-center gap-4 mb-4">
-          <h3 className="font-heading font-semibold text-[18px] text-charcoal">Average Dwelling Price</h3>
+        <h3 className="font-heading font-semibold text-[20px] md:text-[22px] text-charcoal">
+          Average Dwelling Price
+        </h3>
+        {priceIntro && (
+          <p className="font-body text-[16px] font-normal text-warm-gray mt-2 mb-6">{priceIntro}</p>
+        )}
+
+        {/* Compare controls */}
+        <div className="flex flex-wrap items-center gap-3 mb-4">
           <div className="relative">
             <Button
               variant="outline"
@@ -227,189 +270,236 @@ const TrendsTab = ({ city, prices, districtIndices }: TrendsTabProps) => {
 
         {noPriceData ? (
           <Card className="p-8 bg-cream border-0 text-center">
-            <p className="font-body text-warm-gray">Price data not yet available for {city.english_name}</p>
+            <p className="font-body text-[15px] text-warm-gray">
+              CBS city-level price data requires 100,000+ residents. {city.english_name} falls below this threshold.
+            </p>
+            <p className="font-body text-[14px] text-warm-gray mt-2">
+              See the {city.district} District price index below for regional trends.
+            </p>
           </Card>
         ) : (
-          <>
-            <div className="w-full" style={{ minHeight: 250 }}>
-              <ResponsiveContainer width="100%" height={350}>
-                <AreaChart data={priceChartData}>
-                  <defs>
-                    <linearGradient id="priceGrad" x1="0" y1="0" x2="0" y2="1">
-                      <stop offset="0%" stopColor="#4A7F8B" stopOpacity={0.1} />
-                      <stop offset="100%" stopColor="#4A7F8B" stopOpacity={0} />
-                    </linearGradient>
-                  </defs>
-                  <CartesianGrid horizontal vertical={false} stroke="#E8E4DE" />
-                  <XAxis
-                    dataKey="period"
-                    tick={{ fontSize: 10, fill: "#6B7178", fontFamily: "Inter" }}
-                    axisLine={false}
-                    tickLine={false}
-                    interval="preserveStartEnd"
-                  />
-                  <YAxis
-                    domain={priceYDomain.domain}
-                    ticks={priceYDomain.ticks}
-                    tick={{ fontSize: 10, fill: "#6B7178", fontFamily: "Inter" }}
-                    axisLine={false}
-                    tickLine={false}
-                    width={50}
-                    tickFormatter={(v) => {
-                      const divisor = currency === "₪" ? 1 : currency === "$" ? usdRate : eurRate;
-                      return `${Math.round(v / divisor / 1000)}K`;
-                    }}
-                  />
-                  <Tooltip
-                    contentStyle={{
-                      backgroundColor: "#fff",
-                      border: "none",
-                      borderRadius: 8,
-                      boxShadow: "0 2px 8px rgba(0,0,0,0.1)",
-                      fontFamily: "Inter",
-                      fontSize: 13,
-                    }}
-                    formatter={(value: number) => [formatPrice(value), city.english_name]}
-                    labelStyle={{ color: "#6B7178" }}
-                  />
-                  <Area
-                    type="monotone"
-                    dataKey="price"
-                    stroke="#4A7F8B"
-                    strokeWidth={2}
-                    fill="url(#priceGrad)"
-                    dot={false}
-                    name={city.english_name}
-                  />
-                  {compareCity && (
+          <div className="flex flex-col lg:flex-row gap-6">
+            {/* Chart — left side */}
+            <div className="lg:w-[60%]">
+              <div className="w-full" style={{ minHeight: 250 }}>
+                <ResponsiveContainer width="100%" height={isMobile ? 280 : 350}>
+                  <AreaChart data={priceChartData}>
+                    <defs>
+                      <linearGradient id="priceGrad" x1="0" y1="0" x2="0" y2="1">
+                        <stop offset="0%" stopColor="#4A7F8B" stopOpacity={0.1} />
+                        <stop offset="100%" stopColor="#4A7F8B" stopOpacity={0} />
+                      </linearGradient>
+                    </defs>
+                    <CartesianGrid horizontal vertical={false} stroke="#E8E4DE" />
+                    <XAxis
+                      dataKey="period"
+                      tick={{ fontSize: 10, fill: "#6B7178", fontFamily: "DM Sans" }}
+                      axisLine={false}
+                      tickLine={false}
+                      interval="preserveStartEnd"
+                    />
+                    <YAxis
+                      domain={priceYDomain.domain}
+                      ticks={priceYDomain.ticks}
+                      tick={{ fontSize: 10, fill: "#6B7178", fontFamily: "DM Sans" }}
+                      axisLine={false}
+                      tickLine={false}
+                      width={50}
+                      tickFormatter={(v) => {
+                        const divisor = currency === "₪" ? 1 : currency === "$" ? usdRate : eurRate;
+                        return `${Math.round(v / divisor / 1000)}K`;
+                      }}
+                    />
+                    <Tooltip content={<CustomTooltip />} />
                     <Area
                       type="monotone"
-                      dataKey="comparePrice"
-                      stroke="#4A5540"
+                      dataKey="price"
+                      stroke="#4A7F8B"
                       strokeWidth={2}
-                      strokeDasharray="5 5"
-                      fill="transparent"
+                      fill="url(#priceGrad)"
                       dot={false}
-                      name={compareCity}
+                      name={city.english_name}
                     />
-                  )}
-                </AreaChart>
-              </ResponsiveContainer>
+                    {compareCity && (
+                      <Area
+                        type="monotone"
+                        dataKey="comparePrice"
+                        stroke="#4A5540"
+                        strokeWidth={2}
+                        strokeDasharray="5 5"
+                        fill="transparent"
+                        dot={false}
+                        name={compareCity}
+                      />
+                    )}
+                  </AreaChart>
+                </ResponsiveContainer>
+              </div>
+
+              {compareCity && (
+                <div className="flex items-center gap-6 mt-3">
+                  <div className="flex items-center gap-2">
+                    <div className="w-4 h-0.5 bg-horizon-blue" />
+                    <span className="font-body text-[13px] text-charcoal">{city.english_name}</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <div className="w-4 h-0.5 border-t-2 border-dashed border-deep-olive" />
+                    <span className="font-body text-[13px] text-charcoal">{compareCity}</span>
+                  </div>
+                </div>
+              )}
+
+              <p className="font-body text-[12px] text-warm-gray mt-3">
+                Source: Central Bureau of Statistics — Average Dwelling Prices
+              </p>
             </div>
 
-            {compareCity && (
-              <div className="flex items-center gap-6 mt-3">
-                <div className="flex items-center gap-2">
-                  <div className="w-4 h-0.5 bg-horizon-blue" />
-                  <span className="font-body text-[13px] text-charcoal">{city.english_name}</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <div className="w-4 h-0.5 bg-deep-olive border-dashed" style={{ borderTop: "2px dashed #4A5540", height: 0 }} />
-                  <span className="font-body text-[13px] text-charcoal">{compareCity}</span>
-                </div>
+            {/* Insight — right side */}
+            {priceInsight && (
+              <div className="lg:w-[40%] lg:pt-0">
+                <InsightCard>{priceInsight}</InsightCard>
               </div>
             )}
-          </>
+          </div>
         )}
-
-        <p className="font-body text-[12px] text-warm-gray mt-3">
-          Source: Central Bureau of Statistics — Average Dwelling Prices
-        </p>
       </section>
 
-      {/* Room Breakdown Table */}
-      {latestPrice && (
-        <section>
-          <h3 className="font-heading font-semibold text-[18px] text-charcoal mb-4">Price by Room Count</h3>
-        <div className="overflow-x-auto no-scrollbar">
-            <table className="w-full max-w-lg">
-              <thead>
-                <tr className="border-b border-grid-line">
-                  <th className="text-left font-body font-medium text-[14px] text-warm-gray py-3 pr-6">Rooms</th>
-                  <th className="text-right font-body font-medium text-[14px] text-warm-gray py-3">Avg Price</th>
-                </tr>
-              </thead>
-              <tbody>
-                {roomData.map((row) => (
-                  <tr key={row.rooms} className={cn("border-b border-grid-line last:border-0", (row.rooms === "3 Rooms" || row.rooms === "4 Rooms") && "bg-cream/50")}>
-                    <td className="font-body text-[15px] text-charcoal py-3 pr-6">{row.rooms}</td>
-                    <td className="text-right font-body text-[15px] text-charcoal py-3">
-                      {row.value != null ? formatPrice(row.value) : "—"}
-                    </td>
+      <GoldDivider />
+
+      {/* ── Section 2: Price by Room Count ── */}
+      {latestPrice && roomData.some(r => r.value != null) && (
+        <>
+          <section>
+            <h3 className="font-heading font-semibold text-[20px] md:text-[22px] text-charcoal mb-4">
+              Price by Room Count
+            </h3>
+            <div className="overflow-x-auto no-scrollbar">
+              <table className="w-full max-w-lg">
+                <thead>
+                  <tr className="border-b border-grid-line">
+                    <th className="text-left font-body font-medium text-[13px] uppercase tracking-[0.06em] text-warm-gray py-3 pr-6">Rooms</th>
+                    <th className="text-right font-body font-medium text-[13px] uppercase tracking-[0.06em] text-warm-gray py-3">Avg Price</th>
                   </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-          <p className="font-body text-[12px] text-warm-gray mt-3">Source: Central Bureau of Statistics</p>
-        </section>
+                </thead>
+                <tbody>
+                  {roomData.map((row) => (
+                    <tr key={row.rooms} className={cn("border-b border-grid-line last:border-0", (row.rooms === "3 Rooms" || row.rooms === "4 Rooms") && "bg-cream/50")}>
+                      <td className="font-body text-[15px] text-charcoal py-3 pr-6">{row.rooms}</td>
+                      <td className="text-right font-body text-[15px] text-charcoal py-3">
+                        {row.value != null ? formatPrice(row.value) : "—"}
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+            <p className="font-body text-[12px] text-warm-gray mt-3">
+              Source: Central Bureau of Statistics — Table 2.2
+            </p>
+          </section>
+
+          <GoldDivider />
+        </>
       )}
 
-      {/* Average Monthly Rent */}
-      {!rentalLoading && rentalData ? (
-        <section>
-          <h3 className="font-heading font-semibold text-[18px] text-charcoal mb-4">Average Monthly Rent</h3>
-          <Card className="p-5 bg-cream border-0 shadow-card mb-6 inline-block">
-            <span className="font-body text-[13px] text-warm-gray block">Avg Monthly Rent</span>
-            <span className="font-body font-bold text-[24px] text-charcoal">
-              {rentalData.avg_rent_total != null
-                ? (() => {
-                    const v = rentalData.avg_rent_total;
-                    if (currency === "₪") return `₪${Math.round(v).toLocaleString()}/mo`;
-                    if (currency === "$") return `$${Math.round(v / usdRate).toLocaleString()}/mo`;
-                    return `€${Math.round(v / eurRate).toLocaleString()}/mo`;
-                  })()
-                : "—"}
-            </span>
-          </Card>
+      {/* ── Section 3: Average Monthly Rent ── */}
+      {rentalData ? (
+        <>
+          <section>
+            <h3 className="font-heading font-semibold text-[20px] md:text-[22px] text-charcoal mb-2">
+              Average Monthly Rent
+            </h3>
+            <p className="font-body text-[16px] font-normal text-warm-gray mt-2 mb-6">
+              Based on lease renewal data from the Central Bureau of Statistics. New-lease rents are typically higher.
+            </p>
 
-          <div className="overflow-x-auto no-scrollbar">
-            <table className="w-full max-w-lg">
-              <thead>
-                <tr className="border-b border-grid-line">
-                  <th className="text-left font-body font-medium text-[14px] text-warm-gray py-3 pr-6">Rooms</th>
-                  <th className="text-right font-body font-medium text-[14px] text-warm-gray py-3">Avg Monthly Rent</th>
-                </tr>
-              </thead>
-              <tbody>
-                {[
-                  { rooms: "1-2 Rooms", value: rentalData.avg_rent_1_2_rooms },
-                  { rooms: "2.5-3 Rooms", value: rentalData.avg_rent_2_5_3_rooms },
-                  { rooms: "3.5-4 Rooms", value: rentalData.avg_rent_3_5_4_rooms },
-                  { rooms: "4.5-6 Rooms", value: rentalData.avg_rent_4_5_6_rooms },
-                ].map((row) => (
-                  <tr key={row.rooms} className="border-b border-grid-line last:border-0">
-                    <td className="font-body text-[15px] text-charcoal py-3 pr-6">{row.rooms}</td>
-                    <td className="text-right font-body text-[15px] text-charcoal py-3">
-                      {row.value != null
-                        ? (() => {
-                            if (currency === "₪") return `₪${Math.round(row.value).toLocaleString()}`;
-                            if (currency === "$") return `$${Math.round(row.value / usdRate).toLocaleString()}`;
-                            return `€${Math.round(row.value / eurRate).toLocaleString()}`;
-                          })()
-                        : "—"}
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-          <p className="font-body text-[12px] text-warm-gray mt-3">Source: Central Bureau of Statistics — Average Monthly Rent Prices</p>
-        </section>
-      ) : !rentalLoading && !rentalData ? (
-        <section>
-          <h3 className="font-heading font-semibold text-[18px] text-charcoal mb-4">Average Monthly Rent</h3>
-          <Card className="p-6 bg-cream border-0 text-center">
-            <p className="font-body text-warm-gray">Rental data for {city.english_name} is not yet available.</p>
-          </Card>
-        </section>
+            <div className="flex flex-col lg:flex-row gap-6">
+              <div className="lg:w-[60%]">
+                {/* Headline rent card */}
+                <div className="bg-cream rounded-xl p-5 border border-grid-line/60 inline-block mb-6">
+                  <span className="font-body text-[12px] font-medium uppercase tracking-[0.08em] text-warm-gray block">
+                    Avg Monthly Rent
+                  </span>
+                  <span className="font-body font-bold text-[24px] text-charcoal">
+                    {rentalData.avg_rent_total != null ? `${fmtRent(rentalData.avg_rent_total)}/mo` : "—"}
+                  </span>
+                </div>
+
+                <div className="overflow-x-auto no-scrollbar">
+                  <table className="w-full max-w-lg">
+                    <thead>
+                      <tr className="border-b border-grid-line">
+                        <th className="text-left font-body font-medium text-[13px] uppercase tracking-[0.06em] text-warm-gray py-3 pr-6">Rooms</th>
+                        <th className="text-right font-body font-medium text-[13px] uppercase tracking-[0.06em] text-warm-gray py-3">Avg Monthly Rent</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {[
+                        { rooms: "1-2 Rooms", value: rentalData.avg_rent_1_2_rooms },
+                        { rooms: "2.5-3 Rooms", value: rentalData.avg_rent_2_5_3_rooms },
+                        { rooms: "3.5-4 Rooms", value: rentalData.avg_rent_3_5_4_rooms },
+                        { rooms: "4.5-6 Rooms", value: rentalData.avg_rent_4_5_6_rooms },
+                      ].map((row) => (
+                        <tr key={row.rooms} className="border-b border-grid-line last:border-0">
+                          <td className="font-body text-[15px] text-charcoal py-3 pr-6">{row.rooms}</td>
+                          <td className="text-right font-body text-[15px] text-charcoal py-3">
+                            {row.value != null ? fmtRent(row.value) : "—"}
+                          </td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+                <p className="font-body text-[12px] text-warm-gray mt-3">
+                  Source: Central Bureau of Statistics — Average Monthly Rent Prices
+                </p>
+              </div>
+
+              {/* Rent insight */}
+              {rentalData.avg_rent_total && latestPrice?.avg_price_total && (
+                <div className="lg:w-[40%]">
+                  <InsightCard>
+                    {(() => {
+                      const annualRent = rentalData.avg_rent_total * 12;
+                      const purchasePrice = latestPrice.avg_price_total * 1000; // prices are in thousands
+                      const ratio = (annualRent / purchasePrice * 100).toFixed(1);
+                      return `The rent-to-price ratio in ${city.english_name} is roughly ${ratio}% annually. This is a rough indicator — actual yields vary by neighbourhood and property type.`;
+                    })()}
+                  </InsightCard>
+                </div>
+              )}
+            </div>
+          </section>
+
+          <GoldDivider />
+        </>
+      ) : rentalData === null ? (
+        <>
+          <section>
+            <h3 className="font-heading font-semibold text-[20px] md:text-[22px] text-charcoal mb-4">
+              Average Monthly Rent
+            </h3>
+            <Card className="p-6 bg-cream border-0 text-center">
+              <p className="font-body text-[15px] text-warm-gray">Rental data for {city.english_name} is not yet available from CBS.</p>
+            </Card>
+          </section>
+          <GoldDivider />
+        </>
       ) : null}
 
-      {/* District Index Chart */}
+      {/* ── Section 4: District Price Index Trend ── */}
       <section>
-        <h3 className="font-heading font-semibold text-[18px] text-charcoal mb-4">
+        <h3 className="font-heading font-semibold text-[20px] md:text-[22px] text-charcoal">
           {city.district} District — Price Index Trend
         </h3>
+        {districtInsight && !noPriceData && (
+          <p className="font-body text-[16px] font-normal text-warm-gray mt-2 mb-6">{districtInsight}</p>
+        )}
+        {noPriceData && (
+          <p className="font-body text-[16px] font-normal text-warm-gray mt-2 mb-6">
+            Since city-level price data isn't available for {city.english_name}, this district-level index is the best available proxy for local price trends.
+          </p>
+        )}
 
         <div className="flex items-center gap-2 mb-4">
           {TIME_RANGES.map((range) => (
@@ -433,57 +523,58 @@ const TrendsTab = ({ city, prices, districtIndices }: TrendsTabProps) => {
             <p className="font-body text-warm-gray">District index data not yet available</p>
           </Card>
         ) : (
-          <div className="w-full" style={{ minHeight: 250 }}>
-            <ResponsiveContainer width="100%" height={350}>
-              <AreaChart data={filteredDistrictData}>
-                <defs>
-                  <linearGradient id="distGrad" x1="0" y1="0" x2="0" y2="1">
-                    <stop offset="0%" stopColor="#4A7F8B" stopOpacity={0.1} />
-                    <stop offset="100%" stopColor="#4A7F8B" stopOpacity={0} />
-                  </linearGradient>
-                </defs>
-                <CartesianGrid horizontal vertical={false} stroke="#E8E4DE" />
-                <XAxis
-                  dataKey="label"
-                  ticks={districtXAxis.ticks}
-                  tickFormatter={districtXAxis.tickFormatter}
-                  tick={{ fontSize: 10, fill: "#6B7178", fontFamily: "Inter" }}
-                  axisLine={false}
-                  tickLine={false}
-                />
-                <YAxis
-                  domain={districtYDomain.domain}
-                  ticks={districtYDomain.ticks}
-                  tick={{ fontSize: 10, fill: "#6B7178", fontFamily: "Inter" }}
-                  axisLine={false}
-                  tickLine={false}
-                  width={40}
-                />
-                <Tooltip
-                  contentStyle={{
-                    backgroundColor: "#fff",
-                    border: "none",
-                    borderRadius: 8,
-                    boxShadow: "0 2px 8px rgba(0,0,0,0.1)",
-                    fontFamily: "Inter",
-                    fontSize: 13,
-                  }}
-                  labelStyle={{ color: "#6B7178" }}
-                />
-                <Area
-                  type="monotone"
-                  dataKey="value"
-                  stroke="#4A7F8B"
-                  strokeWidth={2}
-                  fill="url(#distGrad)"
-                  dot={false}
-                />
-              </AreaChart>
-            </ResponsiveContainer>
+          <div className="flex flex-col lg:flex-row gap-6">
+            <div className={cn(districtInsight ? "lg:w-[60%]" : "w-full")}>
+              <div className="w-full" style={{ minHeight: 250 }}>
+                <ResponsiveContainer width="100%" height={isMobile ? 280 : 350}>
+                  <AreaChart data={filteredDistrictData}>
+                    <defs>
+                      <linearGradient id="distGrad" x1="0" y1="0" x2="0" y2="1">
+                        <stop offset="0%" stopColor="#4A7F8B" stopOpacity={0.1} />
+                        <stop offset="100%" stopColor="#4A7F8B" stopOpacity={0} />
+                      </linearGradient>
+                    </defs>
+                    <CartesianGrid horizontal vertical={false} stroke="#E8E4DE" />
+                    <XAxis
+                      dataKey="label"
+                      ticks={districtXAxis.ticks}
+                      tickFormatter={districtXAxis.tickFormatter}
+                      tick={{ fontSize: 10, fill: "#6B7178", fontFamily: "DM Sans" }}
+                      axisLine={false}
+                      tickLine={false}
+                    />
+                    <YAxis
+                      domain={districtYDomain.domain}
+                      ticks={districtYDomain.ticks}
+                      tick={{ fontSize: 10, fill: "#6B7178", fontFamily: "DM Sans" }}
+                      axisLine={false}
+                      tickLine={false}
+                      width={40}
+                    />
+                    <Tooltip content={<DistrictTooltip />} />
+                    <Area
+                      type="monotone"
+                      dataKey="value"
+                      stroke="#4A7F8B"
+                      strokeWidth={2}
+                      fill="url(#distGrad)"
+                      dot={false}
+                    />
+                  </AreaChart>
+                </ResponsiveContainer>
+              </div>
+              <p className="font-body text-[12px] text-warm-gray mt-3">
+                Source: Central Bureau of Statistics — Dwelling Price Index
+              </p>
+            </div>
+
+            {districtInsight && (
+              <div className="lg:w-[40%]">
+                <InsightCard>{districtInsight}</InsightCard>
+              </div>
+            )}
           </div>
         )}
-
-        <p className="font-body text-[12px] text-warm-gray mt-3">Source: Central Bureau of Statistics — Dwelling Price Index</p>
       </section>
     </div>
   );
