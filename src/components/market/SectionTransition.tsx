@@ -15,8 +15,8 @@ const SectionTransition = ({ children }: SectionTransitionProps) => {
       }}
     >
       <div className="max-w-[1200px] mx-auto">
-        <div className="max-w-[700px] mt-6 mb-4 border-l-[3px] border-[#C4A96A] pl-4">
-          <p className="font-body text-[17px] text-warm-gray leading-relaxed m-0">
+        <div className="mt-6 mb-4 border-l-[3px] border-[#C4A96A] pl-4">
+          <p className="font-body text-[20px] text-warm-gray leading-relaxed m-0">
             {children}
           </p>
         </div>
