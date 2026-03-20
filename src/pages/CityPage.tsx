@@ -31,6 +31,7 @@ interface CityProfileData {
   costs_of_living: string | null;
   transportation: string | null;
   tagline: string | null;
+  affordability_tier: string | null;
 }
 
 interface CityPriceRow {
@@ -77,6 +78,7 @@ const CityPage = () => {
   const [prices, setPrices] = useState<CityPriceRow[]>([]);
   const [districtIndices, setDistrictIndices] = useState<any[]>([]);
   const [rentalData, setRentalData] = useState<any>(undefined);
+  const [districtAvgPrice, setDistrictAvgPrice] = useState<number | null>(null);
   const [loading, setLoading] = useState(true);
   const [notFound, setNotFound] = useState(false);
 
@@ -157,6 +159,18 @@ const CityPage = () => {
       setProfile(profileRes.data?.[0] ?? null);
       setPrices((pricesRes.data as CityPriceRow[]) ?? []);
       setRentalData(rentalRes.data?.[0] ?? null);
+
+      // District avg price fallback for cities without city-level price data
+      if (!pricesRes.data || pricesRes.data.length === 0) {
+        const { data: districtPriceRows } = await supabase
+          .from("city_prices")
+          .select("avg_price_total")
+          .eq("district", matched.district)
+          .not("avg_price_total", "is", null)
+          .order("period", { ascending: false })
+          .limit(1);
+        setDistrictAvgPrice(districtPriceRows?.[0]?.avg_price_total ?? null);
+      }
 
       const indexCode = DISTRICT_INDEX_MAP[matched.district];
       if (indexCode) {
@@ -248,6 +262,8 @@ const CityPage = () => {
               districtIndices={districtIndices}
               population={city.population}
               latestPeriod={latestPeriod}
+              districtAvgPrice={districtAvgPrice}
+              affordabilityTier={profile?.affordability_tier ?? null}
             />
 
             <GoldDivider />

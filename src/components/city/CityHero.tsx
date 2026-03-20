@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import TrendPill from "@/components/TrendPill";
 import { useCurrency } from "@/contexts/CurrencyContext";
-import { Share2, MapPin, ArrowRight } from "lucide-react";
+import { Share2, MapPin } from "lucide-react";
 
 const DISTRICT_GRADIENT: Record<string, string> = {
   Jerusalem: "from-[#C4A96A]/12 via-[#C4A96A]/5 to-warm-white",
@@ -10,6 +10,14 @@ const DISTRICT_GRADIENT: Record<string, string> = {
   Central: "from-[#7C8B6E]/10 via-[#7C8B6E]/4 to-warm-white",
   "Tel Aviv": "from-[#4A7F8B]/10 via-[#4A7F8B]/4 to-warm-white",
   South: "from-[#C25B4A]/8 via-[#C25B4A]/3 to-warm-white",
+};
+
+const TIER_CONFIG: Record<string, { label: string; color: string }> = {
+  premium: { label: "Premium", color: "bg-sand-gold" },
+  above_average: { label: "Above Average", color: "bg-horizon-blue" },
+  moderate: { label: "Moderate", color: "bg-sage" },
+  affordable: { label: "Affordable", color: "bg-growth-green" },
+  budget: { label: "Budget", color: "bg-growth-green" },
 };
 
 interface CityHeroProps {
@@ -32,6 +40,8 @@ interface CityHeroProps {
   }[];
   population?: number | null;
   latestPeriod?: string | null;
+  districtAvgPrice?: number | null;
+  affordabilityTier?: string | null;
 }
 
 function getTrend(latest: number | null, previous: number | null) {
@@ -44,7 +54,7 @@ function getTrend(latest: number | null, previous: number | null) {
   };
 }
 
-const CityHero = ({ city, profile, prices, districtIndices, population, latestPeriod }: CityHeroProps) => {
+const CityHero = ({ city, profile, prices, districtIndices, population, latestPeriod, districtAvgPrice, affordabilityTier }: CityHeroProps) => {
   const { formatPrice } = useCurrency();
 
   const latestPrice = prices.length > 0 ? prices[prices.length - 1] : null;
@@ -53,6 +63,13 @@ const CityHero = ({ city, profile, prices, districtIndices, population, latestPe
 
   const tagline = profile?.tagline || null;
   const gradient = DISTRICT_GRADIENT[city.district] || DISTRICT_GRADIENT.Central;
+
+  const hasCityPrice = latestPrice?.avg_price_total != null;
+  const displayPrice = hasCityPrice
+    ? latestPrice!.avg_price_total!
+    : districtAvgPrice;
+
+  const tier = affordabilityTier ? TIER_CONFIG[affordabilityTier] : null;
 
   return (
     <section className={`bg-gradient-to-b ${gradient}`}>
@@ -126,17 +143,17 @@ const CityHero = ({ city, profile, prices, districtIndices, population, latestPe
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mt-7">
           {/* Average Price */}
           <div className="bg-white/70 backdrop-blur-sm rounded-xl p-5 border border-grid-line/60">
-            <p className="font-body text-[12px] font-medium uppercase tracking-[0.08em] text-warm-gray">Avg Price</p>
-            <p className="font-body font-bold text-[26px] md:text-[28px] text-charcoal mt-1.5 leading-none">
-              {latestPrice?.avg_price_total != null
-                ? formatPrice(latestPrice.avg_price_total)
-                : "—"}
+            <p className="font-body text-[12px] font-medium uppercase tracking-[0.08em] text-warm-gray">
+              {hasCityPrice ? "Avg Price" : "District Avg"}
             </p>
-            {latestPrice && prevPrice && (
+            <p className="font-body font-bold text-[26px] md:text-[28px] text-charcoal mt-1.5 leading-none">
+              {displayPrice != null ? formatPrice(displayPrice) : "—"}
+            </p>
+            {hasCityPrice && latestPrice && prevPrice && (
               <TrendPill direction={priceTrend.direction} value={priceTrend.value} className="mt-2.5" />
             )}
-            {!latestPrice && (
-              <p className="mt-2 font-body text-[12px] text-warm-gray">City-level data not available</p>
+            {!hasCityPrice && displayPrice != null && (
+              <p className="mt-2 font-body text-[12px] text-warm-gray">({city.district} District)</p>
             )}
           </div>
 
@@ -148,16 +165,19 @@ const CityHero = ({ city, profile, prices, districtIndices, population, latestPe
             </p>
           </div>
 
-          {/* District */}
+          {/* Affordability */}
           <div className="bg-white/70 backdrop-blur-sm rounded-xl p-5 border border-grid-line/60">
-            <p className="font-body text-[12px] font-medium uppercase tracking-[0.08em] text-warm-gray">District</p>
-            <Link
-              to="/market#district-prices"
-              className="inline-flex items-center gap-1.5 font-body font-bold text-[26px] md:text-[28px] text-horizon-blue mt-1.5 leading-none hover:underline transition-colors no-underline"
-            >
-              {city.district}
-              <ArrowRight className="h-5 w-5" />
-            </Link>
+            <p className="font-body text-[12px] font-medium uppercase tracking-[0.08em] text-warm-gray">Affordability</p>
+            {tier ? (
+              <div className="flex items-center gap-2.5 mt-1.5">
+                <span className={`w-2.5 h-2.5 rounded-full ${tier.color} shrink-0`} />
+                <span className="font-body font-bold text-[26px] md:text-[28px] text-charcoal leading-none">
+                  {tier.label}
+                </span>
+              </div>
+            ) : (
+              <p className="font-body font-bold text-[26px] md:text-[28px] text-charcoal mt-1.5 leading-none">—</p>
+            )}
           </div>
         </div>
       </div>
