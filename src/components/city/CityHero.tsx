@@ -68,6 +68,7 @@ const CityHero = ({ city, profile, prices, districtIndices, population, latestPe
   const displayPrice = hasCityPrice
     ? latestPrice!.avg_price_total!
     : districtAvgPrice;
+  const showPriceCard = displayPrice != null;
 
   const tier = affordabilityTier ? TIER_CONFIG[affordabilityTier] : null;
 
@@ -140,22 +141,24 @@ const CityHero = ({ city, profile, prices, districtIndices, population, latestPe
         </div>
 
         {/* Metric cards */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-7">
+        <div className={`grid grid-cols-1 sm:grid-cols-2 ${showPriceCard ? "lg:grid-cols-3" : ""} gap-4 mt-7`}>
           {/* Average Price */}
+          {showPriceCard && (
           <div className="bg-white/70 backdrop-blur-sm rounded-xl p-5 border border-grid-line/60">
             <p className="font-body text-[12px] font-medium uppercase tracking-[0.08em] text-warm-gray">
               {hasCityPrice ? "Avg Price" : "District Avg"}
             </p>
             <p className="font-body font-bold text-[26px] md:text-[28px] text-charcoal mt-1.5 leading-none">
-              {displayPrice != null ? formatPrice(displayPrice) : "—"}
+              {formatPrice(displayPrice!)}
             </p>
             {hasCityPrice && latestPrice && prevPrice && (
               <TrendPill direction={priceTrend.direction} value={priceTrend.value} className="mt-2.5" />
             )}
-            {!hasCityPrice && displayPrice != null && (
+            {!hasCityPrice && (
               <p className="mt-2 font-body text-[12px] text-warm-gray">({city.district} District)</p>
             )}
           </div>
+          )}
 
           {/* Population */}
           <div className="bg-white/70 backdrop-blur-sm rounded-xl p-5 border border-grid-line/60">

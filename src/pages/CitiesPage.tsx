@@ -26,6 +26,7 @@ const DISTRICT_FILTERS = [
   "Haifa",
   "South",
   "North",
+  "Judea and Samaria",
 ];
 
 const ANGLO_PRIORITY = [
@@ -46,6 +47,7 @@ const DISTRICT_BORDER_COLORS: Record<string, string> = {
   Central: "border-l-sage",
   South: "border-l-terra-red",
   North: "border-l-growth-green",
+  "Judea and Samaria": "border-l-sand-gold",
 };
 
 const toSlug = (name: string) =>

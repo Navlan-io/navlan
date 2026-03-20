@@ -305,6 +305,7 @@ const CityPage = () => {
             </div>
 
             {/* ─── Market Data Section ─── */}
+            {(prices.length > 0 || districtIndices.length > 0) && (
             <div className="bg-warm-white">
               <div className="container max-w-[1200px] py-10 md:py-12">
                 <span className="font-body text-[11px] font-semibold uppercase tracking-[0.15em] text-sand-gold">
@@ -320,6 +321,7 @@ const CityPage = () => {
                 />
               </div>
             </div>
+            )}
 
             {/* ─── Disclaimer ─── */}
             <div className="bg-warm-white">
