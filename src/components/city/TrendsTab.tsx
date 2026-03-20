@@ -222,6 +222,7 @@ const TrendsTab = ({ city, prices, districtIndices, rentalData }: TrendsTabProps
     <div className="space-y-0">
 
       {/* ── Section 1: Average Dwelling Price ── */}
+      {!noPriceData && (
       <section>
         <h3 className="font-heading font-semibold text-[20px] md:text-[22px] text-charcoal">
           Average Dwelling Price
@@ -268,17 +269,7 @@ const TrendsTab = ({ city, prices, districtIndices, rentalData }: TrendsTabProps
           )}
         </div>
 
-        {noPriceData ? (
-          <Card className="p-8 bg-cream border-0 text-center">
-            <p className="font-body text-[15px] text-warm-gray">
-              CBS city-level price data requires 100,000+ residents. {city.english_name} falls below this threshold.
-            </p>
-            <p className="font-body text-[14px] text-warm-gray mt-2">
-              See the {city.district} District price index below for regional trends.
-            </p>
-          </Card>
-        ) : (
-          <div className="flex flex-col lg:flex-row gap-8">
+        <div className="flex flex-col lg:flex-row gap-8">
             {/* Chart — left side */}
             <div className="lg:w-[60%]">
               <div className="w-full" style={{ minHeight: 250 }}>
@@ -363,10 +354,10 @@ const TrendsTab = ({ city, prices, districtIndices, rentalData }: TrendsTabProps
               </div>
             )}
           </div>
-        )}
       </section>
+      )}
 
-      <GoldDivider />
+      {!noPriceData && <GoldDivider />}
 
       {/* ── Section 2: Price by Room Count ── */}
       {latestPrice && roomData.some(r => r.value != null) && (
@@ -405,7 +396,7 @@ const TrendsTab = ({ city, prices, districtIndices, rentalData }: TrendsTabProps
       )}
 
       {/* ── Section 3: Average Monthly Rent ── */}
-      {rentalData ? (
+      {rentalData && (
         <>
           <section>
             <h3 className="font-heading font-semibold text-[20px] md:text-[22px] text-charcoal mt-8 mb-2">
@@ -475,19 +466,7 @@ const TrendsTab = ({ city, prices, districtIndices, rentalData }: TrendsTabProps
 
           <GoldDivider />
         </>
-      ) : rentalData === null ? (
-        <>
-          <section>
-            <h3 className="font-heading font-semibold text-[20px] md:text-[22px] text-charcoal mt-8 mb-4">
-              Average Monthly Rent
-            </h3>
-            <Card className="p-6 bg-cream border-0 text-center">
-              <p className="font-body text-[15px] text-warm-gray">Rental data for {city.english_name} is not yet available from CBS.</p>
-            </Card>
-          </section>
-          <GoldDivider />
-        </>
-      ) : null}
+      )}
 
       {/* ── Section 4: District Price Index Trend ── */}
       <section>
