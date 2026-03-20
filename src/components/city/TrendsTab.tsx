@@ -39,7 +39,6 @@ interface TrendsTabProps {
     percent_mom: number | null;
     percent_yoy: number | null;
   }[];
-  rentalData?: any;
 }
 
 const TIME_RANGES = ["1Y", "3Y", "5Y", "Max"] as const;
@@ -54,7 +53,7 @@ const GoldDivider = () => (
   <div className="h-px bg-gradient-to-r from-transparent via-sand-gold/20 to-transparent my-16" />
 );
 
-const TrendsTab = ({ city, prices, districtIndices, rentalData }: TrendsTabProps) => {
+const TrendsTab = ({ city, prices, districtIndices }: TrendsTabProps) => {
   const { formatPrice, currency, rates } = useCurrency();
   const usdRate = rates.USD;
   const eurRate = rates.EUR;
@@ -185,13 +184,6 @@ const TrendsTab = ({ city, prices, districtIndices, rentalData }: TrendsTabProps
     const direction = latest.percent_yoy >= 0 ? "risen" : "fallen";
     return `The ${city.district} District price index has ${direction} ${Math.abs(latest.percent_yoy).toFixed(1)}% year-over-year. This reflects the broader regional trend that affects all cities in the district.`;
   })();
-
-  // Rent formatting helper
-  const fmtRent = (v: number) => {
-    if (currency === "₪") return `₪${Math.round(v).toLocaleString()}`;
-    if (currency === "$") return `$${Math.round(v / usdRate).toLocaleString()}`;
-    return `€${Math.round(v / eurRate).toLocaleString()}`;
-  };
 
   const CustomTooltip = ({ active, payload, label }: any) => {
     if (!active || !payload?.length) return null;
@@ -395,80 +387,7 @@ const TrendsTab = ({ city, prices, districtIndices, rentalData }: TrendsTabProps
         </>
       )}
 
-      {/* ── Section 3: Average Monthly Rent ── */}
-      {rentalData && (
-        <>
-          <section>
-            <h3 className="font-heading font-semibold text-[20px] md:text-[22px] text-charcoal mt-8 mb-2">
-              Average Monthly Rent
-            </h3>
-            <p className="font-body text-[16px] font-normal text-warm-gray mt-2 mb-6">
-              Based on lease renewal data from the Central Bureau of Statistics. New-lease rents are typically higher.
-            </p>
-
-            <div className="flex flex-col lg:flex-row gap-8">
-              <div className="lg:w-[60%]">
-                {/* Headline rent card */}
-                <div className="bg-cream rounded-xl p-5 border border-grid-line/60 inline-block mb-6">
-                  <span className="font-body text-[12px] font-medium uppercase tracking-[0.08em] text-warm-gray block">
-                    Avg Monthly Rent
-                  </span>
-                  <span className="font-body font-bold text-[24px] text-charcoal">
-                    {rentalData.avg_rent_total != null ? `${fmtRent(rentalData.avg_rent_total)}/mo` : "—"}
-                  </span>
-                </div>
-
-                <div className="overflow-x-auto no-scrollbar">
-                  <table className="w-full max-w-lg">
-                    <thead>
-                      <tr className="border-b border-grid-line">
-                        <th className="text-left font-body font-medium text-[13px] uppercase tracking-[0.06em] text-warm-gray py-3 pr-6">Rooms</th>
-                        <th className="text-right font-body font-medium text-[13px] uppercase tracking-[0.06em] text-warm-gray py-3">Avg Monthly Rent</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      {[
-                        { rooms: "1-2 Rooms", value: rentalData.avg_rent_1_2_rooms },
-                        { rooms: "2.5-3 Rooms", value: rentalData.avg_rent_2_5_3_rooms },
-                        { rooms: "3.5-4 Rooms", value: rentalData.avg_rent_3_5_4_rooms },
-                        { rooms: "4.5-6 Rooms", value: rentalData.avg_rent_4_5_6_rooms },
-                      ].map((row) => (
-                        <tr key={row.rooms} className="border-b border-grid-line last:border-0">
-                          <td className="font-body text-[15px] text-charcoal py-3 pr-6">{row.rooms}</td>
-                          <td className="text-right font-body text-[15px] text-charcoal py-3">
-                            {row.value != null ? fmtRent(row.value) : "—"}
-                          </td>
-                        </tr>
-                      ))}
-                    </tbody>
-                  </table>
-                </div>
-                <p className="font-body text-[12px] text-warm-gray mt-3 mb-4">
-                  Source: Central Bureau of Statistics — Average Monthly Rent Prices
-                </p>
-              </div>
-
-              {/* Rent insight */}
-              {rentalData.avg_rent_total && latestPrice?.avg_price_total && (
-                <div className="lg:w-[40%]">
-                  <InsightCard>
-                    {(() => {
-                      const annualRent = rentalData.avg_rent_total * 12;
-                      const purchasePrice = latestPrice.avg_price_total * 1000; // prices are in thousands
-                      const ratio = (annualRent / purchasePrice * 100).toFixed(1);
-                      return `The rent-to-price ratio in ${city.english_name} is roughly ${ratio}% annually. This is a rough indicator — actual yields vary by neighbourhood and property type.`;
-                    })()}
-                  </InsightCard>
-                </div>
-              )}
-            </div>
-          </section>
-
-          <GoldDivider />
-        </>
-      )}
-
-      {/* ── Section 4: District Price Index Trend ── */}
+      {/* ── Section 3: District Price Index Trend ── */}
       <section>
         <h3 className="font-heading font-semibold text-[20px] md:text-[22px] text-charcoal mt-8">
           {city.district} District — Price Index Trend

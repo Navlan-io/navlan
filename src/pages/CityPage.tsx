@@ -77,7 +77,6 @@ const CityPage = () => {
   const [profile, setProfile] = useState<CityProfileData | null>(null);
   const [prices, setPrices] = useState<CityPriceRow[]>([]);
   const [districtIndices, setDistrictIndices] = useState<any[]>([]);
-  const [rentalData, setRentalData] = useState<any>(undefined);
   const [districtAvgPrice, setDistrictAvgPrice] = useState<number | null>(null);
   const [loading, setLoading] = useState(true);
   const [notFound, setNotFound] = useState(false);
@@ -146,19 +145,15 @@ const CityPage = () => {
 
       setCity(matched);
 
-      const [profileRes, pricesRes, rentalRes] = await Promise.all([
+      const [profileRes, pricesRes] = await Promise.all([
         supabase.from("city_profiles").select("*").eq("city_name", matched.english_name).limit(1),
         matched.cbs_code
           ? supabase.from("city_prices").select("*").eq("cbs_code", matched.cbs_code).order("period", { ascending: true })
-          : Promise.resolve({ data: [] }),
-        matched.cbs_code
-          ? supabase.from("city_rentals").select("*").eq("cbs_code", matched.cbs_code).order("period", { ascending: false }).limit(1)
           : Promise.resolve({ data: [] }),
       ]);
 
       setProfile(profileRes.data?.[0] ?? null);
       setPrices((pricesRes.data as CityPriceRow[]) ?? []);
-      setRentalData(rentalRes.data?.[0] ?? null);
 
       // District avg price fallback for cities without city-level price data
       if (!pricesRes.data || pricesRes.data.length === 0) {
@@ -322,7 +317,6 @@ const CityPage = () => {
                   city={city}
                   prices={prices}
                   districtIndices={districtIndices}
-                  rentalData={rentalData !== undefined ? rentalData : undefined}
                 />
               </div>
             </div>

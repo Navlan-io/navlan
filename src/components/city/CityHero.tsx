@@ -140,7 +140,7 @@ const CityHero = ({ city, profile, prices, districtIndices, population, latestPe
         </div>
 
         {/* Metric cards */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mt-7">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-7">
           {/* Average Price */}
           <div className="bg-white/70 backdrop-blur-sm rounded-xl p-5 border border-grid-line/60">
             <p className="font-body text-[12px] font-medium uppercase tracking-[0.08em] text-warm-gray">

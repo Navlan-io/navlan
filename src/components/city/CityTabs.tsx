@@ -17,10 +17,9 @@ interface CityTabsProps {
   prices: any[];
   districtIndices: any[];
   hasPriceData: boolean;
-  rentalData?: any;
 }
 
-const CityTabs = ({ city, profile, prices, districtIndices, hasPriceData, rentalData }: CityTabsProps) => {
+const CityTabs = ({ city, profile, prices, districtIndices, hasPriceData }: CityTabsProps) => {
   // Default to Community if no price data at all
   const [activeTab, setActiveTab] = useState<TabName>(hasPriceData ? "Trends" : "Community");
 
@@ -51,7 +50,7 @@ const CityTabs = ({ city, profile, prices, districtIndices, hasPriceData, rental
       {/* Tab content */}
       <div>
         {activeTab === "Trends" && (
-          <TrendsTab city={city} prices={prices} districtIndices={districtIndices} rentalData={rentalData} />
+          <TrendsTab city={city} prices={prices} districtIndices={districtIndices} />
         )}
         {activeTab === "Community" && (
           <CommunityTab city={city} profile={profile} onSwitchTab={(tab) => setActiveTab(tab as TabName)} />
