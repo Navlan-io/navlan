@@ -70,7 +70,7 @@ const TrendsTab = ({ city, prices, districtIndices }: TrendsTabProps) => {
         .from("localities")
         .select("english_name, cbs_code")
         .eq("is_anglo_city", true)
-        .eq("entity_type", "city")
+        .in("entity_type", ["city", "town"])
         .neq("english_name", city.english_name);
       setCompareCities(data ?? []);
     };

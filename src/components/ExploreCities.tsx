@@ -61,7 +61,7 @@ const ExploreCities = () => {
           supabase
             .from("localities")
             .select("english_name, cbs_code, district, is_anglo_city")
-            .eq("entity_type", "city"),
+            .in("entity_type", ["city", "town"]),
           supabase
             .from("city_prices")
             .select("cbs_code")
