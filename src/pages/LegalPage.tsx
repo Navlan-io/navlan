@@ -37,7 +37,7 @@ export const DisclaimerPage = () => (
       Navlan.io provides publicly available market data and editorial content for informational purposes only. Nothing on this site constitutes financial, legal, or investment advice. Real estate transactions involve significant risk and complexity. Always consult qualified professionals — including a licensed attorney, mortgage advisor, and tax advisor — before making any property purchase decisions.
     </p>
     <p>
-      Market data is sourced from the Israel Central Bureau of Statistics, Bank of Israel, and other government databases. While we strive for accuracy, data may be delayed, revised, or incomplete. Navlan is not responsible for any decisions made based on the information provided on this site.
+      Market data is sourced from the Israel Central Bureau of Statistics, Bank of Israel, and other government databases. Interactive tools and calculators provide estimates based on general formulas and average rates — they do not reflect the terms any specific lender will offer you. While we strive for accuracy, data may be delayed, revised, or incomplete. Navlan is not responsible for any decisions made based on the information provided on this site.
     </p>
     <p className="text-[13px] text-warm-gray">Last updated: March 2026</p>
     <p className="text-[13px] text-warm-gray">
