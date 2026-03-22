@@ -28,6 +28,8 @@ const STATIC_ROUTES = [
   { path: "/guides/purchase-tax", priority: "0.9", changefreq: "monthly" },
   { path: "/guides/pinui-binui", priority: "0.9", changefreq: "monthly" },
   { path: "/guides/renting", priority: "0.9", changefreq: "monthly" },
+  { path: "/guides/arnona", priority: "0.9", changefreq: "monthly" },
+  { path: "/guides/exchange-rates", priority: "0.9", changefreq: "monthly" },
   { path: "/advisor", priority: "0.8", changefreq: "monthly" },
   { path: "/about", priority: "0.5", changefreq: "monthly" },
   { path: "/disclaimer", priority: "0.3", changefreq: "yearly" },
