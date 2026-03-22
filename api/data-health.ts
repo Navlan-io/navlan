@@ -201,6 +201,45 @@ export async function GET() {
       }
     }
 
+    // Check site_parameters for stale verifications
+    try {
+      const currentMonth = now.getMonth() + 1; // 1-12
+      const ninetyDaysAgo = new Date(Date.now() - 90 * 24 * 60 * 60 * 1000);
+
+      const { data: allParams } = await supabase
+        .from('site_parameters')
+        .select('key, last_verified, check_month, source');
+
+      const staleParams = (allParams || []).filter((p: any) => {
+        const lastVerified = new Date(p.last_verified);
+
+        // Month-specific check: if we're in the check_month and it hasn't been verified this year
+        if (p.check_month && p.check_month === currentMonth) {
+          return lastVerified.getFullYear() < now.getFullYear() ||
+                 (lastVerified.getFullYear() === now.getFullYear() && lastVerified.getMonth() + 1 < currentMonth);
+        }
+
+        // Standard 90-day check
+        return lastVerified < ninetyDaysAgo;
+      });
+
+      if (staleParams.length > 0) {
+        tables['site_parameters'] = {
+          status: 'warning',
+          message: `${staleParams.length} parameters need verification`,
+          details: staleParams.map((p: any) =>
+            p.check_month === currentMonth
+              ? `${p.key} (monthly check — due this month)`
+              : `${p.key} (90+ days since last verification)`
+          ),
+        };
+      } else {
+        tables['site_parameters'] = { status: 'fresh', message: 'All parameters verified' };
+      }
+    } catch (err: any) {
+      tables['site_parameters'] = { status: 'error', error: err.message };
+    }
+
     // Check staging tables for pending rows
     for (const stagingTable of ['city_prices_staging', 'city_rentals_staging']) {
       try {

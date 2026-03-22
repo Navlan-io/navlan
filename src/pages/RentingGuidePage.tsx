@@ -4,8 +4,10 @@ import GuidePage, { GuideSection } from "@/components/guides/GuidePage";
 import InlineNewsletterCTA from "@/components/ui/InlineNewsletterCTA";
 import PullQuote from "@/components/ui/PullQuote";
 import CalloutBox from "@/components/ui/CalloutBox";
+import { Card } from "@/components/ui/card";
 import { supabase } from "@/integrations/supabase/client";
 import { useCurrency } from "@/contexts/CurrencyContext";
+import { useSiteParameters } from "@/hooks/useSiteParameters";
 import { AlertTriangle, Info } from "lucide-react";
 
 /* ------------------------------------------------------------------ */
@@ -89,12 +91,45 @@ function useFormatRent() {
 const RentingGuidePage = () => {
   const rents = useCityRents();
   const formatRent = useFormatRent();
+  const { data: params } = useSiteParameters();
 
   const displayName = (name: string) => {
     if (name === "Tel Aviv - Yafo") return "Tel Aviv";
     if (name === "Beer Sheva") return "Be'er Sheva";
     return name;
   };
+
+  const tldr = (
+    <div className="bg-[#FAF8F5] border-l-4 border-[#4A7F8B] p-6 my-8 rounded-r-lg">
+      <h2 className="text-lg font-semibold text-[#2D3234] mb-3 font-serif">TL;DR</h2>
+      <ul className="space-y-2 text-[#2D3234]/80 text-sm leading-relaxed">
+        <li>• Budget for 3–5 months' rent upfront: first month, security deposit (1–3 months), and agent commission (<span className="text-[#4A7F8B] font-medium">{params?.agent_commission_months?.display_label || 'one month\'s rent + VAT'}</span>). Without an agent, you save the commission.</li>
+        <li>• Tenants pay arnona (municipal property tax), va'ad bayit (building maintenance), and all utilities on top of rent — budget an additional 25–40% beyond your monthly rent.</li>
+        <li>• Postdated cheques are standard in Israel — you'll hand the landlord 12 cheques on signing day. This is normal, not a scam.</li>
+        <li>• Tenant protections are real: the landlord can't raise rent mid-lease, can't enter without permission, and must make urgent repairs within 3 days.</li>
+        <li>• New olim get meaningful rental assistance: sal klita (<span className="text-[#4A7F8B] font-medium">{params?.sal_klita_single?.display_label || '~₪21K for singles'}</span>), plus ongoing Ministry of Housing subsidies starting from <span className="text-[#4A7F8B] font-medium">{params?.rental_assistance_start_month?.display_label || 'month 7'}</span> after aliyah.</li>
+        <li>• Document everything on move-in day with photos — it's your most important protection when the deposit dispute happens at lease end.</li>
+      </ul>
+    </div>
+  );
+
+  const quickRef = (
+    <Card className="bg-cream border-0 shadow-card p-6 mb-8">
+      <h3 className="font-heading font-semibold text-[18px] text-charcoal mb-4">Quick Reference</h3>
+      <div className="overflow-x-auto">
+        <table className="w-full border-collapse">
+          <tbody className="divide-y divide-grid-line font-body text-[15px]">
+            <tr><td className="py-2 pr-4 text-warm-gray font-medium w-48">Upfront costs</td><td className="py-2 text-charcoal">3–5 months' rent (first month + deposit + agent)</td></tr>
+            <tr><td className="py-2 pr-4 text-warm-gray font-medium">Agent commission</td><td className="py-2 text-charcoal"><span className="text-[#4A7F8B] font-medium">{params?.agent_commission_months?.display_label || "1 month's rent + VAT"}</span></td></tr>
+            <tr><td className="py-2 pr-4 text-warm-gray font-medium">Deposit</td><td className="py-2 text-charcoal"><span className="text-[#4A7F8B] font-medium">{params?.deposit_cap_months?.display_label || '3 months'}</span> (capped at lower of 3 months or ⅓ total lease value)</td></tr>
+            <tr><td className="py-2 pr-4 text-warm-gray font-medium">Lease term</td><td className="py-2 text-charcoal">Typically 12 months, renewable</td></tr>
+            <tr><td className="py-2 pr-4 text-warm-gray font-medium">Arnona</td><td className="py-2 text-charcoal">Paid by tenant (unless lease says otherwise)</td></tr>
+            <tr><td className="py-2 pr-4 text-warm-gray font-medium">Olim assistance</td><td className="py-2 text-charcoal">Sal klita <span className="text-[#4A7F8B] font-medium">{params?.sal_klita_single?.display_label || '~₪21K'}</span> (singles), rental subsidies from <span className="text-[#4A7F8B] font-medium">{params?.rental_assistance_start_month?.display_label || 'month 7'}</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </Card>
+  );
 
   const sections: GuideSection[] = [
     {
@@ -108,6 +143,9 @@ const RentingGuidePage = () => {
             aliyah or relocating to Israel, you'll almost certainly rent before
             you buy — and even if you plan to rent long-term, that's completely
             normal here.
+          </p>
+          <p className="mb-4 text-[15px]">
+            → Saving to buy? See our <Link to="/guides/dira-behanacha" className="text-horizon-blue hover:underline">Dira BeHanacha Guide</Link> — Israel's government lottery program offering apartments at 20–30% below market price.
           </p>
           <p className="mb-4">
             But Israeli renting has its own logic, and it's different enough
@@ -254,8 +292,7 @@ const RentingGuidePage = () => {
             usually pays the agent's commission.
           </p>
           <p className="mb-4">
-            The standard commission is one month's rent plus VAT (currently 18%
-            as of January 2025). So if your rent is ₪7,000/month, expect to pay
+            The standard commission is <span className="text-[#4A7F8B] font-medium">{params?.agent_commission_months?.display_label || "one month's rent + VAT"}</span> (VAT is currently <span className="text-[#4A7F8B] font-medium">{params?.vat_rate?.display_label || '18%'}</span>). So if your rent is ₪7,000/month, expect to pay
             around ₪8,260 to the agent. This is a one-time fee at lease
             signing, and it's not charged on renewals with the same landlord.
           </p>
@@ -323,12 +360,12 @@ const RentingGuidePage = () => {
           <ul className="list-disc pl-6 space-y-2 mb-6 marker:text-sage">
             <li>First month's rent (paid in advance)</li>
             <li>
-              Security deposit (pikadon / פיקדון): Typically 1–3 months' rent.
+              Security deposit (pikadon / פיקדון): Typically <span className="text-[#4A7F8B] font-medium">{params?.deposit_cap_months?.display_label || '1–3 months'}</span>' rent.
               Legally capped at the lower of three months' rent or one-third of
               the total rent for the full lease period.
             </li>
             <li>
-              Agent commission (if applicable): One month's rent + 18% VAT
+              Agent commission (if applicable): <span className="text-[#4A7F8B] font-medium">{params?.agent_commission_months?.display_label || "one month's rent + VAT"}</span>
             </li>
           </ul>
           <p className="mb-4">
@@ -413,8 +450,11 @@ const RentingGuidePage = () => {
             even by neighborhood — it's calculated based on property size,
             location, and use. It can range from a few hundred to over a
             thousand shekels per month. Check the arnona zone before signing
-            your lease. New olim may be eligible for an arnona discount in their
+            your lease. New olim may be eligible for an arnona discount of <span className="text-[#4A7F8B] font-medium">{params?.olim_arnona_discount?.display_label || '70–90%'}</span> in their
             first year — ask your municipality.
+          </p>
+          <p className="mb-4 text-[15px]">
+            → For a complete breakdown of arnona — rates, discounts, and how to apply for the olim discount — see our <Link to="/guides/arnona" className="text-horizon-blue hover:underline">Arnona Guide</Link>.
           </p>
           <p className="mb-4">
             <strong>Va'ad bayit (ועד בית) — Building maintenance fees.</strong>{" "}
@@ -467,7 +507,7 @@ const RentingGuidePage = () => {
     },
     {
       id: "rental-contract",
-      title: "The Rental Contract (Hozeh Skhirut / חוזה שכירות)",
+      title: "The Rental Contract (Chozeh Skhirut / חוזה שכירות)",
       content: (
         <>
           <p className="mb-4">
@@ -601,7 +641,7 @@ const RentingGuidePage = () => {
             Cash (or a cheque) held by the landlord for the duration of the
             lease, returned at the end minus any legitimate deductions for
             damages beyond normal wear and tear. The legal maximum is the lower
-            of three months' rent or one-third of the total rent for the full
+            of <span className="text-[#4A7F8B] font-medium">{params?.deposit_cap_months?.display_label || '3 months'}</span>' rent or one-third of the total rent for the full
             lease period. In practice, one to two months is common. The deposit
             must be returned within 60 days of the lease ending (or 60 days
             after the tenant settles any outstanding debts).
@@ -694,7 +734,7 @@ const RentingGuidePage = () => {
         <>
           <p className="mb-4">
             Israeli rental law, governed primarily by the Fair Rental Law of
-            2017 (Hok Skhirut Hogenet), provides important protections for
+            {params?.fair_rental_law_year?.display_label || '2017'} (Hok Skhirut Hogenet), provides important protections for
             tenants. Here's what you're entitled to:
           </p>
           <p className="mb-4">
@@ -806,8 +846,8 @@ const RentingGuidePage = () => {
             Every new oleh receives the sal klita — a financial package from the
             Ministry of Aliyah and Integration to help with initial absorption
             costs, including housing. For a single oleh, the total is
-            approximately ₪21,000, distributed as an initial cash payment at
-            the airport (around ₪3,000–3,500) plus six monthly installments.
+            approximately <span className="text-[#4A7F8B] font-medium">{params?.sal_klita_single?.display_label || '~₪21K'}</span>, distributed as an initial cash payment at
+            the airport (around <span className="text-[#4A7F8B] font-medium">{params?.sal_klita_initial_payment?.display_label || '₪3,000–3,500'}</span>) plus six monthly installments.
             Family amounts are higher and scale with household size. Exact
             figures are adjusted annually — use the Nefesh B'Nefesh Sal Klita
             Calculator for current numbers.
@@ -820,14 +860,14 @@ const RentingGuidePage = () => {
             This is the primary ongoing rental subsidy for eligible olim.
           </p>
           <p className="mb-4">
-            <strong>Amounts:</strong> Up to approximately ₪2,500/month for
-            singles and ₪3,000/month for families. Additional supplements are
+            <strong>Amounts:</strong> Up to approximately <span className="text-[#4A7F8B] font-medium">{params?.rental_assistance_single?.display_label || '₪2,500/month'}</span> for
+            singles and <span className="text-[#4A7F8B] font-medium">{params?.rental_assistance_family?.display_label || '₪3,000/month'}</span> for families. Additional supplements are
             available for those living in national priority areas (Negev and
             Galilee) — up to ₪973 extra for singles and ₪1,341 for families.
           </p>
           <p className="mb-4">
             <strong>Eligibility and timing:</strong> For olim arriving after
-            March 1, 2024, payments begin in month 7 after aliyah and continue
+            March 1, 2024, payments begin in <span className="text-[#4A7F8B] font-medium">{params?.rental_assistance_start_month?.display_label || 'month 7'}</span> after aliyah and continue
             until month 30. Eligibility extends up to 4 years from receiving
             oleh status. For olim who arrived earlier, slightly different
             timelines apply.
@@ -916,8 +956,7 @@ const RentingGuidePage = () => {
             timeframe, you may be able to arrange the repair yourself and deduct
             the cost from rent — but check your contract first. If the landlord
             still won't cooperate, small claims court (bet mishpat le'tavi'ot
-            ktanot) is available for disputes up to ₪38,900 (as of January
-            2025). You don't need a lawyer for small claims.
+            ktanot) is available for disputes up to <span className="text-[#4A7F8B] font-medium">{params?.small_claims_limit?.display_label || '₪38,900'}</span>. You don't need a lawyer for small claims.
           </p>
 
           <h3 className="font-heading font-semibold text-[18px] text-charcoal mt-7 mb-3">
@@ -967,7 +1006,7 @@ const RentingGuidePage = () => {
             legal requirement to return it within 60 days. If the landlord
             claims deductions for "damages," ask for documentation. If you can't
             resolve it directly, file a claim in small claims court. The current
-            limit is ₪38,900, and you don't need a lawyer. Bring your move-in
+            limit is <span className="text-[#4A7F8B] font-medium">{params?.small_claims_limit?.display_label || '₪38,900'}</span>, and you don't need a lawyer. Bring your move-in
             photos, your lease, and any correspondence.
           </p>
 
@@ -983,6 +1022,9 @@ const RentingGuidePage = () => {
             has a proper occupancy permit (te'udat gmar). If you discover your
             apartment is illegal after moving in, consult a lawyer about your
             options — you may have grounds to terminate the lease.
+          </p>
+          <p className="mb-4 text-[15px]">
+            → Renting in a building earmarked for demolition? See our <Link to="/guides/pinui-binui" className="text-horizon-blue hover:underline">Pinui Binui Guide</Link>.
           </p>
 
           <h3 className="font-heading font-semibold text-[18px] text-charcoal mt-7 mb-3">
@@ -1062,6 +1104,9 @@ const RentingGuidePage = () => {
             specific address. Also verify that the previous tenant or landlord
             doesn't have outstanding arnona debts on the property.
           </p>
+          <p className="mb-4 text-[15px]">
+            → For a complete breakdown of arnona — rates, discounts, and how to apply for the olim discount — see our <Link to="/guides/arnona" className="text-horizon-blue hover:underline">Arnona Guide</Link>.
+          </p>
           <p className="mb-4">
             <strong>Pay attention to apartment direction (kivun).</strong> In
             Israel's climate, a west-facing apartment gets brutal afternoon sun
@@ -1110,6 +1155,9 @@ const RentingGuidePage = () => {
             underestimate the startup costs and end up stressed during what
             should be an exciting transition.
           </p>
+          <p className="mb-4 text-[15px]">
+            → Budgeting your rent in dollars or euros? See our <Link to="/guides/exchange-rates" className="text-horizon-blue hover:underline">Exchange Rate Guide</Link>.
+          </p>
           <p className="mb-4">
             <strong>Get renter's insurance.</strong> It's not required, but a
             basic bituach dira policy costs a few hundred shekels per year and
@@ -1151,7 +1199,7 @@ const RentingGuidePage = () => {
               <tbody className="divide-y divide-grid-line">
                 {[
                   ["שכירות", "Skhirut", "Rental; the act of renting"],
-                  ["חוזה שכירות", "Hozeh Skhirut", "Rental contract / lease agreement"],
+                  ["חוזה שכירות", "Chozeh Skhirut", "Rental contract / lease agreement"],
                   ["משכיר", "Maskir", "Landlord"],
                   ["שוכר", "Sokher", "Tenant"],
                   ["דמי שכירות", "Dmei Skhirut", "Rent payment"],
@@ -1175,7 +1223,7 @@ const RentingGuidePage = () => {
                   ["בית משפט לתביעות קטנות", "Bet Mishpat LeTavi'ot Ktanot", "Small claims court"],
                   ["טאבו", "Tabu / Tabo", "Land registry"],
                   ["תעודת גמר", "Te'udat Gmar", "Occupancy permit / certificate of completion"],
-                  ["חוק שכירות הוגנת", "Hok Skhirut Hogenet", "Fair Rental Law (2017)"],
+                  ["חוק שכירות הוגנת", "Hok Skhirut Hogenet", `Fair Rental Law (${params?.fair_rental_law_year?.display_label || '2017'})`],
                   ["הוצאה לפועל", "Hotza'ah LaPo'al", "Execution Office (where promissory notes can be enforced)"],
                   ["דייר מוגן", "Dayar Mukhan", "Protected tenant (under the old Tenant Protection Law — rare today)"],
                   ["חדרים", "Chadarim", "Rooms (in listings, includes the living room — a \"3-room\" apartment has 2 bedrooms)"],
@@ -1237,6 +1285,15 @@ const RentingGuidePage = () => {
         </>
       ),
     },
+    {
+      id: "disclaimer",
+      title: "Disclaimer",
+      content: (
+        <p className="text-warm-gray text-[14px] leading-relaxed">
+          This guide is provided by navlan.io for informational purposes only. It does not constitute legal, financial, or tax advice. Information may change — always verify with qualified professionals before making decisions.
+        </p>
+      ),
+    },
   ];
 
   return (
@@ -1247,6 +1304,7 @@ const RentingGuidePage = () => {
       date="Last updated: March 2026"
       readTime="~20 min read"
       metaDescription="The complete English-language guide to renting in Israel — finding apartments, lease agreements, tenant rights, security deposits, olim benefits, and tips from Anglo veterans."
+      headerContent={<>{tldr}{quickRef}</>}
       sections={sections}
       bottomNav={{
         prev: { label: "Purchase Tax Guide", to: "/guides/purchase-tax" },

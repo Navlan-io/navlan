@@ -12,6 +12,8 @@ import {
 } from "@/components/ui/accordion";
 import { supabase } from "@/integrations/supabase/client";
 import { useCurrency } from "@/contexts/CurrencyContext";
+import { useSiteParameters } from "@/hooks/useSiteParameters";
+import { Link } from "react-router-dom";
 import { AlertTriangle } from "lucide-react";
 
 /* ------------------------------------------------------------------ */
@@ -129,7 +131,11 @@ const LiveValue = ({
   fallback?: string;
 }) => {
   if (value == null)
-    return <span className="text-warm-gray">{fallback}</span>;
+    return (
+      <Link to="/market" className="text-warm-gray hover:text-horizon-blue hover:underline">
+        Check Market Data →
+      </Link>
+    );
   return (
     <span className="text-horizon-blue font-semibold">
       {value.toFixed(value % 1 === 0 ? 1 : 2)}
@@ -145,6 +151,7 @@ const LiveValue = ({
 const MortgageGuidePage = () => {
   const rates = useMortgageRates();
   const { currency, rates: fxRates } = useCurrency();
+  const { data: params } = useSiteParameters();
 
   /** Format a NIS amount with the user's chosen currency */
   const fmtNIS = (nis: number) => {
@@ -153,6 +160,24 @@ const MortgageGuidePage = () => {
     const converted = Math.round(nis / rate);
     return `${currency}${converted.toLocaleString()}`;
   };
+
+  /* ---------------------------------------------------------------- */
+  /*  TL;DR                                                            */
+  /* ---------------------------------------------------------------- */
+
+  const tldr = (
+    <div className="bg-[#FAF8F5] border-l-4 border-[#4A7F8B] p-6 my-8 rounded-r-lg">
+      <h2 className="text-lg font-semibold text-[#2D3234] mb-3 font-serif">TL;DR</h2>
+      <ul className="space-y-2 text-[#2D3234]/80 text-sm leading-relaxed">
+        <li>• Israeli mortgages are fundamentally different: each mortgage is split into 3–4 "tracks" with different rate structures, and the mix of tracks matters more than any single rate.</li>
+        <li>• The four main tracks: non-indexed fixed (simplest), CPI-indexed fixed (lower rate but balance rises with inflation), prime-linked variable (fluctuates with BOI rate), and foreign currency (for earners abroad).</li>
+        <li>• BOI regulations are strict: <span className="text-[#4A7F8B] font-medium">{params?.ltv_resident_first_home?.display_label || '25%'}</span> minimum down payment (first home), <span className="text-[#4A7F8B] font-medium">{params?.ltv_non_resident?.display_label || '50%'}</span> for non-residents, at least one-third must be fixed-rate, and monthly payments can't exceed <span className="text-[#4A7F8B] font-medium">{params?.pti_cap?.display_label || '50%'}</span> of income.</li>
+        <li>• Olim get a subsidized mortgage (mashkanta zakaut) of <span className="text-[#4A7F8B] font-medium">{params?.zakaut_amount?.display_label || '~₪200K'}</span> at below-market rates, available within <span className="text-[#4A7F8B] font-medium">{params?.olim_zakaut_window?.display_label || '15 years'}</span> of aliyah.</li>
+        <li>• Critical: Israeli purchase contracts are NOT conditional on mortgage approval. Get your ishur ekroni (pre-approval) before you sign anything.</li>
+        <li>• For English speakers, an English-speaking mortgage broker is close to a necessity — the bank will not explain your options or tell you if their offer is competitive.</li>
+      </ul>
+    </div>
+  );
 
   /* ---------------------------------------------------------------- */
   /*  Quick Reference box                                              */
@@ -178,7 +203,7 @@ const MortgageGuidePage = () => {
                 Max LTV (first home)
               </td>
               <td className="py-2 text-charcoal">
-                75% — minimum 25% down payment
+                <span className="text-[#4A7F8B] font-medium">{params?.ltv_resident_first_home?.display_label || '75%'}</span> — minimum 25% down payment
               </td>
             </tr>
             <tr>
@@ -186,7 +211,7 @@ const MortgageGuidePage = () => {
                 Payment-to-income cap
               </td>
               <td className="py-2 text-charcoal">
-                50% hard limit; above 40% is high-risk
+                <span className="text-[#4A7F8B] font-medium">{params?.pti_cap?.display_label || '50%'}</span> hard limit; above 40% is high-risk
               </td>
             </tr>
             <tr>
@@ -235,7 +260,7 @@ const MortgageGuidePage = () => {
                 Olim benefit window
               </td>
               <td className="py-2 text-charcoal">
-                Within 15 years of aliyah
+                Within {params?.olim_zakaut_window?.display_label || '15 years'} of aliyah
               </td>
             </tr>
             <tr>
@@ -356,6 +381,9 @@ const MortgageGuidePage = () => {
             {fmtNIS(60)} administrative fee). Most relevant for diaspora buyers
             earning abroad.
           </p>
+          <p className="mb-4 text-sm">
+            → See our <Link to="/guides/exchange-rates" className="text-horizon-blue hover:underline">Exchange Rate Guide</Link> for how currency fluctuations affect your total cost.
+          </p>
         </>
       ),
     },
@@ -375,16 +403,16 @@ const MortgageGuidePage = () => {
           </h3>
           <ul className="list-disc pl-6 space-y-2 mb-4 marker:text-sage">
             <li>
-              <strong>First home:</strong> 75% LTV — 25% minimum down payment
+              <strong>First home:</strong> <span className="text-[#4A7F8B] font-medium">{params?.ltv_resident_first_home?.display_label || '75%'}</span> LTV — 25% minimum down payment
             </li>
             <li>
-              <strong>Replacement dwelling:</strong> 70% LTV
+              <strong>Replacement dwelling:</strong> <span className="text-[#4A7F8B] font-medium">{params?.ltv_resident_upgrade?.display_label || '70%'}</span> LTV
             </li>
             <li>
               <strong>Investment property:</strong> 50% LTV
             </li>
             <li>
-              <strong>Foreign residents:</strong> Typically 50%, some banks
+              <strong>Foreign residents:</strong> Typically <span className="text-[#4A7F8B] font-medium">{params?.ltv_non_resident?.display_label || '50%'}</span>, some banks
               offer up to 60%
             </li>
           </ul>
@@ -429,7 +457,7 @@ const MortgageGuidePage = () => {
           <PullQuote>
             The zakaut mortgage is one of the most underutilized benefits
             available to English-speaking immigrants — if you made aliyah within
-            the last 15 years, you likely still qualify.
+            the last {params?.olim_zakaut_window?.display_label || '15 years'}, you likely still qualify.
           </PullQuote>
 
           <h3 className="font-heading font-semibold text-[18px] text-charcoal mt-6 mb-3">
@@ -438,7 +466,7 @@ const MortgageGuidePage = () => {
           <ul className="list-disc pl-6 space-y-2 mb-4 marker:text-sage">
             <li>You must hold a teudat oleh (תעודת עולה)</li>
             <li>
-              Apply within <strong>15 years</strong> of receiving oleh status
+              Apply within <strong>{params?.olim_zakaut_window?.display_label || '15 years'}</strong> of receiving oleh status
             </li>
             <li>Not owned an apartment in Israel in the past 10 years</li>
             <li>
@@ -453,7 +481,7 @@ const MortgageGuidePage = () => {
           </h3>
           <p className="mb-4">
             The subsidized loan amount is approximately{" "}
-            <strong className="text-horizon-blue">{fmtNIS(200000)}</strong>.
+            <strong className="text-horizon-blue">{params?.zakaut_amount?.display_label || fmtNIS(200000)}</strong>.
             This is rarely enough for an entire purchase, so most olim combine
             it with a standard commercial mortgage. The interest rate is
             calculated as the BOI's average fixed inflation-linked rate minus
@@ -717,6 +745,8 @@ const MortgageGuidePage = () => {
             <li>
               <strong>Foreign currency tracks:</strong> More accessible and
               often beneficial if your income is in USD, EUR, or GBP
+              <br />
+              → If your income is in USD, EUR, or GBP, see our <Link to="/guides/exchange-rates" className="text-horizon-blue hover:underline">Exchange Rate Guide</Link> for strategies and risk management.
             </li>
             <li>
               <strong>Higher documentation burden:</strong> Expect a longer
@@ -761,6 +791,8 @@ const MortgageGuidePage = () => {
               </span>
               . Olim within 7 years get even better rates. Non-residents start
               at 8%.
+              <br />
+              → See our <Link to="/guides/purchase-tax" className="text-horizon-blue hover:underline">Purchase Tax Guide</Link> for the full bracket breakdown.
             </li>
             <li>
               <strong>Bank fees:</strong> Processing, appraisal, and related
@@ -789,6 +821,8 @@ const MortgageGuidePage = () => {
             <li>
               <strong>Ongoing costs:</strong> Arnona (municipal tax), va'ad
               bayit (maintenance), utilities
+              <br />
+              → For a complete guide to arnona rates, discounts, and the olim discount, see our <Link to="/guides/arnona" className="text-horizon-blue hover:underline">Arnona Guide</Link>.
             </li>
           </ul>
         </>
@@ -897,7 +931,7 @@ const MortgageGuidePage = () => {
         { label: "Dira BeHanacha Guide", to: "/guides/dira-behanacha" },
         { label: "Start Here Guide", to: "/guides/start-here" },
       ]}
-      headerContent={quickRef}
+      headerContent={<>{tldr}{quickRef}</>}
     />
   );
 };

@@ -10,6 +10,25 @@ import CalloutBox from "@/components/ui/CalloutBox";
 
 const PinuiBinuiGuidePage = () => {
   /* ---------------------------------------------------------------- */
+  /*  TL;DR box                                                        */
+  /* ---------------------------------------------------------------- */
+
+  const tldr = (
+    <div className="bg-[#FAF8F5] border-l-4 border-[#4A7F8B] p-6 my-8 rounded-r-lg">
+      <h2 className="text-lg font-semibold text-[#2D3234] mb-3 font-serif">TL;DR</h2>
+      <ul className="space-y-2 text-[#2D3234]/80 text-sm leading-relaxed">
+        <li>• Urban renewal accounts for ~30% of all new housing starts nationally (64% in Tel Aviv) — it's reshaping Israel's built environment at massive scale.</li>
+        <li>• Tama 38 expired in August 2024 for most of Israel; Pinui Binui is now the primary framework.</li>
+        <li>• If you live in or buy a pre-1980 building, renewal may give you a brand-new, larger apartment (typically 12–25 sqm bigger) with elevator, parking, mamad, and modern finishes — at no cost to you.</li>
+        <li>• The catch: timelines are 7–15 years, nothing is guaranteed until permits are issued, and living in an aging building during the wait is not easy.</li>
+        <li>• Only 66% of apartment owners need to agree for a project to proceed — holdouts can be compelled by court order.</li>
+        <li>• Never pay a "Pinui Binui premium" based on a broker's verbal promise. Verify independently through your lawyer.</li>
+        <li>• Tax treatment is favorable: the apartment swap is generally exempt from capital gains tax, and rent subsidies during construction are tax-free.</li>
+      </ul>
+    </div>
+  );
+
+  /* ---------------------------------------------------------------- */
   /*  Quick Reference box                                              */
   /* ---------------------------------------------------------------- */
 
@@ -480,6 +499,13 @@ const PinuiBinuiGuidePage = () => {
             for a comparable apartment in the same area. Moving costs are also
             typically covered by the developer.
           </p>
+          <p className="mb-4 text-sm italic">
+            → For arnona rates and discounts during the renewal period, see our{" "}
+            <Link to="/guides/arnona" className="text-horizon-blue hover:underline">
+              Arnona Guide
+            </Link>
+            .
+          </p>
 
           <h3 className="font-heading font-semibold text-[18px] text-charcoal mt-8 mb-3">
             What You Do NOT Get
@@ -902,6 +928,13 @@ const PinuiBinuiGuidePage = () => {
             your landlord (who is the one receiving the new apartment) is
             responsible for fulfilling the terms of your lease.
           </p>
+          <p className="mb-4 text-sm italic">
+            → Renting in a building earmarked for Pinui Binui? See our{" "}
+            <Link to="/guides/renting" className="text-horizon-blue hover:underline">
+              Renting Guide
+            </Link>{" "}
+            for what to expect and your rights.
+          </p>
 
           <h3 className="font-heading font-semibold text-[18px] text-charcoal mt-8 mb-3">
             "Is it worth buying a parking spot or storage room separately if the
@@ -1310,6 +1343,15 @@ const PinuiBinuiGuidePage = () => {
         </>
       ),
     },
+    {
+      id: "disclaimer",
+      title: "Disclaimer",
+      content: (
+        <p className="text-warm-gray text-[14px] leading-relaxed">
+          This guide is provided by navlan.io for informational purposes only. It does not constitute legal, financial, or tax advice. Information may change — always verify with qualified professionals before making decisions.
+        </p>
+      ),
+    },
   ];
 
   return (
@@ -1321,7 +1363,7 @@ const PinuiBinuiGuidePage = () => {
       readTime="~22 min read"
       metaDescription="The complete English-language guide to urban renewal in Israel — Tama 38, Pinui Binui, resident rights, tax treatment, timelines, and what buyers need to know."
       sections={sections}
-      headerContent={quickRef}
+      headerContent={<>{tldr}{quickRef}</>}
       bottomNav={{
         prev: { label: "Purchase Tax Guide", to: "/guides/purchase-tax" },
         next: { label: "Start Here Guide", to: "/guides/start-here" },

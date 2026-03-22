@@ -3,12 +3,14 @@
 // Source: Israel Tax Authority mas rechisha brackets.
 
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import GuidePage, { GuideSection } from "@/components/guides/GuidePage";
 import { Card } from "@/components/ui/card";
 import InlineNewsletterCTA from "@/components/ui/InlineNewsletterCTA";
 import PullQuote from "@/components/ui/PullQuote";
 import CalloutBox from "@/components/ui/CalloutBox";
 import { supabase } from "@/integrations/supabase/client";
+import { useSiteParameters } from "@/hooks/useSiteParameters";
 import { AlertTriangle } from "lucide-react";
 
 /* ------------------------------------------------------------------ */
@@ -49,12 +51,32 @@ function useUsdRate(): { usdRate: number; loading: boolean } {
 
 const PurchaseTaxGuidePage = () => {
   const { usdRate } = useUsdRate();
+  const { data: params } = useSiteParameters();
 
   /** Convert NIS to approximate USD using live rate */
   const nisToUsd = (nis: number) => {
     const usd = Math.round(nis / usdRate / 1000) * 1000;
     return `~$${usd.toLocaleString()}`;
   };
+
+  /* ---------------------------------------------------------------- */
+  /*  TL;DR                                                            */
+  /* ---------------------------------------------------------------- */
+
+  const tldr = (
+    <div className="bg-[#FAF8F5] border-l-4 border-[#4A7F8B] p-6 my-8 rounded-r-lg">
+      <h2 className="text-lg font-semibold text-[#2D3234] mb-3 font-serif">TL;DR</h2>
+      <ul className="space-y-2 text-[#2D3234]/80 text-sm leading-relaxed">
+        <li>• Purchase tax is a one-time tax paid by the buyer — the single largest variable cost in an Israeli property transaction.</li>
+        <li>• Israeli residents buying their sole dwelling pay 0% on the first ~₪1.98M, then 3.5%–10% on higher amounts. Investors and foreign buyers pay 8% from the first shekel.</li>
+        <li>• Olim get the best rates: 0% up to ~₪1.99M, then only 0.5% up to ~₪6.05M. On a ₪4M apartment, an oleh pays ~₪10K vs. ~₪95K for a standard resident.</li>
+        <li>• The olim benefit is available for <span className="text-[#4A7F8B] font-medium">{params?.olim_purchase_tax_window?.display_label || '7 years'}</span> after aliyah. Filing is due within 30 days of signing; payment within 60 days.</li>
+        <li>• Tax brackets are frozen from 2025 through <span className="text-[#4A7F8B] font-medium">{params?.purchase_tax_freeze_end?.display_label || '2027'}</span> — no inflation adjustments, which is effectively a stealth tax increase.</li>
+        <li>• If you buy a new home and sell your old one within 24 months, you can retroactively qualify for the lower sole-dwelling rate.</li>
+        <li>• Your lawyer handles the entire filing and payment process.</li>
+      </ul>
+    </div>
+  );
 
   /* ---------------------------------------------------------------- */
   /*  Quick Reference box                                              */
@@ -85,7 +107,7 @@ const PurchaseTaxGuidePage = () => {
         </li>
         <li>
           <strong>Olim benefit:</strong> 0% on the first ~₪1,988,090 and only
-          0.5% up to ~₪6,055,070 — available within 7 years of aliyah
+          0.5% up to ~₪6,055,070 — available within <span className="text-[#4A7F8B] font-medium">{params?.olim_purchase_tax_window?.display_label || '7 years'}</span> of aliyah
         </li>
         <li>
           <strong>Foreign residents:</strong> Pay the same elevated rate as
@@ -93,7 +115,7 @@ const PurchaseTaxGuidePage = () => {
         </li>
         <li>
           <strong>Bracket freeze:</strong> Tax thresholds are frozen from 2025
-          through 2027 (no inflation adjustments)
+          through <span className="text-[#4A7F8B] font-medium">{params?.purchase_tax_freeze_end?.display_label || '2027'}</span> (no inflation adjustments)
         </li>
         <li>
           <strong>Commercial and land:</strong> Flat 6% rate on all
@@ -145,7 +167,7 @@ const PurchaseTaxGuidePage = () => {
           <p className="mb-4">
             One important distinction: purchase tax is entirely separate from
             VAT (<em>ma'am</em>, מע"מ). New apartments purchased from a
-            developer include 18% VAT in the listed price. Purchase tax is then
+            developer include <span className="text-[#4A7F8B] font-medium">{params?.vat_rate?.display_label || '18%'}</span> VAT in the listed price. Purchase tax is then
             calculated on the full VAT-inclusive purchase price.
           </p>
         </>
@@ -168,7 +190,7 @@ const PurchaseTaxGuidePage = () => {
             Normally, the NIS thresholds for each bracket are updated annually
             based on changes in the Consumer Price Index. However, as part of
             broader fiscal measures, the government froze all purchase tax
-            brackets from 2025 through 2027. This means the thresholds listed
+            brackets from 2025 through <span className="text-[#4A7F8B] font-medium">{params?.purchase_tax_freeze_end?.display_label || '2027'}</span>. This means the thresholds listed
             below will not be adjusted for inflation during this period.
             Indexation is expected to resume in 2028. The practical effect: as
             property prices continue to rise but bracket thresholds stay flat,
@@ -230,7 +252,7 @@ const PurchaseTaxGuidePage = () => {
             </table>
           </div>
           <p className="mb-4">
-            These are the 2024 thresholds, which remain frozen through 2027
+            These are the 2024 thresholds, which remain frozen through <span className="text-[#4A7F8B] font-medium">{params?.purchase_tax_freeze_end?.display_label || '2027'}</span>
             under the bracket freeze. Under this schedule, an Israeli resident
             buying their sole dwelling for ₪1,900,000 pays zero purchase tax.
             That is a significant benefit — and it is the reason the "sole
@@ -397,6 +419,9 @@ const PurchaseTaxGuidePage = () => {
             ₪240,000 in purchase tax — the same rate as an Israeli investor
             buying a fifth rental property. For some buyers, this differential
             alone is a meaningful factor in aliyah timing decisions.
+          </p>
+          <p className="mb-4 text-sm text-charcoal/70 italic">
+            → Planning to rent before buying? See our <Link to="/guides/renting" className="text-horizon-blue hover:underline">Renting Guide</Link>.
           </p>
 
           <h3 className="font-heading font-semibold text-[18px] text-charcoal mt-8 mb-3">
@@ -565,14 +590,14 @@ const PurchaseTaxGuidePage = () => {
           <p className="mb-4">
             An oleh can use the purchase tax benefit for a property purchased
             within a window that begins <strong>one year before</strong> making
-            aliyah and extends <strong>seven years after</strong> the date of
+            aliyah and extends <strong><span className="text-[#4A7F8B] font-medium">{params?.olim_purchase_tax_window?.display_label || '7 years'}</span> after</strong> the date of
             aliyah. The one-year-before provision exists because many olim
             purchase property in Israel while preparing for their move.
           </p>
           <p className="mb-4">
-            After seven years, the benefit expires. There is no mechanism to
-            restart or extend the 7-year window. For olim who made aliyah more
-            than 7 years ago: you are assessed under the standard Israeli
+            After the window expires, the benefit is gone. There is no mechanism to
+            restart or extend it. For olim who made aliyah more
+            than <span className="text-[#4A7F8B] font-medium">{params?.olim_purchase_tax_window?.display_label || '7 years'}</span> ago: you are assessed under the standard Israeli
             resident brackets, which still include the generous sole dwelling
             rates if you are buying your only home.
           </p>
@@ -852,7 +877,7 @@ const PurchaseTaxGuidePage = () => {
             the tax, preparing and filing the shuma atzmit, arranging payment,
             handling correspondence with misui mekarkein, and applying for
             refunds or reassessments. The lawyer's fee for the overall
-            transaction — typically 0.5–1.5% of the purchase price, plus VAT —
+            transaction — typically <span className="text-[#4A7F8B] font-medium">{params?.lawyer_fee_range?.display_label || '0.5–1.5% + VAT'}</span> of the purchase price —
             includes purchase tax filing.
           </p>
 
@@ -973,8 +998,7 @@ const PurchaseTaxGuidePage = () => {
               and foreign residents.
             </li>
             <li>
-              <strong>Lawyer's fees:</strong> 0.5–1.5% of purchase price + 18%
-              VAT.
+              <strong>Lawyer's fees:</strong> <span className="text-[#4A7F8B] font-medium">{params?.lawyer_fee_range?.display_label || '0.5–1.5% + VAT'}</span> of purchase price.
             </li>
             <li>
               <strong>Real estate agent fees:</strong> Typically 2% + VAT per
@@ -991,10 +1015,13 @@ const PurchaseTaxGuidePage = () => {
               that the buyer absorbs it.
             </li>
             <li>
-              <strong>VAT on new construction:</strong> 18% — typically
+              <strong>VAT on new construction:</strong> <span className="text-[#4A7F8B] font-medium">{params?.vat_rate?.display_label || '18%'}</span> — typically
               included in the listed sale price from developers.
             </li>
           </ul>
+          <p className="mb-4 text-sm text-charcoal/70 italic">
+            → For ongoing costs after purchase including arnona, see our <Link to="/guides/arnona" className="text-horizon-blue hover:underline">Arnona Guide</Link>.
+          </p>
 
           <h3 className="font-heading font-semibold text-[18px] text-charcoal mt-6 mb-3">
             How Israel Compares to the US and UK
@@ -1024,6 +1051,9 @@ const PurchaseTaxGuidePage = () => {
             costs are broadly comparable. For investors and foreign buyers, the
             8% purchase tax makes Israel meaningfully more expensive.
           </p>
+          <p className="mb-4 text-sm text-charcoal/70 italic">
+            → See our <Link to="/guides/exchange-rates" className="text-horizon-blue hover:underline">Exchange Rate Guide</Link> for understanding NIS-USD conversions.
+          </p>
         </>
       ),
     },
@@ -1037,7 +1067,7 @@ const PurchaseTaxGuidePage = () => {
           </h3>
           <p className="mb-4">
             If the Tax Authority issues an assessment that you disagree with,
-            you have the right to file an objection (<em>hasaga</em>, השגה)
+            you have the right to file an objection (<em>hashaga</em>, השגה)
             within <strong>30 days</strong> of receiving the assessment notice.
             The objection is filed with the regional misui mekarkein office.
             Your lawyer typically handles this.
@@ -1094,7 +1124,7 @@ const PurchaseTaxGuidePage = () => {
                   ["שומה עצמית", "Shuma atzmit", "Self-assessment — filed within 30 days of signing"],
                   ["שומה", "Shuma", "Assessment — the Tax Authority's own determination"],
                   ["תיקון שומה", "Tikkun shuma", "Amended assessment — request to revise a previous assessment"],
-                  ["השגה", "Hasaga", "Objection — a formal dispute of the assessment"],
+                  ["השגה", "Hashaga", "Objection — a formal dispute of the assessment"],
                   ["ערעור", "Irur", "Appeal — taking a dispute to court"],
                   ["מיסוי מקרקעין", "Misui mekarkein", "Land Taxation — handles real estate taxes"],
                   ["רשות המיסים", "Rashut hamissim", "Israel Tax Authority"],
@@ -1103,7 +1133,7 @@ const PurchaseTaxGuidePage = () => {
                   ["עולה חדש", "Oleh chadash", "New immigrant under the Law of Return"],
                   ["תושב חוזר", "Toshav chozer", "Returning resident"],
                   ["תושב חוזר ותיק", "Toshav chozer vatik", "Veteran returning resident (10+ years abroad)"],
-                  ["מע\"מ", "Ma'am (VAT)", "Value Added Tax — currently 18% in Israel"],
+                  ["מע\"מ", "Ma'am (VAT)", "Value Added Tax — Israel's standard rate"],
                   ["חוזה רכישה", "Chozeh rechisha", "Purchase contract"],
                   ["הצמדה וריבית", "Hatzamada veribit", "Linkage and interest — inflation + interest on overdue payments"],
                   ["עורך דין", "Orech din", "Lawyer / attorney"],
@@ -1149,7 +1179,7 @@ const PurchaseTaxGuidePage = () => {
         { label: "Dira BeHanacha Guide", to: "/guides/dira-behanacha" },
         { label: "Start Here Guide", to: "/guides/start-here" },
       ]}
-      headerContent={quickRef}
+      headerContent={<>{tldr}{quickRef}</>}
     />
   );
 };

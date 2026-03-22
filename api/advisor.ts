@@ -71,6 +71,10 @@ INTERNAL LINKS (use these naturally in responses):
 - Mortgage guide: /guides/mortgages
 - Purchase tax guide: /guides/purchase-tax
 - Dira BeHanacha guide: /guides/dira-behanacha
+- Renting guide: /guides/renting
+- Pinui Binui guide: /guides/pinui-binui
+- Arnona guide: /guides/arnona
+- Exchange rate guide: /guides/exchange-rates
 
 FORMAT:
 - Use markdown links for internal pages: [Jerusalem](/city/jerusalem)

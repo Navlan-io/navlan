@@ -692,6 +692,42 @@ export type Database = {
         }
         Relationships: []
       }
+      site_parameters: {
+        Row: {
+          key: string
+          value: string
+          display_label: string
+          data_type: string
+          last_verified: string
+          check_month: number | null
+          source: string | null
+          notes: string | null
+          used_in: string[] | null
+        }
+        Insert: {
+          key: string
+          value: string
+          display_label: string
+          data_type?: string
+          last_verified?: string
+          check_month?: number | null
+          source?: string | null
+          notes?: string | null
+          used_in?: string[] | null
+        }
+        Update: {
+          key?: string
+          value?: string
+          display_label?: string
+          data_type?: string
+          last_verified?: string
+          check_month?: number | null
+          source?: string | null
+          notes?: string | null
+          used_in?: string[] | null
+        }
+        Relationships: []
+      }
       price_indices: {
         Row: {
           base_desc: string | null
