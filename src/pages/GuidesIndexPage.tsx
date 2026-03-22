@@ -113,9 +113,9 @@ const GuidesIndexPage = () => {
           </p>
           <div className="h-px bg-gradient-to-r from-transparent via-sand-gold/20 to-transparent mt-8 mb-8" />
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="flex flex-wrap justify-center gap-6">
             {guides.map((guide) => (
-              <Card key={guide.to} className="bg-cream border-grid-line shadow-card rounded-xl">
+              <Card key={guide.to} className="w-full md:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)] bg-cream border-grid-line shadow-card rounded-xl">
                 <CardContent className="p-6 flex flex-col gap-3">
                   <guide.icon className="h-7 w-7 text-sage" />
                   <h2 className="font-heading font-semibold text-[18px] text-charcoal leading-snug">
