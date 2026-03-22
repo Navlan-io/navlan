@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { BookOpen, Home, KeyRound, Scale, Building2, Building, ArrowRight } from "lucide-react";
+import { BookOpen, Home, KeyRound, Scale, Building2, Building, ArrowRight, Receipt, ArrowLeftRight } from "lucide-react";
 
 const guides = [
   {
@@ -43,6 +43,20 @@ const guides = [
     description:
       "Finding apartments, lease agreements, tenant rights, deposits, and what every foreign renter needs to know.",
     link: "/guides/renting",
+  },
+  {
+    icon: Receipt,
+    title: "Arnona Explained",
+    description:
+      "Israel's property tax — rates, discounts, and what you'll pay.",
+    link: "/guides/arnona",
+  },
+  {
+    icon: ArrowLeftRight,
+    title: "Exchange Rates & Your Purchase",
+    description:
+      "How NIS/USD, EUR, and GBP rates change what you actually pay.",
+    link: "/guides/exchange-rates",
   },
 ];
 

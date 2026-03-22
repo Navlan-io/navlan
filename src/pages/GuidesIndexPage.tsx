@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { BookOpen, Home, KeyRound, Scale, Building2, Building } from "lucide-react";
+import { BookOpen, Home, KeyRound, Scale, Building2, Building, Receipt, ArrowLeftRight } from "lucide-react";
 import NavBar from "@/components/NavBar";
 import Footer from "@/components/Footer";
 import { Card, CardContent } from "@/components/ui/card";
@@ -63,6 +63,22 @@ const guides: GuideCardData[] = [
     updated: "Last updated: March 2026",
     readTime: "~20 min read",
     to: "/guides/renting",
+  },
+  {
+    icon: Receipt,
+    title: "Arnona Explained: Israel's Property Tax",
+    description: "Israel's municipal property tax — rates by city, olim discounts (70–90%), payment options, how to dispute, and everything English speakers need to know.",
+    updated: "Last updated: March 2026",
+    readTime: "~22 min read",
+    to: "/guides/arnona",
+  },
+  {
+    icon: ArrowLeftRight,
+    title: "Exchange Rates & Your Purchase",
+    description: "How NIS/USD, EUR, and GBP rates change what you actually pay — concrete math, transfer tips, and ongoing exposure.",
+    updated: "Last updated: March 2026",
+    readTime: "~10 min read",
+    to: "/guides/exchange-rates",
   },
 ];
 
