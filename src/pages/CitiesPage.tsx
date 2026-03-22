@@ -113,7 +113,7 @@ const CitiesPage = () => {
             supabase
               .from("localities")
               .select("english_name, cbs_code, district, is_anglo_city")
-              .in("entity_type", ["city", "town"]),
+              .in("entity_type", ["city", "town", "yishuv"]),
             supabase
               .from("city_prices")
               .select("cbs_code, avg_price_total, period")

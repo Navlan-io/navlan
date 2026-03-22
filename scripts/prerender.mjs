@@ -39,7 +39,7 @@ function toSlug(name) {
 }
 
 async function fetchCitySlugs() {
-  const url = `${SUPABASE_URL}/rest/v1/localities?select=english_name&entity_type=eq.city&order=english_name`;
+  const url = `${SUPABASE_URL}/rest/v1/localities?select=english_name&entity_type=in.("city","town","yishuv")&order=english_name`;
   const res = await fetch(url, {
     headers: {
       apikey: SUPABASE_KEY,
