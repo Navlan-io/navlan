@@ -37,7 +37,7 @@ const LTV_LIMITS: Record<BuyerType, number> = {
 
 const BUYER_LABELS: Record<BuyerType, string> = {
   first: "Israeli Resident (first home)",
-  upgrade: "Israeli Resident (upgrade)",
+  upgrade: "Israeli Resident (own another property)",
   non_resident: "Non-Resident / Additional Property",
 };
 
@@ -63,7 +63,7 @@ const TRACKS: TrackConfig[] = [
     label: "Prime-linked",
     seriesKey: "BNK_99034_LR_BIR_MRTG_348",
     trackType: "prime_variable",
-    description: "Rate = Prime + bank margin, changes with BOI policy rate",
+    description: "Based on Prime rate. Typically Prime \u00B1 spread, negotiated with your bank. Changes with BOI policy rate.",
     note: "Adjusts with BOI policy rate",
   },
   {
@@ -91,10 +91,6 @@ function calcMonthlyPayment(principal: number, annualRate: number, years: number
   const r = annualRate / 12 / 100;
   const n = years * 12;
   return principal * (r * Math.pow(1 + r, n)) / (Math.pow(1 + r, n) - 1);
-}
-
-function calcTotalInterest(monthlyPayment: number, years: number, principal: number): number {
-  return monthlyPayment * years * 12 - principal;
 }
 
 function formatNis(amount: number): string {
@@ -198,21 +194,17 @@ const MortgageCalculatorPage = () => {
       const rd = rateData[track.id];
       const rate = rd?.rate ?? 0;
       const monthly = calcMonthlyPayment(principal, rate, loanYears);
-      const totalInterest = calcTotalInterest(monthly, loanYears, principal);
       return {
         track,
         allocation: alloc,
         principal,
         rate,
         monthly,
-        totalInterest,
       };
     });
   }, [allocations, loanAmount, rateData, loanYears]);
 
   const totalMonthly = results.reduce((sum, r) => sum + r.monthly, 0);
-  const totalInterest = results.reduce((sum, r) => sum + r.totalInterest, 0);
-  const totalCost = loanAmount + totalInterest;
   const allocationSum = Object.values(allocations).reduce((a, b) => a + b, 0);
 
   const ratePeriodLabel = Object.values(rateData)[0]
@@ -396,6 +388,11 @@ const MortgageCalculatorPage = () => {
                   </label>
                 ))}
               </div>
+              {buyerType === "upgrade" && (
+                <p className="font-body text-[13px] text-warm-gray mt-2">
+                  Already own a property in Israel? LTV is capped at 70% until you sell.
+                </p>
+              )}
             </div>
 
             <div className="grid md:grid-cols-2 gap-5 mt-5">
@@ -649,31 +646,6 @@ const MortgageCalculatorPage = () => {
                 </div>
               </div>
 
-              {/* Additional info */}
-              <div className="grid sm:grid-cols-2 gap-4">
-                <div className="bg-white rounded-lg border border-grid-line p-4">
-                  <p className="font-body text-[12px] uppercase tracking-wider text-warm-gray mb-1">
-                    Total Interest Paid
-                  </p>
-                  <p className="font-heading font-semibold text-[20px] text-charcoal">
-                    {convertAmount(totalInterest)}
-                  </p>
-                  <p className="font-body text-[12px] text-warm-gray mt-1">
-                    Over {loanYears} years
-                  </p>
-                </div>
-                <div className="bg-white rounded-lg border border-grid-line p-4">
-                  <p className="font-body text-[12px] uppercase tracking-wider text-warm-gray mb-1">
-                    Total Cost
-                  </p>
-                  <p className="font-heading font-semibold text-[20px] text-charcoal">
-                    {convertAmount(totalCost)}
-                  </p>
-                  <p className="font-body text-[12px] text-warm-gray mt-1">
-                    Principal + interest
-                  </p>
-                </div>
-              </div>
             </div>
           )}
 

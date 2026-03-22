@@ -931,7 +931,7 @@ const MortgageGuidePage = () => {
         { label: "Dira BeHanacha Guide", to: "/guides/dira-behanacha" },
         { label: "Start Here Guide", to: "/guides/start-here" },
       ]}
-      headerContent={<>{tldr}{quickRef}</>}
+      headerContent={<>{tldr}{quickRef}<CalloutBox title="Mortgage Calculator">Want to see what these rates mean for your monthly payment? Try our{" "}<Link to="/tools/mortgage-calculator" className="text-[#4A7F8B] underline hover:text-sage">Mortgage Calculator</Link> — estimate payments using live BOI rates across all four tracks.</CalloutBox></>}
     />
   );
 };
