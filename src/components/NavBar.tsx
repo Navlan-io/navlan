@@ -8,7 +8,7 @@ const navLinks = [
   { label: "Cities", href: "/cities" },
   { label: "Advisor", href: "/advisor" },
   { label: "Market Data", href: "/market" },
-  { label: "Tools", href: "/tools/mortgage-calculator" },
+  { label: "Calculator", href: "/tools/mortgage-calculator" },
   { label: "Guides", href: "/guides" },
 ];
 
