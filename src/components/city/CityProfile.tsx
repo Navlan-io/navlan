@@ -56,21 +56,21 @@ const CityProfile = ({ city, profile }: CityProfileProps) => {
   }
 
   return (
-    <div className="space-y-6">
-      {/* Editorial disclaimer */}
-      <div className="bg-cream rounded-lg px-5 py-4 border border-grid-line/40">
-        <p className="font-body text-[13px] text-warm-gray leading-relaxed">
-          Community profiles are editorial and based on publicly available information. Prices
-          mentioned may be approximate — see the data sections above for current CBS figures.
-        </p>
-      </div>
-
+    <div>
       {/* Dual layout: Desktop TOC + content | Mobile accordion */}
       {isDesktop ? (
         <DesktopLayout sections={activeSections} profile={profile!} />
       ) : (
         <AccordionLayout sections={activeSections} profile={profile!} />
       )}
+
+      {/* Editorial disclaimer — after content */}
+      <div className="bg-cream rounded-lg px-5 py-4 border border-grid-line/40 mt-8">
+        <p className="font-body text-[13px] text-warm-gray leading-relaxed">
+          Community profiles are editorial and based on publicly available information. Prices
+          mentioned may be approximate — see the data sections above for current CBS figures.
+        </p>
+      </div>
     </div>
   );
 };
@@ -111,8 +111,8 @@ function DesktopLayout({
   return (
     <div className="flex gap-10">
       {/* TOC sidebar */}
-      <aside className="w-[200px] flex-shrink-0">
-        <nav className="sticky top-24 space-y-1">
+      <aside className="hidden lg:block w-[200px] flex-shrink-0 overflow-visible">
+        <div className="sticky top-24 space-y-1">
           {sections.map((s) => (
             <button
               key={s.id}
@@ -127,7 +127,7 @@ function DesktopLayout({
               {s.title}
             </button>
           ))}
-        </nav>
+        </div>
       </aside>
 
       {/* Content column */}
