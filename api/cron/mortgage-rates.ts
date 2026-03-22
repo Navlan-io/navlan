@@ -196,6 +196,10 @@ export async function GET(req: Request) {
       } catch (err: any) {
         errors.push(`${series.seriesKey}: ${err.message}`);
         results[series.seriesKey] = { error: err.message };
+        if (err.message?.includes('404')) {
+          await logAnomaly(supabase, 'mortgage-rates', `BOI API returned 404 for series ${series.seriesKey}`, 'critical',
+            { series_key: series.seriesKey, track: series.trackLabel, error: err.message, timestamp });
+        }
       }
     }
   } catch (err: any) {

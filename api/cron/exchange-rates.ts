@@ -26,7 +26,7 @@ function getSupabaseAdmin(): SupabaseClient {
 interface BoiObservation { timePeriod: string; obsValue: number | null; }
 
 async function fetchBoiExchangeRate(currency: string, date: string): Promise<string> {
-  const primaryUrl = `https://edge.boi.gov.il/FusionEdgeServer/sdmx/v2/data/dataflow/BOI/ER_FROM_GOV/1.0/RER_${currency}_ILS.D?startperiod=${date}&endperiod=${date}&format=csv`;
+  const primaryUrl = `https://edge.boi.gov.il/FusionEdgeServer/sdmx/v2/data/dataflow/BOI.STATISTICS/ER_FROM_GOV/1.0/RER_${currency}_ILS.D?startperiod=${date}&endperiod=${date}&format=csv`;
   let response = await fetch(primaryUrl);
   if (response.ok) return response.text();
   const fallbackUrl = `https://edge.boi.gov.il/FusionEdgeServer/sdmx/v2/data/dataflow/BOI.STATISTICS/EXR/1.0/RER_${currency}_ILS?format=csv&lastNObservations=5`;
@@ -150,6 +150,10 @@ export async function GET(req: Request) {
       } catch (err: any) {
         errors.push(`${currency}: ${err.message}`);
         results[currency] = { error: err.message };
+        if (err.message?.includes('404')) {
+          await logAnomaly(supabase, 'exchange-rates', `BOI API returned 404 for ${currency}`, 'critical',
+            { currency, error: err.message, timestamp });
+        }
       }
     }
   } catch (err: any) {
