@@ -1,5 +1,9 @@
+import { useEffect, useRef, useState } from "react";
+import { ChevronDown, ChevronRight } from "lucide-react";
 import { Card } from "@/components/ui/card";
 import ProfileMarkdown from "./ProfileMarkdown";
+import { useMediaQuery } from "@/hooks/use-media-query";
+import { cn } from "@/lib/utils";
 
 interface CityProfileProps {
   city: { english_name: string; district: string };
@@ -15,19 +19,25 @@ interface CityProfileProps {
   } | null;
 }
 
-const sections = [
-  { key: "overview", title: "Overview" },
-  { key: "anglo_community", title: "Anglo Community" },
-  { key: "religious_infrastructure", title: "Religious Life" },
-  { key: "education", title: "Education" },
-  { key: "lifestyle", title: "Lifestyle & Amenities" },
-  { key: "real_estate_character", title: "Real Estate Character" },
-  { key: "who_best_for", title: "Who It's Best For" },
-  { key: "what_to_know", title: "What to Know" },
+const SECTION_DEFS = [
+  { key: "overview", id: "section-overview", title: "Overview" },
+  { key: "anglo_community", id: "section-anglo-community", title: "Anglo Community" },
+  { key: "religious_infrastructure", id: "section-religious-life", title: "Religious Life" },
+  { key: "education", id: "section-education", title: "Education" },
+  { key: "lifestyle", id: "section-lifestyle", title: "Lifestyle & Amenities" },
+  { key: "real_estate_character", id: "section-real-estate-character", title: "Real Estate Character" },
+  { key: "who_best_for", id: "section-who-best-for", title: "Who It's Best For" },
+  { key: "what_to_know", id: "section-what-to-know", title: "What to Know" },
 ] as const;
 
+type ProfileKey = (typeof SECTION_DEFS)[number]["key"];
+
 const CityProfile = ({ city, profile }: CityProfileProps) => {
-  const hasContent = profile && sections.some((s) => profile[s.key]);
+  const isDesktop = useMediaQuery("(min-width: 1024px)");
+  const hasContent = profile && SECTION_DEFS.some((s) => profile[s.key]);
+
+  // Filter to only sections with content
+  const activeSections = SECTION_DEFS.filter((s) => profile?.[s.key]);
 
   if (!hasContent) {
     return (
@@ -46,27 +56,154 @@ const CityProfile = ({ city, profile }: CityProfileProps) => {
   }
 
   return (
-    <div className="space-y-8">
+    <div className="space-y-6">
       {/* Editorial disclaimer */}
       <div className="bg-cream rounded-lg px-5 py-4 border border-grid-line/40">
         <p className="font-body text-[13px] text-warm-gray leading-relaxed">
-          Community profiles are editorial and based on publicly available information. Prices mentioned may be approximate — see the data sections above for current CBS figures.
+          Community profiles are editorial and based on publicly available information. Prices
+          mentioned may be approximate — see the data sections above for current CBS figures.
         </p>
       </div>
 
-      {/* Profile sections */}
-      {sections.map(({ key, title }) => {
-        const content = profile?.[key];
-        if (!content) return null;
+      {/* Dual layout: Desktop TOC + content | Mobile accordion */}
+      {isDesktop ? (
+        <DesktopLayout sections={activeSections} profile={profile!} />
+      ) : (
+        <AccordionLayout sections={activeSections} profile={profile!} />
+      )}
+    </div>
+  );
+};
+
+/* ─── Desktop: Sticky TOC sidebar + all sections visible ─── */
+
+function DesktopLayout({
+  sections,
+  profile,
+}: {
+  sections: typeof SECTION_DEFS extends readonly (infer T)[] ? T[] : never;
+  profile: NonNullable<CityProfileProps["profile"]>;
+}) {
+  const [activeId, setActiveId] = useState(sections[0]?.id ?? "");
+  const sectionRefs = useRef<Map<string, HTMLElement>>(new Map());
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (entry.isIntersecting) {
+            setActiveId(entry.target.id);
+          }
+        }
+      },
+      { rootMargin: "-96px 0px -60% 0px", threshold: 0 }
+    );
+
+    sectionRefs.current.forEach((el) => observer.observe(el));
+    return () => observer.disconnect();
+  }, [sections]);
+
+  const scrollTo = (id: string) => {
+    const el = document.getElementById(id);
+    if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+  };
+
+  return (
+    <div className="flex gap-10">
+      {/* TOC sidebar */}
+      <aside className="w-[200px] flex-shrink-0">
+        <nav className="sticky top-24 space-y-1">
+          {sections.map((s) => (
+            <button
+              key={s.id}
+              onClick={() => scrollTo(s.id)}
+              className={cn(
+                "block w-full text-left px-3 py-1.5 font-body text-[14px] rounded transition-colors border-l-2",
+                activeId === s.id
+                  ? "text-charcoal border-sage font-medium"
+                  : "text-warm-gray border-transparent hover:text-charcoal hover:border-grid-line"
+              )}
+            >
+              {s.title}
+            </button>
+          ))}
+        </nav>
+      </aside>
+
+      {/* Content column */}
+      <div className="flex-1 min-w-0 space-y-8">
+        {sections.map((s) => (
+          <section
+            key={s.id}
+            id={s.id}
+            ref={(el) => {
+              if (el) sectionRefs.current.set(s.id, el);
+            }}
+            className="scroll-mt-24"
+          >
+            <h3 className="font-heading font-semibold text-[18px] text-charcoal mb-3">
+              {s.title}
+            </h3>
+            <ProfileMarkdown content={profile[s.key]!} />
+          </section>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+/* ─── Mobile: Accordion ─── */
+
+function AccordionLayout({
+  sections,
+  profile,
+}: {
+  sections: typeof SECTION_DEFS extends readonly (infer T)[] ? T[] : never;
+  profile: NonNullable<CityProfileProps["profile"]>;
+}) {
+  const [open, setOpen] = useState<Set<string>>(() => new Set(["section-overview"]));
+
+  const toggle = (id: string) => {
+    setOpen((prev) => {
+      const next = new Set(prev);
+      if (next.has(id)) next.delete(id);
+      else next.add(id);
+      return next;
+    });
+  };
+
+  return (
+    <div className="divide-y divide-cream">
+      {sections.map((s) => {
+        const isOpen = open.has(s.id);
         return (
-          <div key={key}>
-            <h3 className="font-heading font-semibold text-[18px] text-charcoal mb-3">{title}</h3>
-            <ProfileMarkdown content={content} />
+          <div key={s.id}>
+            <button
+              onClick={() => toggle(s.id)}
+              className="w-full flex items-center justify-between py-4 text-left"
+            >
+              <span className="font-body font-semibold text-[16px] text-charcoal">
+                {s.title}
+              </span>
+              {isOpen ? (
+                <ChevronDown className="h-4 w-4 text-warm-gray flex-shrink-0" />
+              ) : (
+                <ChevronRight className="h-4 w-4 text-warm-gray flex-shrink-0" />
+              )}
+            </button>
+            <div
+              className={cn(
+                "overflow-hidden transition-all duration-300 ease-in-out",
+                isOpen ? "max-h-[5000px] opacity-100 pb-6" : "max-h-0 opacity-0"
+              )}
+            >
+              <ProfileMarkdown content={profile[s.key]!} />
+            </div>
           </div>
         );
       })}
     </div>
   );
-};
+}
 
 export default CityProfile;
