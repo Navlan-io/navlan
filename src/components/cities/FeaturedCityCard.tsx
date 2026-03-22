@@ -7,7 +7,6 @@ interface FeaturedCityCardProps {
   district: string;
   tagline: string | null;
   tier: string | null;
-  price: string | null;
   isHovered?: boolean;
   onHover?: (slug: string | null) => void;
 }
@@ -18,7 +17,6 @@ export default function FeaturedCityCard({
   district,
   tagline,
   tier,
-  price,
   isHovered,
   onHover,
 }: FeaturedCityCardProps) {
@@ -46,11 +44,6 @@ export default function FeaturedCityCard({
             {district}
           </p>
         </div>
-        {price && (
-          <span className="shrink-0 font-body text-[14px] font-semibold text-charcoal whitespace-nowrap">
-            {price}
-          </span>
-        )}
       </div>
 
       {tagline && (
