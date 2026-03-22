@@ -307,23 +307,24 @@ const CitiesPage = () => {
         <div className="container max-w-[1200px] pb-10">
           <div className="flex flex-col lg:flex-row gap-6 lg:gap-8">
             {/* Map (left side) */}
-            <div className="lg:w-[55%] flex items-center justify-center">
-              <div className="w-full max-w-[280px] lg:max-w-none mx-auto">
+            <div className="lg:w-[60%] flex items-start justify-center">
+              <div className="w-full max-w-[320px] lg:max-w-none mx-auto lg:min-h-[500px]">
                 {loading ? (
-                  <div className="bg-cream rounded-xl animate-pulse h-[350px] lg:h-[480px]" />
+                  <div className="bg-cream rounded-xl animate-pulse h-[350px] lg:h-[540px]" />
                 ) : (
                   <IsraelCityMap
                     cities={mapCities}
                     featuredSlugs={FEATURED_SLUGS}
                     hoveredSlug={hoveredSlug}
                     onHoverCity={setHoveredSlug}
+                    onDistrictClick={(district) => setActiveDistrict(district)}
                   />
                 )}
               </div>
             </div>
 
             {/* Featured Cities (right side) */}
-            <div className="lg:w-[45%]">
+            <div className="lg:w-[40%]">
               <h2 className="font-heading font-semibold text-[20px] md:text-[22px] text-charcoal mb-4">
                 Featured Cities
               </h2>
