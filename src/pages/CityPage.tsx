@@ -59,10 +59,15 @@ function slugToSearchName(slug: string): string {
 }
 
 function formatLatestPeriod(period: string): string {
-  const match = period.match(/(\d{4})[- ]?Q(\d)/i);
-  if (match) {
-    const qMap: Record<string, string> = { "1": "Q1", "2": "Q2", "3": "Q3", "4": "Q4" };
-    return `${qMap[match[2]]} ${match[1]}`;
+  // Handle "2025-Q4" or "2025 Q4" (year first)
+  const yearFirst = period.match(/(\d{4})[- ]?Q(\d)/i);
+  if (yearFirst) {
+    return `Q${yearFirst[2]} ${yearFirst[1]}`;
+  }
+  // Handle "Q4-2025" or "Q4 2025" (quarter first)
+  const qFirst = period.match(/Q(\d)[- ]?(\d{4})/i);
+  if (qFirst) {
+    return `Q${qFirst[1]} ${qFirst[2]}`;
   }
   return period;
 }
@@ -78,6 +83,7 @@ const CityPage = () => {
   const [prices, setPrices] = useState<CityPriceRow[]>([]);
   const [districtIndices, setDistrictIndices] = useState<any[]>([]);
   const [districtAvgPrice, setDistrictAvgPrice] = useState<number | null>(null);
+  const [latestPeriodLabel, setLatestPeriodLabel] = useState<string | null>(null);
   const [loading, setLoading] = useState(true);
   const [notFound, setNotFound] = useState(false);
 
@@ -153,10 +159,28 @@ const CityPage = () => {
       ]);
 
       setProfile(profileRes.data?.[0] ?? null);
-      setPrices((pricesRes.data as CityPriceRow[]) ?? []);
+      const cityPrices = (pricesRes.data as CityPriceRow[]) ?? [];
+      setPrices(cityPrices);
+
+      // Compute latest period from city's own prices
+      const nonAnnual = cityPrices.filter(p => !p.period.includes("Annual"));
+      if (nonAnnual.length > 0) {
+        setLatestPeriodLabel(formatLatestPeriod(nonAnnual[nonAnnual.length - 1].period));
+      } else {
+        // Fallback: latest period from any city_prices row (national/overall)
+        const { data: latestRows } = await supabase
+          .from("city_prices")
+          .select("period")
+          .like("period", "Q%")
+          .order("period", { ascending: false })
+          .limit(1);
+        if (latestRows?.[0]) {
+          setLatestPeriodLabel(formatLatestPeriod(latestRows[0].period));
+        }
+      }
 
       // District avg price fallback for cities without city-level price data
-      if (!pricesRes.data || pricesRes.data.length === 0) {
+      if (cityPrices.length === 0) {
         const { data: districtPriceRows } = await supabase
           .from("city_prices")
           .select("avg_price_total")
@@ -183,13 +207,6 @@ const CityPage = () => {
 
     fetchCity();
   }, [slug]);
-
-  const latestPeriod = (() => {
-    if (prices.length === 0) return null;
-    const nonAnnual = prices.filter(p => !p.period.includes("Annual"));
-    if (nonAnnual.length === 0) return null;
-    return formatLatestPeriod(nonAnnual[nonAnnual.length - 1].period);
-  })();
 
   const hasProfile = profile && [
     "overview", "anglo_community", "religious_infrastructure", "education",
@@ -256,7 +273,7 @@ const CityPage = () => {
               prices={prices}
               districtIndices={districtIndices}
               population={city.population}
-              latestPeriod={latestPeriod}
+              latestPeriod={latestPeriodLabel}
               districtAvgPrice={districtAvgPrice}
               affordabilityTier={profile?.affordability_tier ?? null}
             />
