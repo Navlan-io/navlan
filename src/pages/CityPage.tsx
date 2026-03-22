@@ -328,7 +328,7 @@ const CityPage = () => {
                 <span className="font-body text-[11px] font-semibold uppercase tracking-[0.15em] text-sand-gold">
                   Market Data
                 </span>
-                <h2 className="font-heading font-semibold text-[22px] md:text-[24px] text-charcoal mt-2 mb-6">
+                <h2 id="section-market-data" className="font-heading font-semibold text-[22px] md:text-[24px] text-charcoal mt-2 mb-6 scroll-mt-24">
                   Price Trends & Data
                 </h2>
                 <TrendsTab

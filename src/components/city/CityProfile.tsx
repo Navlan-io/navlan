@@ -32,6 +32,8 @@ const SECTION_DEFS = [
 
 type ProfileKey = (typeof SECTION_DEFS)[number]["key"];
 
+const MARKET_DATA_ID = "section-market-data";
+
 const CityProfile = ({ city, profile }: CityProfileProps) => {
   const isDesktop = useMediaQuery("(min-width: 1024px)");
   const hasContent = profile && SECTION_DEFS.some((s) => profile[s.key]);
@@ -100,6 +102,11 @@ function DesktopLayout({
     );
 
     sectionRefs.current.forEach((el) => observer.observe(el));
+
+    // Also observe the external Market Data section
+    const marketEl = document.getElementById(MARKET_DATA_ID);
+    if (marketEl) observer.observe(marketEl);
+
     return () => observer.disconnect();
   }, [sections]);
 
@@ -127,6 +134,17 @@ function DesktopLayout({
               {s.title}
             </button>
           ))}
+          <button
+            onClick={() => scrollTo(MARKET_DATA_ID)}
+            className={cn(
+              "block w-full text-left px-3 py-1.5 font-body text-[14px] rounded transition-colors border-l-2",
+              activeId === MARKET_DATA_ID
+                ? "text-charcoal border-sage font-medium"
+                : "text-warm-gray border-transparent hover:text-charcoal hover:border-grid-line"
+            )}
+          >
+            Price Trends & Data
+          </button>
         </div>
       </aside>
 
@@ -172,6 +190,11 @@ function AccordionLayout({
     });
   };
 
+  const scrollTo = (id: string) => {
+    const el = document.getElementById(id);
+    if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+  };
+
   return (
     <div className="divide-y divide-cream">
       {sections.map((s) => {
@@ -202,6 +225,18 @@ function AccordionLayout({
           </div>
         );
       })}
+      {/* Link to Market Data section */}
+      <div>
+        <button
+          onClick={() => scrollTo(MARKET_DATA_ID)}
+          className="w-full flex items-center justify-between py-4 text-left"
+        >
+          <span className="font-body font-semibold text-[16px] text-charcoal">
+            Price Trends & Data
+          </span>
+          <ChevronRight className="h-4 w-4 text-warm-gray flex-shrink-0" />
+        </button>
+      </div>
     </div>
   );
 }
