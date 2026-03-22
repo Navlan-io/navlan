@@ -30,6 +30,7 @@ const STATIC_ROUTES = [
   { path: "/guides/renting", priority: "0.9", changefreq: "monthly" },
   { path: "/guides/arnona", priority: "0.9", changefreq: "monthly" },
   { path: "/guides/exchange-rates", priority: "0.9", changefreq: "monthly" },
+  { path: "/tools/mortgage-calculator", priority: "0.8", changefreq: "weekly" },
   { path: "/advisor", priority: "0.8", changefreq: "monthly" },
   { path: "/about", priority: "0.5", changefreq: "monthly" },
   { path: "/disclaimer", priority: "0.3", changefreq: "yearly" },

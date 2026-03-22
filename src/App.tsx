@@ -22,6 +22,7 @@ import AboutPage from "./pages/AboutPage";
 import { DisclaimerPage, PrivacyPage, TermsPage } from "./pages/LegalPage";
 import AdvisorPage from "./pages/AdvisorPage";
 import CitiesPage from "./pages/CitiesPage";
+import MortgageCalculatorPage from "./pages/MortgageCalculatorPage";
 import ScrollToTop from "./components/ScrollToTop";
 
 const queryClient = new QueryClient();
@@ -55,6 +56,7 @@ const App = () => (
             <Route path="/guides/renting" element={<RentingGuidePage />} />
             <Route path="/guides/arnona" element={<ArnonaGuidePage />} />
             <Route path="/guides/exchange-rates" element={<ExchangeRateGuidePage />} />
+            <Route path="/tools/mortgage-calculator" element={<MortgageCalculatorPage />} />
             <Route path="/resources" element={<ResourcesPage />} />
             <Route path="/about" element={<AboutPage />} />
             <Route path="/disclaimer" element={<DisclaimerPage />} />
