@@ -158,11 +158,12 @@ export default function IsraelCityMap({
   const tooltipPixel = districtTooltipPos ? svgToPixel(districtTooltipPos.x, districtTooltipPos.y) : null;
 
   return (
-    <div className="relative">
+    <div className="relative h-full flex items-center justify-center">
       <svg
         ref={svgRef}
         viewBox="0 0 200 500"
-        className="w-full h-full"
+        className="w-auto h-full max-h-full"
+        style={{ objectFit: "contain" }}
         role="img"
         aria-label="Map of Israel showing city locations and district regions"
       >

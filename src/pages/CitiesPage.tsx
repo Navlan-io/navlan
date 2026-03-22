@@ -305,10 +305,10 @@ const CitiesPage = () => {
 
         {/* ── Zone 1: Map + Featured Cities ── */}
         <div className="container max-w-[1200px] pb-10">
-          <div className="flex flex-col lg:flex-row gap-6 lg:gap-8">
+          <div className="flex flex-col lg:flex-row lg:items-stretch gap-6 lg:gap-8">
             {/* Map (left side) */}
-            <div className="lg:w-[60%] flex items-start justify-center">
-              <div className="w-full max-w-[320px] lg:max-w-none mx-auto">
+            <div className="lg:w-[60%] flex items-center justify-center overflow-hidden lg:max-h-[600px]">
+              <div className="w-full max-w-[320px] lg:max-w-none mx-auto h-full">
                 {loading ? (
                   <div className="bg-cream rounded-xl animate-pulse h-[350px] lg:h-[480px]" />
                 ) : (
