@@ -1,4 +1,4 @@
-import { useState, useMemo } from "react";
+import { useState, useMemo, useRef, useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 import { getTierConfig } from "./AffordabilityBadge";
 
@@ -107,6 +107,8 @@ export default function IsraelCityMap({
 }: IsraelCityMapProps) {
   const [localHovered, setLocalHovered] = useState<string | null>(null);
   const [hoveredDistrict, setHoveredDistrict] = useState<string | null>(null);
+  const [districtTooltipPos, setDistrictTooltipPos] = useState<{ x: number; y: number } | null>(null);
+  const svgRef = useRef<SVGSVGElement>(null);
   const navigate = useNavigate();
 
   const activeHover = hoveredSlug ?? localHovered;
@@ -125,28 +127,60 @@ export default function IsraelCityMap({
     onHoverCity?.(slug);
   };
 
-  return (
-    <svg
-      viewBox="0 0 200 500"
-      className="w-full h-full"
-      role="img"
-      aria-label="Map of Israel showing city locations and district regions"
-    >
-      {/* 1. Country outline */}
-      <path
-        d={ISRAEL_OUTLINE}
-        fill="#F2EDE4"
-        stroke="#2D3234"
-        strokeWidth="1"
-        strokeOpacity="0.3"
-      />
+  // Convert SVG viewBox coords to pixel position relative to the container
+  const svgToPixel = useCallback((svgX: number, svgY: number) => {
+    const svg = svgRef.current;
+    if (!svg) return { px: 0, py: 0 };
+    const rect = svg.getBoundingClientRect();
+    // viewBox is 0 0 200 500
+    return {
+      px: (svgX / 200) * rect.width,
+      py: (svgY / 500) * rect.height,
+    };
+  }, []);
 
-      {/* 2. District region paths */}
-      {DISTRICT_REGIONS.map((district) => {
-        const isHovered = hoveredDistrict === district.name;
-        return (
-          <g key={district.name}>
+  const handleDistrictEnter = useCallback((district: DistrictRegion) => {
+    setHoveredDistrict(district.name);
+    // Compute centroid from path coordinates
+    const nums = district.path.match(/[\d.]+/g)?.map(Number) ?? [];
+    let cx = 0, cy = 0, count = 0;
+    for (let i = 0; i < nums.length - 1; i += 2) {
+      cx += nums[i]; cy += nums[i + 1]; count++;
+    }
+    if (count > 0) { cx /= count; cy /= count; }
+    setDistrictTooltipPos({ x: cx, y: cy });
+  }, []);
+
+  const hoveredDistrictData = hoveredDistrict
+    ? DISTRICT_REGIONS.find((d) => d.name === hoveredDistrict)
+    : null;
+
+  const tooltipPixel = districtTooltipPos ? svgToPixel(districtTooltipPos.x, districtTooltipPos.y) : null;
+
+  return (
+    <div className="relative">
+      <svg
+        ref={svgRef}
+        viewBox="0 0 200 500"
+        className="w-full h-full"
+        role="img"
+        aria-label="Map of Israel showing city locations and district regions"
+      >
+        {/* 1. Country outline */}
+        <path
+          d={ISRAEL_OUTLINE}
+          fill="#F2EDE4"
+          stroke="#2D3234"
+          strokeWidth="1"
+          strokeOpacity="0.3"
+        />
+
+        {/* 2. District region paths */}
+        {DISTRICT_REGIONS.map((district) => {
+          const isHovered = hoveredDistrict === district.name;
+          return (
             <path
+              key={district.name}
               d={district.path}
               fill={isHovered ? district.fillHover : district.fill}
               stroke="#2D3234"
@@ -154,143 +188,114 @@ export default function IsraelCityMap({
               strokeOpacity="0.15"
               className="cursor-pointer"
               style={{ transition: "fill 0.2s ease" }}
-              onMouseEnter={() => setHoveredDistrict(district.name)}
-              onMouseLeave={() => setHoveredDistrict(null)}
+              onMouseEnter={() => handleDistrictEnter(district)}
+              onMouseLeave={() => { setHoveredDistrict(null); setDistrictTooltipPos(null); }}
               onClick={() => onDistrictClick?.(district.filterName)}
             />
-            {/* District tooltip on hover */}
-            {isHovered && (() => {
-              // Compute centroid-ish from bounding box of path coordinates
-              const nums = district.path.match(/[\d.]+/g)?.map(Number) ?? [];
-              let cx = 0, cy = 0, count = 0;
-              for (let i = 0; i < nums.length - 1; i += 2) {
-                cx += nums[i]; cy += nums[i + 1]; count++;
-              }
-              if (count > 0) { cx /= count; cy /= count; }
-              const nameWidth = district.name.length * 7 + 16;
-              const descWidth = district.description.length * 4.5 + 16;
-              const boxWidth = Math.max(nameWidth, descWidth, 100);
-              // Flip tooltip to the left if it would overflow the right edge
-              const tooltipX = cx + boxWidth > 195 ? cx - boxWidth - 4 : cx + 4;
-              return (
-                <g pointerEvents="none">
-                  <rect
-                    x={tooltipX}
-                    y={cy - 24}
-                    width={boxWidth}
-                    height={32}
-                    rx="4"
-                    fill="#2D3234"
-                    fillOpacity="0.92"
+          );
+        })}
+
+        {/* 3. City dots — non-featured first, then featured on top */}
+        {plotted
+          .sort((a, b) => (a.isFeatured ? 1 : 0) - (b.isFeatured ? 1 : 0))
+          .map((city) => {
+            const isHovered = activeHover === city.slug;
+            const r = city.isFeatured ? 5 : 3.2;
+            const hoverR = r + 2;
+
+            return (
+              <g
+                key={city.slug}
+                className="cursor-pointer"
+                onMouseEnter={() => handleHover(city.slug)}
+                onMouseLeave={() => handleHover(null)}
+                onClick={() => navigate(`/city/${city.slug}`)}
+              >
+                {/* Hover ring */}
+                {isHovered && (
+                  <circle
+                    cx={city.x}
+                    cy={city.y}
+                    r={hoverR}
+                    fill="none"
+                    stroke={city.color}
+                    strokeWidth="1.5"
+                    opacity="0.35"
                   />
-                  <text
-                    x={tooltipX + 8}
-                    y={cy - 10}
-                    fill="white"
-                    fontSize="9"
-                    fontFamily="DM Sans, sans-serif"
-                    fontWeight="600"
-                  >
-                    {district.name} District
-                  </text>
-                  <text
-                    x={tooltipX + 8}
-                    y={cy + 1}
-                    fill="rgba(255,255,255,0.7)"
-                    fontSize="7"
-                    fontFamily="DM Sans, sans-serif"
-                  >
-                    {district.description}
-                  </text>
-                </g>
-              );
-            })()}
-          </g>
-        );
-      })}
+                )}
 
-      {/* 3. City dots — non-featured first, then featured on top */}
-      {plotted
-        .sort((a, b) => (a.isFeatured ? 1 : 0) - (b.isFeatured ? 1 : 0))
-        .map((city) => {
-          const isHovered = activeHover === city.slug;
-          const r = city.isFeatured ? 5 : 3.2;
-          const hoverR = r + 2;
-
-          return (
-            <g
-              key={city.slug}
-              className="cursor-pointer"
-              onMouseEnter={() => handleHover(city.slug)}
-              onMouseLeave={() => handleHover(null)}
-              onClick={() => navigate(`/city/${city.slug}`)}
-            >
-              {/* Hover ring */}
-              {isHovered && (
+                {/* Dot */}
                 <circle
                   cx={city.x}
                   cy={city.y}
-                  r={hoverR}
-                  fill="none"
-                  stroke={city.color}
-                  strokeWidth="1.5"
-                  opacity="0.35"
+                  r={isHovered ? r + 1 : r}
+                  fill={city.color}
+                  stroke="white"
+                  strokeWidth={city.isFeatured ? 1.5 : 1}
+                  style={{ transition: "r 0.15s ease" }}
                 />
-              )}
 
-              {/* Dot */}
-              <circle
-                cx={city.x}
-                cy={city.y}
-                r={isHovered ? r + 1 : r}
-                fill={city.color}
-                stroke="white"
-                strokeWidth={city.isFeatured ? 1.5 : 1}
-                style={{ transition: "r 0.15s ease" }}
-              />
-
-              {/* Tooltip on hover */}
-              {isHovered && (
-                <g>
-                  {/* Tooltip background */}
-                  <rect
-                    x={city.x + 10}
-                    y={city.y - 28}
-                    width={Math.max(city.name.length * 6.5 + 16, city.price ? 90 : 70)}
-                    height={city.price ? 38 : 24}
-                    rx="4"
-                    fill="#2D3234"
-                    fillOpacity="0.92"
-                  />
-                  {/* City name */}
-                  <text
-                    x={city.x + 18}
-                    y={city.y - 14}
-                    fill="white"
-                    fontSize="10"
-                    fontFamily="DM Sans, sans-serif"
-                    fontWeight="600"
-                  >
-                    {city.name}
-                  </text>
-                  {/* Tier + Price */}
-                  {(city.tier || city.price) && (
+                {/* Tooltip on hover */}
+                {isHovered && (
+                  <g>
+                    <rect
+                      x={city.x + 10}
+                      y={city.y - 28}
+                      width={Math.max(city.name.length * 6.5 + 16, city.price ? 90 : 70)}
+                      height={city.price ? 38 : 24}
+                      rx="4"
+                      fill="#2D3234"
+                      fillOpacity="0.92"
+                    />
                     <text
                       x={city.x + 18}
-                      y={city.y - 1}
-                      fill="rgba(255,255,255,0.7)"
-                      fontSize="8.5"
+                      y={city.y - 14}
+                      fill="white"
+                      fontSize="10"
                       fontFamily="DM Sans, sans-serif"
+                      fontWeight="600"
                     >
-                      {getTierConfig(city.tier)?.label ?? ""}
-                      {city.price ? ` \u00B7 ${city.price}` : ""}
+                      {city.name}
                     </text>
-                  )}
-                </g>
-              )}
-            </g>
-          );
-        })}
-    </svg>
+                    {(city.tier || city.price) && (
+                      <text
+                        x={city.x + 18}
+                        y={city.y - 1}
+                        fill="rgba(255,255,255,0.7)"
+                        fontSize="8.5"
+                        fontFamily="DM Sans, sans-serif"
+                      >
+                        {getTierConfig(city.tier)?.label ?? ""}
+                        {city.price ? ` \u00B7 ${city.price}` : ""}
+                      </text>
+                    )}
+                  </g>
+                )}
+              </g>
+            );
+          })}
+      </svg>
+
+      {/* District tooltip — HTML overlay outside SVG so it can't be clipped */}
+      {hoveredDistrictData && tooltipPixel && (
+        <div
+          className="absolute z-10 pointer-events-none"
+          style={{
+            left: `${tooltipPixel.px}px`,
+            top: `${tooltipPixel.py}px`,
+            transform: "translate(-50%, -120%)",
+          }}
+        >
+          <div className="bg-charcoal/[0.92] rounded px-3 py-2 whitespace-nowrap">
+            <p className="font-body text-[12px] font-semibold text-white leading-tight">
+              {hoveredDistrictData.name} District
+            </p>
+            <p className="font-body text-[10px] text-white/70 leading-tight mt-0.5">
+              {hoveredDistrictData.description}
+            </p>
+          </div>
+        </div>
+      )}
+    </div>
   );
 }
