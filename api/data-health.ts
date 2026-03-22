@@ -94,23 +94,9 @@ const TABLE_CHECKS: TableCheck[] = [
     },
   },
   {
-    name: 'city_rentals',
-    query: 'period',
-    maxAgeDays: 180,
-    parseLatest: (rows: any[]) => {
-      if (!rows?.[0]) return null;
-      const p = rows[0].period;
-      const match = p.match(/^Q(\d)-(\d{4})$/);
-      if (!match) return { label: p, date: new Date() };
-      const q = parseInt(match[1]);
-      const y = parseInt(match[2]);
-      return { label: p, date: new Date(y, (q - 1) * 3 + 2, 15) };
-    },
-  },
-  {
     name: 'population_data',
     query: 'year',
-    maxAgeDays: 400,
+    maxAgeDays: 600,
     minRows: 20,
     parseLatest: (rows: any[]) => {
       if (!rows?.[0]) return null;
@@ -152,7 +138,7 @@ export async function GET() {
           query = query.order('period', { ascending: false });
         } else if (check.name === 'population_data') {
           query = query.order('year', { ascending: false });
-        } else if (check.name === 'city_prices' || check.name === 'city_rentals') {
+        } else if (check.name === 'city_prices') {
           query = query.like('period', 'Q%').order('period', { ascending: false });
         }
 
@@ -241,7 +227,7 @@ export async function GET() {
     }
 
     // Check staging tables for pending rows
-    for (const stagingTable of ['city_prices_staging', 'city_rentals_staging']) {
+    for (const stagingTable of ['city_prices_staging']) {
       try {
         const { count, error } = await supabase
           .from(stagingTable)

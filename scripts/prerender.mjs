@@ -39,7 +39,7 @@ function toSlug(name) {
 }
 
 async function fetchCitySlugs() {
-  const url = `${SUPABASE_URL}/rest/v1/localities?select=english_name&entity_type=in.("city","town","yishuv")&order=english_name`;
+  const url = `${SUPABASE_URL}/rest/v1/city_profiles?select=city_name&order=city_name`;
   const res = await fetch(url, {
     headers: {
       apikey: SUPABASE_KEY,
@@ -47,11 +47,11 @@ async function fetchCitySlugs() {
     },
   });
   if (!res.ok) {
-    console.error("Failed to fetch localities:", res.status, await res.text());
+    console.error("Failed to fetch city_profiles:", res.status, await res.text());
     process.exit(1);
   }
   const rows = await res.json();
-  return rows.map((r) => toSlug(r.english_name));
+  return rows.map((r) => toSlug(r.city_name));
 }
 
 /**
