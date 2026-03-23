@@ -10,6 +10,7 @@ import CityProfile from "@/components/city/CityProfile";
 import SimilarCities from "@/components/city/SimilarCities";
 import { Skeleton } from "@/components/ui/skeleton";
 import SEO from "@/components/SEO";
+import NotFound from "@/pages/NotFound";
 
 interface CityData {
   english_name: string;
@@ -214,21 +215,7 @@ const CityPage = () => {
   ].some((key) => (profile as any)[key]);
 
   if (notFound) {
-    return (
-      <div className="min-h-screen flex flex-col bg-warm-white">
-        <NavBar />
-        <div className="flex-1 flex items-center justify-center">
-          <div className="text-center">
-            <h1 className="font-heading font-bold text-[28px] text-charcoal">City not found</h1>
-            <p className="mt-2 font-body text-warm-gray">
-              Browse all cities on the{" "}
-              <Link to="/cities" className="text-horizon-blue hover:underline">cities page</Link>.
-            </p>
-          </div>
-        </div>
-        <Footer />
-      </div>
-    );
+    return <NotFound />;
   }
 
   return (
