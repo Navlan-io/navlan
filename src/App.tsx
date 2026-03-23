@@ -6,6 +6,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { CurrencyProvider } from "@/contexts/CurrencyContext";
 import ScrollToTop from "./components/ScrollToTop";
+import { usePageView } from "./hooks/usePageView";
 
 // Lazy-loaded page components
 const Index = React.lazy(() => import("./pages/Index"));
@@ -38,6 +39,11 @@ const LoadingSpinner = () => (
 
 const queryClient = new QueryClient();
 
+function PageViewTracker() {
+  usePageView();
+  return null;
+}
+
 const App = () => (
   <QueryClientProvider client={queryClient}>
     <TooltipProvider>
@@ -45,6 +51,7 @@ const App = () => (
         <Toaster />
         <Sonner />
         <BrowserRouter>
+          <PageViewTracker />
           <a
             href="#main-content"
             className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[9999] focus:px-4 focus:py-2 focus:bg-white focus:text-charcoal focus:rounded-lg focus:shadow-lg focus:font-body focus:text-sm"
