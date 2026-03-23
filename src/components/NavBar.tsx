@@ -13,6 +13,11 @@ const navLinks = [
 ];
 
 const currencies = ["₪", "$", "€"] as const;
+const currencyLabels: Record<string, string> = {
+  "₪": "Switch to Israeli Shekel",
+  "$": "Switch to US Dollar",
+  "€": "Switch to Euro",
+};
 
 const NavBar = () => {
   const { currency, setCurrency } = useCurrency();
@@ -47,6 +52,8 @@ const NavBar = () => {
               <button
                 key={c}
                 onClick={() => setCurrency(c)}
+                aria-label={currencyLabels[c]}
+                aria-pressed={currency === c}
                 className={cn(
                   "px-3 py-1.5 min-h-[44px] min-w-[44px] flex items-center justify-center rounded-full text-sm font-body font-medium transition-colors",
                   currency === c
@@ -62,6 +69,8 @@ const NavBar = () => {
           <button
             className="md:hidden p-2 min-h-[44px] min-w-[44px] flex items-center justify-center text-charcoal"
             onClick={() => setMobileOpen(!mobileOpen)}
+            aria-label={mobileOpen ? "Close navigation menu" : "Open navigation menu"}
+            aria-expanded={mobileOpen}
           >
             {mobileOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
           </button>

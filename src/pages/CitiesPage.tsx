@@ -376,6 +376,7 @@ const CitiesPage = () => {
               <button
                 key={filter}
                 onClick={() => setActiveDistrict(filter)}
+                aria-pressed={activeDistrict === filter}
                 className={`whitespace-nowrap rounded-full px-4 py-1.5 min-h-[36px] font-body text-[13px] font-medium transition-colors shrink-0 ${
                   activeDistrict === filter
                     ? "bg-sage text-white"
@@ -397,6 +398,7 @@ const CitiesPage = () => {
               type="text"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
+              aria-label="Search cities"
               placeholder="Search cities…"
               className="w-full pl-10 pr-4 py-2.5 min-h-[44px] rounded-lg border border-grid-line bg-cream font-body text-[15px] text-charcoal placeholder:text-warm-gray/60 focus:outline-none focus:ring-2 focus:ring-sage/40 focus:border-sage transition-colors"
             />
@@ -446,9 +448,9 @@ const CitiesPage = () => {
 
         {/* ── Advisor CTA ── */}
         <div className="container max-w-[1200px] py-12 text-center">
-          <p className="font-heading font-semibold text-[20px] text-charcoal mb-2">
+          <h2 className="font-heading font-semibold text-[20px] text-charcoal mb-2">
             Not sure which city is right for you?
-          </p>
+          </h2>
           <p className="font-body text-[15px] text-warm-gray mb-5 max-w-md mx-auto">
             Tell us your priorities — budget, community, commute — and get personalized guidance.
           </p>

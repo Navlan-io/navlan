@@ -48,6 +48,7 @@ export default function CategoryFilter({ active, onChange }: CategoryFilterProps
         <button
           key={cat.key}
           onClick={() => onChange(cat.key)}
+          aria-pressed={active === cat.key}
           className={`whitespace-nowrap rounded-full px-4 py-2 min-h-[36px] font-body text-[13px] font-medium border transition-colors shrink-0 ${
             active === cat.key
               ? "bg-charcoal text-white border-charcoal"

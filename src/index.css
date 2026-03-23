@@ -122,6 +122,46 @@ html, body {
   }
 }
 
+/* Range input: 44px touch target with centered track */
+input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 44px;
+  background: transparent;
+  cursor: pointer;
+}
+
+input[type="range"]::-webkit-slider-runnable-track {
+  height: 6px;
+  border-radius: 3px;
+  background: hsl(var(--grid-line));
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: hsl(var(--sage));
+  margin-top: -11px;
+  border: none;
+}
+
+input[type="range"]::-moz-range-track {
+  height: 6px;
+  border-radius: 3px;
+  background: hsl(var(--grid-line));
+}
+
+input[type="range"]::-moz-range-thumb {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: hsl(var(--sage));
+  border: none;
+}
+
 /* Ensure images never overflow */
 img {
   max-width: 100%;
