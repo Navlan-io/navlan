@@ -53,7 +53,7 @@ const NewsletterSignup = ({ source, variant = "light" }: NewsletterSignupProps) 
 
   if (variant === "dark") {
     return (
-      <div className="flex gap-2">
+      <div className="flex flex-col min-[420px]:flex-row gap-2">
         <input
           type="email"
           placeholder="Your email"
@@ -77,7 +77,7 @@ const NewsletterSignup = ({ source, variant = "light" }: NewsletterSignupProps) 
   }
 
   return (
-    <div className="flex gap-2">
+    <div className="flex flex-col min-[420px]:flex-row gap-2">
       <input
         type="email"
         placeholder="Your email"

@@ -417,8 +417,20 @@ const MortgageCalculatorPage = () => {
                       value={value}
                       checked={buyerType === value}
                       onChange={() => setBuyerType(value)}
-                      className="accent-sage"
+                      className="sr-only"
                     />
+                    <span
+                      aria-hidden="true"
+                      className={`h-5 w-5 shrink-0 rounded-full border-2 flex items-center justify-center transition-colors ${
+                        buyerType === value
+                          ? "border-sage"
+                          : "border-warm-gray/40"
+                      }`}
+                    >
+                      {buyerType === value && (
+                        <span className="h-2.5 w-2.5 rounded-full bg-sage" />
+                      )}
+                    </span>
                     {label}
                   </label>
                 ))}
