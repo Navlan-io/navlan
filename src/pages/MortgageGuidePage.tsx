@@ -920,7 +920,7 @@ const MortgageGuidePage = () => {
       subtitle="Tracks, rates, olim benefits, and the approval process — everything English speakers need to know about the mashkanta."
       date="Last updated: March 2026"
       readTime="~25 min read"
-      metaDescription="Complete English guide to Israeli mortgages (mashkanta). Mortgage tracks, current rates, olim benefits, Bank of Israel regulations, and the approval process — for English speakers, olim, and diaspora buyers."
+      metaDescription="English guide to Israeli mortgages — tracks, rates, olim benefits, Bank of Israel rules, and the full approval process for English speakers and diaspora buyers."
       sections={sections}
       bottomNav={{
         prev: { label: "Dira BeHanacha Guide", to: "/guides/dira-behanacha" },

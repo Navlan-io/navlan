@@ -108,7 +108,7 @@ const MarketDataPage = () => {
     <div className="min-h-screen flex flex-col bg-warm-white">
       <SEO
         title="Israel Housing Market Data — Price Index, Mortgage Rates & Construction Trends | Navlan.io"
-        description="Track Israel's housing market with national price indices, district comparisons, mortgage rates, construction pipeline data, and rental market trends — all in English."
+        description="Track Israel's housing market — national price indices, district comparisons, mortgage rates, construction starts, and rental trends. Updated data in English."
         structuredData={[
           {
             "@context": "https://schema.org",

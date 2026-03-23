@@ -271,7 +271,7 @@ const MortgageCalculatorPage = () => {
     <>
       <SEO
         title="Israeli Mortgage Calculator | Navlan"
-        description="Estimate your monthly mortgage payments using current Bank of Israel average rates. Calculate payments across multiple tracks including fixed, CPI-indexed, and Prime-linked mortgages."
+        description="Calculate Israeli mortgage payments with current Bank of Israel rates. Supports fixed, CPI-indexed, and Prime-linked tracks with purchase tax estimates."
         structuredData={structuredData}
       />
       <NavBar />

@@ -1168,7 +1168,7 @@ const PurchaseTaxGuidePage = () => {
       subtitle="Tax brackets, olim benefits, sole dwelling rules, worked calculations, and the scenarios every Anglo buyer faces."
       date="Last updated: March 2026"
       readTime="~22 min read"
-      metaDescription="Understand Israel's purchase tax brackets for 2025–2027, olim benefits, sole dwelling rules, worked calculations, and common Anglo scenarios. The most comprehensive English-language guide to mas rechisha."
+      metaDescription="Israel's purchase tax (mas rechisha) explained — 2025–2027 brackets, olim exemptions, sole dwelling rules, and worked calculations for common Anglo scenarios."
       sections={sections}
       bottomNav={{
         prev: { label: "Mortgages Guide", to: "/guides/mortgages" },

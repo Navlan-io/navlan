@@ -300,7 +300,7 @@ const StartHereGuidePage = () => {
       subtitle="Everything you need to know about the Israeli real estate market — the purchase process, costs, mortgages, and common pitfalls."
       date="Last updated: March 2026"
       readTime="~18 min read"
-      metaDescription="A comprehensive English-language guide to buying property in Israel. Covers the purchase process, costs, mortgages, legal framework, and common mistakes for olim and foreign buyers."
+      metaDescription="The complete guide to buying property in Israel for English speakers. Purchase process, costs, mortgages, legal framework, and common mistakes for olim."
       sections={sections}
       headerContent={headerContent}
       bottomNav={{

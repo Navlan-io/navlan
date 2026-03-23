@@ -285,7 +285,7 @@ const CitiesPage = () => {
     <>
       <SEO
         title="Explore Cities in Israel — Prices & Community Profiles | Navlan"
-        description="Browse real estate data, average prices, and community profiles for 60+ Israeli cities. Filter by district — Jerusalem, Tel Aviv, Central, Haifa, South, and North."
+        description="Browse real estate data, prices, and community profiles for 60+ Israeli cities. Filter by district — Jerusalem, Tel Aviv, Central, Haifa, South, and North."
         structuredData={structuredData}
       />
       <NavBar />

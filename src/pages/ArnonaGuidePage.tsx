@@ -597,7 +597,7 @@ const ArnonaGuidePage = () => {
       subtitle="The one tax everyone in Israel pays — and almost no English-language resource explains properly."
       date="Last updated: March 2026"
       readTime="~22 min read"
-      metaDescription="A comprehensive English-language guide to arnona, Israel's municipal property tax. Learn how it's calculated, what discounts are available (including olim), payment options, and how to dispute your bill."
+      metaDescription="English guide to arnona, Israel's municipal property tax. How it's calculated, olim and new immigrant discounts, payment options, and how to dispute your bill."
       sections={sections}
       bottomNav={{
         prev: { label: "Renting Guide", to: "/guides/renting" },

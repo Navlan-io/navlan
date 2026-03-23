@@ -71,7 +71,7 @@ const Index = () => {
   return (
     <div className="min-h-screen flex flex-col bg-warm-white">
       <SEO
-        title="Israeli Real Estate Data in English — Prices, City Guides & Market Trends | Navlan.io"
+        title="Israeli Real Estate Data in English | Navlan.io"
         description="Navigate Israeli real estate in English. Market data, city-by-city price guides, mortgage rates, and community resources for English-speaking buyers."
         structuredData={[
           {

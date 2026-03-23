@@ -236,7 +236,7 @@ const CityPage = () => {
       {city && (
         <SEO
           title={`${city.english_name} Real Estate Data — Prices, Rent & Community Guide | Navlan.io`}
-          description={`Explore real estate data for ${city.english_name}, Israel — average home prices, price trends, rental data, and community information for English speakers.`}
+          description={`Explore ${city.english_name} real estate data — average prices, market trends, and community guide for English speakers in Israel.`}
           structuredData={[
             {
               "@context": "https://schema.org",

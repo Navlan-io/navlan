@@ -237,7 +237,7 @@ const DiraGuidePageComponent = () => {
       subtitle="The most complete English-language guide to Israel's government housing lottery — eligibility, how to apply, and what to expect."
       date="Last updated: March 2026"
       readTime="~20 min read"
-      metaDescription="Complete English guide to Israel's Dira BeHanacha subsidized housing program. Learn about eligibility, the lottery process, and how olim can apply for discounted apartments."
+      metaDescription="English guide to Dira BeHanacha, Israel's subsidized housing lottery. Eligibility, the application process, and how olim can get discounted apartments."
       sections={sections}
       bottomNav={{
         prev: { label: "Start Here Guide", to: "/guides/start-here" },

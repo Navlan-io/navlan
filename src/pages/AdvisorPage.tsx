@@ -244,7 +244,7 @@ const AdvisorPage = () => {
     <div className="min-h-screen flex flex-col bg-warm-white">
       <SEO
         title="AI Real Estate Advisor for English Speakers in Israel | Navlan.io"
-        description="Get personalized city and neighborhood recommendations from our AI advisor. Tell us about your situation and we'll suggest the best areas in Israel for English speakers."
+        description="AI-powered city recommendations for English speakers in Israel. Describe your budget, family, and lifestyle to get personalized real estate suggestions."
       />
       <NavBar />
 

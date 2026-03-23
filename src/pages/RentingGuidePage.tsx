@@ -1303,7 +1303,7 @@ const RentingGuidePage = () => {
       subtitle="Everything you need to know about finding, securing, and living in a rental apartment in Israel — from your first Yad2 search to getting your security deposit back."
       date="Last updated: March 2026"
       readTime="~20 min read"
-      metaDescription="The complete English-language guide to renting in Israel — finding apartments, lease agreements, tenant rights, security deposits, olim benefits, and tips from Anglo veterans."
+      metaDescription="English guide to renting in Israel — finding apartments, lease agreements, tenant rights, deposits, and olim benefits. Tips from experienced Anglo renters."
       headerContent={<>{tldr}{quickRef}</>}
       sections={sections}
       bottomNav={{

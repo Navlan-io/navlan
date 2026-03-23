@@ -10,7 +10,7 @@ const AboutPage = () => {
     <div className="min-h-screen flex flex-col bg-warm-white">
       <SEO
         title="About Navlan — Independent Israeli Real Estate Data in English | Navlan.io"
-        description="Navlan provides independent, transparent Israeli real estate data and resources for English-speaking buyers — no sales agenda, just data."
+        description="Navlan.io is an independent platform providing Israeli real estate data for English speakers — city prices, market trends, mortgage tools, and buyer guides."
       />
       <NavBar />
       <main className="flex-1">

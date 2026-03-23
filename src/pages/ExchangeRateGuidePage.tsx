@@ -511,7 +511,7 @@ const ExchangeRateGuidePage = () => {
       subtitle="The Navlan Report — See exactly how NIS/USD, NIS/EUR, and NIS/GBP rates change what you pay for Israeli property."
       date="Last updated: March 2026"
       readTime="~10 min read"
-      metaDescription="See exactly how NIS/USD, NIS/EUR, and NIS/GBP rates change what you pay for Israeli property. Concrete math, transfer tips, and ongoing exposure — no timing advice."
+      metaDescription="How NIS/USD, EUR, and GBP exchange rates affect Israeli property costs. Concrete math, money transfer tips, and managing ongoing currency exposure."
       sections={sections}
       bottomNav={{
         prev: { label: "Arnona Guide", to: "/guides/arnona" },

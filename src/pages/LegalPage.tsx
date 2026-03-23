@@ -32,7 +32,7 @@ const LegalPage = ({ title, metaTitle, metaDescription, children }: LegalPagePro
 };
 
 export const DisclaimerPage = () => (
-  <LegalPage title="Disclaimer" metaTitle="Disclaimer | Navlan.io">
+  <LegalPage title="Disclaimer" metaTitle="Disclaimer | Navlan.io" metaDescription="Navlan.io disclaimer — market data is for informational purposes only and does not constitute financial, legal, or investment advice. Consult qualified professionals.">
     <p>
       Navlan.io provides publicly available market data and editorial content for informational purposes only. Nothing on this site constitutes financial, legal, or investment advice. Real estate transactions involve significant risk and complexity. Always consult qualified professionals — including a licensed attorney, mortgage advisor, and tax advisor — before making any property purchase decisions.
     </p>
@@ -48,7 +48,7 @@ export const DisclaimerPage = () => (
 );
 
 export const PrivacyPage = () => (
-  <LegalPage title="Privacy Policy" metaTitle="Privacy Policy | Navlan.io">
+  <LegalPage title="Privacy Policy" metaTitle="Privacy Policy | Navlan.io" metaDescription="How Navlan.io handles your data. We collect minimal information, never sell or share it with third parties, and newsletter subscribers can unsubscribe anytime.">
     <p>
       Navlan.io respects your privacy. We collect minimal data: email addresses for newsletter subscribers (via Beehiiv) and anonymous usage analytics (via Google Analytics). We do not sell, share, or distribute your personal information to third parties. Newsletter subscribers can unsubscribe at any time.
     </p>
@@ -61,7 +61,7 @@ export const PrivacyPage = () => (
 );
 
 export const TermsPage = () => (
-  <LegalPage title="Terms of Use" metaTitle="Terms of Use | Navlan.io">
+  <LegalPage title="Terms of Use" metaTitle="Terms of Use | Navlan.io" metaDescription="Terms of use for Navlan.io — content is provided as-is for informational purposes. Redistribution of data, content, or design requires written permission.">
     <p>
       By using Navlan.io, you agree that all content is provided as-is for informational purposes. You may not scrape, republish, or redistribute Navlan's data, content, or design without written permission. External links are provided for convenience and do not imply endorsement. Navlan reserves the right to modify or discontinue any part of the site at any time.
     </p>
