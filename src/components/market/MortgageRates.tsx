@@ -115,7 +115,7 @@ const MortgageRates = ({ onDataLoaded, introText }: MortgageRatesProps) => {
                     const isKeyRow = r.track_type === "non_indexed_fixed" || r.track_type === "prime_variable";
                     return (
                       <TableRow
-                        key={r.track_type}
+                        key={`${r.track_type}-${r.rate_type}-${i}`}
                         className={cn(
                           isKeyRow ? "border-l-4 border-l-sage font-semibold" : "",
                           i % 2 === 0 ? "bg-white" : "bg-cream/50"
