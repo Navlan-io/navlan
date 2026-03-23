@@ -674,8 +674,10 @@ const MortgageGuidePage = () => {
             For English speakers, an English-speaking mortgage broker is close
             to a necessity. A good broker translates the process, structures
             your track composition, submits to multiple banks, and negotiates
-            with competing offers as leverage. Brokers are typically paid by the
-            bank, though some charge advisory fees — clarify upfront.
+            with competing offers as leverage. Mortgage brokers are paid
+            directly by you, not the bank — which keeps their advice
+            independent and aligned with your interests. Expect to discuss
+            fees upfront.
           </p>
         </>
       ),
