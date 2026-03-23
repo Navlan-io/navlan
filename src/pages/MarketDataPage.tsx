@@ -18,7 +18,7 @@ import RentalMarket from "@/components/market/RentalMarket";
 import type { RentalMarketData } from "@/components/market/RentalMarket";
 import InlineNewsletterCTA from "@/components/ui/InlineNewsletterCTA";
 import { useCurrency } from "@/contexts/CurrencyContext";
-import { Share2 } from "lucide-react";
+import { MessageCircle } from "lucide-react";
 
 const fullBleed = {
   marginLeft: "calc(-50vw + 50%)",
@@ -150,8 +150,8 @@ const MarketDataPage = () => {
               }}
               className="inline-flex items-center gap-2 px-4 py-2 rounded-lg border border-sage/30 text-sage font-body text-[14px] font-medium hover:bg-sage/5 transition-colors"
             >
-              <Share2 className="h-4 w-4" />
-              Share
+              <MessageCircle className="h-4 w-4" />
+              Share on WhatsApp
             </button>
           </div>
         </div>

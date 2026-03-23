@@ -145,7 +145,7 @@ const MarketSnapshot = () => {
           <p className="font-body text-[13px] text-warm-gray mb-1">
             Data as of: {new Date(latest.year, latest.month - 1).toLocaleString("en-US", { month: "long", year: "numeric" })}
           </p>
-          <p className="font-body text-[12px] text-warm-gray/70 mt-1 mb-4">Data updates monthly from CBS</p>
+          <p className="font-body text-[12px] text-warm-gray/70 mt-1 mb-4">Data updates monthly from Israel's Central Bureau of Statistics</p>
         </>
       )}
 
@@ -159,14 +159,14 @@ const MarketSnapshot = () => {
           </span>
         </div>
         <div className="flex items-center gap-2">
-          <span className="font-body text-[13px] text-warm-gray">YoY</span>
+          <span className="font-body text-[13px] text-warm-gray">Year-over-Year</span>
           <TrendPill
             direction={latest.yoy >= 0 ? "up" : "down"}
             value={`${latest.yoy >= 0 ? "+" : ""}${latest.yoy.toFixed(1)}%`}
           />
         </div>
         <div className="flex items-center gap-2">
-          <span className="font-body text-[13px] text-warm-gray">MoM</span>
+          <span className="font-body text-[13px] text-warm-gray">Month-over-Month</span>
           <TrendPill
             direction={latest.mom >= 0 ? "up" : "down"}
             value={`${latest.mom >= 0 ? "+" : ""}${latest.mom.toFixed(1)}%`}

@@ -17,7 +17,7 @@ const HomepageNewsletter = () => {
           Newsletter
         </span>
         <h2 className="mt-1 font-heading font-bold text-[24px] md:text-[28px] text-white">
-          Get CBS data explained in plain English — monthly
+          Get government housing data explained in plain English — monthly
         </h2>
         <p className="mt-4 font-body text-[16px] text-white/80 leading-relaxed">
           Join English-speaking property buyers who want the real numbers, not broker opinions. Free, monthly, unsubscribe anytime.

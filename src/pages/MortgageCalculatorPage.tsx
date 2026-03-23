@@ -63,8 +63,8 @@ const TRACKS: TrackConfig[] = [
     label: "Prime-linked",
     seriesKey: "BNK_99034_LR_BIR_MRTG_348",
     trackType: "prime_variable",
-    description: "Based on Prime rate. Typically Prime \u00B1 spread, negotiated with your bank. Changes with BOI policy rate.",
-    note: "Adjusts with BOI policy rate",
+    description: "Based on Prime rate. Typically Prime \u00B1 spread, negotiated with your bank. Changes with Bank of Israel policy rate.",
+    note: "Adjusts with Bank of Israel policy rate",
   },
   {
     id: "fixed_period",
@@ -107,7 +107,7 @@ function formatPeriodLabel(period: string): string {
 // ── Component ──
 
 const MortgageCalculatorPage = () => {
-  const { currency, rates: exchangeRates } = useCurrency();
+  const { currency, rates: exchangeRates, formatPrice } = useCurrency();
 
   // Input state
   const [propertyPrice, setPropertyPrice] = useState<string>("");
@@ -351,7 +351,7 @@ const MortgageCalculatorPage = () => {
               {/* Property price */}
               <div>
                 <label className="font-body text-[14px] font-medium text-charcoal block mb-1.5">
-                  Property price ({currency})
+                  Property price (₪)
                 </label>
                 <input
                   type="text"
@@ -370,7 +370,7 @@ const MortgageCalculatorPage = () => {
                 />
                 {currency !== "₪" && price > 0 && (
                   <p className="font-body text-[12px] text-warm-gray mt-1">
-                    Enter amount in ₪ — results shown in {currency}
+                    ≈ {formatPrice(price / 1000)} at today's rate
                   </p>
                 )}
               </div>
@@ -424,7 +424,7 @@ const MortgageCalculatorPage = () => {
               </div>
               {buyerType === "upgrade" && (
                 <p className="font-body text-[13px] text-warm-gray mt-2">
-                  Already own a property in Israel? LTV is capped at 70% until you sell.
+                  Already own a property in Israel? Loan-to-value is capped at 70% until you sell.
                 </p>
               )}
             </div>
@@ -479,7 +479,7 @@ const MortgageCalculatorPage = () => {
               <div className="grid sm:grid-cols-3 gap-4">
                 <div>
                   <p className="font-body text-[12px] uppercase tracking-wider text-warm-gray mb-1">
-                    Max LTV Allowed
+                    Max Loan-to-Value
                   </p>
                   <p className="font-heading font-semibold text-[20px] text-charcoal">
                     {maxLtv}%
@@ -541,7 +541,7 @@ const MortgageCalculatorPage = () => {
               Mortgage Track Mix
             </h2>
             <p className="font-body text-[14px] text-warm-gray mb-5">
-              Example split — adjust to your preference
+              Adjust the split below to match your preference
             </p>
 
             {loadingRates ? (
@@ -574,7 +574,7 @@ const MortgageCalculatorPage = () => {
                               {rd.rate.toFixed(2)}%
                             </p>
                           ) : (
-                            <p className="font-body text-[14px] text-warm-gray">N/A</p>
+                            <p className="font-body text-[14px] text-warm-gray">Rate unavailable</p>
                           )}
                         </div>
                       </div>
@@ -621,7 +621,7 @@ const MortgageCalculatorPage = () => {
 
             {ratePeriodLabel && (
               <p className="font-body text-[12px] text-warm-gray mt-4">
-                Rates as of {ratePeriodLabel} (BOI average across all banks)
+                Rates as of {ratePeriodLabel} (Bank of Israel average across all banks)
               </p>
             )}
           </div>
@@ -636,7 +636,7 @@ const MortgageCalculatorPage = () => {
               {/* Disclaimer in results */}
               <div className="bg-cream-dark rounded-lg p-3 mb-5">
                 <p className="font-body text-[12px] text-warm-gray leading-relaxed">
-                  These are estimates based on BOI average rates. Your actual rate will depend on your bank and credit profile. CPI-indexed and Prime-linked payments will change over time.
+                  These are estimates based on Bank of Israel average rates. Your actual rate will depend on your bank and credit profile. CPI-indexed and Prime-linked payments will change over time.
                 </p>
               </div>
 
@@ -705,7 +705,7 @@ const MortgageCalculatorPage = () => {
               Getting useful insights? Get them monthly.
             </p>
             <p className="font-body text-[15px] text-warm-gray mb-5">
-              CBS data explained in plain English — free, no spam, unsubscribe anytime.
+              Government housing data explained in plain English — free, no spam, unsubscribe anytime.
             </p>
             <div className="max-w-sm mx-auto">
               <NewsletterSignup source="market" />

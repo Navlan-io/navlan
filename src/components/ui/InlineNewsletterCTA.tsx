@@ -11,7 +11,7 @@ const InlineNewsletterCTA = ({ source }: InlineNewsletterCTAProps) => {
         Getting useful insights? Get them monthly.
       </p>
       <p className="font-body text-[15px] text-warm-gray mb-5">
-        CBS data explained in plain English — free, no spam, unsubscribe anytime.
+        Government housing data explained in plain English — free, no spam, unsubscribe anytime.
       </p>
       <div className="max-w-sm mx-auto">
         <NewsletterSignup source={source as any} />

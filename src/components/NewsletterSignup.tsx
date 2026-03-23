@@ -69,7 +69,7 @@ const NewsletterSignup = ({ source, variant = "light" }: NewsletterSignupProps) 
           onClick={handleSubscribe}
           disabled={loading}
         >
-          {loading ? <Loader2 className="h-4 w-4 animate-spin" /> : "Subscribe"}
+          {loading ? <Loader2 className="h-4 w-4 animate-spin" /> : "Get The Report"}
         </Button>
       </div>
     );
@@ -92,7 +92,7 @@ const NewsletterSignup = ({ source, variant = "light" }: NewsletterSignupProps) 
         onClick={handleSubscribe}
         disabled={loading}
       >
-        {loading ? <Loader2 className="h-4 w-4 animate-spin" /> : "Subscribe"}
+        {loading ? <Loader2 className="h-4 w-4 animate-spin" /> : "Get The Report"}
       </Button>
     </div>
   );

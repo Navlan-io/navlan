@@ -400,11 +400,12 @@ const AdvisorPage = () => {
 
                 {/* Typing indicator */}
                 {isLoading && messages[messages.length - 1]?.role === "user" && (
-                  <div className="flex justify-start">
+                  <div className="flex justify-start" role="status" aria-label="Advisor is thinking">
                     <div className="flex-shrink-0 w-6 h-6 rounded-full bg-sage/15 flex items-center justify-center mt-1 mr-2">
                       <Compass className="w-3.5 h-3.5 text-sage" />
                     </div>
                     <div className="bg-cream rounded-[12px] rounded-bl-[4px] px-4 py-3">
+                      <span className="sr-only">Advisor is typing...</span>
                       <div className="flex gap-1.5 items-center h-5">
                         <span className="w-2 h-2 bg-warm-gray/40 rounded-full animate-bounce [animation-delay:0ms]" />
                         <span className="w-2 h-2 bg-warm-gray/40 rounded-full animate-bounce [animation-delay:150ms]" />
