@@ -119,7 +119,7 @@ const Index = () => {
             <Link to="/market#national-trend" className="inline-flex items-center gap-1 md:gap-1.5 no-underline">
               <span className="font-body text-[10px] md:text-[12px] text-white/55">Prices</span>
               <span className={`font-body text-[11px] md:text-[13px] font-medium ${yoyColor}`}>
-                {yoy >= 0 ? "↑" : "↓"} {Math.abs(yoy).toFixed(1)}%<span className="hidden md:inline"> Year-over-Year</span>
+                {yoy >= 0 ? "↑" : "↓"} {Math.abs(yoy).toFixed(1)}%<span className="md:hidden"> YoY</span><span className="hidden md:inline"> Year-over-Year</span>
               </span>
             </Link>
             <span className="text-white/30 text-[11px] md:text-[12px] select-none">·</span>

@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import TrendPill from "@/components/TrendPill";
 import { useCurrency } from "@/contexts/CurrencyContext";
-import { Share2, MapPin } from "lucide-react";
+import { MessageCircle, MapPin } from "lucide-react";
 
 const DISTRICT_GRADIENT: Record<string, string> = {
   Jerusalem: "from-[#C4A96A]/12 via-[#C4A96A]/5 to-warm-white",
@@ -135,8 +135,8 @@ const CityHero = ({ city, profile, prices, districtIndices, population, latestPe
             }}
             className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-sage/25 text-sage font-body text-[13px] font-medium hover:bg-sage/5 transition-colors"
           >
-            <Share2 className="h-3.5 w-3.5" />
-            Share
+            <MessageCircle className="h-3.5 w-3.5" />
+            Share on WhatsApp
           </button>
         </div>
 
