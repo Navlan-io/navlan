@@ -24,8 +24,14 @@ import AdvisorPage from "./pages/AdvisorPage";
 import CitiesPage from "./pages/CitiesPage";
 import MortgageCalculatorPage from "./pages/MortgageCalculatorPage";
 import ScrollToTop from "./components/ScrollToTop";
+import { usePageView } from "./hooks/usePageView";
 
 const queryClient = new QueryClient();
+
+function PageViewTracker() {
+  usePageView();
+  return null;
+}
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
@@ -34,6 +40,7 @@ const App = () => (
         <Toaster />
         <Sonner />
         <BrowserRouter>
+          <PageViewTracker />
           <a
             href="#main-content"
             className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[9999] focus:px-4 focus:py-2 focus:bg-white focus:text-charcoal focus:rounded-lg focus:shadow-lg focus:font-body focus:text-sm"
