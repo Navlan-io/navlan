@@ -99,6 +99,7 @@ const toSlug = (name: string) =>
 const CitiesPage = () => {
   const [cities, setCities] = useState<CityData[]>([]);
   const [loading, setLoading] = useState(true);
+  const [fetchError, setFetchError] = useState(false);
   const [activeDistrict, setActiveDistrict] = useState("All");
   const [activeCategory, setActiveCategory] = useState("all");
   const [searchQuery, setSearchQuery] = useState("");
@@ -155,7 +156,7 @@ const CitiesPage = () => {
             if (!hasPrice && !hasProfile) return null;
 
             seenNames.add(loc.english_name);
-            const slug = profile?.slug ?? toSlug(loc.english_name);
+            const slug = toSlug(loc.english_name);
             const coords = CITY_COORDS[slug] ?? null;
 
             return {
@@ -199,8 +200,9 @@ const CitiesPage = () => {
         const cityList = [...fromLocalities, ...fromProfiles];
         cityList.sort((a, b) => a.name.localeCompare(b.name));
         setCities(cityList);
-      } catch {
-        // empty state fallback
+      } catch (error) {
+        console.error("Failed to load city profiles:", error);
+        setFetchError(true);
       } finally {
         setLoading(false);
       }
@@ -434,7 +436,17 @@ const CitiesPage = () => {
                 ))}
           </div>
 
-          {!loading && filteredCities.length === 0 && (
+          {!loading && fetchError && cities.length === 0 && (
+            <div className="text-center py-12">
+              <div className="inline-block bg-cream rounded-xl px-8 py-6 border border-grid-line/60">
+                <p className="font-body text-[15px] text-charcoal">
+                  Unable to load city data. Please try refreshing the page.
+                </p>
+              </div>
+            </div>
+          )}
+
+          {!loading && !fetchError && filteredCities.length === 0 && (
             <div className="text-center py-12">
               <p className="font-body text-[15px] text-warm-gray">
                 No cities match your search. Try a different term or filter.
