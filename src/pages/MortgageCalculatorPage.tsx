@@ -386,6 +386,7 @@ const MortgageCalculatorPage = () => {
                   max={80}
                   value={effectiveDownPct}
                   onChange={(e) => setDownPaymentPct(parseInt(e.target.value))}
+                  aria-label="Down payment percentage"
                   className="w-full accent-sage"
                 />
                 <div className="flex justify-between font-body text-[12px] text-warm-gray mt-1">
@@ -463,6 +464,7 @@ const MortgageCalculatorPage = () => {
                   max={30}
                   value={loanYears}
                   onChange={(e) => setLoanYears(parseInt(e.target.value))}
+                  aria-label="Loan term in years"
                   className="w-full accent-sage"
                 />
                 <div className="flex justify-between font-body text-[12px] text-warm-gray mt-1">
@@ -588,6 +590,7 @@ const MortgageCalculatorPage = () => {
                           onChange={(e) =>
                             handleAllocationChange(track.id, parseInt(e.target.value))
                           }
+                          aria-label={`${track.label} allocation percentage`}
                           className="flex-1 accent-sage"
                         />
                         <div className="flex items-center gap-1 min-w-[60px]">

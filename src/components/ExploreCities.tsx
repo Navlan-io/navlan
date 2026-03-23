@@ -53,6 +53,7 @@ const ExploreCities = () => {
   const scrollRef = useRef<HTMLDivElement>(null);
   const [canScrollLeft, setCanScrollLeft] = useState(false);
   const [canScrollRight, setCanScrollRight] = useState(false);
+  const [fetchError, setFetchError] = useState(false);
 
   useEffect(() => {
     const fetchCities = async () => {
@@ -110,8 +111,9 @@ const ExploreCities = () => {
         });
 
         setCities(cityList);
-      } catch {
-        // fallback handled by empty state
+      } catch (err) {
+        console.error("Failed to load cities:", err);
+        setFetchError(true);
       } finally {
         setLoading(false);
       }
@@ -222,7 +224,15 @@ const ExploreCities = () => {
             style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
           >
             <style>{`.carousel-hide-scrollbar::-webkit-scrollbar { display: none; }`}</style>
-            {loading
+            {fetchError
+              ? (
+                  <div className="w-full text-center py-8">
+                    <p className="font-body text-[15px] text-warm-gray">
+                      Unable to load cities right now.
+                    </p>
+                  </div>
+                )
+              : loading
               ? Array.from({ length: 6 }).map((_, i) => (
                   <div
                     key={i}

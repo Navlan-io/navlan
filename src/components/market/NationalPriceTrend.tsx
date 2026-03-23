@@ -130,7 +130,7 @@ const NationalPriceTrend = ({ introText }: NationalPriceTrendProps) => {
         <div className="flex items-center justify-between">
           <div>
             <span className="font-body text-[13px] text-warm-gray block">Price Index</span>
-            <span className="font-body font-bold text-[24px] text-charcoal">{latest.value?.toFixed(1)}</span>
+            <span className="font-body font-bold text-[24px] text-charcoal">{latest.value != null ? latest.value.toFixed(1) : "—"}</span>
           </div>
           <div className="flex items-center gap-3">
             <div className="text-center">
@@ -154,7 +154,7 @@ const NationalPriceTrend = ({ introText }: NationalPriceTrendProps) => {
       <div className="hidden md:grid grid-cols-3 gap-5 mb-4">
         <Card className="p-5 bg-cream border-0 shadow-card">
           <span className="font-body text-[13px] text-warm-gray block">Price Index</span>
-          <span className="font-body font-bold text-[28px] text-charcoal">{latest.value?.toFixed(1)}</span>
+          <span className="font-body font-bold text-[28px] text-charcoal">{latest.value != null ? latest.value.toFixed(1) : "—"}</span>
         </Card>
         <Card className="p-5 bg-cream border-0 shadow-card">
           <span className="font-body text-[13px] text-warm-gray block mb-1">Year-over-Year</span>

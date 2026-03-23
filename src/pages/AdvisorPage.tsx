@@ -108,6 +108,9 @@ const AdvisorPage = () => {
       // Add placeholder assistant message for streaming
       setMessages((prev) => [...prev, { role: "assistant", content: "" }]);
 
+      const controller = new AbortController();
+      const timeoutId = setTimeout(() => controller.abort(), 30000);
+
       try {
         const response = await fetch("/api/advisor", {
           method: "POST",
@@ -118,6 +121,7 @@ const AdvisorPage = () => {
               content: m.content,
             })),
           }),
+          signal: controller.signal,
         });
 
         if (!response.ok) {
@@ -172,17 +176,20 @@ const AdvisorPage = () => {
         });
       } catch (err) {
         console.error("Advisor error:", err);
+        const isTimeout = err instanceof DOMException && err.name === "AbortError";
         setMessages((prev) => {
           const updated = [...prev];
           const lastIdx = updated.length - 1;
           updated[lastIdx] = {
             role: "assistant",
-            content:
-              "I'm sorry, I'm having trouble connecting right now. Please try again in a moment.",
+            content: isTimeout
+              ? "The advisor took too long to respond. Please try again."
+              : "I'm sorry, I'm having trouble connecting right now. Please try again in a moment.",
           };
           return updated;
         });
       } finally {
+        clearTimeout(timeoutId);
         setIsLoading(false);
       }
     },

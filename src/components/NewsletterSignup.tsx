@@ -47,6 +47,7 @@ const NewsletterSignup = ({ source, variant = "light" }: NewsletterSignupProps) 
   };
 
   const handleKeyDown = (e: React.KeyboardEvent) => {
+    if (loading) return;
     if (e.key === "Enter") handleSubscribe();
   };
 

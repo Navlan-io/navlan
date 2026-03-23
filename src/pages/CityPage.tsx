@@ -87,6 +87,7 @@ const CityPage = () => {
   const [latestPeriodLabel, setLatestPeriodLabel] = useState<string | null>(null);
   const [loading, setLoading] = useState(true);
   const [notFound, setNotFound] = useState(false);
+  const [cityError, setCityError] = useState(false);
 
   useEffect(() => {
     if (!slug) return;
@@ -152,55 +153,60 @@ const CityPage = () => {
 
       setCity(matched);
 
-      const [profileRes, pricesRes] = await Promise.all([
-        supabase.from("city_profiles").select("*").eq("city_name", matched.english_name).limit(1),
-        matched.cbs_code
-          ? supabase.from("city_prices").select("*").eq("cbs_code", matched.cbs_code).order("period", { ascending: true })
-          : Promise.resolve({ data: [] }),
-      ]);
+      try {
+        const [profileRes, pricesRes] = await Promise.all([
+          supabase.from("city_profiles").select("*").eq("city_name", matched.english_name).limit(1),
+          matched.cbs_code
+            ? supabase.from("city_prices").select("*").eq("cbs_code", matched.cbs_code).order("period", { ascending: true })
+            : Promise.resolve({ data: [] }),
+        ]);
 
-      setProfile(profileRes.data?.[0] ?? null);
-      const cityPrices = (pricesRes.data as CityPriceRow[]) ?? [];
-      setPrices(cityPrices);
+        setProfile(profileRes.data?.[0] ?? null);
+        const cityPrices = (pricesRes.data as CityPriceRow[]) ?? [];
+        setPrices(cityPrices);
 
-      // Compute latest period from city's own prices
-      const nonAnnual = cityPrices.filter(p => !p.period.includes("Annual"));
-      if (nonAnnual.length > 0) {
-        setLatestPeriodLabel(formatLatestPeriod(nonAnnual[nonAnnual.length - 1].period));
-      } else {
-        // Fallback: latest period from any city_prices row (national/overall)
-        const { data: latestRows } = await supabase
-          .from("city_prices")
-          .select("period")
-          .like("period", "Q%")
-          .order("period", { ascending: false })
-          .limit(1);
-        if (latestRows?.[0]) {
-          setLatestPeriodLabel(formatLatestPeriod(latestRows[0].period));
+        // Compute latest period from city's own prices
+        const nonAnnual = cityPrices.filter(p => !p.period.includes("Annual"));
+        if (nonAnnual.length > 0) {
+          setLatestPeriodLabel(formatLatestPeriod(nonAnnual[nonAnnual.length - 1].period));
+        } else {
+          // Fallback: latest period from any city_prices row (national/overall)
+          const { data: latestRows } = await supabase
+            .from("city_prices")
+            .select("period")
+            .like("period", "Q%")
+            .order("period", { ascending: false })
+            .limit(1);
+          if (latestRows?.[0]) {
+            setLatestPeriodLabel(formatLatestPeriod(latestRows[0].period));
+          }
         }
-      }
 
-      // District avg price fallback for cities without city-level price data
-      if (cityPrices.length === 0) {
-        const { data: districtPriceRows } = await supabase
-          .from("city_prices")
-          .select("avg_price_total")
-          .eq("district", matched.district)
-          .not("avg_price_total", "is", null)
-          .order("period", { ascending: false })
-          .limit(1);
-        setDistrictAvgPrice(districtPriceRows?.[0]?.avg_price_total ?? null);
-      }
+        // District avg price fallback for cities without city-level price data
+        if (cityPrices.length === 0) {
+          const { data: districtPriceRows } = await supabase
+            .from("city_prices")
+            .select("avg_price_total")
+            .eq("district", matched.district)
+            .not("avg_price_total", "is", null)
+            .order("period", { ascending: false })
+            .limit(1);
+          setDistrictAvgPrice(districtPriceRows?.[0]?.avg_price_total ?? null);
+        }
 
-      const indexCode = DISTRICT_INDEX_MAP[matched.district];
-      if (indexCode) {
-        const { data: indices } = await supabase
-          .from("price_indices")
-          .select("*")
-          .eq("index_code", indexCode)
-          .order("year", { ascending: true })
-          .order("month", { ascending: true });
-        setDistrictIndices(indices ?? []);
+        const indexCode = DISTRICT_INDEX_MAP[matched.district];
+        if (indexCode) {
+          const { data: indices } = await supabase
+            .from("price_indices")
+            .select("*")
+            .eq("index_code", indexCode)
+            .order("year", { ascending: true })
+            .order("month", { ascending: true });
+          setDistrictIndices(indices ?? []);
+        }
+      } catch (err) {
+        console.error("Failed to load city data:", err);
+        setCityError(true);
       }
 
       setLoading(false);
@@ -216,6 +222,22 @@ const CityPage = () => {
 
   if (notFound) {
     return <NotFound />;
+  }
+
+  if (cityError) {
+    return (
+      <div className="min-h-screen flex flex-col bg-warm-white">
+        <NavBar />
+        <main className="flex-1 flex items-center justify-center">
+          <div className="bg-cream rounded-xl border border-grid-line p-8 max-w-md text-center">
+            <p className="font-body text-[16px] text-charcoal">
+              Unable to load city data. Please try refreshing.
+            </p>
+          </div>
+        </main>
+        <Footer />
+      </div>
+    );
   }
 
   return (
