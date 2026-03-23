@@ -43,21 +43,24 @@ export function matchesCategory(
 
 export default function CategoryFilter({ active, onChange }: CategoryFilterProps) {
   return (
-    <div className="flex gap-2 overflow-x-auto pb-1 scrollbar-hide -mx-4 px-4 md:mx-0 md:px-0 md:flex-wrap">
-      {CATEGORIES.map((cat) => (
-        <button
-          key={cat.key}
-          onClick={() => onChange(cat.key)}
-          aria-pressed={active === cat.key}
-          className={`whitespace-nowrap rounded-full px-4 py-2 min-h-[36px] font-body text-[13px] font-medium border transition-colors shrink-0 ${
-            active === cat.key
-              ? "bg-charcoal text-white border-charcoal"
-              : "bg-transparent text-charcoal border-charcoal/20 hover:border-charcoal/40 hover:bg-charcoal/5"
-          }`}
-        >
-          {cat.label}
-        </button>
-      ))}
+    <div className="relative">
+      <div className="flex gap-2 overflow-x-auto pb-1 scrollbar-hide -mx-4 px-4 md:mx-0 md:px-0 md:flex-wrap">
+        {CATEGORIES.map((cat) => (
+          <button
+            key={cat.key}
+            onClick={() => onChange(cat.key)}
+            aria-pressed={active === cat.key}
+            className={`whitespace-nowrap rounded-full px-4 py-2 min-h-[36px] font-body text-[13px] font-medium border transition-colors shrink-0 ${
+              active === cat.key
+                ? "bg-charcoal text-white border-charcoal"
+                : "bg-transparent text-charcoal border-charcoal/20 hover:border-charcoal/40 hover:bg-charcoal/5"
+            }`}
+          >
+            {cat.label}
+          </button>
+        ))}
+      </div>
+      <div className="pointer-events-none absolute right-0 top-0 bottom-0 w-8 bg-gradient-to-l from-warm-white to-transparent md:hidden" />
     </div>
   );
 }

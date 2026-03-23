@@ -373,21 +373,24 @@ const CitiesPage = () => {
           </div>
 
           {/* District pills */}
-          <div className="mt-3 flex flex-wrap gap-2 overflow-x-auto pb-1 scrollbar-hide -mx-4 px-4 md:mx-0 md:px-0">
-            {DISTRICT_FILTERS.map((filter) => (
-              <button
-                key={filter}
-                onClick={() => setActiveDistrict(filter)}
-                aria-pressed={activeDistrict === filter}
-                className={`whitespace-nowrap rounded-full px-4 py-1.5 min-h-[36px] font-body text-[13px] font-medium transition-colors shrink-0 ${
-                  activeDistrict === filter
-                    ? "bg-sage text-white"
-                    : "bg-cream text-charcoal hover:bg-sage/15"
-                }`}
-              >
-                {filter === "All" ? "All Districts" : filter}
-              </button>
-            ))}
+          <div className="relative mt-3">
+            <div className="flex flex-wrap gap-2 overflow-x-auto pb-1 scrollbar-hide -mx-4 px-4 md:mx-0 md:px-0">
+              {DISTRICT_FILTERS.map((filter) => (
+                <button
+                  key={filter}
+                  onClick={() => setActiveDistrict(filter)}
+                  aria-pressed={activeDistrict === filter}
+                  className={`whitespace-nowrap rounded-full px-4 py-1.5 min-h-[36px] font-body text-[13px] font-medium transition-colors shrink-0 ${
+                    activeDistrict === filter
+                      ? "bg-sage text-white"
+                      : "bg-cream text-charcoal hover:bg-sage/15"
+                  }`}
+                >
+                  {filter === "All" ? "All Districts" : filter}
+                </button>
+              ))}
+            </div>
+            <div className="pointer-events-none absolute right-0 top-0 bottom-0 w-8 bg-gradient-to-l from-warm-white to-transparent md:hidden" />
           </div>
 
           {/* Search */}
