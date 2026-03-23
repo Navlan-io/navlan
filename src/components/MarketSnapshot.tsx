@@ -191,7 +191,7 @@ const MarketSnapshot = () => {
     <section className="py-[62px] md:py-[70px] bg-cream">
       <div className="container max-w-[1200px]">
         <div className="text-center mb-6">
-          <span className="font-body text-[11px] font-semibold uppercase tracking-[0.15em] text-sand-gold">
+          <span className="font-body text-[11px] font-semibold uppercase tracking-[0.15em] text-[#996F33]">
             Market Data
           </span>
           <h2 className="mt-1 font-heading font-semibold text-[24px] text-charcoal">

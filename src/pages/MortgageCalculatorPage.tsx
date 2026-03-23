@@ -287,7 +287,7 @@ const MortgageCalculatorPage = () => {
             <span className="text-charcoal">Mortgage Calculator</span>
           </nav>
 
-          <span className="font-body text-[11px] font-semibold uppercase tracking-[0.15em] text-sand-gold">
+          <span className="font-body text-[11px] font-semibold uppercase tracking-[0.15em] text-[#996F33]">
             Tools
           </span>
           <h1 className="font-heading font-bold text-[28px] md:text-[36px] text-charcoal mt-2">

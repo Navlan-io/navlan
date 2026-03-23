@@ -43,7 +43,7 @@ const SimilarCities = ({ currentCity, district }: SimilarCitiesProps) => {
       <div className="h-px bg-gradient-to-r from-transparent via-sand-gold/20 to-transparent" />
       <section className="bg-warm-white py-14">
         <div className="container max-w-[1200px]">
-          <span className="font-body text-[11px] font-semibold uppercase tracking-[0.15em] text-sand-gold">
+          <span className="font-body text-[11px] font-semibold uppercase tracking-[0.15em] text-[#996F33]">
             Also in {district} District
           </span>
           <h2 className="font-heading font-semibold text-[22px] text-charcoal mt-2 mb-6">

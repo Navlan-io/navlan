@@ -102,7 +102,7 @@ const GuidesIndexPage = () => {
       <NavBar />
       <main className="flex-1">
         <div className="container max-w-[1080px] pt-12 pb-16">
-          <span className="font-body text-[11px] font-semibold uppercase tracking-[0.15em] text-sand-gold">
+          <span className="font-body text-[11px] font-semibold uppercase tracking-[0.15em] text-[#996F33]">
             Guides
           </span>
           <h1 className="font-heading font-bold text-[32px] md:text-[40px] text-charcoal mt-2">

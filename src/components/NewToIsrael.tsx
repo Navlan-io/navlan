@@ -64,7 +64,10 @@ const NewToIsrael = () => {
   return (
     <section className="py-[78px] md:py-[110px] bg-warm-white">
       <div className="container max-w-[1080px] text-center">
-        <h2 className="font-heading font-semibold text-[24px] text-charcoal">
+        <span className="font-body text-[11px] font-semibold uppercase tracking-[0.15em] text-[#996F33]">
+          Guides
+        </span>
+        <h2 className="mt-1 font-heading font-semibold text-[24px] text-charcoal">
           Understand the Market
         </h2>
         <p className="mt-1 font-body text-[15px] text-warm-gray">

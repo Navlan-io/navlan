@@ -137,7 +137,7 @@ const GuidePage = ({
           >
             ← All Guides
           </Link>
-          <span className="block font-body text-[11px] font-semibold uppercase tracking-[0.15em] text-sand-gold mb-2">
+          <span className="block font-body text-[11px] font-semibold uppercase tracking-[0.15em] text-[#996F33] mb-2">
             Guide
           </span>
           <h1 className="font-heading font-bold text-[26px] md:text-[32px] text-charcoal leading-tight">

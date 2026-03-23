@@ -90,7 +90,7 @@ const CityHero = ({ city, profile, prices, districtIndices, population, latestPe
         {/* District label */}
         <div className="flex items-center gap-2 mb-3">
           <MapPin className="h-3.5 w-3.5 text-sand-gold" />
-          <span className="font-body text-[11px] font-semibold uppercase tracking-[0.15em] text-sand-gold">
+          <span className="font-body text-[11px] font-semibold uppercase tracking-[0.15em] text-[#996F33]">
             {city.district} District
           </span>
         </div>

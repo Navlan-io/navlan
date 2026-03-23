@@ -285,7 +285,7 @@ const CityPage = () => {
               <>
                 <div className="bg-cream-dark">
                   <div className="container max-w-[1200px] py-10 md:py-12">
-                    <span className="font-body text-[11px] font-semibold uppercase tracking-[0.15em] text-sand-gold">
+                    <span className="font-body text-[11px] font-semibold uppercase tracking-[0.15em] text-[#996F33]">
                       Community
                     </span>
                     <h2 className="font-heading font-semibold text-[22px] md:text-[24px] text-charcoal mt-2 mb-6">
@@ -325,7 +325,7 @@ const CityPage = () => {
             {(prices.length > 0 || districtIndices.length > 0) && (
             <div className="bg-warm-white">
               <div className="container max-w-[1200px] py-10 md:py-12">
-                <span className="font-body text-[11px] font-semibold uppercase tracking-[0.15em] text-sand-gold">
+                <span className="font-body text-[11px] font-semibold uppercase tracking-[0.15em] text-[#996F33]">
                   Market Data
                 </span>
                 <h2 id="section-market-data" className="font-heading font-semibold text-[22px] md:text-[24px] text-charcoal mt-2 mb-6 scroll-mt-24">

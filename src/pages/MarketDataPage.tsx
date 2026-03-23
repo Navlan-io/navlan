@@ -124,7 +124,7 @@ const MarketDataPage = () => {
       <main className="flex-1 overflow-x-hidden">
         {/* Header in container */}
         <div className="container max-w-[1200px] pt-12">
-          <span className="font-body text-[11px] font-semibold uppercase tracking-[0.15em] text-sand-gold">
+          <span className="font-body text-[11px] font-semibold uppercase tracking-[0.15em] text-[#996F33]">
             Market Data
           </span>
           <h1 className="font-heading font-bold text-[36px] md:text-[40px] text-charcoal mt-2">

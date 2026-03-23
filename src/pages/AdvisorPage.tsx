@@ -278,7 +278,7 @@ const AdvisorPage = () => {
               </div>
 
               {/* AI-Powered badge */}
-              <span className="font-body text-[11px] font-semibold uppercase tracking-[0.15em] text-sand-gold mb-1">
+              <span className="font-body text-[11px] font-semibold uppercase tracking-[0.15em] text-[#996F33] mb-1">
                 AI-Powered
               </span>
 

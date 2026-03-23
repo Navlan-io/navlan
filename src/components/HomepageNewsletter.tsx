@@ -13,7 +13,7 @@ const HomepageNewsletter = () => {
         }}
       />
       <div className="relative z-10 container max-w-[560px] text-center">
-        <span className="font-body text-[11px] font-semibold uppercase tracking-[0.15em] text-sand-gold">
+        <span className="font-body text-[11px] font-semibold uppercase tracking-[0.15em] text-[#C4A96A]">
           Newsletter
         </span>
         <h2 className="mt-1 font-heading font-bold text-[24px] md:text-[28px] text-white">

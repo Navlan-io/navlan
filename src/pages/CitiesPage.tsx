@@ -292,7 +292,7 @@ const CitiesPage = () => {
       <main id="main-content" className="min-h-screen bg-warm-white">
         {/* ── Page Header ── */}
         <div className="container max-w-[1200px] pt-12 md:pt-16 pb-6">
-          <span className="font-body text-[11px] font-semibold uppercase tracking-[0.15em] text-sand-gold">
+          <span className="font-body text-[11px] font-semibold uppercase tracking-[0.15em] text-[#996F33]">
             Cities
           </span>
           <h1 className="font-heading font-bold text-[32px] md:text-[40px] text-charcoal mt-2">
