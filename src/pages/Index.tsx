@@ -2,7 +2,8 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { supabase } from "@/integrations/supabase/client";
 import { useCurrency } from "@/contexts/CurrencyContext";
-import heroImage from "@/assets/hero-landscape.png";
+import heroWebp from "@/assets/hero-landscape.webp";
+import heroPng from "@/assets/hero-landscape.png";
 import NavBar from "@/components/NavBar";
 import Footer from "@/components/Footer";
 import SearchBar from "@/components/SearchBar";
@@ -87,11 +88,17 @@ const Index = () => {
       <main id="main-content">
       {/* Hero */}
       <section className="relative overflow-hidden">
-        <img
-          src={heroImage}
-          alt="Israeli hillside landscape at golden hour"
-          className="absolute inset-0 w-full h-full object-cover"
-        />
+        <picture>
+          <source srcSet={heroWebp} type="image/webp" />
+          <img
+            src={heroPng}
+            alt="Israeli hillside landscape at golden hour"
+            className="absolute inset-0 w-full h-full object-cover"
+            width="1536"
+            height="1024"
+            loading="eager"
+          />
+        </picture>
         <div className="absolute inset-0 bg-charcoal/40" />
 
         <div className="relative z-10 container py-20 md:py-28 flex flex-col items-center text-center">

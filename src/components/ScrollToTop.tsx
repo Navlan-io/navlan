@@ -6,12 +6,13 @@ const ScrollToTop = () => {
   useEffect(() => {
     if (hash) {
       // Small delay to allow the target page to render
-      setTimeout(() => {
+      const timer = setTimeout(() => {
         const el = document.getElementById(hash.slice(1));
         if (el) {
           el.scrollIntoView({ behavior: "smooth", block: "start" });
         }
       }, 100);
+      return () => clearTimeout(timer);
     } else {
       window.scrollTo(0, 0);
     }
