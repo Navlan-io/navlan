@@ -16,7 +16,7 @@ const Index = () => {
   const [priceYoy, setPriceYoy] = useState<number | null>(null);
   const [mortgageRate, setMortgageRate] = useState<number | null>(null);
   const [avgPrice, setAvgPrice] = useState<number | null>(null);
-  const { currency, rates } = useCurrency();
+  const { formatPrice } = useCurrency();
 
   useEffect(() => {
     const fetch = async () => {
@@ -58,15 +58,6 @@ const Index = () => {
   const yoy = priceYoy ?? 0;
   const yoyColor = yoy >= 0 ? "text-growth-green" : "text-terra-red";
 
-  // avg_price_total is in thousands of NIS (e.g. 2362.9 = ₪2,362,900)
-  const formatAvgPrice = (nisThousands: number): string => {
-    if (currency === "₪") {
-      return `₪${(nisThousands / 1_000).toFixed(2)}M`;
-    }
-    const rate = currency === "$" ? rates.USD : rates.EUR;
-    const converted = nisThousands / rate / 1_000;
-    return `${currency}${converted.toFixed(2)}M`;
-  };
 
   return (
     <div className="min-h-screen flex flex-col bg-warm-white">
@@ -121,7 +112,7 @@ const Index = () => {
             <Link to="/market" className="inline-flex items-center gap-1 md:gap-1.5 no-underline">
               <span className="font-body text-[10px] md:text-[12px] text-white/55"><span className="md:hidden">Avg</span><span className="hidden md:inline">Avg Price</span></span>
               <span className="font-body text-[11px] md:text-[13px] font-medium text-white">
-                {avgPrice ? formatAvgPrice(avgPrice) : "—"}
+                {avgPrice ? formatPrice(avgPrice) : "—"}
               </span>
             </Link>
             <span className="text-white/30 text-[11px] md:text-[12px] select-none">·</span>

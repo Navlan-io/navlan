@@ -61,7 +61,7 @@ const NewsletterSignup = ({ source, variant = "light" }: NewsletterSignupProps) 
           onChange={(e) => setEmail(e.target.value)}
           onKeyDown={handleKeyDown}
           disabled={loading}
-          className="flex-1 min-w-0 h-12 px-4 rounded-lg bg-white/10 border border-white/20 text-white font-body text-[14px] placeholder:text-white/40 focus:outline-none focus:border-sage transition-colors disabled:opacity-50"
+          className="flex-1 min-w-0 h-12 px-4 rounded-lg bg-white/10 border border-white/20 text-white font-body text-[14px] placeholder:text-white/60 focus:border-sage transition-colors disabled:opacity-50"
         />
         <Button
           size="default"
@@ -85,7 +85,7 @@ const NewsletterSignup = ({ source, variant = "light" }: NewsletterSignupProps) 
         onChange={(e) => setEmail(e.target.value)}
         onKeyDown={handleKeyDown}
         disabled={loading}
-        className="flex-1 h-11 px-4 rounded-lg bg-cream border border-grid-line font-body text-[14px] text-charcoal placeholder:text-warm-gray/60 focus:outline-none focus:border-sage transition-colors disabled:opacity-50"
+        className="flex-1 h-11 px-4 rounded-lg bg-cream border border-grid-line font-body text-[14px] text-charcoal placeholder:text-warm-gray/60 focus:border-sage transition-colors disabled:opacity-50"
       />
       <Button
         className="bg-sage hover:bg-sage/90 text-white"

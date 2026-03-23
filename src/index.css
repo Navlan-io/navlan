@@ -112,6 +112,13 @@ html, body {
   display: none;
 }
 
+/* Global focus-visible ring for keyboard navigation */
+:focus-visible {
+  outline: 2px solid #4A7F8B;
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
 /* Respect reduced-motion preference */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {

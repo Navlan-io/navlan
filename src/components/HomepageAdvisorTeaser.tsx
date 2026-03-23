@@ -92,7 +92,7 @@ const HomepageAdvisorTeaser = () => {
             value={question}
             onChange={(e) => setQuestion(e.target.value)}
             placeholder="Ask your own question..."
-            className="flex-1 h-12 px-4 border border-border-light bg-white rounded-xl font-body text-[15px] text-charcoal placeholder:text-warm-gray focus:outline-none focus:border-sage transition-colors shadow-sm"
+            className="flex-1 h-12 px-4 border border-border-light bg-white rounded-xl font-body text-[15px] text-charcoal placeholder:text-warm-gray focus:border-sage transition-colors shadow-sm"
           />
           <button
             type="submit"

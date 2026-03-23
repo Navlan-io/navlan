@@ -220,7 +220,7 @@ const GuidePage = ({
 
               {/* Related */}
               <div className="mt-10">
-                <h3 className="font-heading font-semibold text-[18px] text-charcoal mb-4">Related</h3>
+                <h2 className="font-heading font-semibold text-[18px] text-charcoal mb-4">Related</h2>
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
                   {related.map((r) => (
                     <Link

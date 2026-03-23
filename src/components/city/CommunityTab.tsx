@@ -74,7 +74,7 @@ const CommunityTab = ({ city, profile, onSwitchTab }: CommunityTabProps) => {
             if (!content) return null;
             return (
               <div key={key}>
-                <h3 className="font-heading font-semibold text-[18px] text-charcoal mb-3">{title}</h3>
+                <h2 className="font-heading font-semibold text-[18px] text-charcoal mb-3">{title}</h2>
                 <ProfileMarkdown content={content} />
               </div>
             );

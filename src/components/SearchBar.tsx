@@ -157,7 +157,7 @@ const SearchBar = ({ className, compact }: SearchBarProps) => {
         aria-autocomplete="list"
         aria-label="Search cities and neighborhoods"
         className={cn(
-          "w-full pl-12 pr-4 border border-border-light bg-white text-charcoal font-body placeholder:text-warm-gray focus:outline-none focus:border-sage transition-colors",
+          "w-full pl-12 pr-4 border border-border-light bg-white text-charcoal font-body placeholder:text-warm-gray focus:border-sage transition-colors",
           compact ? "h-9 pl-9 text-[13px] rounded-lg" : "h-12 md:h-[52px] text-[15px] md:text-[15px] rounded-xl",
           open && results.length > 0 ? "rounded-b-none" : ""
         )}
