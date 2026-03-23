@@ -76,20 +76,16 @@ const Index = () => {
         structuredData={[
           {
             "@context": "https://schema.org",
-            "@type": "Organization",
-            name: "Navlan",
-            url: "https://navlan.io",
-            logo: "https://navlan.io/favicon.ico",
-            sameAs: ["https://twitter.com/navlan"],
-          },
-          {
-            "@context": "https://schema.org",
             "@type": "WebSite",
-            name: "Navlan",
+            name: "Navlan.io",
             url: "https://navlan.io",
             potentialAction: {
               "@type": "SearchAction",
-              target: "https://navlan.io/city/{search_term_string}",
+              target: {
+                "@type": "EntryPoint",
+                urlTemplate:
+                  "https://navlan.io/cities?q={search_term_string}",
+              },
               "query-input": "required name=search_term_string",
             },
           },
