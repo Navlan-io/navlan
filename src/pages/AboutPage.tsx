@@ -11,6 +11,17 @@ const AboutPage = () => {
       <SEO
         title="About Navlan — Independent Israeli Real Estate Data in English | Navlan.io"
         description="Navlan.io is an independent platform providing Israeli real estate data for English speakers — city prices, market trends, mortgage tools, and buyer guides."
+        structuredData={[
+          {
+            "@context": "https://schema.org",
+            "@type": "Organization",
+            name: "Navlan.io",
+            url: "https://navlan.io",
+            description:
+              "English-language Israeli real estate data platform — market data, city guides, and resources for English speakers in Israel.",
+            foundingDate: "2025",
+          },
+        ]}
       />
       <NavBar />
       <main className="flex-1">
