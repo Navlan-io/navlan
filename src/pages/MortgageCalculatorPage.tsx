@@ -265,6 +265,40 @@ const MortgageCalculatorPage = () => {
         { "@type": "ListItem", position: 3, name: "Mortgage Calculator" },
       ],
     },
+    {
+      "@context": "https://schema.org",
+      "@type": "HowTo",
+      name: "Calculate Your Israeli Mortgage Payments",
+      description:
+        "Estimate monthly payments using current Bank of Israel average rates across multiple mortgage tracks.",
+      step: [
+        {
+          "@type": "HowToStep",
+          name: "Enter property price",
+          text: "Enter the property price in Israeli Shekels and adjust your down payment percentage.",
+        },
+        {
+          "@type": "HowToStep",
+          name: "Select buyer type",
+          text: "Choose your buyer category: first-time Israeli resident, existing property owner, or non-resident. This determines your maximum loan-to-value ratio.",
+        },
+        {
+          "@type": "HowToStep",
+          name: "Set loan term",
+          text: "Choose your loan term between 4 and 30 years.",
+        },
+        {
+          "@type": "HowToStep",
+          name: "Adjust mortgage track mix",
+          text: "Split your mortgage across up to four tracks: non-indexed fixed, CPI-indexed fixed, prime-linked, and fixed-for-period. Allocations must total 100%.",
+        },
+        {
+          "@type": "HowToStep",
+          name: "Review estimated payments",
+          text: "View estimated monthly payments per track and total, based on current Bank of Israel average rates.",
+        },
+      ],
+    },
   ];
 
   return (
