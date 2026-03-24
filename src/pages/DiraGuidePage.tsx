@@ -56,7 +56,7 @@ const DiraGuidePageComponent = () => {
       content: (
         <>
           <p className="mb-4">
-            Dira BeHanacha (דירה בהנחה, literally "apartment at a discount") is an Israeli government program offering new apartments at below-market prices to eligible residents. The program replaced the older "Mechir LaMishtaken" (Buyer's Price) program and has become one of the most significant paths to homeownership for young Israelis and new immigrants.
+            Dira BeHanacha (דירה בהנחה, literally "apartment at a discount") is an Israeli government program offering new apartments at below-market prices to eligible residents. The program evolved from and incorporates the older "Mechir LaMishtaken" (Buyer's Price) framework, expanding it into a broader initiative with multiple tracks, and has become one of the most significant paths to homeownership for young Israelis and new immigrants.
           </p>
           <PullQuote>Dira BeHanacha discounts typically range from 20-30% below market price — savings of hundreds of thousands of shekels for eligible buyers.</PullQuote>
           <p className="mb-4">
@@ -77,7 +77,7 @@ const DiraGuidePageComponent = () => {
             The primary eligibility requirement is <strong>chaser dira</strong> status — you don't currently own residential property anywhere in Israel. This is the single most important criterion and is verified both at registration and at the time of purchase.
           </p>
           <ul className="list-disc pl-6 space-y-2 mb-4 marker:text-sage">
-            <li><strong>Age minimum:</strong> 21 for singles, 18 for married couples</li>
+            <li><strong>Age minimum:</strong> Married couples and common-law partners have no minimum age requirement. Singles must be 35 or older, with exceptions for single parents with minor children, widows/widowers (21+), and individuals with recognized disabilities (21+).</li>
             <li><strong>Olim (immigrants) are eligible</strong> — this is a significant benefit for new immigrants looking to establish themselves</li>
             <li>If you previously owned and sold, you may still qualify (specific conditions apply — verify with the program)</li>
             <li>Married couples register together as one household</li>
@@ -136,7 +136,7 @@ const DiraGuidePageComponent = () => {
       title: "What You Need to Know Before Applying",
       content: (
         <ul className="list-disc pl-6 space-y-3 mb-4 marker:text-sage">
-          <li><strong>Minimum holding period:</strong> You must hold the apartment for a minimum period (usually <span className="text-[#4A7F8B] font-medium">{params?.dira_behanacha_holding_period?.display_label || '5 years'}</span>) before selling. This prevents speculation and ensures the program serves genuine homebuyers.</li>
+          <li><strong>Minimum holding period:</strong> You must hold the apartment for a minimum period before selling — typically <span className="text-[#4A7F8B] font-medium">{params?.dira_behanacha_holding_period?.display_label || '5 years'}</span> from receiving occupancy (Tofes 4), though the restriction can also be measured as 7 years from the lottery date, whichever comes first. Selling earlier requires returning some or all of the discount to the government. After the restriction period expires, you can sell freely. This prevents speculation and ensures the program serves genuine homebuyers.</li>
           <li><strong>It's a discount, not a grant:</strong> The apartment is purchased through a standard mortgage — the discount is on the purchase price, not free money. You still need to qualify for and pay a mortgage. <br />→ For a complete guide to Israeli mortgages, see our <Link to="/guides/mortgages" className="text-horizon-blue hover:underline">Mortgage Guide</Link>.</li>
           <li><strong>Construction timeline:</strong> Construction takes 2-4 years, so you won't move in immediately after winning. Plan your living situation accordingly.</li>
           <li><strong>Deposit required:</strong> You may need to put down a deposit (typically 10-15%) shortly after winning. Make sure you have this liquidity available.</li>
@@ -199,10 +199,10 @@ const DiraGuidePageComponent = () => {
         <Accordion type="single" collapsible className="w-full space-y-2">
           {[
             { q: "Can olim apply for Dira BeHanacha?", a: "Yes. Olim who don't own property in Israel are eligible. The 7-year purchase tax exemption also applies to Dira BeHanacha purchases, making it particularly advantageous for new immigrants." },
-            { q: "Can I apply if I own property abroad?", a: "Generally yes — the program primarily checks Israeli property ownership. However, rules can change, so verify the current requirements on the official website or with a lawyer before registering." },
+            { q: "Can I apply if I own property abroad?", a: "Generally yes — the program checks Israeli property ownership, not worldwide. However, you must be an Israeli citizen or permanent resident to participate at all. Foreign nationals who have not made aliyah are not eligible regardless of their property holdings." },
             { q: "How much is the discount?", a: "Typically 20-30% below comparable market prices, depending on the specific project and location. Central locations tend to offer larger absolute discounts but may have smaller percentage discounts." },
-            { q: "Can I sell the apartment after buying?", a: (<>Yes, but there's a mandatory holding period (usually <span className="text-[#4A7F8B] font-medium">{params?.dira_behanacha_holding_period?.display_label || '5 years'}</span>). Selling earlier requires returning some or all of the discount to the government. After the holding period, you can sell freely.</>) },
-            { q: "Is there an age limit?", a: "Minimum age is 21 for singles and 18 for married couples. There is no maximum age limit." },
+            { q: "Can I sell the apartment after buying?", a: (<>Yes, but there's a mandatory holding period — typically <span className="text-[#4A7F8B] font-medium">{params?.dira_behanacha_holding_period?.display_label || '5 years'}</span> from receiving occupancy (Tofes 4), though the restriction can also be measured as 7 years from the lottery date, whichever comes first. Selling earlier requires returning some or all of the discount to the government. After the restriction period expires, you can sell freely.</>) },
+            { q: "Is there an age limit?", a: "Married couples and common-law partners have no minimum age requirement. Singles must be 35 or older, with exceptions for single parents with minor children, widows/widowers (21+), and individuals with recognized disabilities (21+). There is no maximum age limit." },
             { q: "Can I choose which apartment I get?", a: "Lottery winners choose apartments in order of their lottery number. Earlier numbers get first pick of available units — including floor, direction, and size options within the project." },
             { q: "What if I don't win?", a: "You can register for future lotteries. Some programs allow your registration to carry over automatically. Many applicants register for multiple projects simultaneously to improve their chances." },
             { q: "Do I need a mortgage advisor?", a: "Highly recommended. The mortgage process for Dira BeHanacha follows the same multi-track system as regular purchases. A good advisor can save you significantly over the life of the loan." },

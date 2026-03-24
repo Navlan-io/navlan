@@ -61,7 +61,7 @@ const StartHereGuidePage = () => {
             <li>Visit properties and conduct due diligence (Tabu check, building permits, etc.)</li>
             <li>Negotiate price and terms with seller or seller's broker</li>
             <li>Sign the purchase contract (<strong>Chozeh Mechira</strong>) with your lawyer present</li>
-            <li>Pay purchase tax (<strong>Mas Rechisha</strong>) within 30-60 days of signing</li>
+            <li>File the purchase tax declaration (<strong>shuma atzmit</strong>) within 30 days of signing; pay the tax within 60 days</li>
             <li>Complete the mortgage process with the bank</li>
             <li>Transfer payment according to contract schedule (usually 3-4 installments over several months)</li>
             <li>Receive keys and register ownership at Tabu</li>

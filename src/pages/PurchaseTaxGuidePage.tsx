@@ -311,8 +311,8 @@ const PurchaseTaxGuidePage = () => {
           </h3>
           <p className="mb-4">
             Olim receive the most favorable purchase tax treatment of any buyer
-            category. Following a significant law change in August 2024, the
-            rates for eligible olim are:
+            category — but only when purchasing their sole dwelling. Following a significant law change in August 2024, the
+            rates for eligible olim purchasing a dira yechida are:
           </p>
           <div className="overflow-x-auto mb-6">
             <table className="w-full border-collapse">
@@ -350,6 +350,9 @@ const PurchaseTaxGuidePage = () => {
               </tbody>
             </table>
           </div>
+          <CalloutBox title="Critical: Sole Dwelling Requirement (Since August 2024)" icon={AlertTriangle}>
+            These favorable olim rates apply ONLY when the purchase qualifies as the oleh's sole residential property (dira yechida). If an oleh is purchasing an additional or investment property — even within the 7-year benefit window — the standard additional property rates (8%/10%) apply, not the olim rates. This is a significant change from the pre-August 2024 regime, when olim could use the benefit regardless of how many properties they owned.
+          </CalloutBox>
           <p className="mb-4">
             <strong>Maximum property value cap:</strong> If the total purchase
             price exceeds approximately ₪20,183,565, the oleh benefit cannot be
@@ -486,29 +489,28 @@ const PurchaseTaxGuidePage = () => {
             The Exception: Owning a Small Share
           </h3>
           <p className="mb-4">
-            There is a partial exception: if you own a share of one-third or
-            less in another residential property, that small share is
-            disregarded when determining sole dwelling status. This provision
-            exists because many Israelis end up with fractional shares in family
-            property through inheritance. A one-quarter share in your late
-            grandmother's apartment does not, by itself, disqualify you from
-            the sole dwelling rate.
+            There is a partial exception for small ownership shares. If you own one-third or less of another residential property (or properties), that share is generally disregarded when determining sole dwelling status — provided the other property is not in the same building as the one you are purchasing. For inherited property specifically, the threshold is more generous: a share of one-half or less is disregarded. These provisions exist because many Israelis end up with fractional shares in family property through inheritance. A one-quarter share in your late grandmother's apartment does not, by itself, disqualify you from the sole dwelling rate. The rules here have nuances — if your situation involves multiple partial shares or complex inheritance structures, have your lawyer confirm your status before relying on the exception.
           </p>
 
           <h3 className="font-heading font-semibold text-[18px] text-charcoal mt-6 mb-3">
             The 24-Month Sale Window
           </h3>
           <CalloutBox title="Extended Window: 24 Months (Since June 2025)">
-            If you buy a new apartment and sell your existing apartment within
-            24 months, you can retroactively qualify for the sole dwelling rate
-            on the new purchase. This window was extended from 18 months to 24
-            months as of June 1, 2025. In practice: you file and pay at the
-            higher (additional property) rate at the time of purchase, sell
-            your existing apartment within 24 months, then apply for a
-            reassessment and receive a refund. For off-plan purchases, the
-            24-month window starts from the date the apartment is available for
-            your use — typically the date you receive the keys — not from the
-            contract signing date.
+            <p className="mb-3">
+              If you buy a new apartment and sell your existing apartment within 24 months, you can qualify for the sole dwelling rate on the new purchase. This window was extended from 18 months to 24 months as of June 1, 2025. For off-plan purchases, the 24-month window starts from the date the apartment is available for your use — typically the date you receive the keys — not from the contract signing date.
+            </p>
+            <p className="mb-3">
+              There are two paths your lawyer can take:
+            </p>
+            <p className="mb-3">
+              <strong>Path 1</strong> (most common): You file and pay at the higher (additional property) rate at the time of purchase. After selling your existing apartment within 24 months, your lawyer files an amended assessment (tikkun shuma) and you receive a refund of the difference. Budget for having the higher amount out of pocket during the interim period.
+            </p>
+            <p className="mb-3">
+              <strong>Path 2</strong>: Your lawyer declares the new property as your intended sole dwelling at the time of purchase, requesting the lower rate upfront. If the Tax Authority accepts, you pay the sole dwelling rate initially. Once you sell your existing property within the window, the authority issues final confirmation. If you fail to sell within 24 months, you must pay the difference plus linkage and interest.
+            </p>
+            <p>
+              Your lawyer will advise which path is more appropriate for your situation. Both achieve the same end result, but they differ in cash flow and risk.
+            </p>
           </CalloutBox>
 
           <h3 className="font-heading font-semibold text-[18px] text-charcoal mt-6 mb-3">
@@ -529,12 +531,10 @@ const PurchaseTaxGuidePage = () => {
             Joint Ownership Scenarios
           </h3>
           <p className="mb-4">
-            <strong>Married couples:</strong> Under Israeli law, a married
-            couple is treated as a single unit for purchase tax purposes. If
-            either spouse owns residential property in Israel, neither spouse
-            qualifies for the sole dwelling rate on a new purchase. This
-            applies even if the existing property was purchased by one spouse
-            before the marriage.
+            <strong>Married couples:</strong> Under Israeli law, a married couple is generally treated as a single unit for purchase tax purposes. The default rule: if either spouse owns residential property in Israel, neither spouse qualifies for the sole dwelling rate on a new purchase. This applies even if the existing property was purchased by one spouse before the marriage.
+          </p>
+          <p className="mb-4">
+            However, legal exceptions to this rule exist. In certain circumstances — such as couples with authentic prenuptial agreements establishing genuine property separation, or situations where one spouse's property was maintained entirely separately throughout the marriage — the marital property presumption (chezkat shitufiut) can be overridden, potentially allowing one spouse to claim the sole dwelling rate. These exceptions are fact-specific and require professional legal analysis. If your situation may involve such an exception, consult a tax attorney experienced in Israeli real estate — this is not something to navigate on your own.
           </p>
           <p className="mb-4">
             <strong>Unmarried partners and common-law couples</strong> (
@@ -595,11 +595,7 @@ const PurchaseTaxGuidePage = () => {
             purchase property in Israel while preparing for their move.
           </p>
           <p className="mb-4">
-            After the window expires, the benefit is gone. There is no mechanism to
-            restart or extend it. For olim who made aliyah more
-            than <span className="text-[#4A7F8B] font-medium">{params?.olim_purchase_tax_window?.display_label || '7 years'}</span> ago: you are assessed under the standard Israeli
-            resident brackets, which still include the generous sole dwelling
-            rates if you are buying your only home.
+            There is one mechanism that extends this window: time spent in IDF military service (tzava) or national service (sherut leumi) is excluded from the 7-year count. For example, an oleh who completed one year of military service effectively has an 8-year window. For olim who made aliyah more than 7 years ago and did not serve: you are assessed under the standard Israeli resident brackets, which still include the generous sole dwelling rates if you are buying your only home.
           </p>
 
           <h3 className="font-heading font-semibold text-[18px] text-charcoal mt-6 mb-3">
