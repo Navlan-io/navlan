@@ -136,6 +136,7 @@ const ProviderSignupForm = () => {
 
   const validate = (): string | null => {
     if (!fullName.trim()) return "Full name is required.";
+    if (!companyName.trim()) return "Company name is required.";
     if (!email.trim() || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email))
       return "A valid email address is required.";
     if (!phone.trim()) return "Phone number is required.";
@@ -257,7 +258,7 @@ const ProviderSignupForm = () => {
       </Field>
 
       {/* Company Name */}
-      <Field label="Company Name">
+      <Field label="Company Name" required>
         <input
           type="text"
           value={companyName}
@@ -300,49 +301,45 @@ const ProviderSignupForm = () => {
         />
       </Field>
 
-      {/* LinkedIn */}
-      <Field label="LinkedIn Profile">
-        <input
-          type="url"
-          value={linkedin}
-          onChange={(e) => setLinkedin(e.target.value)}
-          className={inputClass}
-          placeholder="https://linkedin.com/in/yourprofile"
-        />
-      </Field>
-
-      {/* Facebook */}
-      <Field label="Facebook Page">
-        <input
-          type="url"
-          value={facebook}
-          onChange={(e) => setFacebook(e.target.value)}
-          className={inputClass}
-          placeholder="https://facebook.com/yourpage"
-        />
-      </Field>
-
-      {/* Instagram */}
-      <Field label="Instagram">
-        <input
-          type="url"
-          value={instagram}
-          onChange={(e) => setInstagram(e.target.value)}
-          className={inputClass}
-          placeholder="https://instagram.com/yourhandle"
-        />
-      </Field>
-
-      {/* TikTok */}
-      <Field label="TikTok">
-        <input
-          type="url"
-          value={tiktok}
-          onChange={(e) => setTiktok(e.target.value)}
-          className={inputClass}
-          placeholder="https://tiktok.com/@yourhandle"
-        />
-      </Field>
+      {/* Social links — 2×2 grid on desktop */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <Field label="LinkedIn Profile">
+          <input
+            type="url"
+            value={linkedin}
+            onChange={(e) => setLinkedin(e.target.value)}
+            className={inputClass}
+            placeholder="https://linkedin.com/in/…"
+          />
+        </Field>
+        <Field label="Facebook Page">
+          <input
+            type="url"
+            value={facebook}
+            onChange={(e) => setFacebook(e.target.value)}
+            className={inputClass}
+            placeholder="https://facebook.com/…"
+          />
+        </Field>
+        <Field label="Instagram">
+          <input
+            type="url"
+            value={instagram}
+            onChange={(e) => setInstagram(e.target.value)}
+            className={inputClass}
+            placeholder="https://instagram.com/…"
+          />
+        </Field>
+        <Field label="TikTok">
+          <input
+            type="url"
+            value={tiktok}
+            onChange={(e) => setTiktok(e.target.value)}
+            className={inputClass}
+            placeholder="https://tiktok.com/@…"
+          />
+        </Field>
+      </div>
 
       {/* Service Category */}
       <Field label="Service Category" required>
