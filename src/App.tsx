@@ -30,6 +30,8 @@ const TermsPage = React.lazy(() => import("./pages/LegalPage").then(m => ({ defa
 const AdvisorPage = React.lazy(() => import("./pages/AdvisorPage"));
 const CitiesPage = React.lazy(() => import("./pages/CitiesPage"));
 const MortgageCalculatorPage = React.lazy(() => import("./pages/MortgageCalculatorPage"));
+const ProvidersDirectoryPage = React.lazy(() => import("./pages/ProvidersDirectoryPage"));
+const ProviderSignupPage = React.lazy(() => import("./pages/ProviderSignupPage"));
 
 const LoadingSpinner = () => (
   <div className="min-h-screen flex items-center justify-center bg-warm-white">
@@ -76,6 +78,8 @@ const App = () => (
               <Route path="/guides/arnona" element={<ArnonaGuidePage />} />
               <Route path="/guides/exchange-rates" element={<ExchangeRateGuidePage />} />
               <Route path="/tools/mortgage-calculator" element={<MortgageCalculatorPage />} />
+              <Route path="/providers" element={<ProvidersDirectoryPage />} />
+              <Route path="/providers/join" element={<ProviderSignupPage />} />
               <Route path="/resources" element={<ResourcesPage />} />
               <Route path="/about" element={<AboutPage />} />
               <Route path="/disclaimer" element={<DisclaimerPage />} />
