@@ -79,6 +79,7 @@ const INDEX_CODES: { cbsCode: number; dbCode: number }[] = [
   { cbsCode: 60500, dbCode: 60500 },
   { cbsCode: 70000, dbCode: 70000 },
   { cbsCode: 120460, dbCode: 50010 },
+  { cbsCode: 120010, dbCode: 120010 },  // General CPI (מדד המחירים לצרכן — כללי)
 ];
 
 export async function GET(req: Request) {

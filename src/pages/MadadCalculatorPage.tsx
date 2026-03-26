@@ -2,17 +2,12 @@
  * DATA CHECK (March 2026):
  * ─────────────────────────
  * CPI Data:
- *   - The `price_indices` table stores CBS index data by index_code.
- *   - Need to verify which series codes are stored (general CPI vs rent sub-index 50010/120460).
- *   - This calculator queries all available data from price_indices.
- *   - TODO: If the general CPI series (not just the rent sub-index) isn't in the table,
- *     a new cron job is needed to fetch it from CBS. The rent sub-index (120460) is used
- *     as a fallback with a note to the user.
+ *   - General CPI (code 120010) is fetched by the price-indices cron and stored
+ *     in `price_indices` with index_code = 120010.
  *
  * Construction Costs Data:
  *   - The `construction_costs` table has code 200010 with normalization factor 1.387
  *     already applied to older data.
- *   - Data appears to be correctly normalized across base period changes.
  */
 
 import { useState, useEffect, useMemo } from "react";
@@ -75,7 +70,6 @@ const MadadCalculatorPage = () => {
   const [cpiData, setCpiData] = useState<IndexRecord[]>([]);
   const [constructionData, setConstructionData] = useState<IndexRecord[]>([]);
   const [loading, setLoading] = useState(true);
-  const [dataNote, setDataNote] = useState<string | null>(null);
 
   // Inputs
   const [indexType, setIndexType] = useState<IndexType>("cpi");
@@ -89,15 +83,11 @@ const MadadCalculatorPage = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        // Fetch CPI data — use the rent sub-component (code 50010) as the
-        // closest available proxy for the general CPI. The general CPI series
-        // is not currently in the database.
-        // TODO: Add general CPI series via a new cron job. Until then, rent
-        // sub-index (50010) is used with a note to the user.
+        // Fetch general CPI data (code 120010)
         const { data: cpi } = await supabase
           .from("price_indices")
           .select("year, month, value")
-          .eq("index_code", 50010)
+          .eq("index_code", 120010)
           .not("value", "is", null)
           .order("year", { ascending: true })
           .order("month", { ascending: true });
@@ -110,11 +100,6 @@ const MadadCalculatorPage = () => {
             if (!cpiMap.has(key)) cpiMap.set(key, { year: r.year, month: r.month, value: r.value! });
           }
           setCpiData(Array.from(cpiMap.values()));
-          setDataNote(
-            "Note: This calculator currently uses the CBS rent price sub-index (code 50010), " +
-            "not the full Consumer Price Index. Results closely approximate CPI for rent adjustments " +
-            "but may differ slightly for other CPI-linked calculations."
-          );
         }
 
         // Fetch construction costs data
@@ -606,14 +591,6 @@ const MadadCalculatorPage = () => {
                   </div>
                 </div>
               )}
-            </div>
-          )}
-
-          {/* Data note */}
-          {dataNote && indexType === "cpi" && (
-            <div className="flex gap-3 p-4 bg-cream rounded-lg border border-grid-line mb-6">
-              <Info className="h-5 w-5 text-warm-gray shrink-0 mt-0.5" />
-              <p className="font-body text-[13px] text-warm-gray">{dataNote}</p>
             </div>
           )}
 

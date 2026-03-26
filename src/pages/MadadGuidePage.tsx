@@ -36,13 +36,11 @@ const MadadGuidePage = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-      // Fetch latest CPI data from price_indices — using the rent sub-component
-      // (code 50010) as the closest available proxy. The general CPI series is
-      // not currently in the database. TODO: Add general CPI series via cron.
+      // Fetch latest general CPI data (code 120010)
       const { data: cpi } = await supabase
         .from("price_indices")
         .select("value, percent_yoy, month, year")
-        .eq("index_code", 50010)
+        .eq("index_code", 120010)
         .order("year", { ascending: false })
         .order("month", { ascending: false })
         .limit(1);
