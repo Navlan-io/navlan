@@ -345,6 +345,12 @@ const MortgageGuidePage = () => {
             <LiveValue value={rates.cpiFixed} /> — lower than the non-indexed
             rate because the CPI linkage shifts inflation risk to the borrower.
           </p>
+          <p className="text-warm-gray text-[14px] leading-relaxed mb-4 italic">
+            For a deeper explanation of how the Israeli CPI works, its publication schedule, and how indexation affects not just your mortgage but also rent, arnona, and new construction payments, see our{" "}
+            <Link to="/guides/madad" className="text-horizon-blue hover:underline">Understanding the Madad Guide</Link>. Use our{" "}
+            <Link to="/tools/madad-calculator" className="text-horizon-blue hover:underline">Madad Calculator</Link>{" "}
+            to see exactly how much CPI has changed since your mortgage origination date.
+          </p>
 
           <h4 className="font-heading font-semibold text-[16px] text-charcoal mt-6 mb-2">
             Track 3: Prime-Linked Variable Rate (Mishtana Prime)

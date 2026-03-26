@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { BookOpen, Home, KeyRound, Scale, Building2, Building, Receipt, ArrowLeftRight } from "lucide-react";
+import { BookOpen, Home, KeyRound, Scale, Building2, Building, Receipt, ArrowLeftRight, TrendingUp } from "lucide-react";
 import NavBar from "@/components/NavBar";
 import Footer from "@/components/Footer";
 import { Card, CardContent } from "@/components/ui/card";
@@ -79,6 +79,14 @@ const guides: GuideCardData[] = [
     updated: "Last updated: March 2026",
     readTime: "~10 min read",
     to: "/guides/exchange-rates",
+  },
+  {
+    icon: TrendingUp,
+    title: "Understanding the Madad",
+    description: "How CPI and construction indexing affect your rent, mortgage, and property payments.",
+    updated: "Last updated: March 2026",
+    readTime: "~18 min read",
+    to: "/guides/madad",
   },
 ];
 

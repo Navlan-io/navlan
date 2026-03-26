@@ -30,6 +30,8 @@ const TermsPage = React.lazy(() => import("./pages/LegalPage").then(m => ({ defa
 const AdvisorPage = React.lazy(() => import("./pages/AdvisorPage"));
 const CitiesPage = React.lazy(() => import("./pages/CitiesPage"));
 const MortgageCalculatorPage = React.lazy(() => import("./pages/MortgageCalculatorPage"));
+const MadadGuidePage = React.lazy(() => import("./pages/MadadGuidePage"));
+const MadadCalculatorPage = React.lazy(() => import("./pages/MadadCalculatorPage"));
 const ProvidersDirectoryPage = React.lazy(() => import("./pages/ProvidersDirectoryPage"));
 const ProviderSignupPage = React.lazy(() => import("./pages/ProviderSignupPage"));
 
@@ -77,7 +79,9 @@ const App = () => (
               <Route path="/guides/renting" element={<RentingGuidePage />} />
               <Route path="/guides/arnona" element={<ArnonaGuidePage />} />
               <Route path="/guides/exchange-rates" element={<ExchangeRateGuidePage />} />
+              <Route path="/guides/madad" element={<MadadGuidePage />} />
               <Route path="/tools/mortgage-calculator" element={<MortgageCalculatorPage />} />
+              <Route path="/tools/madad-calculator" element={<MadadCalculatorPage />} />
               <Route path="/providers" element={<ProvidersDirectoryPage />} />
               <Route path="/providers/join" element={<ProviderSignupPage />} />
               <Route path="/resources" element={<ResourcesPage />} />

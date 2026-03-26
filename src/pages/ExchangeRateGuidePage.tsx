@@ -427,6 +427,10 @@ const ExchangeRateGuidePage = () => {
           <p className="text-charcoal leading-relaxed mb-4">
             And it's not just the mortgage. Arnona (municipal property tax), va'ad bayit (building maintenance fees), utilities — all billed in shekels, all affected by the rate if you're budgeting in a foreign currency. These are individually small, but they compound. If you're planning your monthly Israel budget in dollars, a 10–15% swing in the rate changes what you can afford to maintain.
           </p>
+          <p className="text-warm-gray text-[14px] leading-relaxed mb-4 italic">
+            Israel's CPI (the madad) directly adjusts your rent, mortgage balance, and arnona. For a full explanation, see our{" "}
+            <Link to="/guides/madad" className="text-horizon-blue hover:underline">Understanding the Madad Guide</Link>.
+          </p>
           <p className="text-charcoal leading-relaxed">
             For a full breakdown of ongoing property costs, see our{" "}
             <Link to="/guides/arnona" className="text-horizon-blue hover:underline">Arnona Guide</Link> and{" "}

@@ -171,6 +171,13 @@ const StartHereGuidePage = () => {
           <p className="mb-4">
             Buying from a developer, often off-plan (before construction is complete). Payments are spread over the construction period (typically 2-3 years). VAT is included in the listed price. Developers must provide a bank guarantee or insurance policy under <strong>Hok HaMechira</strong> (the Sales Law), which protects buyers' payments if the developer goes bankrupt.
           </p>
+          <p className="text-warm-gray text-[14px] leading-relaxed mb-4 italic">
+            Construction milestone payments are typically linked to Israel's Construction Input Costs Index, meaning the final price may exceed the contract price. For a full explanation, see our{" "}
+            <Link to="/guides/madad" className="text-horizon-blue hover:underline">Understanding the Madad Guide</Link>{" "}
+            and use our{" "}
+            <Link to="/tools/madad-calculator" className="text-horizon-blue hover:underline">Madad Calculator</Link>{" "}
+            to estimate adjustments.
+          </p>
 
           <h3 className="font-heading font-semibold text-[18px] text-charcoal mt-7 mb-3">
             Second-Hand (Yad Shniya)

@@ -167,6 +167,10 @@ const ArnonaGuidePage = () => {
           <p className="text-charcoal leading-relaxed mb-4">
             <strong>Annual rate increases.</strong> The national government sets a baseline automatic increase formula each year — for 2026, the automatic increase is 1.626% over 2025 levels. This formula averages 50% of the CPI change with 50% of the public sector wage index change. Municipalities can request increases above this baseline, but must get approval from the Ministry of Interior — and many such requests get trimmed or rejected.
           </p>
+          <p className="text-warm-gray text-[14px] leading-relaxed mb-4 italic">
+            The CPI component of this formula is based on Israel's Consumer Price Index (the madad). For a full explanation of how the madad works and why it affects so many costs in Israel, see our{" "}
+            <Link to="/guides/madad" className="text-horizon-blue hover:underline">Understanding the Madad Guide</Link>.
+          </p>
           <p className="text-warm-gray text-[14px] leading-relaxed italic">
             If you're budgeting in USD, GBP, or EUR, remember that arnona is an ongoing shekel-denominated cost. See our{" "}
             <Link to="/guides/exchange-rates" className="text-horizon-blue hover:underline">Exchange Rates Guide</Link>{" "}

@@ -550,6 +550,12 @@ const RentingGuidePage = () => {
             means the only protection you have is what's written in your
             contract. Negotiate the option-period increase before you sign.
           </p>
+          <p className="text-warm-gray text-[14px] leading-relaxed mb-4 italic">
+            For a full explanation of how madad indexation works — including how to calculate your adjusted rent and what to look for in the indexation clause — see our{" "}
+            <Link to="/guides/madad" className="text-horizon-blue hover:underline">Understanding the Madad Guide</Link>. You can also use our{" "}
+            <Link to="/tools/madad-calculator" className="text-horizon-blue hover:underline">Madad Calculator</Link>{" "}
+            to check exactly what your CPI-adjusted rent should be.
+          </p>
           <p className="mb-4">
             <strong>Security and guarantees.</strong> See Section 5 — this gets
             its own section because it's the part that causes the most anxiety.
