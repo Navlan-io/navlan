@@ -114,7 +114,7 @@ const CitiesPage = () => {
             supabase
               .from("localities")
               .select("english_name, cbs_code, district, is_anglo_city")
-              .in("entity_type", ["city", "town", "yishuv"]),
+              .neq("entity_type", "neighborhood"),
             supabase
               .from("city_prices")
               .select("cbs_code, avg_price_total, period")
@@ -164,7 +164,7 @@ const CitiesPage = () => {
               slug,
               district: loc.district,
               tagline: profile?.tagline ?? null,
-              tier: profile?.tier ?? null,
+              tier: profile?.affordability_tier ?? null,
               tags: profile?.tags ?? null,
               avgPrice: loc.cbs_code ? latestPriceMap.get(loc.cbs_code) ?? null : null,
               lat: coords?.lat ?? null,

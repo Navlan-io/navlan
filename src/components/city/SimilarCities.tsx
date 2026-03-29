@@ -17,7 +17,7 @@ const SimilarCities = ({ currentCity, district }: SimilarCitiesProps) => {
       const { data: localities } = await supabase
         .from("localities")
         .select("english_name")
-        .in("entity_type", ["city", "town", "yishuv"])
+        .neq("entity_type", "neighborhood")
         .eq("district", district)
         .neq("english_name", currentCity)
         .limit(10);
